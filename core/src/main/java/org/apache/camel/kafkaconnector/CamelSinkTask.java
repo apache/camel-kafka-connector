@@ -16,56 +16,70 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import org.apache.kafka.clients.consumer.OffsetAndMetadata;
-import org.apache.kafka.common.TopicPartition;
+import org.apache.camel.CamelContext;
+import org.apache.camel.ProducerTemplate;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.sink.SinkRecord;
 import org.apache.kafka.connect.sink.SinkTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Map;
 
 public class CamelSinkTask extends SinkTask {
    private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
-   private CamelSinkConnectorConfig config;
+   private String taskName;
+   private CamelContext camel;
+   private String localUrl;
+   private ProducerTemplate producer;
 
    @Override
    public String version() {
-      return VersionUtil.getVersion();
+      return new CamelSinkConnector().version();
    }
 
    @Override
-   public void start(Map<String, String> map) {
-      config = new CamelSinkConnectorConfig(map);
-      //TODO: redo the camel way
-   }
+   public void start(Map<String, String> props) {
+      try {
+         taskName = props.get(CamelSinkConnector.NAME_CONFIG);
+         log.info("Starting connector task {}", taskName);
 
-   @Override
-   public void put(Collection<SinkRecord> collection) {
-      if (collection.isEmpty()) {
-         return;
+         camel = new DefaultCamelContext();
+
+         localUrl = "direct:" + taskName;
+         final String remoteUrl = props.get(CamelSinkConnector.COMPONENT_CONFIG) + "://" + props.get(CamelSinkConnector.ADDRESS_CONFIG) + "?" + props.get(CamelSinkConnector.OPTIONS_CONFIG);
+
+         log.info("Creating Camel route from({}).to({})", localUrl, remoteUrl);
+         camel.addRoutes(new RouteBuilder() {
+            public void configure() {
+               from(localUrl).to(remoteUrl);
+            }
+         });
+
+         producer = camel.createProducerTemplate();
+
+         camel.start();
+      } catch (Exception e) {
+         throw new ConnectException("Failed to create and start Camel context", e);
       }
-      //TODO: redo the camel way
-      boolean useProto = true;
-      final int recordsCount = collection.size();
-      log.info("Received {} records", recordsCount);
-      Iterator it = collection.iterator();
-      while (it.hasNext()) {
-         SinkRecord record = (SinkRecord) it.next();
-         log.info("Record kafka coordinates:({}-{}-{}). Writing it to Infinispan...", record.topic(), record.key(),
-               record.value());
-      }
-      //TODO
    }
 
    @Override
-   public void flush(Map<TopicPartition, OffsetAndMetadata> map) {
+   public void put(Collection<SinkRecord> sinkRecords) {
+      for (SinkRecord record : sinkRecords) {
+         producer.sendBodyAndHeader(localUrl, record.value(), "header", record.key());
+      }
    }
 
    @Override
    public void stop() {
-      //TODO: clean up camel
+      try {
+         camel.stop();
+      } catch (Exception e) {
+         throw new ConnectException("Failed to stop Camel context", e);
+      }
    }
 }
