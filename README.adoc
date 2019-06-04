@@ -1,0 +1,110 @@
+== Camel Kafka Connector
+
+=== Introduction
+[NOTE]
+====
+*The project is WIP!*
+====
+
+This is a "Camel Kafka connector adapter" that aims to provide a user friendly way to use all Apache Camel components in Kafka Connect.
+For more information about Kafka Connect take a look http://kafka.apache.org/documentation/#connect[here].
+
+=== Build the project
+[source,bash]
+----
+mvn clean package
+----
+
+=== Try it out locally
+Get a locally running kafka instance by following https://kafka.apache.org/quickstart[apache Kafka quickstart guide].
+
+===== This usually boils down to:
+.Set KAFKA_HOME
+[source,bash]
+----
+export KAFKA_HOME=<your kafka install dir>
+----
+
+.Start Zookeper cluster
+[source,bash]
+----
+$KAFKA_HOME/bin/zookeeper-server-start.sh config/zookeeper.properties
+----
+
+.Start Kafka broker
+[source,bash]
+----
+$KAFKA_HOME/bin/kafka-server-start.sh config/server.properties
+----
+
+.Create "mytopic" topic
+[source,bash]
+----
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic mytopic
+----
+
+===== Then run Camel kafka connectors source and/or syncs:
+[NOTE]
+====
+In order to run more than one instance of a standalone kafka connect on the same machine you neet to duplicate `$KAFKA_HOME/config/connect-standalone.properties` file changeing the http port used for each instance:
+[source,bash]
+----
+cp $KAFKA_HOME/config/connect-standalone.properties $KAFKA_HOME/config/connect-standalone2.properties
+
+echo rest.port=<your unused port number> >> $KAFKA_HOME/config/connect-standalone2.properties
+----
+====
+
+.Run the default sink, just a camel logger:
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties config/CamelSinkConnector.properties 
+----
+
+.Run the default source, just a camel timer:
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties config/CamelSourceConnector.properties
+----
+
+.Run the default sink, just a camel logger:
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties config/CamelSinkConnector.properties
+----
+
+.Run the telegram source:
+----
+Change your telegram bot token in `examples/CamelTelegramSourceConnector.properties`
+----
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelTelegramSourceConnector.properties
+----
+
+.Run the file sink, just a camel file appending to /tmp/kafkaconnect.txt:
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelFileSinkConnector.properties
+----
+
+===== Listen or produce from a kafka topic using kafka utilities:
+.Run an kafka Consumer
+[source,bash]
+----
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mytopic --from-beginning
+----
+
+.Run an interactive CLI kafka producer
+[source,bash]
+----
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
+----
+
+=== Known limitations
+In order to use other Camel components you need to add them as dependencies in the project `pom.xml`.

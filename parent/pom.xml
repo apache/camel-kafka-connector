@@ -3,7 +3,7 @@
 
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>parent</artifactId>
-    <version>0.4-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Camel-Kafka-connector Parent</name>
@@ -40,8 +40,9 @@
 
         <kafka.version>2.1.0</kafka.version>
         <junit.version>4.12</junit.version>
-        <camel.version>2.23.0</camel.version>
+        <camel.version>2.23.1</camel.version>
         <log4j2.version>2.8.2</log4j2.version>
+        <version.java>1.8</version.java>
 
         <version.maven.compiler>3.8.0</version.maven.compiler>
         <version.maven.surefire>2.19.1</version.maven.surefire>
@@ -93,6 +94,11 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-telegram</artifactId>
             <version>${camel.version}</version>
         </dependency>
         <dependency>
