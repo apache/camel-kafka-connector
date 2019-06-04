@@ -40,7 +40,7 @@
 
         <kafka.version>2.1.0</kafka.version>
         <junit.version>4.12</junit.version>
-        <camel.version>2.23.1</camel.version>
+        <camel.version>2.23.2</camel.version>
         <log4j2.version>2.8.2</log4j2.version>
         <version.java>1.8</version.java>
 
