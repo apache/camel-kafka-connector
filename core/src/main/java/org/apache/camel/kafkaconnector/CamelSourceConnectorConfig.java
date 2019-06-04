@@ -16,29 +16,34 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import java.util.Map;
-
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.config.ConfigDef.Importance;
 import org.apache.kafka.common.config.ConfigDef.Type;
 
-public class CamelSinkConnectorConfig extends AbstractConfig {
+import java.util.Map;
 
-   public static final String CAMEL_SINK_URL_DEFAULT = "log:kafkaconnector?showAll=true";
-   public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
-   private static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination";
+public class CamelSourceConnectorConfig extends AbstractConfig {
 
-   public CamelSinkConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
+   public static final String CAMEL_SOURCE_URL_DEFAULT = "timer:kafkaconnector";
+   public static final String CAMEL_SOURCE_URL_CONF = "camel.source.url";
+   private static final String CAMEL_SOURCE_URL_DOC = "The camel url to configure the source";
+
+   public static final String TOPIC_DEFAULT = "test";
+   public static final String TOPIC_CONF = "camel.source.kafka.topic";
+   private static final String TOPIC_DOC = "The topic to publish data to";
+
+   public CamelSourceConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
       super(config, parsedConfig);
    }
 
-   public CamelSinkConnectorConfig(Map<String, String> parsedConfig) {
+   public CamelSourceConnectorConfig(Map<String, String> parsedConfig) {
       this(conf(), parsedConfig);
    }
 
    public static ConfigDef conf() {
       return new ConfigDef()
-            .define(CAMEL_SINK_URL_CONF, Type.STRING, CAMEL_SINK_URL_DEFAULT, Importance.HIGH, CAMEL_SINK_URL_DOC);
+            .define(CAMEL_SOURCE_URL_CONF, Type.STRING, CAMEL_SOURCE_URL_DEFAULT, Importance.HIGH, CAMEL_SOURCE_URL_DOC)
+            .define(TOPIC_CONF, ConfigDef.Type.STRING, TOPIC_DEFAULT, ConfigDef.Importance.HIGH, TOPIC_DOC);
    }
 }

@@ -17,8 +17,9 @@
 package org.apache.camel.kafkaconnector;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.ConsumerTemplate;
+import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
+import org.apache.camel.PollingConsumer;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.kafka.connect.data.Schema;
@@ -35,12 +36,12 @@ import java.util.Map;
 
 public class CamelSourceTask extends SourceTask {
     private static final Logger log = LoggerFactory.getLogger(CamelSourceTask.class);
+    private static final String LOCAL_URL = "direct:end";
 
-    private String taskName;
-    private String topic;
+    private CamelSourceConnectorConfig config;
     private CamelContext camel;
-    private String localUrl;
-    private ConsumerTemplate consumer;
+    private PollingConsumer consumer;
+    private String topic;
 
     @Override
     public String version() {
@@ -50,25 +51,31 @@ public class CamelSourceTask extends SourceTask {
     @Override
     public void start(Map<String, String> props) {
         try {
-            taskName = props.get(CamelSourceConnector.NAME_CONFIG);
-            topic = props.get(CamelSourceConnector.TOPIC_CONFIG);
-            log.info("Starting connector task {}", taskName);
+            log.info("Starting CamelSourceTask connector task");
+            config = new CamelSourceConnectorConfig(props);
+
+            final String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
+            topic = config.getString(CamelSourceConnectorConfig.TOPIC_CONF);
 
             camel = new DefaultCamelContext();
 
-            localUrl = "direct:" + taskName;
-            final String remoteUrl = props.get(CamelSourceConnector.COMPONENT_CONFIG) + "://" + props.get(CamelSourceConnector.ADDRESS_CONFIG) + "?" + props.get(CamelSourceConnector.OPTIONS_CONFIG);
-
-            log.info("Creating Camel route from({}).to({})", remoteUrl, localUrl);
+            log.info("Creating Camel route from({}).to({})", remoteUrl, LOCAL_URL);
             camel.addRoutes(new RouteBuilder() {
                 public void configure() {
-                    from(remoteUrl).to(localUrl);
+                    from(remoteUrl).to(LOCAL_URL);
                 }
             });
 
-            consumer = camel.createConsumerTemplate();
+            //TODO: Add option to configure pollingConsumerQueueSize, pollingConsumerBlockWhenFull and pollingConsumerBlockTimeout in LOCAL_URL
 
+            Endpoint endpoint = camel.getEndpoint(LOCAL_URL);
+            consumer = endpoint.createPollingConsumer();
+            consumer.start();
+
+            log.info("Starting CamelContext");
             camel.start();
+            log.info("CamelContext started");
+            log.info("CamelSourceTask connector task started");
         } catch (Exception e) {
             throw new ConnectException("Failed to create and start Camel context", e);
         }
@@ -78,30 +85,35 @@ public class CamelSourceTask extends SourceTask {
     public List<SourceRecord> poll() {
         List<SourceRecord> records = new ArrayList<>();
 
-        while (true)    {
-            Exchange ex = consumer.receiveNoWait(localUrl);
+        Exchange exchange = consumer.receiveNoWait();
 
-            if (ex != null) {
-                log.info("Received exchange with");
-                log.info("\t from endpoint: {}", ex.getFromEndpoint());
-                log.info("\t exchange id: {}", ex.getExchangeId());
-                log.info("\t message id: {}", ex.getMessage().getMessageId());
-                log.info("\t message body: {}", ex.getMessage().getBody());
-                Map<String, String> sourcePartition = Collections.singletonMap("filename", ex.getFromEndpoint().toString());
-                Map<String, String> sourceOffset = Collections.singletonMap("position", ex.getExchangeId());
-                SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, topic, Schema.BYTES_SCHEMA, ex.getMessage().getBody());
-                records.add(record);
-                consumer.doneUoW(ex);
-            } else {
-                break;
-            }
+        if(exchange==null){
+            return null;
         }
+
+        log.info("Received exchange with");
+        log.info("\t from endpoint: {}", exchange.getFromEndpoint());
+        log.info("\t exchange id: {}", exchange.getExchangeId());
+        log.info("\t message id: {}", exchange.getMessage().getMessageId());
+        log.info("\t message body: {}", exchange.getMessage().getBody());
+
+        //TODO: see if there is a better way to use sourcePartition and sourceOffset
+        Map<String, String> sourcePartition = Collections.singletonMap("filename", exchange.getFromEndpoint().toString());
+        Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
+
+        SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, topic, Schema.BYTES_SCHEMA, exchange.getMessage().getBody());
+        records.add(record);
 
         return records;
     }
 
     @Override
     public void stop() {
+        try {
+            consumer.stop();
+        } catch (Exception e) {
+            throw new ConnectException("Failed to stop Polling Consumer", e);
+        }
         try {
             camel.stop();
         } catch (Exception e) {

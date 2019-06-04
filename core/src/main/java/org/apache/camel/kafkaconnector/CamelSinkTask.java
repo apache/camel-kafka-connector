@@ -30,11 +30,12 @@ import java.util.Collection;
 import java.util.Map;
 
 public class CamelSinkTask extends SinkTask {
+   public static final String KAFKA_RECORD_KEY_HEADER = "camel-.kafka.connector.record.key";
    private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
-   private String taskName;
+   private static final String LOCAL_URL = "direct:start";
    private CamelContext camel;
-   private String localUrl;
    private ProducerTemplate producer;
+   private CamelSinkConnectorConfig config;
 
    @Override
    public String version() {
@@ -44,24 +45,26 @@ public class CamelSinkTask extends SinkTask {
    @Override
    public void start(Map<String, String> props) {
       try {
-         taskName = props.get(CamelSinkConnector.NAME_CONFIG);
-         log.info("Starting connector task {}", taskName);
+         log.info("Starting CamelSinkTask connector task");
+         config = new CamelSinkConnectorConfig(props);
+
+         final String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
 
          camel = new DefaultCamelContext();
 
-         localUrl = "direct:" + taskName;
-         final String remoteUrl = props.get(CamelSinkConnector.COMPONENT_CONFIG) + "://" + props.get(CamelSinkConnector.ADDRESS_CONFIG) + "?" + props.get(CamelSinkConnector.OPTIONS_CONFIG);
-
-         log.info("Creating Camel route from({}).to({})", localUrl, remoteUrl);
+         log.info("Creating Camel route from({}).to({})", LOCAL_URL, remoteUrl);
          camel.addRoutes(new RouteBuilder() {
             public void configure() {
-               from(localUrl).to(remoteUrl);
+               from(LOCAL_URL).to(remoteUrl);
             }
          });
 
          producer = camel.createProducerTemplate();
 
+         log.info("Starting CamelContext");
          camel.start();
+         log.info("CamelContext started");
+         log.info("CamelSinkTask connector task started");
       } catch (Exception e) {
          throw new ConnectException("Failed to create and start Camel context", e);
       }
@@ -70,7 +73,7 @@ public class CamelSinkTask extends SinkTask {
    @Override
    public void put(Collection<SinkRecord> sinkRecords) {
       for (SinkRecord record : sinkRecords) {
-         producer.sendBodyAndHeader(localUrl, record.value(), "header", record.key());
+         producer.sendBodyAndHeader(LOCAL_URL, record.value(), KAFKA_RECORD_KEY_HEADER, record.key());
       }
    }
 
