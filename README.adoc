@@ -28,13 +28,13 @@ export KAFKA_HOME=<your kafka install dir>
 .Start Zookeper cluster
 [source,bash]
 ----
-$KAFKA_HOME/bin/zookeeper-server-start.sh config/zookeeper.properties
+$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
 ----
 
 .Start Kafka broker
 [source,bash]
 ----
-$KAFKA_HOME/bin/kafka-server-start.sh config/server.properties
+$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 ----
 
 .Create "mytopic" topic
@@ -97,13 +97,13 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 .Run an kafka Consumer
 [source,bash]
 ----
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mytopic --from-beginning
+$KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mytopic --from-beginning
 ----
 
 .Run an interactive CLI kafka producer
 [source,bash]
 ----
-bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
+$KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 ----
 
 === Known limitations
