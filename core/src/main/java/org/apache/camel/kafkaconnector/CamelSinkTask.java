@@ -34,86 +34,86 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class CamelSinkTask extends SinkTask {
-   public static final String KAFKA_RECORD_KEY_HEADER = "camel-.kafka.connector.record.key";
-   private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
-   private static final String LOCAL_URL = "direct:start";
-   private CamelContext camel;
-   private ProducerTemplate producer;
-   private CamelSinkConnectorConfig config;
+    public static final String KAFKA_RECORD_KEY_HEADER = "camel-.kafka.connector.record.key";
+    private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
+    private static final String LOCAL_URL = "direct:start";
+    private CamelContext camel;
+    private ProducerTemplate producer;
+    private CamelSinkConnectorConfig config;
 
-   @Override
-   public String version() {
-      return new CamelSinkConnector().version();
-   }
+    @Override
+    public String version() {
+        return new CamelSinkConnector().version();
+    }
 
-   @Override
-   public void start(Map<String, String> props) {
-      try {
-         log.info("Starting CamelSinkTask connector task");
-         config = new CamelSinkConnectorConfig(props);
+    @Override
+    public void start(Map<String, String> props) {
+        try {
+            log.info("Starting CamelSinkTask connector task");
+            config = new CamelSinkConnectorConfig(props);
 
-         final String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
+            final String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
 
-         camel = new DefaultCamelContext();
+            camel = new DefaultCamelContext();
 
-         log.info("Creating Camel route from({}).to({})", LOCAL_URL, remoteUrl);
-         camel.addRoutes(new RouteBuilder() {
-            public void configure() {
-               from(LOCAL_URL).to(remoteUrl);
+            log.info("Creating Camel route from({}).to({})", LOCAL_URL, remoteUrl);
+            camel.addRoutes(new RouteBuilder() {
+                public void configure() {
+                    from(LOCAL_URL).to(remoteUrl);
+                }
+            });
+
+            producer = camel.createProducerTemplate();
+
+            log.info("Starting CamelContext");
+            camel.start();
+            log.info("CamelContext started");
+            log.info("CamelSinkTask connector task started");
+        } catch (Exception e) {
+            throw new ConnectException("Failed to create and start Camel context", e);
+        }
+    }
+
+    @Override
+    public void put(Collection<SinkRecord> sinkRecords) {
+        Map<String, Object> headers = new HashMap<String, Object>();
+        for (SinkRecord record : sinkRecords) {
+            headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
+            for (Iterator iterator = record.headers().iterator(); iterator.hasNext();) {
+                Header header = (Header)iterator.next();
+                addHeader(headers, header);
             }
-         });
+            producer.sendBodyAndHeaders(LOCAL_URL, record.value(), headers);
+        }
+    }
 
-         producer = camel.createProducerTemplate();
+    @Override
+    public void stop() {
+        try {
+            camel.stop();
+        } catch (Exception e) {
+            throw new ConnectException("Failed to stop Camel context", e);
+        }
+    }
 
-         log.info("Starting CamelContext");
-         camel.start();
-         log.info("CamelContext started");
-         log.info("CamelSinkTask connector task started");
-      } catch (Exception e) {
-         throw new ConnectException("Failed to create and start Camel context", e);
-      }
-   }
-
-   @Override
-   public void put(Collection<SinkRecord> sinkRecords) {
-	   Map<String, Object> headers = new HashMap<String, Object>();
-      for (SinkRecord record : sinkRecords) {
-    	 headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
-    	 for (Iterator iterator = record.headers().iterator(); iterator.hasNext();) {
-			Header header = (Header) iterator.next();
-			addHeader(headers, header);
-		}
-         producer.sendBodyAndHeaders(LOCAL_URL, record.value(), headers);
-      }
-   }
-
-   @Override
-   public void stop() {
-      try {
-         camel.stop();
-      } catch (Exception e) {
-         throw new ConnectException("Failed to stop Camel context", e);
-      }
-   }
-   
-   private void addHeader(Map<String, Object> headers, Header singleHeader) {
-	   Schema schema = singleHeader.schema();
-	   if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
-		   headers.put(singleHeader.key(), (String) singleHeader.value());
-	   } else if (schema.type().getName().equalsIgnoreCase(Schema.BOOLEAN_SCHEMA.type().getName())) {
-		   headers.put(singleHeader.key(), (Boolean) singleHeader.value());
-	   } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
-		   headers.put(singleHeader.key(), singleHeader.value());
-	   } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
-		   headers.put(singleHeader.key(), ((byte[]) singleHeader.value()));
-	   } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
-		   headers.put(singleHeader.key(), ((float) singleHeader.value()));
-	   } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {
-		   headers.put(singleHeader.key(), ((double) singleHeader.value()));
-	   } else if (schema.type().getName().equalsIgnoreCase(Schema.INT16_SCHEMA.type().getName())) {
-		   headers.put(singleHeader.key(), ((short) singleHeader.value()));
-	   } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
-		   headers.put(singleHeader.key(), ((long) singleHeader.value()));
-	   }
-   }
+    private void addHeader(Map<String, Object> headers, Header singleHeader) {
+        Schema schema = singleHeader.schema();
+        if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
+            headers.put(singleHeader.key(), (String)singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.BOOLEAN_SCHEMA.type().getName())) {
+            headers.put(singleHeader.key(), (Boolean)singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
+            headers.put(singleHeader.key(), singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
+            headers.put(singleHeader.key(), ((byte[])singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
+            headers.put(singleHeader.key(), ((float)singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {
+            headers.put(singleHeader.key(), ((double)singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.INT16_SCHEMA.type().getName())) {
+            headers.put(singleHeader.key(), ((short)singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
+            headers.put(singleHeader.key(), ((long)singleHeader.value()));
+        }
+    }
 }
