@@ -42,6 +42,8 @@ import java.util.Map;
 public class CamelSourceTask extends SourceTask {
     private static final Logger log = LoggerFactory.getLogger(CamelSourceTask.class);
     private static final String LOCAL_URL = "direct:end";
+    private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
+    private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
 
     private CamelSourceConnectorConfig config;
     private CamelContext camel;
@@ -104,6 +106,7 @@ public class CamelSourceTask extends SourceTask {
         log.info("\t message id: {}", exchange.getMessage().getMessageId());
         log.info("\t message body: {}", exchange.getMessage().getBody());
         log.info("\t message headers: {}", exchange.getMessage().getHeaders());
+        log.info("\t message properties: {}", exchange.getProperties());
 
         // TODO: see if there is a better way to use sourcePartition and
         // sourceOffset
@@ -111,7 +114,12 @@ public class CamelSourceTask extends SourceTask {
         Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
 
         SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, topic, Schema.BYTES_SCHEMA, exchange.getMessage().getBody());
-        setHeaders(record, exchange);
+        if (exchange.getMessage().hasHeaders()) {
+            setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
+        }
+        if (exchange.hasProperties()) {
+            setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
+        }
         records.add(record);
 
         return records;
@@ -131,43 +139,41 @@ public class CamelSourceTask extends SourceTask {
         }
     }
 
-    private void setHeaders(SourceRecord record, Exchange exchange) {
-        if (!exchange.getMessage().hasHeaders()) {
-            return;
-        }
+    private void setAdditionalHeaders(SourceRecord record, Map<String, Object> map, String prefix) {
 
-        for (Map.Entry<String, Object> entry : exchange.getMessage().getHeaders().entrySet()) {
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
             String key = entry.getKey();
             Object value = entry.getValue();
+            String keyCamelHeader = prefix + key;
 
             if (value instanceof String) {
-                record.headers().addString(key, (String)value);
+                record.headers().addString(keyCamelHeader, (String)value);
             } else if (value instanceof Boolean) {
-                record.headers().addBoolean(key, (boolean)value);
+                record.headers().addBoolean(keyCamelHeader, (boolean)value);
             } else if (value instanceof Byte) {
-                record.headers().addByte(key, (byte)value);
+                record.headers().addByte(keyCamelHeader, (byte)value);
             } else if (value instanceof Byte[]) {
-                record.headers().addBytes(key, (byte[])value);
+                record.headers().addBytes(keyCamelHeader, (byte[])value);
             } else if (value instanceof Date) {
                 SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
                 String convertedDate = sdf.format(value);
-                record.headers().addString(key, (String)convertedDate);
+                record.headers().addString(keyCamelHeader, (String)convertedDate);
             } else if (value instanceof BigDecimal) {
-                record.headers().addDecimal(key, (BigDecimal)value);
+                record.headers().addDecimal(keyCamelHeader, (BigDecimal)value);
             } else if (value instanceof Double) {
-                record.headers().addDouble(key, (double)value);
+                record.headers().addDouble(keyCamelHeader, (double)value);
             } else if (value instanceof Float) {
-                record.headers().addFloat(key, (float)value);
+                record.headers().addFloat(keyCamelHeader, (float)value);
             } else if (value instanceof Integer) {
-                record.headers().addInt(key, (int)value);
+                record.headers().addInt(keyCamelHeader, (int)value);
             } else if (value instanceof Long) {
-                record.headers().addLong(key, (long)value);
+                record.headers().addLong(keyCamelHeader, (long)value);
             } else if (value instanceof Short) {
-                record.headers().addShort(key, (short)value);
+                record.headers().addShort(keyCamelHeader, (short)value);
             } else if (value instanceof Time) {
-                record.headers().addTime(key, (Time)value);
+                record.headers().addTime(keyCamelHeader, (Time)value);
             } else if (value instanceof Timestamp) {
-                record.headers().addTimestamp(key, (Timestamp)value);
+                record.headers().addTimestamp(keyCamelHeader, (Timestamp)value);
             }
         }
     }
