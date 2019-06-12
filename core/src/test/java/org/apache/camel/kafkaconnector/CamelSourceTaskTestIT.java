@@ -32,7 +32,7 @@ import org.junit.Test;
 public class CamelSourceTaskTestIT {
    
    @Test
-   public void testUseProto() throws InterruptedException {
+   public void testSourcePolling() throws InterruptedException {
       Map<String, String> props = new HashMap<>();
       props.put("camel.source.url", "timer:kafkaconnector");
       props.put("camel.source.kafka.topic", "mytopic");
@@ -40,9 +40,9 @@ public class CamelSourceTaskTestIT {
       CamelSourceTask camelSourceTask = new CamelSourceTask();
       camelSourceTask.start(props);
 
-      Thread.sleep(5000L);
+      Thread.sleep(2000L);
       List<SourceRecord> poll = camelSourceTask.poll();
-      assertEquals(1, poll.size());
+      assertEquals(2, poll.size());
       assertEquals("mytopic", poll.get(0).topic());
       Headers headers = poll.get(0).headers();
       boolean containsHeader = false;
@@ -55,4 +55,34 @@ public class CamelSourceTaskTestIT {
     }
       assertTrue(containsHeader);
    }
+
+    @Test
+    public void testSourcePollingTime() throws InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("camel.source.maxPollDuration", "1");
+
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        Thread.sleep(2000L);
+        List<SourceRecord> poll = camelSourceTask.poll();
+        assertEquals(1, poll.size());
+    }
+
+    @Test
+    public void testSourcePollingMaxRecordNumber() throws InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("camel.source.maxBatchPollSize", "1");
+
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        Thread.sleep(2000L);
+        List<SourceRecord> poll = camelSourceTask.poll();
+        assertEquals(1, poll.size());
+    }
 }
