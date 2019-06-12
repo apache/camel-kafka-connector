@@ -33,6 +33,7 @@ import java.math.BigDecimal;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -49,6 +50,8 @@ public class CamelSourceTask extends SourceTask {
     private CamelContext camel;
     private PollingConsumer consumer;
     private String topic;
+    private Long maxBatchPollSize;
+    private Long maxPollDuration;
 
     @Override
     public String version() {
@@ -60,6 +63,9 @@ public class CamelSourceTask extends SourceTask {
         try {
             log.info("Starting CamelSourceTask connector task");
             config = new CamelSourceConnectorConfig(props);
+
+            maxBatchPollSize = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF);
+            maxPollDuration = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_POLL_DURATION_CONF);
 
             final String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
             topic = config.getString(CamelSourceConnectorConfig.TOPIC_CONF);
@@ -91,38 +97,48 @@ public class CamelSourceTask extends SourceTask {
     }
 
     @Override
-    public List<SourceRecord> poll() {
+    public synchronized List<SourceRecord> poll() {
+        Long startPollEpochMilli = Instant.now().toEpochMilli();
+        Long collectedRecords = 0L;
+
         List<SourceRecord> records = new ArrayList<>();
 
-        Exchange exchange = consumer.receiveNoWait();
+        while (collectedRecords < maxBatchPollSize && (Instant.now().toEpochMilli()-startPollEpochMilli) < maxPollDuration) {
+            Exchange exchange = consumer.receiveNoWait();
 
-        if (exchange == null) {
+            if (exchange != null) {
+                log.info("Received exchange with");
+                log.info("\t from endpoint: {}", exchange.getFromEndpoint());
+                log.info("\t exchange id: {}", exchange.getExchangeId());
+                log.info("\t message id: {}", exchange.getMessage().getMessageId());
+                log.info("\t message body: {}", exchange.getMessage().getBody());
+                log.info("\t message headers: {}", exchange.getMessage().getHeaders());
+                log.info("\t message properties: {}", exchange.getProperties());
+
+                // TODO: see if there is a better way to use sourcePartition and
+                // sourceOffset
+                Map<String, String> sourcePartition = Collections.singletonMap("filename", exchange.getFromEndpoint().toString());
+                Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
+
+                SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, topic, Schema.BYTES_SCHEMA, exchange.getMessage().getBody());
+                if (exchange.getMessage().hasHeaders()) {
+                    setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
+                }
+                if (exchange.hasProperties()) {
+                    setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
+                }
+                records.add(record);
+                collectedRecords++;
+            } else {
+                break;
+            }
+        }
+
+        if (records.isEmpty()) {
             return null;
+        } else {
+            return records;
         }
-
-        log.info("Received exchange with");
-        log.info("\t from endpoint: {}", exchange.getFromEndpoint());
-        log.info("\t exchange id: {}", exchange.getExchangeId());
-        log.info("\t message id: {}", exchange.getMessage().getMessageId());
-        log.info("\t message body: {}", exchange.getMessage().getBody());
-        log.info("\t message headers: {}", exchange.getMessage().getHeaders());
-        log.info("\t message properties: {}", exchange.getProperties());
-
-        // TODO: see if there is a better way to use sourcePartition and
-        // sourceOffset
-        Map<String, String> sourcePartition = Collections.singletonMap("filename", exchange.getFromEndpoint().toString());
-        Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
-
-        SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, topic, Schema.BYTES_SCHEMA, exchange.getMessage().getBody());
-        if (exchange.getMessage().hasHeaders()) {
-            setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
-        }
-        if (exchange.hasProperties()) {
-            setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
-        }
-        records.add(record);
-
-        return records;
     }
 
     @Override

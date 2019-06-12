@@ -33,6 +33,14 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
    public static final String TOPIC_CONF = "camel.source.kafka.topic";
    private static final String TOPIC_DOC = "The topic to publish data to";
 
+   public static final Long CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DEFAULT = 1000L;
+   public static final String CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF = "camel.source.maxBatchPollSize";
+   private static final String CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DOC = "The max number of messages retrieved in a single poll()";
+
+   public static final Long CAMEL_SOURCE_MAX_POLL_DURATION_DEFAULT = 1000L;
+   public static final String CAMEL_SOURCE_MAX_POLL_DURATION_CONF = "camel.source.maxPollDuration";
+   private static final String CAMEL_SOURCE_MAX_POLL_DURATION_DOC = "The maximum time in milliseconds spent in a single call to poll()";
+
    public CamelSourceConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
       super(config, parsedConfig);
    }
@@ -44,6 +52,8 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
    public static ConfigDef conf() {
       return new ConfigDef()
             .define(CAMEL_SOURCE_URL_CONF, Type.STRING, CAMEL_SOURCE_URL_DEFAULT, Importance.HIGH, CAMEL_SOURCE_URL_DOC)
-            .define(TOPIC_CONF, ConfigDef.Type.STRING, TOPIC_DEFAULT, ConfigDef.Importance.HIGH, TOPIC_DOC);
+            .define(TOPIC_CONF, ConfigDef.Type.STRING, TOPIC_DEFAULT, ConfigDef.Importance.HIGH, TOPIC_DOC)
+            .define(CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF, Type.LONG, CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DOC)
+            .define(CAMEL_SOURCE_MAX_POLL_DURATION_CONF, Type.LONG, CAMEL_SOURCE_MAX_POLL_DURATION_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_MAX_POLL_DURATION_DOC);
    }
 }
