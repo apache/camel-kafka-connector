@@ -17,9 +17,11 @@
 package org.apache.camel.kafkaconnector;
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.support.DefaultExchange;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.header.Header;
@@ -37,6 +39,8 @@ public class CamelSinkTask extends SinkTask {
     public static final String KAFKA_RECORD_KEY_HEADER = "camel-.kafka.connector.record.key";
     private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
     private static final String LOCAL_URL = "direct:start";
+    private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
+    private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
     private CamelContext camel;
     private ProducerTemplate producer;
     private CamelSinkConnectorConfig config;
@@ -77,13 +81,21 @@ public class CamelSinkTask extends SinkTask {
     @Override
     public void put(Collection<SinkRecord> sinkRecords) {
         Map<String, Object> headers = new HashMap<String, Object>();
+        Map<String, Object> properties = new HashMap<String, Object>();
+        Exchange exchange = new DefaultExchange(camel);
         for (SinkRecord record : sinkRecords) {
             headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
             for (Iterator iterator = record.headers().iterator(); iterator.hasNext();) {
                 Header header = (Header)iterator.next();
-                addHeader(headers, header);
+                if (header.key().startsWith(HEADER_CAMEL_PREFIX)) {
+                    addHeader(headers, header);
+                } else if (header.key().startsWith(PROPERTY_CAMEL_PREFIX)) {
+                    addProperty(exchange, header);
+                }
             }
-            producer.sendBodyAndHeaders(LOCAL_URL, record.value(), headers);
+            exchange.getMessage().setHeaders(headers);
+            exchange.getMessage().setBody(record.value());
+            producer.send(LOCAL_URL, exchange);
         }
     }
 
@@ -96,24 +108,45 @@ public class CamelSinkTask extends SinkTask {
         }
     }
 
-    private void addHeader(Map<String, Object> headers, Header singleHeader) {
+    private void addHeader(Map<String, Object> map, Header singleHeader) {
         Schema schema = singleHeader.schema();
         if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
-            headers.put(singleHeader.key(), (String)singleHeader.value());
+            map.put(singleHeader.key(), (String)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BOOLEAN_SCHEMA.type().getName())) {
-            headers.put(singleHeader.key(), (Boolean)singleHeader.value());
+            map.put(singleHeader.key(), (Boolean)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
-            headers.put(singleHeader.key(), singleHeader.value());
+            map.put(singleHeader.key(), singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
-            headers.put(singleHeader.key(), ((byte[])singleHeader.value()));
+            map.put(singleHeader.key(), ((byte[])singleHeader.value()));
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
-            headers.put(singleHeader.key(), ((float)singleHeader.value()));
+            map.put(singleHeader.key(), ((float)singleHeader.value()));
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {
-            headers.put(singleHeader.key(), ((double)singleHeader.value()));
+            map.put(singleHeader.key(), ((double)singleHeader.value()));
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT16_SCHEMA.type().getName())) {
-            headers.put(singleHeader.key(), ((short)singleHeader.value()));
+            map.put(singleHeader.key(), ((short)singleHeader.value()));
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
-            headers.put(singleHeader.key(), ((long)singleHeader.value()));
+            map.put(singleHeader.key(), ((long)singleHeader.value()));
+        }
+    }
+    
+    private void addProperty(Exchange exchange, Header singleHeader) {
+        Schema schema = singleHeader.schema();
+        if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), (String)singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.BOOLEAN_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), (Boolean)singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), ((byte[])singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), ((float)singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), ((double)singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.INT16_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), ((short)singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), ((long)singleHeader.value()));
         }
     }
 }
