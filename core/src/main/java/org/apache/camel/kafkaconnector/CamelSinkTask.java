@@ -99,6 +99,10 @@ public class CamelSinkTask extends SinkTask {
         }
     }
 
+    protected CamelContext getContext() {
+        return camel;
+    }
+
     @Override
     public void stop() {
         try {
@@ -126,9 +130,11 @@ public class CamelSinkTask extends SinkTask {
             map.put(singleHeader.key(), ((short)singleHeader.value()));
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
             map.put(singleHeader.key(), ((long)singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
+            map.put(singleHeader.key(), ((byte)singleHeader.value()));
         }
     }
-    
+
     private void addProperty(Exchange exchange, Header singleHeader) {
         Schema schema = singleHeader.schema();
         if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
@@ -147,6 +153,8 @@ public class CamelSinkTask extends SinkTask {
             exchange.getProperties().put(singleHeader.key(), ((short)singleHeader.value()));
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
             exchange.getProperties().put(singleHeader.key(), ((long)singleHeader.value()));
+        } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
+            exchange.getProperties().put(singleHeader.key(), ((byte)singleHeader.value()));
         }
     }
 }
