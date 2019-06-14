@@ -154,6 +154,10 @@ public class CamelSourceTask extends SourceTask {
             throw new ConnectException("Failed to stop Camel context", e);
         }
     }
+    
+    protected CamelContext getContext() {
+        return camel;
+    }
 
     private void setAdditionalHeaders(SourceRecord record, Map<String, Object> map, String prefix) {
 
