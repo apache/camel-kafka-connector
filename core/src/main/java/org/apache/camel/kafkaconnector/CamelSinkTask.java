@@ -36,7 +36,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class CamelSinkTask extends SinkTask {
-    public static final String KAFKA_RECORD_KEY_HEADER = "camel-.kafka.connector.record.key";
+    public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
     private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
     private static final String LOCAL_URL = "direct:start";
     private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
@@ -81,7 +81,6 @@ public class CamelSinkTask extends SinkTask {
     @Override
     public void put(Collection<SinkRecord> sinkRecords) {
         Map<String, Object> headers = new HashMap<String, Object>();
-        Map<String, Object> properties = new HashMap<String, Object>();
         Exchange exchange = new DefaultExchange(camel);
         for (SinkRecord record : sinkRecords) {
             headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
