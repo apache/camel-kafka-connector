@@ -85,4 +85,23 @@ public class CamelSourceTaskTest {
         List<SourceRecord> poll = camelSourceTask.poll();
         assertEquals(1, poll.size());
     }
+
+    @Test
+    public void testSourcePollingConsumerOptions() throws InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("camel.source.pollingConsumerQueueSize", "10");
+        props.put("camel.source.pollingConsumerBlockTimeout", "1000");
+        props.put("camel.source.pollingConsumerBlockWhenFull", "false");
+
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        assertEquals(2, camelSourceTask.getCms().getEndpoints().size());
+
+        camelSourceTask.getCms().getEndpoints().stream()
+                .filter( e -> e.getEndpointUri().startsWith("direct"))
+                .forEach( e -> assertEquals("direct://end?pollingConsumerBlockTimeout=1000&pollingConsumerBlockWhenFull=false&pollingConsumerQueueSize=10", e.getEndpointUri()));
+    }
 }

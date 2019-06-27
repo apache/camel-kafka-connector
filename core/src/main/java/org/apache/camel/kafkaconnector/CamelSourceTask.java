@@ -40,6 +40,7 @@ import java.util.Map;
 
 public class CamelSourceTask extends SourceTask {
     private static final Logger log = LoggerFactory.getLogger(CamelSourceTask.class);
+
     private static final String LOCAL_URL = "direct:end";
     private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
     private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
@@ -68,13 +69,11 @@ public class CamelSourceTask extends SourceTask {
             final String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
             topic = config.getString(CamelSourceConnectorConfig.TOPIC_CONF);
 
-            cms = new CamelMainSupport(props, remoteUrl, LOCAL_URL);
+            String localUrl = getLocalUrlWithPollingOptions(config);
 
-            // TODO: Add option to configure pollingConsumerQueueSize,
-            // pollingConsumerBlockWhenFull and pollingConsumerBlockTimeout in
-            // LOCAL_URL
+            cms = new CamelMainSupport(props, remoteUrl, localUrl);
 
-            Endpoint endpoint = cms.getEndpoint(LOCAL_URL);
+            Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();
             consumer.start();
 
@@ -183,5 +182,16 @@ public class CamelSourceTask extends SourceTask {
                 record.headers().addTimestamp(keyCamelHeader, (Timestamp)value);
             }
         }
+    }
+
+    private String getLocalUrlWithPollingOptions(CamelSourceConnectorConfig config){
+        long pollingConsumerQueueSize = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_CONF);
+        long pollingConsumerBlockTimeout = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_CONF);
+        boolean pollingConsumerBlockWhenFull = config.getBoolean(CamelSourceConnectorConfig.CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_CONF);
+        return LOCAL_URL + "?pollingConsumerQueueSize=" +pollingConsumerQueueSize+"&pollingConsumerBlockTimeout="+pollingConsumerBlockTimeout+"&pollingConsumerBlockWhenFull="+pollingConsumerBlockWhenFull;
+    }
+
+    public CamelMainSupport getCms() {
+        return cms;
     }
 }
