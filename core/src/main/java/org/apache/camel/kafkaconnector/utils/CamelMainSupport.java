@@ -12,6 +12,7 @@ import org.apache.camel.main.MainSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -101,8 +102,12 @@ public class CamelMainSupport {
         return camel.createProducerTemplate();
     }
 
-    public Endpoint getEndpoint(String endpointUrl) {
-        return camel.getEndpoint(endpointUrl);
+    public Endpoint getEndpoint(String uri) {
+        return camel.getEndpoint(uri);
+    }
+
+    public Collection<Endpoint> getEndpoints() {
+        return camel.getEndpoints();
     }
 
     public ConsumerTemplate createConsumerTemplate() {
