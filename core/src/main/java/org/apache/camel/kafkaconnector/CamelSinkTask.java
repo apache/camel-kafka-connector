@@ -16,11 +16,9 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
-import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.support.DefaultExchange;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
@@ -36,12 +34,14 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class CamelSinkTask extends SinkTask {
-    public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
     private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
+
+    public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
     private static final String LOCAL_URL = "direct:start";
     private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
     private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
-    private CamelContext camel;
+
+    private CamelMainSupport cms;
     private ProducerTemplate producer;
     private CamelSinkConnectorConfig config;
 
@@ -55,23 +55,13 @@ public class CamelSinkTask extends SinkTask {
         try {
             log.info("Starting CamelSinkTask connector task");
             config = new CamelSinkConnectorConfig(props);
-
             final String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
 
-            camel = new DefaultCamelContext();
+            cms = new CamelMainSupport(props, LOCAL_URL, remoteUrl);
 
-            log.info("Creating Camel route from({}).to({})", LOCAL_URL, remoteUrl);
-            camel.addRoutes(new RouteBuilder() {
-                public void configure() {
-                    from(LOCAL_URL).to(remoteUrl);
-                }
-            });
+            producer = cms.createProducerTemplate();
 
-            producer = camel.createProducerTemplate();
-
-            log.info("Starting CamelContext");
-            camel.start();
-            log.info("CamelContext started");
+            cms.start();
             log.info("CamelSinkTask connector task started");
         } catch (Exception e) {
             throw new ConnectException("Failed to create and start Camel context", e);
@@ -81,7 +71,7 @@ public class CamelSinkTask extends SinkTask {
     @Override
     public void put(Collection<SinkRecord> sinkRecords) {
         Map<String, Object> headers = new HashMap<String, Object>();
-        Exchange exchange = new DefaultExchange(camel);
+        Exchange exchange = new DefaultExchange(producer.getCamelContext());
         for (SinkRecord record : sinkRecords) {
             headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
             for (Iterator iterator = record.headers().iterator(); iterator.hasNext();) {
@@ -94,20 +84,20 @@ public class CamelSinkTask extends SinkTask {
             }
             exchange.getMessage().setHeaders(headers);
             exchange.getMessage().setBody(record.value());
+            log.debug("Sending {} to {}", exchange, LOCAL_URL);
             producer.send(LOCAL_URL, exchange);
         }
-    }
-
-    protected CamelContext getContext() {
-        return camel;
     }
 
     @Override
     public void stop() {
         try {
-            camel.stop();
+            log.info("Stopping CamelSinkTask connector task");
+            cms.stop();
         } catch (Exception e) {
             throw new ConnectException("Failed to stop Camel context", e);
+        } finally {
+            log.info("CamelSinkTask connector task stopped");
         }
     }
 
@@ -155,5 +145,9 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
             exchange.getProperties().put(singleHeader.key(), ((byte)singleHeader.value()));
         }
+    }
+
+    public CamelMainSupport getCms() {
+        return cms;
     }
 }

@@ -16,12 +16,10 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.PollingConsumer;
-import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.source.SourceRecord;
@@ -46,8 +44,8 @@ public class CamelSourceTask extends SourceTask {
     private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
     private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
 
+    private CamelMainSupport cms;
     private CamelSourceConnectorConfig config;
-    private CamelContext camel;
     private PollingConsumer consumer;
     private String topic;
     private Long maxBatchPollSize;
@@ -70,26 +68,17 @@ public class CamelSourceTask extends SourceTask {
             final String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
             topic = config.getString(CamelSourceConnectorConfig.TOPIC_CONF);
 
-            camel = new DefaultCamelContext();
-
-            log.info("Creating Camel route from({}).to({})", remoteUrl, LOCAL_URL);
-            camel.addRoutes(new RouteBuilder() {
-                public void configure() {
-                    from(remoteUrl).to(LOCAL_URL);
-                }
-            });
+            cms = new CamelMainSupport(props, remoteUrl, LOCAL_URL);
 
             // TODO: Add option to configure pollingConsumerQueueSize,
             // pollingConsumerBlockWhenFull and pollingConsumerBlockTimeout in
             // LOCAL_URL
 
-            Endpoint endpoint = camel.getEndpoint(LOCAL_URL);
+            Endpoint endpoint = cms.getEndpoint(LOCAL_URL);
             consumer = endpoint.createPollingConsumer();
             consumer.start();
 
-            log.info("Starting CamelContext");
-            camel.start();
-            log.info("CamelContext started");
+            cms.start();
             log.info("CamelSourceTask connector task started");
         } catch (Exception e) {
             throw new ConnectException("Failed to create and start Camel context", e);
@@ -107,16 +96,15 @@ public class CamelSourceTask extends SourceTask {
             Exchange exchange = consumer.receiveNoWait();
 
             if (exchange != null) {
-                log.info("Received exchange with");
-                log.info("\t from endpoint: {}", exchange.getFromEndpoint());
-                log.info("\t exchange id: {}", exchange.getExchangeId());
-                log.info("\t message id: {}", exchange.getMessage().getMessageId());
-                log.info("\t message body: {}", exchange.getMessage().getBody());
-                log.info("\t message headers: {}", exchange.getMessage().getHeaders());
-                log.info("\t message properties: {}", exchange.getProperties());
+                log.debug("Received exchange with");
+                log.debug("\t from endpoint: {}", exchange.getFromEndpoint());
+                log.debug("\t exchange id: {}", exchange.getExchangeId());
+                log.debug("\t message id: {}", exchange.getMessage().getMessageId());
+                log.debug("\t message body: {}", exchange.getMessage().getBody());
+                log.debug("\t message headers: {}", exchange.getMessage().getHeaders());
+                log.debug("\t message properties: {}", exchange.getProperties());
 
-                // TODO: see if there is a better way to use sourcePartition and
-                // sourceOffset
+                // TODO: see if there is a better way to use sourcePartition an sourceOffset
                 Map<String, String> sourcePartition = Collections.singletonMap("filename", exchange.getFromEndpoint().toString());
                 Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
 
@@ -143,20 +131,19 @@ public class CamelSourceTask extends SourceTask {
 
     @Override
     public void stop() {
+        log.info("Stopping CamelSourceTask connector task");
         try {
             consumer.stop();
         } catch (Exception e) {
-            throw new ConnectException("Failed to stop Polling Consumer", e);
+            log.error("Error stopping camel consumer: {}", e.getMessage());
         }
         try {
-            camel.stop();
+            cms.stop();
         } catch (Exception e) {
             throw new ConnectException("Failed to stop Camel context", e);
+        } finally {
+            log.info("CamelSourceTask connector task stopped");
         }
-    }
-    
-    protected CamelContext getContext() {
-        return camel;
     }
 
     private void setAdditionalHeaders(SourceRecord record, Map<String, Object> map, String prefix) {

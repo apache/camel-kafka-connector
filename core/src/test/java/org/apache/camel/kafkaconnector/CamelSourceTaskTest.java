@@ -29,7 +29,7 @@ import org.apache.kafka.connect.header.Headers;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.Test;
 
-public class CamelSourceTaskTestIT {
+public class CamelSourceTaskTest {
    
    @Test
    public void testSourcePolling() throws InterruptedException {
@@ -57,7 +57,7 @@ public class CamelSourceTaskTestIT {
    }
 
     @Test
-    public void testSourcePollingTime() throws InterruptedException {
+    public void testSourcePollingTimeout() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "timer:kafkaconnector");
         props.put("camel.source.kafka.topic", "mytopic");
