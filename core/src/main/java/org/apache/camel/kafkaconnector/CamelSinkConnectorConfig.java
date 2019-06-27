@@ -16,15 +16,14 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import java.util.Map;
-
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.config.ConfigDef.Importance;
 import org.apache.kafka.common.config.ConfigDef.Type;
 
-public class CamelSinkConnectorConfig extends AbstractConfig {
+import java.util.Map;
 
+public class CamelSinkConnectorConfig extends AbstractConfig {
    public static final String CAMEL_SINK_URL_DEFAULT = "log:kafkaconnector?showAll=true";
    public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
    private static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination";

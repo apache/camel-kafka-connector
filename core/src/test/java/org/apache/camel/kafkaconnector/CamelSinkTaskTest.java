@@ -32,7 +32,7 @@ import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-public class CamelSinkTaskTestIT {
+public class CamelSinkTaskTest {
 
     @Test
     public void testOnlyBody() throws JsonProcessingException, InterruptedException {
@@ -50,10 +50,8 @@ public class CamelSinkTaskTestIT {
         records.add(record);
         camelsinkTask.put(records);
 
-        Thread.sleep(1000L);
-        CamelContext context = camelsinkTask.getContext();
-        ConsumerTemplate c = context.createConsumerTemplate();
-        Exchange exchange = c.receiveNoWait("seda:test");
+        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
     }
@@ -87,10 +85,8 @@ public class CamelSinkTaskTestIT {
         records.add(record);
         camelsinkTask.put(records);
 
-        Thread.sleep(1000L);
-        CamelContext context = camelsinkTask.getContext();
-        ConsumerTemplate c = context.createConsumerTemplate();
-        Exchange exchange = c.receiveNoWait("seda:test");
+        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
         assertTrue(exchange.getIn().getHeader("CamelHeaderMyBoolean", Boolean.class));
@@ -131,10 +127,8 @@ public class CamelSinkTaskTestIT {
         records.add(record);
         camelsinkTask.put(records);
 
-        Thread.sleep(1000L);
-        CamelContext context = camelsinkTask.getContext();
-        ConsumerTemplate c = context.createConsumerTemplate();
-        Exchange exchange = c.receiveNoWait("seda:test");
+        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
         assertTrue((boolean) exchange.getProperties().get(("CamelPropertyMyBoolean")));
@@ -182,10 +176,8 @@ public class CamelSinkTaskTestIT {
         records.add(record);
         camelsinkTask.put(records);
 
-        Thread.sleep(1000L);
-        CamelContext context = camelsinkTask.getContext();
-        ConsumerTemplate c = context.createConsumerTemplate();
-        Exchange exchange = c.receiveNoWait("seda:test");
+        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
         assertTrue((boolean) exchange.getProperties().get(("CamelPropertyMyBoolean")));

@@ -22,7 +22,7 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
 
     <appender name="FILE" class="org.apache.log4j.FileAppender">
-        <param name="File" value="target/itests.log" />
+        <param name="File" value="target/tests.log" />
         <param name="Append" value="true" />
         <param name="Threshold" value="INFO" />
         <layout class="org.apache.log4j.PatternLayout">
@@ -49,7 +49,7 @@
     <!-- ======================= -->
 
     <root>
-        <priority value="INFO" />
+        <priority value="DEBUG" />
         <appender-ref ref="CONSOLE" />
     </root>
 
