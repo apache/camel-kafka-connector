@@ -112,6 +112,16 @@ export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelJmsSinkConnector.properties
 ----
 
+.Run the AWS SQS sink:
+You can adjust properties in `examples/CamelAWSSQSSinkConnector.properties ` for example configuring access key, secret key and region
+by adding `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
+
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSinkConnector.properties
+----
+
 ===== Listen or produce from a kafka topic using kafka utilities:
 .Run an kafka Consumer
 [source,bash]
