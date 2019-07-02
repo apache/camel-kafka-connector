@@ -76,7 +76,7 @@ public class CamelSourceTask extends SourceTask {
             Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();
             consumer.start();
-
+            
             cms.start();
             log.info("CamelSourceTask connector task started");
         } catch (Exception e) {
