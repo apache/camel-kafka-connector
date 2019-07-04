@@ -122,6 +122,16 @@ export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSinkConnector.properties
 ----
 
+.Run the AWS SQS source:
+You can adjust properties in `examples/CamelAWSSQSSourceConnector.properties ` for example configuring access key, secret key and region
+by adding `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
+
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSourceConnector.properties
+----
+
 .Run the AWS S3 source:
 You can adjust properties in `examples/CamelAWSS3SourceConnector.properties ` for example configuring access key, secret key and region
 by adding `camel.component.aws-s3.configuration.access-key=youraccesskey`, `camel.component.aws-s3.configuration.secret-key=yoursecretkey` and `camel.component.aws-s3.configuration.region=yourregion`
