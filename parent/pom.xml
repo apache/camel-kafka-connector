@@ -123,6 +123,16 @@
             <artifactId>camel-aws-sns</artifactId>
             <version>${camel.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-aws-kinesis</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-cbor</artifactId>
+            <version>2.9.9</version>
+        </dependency>
 <!--        XXX: once upgrading to camel 3.0.0-M4 or newer we can switch activemq-client with this:-->
 <!--        <dependency>-->
 <!--            <groupId>org.apache.activemq</groupId>-->
