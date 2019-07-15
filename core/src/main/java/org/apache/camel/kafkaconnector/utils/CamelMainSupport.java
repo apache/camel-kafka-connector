@@ -44,24 +44,8 @@ public class CamelMainSupport {
 
         camelMain.addMainListener(new CamelMainFinishedListener());
 
-        //XXX: can be removed once upgrading to camel 3.0.0-M4 or newer
-        this.camel.getRegistry().bind("properties", new OrderedPropertiesComponent());
-        this.camel.setClassResolver(new WorkaroundClassResolver());
-        //XXX: end
-
-        //XXX: can be removed once upgrading to camel 3.0.0-M4 or newer
-        //order the properties ensuring that properties who's value starts with  "#class:", go first
-        Map<String, String> orderedProps = new LinkedHashMap<>();
-        props.keySet().stream()
-                .filter( k -> props.get(k).startsWith("#class:"))
-                .forEach( k -> orderedProps.put(k, props.get(k)));
-        props.keySet().stream()
-                .filter( k -> !props.get(k).startsWith("#class:"))
-                .forEach( k -> orderedProps.put(k, props.get(k)));
-        //XXX: end
-
         Properties camelProperties = new OrderedProperties();
-        camelProperties.putAll(orderedProps);
+        camelProperties.putAll(props);
 
         log.info("Setting initial properties in Camel context: [{}]", camelProperties);
         this.camel.getPropertiesComponent().setInitialProperties(camelProperties);
