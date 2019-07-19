@@ -9,6 +9,7 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.main.Main;
 import org.apache.camel.main.MainListener;
 import org.apache.camel.main.MainSupport;
+import org.apache.camel.util.OrderedProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,8 +45,17 @@ public class CamelMainSupport {
 
         camelMain.addMainListener(new CamelMainFinishedListener());
 
+        // reorder properties to place the one starteing with "#class:" first
+        Map<String, String> orderedProps = new LinkedHashMap<>();
+        props.keySet().stream()
+                .filter( k -> props.get(k).startsWith("#class:"))
+                .forEach( k -> orderedProps.put(k, props.get(k)));
+        props.keySet().stream()
+                .filter( k -> !props.get(k).startsWith("#class:"))
+                .forEach( k -> orderedProps.put(k, props.get(k)));
+
         Properties camelProperties = new OrderedProperties();
-        camelProperties.putAll(props);
+        camelProperties.putAll(orderedProps);
 
         log.info("Setting initial properties in Camel context: [{}]", camelProperties);
         this.camel.getPropertiesComponent().setInitialProperties(camelProperties);
