@@ -44,7 +44,6 @@ public class S3ObjectSerializer implements Serializer<S3ObjectInputStream> {
 				buffer.write(byteArray, 0, nRead);
 			}
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
