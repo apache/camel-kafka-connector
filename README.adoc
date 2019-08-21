@@ -113,7 +113,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 ----
 
 .Run the AWS SQS sink:
-You can adjust properties in `examples/CamelAWSSQSSinkConnector.properties ` for example configuring access key, secret key and region
+You can adjust properties in `examples/CamelAWSSQSSinkConnector.properties` for example configuring access key, secret key and region
 by adding `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
 
 [source,bash]
@@ -123,7 +123,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 ----
 
 .Run the AWS SQS source:
-You can adjust properties in `examples/CamelAWSSQSSourceConnector.properties ` for example configuring access key, secret key and region
+You can adjust properties in `examples/CamelAWSSQSSourceConnector.properties` for example configuring access key, secret key and region
 by adding `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
 
 [source,bash]
@@ -133,7 +133,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 ----
 
 .Run the AWS S3 source:
-You can adjust properties in `examples/CamelAWSS3SourceConnector.properties ` for example configuring access key, secret key and region
+You can adjust properties in `examples/CamelAWSS3SourceConnector.properties` for example configuring access key, secret key and region
 by adding `camel.component.aws-s3.configuration.access-key=youraccesskey`, `camel.component.aws-s3.configuration.secret-key=yoursecretkey` and `camel.component.aws-s3.configuration.region=yourregion`
 Here you also have a converter specific for S3Object.
 
@@ -144,7 +144,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 ----
 
 .Run the AWS SNS sink:
-You can adjust properties in `examples/CamelAWSSNSSinkConnector.properties ` for example configuring access key, secret key and region
+You can adjust properties in `examples/CamelAWSSNSSinkConnector.properties` for example configuring access key, secret key and region
 by adding `camel.component.aws-sns.configuration.access-key=youraccesskey`, `camel.component.aws-sns.configuration.secret-key=yoursecretkey` and `camel.component.aws-sns.configuration.region=yourregion`
 
 [source,bash]
@@ -154,7 +154,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 ----
 
 .Run the AWS Kinesis source:
-You can adjust properties in `examples/CamelAWSKinesisSourceConnector.properties ` for example configuring access key, secret key and region
+You can adjust properties in `examples/CamelAWSKinesisSourceConnector.properties` for example configuring access key, secret key and region
 by adding `camel.component.aws-kinesis.configuration.access-key=youraccesskey`, `camel.component.aws-kinesis.configuration.secret-key=yoursecretkey` and `camel.component.aws-kinesis.configuration.region=yourregion`
 
 [source,bash]
