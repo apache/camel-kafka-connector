@@ -18,12 +18,12 @@ mvn clean package
 === Try it out locally
 
 You can use Camel Kafka connectors with local Apache Kafka installation.
-For more details see the [local guide](./docs/try-it-out-locally.adoc).
+For more details see the link:./docs/try-it-out-locally.adoc[local guide].
 
 === Try it out on OpenShift with Strimzi
 
 You can also use Camel Kafka connectors on OpenShift.
-For more details see the [OpenShift Guide](./docs/try-it-out-on-openshift-with-strimzi.adoc).
+For more details see the link:./docs/try-it-out-on-openshift-with-strimzi.adoc[OpenShift guide].
 
 === Known limitations
 In order to use other Camel components you need to add them as dependencies in the project `pom.xml`.
