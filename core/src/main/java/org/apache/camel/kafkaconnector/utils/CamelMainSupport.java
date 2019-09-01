@@ -68,20 +68,17 @@ public class CamelMainSupport {
         });
     }
 
-    public void start() throws InterruptedException {
+    public void start() throws Exception {
         log.info("Starting CamelContext");
-        exService.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    camelMain.run();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
+        CamelContextStarter starter = new CamelContextStarter();
+        exService.execute(starter);
         startFinishedSignal.await();
+
+        if (starter.hasException()) {
+            log.info("CamelContext failed to start", starter.getException());
+            throw starter.getException();
+        }
+
         log.info("CamelContext started");
     }
 
@@ -132,6 +129,32 @@ public class CamelMainSupport {
         @Override
         public void afterStop(MainSupport main) {
 
+        }
+    }
+
+    private class CamelContextStarter implements Runnable {
+        private Exception startException;
+
+        @Override
+        public void run() {
+            try {
+                camelMain.run();
+            } catch (Exception e) {
+                if (startFinishedSignal.getCount() > 0) {
+                    startException = e;
+                    startFinishedSignal.countDown();
+                } else {
+                    log.error("Caught exception from CamelContext", e);
+                }
+            }
+        }
+
+        public boolean hasException()   {
+            return startException != null;
+        }
+
+        public Exception getException() {
+            return startException;
         }
     }
 }
