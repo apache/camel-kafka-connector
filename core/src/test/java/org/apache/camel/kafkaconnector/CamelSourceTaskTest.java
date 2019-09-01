@@ -40,7 +40,7 @@ public class CamelSourceTaskTest {
       CamelSourceTask camelSourceTask = new CamelSourceTask();
       camelSourceTask.start(props);
 
-      Thread.sleep(2000L);
+      Thread.sleep(2100L);
       List<SourceRecord> poll = camelSourceTask.poll();
       assertEquals(2, poll.size());
       assertEquals("mytopic", poll.get(0).topic());
