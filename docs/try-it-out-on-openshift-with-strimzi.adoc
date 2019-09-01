@@ -1,0 +1,122 @@
+== Try it out on OpenShift with Strimzi
+
+You can use the Camel Kafka conenctors also on Kubernetes and OpenShift with the [Strimzi project](https://strimzi.io).
+Strimzi provides a set of operators and container images for running Kafka on Kubernetes and OpenShift.
+The following example shows how to run it with Camel Kafka connectors on OpenShift.
+
+=== Deploy Kafka and Kafka Connect
+
+First we install the Strimzi operator and use it to deploy the Kafka broker and Kafka Connect into our OpenShift project.
+We need to create security objects as part of installation so it is necessary to switch to admin user.
+If you use Minishift, you can do it with the following command:
+
+[source,bash,options="nowrap"]
+----
+oc login -u system:admin
+----
+
+We will use OpenShift project `myproject`.
+It it doesn't exist yet, you can create it using following command:
+
+[source,bash,options="nowrap"]
+----
+oc new-project myproject
+----
+
+If the project already exists, you can switch to it with:
+
+[source,bash,options="nowrap"]
+----
+oc project myproject
+----
+
+We can nowinstall the Strimzi operator into this project:
+
+[source,bash,options="nowrap"]
+----
+oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.13.0/strimzi-cluster-operator-0.13.0.yaml
+----
+
+Next we will deploy a Kafka broker cluster and a Kafka Connect cluster and then create a Kafka Connect image with the Debezium connectors installed:
+
+[source,bash,options="nowrap"]
+----
+# Deploy a single node Kafka broker
+oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/0.13.0/examples/kafka/kafka-persistent-single.yaml
+
+# Deploy a single instance of Kafka Connect with no plug-in installed
+oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/0.13.0/examples/kafka-connect/kafka-connect-s2i-single-node-kafka.yaml
+----
+
+=== Add Camel Kafka connector binaries
+
+Strimzi uses Source2Image builds to allow users to add their own connectors to the existing Strimzi Docker images.
+We now need to build the connectors and add them to the image:
+
+[source,bash,options="nowrap"]
+----
+mvn clean package
+oc start-build my-connect-cluster-connect --from-dir=./core/target/camel-kafka-connector-0.0.1-SNAPSHOT-package/share/java --follow
+----
+
+We should now wait for the rollout of the new image to finish and the replica set with the new connector to become ready.
+Once it is done, we can check that the `CamelSinkConnector` and `CamelSourceConnector` are available in our Kafka Connect cluster.
+Strimzi is running Kafka Connect in a distributed mode.
+We can use HTTP to interact with it.
+To check the available connector plugins, you can run the following command:
+
+[source,bash,options="nowrap"]
+----
+oc exec -i -c kafka my-cluster-kafka-0 -- curl -s http://my-connect-cluster-connect-api:8083/connector-plugins
+----
+
+You should see something like this:
+
+[source,json,options="nowrap"]
+----
+[{"class":"org.apache.camel.kafkaconnector.CamelSinkConnector","type":"sink","version":"0.0.1-SNAPSHOT"},{"class":"org.apache.camel.kafkaconnector.CamelSourceConnector","type":"source","version":"0.0.1-SNAPSHOT"},{"class":"org.apache.kafka.connect.file.FileStreamSinkConnector","type":"sink","version":"2.3.0"},{"class":"org.apache.kafka.connect.file.FileStreamSourceConnector","type":"source","version":"2.3.0"}]
+----
+
+=== Create connector instance
+
+Now we can create some instance of a connector plugin - got example of the S3 connector:
+
+[source,bash,options="nowrap"]
+----
+oc exec -i -c kafka my-cluster-kafka-0 -- curl -X POST \
+    -H "Accept:application/json" \
+    -H "Content-Type:application/json" \
+    http://my-connect-cluster-connect-api:8083/connectors -d @- <<'EOF'
+{
+  "name": "s3-connector",
+  "config": {
+    "connector.class": "org.apache.camel.kafkaconnector.CamelSourceConnector",
+    "tasks.max": "1",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.camel.kafkaconnector.converters.S3ObjectConverter",
+    "camel.source.kafka.topic": "s3-topic",
+    "camel.source.url": "aws-s3://camel-connector-test?autocloseBody=false",
+    "camel.source.maxPollDuration": 10000,
+    "camel.component.aws-s3.configuration.access-key": "xxx",
+    "camel.component.aws-s3.configuration.secret-key": "xxx",
+    "camel.component.aws-s3.configuration.region": "xxx"
+  }
+}
+EOF
+----
+
+You can check that status of the connector using
+
+[source,bash,options="nowrap"]
+----
+oc exec -i -c kafka my-cluster-kafka-0 -- curl -s http://my-connect-cluster-connect-api:8083/connectors/s3-connector/status
+----
+
+=== Check receved messages
+
+You can also run the Kafka console consumer to see the messages received from the topic:
+
+[source,bash,options="nowrap"]
+----
+oc exec -i -c kafka my-cluster-kafka-0 -- bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic s3-topic --from-beginning
+----
