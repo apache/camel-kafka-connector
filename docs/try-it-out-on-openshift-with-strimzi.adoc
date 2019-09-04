@@ -1,6 +1,6 @@
 == Try it out on OpenShift with Strimzi
 
-You can use the Camel Kafka conenctors also on Kubernetes and OpenShift with the link:https://strimzi.io[Strimzi project].
+You can use the Camel Kafka connectors also on Kubernetes and OpenShift with the link:https://strimzi.io[Strimzi project].
 Strimzi provides a set of operators and container images for running Kafka on Kubernetes and OpenShift.
 The following example shows how to run it with Camel Kafka connectors on OpenShift.
 
@@ -30,7 +30,7 @@ If the project already exists, you can switch to it with:
 oc project myproject
 ----
 
-We can nowinstall the Strimzi operator into this project:
+We can now install the Strimzi operator into this project:
 
 [source,bash,options="nowrap"]
 ----
@@ -112,7 +112,7 @@ You can check that status of the connector using
 oc exec -i -c kafka my-cluster-kafka-0 -- curl -s http://my-connect-cluster-connect-api:8083/connectors/s3-connector/status
 ----
 
-=== Check receved messages
+=== Check received messages
 
 You can also run the Kafka console consumer to see the messages received from the topic:
 

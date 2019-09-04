@@ -9,7 +9,7 @@ Get a locally running kafka instance by following https://kafka.apache.org/quick
 export KAFKA_HOME=<your kafka install dir>
 ----
 
-.Start Zookeper cluster
+.Start Zookeeper cluster
 [source,bash]
 ----
 $KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
@@ -30,7 +30,7 @@ $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replicatio
 ==== Then run Camel kafka connectors source and/or syncs:
 [NOTE]
 ====
-In order to run more than one instance of a standalone kafka connect on the same machine you neet to duplicate `$KAFKA_HOME/config/connect-standalone.properties` file changeing the http port used for each instance:
+In order to run more than one instance of a standalone kafka connect on the same machine you neet to duplicate `$KAFKA_HOME/config/connect-standalone.properties` file changing the http port used for each instance:
 [source,bash]
 ----
 cp $KAFKA_HOME/config/connect-standalone.properties $KAFKA_HOME/config/connect-standalone2.properties
