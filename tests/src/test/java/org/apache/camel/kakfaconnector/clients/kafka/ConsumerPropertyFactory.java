@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kakfaconnector.clients.kafka;
 
 import java.util.Properties;
 
@@ -26,7 +26,7 @@ import java.util.Properties;
  * provided along with the Kafka deliverable
  *
  */
-public interface ConsumerPropertyProducer {
+public interface ConsumerPropertyFactory {
 
     /**
      * Gets the properties used to configure the consumer

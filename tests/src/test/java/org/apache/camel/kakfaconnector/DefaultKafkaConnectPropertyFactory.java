@@ -27,7 +27,7 @@ import java.util.Properties;
  * A set of properties for the Kafka connect runtime that match the standard configuration
  * used for the standalone CLI connect runtime.
  */
-public class DefaultKafkaConnectPropertyProducer implements KafkaConnectPropertyProducer {
+public class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory {
     private final String bootstrapServer;
 
     /**
@@ -35,7 +35,7 @@ public class DefaultKafkaConnectPropertyProducer implements KafkaConnectProperty
      * @param bootstrapServer the address of the server in the format
      *                       PLAINTEXT://${address}:${port}
      */
-    public DefaultKafkaConnectPropertyProducer(String bootstrapServer) {
+    public DefaultKafkaConnectPropertyFactory(String bootstrapServer) {
         this.bootstrapServer = bootstrapServer;
     }
 
@@ -50,6 +50,7 @@ public class DefaultKafkaConnectPropertyProducer implements KafkaConnectProperty
         props.put(StandaloneConfig.OFFSET_COMMIT_INTERVAL_MS_CONFIG, "10000");
         props.put(StandaloneConfig.PLUGIN_PATH_CONFIG, "");
         props.put(StandaloneConfig.REST_PORT_CONFIG, "9999");
+
         return props;
     }
 }

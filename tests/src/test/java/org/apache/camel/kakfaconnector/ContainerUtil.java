@@ -18,35 +18,37 @@
 
 package org.apache.camel.kakfaconnector;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.testcontainers.containers.GenericContainer;
 
-import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
-import static junit.framework.TestCase.fail;
+import static org.junit.Assert.fail;
 
-/**
- * Common test constants and utilities
- */
-public final class TestCommon {
-    private static final Logger log = LoggerFactory.getLogger(TestCommon.class);
-
-    private TestCommon() {}
+public class ContainerUtil {
 
     /**
-     * The default topic for usage during the tests
+     * Wait for the container to be in running state
+     * @param container the container to wait for
      */
-    public static final String DEFAULT_TEST_TOPIC = "mytopic";
+    public static void waitForInitialization(GenericContainer container) {
+        int retries = 5;
 
-    /**
-     * The default JMS queue name used during the tests
-     */
-    public static final String DEFAULT_JMS_QUEUE = "ckc.queue";
+        do {
+            boolean state = container.isRunning();
 
+            if (state == false) {
+                try {
+                    Thread.sleep(TimeUnit.SECONDS.toMillis(5));
+                } catch (InterruptedException e) {
+                    container.stop();
+                    fail("Test interrupted");
+                }
 
-    public static void failOnConnectorError(Throwable error, Properties connectorProps, String name) {
-        log.error("Failed to create job for {} with properties", name, connectorProps,
-                error);
-        fail("Failed to create job for " + name);
+                retries--;
+            }
+            else {
+                break;
+            }
+        } while (retries > 0);
     }
 }

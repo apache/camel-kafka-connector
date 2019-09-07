@@ -52,8 +52,8 @@ public class KafkaConnectRunner {
     private static final Logger log = LoggerFactory.getLogger(KafkaConnectRunner.class);
 
     private final String bootstrapServer;
-    private final KafkaConnectPropertyProducer kafkaConnectPropertyProducer;
-    private final List<ConnectorPropertyProducer> connectorPropertyProducers = new ArrayList<>();
+    private final KafkaConnectPropertyFactory kafkaConnectPropertyFactory;
+    private final List<ConnectorPropertyFactory> connectorPropertyFactories = new ArrayList<>();
 
     private Connect connect;
     private Herder herder;
@@ -65,7 +65,7 @@ public class KafkaConnectRunner {
      */
     public KafkaConnectRunner(String bootstrapServer) {
         this.bootstrapServer = bootstrapServer;
-        this.kafkaConnectPropertyProducer = new DefaultKafkaConnectPropertyProducer(bootstrapServer);
+        this.kafkaConnectPropertyFactory = new DefaultKafkaConnectPropertyFactory(bootstrapServer);
     }
 
 
@@ -85,7 +85,7 @@ public class KafkaConnectRunner {
         WorkerInfo initInfo = new WorkerInfo();
         initInfo.logAll();
 
-        Properties props = kafkaConnectPropertyProducer.getProperties();
+        Properties props = kafkaConnectPropertyFactory.getProperties();
 
         Map<String, String> standAloneProperties = Utils.propsToStringMap(props);
 
@@ -118,8 +118,8 @@ public class KafkaConnectRunner {
      * @return A list object that can be modified to include or remove connector property
      * producers
      */
-    public List<ConnectorPropertyProducer> getConnectorPropertyProducers() {
-        return connectorPropertyProducers;
+    public List<ConnectorPropertyFactory> getConnectorPropertyProducers() {
+        return connectorPropertyFactories;
     }
 
 
@@ -134,8 +134,8 @@ public class KafkaConnectRunner {
     }
 
 
-    public void initializeConnector(ConnectorPropertyProducer connectorPropertyProducer) throws ExecutionException, InterruptedException {
-        Properties connectorProps = connectorPropertyProducer.getProperties();
+    public void initializeConnector(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+        Properties connectorProps = connectorPropertyFactory.getProperties();
 
         FutureCallback<Herder.Created<ConnectorInfo>> cb = new FutureCallback<>((error, info) ->
                 callTestErrorHandler(connectorProps, error));
@@ -166,7 +166,7 @@ public class KafkaConnectRunner {
         connect.start();
         log.info("Started the connect interface");
 
-        for (ConnectorPropertyProducer propertyProducer : connectorPropertyProducers) {
+        for (ConnectorPropertyFactory propertyProducer : connectorPropertyFactories) {
             try {
                 initializeConnector(propertyProducer);
             } catch(InterruptedException | ExecutionException e){
