@@ -16,22 +16,15 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kakfaconnector.clients.kafka;
 
-import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
 import java.util.UUID;
 
-
-/**
- * A property producer that can be used to create a Kafka consumer with a minimum
- * set of configurations that can consume from a Kafka topic.
- *
- * The consumer behavior from using this set of properties causes the consumer to
- * consumes all published messages "from-beginning".
- */
-public class DefaultConsumerPropertyProducer implements ConsumerPropertyProducer {
+public class DefaultProducerPropertyFactory implements ProducerPropertyFactory {
     private final String bootstrapServer;
 
     /**
@@ -39,18 +32,21 @@ public class DefaultConsumerPropertyProducer implements ConsumerPropertyProducer
      * @param bootstrapServer the address of the server in the format
      *                       PLAINTEXT://${address}:${port}
      */
-    public DefaultConsumerPropertyProducer(String bootstrapServer) {
+    public DefaultProducerPropertyFactory(String bootstrapServer) {
         this.bootstrapServer = bootstrapServer;
     }
 
     @Override
     public Properties getProperties() {
         Properties props = new Properties();
-        props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
-        props.setProperty(ConsumerConfig.GROUP_ID_CONFIG, UUID.randomUUID().toString());
-        props.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
-        props.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
-        props.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
+        props.put(ProducerConfig.CLIENT_ID_CONFIG, UUID.randomUUID().toString());
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
+                StringSerializer.class.getName());
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
+                StringSerializer.class.getName());
+
         return props;
     }
 }

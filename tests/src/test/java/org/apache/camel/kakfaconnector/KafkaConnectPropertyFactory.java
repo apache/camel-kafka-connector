@@ -20,17 +20,17 @@ package org.apache.camel.kakfaconnector;
 
 import java.util.Properties;
 
+
 /**
- * An interface for producing different types of connector properties that match
- * an specific type of connector in test. Examples of runtime equivalent for this
- * file are the CamelSinkConnector.properties and the CamelSourceConnector.properties
- * files
+ * An interface for producing different types of Kafka connect properties. The CLI runtime
+ * equivalent for this file is the connect-standalone.properties
  */
-public interface ConnectorPropertyProducer {
+public interface KafkaConnectPropertyFactory {
 
     /**
-     * Gets the properties used to configure the connector
-     * @return a Properties object containing the set of properties for the connector
+     * Gets the properties used to configure the Kafka connect runtime
+     * @return a Properties object containing the set of properties for the Kafka connect
+     * runtime
      */
     Properties getProperties();
 }

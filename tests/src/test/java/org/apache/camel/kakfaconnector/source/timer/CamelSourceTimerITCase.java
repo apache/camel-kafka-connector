@@ -20,7 +20,7 @@ package org.apache.camel.kakfaconnector.source.timer;
 
 import org.apache.camel.kakfaconnector.KafkaConnectRunner;
 import org.apache.camel.kakfaconnector.TestCommon;
-import org.apache.camel.kakfaconnector.TestMessageConsumer;
+import org.apache.camel.kakfaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.Assert;
 import org.junit.Before;
@@ -33,8 +33,6 @@ import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.KafkaContainer;
-
-import static org.junit.Assert.fail;
 
 /**
  * A simple test case that checks whether the timer produces the expected number of
@@ -52,14 +50,18 @@ public class CamelSourceTimerITCase {
 
     @Before
     public void setUp() {
+
+
         kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
 
-        CamelTimerPropertyProducer testProperties = new CamelTimerPropertyProducer(1,
+        CamelTimerPropertyFactory testProperties = new CamelTimerPropertyFactory(1,
                 TestCommon.DEFAULT_TEST_TOPIC, expect);
 
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         log.info("Kafka bootstrap server running at address " + kafka.getBootstrapServers());
+
+
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -78,8 +80,8 @@ public class CamelSourceTimerITCase {
         service.submit(() -> kafkaConnectRunner.run());
 
         log.debug("Creating the consumer ...");
-        TestMessageConsumer<String,String> testMessageConsumer = new TestMessageConsumer<>(kafka.getBootstrapServers());
-        testMessageConsumer.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
+        KafkaClient<String,String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+        kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
         log.debug("Created the consumer ...");
 
         kafkaConnectRunner.stop();

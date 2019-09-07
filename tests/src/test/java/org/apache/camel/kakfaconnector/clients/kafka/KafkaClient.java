@@ -16,24 +16,34 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kakfaconnector.clients.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.function.Predicate;
 
 /**
  * A very simple test message consumer that can consume messages of different types
- * @param <K> Key vtype
+ * @param <K> Key type
  * @param <V> Value type
  */
-public class TestMessageConsumer<K,V> {
-    private final ConsumerPropertyProducer propertyProducer;
+public class KafkaClient<K,V> {
+    private static final Logger log = LoggerFactory.getLogger(KafkaClient.class);
+
+    private final ConsumerPropertyFactory propertyProducer;
+    private final ProducerPropertyFactory producerPropertyFactory;
 
 
     /**
@@ -41,8 +51,9 @@ public class TestMessageConsumer<K,V> {
      * @param bootstrapServer the address of the server in the format
      *                       PLAINTEXT://${address}:${port}
      */
-    public TestMessageConsumer(String bootstrapServer) {
-        this.propertyProducer = new DefaultConsumerPropertyProducer(bootstrapServer);
+    public KafkaClient(String bootstrapServer) {
+        this.propertyProducer = new DefaultConsumerPropertyFactory(bootstrapServer);
+        this.producerPropertyFactory = new DefaultProducerPropertyFactory(bootstrapServer);
     }
 
 
@@ -66,6 +77,25 @@ public class TestMessageConsumer<K,V> {
                 }
             }
         }
+    }
+
+
+    /**
+     * Sends data to a topic
+     * @param topic the topic to send data to
+     * @param message the message to send
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    public void produce(String topic, V message) throws ExecutionException, InterruptedException {
+        Properties props = producerPropertyFactory.getProperties();
+
+        KafkaProducer<K, V> producer = new KafkaProducer<K, V>(props);
+        ProducerRecord<K, V> record = new ProducerRecord<>(topic, message);
+
+        Future<RecordMetadata> future = producer.send(record);
+
+        future.get();
     }
 
 

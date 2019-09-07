@@ -18,35 +18,19 @@
 
 package org.apache.camel.kakfaconnector;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.Properties;
 
-import static junit.framework.TestCase.fail;
-
 /**
- * Common test constants and utilities
+ * An interface for producing different types of connector properties that match
+ * an specific type of connector in test. Examples of runtime equivalent for this
+ * file are the CamelSinkConnector.properties and the CamelSourceConnector.properties
+ * files
  */
-public final class TestCommon {
-    private static final Logger log = LoggerFactory.getLogger(TestCommon.class);
-
-    private TestCommon() {}
+public interface ConnectorPropertyFactory {
 
     /**
-     * The default topic for usage during the tests
+     * Gets the properties used to configure the connector
+     * @return a Properties object containing the set of properties for the connector
      */
-    public static final String DEFAULT_TEST_TOPIC = "mytopic";
-
-    /**
-     * The default JMS queue name used during the tests
-     */
-    public static final String DEFAULT_JMS_QUEUE = "ckc.queue";
-
-
-    public static void failOnConnectorError(Throwable error, Properties connectorProps, String name) {
-        log.error("Failed to create job for {} with properties", name, connectorProps,
-                error);
-        fail("Failed to create job for " + name);
-    }
+    Properties getProperties();
 }
