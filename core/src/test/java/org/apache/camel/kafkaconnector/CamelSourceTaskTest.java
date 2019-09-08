@@ -18,6 +18,7 @@ package org.apache.camel.kafkaconnector;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -66,8 +67,22 @@ public class CamelSourceTaskTest {
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);
 
-        Thread.sleep(2000L);
-        List<SourceRecord> poll = camelSourceTask.poll();
+        Thread.sleep(3000L);
+        List<SourceRecord> poll;
+        int retries = 3;
+        do {
+            poll = camelSourceTask.poll();
+            if (poll == null) {
+                retries--;
+
+                if (retries == 0) {
+                    fail("Exhausted the maximum retries and no record was returned");
+                }
+
+                Thread.sleep(3000L);
+            }
+        } while (poll == null && retries > 0);
+
         assertEquals(1, poll.size());
     }
 
