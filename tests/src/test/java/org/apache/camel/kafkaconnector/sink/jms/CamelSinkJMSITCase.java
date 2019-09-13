@@ -15,15 +15,15 @@
  * limitations under the License.
  *
  */
-package org.apache.camel.kakfaconnector.sink.jms;
+package org.apache.camel.kafkaconnector.sink.jms;
 
-import org.apache.camel.kakfaconnector.ArtemisContainer;
-import org.apache.camel.kakfaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kakfaconnector.ContainerUtil;
-import org.apache.camel.kakfaconnector.KafkaConnectRunner;
-import org.apache.camel.kakfaconnector.TestCommon;
-import org.apache.camel.kakfaconnector.clients.jms.JMSClient;
-import org.apache.camel.kakfaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.ArtemisContainer;
+import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.ContainerUtil;
+import org.apache.camel.kafkaconnector.KafkaConnectRunner;
+import org.apache.camel.kafkaconnector.TestCommon;
+import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
+import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;

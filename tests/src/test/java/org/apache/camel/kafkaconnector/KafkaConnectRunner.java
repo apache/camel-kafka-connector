@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kafkaconnector;
 
 import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;

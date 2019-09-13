@@ -16,11 +16,11 @@
  *
  */
 
-package org.apache.camel.kakfaconnector.source.timer;
+package org.apache.camel.kafkaconnector.source.timer;
 
-import org.apache.camel.kakfaconnector.KafkaConnectRunner;
-import org.apache.camel.kakfaconnector.TestCommon;
-import org.apache.camel.kakfaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.KafkaConnectRunner;
+import org.apache.camel.kafkaconnector.TestCommon;
+import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.Assert;
 import org.junit.Before;

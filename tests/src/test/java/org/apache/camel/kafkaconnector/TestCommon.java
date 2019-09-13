@@ -16,21 +16,37 @@
  *
  */
 
-package org.apache.camel.kakfaconnector.clients.kafka;
+package org.apache.camel.kafkaconnector;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
+import static junit.framework.TestCase.fail;
+
 /**
- * An interface to produce properties that can be used to configure a Kafka consumer. The
- * CLI runtime equivalent for this file is the consumer.properties file from the Kafka
- * provided along with the Kafka deliverable
- *
+ * Common test constants and utilities
  */
-public interface ConsumerPropertyFactory {
+public final class TestCommon {
+    private static final Logger log = LoggerFactory.getLogger(TestCommon.class);
+
+    private TestCommon() {}
 
     /**
-     * Gets the properties used to configure the consumer
-     * @return a Properties object containing the set of properties for the consumer
+     * The default topic for usage during the tests
      */
-    Properties getProperties();
+    public static final String DEFAULT_TEST_TOPIC = "mytopic";
+
+    /**
+     * The default JMS queue name used during the tests
+     */
+    public static final String DEFAULT_JMS_QUEUE = "ckc.queue";
+
+
+    public static void failOnConnectorError(Throwable error, Properties connectorProps, String name) {
+        log.error("Failed to create job for {} with properties", name, connectorProps,
+                error);
+        fail("Failed to create job for " + name);
+    }
 }

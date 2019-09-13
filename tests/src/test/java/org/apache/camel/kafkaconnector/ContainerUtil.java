@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kafkaconnector;
 
 import org.testcontainers.containers.GenericContainer;
 

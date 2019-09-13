@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kafkaconnector;
 
 import java.util.Properties;
 

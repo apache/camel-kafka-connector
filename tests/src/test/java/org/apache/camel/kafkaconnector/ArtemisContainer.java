@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kafkaconnector;
 
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
@@ -36,7 +36,7 @@ public class ArtemisContainer extends GenericContainer {
     public ArtemisContainer() {
         super(new ImageFromDockerfile()
                 .withFileFromClasspath("Dockerfile",
-                        "org/apache/camel/kakfaconnector/Dockerfile"));
+                        "org/apache/camel/kafkaconnector/Dockerfile"));
 
         withExposedPorts(new Integer[]{DEFAULT_MQTT_PORT, DEFAULT_AMQP_PORT,
                 DEFAULT_ADMIN_PORT, DEFAULT_ACCEPTOR_PORT});

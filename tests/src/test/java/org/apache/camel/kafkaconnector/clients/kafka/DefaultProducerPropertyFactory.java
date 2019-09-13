@@ -16,18 +16,15 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kafkaconnector.clients.kafka;
 
-import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
+import java.util.UUID;
 
-
-/**
- * A set of properties for the Kafka connect runtime that match the standard configuration
- * used for the standalone CLI connect runtime.
- */
-public class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory {
+public class DefaultProducerPropertyFactory implements ProducerPropertyFactory {
     private final String bootstrapServer;
 
     /**
@@ -35,7 +32,7 @@ public class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyF
      * @param bootstrapServer the address of the server in the format
      *                       PLAINTEXT://${address}:${port}
      */
-    public DefaultKafkaConnectPropertyFactory(String bootstrapServer) {
+    public DefaultProducerPropertyFactory(String bootstrapServer) {
         this.bootstrapServer = bootstrapServer;
     }
 
@@ -43,13 +40,12 @@ public class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyF
     public Properties getProperties() {
         Properties props = new Properties();
 
-        props.put(StandaloneConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
-        props.put(StandaloneConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.json.JsonConverter");
-        props.put(StandaloneConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.json.JsonConverter");
-        props.put(StandaloneConfig.OFFSET_STORAGE_FILE_FILENAME_CONFIG, this.getClass().getResource("/").getPath() + "connect.offsets");
-        props.put(StandaloneConfig.OFFSET_COMMIT_INTERVAL_MS_CONFIG, "10000");
-        props.put(StandaloneConfig.PLUGIN_PATH_CONFIG, "");
-        props.put(StandaloneConfig.REST_PORT_CONFIG, "9999");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
+        props.put(ProducerConfig.CLIENT_ID_CONFIG, UUID.randomUUID().toString());
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
+                StringSerializer.class.getName());
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
+                StringSerializer.class.getName());
 
         return props;
     }
