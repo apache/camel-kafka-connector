@@ -15,6 +15,14 @@ For more information about Kafka Connect take a look http://kafka.apache.org/doc
 mvn clean package
 ----
 
+=== Build the project and run integration tests
+
+To run the integration tests it's necessary to have Docker installed.
+
+----
+mvn clean verify package
+----
+
 === Try it out locally
 
 You can use Camel Kafka connectors with local Apache Kafka installation.
