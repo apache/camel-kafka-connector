@@ -16,9 +16,9 @@
  *
  */
 
-package org.apache.camel.kakfaconnector.sink.jms;
+package org.apache.camel.kafkaconnector.source.jms;
 
-import org.apache.camel.kakfaconnector.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 import java.util.Properties;
@@ -44,15 +44,14 @@ class CamelJMSPropertyFactory implements ConnectorPropertyFactory {
     @Override
     public Properties getProperties() {
         Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelJmsSinkConnector");
+        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelJMSSourceConnector");
         connectorProps.put("tasks.max", String.valueOf(tasksMax));
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.CamelSinkConnector");
+        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.CamelSourceConnector");
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put("camel.sink.url", "sjms2://queue:" + queue);
-        connectorProps.put("topics", topic);
-
+        connectorProps.put("camel.source.url", "sjms2://queue:" + queue);
+        connectorProps.put("camel.source.kafka.topic", topic);
         connectorProps.put("camel.component.sjms2.connection-factory", "#class:org.apache.activemq.ActiveMQConnectionFactory");
         connectorProps.put("camel.component.sjms2.connection-factory.brokerURL", brokerURL);
 

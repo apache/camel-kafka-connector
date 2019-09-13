@@ -15,7 +15,7 @@
  * limitations under the License.
  *
  */
-package org.apache.camel.kakfaconnector.clients.jms;
+package org.apache.camel.kafkaconnector.clients.jms;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

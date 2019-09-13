@@ -16,21 +16,21 @@
  *
  */
 
-package org.apache.camel.kakfaconnector;
+package org.apache.camel.kafkaconnector.clients.kafka;
 
 import java.util.Properties;
 
-
 /**
- * An interface for producing different types of Kafka connect properties. The CLI runtime
- * equivalent for this file is the connect-standalone.properties
+ * An interface to produce properties that can be used to configure a Kafka consumer. The
+ * CLI runtime equivalent for this file is the consumer.properties file from the Kafka
+ * provided along with the Kafka deliverable
+ *
  */
-public interface KafkaConnectPropertyFactory {
+public interface ConsumerPropertyFactory {
 
     /**
-     * Gets the properties used to configure the Kafka connect runtime
-     * @return a Properties object containing the set of properties for the Kafka connect
-     * runtime
+     * Gets the properties used to configure the consumer
+     * @return a Properties object containing the set of properties for the consumer
      */
     Properties getProperties();
 }

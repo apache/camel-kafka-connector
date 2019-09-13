@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.camel.kakfaconnector.clients.kafka;
+package org.apache.camel.kafkaconnector.clients.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
