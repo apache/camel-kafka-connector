@@ -19,6 +19,7 @@
 package org.apache.camel.kafkaconnector;
 
 import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.wait.strategy.Wait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -47,6 +48,33 @@ public class ContainerUtil {
                 retries--;
             }
             else {
+                break;
+            }
+        } while (retries > 0);
+    }
+
+    /**
+     * Wait for the container to be in running state
+     * @param container the container to wait for
+     */
+    public static void waitForHttpInitialization(GenericContainer container, int port) {
+        int retries = 5;
+
+        do {
+            boolean state = container.isRunning();
+
+            if (state == false) {
+                try {
+                    Thread.sleep(TimeUnit.SECONDS.toMillis(5));
+                } catch (InterruptedException e) {
+                    container.stop();
+                    fail("Test interrupted");
+                }
+
+                retries--;
+            }
+            else {
+                container.waitingFor(Wait.forHttp("/").forPort(port));
                 break;
             }
         } while (retries > 0);

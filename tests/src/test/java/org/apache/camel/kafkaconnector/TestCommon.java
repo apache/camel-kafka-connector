@@ -43,6 +43,11 @@ public final class TestCommon {
      */
     public static final String DEFAULT_JMS_QUEUE = "ckc.queue";
 
+    /**
+     * The default JMS queue name used during the tests
+     */
+    public static final String DEFAULT_SQS_QUEUE = "ckc";
+
 
     public static void failOnConnectorError(Throwable error, Properties connectorProps, String name) {
         log.error("Failed to create job for {} with properties", name, connectorProps,

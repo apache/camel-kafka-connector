@@ -17,6 +17,7 @@
 package org.apache.camel.kafkaconnector;
 
 import org.apache.camel.Exchange;
+
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.support.DefaultExchange;
