@@ -125,6 +125,8 @@ public class KafkaConnectRunner {
 
     private void callTestErrorHandler(Properties connectorProps, Throwable error) {
         if (error != null) {
+            log.error("Failed to create the connector");
+            error.printStackTrace();
             TestCommon.failOnConnectorError(error, connectorProps,
                     (String) connectorProps.get(ConnectorConfig.NAME_CONFIG));
         }
