@@ -20,6 +20,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.Exchange;
 import org.apache.kafka.connect.sink.SinkRecord;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+//XXX: these are ignored due to https://github.com/jboss-fuse/camel-kafka-connector/issues/50
+@Ignore
 public class PropertiesOrderTest {
 
     @Test
@@ -42,6 +45,7 @@ public class PropertiesOrderTest {
 
         CamelSinkTask camelsinkTask = new CamelSinkTask();
         camelsinkTask.start(props);
+        camelsinkTask.stop();
     }
 
     @Test
@@ -54,5 +58,6 @@ public class PropertiesOrderTest {
 
         CamelSinkTask camelsinkTask = new CamelSinkTask();
         camelsinkTask.start(props);
+        camelsinkTask.stop();
     }
 }
