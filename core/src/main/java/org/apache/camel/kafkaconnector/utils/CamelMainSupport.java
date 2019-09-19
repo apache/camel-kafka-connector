@@ -45,7 +45,7 @@ public class CamelMainSupport {
 
         camelMain.addMainListener(new CamelMainFinishedListener());
 
-        // reorder properties to place the one starteing with "#class:" first
+        // reorder properties to place the one starting with "#class:" first
         Map<String, String> orderedProps = new LinkedHashMap<>();
         props.keySet().stream()
                 .filter( k -> props.get(k).startsWith("#class:"))
@@ -118,6 +118,7 @@ public class CamelMainSupport {
 
         @Override
         public void afterStart(MainSupport main) {
+            log.trace("Signaling CamelContext startup is finished (startFinishedSignal.countDown();) due to CamelMainFinishedListener been called");
             startFinishedSignal.countDown();
         }
 
@@ -140,11 +141,11 @@ public class CamelMainSupport {
             try {
                 camelMain.run();
             } catch (Exception e) {
+                log.error("An exception has occurred before CamelContext startup has finished", e);
+                startException = e;
                 if (startFinishedSignal.getCount() > 0) {
-                    startException = e;
+                    log.trace("Signaling CamelContext startup is finished (startFinishedSignal.countDown();) due to an exception");
                     startFinishedSignal.countDown();
-                } else {
-                    log.error("Caught exception from CamelContext", e);
                 }
             }
         }
