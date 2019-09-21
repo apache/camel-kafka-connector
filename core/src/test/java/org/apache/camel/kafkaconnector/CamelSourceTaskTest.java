@@ -31,31 +31,33 @@ import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.Test;
 
 public class CamelSourceTaskTest {
-   
-   @Test
-   public void testSourcePolling() throws InterruptedException {
-      Map<String, String> props = new HashMap<>();
-      props.put("camel.source.url", "timer:kafkaconnector");
-      props.put("camel.source.kafka.topic", "mytopic");
 
-      CamelSourceTask camelSourceTask = new CamelSourceTask();
-      camelSourceTask.start(props);
+    @Test
+    public void testSourcePolling() throws InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.kafka.topic", "mytopic");
 
-      Thread.sleep(2100L);
-      List<SourceRecord> poll = camelSourceTask.poll();
-      assertEquals(2, poll.size());
-      assertEquals("mytopic", poll.get(0).topic());
-      Headers headers = poll.get(0).headers();
-      boolean containsHeader = false;
-      for (Iterator iterator = headers.iterator(); iterator.hasNext();) {
-        Header header = (Header)iterator.next();
-        if (header.key().equalsIgnoreCase("CamelPropertyCamelTimerPeriod")) {
-            containsHeader = true;
-            break;
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        Thread.sleep(2000L);
+        List<SourceRecord> poll = camelSourceTask.poll();
+        assertEquals(2, poll.size());
+        assertEquals("mytopic", poll.get(0).topic());
+        Headers headers = poll.get(0).headers();
+        boolean containsHeader = false;
+        for (Iterator iterator = headers.iterator(); iterator.hasNext();) {
+            Header header = (Header)iterator.next();
+            if (header.key().equalsIgnoreCase("CamelPropertyCamelTimerPeriod")) {
+                containsHeader = true;
+                break;
+            }
         }
+        assertTrue(containsHeader);
+
+        camelSourceTask.stop();
     }
-      assertTrue(containsHeader);
-   }
 
     @Test
     public void testSourcePollingTimeout() throws InterruptedException {
@@ -84,6 +86,8 @@ public class CamelSourceTaskTest {
         } while (poll == null && retries > 0);
 
         assertEquals(1, poll.size());
+
+        camelSourceTask.stop();
     }
 
     @Test
@@ -99,6 +103,8 @@ public class CamelSourceTaskTest {
         Thread.sleep(2000L);
         List<SourceRecord> poll = camelSourceTask.poll();
         assertEquals(1, poll.size());
+
+        camelSourceTask.stop();
     }
 
     @Test
@@ -118,5 +124,7 @@ public class CamelSourceTaskTest {
         camelSourceTask.getCms().getEndpoints().stream()
                 .filter( e -> e.getEndpointUri().startsWith("direct"))
                 .forEach( e -> assertEquals("direct://end?pollingConsumerBlockTimeout=1000&pollingConsumerBlockWhenFull=false&pollingConsumerQueueSize=10", e.getEndpointUri()));
+
+        camelSourceTask.stop();
     }
 }

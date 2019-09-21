@@ -54,6 +54,8 @@ public class CamelSinkTaskTest {
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
+
+        camelsinkTask.stop();
     }
 
     @Test
@@ -96,6 +98,8 @@ public class CamelSinkTaskTest {
         assertEquals(myDouble, exchange.getIn().getHeader("CamelHeaderMyDouble", Double.class));
         assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
         assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
+
+        camelsinkTask.stop();
     }
     
     @Test
@@ -138,6 +142,8 @@ public class CamelSinkTaskTest {
         assertEquals(myDouble, (Double) exchange.getProperties().get("CamelPropertyMyDouble"));
         assertEquals(myInteger, exchange.getProperties().get("CamelPropertyMyInteger"));
         assertEquals(myLong, (Long) exchange.getProperties().get("CamelPropertyMyLong"));
+
+        camelsinkTask.stop();
     }
     
     @Test
@@ -194,5 +200,7 @@ public class CamelSinkTaskTest {
         assertEquals(myDouble, exchange.getIn().getHeader("CamelHeaderMyDouble", Double.class));
         assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
         assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
+
+        camelsinkTask.stop();
     }
 }

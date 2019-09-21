@@ -56,8 +56,9 @@ public class CamelSinkTask extends SinkTask {
             log.info("Starting CamelSinkTask connector task");
             config = new CamelSinkConnectorConfig(props);
             final String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
+            final String marshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF);
 
-            cms = new CamelMainSupport(props, LOCAL_URL, remoteUrl);
+            cms = new CamelMainSupport(props, LOCAL_URL, remoteUrl, marshaller, null);
 
             producer = cms.createProducerTemplate();
 

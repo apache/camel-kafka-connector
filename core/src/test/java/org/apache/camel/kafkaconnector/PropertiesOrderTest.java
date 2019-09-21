@@ -31,7 +31,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-//XXX: these are ignored due to https://github.com/jboss-fuse/camel-kafka-connector/issues/50
+//TODO: these are ignored due to https://github.com/jboss-fuse/camel-kafka-connector/issues/50
 @Ignore
 public class PropertiesOrderTest {
 

@@ -28,6 +28,10 @@ public class CamelSinkConnectorConfig extends AbstractConfig {
    public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
    private static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination";
 
+   public static final String CAMEL_SINK_MARSHAL_DEFAULT = null;
+   public static final String CAMEL_SINK_MARSHAL_CONF = "camel.sink.marshal";
+   private static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
+
    public CamelSinkConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
       super(config, parsedConfig);
    }
@@ -38,6 +42,7 @@ public class CamelSinkConnectorConfig extends AbstractConfig {
 
    public static ConfigDef conf() {
       return new ConfigDef()
-            .define(CAMEL_SINK_URL_CONF, Type.STRING, CAMEL_SINK_URL_DEFAULT, Importance.HIGH, CAMEL_SINK_URL_DOC);
+            .define(CAMEL_SINK_URL_CONF, Type.STRING, CAMEL_SINK_URL_DEFAULT, Importance.HIGH, CAMEL_SINK_URL_DOC)
+            .define(CAMEL_SINK_MARSHAL_CONF, Type.STRING, CAMEL_SINK_MARSHAL_DEFAULT, Importance.HIGH, CAMEL_SINK_MARSHAL_DOC);
    }
 }
