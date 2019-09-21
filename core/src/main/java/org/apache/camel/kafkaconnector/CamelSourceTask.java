@@ -67,11 +67,12 @@ public class CamelSourceTask extends SourceTask {
             maxPollDuration = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_POLL_DURATION_CONF);
 
             final String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
+            final String unmarshaller = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_UNMARSHAL_CONF);
             topic = config.getString(CamelSourceConnectorConfig.TOPIC_CONF);
 
             String localUrl = getLocalUrlWithPollingOptions(config);
 
-            cms = new CamelMainSupport(props, remoteUrl, localUrl);
+            cms = new CamelMainSupport(props, remoteUrl, localUrl, null, unmarshaller);
 
             Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();

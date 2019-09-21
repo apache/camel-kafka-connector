@@ -29,6 +29,10 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
    public static final String CAMEL_SOURCE_URL_CONF = "camel.source.url";
    private static final String CAMEL_SOURCE_URL_DOC = "The camel url to configure the source";
 
+   public static final String CAMEL_SOURCE_UNMARSHAL_DEFAULT = null;
+   public static final String CAMEL_SOURCE_UNMARSHAL_CONF = "camel.source.unmarshal";
+   private static final String CAMEL_SOURCE_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the source";
+
    public static final String TOPIC_DEFAULT = "test";
    public static final String TOPIC_CONF = "camel.source.kafka.topic";
    private static final String TOPIC_DOC = "The topic to publish data to";
@@ -64,6 +68,7 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
    public static ConfigDef conf() {
       return new ConfigDef()
             .define(CAMEL_SOURCE_URL_CONF, Type.STRING, CAMEL_SOURCE_URL_DEFAULT, Importance.HIGH, CAMEL_SOURCE_URL_DOC)
+            .define(CAMEL_SOURCE_UNMARSHAL_CONF, Type.STRING, CAMEL_SOURCE_UNMARSHAL_DEFAULT, Importance.HIGH, CAMEL_SOURCE_UNMARSHAL_DOC)
             .define(TOPIC_CONF, ConfigDef.Type.STRING, TOPIC_DEFAULT, ConfigDef.Importance.HIGH, TOPIC_DOC)
             .define(CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF, Type.LONG, CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DOC)
             .define(CAMEL_SOURCE_MAX_POLL_DURATION_CONF, Type.LONG, CAMEL_SOURCE_MAX_POLL_DURATION_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_MAX_POLL_DURATION_DOC)
