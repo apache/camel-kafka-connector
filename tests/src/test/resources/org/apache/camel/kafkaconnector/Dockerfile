@@ -12,7 +12,7 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-FROM registry.access.redhat.com/ubi8/ubi-minimal as artemis-base
+FROM centos:8 as artemis-base
 MAINTAINER Otavio Rodolfo Piske <angusyoung@gmail.com>
 ARG ARTEMIS_VERSION
 ENV ARTEMIS_VERSION ${ARTEMIS_VERSION:-2.7.0}
@@ -20,7 +20,7 @@ ARG ARTEMIS_JOURNAL
 ENV ARTEMIS_JOURNAL ${ARTEMIS_JOURNAL:-aio}
 ENV JMS_BROKER_ROOT /opt/camel-kafka-connector/artemis/
 EXPOSE 1883 5672 8161 61616
-RUN microdnf install -y java-1.8.0-openjdk-headless libaio tar gzip && microdnf clean all
+RUN dnf install -y java-1.8.0-openjdk-headless libaio tar gzip && dnf clean all
 ENV JAVA_HOME /etc/alternatives/jre
 RUN mkdir -p ${JMS_BROKER_ROOT}
 WORKDIR ${JMS_BROKER_ROOT}
