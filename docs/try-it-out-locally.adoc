@@ -147,6 +147,15 @@ export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSKinesisSourceConnector.properties
 ----
 
+.Run the http sink:
+You can adjust properties in `examples/CamelHttpSinkConnector.properties` for example configuring the called url.
+
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelHttpSinkConnector.properties
+----
+
 ==== Listen or produce from a Kafka topic using Kafka utilities:
 
 .Run an Kafka Consumer
