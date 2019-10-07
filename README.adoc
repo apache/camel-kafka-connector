@@ -17,8 +17,13 @@ mvn clean package
 
 === Build the project and run integration tests
 
-To run the integration tests it's necessary to have Docker installed.
+To run the integration tests it is required to:
 
+  * have Docker version 17.05 or higher running
+  * `docker pull confluentinc/cp-kafka:5.2.1` before launching integration testing (as a workaround to https://github.com/jboss-fuse/camel-kafka-connector/issues/56)
+  * run:
++
+[source,bash]
 ----
 mvn clean verify package
 ----
