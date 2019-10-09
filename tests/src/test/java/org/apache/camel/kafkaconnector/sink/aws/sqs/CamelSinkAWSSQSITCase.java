@@ -53,7 +53,6 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.fail;
 
-@Ignore("This test requires camel > 3.0.0-M4")
 public class CamelSinkAWSSQSITCase {
     private static final Logger log = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
     private static final int SQS_PORT = 4576;
