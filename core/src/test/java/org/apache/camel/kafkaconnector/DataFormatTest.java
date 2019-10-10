@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,18 +16,15 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.camel.component.hl7.HL7DataFormat;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
-import org.apache.camel.spi.DataFormat;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class DataFormatTest {
 
@@ -69,7 +66,7 @@ public class DataFormatTest {
 
     @Test(expected = UnsupportedOperationException.class)
     public void testBothDataFormatConfiguredError() throws Exception {
-        new CamelMainSupport(new HashMap<String,String>(), "direct://start", "log://test", "syslog", "syslog");
+        new CamelMainSupport(new HashMap<>(), "direct://start", "log://test", "syslog", "syslog");
     }
 
     @Test

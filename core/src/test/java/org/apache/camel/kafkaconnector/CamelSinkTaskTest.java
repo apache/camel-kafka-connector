@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -14,23 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.kafkaconnector;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+package org.apache.camel.kafkaconnector;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.camel.CamelContext;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.Exchange;
 import org.apache.kafka.connect.sink.SinkRecord;
 import org.junit.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CamelSinkTaskTest {
 
@@ -135,7 +133,7 @@ public class CamelSinkTaskTest {
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
-        assertTrue((boolean) exchange.getProperties().get(("CamelPropertyMyBoolean")));
+        assertTrue((boolean) exchange.getProperties().get("CamelPropertyMyBoolean"));
         assertEquals(myByte, (Byte) exchange.getProperties().get("CamelPropertyMyByte"));
         assertEquals(myFloat, (Float) exchange.getProperties().get("CamelPropertyMyFloat"));
         assertEquals(myShort, (Short) exchange.getProperties().get("CamelPropertyMyShort"));
@@ -186,7 +184,7 @@ public class CamelSinkTaskTest {
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
-        assertTrue((boolean) exchange.getProperties().get(("CamelPropertyMyBoolean")));
+        assertTrue((boolean) exchange.getProperties().get("CamelPropertyMyBoolean"));
         assertEquals(myByte, (Byte) exchange.getProperties().get("CamelPropertyMyByte"));
         assertEquals(myFloat, (Float) exchange.getProperties().get("CamelPropertyMyFloat"));
         assertEquals(myShort, (Short) exchange.getProperties().get("CamelPropertyMyShort"));

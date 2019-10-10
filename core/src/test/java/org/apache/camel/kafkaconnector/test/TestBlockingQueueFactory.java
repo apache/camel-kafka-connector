@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,15 +16,14 @@
  */
 package org.apache.camel.kafkaconnector.test;
 
+import java.util.concurrent.BlockingQueue;
 import org.apache.camel.component.seda.ArrayBlockingQueueFactory;
 import org.apache.camel.component.seda.BlockingQueueFactory;
 
-import java.util.concurrent.BlockingQueue;
-
 public class TestBlockingQueueFactory implements BlockingQueueFactory {
-    private Integer counter;
-
     BlockingQueueFactory bqf = new ArrayBlockingQueueFactory();
+
+    private Integer counter;
 
     public Integer getCounter() {
         return counter;

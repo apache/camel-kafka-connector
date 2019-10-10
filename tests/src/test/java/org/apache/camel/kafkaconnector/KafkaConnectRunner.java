@@ -6,17 +6,24 @@
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
 package org.apache.camel.kafkaconnector;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.ExecutionException;
+
+import static junit.framework.TestCase.fail;
 
 import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;
@@ -36,20 +43,14 @@ import org.apache.kafka.connect.util.FutureCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.ExecutionException;
 
-import static junit.framework.TestCase.fail;
 
 /**
  * An embeddable Kafka Connect runtime for usage during the tests. It is equivalent
  * to the Kafka connect standalone CLI
  */
 public class KafkaConnectRunner {
-    private static final Logger log = LoggerFactory.getLogger(KafkaConnectRunner.class);
+    private static final Logger LOG = LoggerFactory.getLogger(KafkaConnectRunner.class);
 
     private final String bootstrapServer;
     private final KafkaConnectPropertyFactory kafkaConnectPropertyFactory;
@@ -77,7 +78,7 @@ public class KafkaConnectRunner {
      *
      */
     private void init() {
-        log.info("Started worked initialization");
+        LOG.info("Started worked initialization");
 
         Time time = Time.SYSTEM;
 
@@ -109,7 +110,7 @@ public class KafkaConnectRunner {
          */
         herder = new StandaloneHerder(worker, kafkaClusterId);
         connect = new Connect(herder, rest);
-        log.info("Finished initializing the worker");
+        LOG.info("Finished initializing the worker");
     }
 
     /**
@@ -125,13 +126,12 @@ public class KafkaConnectRunner {
 
     private void callTestErrorHandler(Properties connectorProps, Throwable error) {
         if (error != null) {
-            log.error("Failed to create the connector");
+            LOG.error("Failed to create the connector");
             error.printStackTrace();
             TestCommon.failOnConnectorError(error, connectorProps,
                     (String) connectorProps.get(ConnectorConfig.NAME_CONFIG));
-        }
-        else {
-            log.debug("Created connector {}", connectorProps.get(ConnectorConfig.NAME_CONFIG));
+        } else {
+            LOG.debug("Created connector {}", connectorProps.get(ConnectorConfig.NAME_CONFIG));
         }
     }
 
@@ -150,11 +150,11 @@ public class KafkaConnectRunner {
     }
 
     private static void failOnKafkaConnectInitialization(Throwable error) {
-        log.error("Failed to initialize the embedded Kafka Connect Runtime: {}",
+        LOG.error("Failed to initialize the embedded Kafka Connect Runtime: {}",
                 error.getMessage(), error);
 
-        fail("Failed to initialize the embedded Kafka Connect Runtime: " +
-                error.getMessage());
+        fail("Failed to initialize the embedded Kafka Connect Runtime: "
+                + error.getMessage());
     }
 
     /**
@@ -164,14 +164,14 @@ public class KafkaConnectRunner {
     public boolean run() {
         init();
 
-        log.info("Starting the connect interface");
+        LOG.info("Starting the connect interface");
         connect.start();
-        log.info("Started the connect interface");
+        LOG.info("Started the connect interface");
 
         for (ConnectorPropertyFactory propertyProducer : connectorPropertyFactories) {
             try {
                 initializeConnector(propertyProducer);
-            } catch(InterruptedException | ExecutionException e){
+            } catch (InterruptedException | ExecutionException e) {
                 failOnKafkaConnectInitialization(e);
 
                 return false;

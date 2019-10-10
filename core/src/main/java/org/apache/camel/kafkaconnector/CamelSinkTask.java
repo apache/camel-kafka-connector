@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,8 +16,11 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import org.apache.camel.Exchange;
-
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.support.DefaultExchange;
@@ -29,15 +32,11 @@ import org.apache.kafka.connect.sink.SinkTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
 public class CamelSinkTask extends SinkTask {
+    public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
+
     private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
 
-    public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
     private static final String LOCAL_URL = "direct:start";
     private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
     private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
@@ -112,17 +111,17 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
             map.put(singleHeader.key(), singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), ((byte[])singleHeader.value()));
+            map.put(singleHeader.key(), (byte[])singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), ((float)singleHeader.value()));
+            map.put(singleHeader.key(), (float)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), ((double)singleHeader.value()));
+            map.put(singleHeader.key(), (double)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT16_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), ((short)singleHeader.value()));
+            map.put(singleHeader.key(), (short)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), ((long)singleHeader.value()));
+            map.put(singleHeader.key(), (long)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), ((byte)singleHeader.value()));
+            map.put(singleHeader.key(), (byte)singleHeader.value());
         }
     }
 
@@ -135,17 +134,17 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
             exchange.getProperties().put(singleHeader.key(), singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), ((byte[])singleHeader.value()));
+            exchange.getProperties().put(singleHeader.key(), (byte[])singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), ((float)singleHeader.value()));
+            exchange.getProperties().put(singleHeader.key(), (float)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), ((double)singleHeader.value()));
+            exchange.getProperties().put(singleHeader.key(), (double)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT16_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), ((short)singleHeader.value()));
+            exchange.getProperties().put(singleHeader.key(), (short)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), ((long)singleHeader.value()));
+            exchange.getProperties().put(singleHeader.key(), (long)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), ((byte)singleHeader.value()));
+            exchange.getProperties().put(singleHeader.key(), (byte)singleHeader.value());
         }
     }
 

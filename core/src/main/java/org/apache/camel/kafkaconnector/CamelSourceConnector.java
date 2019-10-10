@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,18 +16,17 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.Task;
 import org.apache.kafka.connect.source.SourceConnector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 public class CamelSourceConnector extends SourceConnector {
-    private static final Logger log = LoggerFactory.getLogger(CamelSourceConnector.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceConnector.class);
 
     private Map<String, String> configProps;
 
@@ -38,7 +37,7 @@ public class CamelSourceConnector extends SourceConnector {
 
     @Override
     public void start(Map<String, String> configProps) {
-        log.info("Connector config keys: {}", String.join(", ", configProps.keySet()));
+        LOG.info("Connector config keys: {}", String.join(", ", configProps.keySet()));
         this.configProps = configProps;
     }
 
@@ -49,7 +48,7 @@ public class CamelSourceConnector extends SourceConnector {
 
     @Override
     public List<Map<String, String>> taskConfigs(int maxTasks) {
-        log.info("Setting task configurations for {} workers.", maxTasks);
+        LOG.info("Setting task configurations for {} workers.", maxTasks);
         final List<Map<String, String>> configs = new ArrayList<>(maxTasks);
         for (int i = 0; i < maxTasks; ++i) {
             configs.add(configProps);

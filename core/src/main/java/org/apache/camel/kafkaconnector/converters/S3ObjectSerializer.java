@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -20,38 +20,36 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
-
-import org.apache.kafka.common.serialization.Serializer;
-
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import org.apache.kafka.common.serialization.Serializer;
 
 public class S3ObjectSerializer implements Serializer<S3ObjectInputStream> {
 
-	@Override
-	public void configure(Map<String, ?> configs, boolean isKey) {
-	}
+    @Override
+    public void configure(Map<String, ?> configs, boolean isKey) {
+    }
 
-	@Override
-	public byte[] serialize(String topic, S3ObjectInputStream data) {
-		InputStream is = data.getDelegateStream();
-		ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+    @Override
+    public byte[] serialize(String topic, S3ObjectInputStream data) {
+        InputStream is = data.getDelegateStream();
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
-		int nRead;
-		byte[] byteArray = new byte[16384];
+        int nRead;
+        byte[] byteArray = new byte[16384];
 
-		try {
-			while ((nRead = is.read(byteArray, 0, byteArray.length)) != -1) {
-				buffer.write(byteArray, 0, nRead);
-			}
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
+        try {
+            while ((nRead = is.read(byteArray, 0, byteArray.length)) != -1) {
+                buffer.write(byteArray, 0, nRead);
+            }
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
 
-		return buffer.toByteArray();
-	}
+        return buffer.toByteArray();
+    }
 
-	@Override
-	public void close() {
-	}
+    @Override
+    public void close() {
+    }
 
 }
