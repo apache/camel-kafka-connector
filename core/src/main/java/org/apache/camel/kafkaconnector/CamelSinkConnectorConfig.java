@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,33 +16,33 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.util.Map;
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.config.ConfigDef.Importance;
 import org.apache.kafka.common.config.ConfigDef.Type;
 
-import java.util.Map;
-
 public class CamelSinkConnectorConfig extends AbstractConfig {
-   public static final String CAMEL_SINK_URL_DEFAULT = "log:kafkaconnector?showAll=true";
-   public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
-   private static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination";
+    public static final String CAMEL_SINK_URL_DEFAULT = "log:kafkaconnector?showAll=true";
+    public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
 
-   public static final String CAMEL_SINK_MARSHAL_DEFAULT = null;
-   public static final String CAMEL_SINK_MARSHAL_CONF = "camel.sink.marshal";
-   private static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
+    public static final String CAMEL_SINK_MARSHAL_DEFAULT = null;
+    public static final String CAMEL_SINK_MARSHAL_CONF = "camel.sink.marshal";
 
-   public CamelSinkConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
-      super(config, parsedConfig);
-   }
+    private static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination";
+    private static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
 
-   public CamelSinkConnectorConfig(Map<String, String> parsedConfig) {
-      this(conf(), parsedConfig);
-   }
+    public CamelSinkConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
+        super(config, parsedConfig);
+    }
 
-   public static ConfigDef conf() {
-      return new ConfigDef()
-            .define(CAMEL_SINK_URL_CONF, Type.STRING, CAMEL_SINK_URL_DEFAULT, Importance.HIGH, CAMEL_SINK_URL_DOC)
-            .define(CAMEL_SINK_MARSHAL_CONF, Type.STRING, CAMEL_SINK_MARSHAL_DEFAULT, Importance.HIGH, CAMEL_SINK_MARSHAL_DOC);
-   }
+    public CamelSinkConnectorConfig(Map<String, String> parsedConfig) {
+        this(conf(), parsedConfig);
+    }
+
+    public static ConfigDef conf() {
+        return new ConfigDef()
+                .define(CAMEL_SINK_URL_CONF, Type.STRING, CAMEL_SINK_URL_DEFAULT, Importance.HIGH, CAMEL_SINK_URL_DOC)
+                .define(CAMEL_SINK_MARSHAL_CONF, Type.STRING, CAMEL_SINK_MARSHAL_DEFAULT, Importance.HIGH, CAMEL_SINK_MARSHAL_DOC);
+    }
 }

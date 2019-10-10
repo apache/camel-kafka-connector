@@ -6,17 +6,24 @@
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
+
 package org.apache.camel.kafkaconnector.sink.jms;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.TextMessage;
 import org.apache.camel.kafkaconnector.ArtemisContainer;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
@@ -32,14 +39,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.KafkaContainer;
 
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.TextMessage;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.fail;
 
 /**
@@ -47,7 +46,7 @@ import static org.junit.Assert.fail;
  * messages
  */
 public class CamelSinkJMSITCase {
-    private static final Logger log = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
 
     @Rule
     public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
@@ -55,29 +54,29 @@ public class CamelSinkJMSITCase {
     @Rule
     public ArtemisContainer artemis = new ArtemisContainer();
 
-    private int received = 0;
+    private int received;
     private final int expect = 10;
     private KafkaConnectRunner kafkaConnectRunner;
 
     @Before
     public void setUp() {
         ContainerUtil.waitForInitialization(kafka);
-        log.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
+        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
 
         ContainerUtil.waitForInitialization(artemis);
-        log.info("Artemis broker running at {}", artemis.getAdminURL());
+        LOG.info("Artemis broker running at {}", artemis.getAdminURL());
 
         ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
                 TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_JMS_QUEUE, artemis.getDefaultAcceptorEndpoint());
 
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = new KafkaConnectRunner(kafka.getBootstrapServers());
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
     private boolean checkRecord(Message jmsMessage) {
         if (jmsMessage instanceof TextMessage) {
             try {
-                log.debug("Received: {}", ((TextMessage) jmsMessage).getText());
+                LOG.debug("Received: {}", ((TextMessage) jmsMessage).getText());
 
                 received++;
 
@@ -87,7 +86,7 @@ public class CamelSinkJMSITCase {
 
                 return true;
             } catch (JMSException e) {
-                log.error("Failed to read message: {}", e.getMessage(), e);
+                LOG.error("Failed to read message: {}", e.getMessage(), e);
                 fail("Failed to read message: " + e.getMessage());
             }
         }
@@ -103,28 +102,27 @@ public class CamelSinkJMSITCase {
             ExecutorService service = Executors.newFixedThreadPool(2);
             service.submit(() -> kafkaConnectRunner.run());
 
-            log.debug("Creating the consumer ...");
+            LOG.debug("Creating the consumer ...");
             service.submit(() -> consumeJMSMessages(latch));
 
-            KafkaClient<String,String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+            KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
 
             for (int i = 0; i < expect; i++) {
                 kafkaClient.produce(TestCommon.DEFAULT_TEST_TOPIC, "Sink test message " + i);
             }
 
-            log.debug("Created the consumer ... About to receive messages");
+            LOG.debug("Created the consumer ... About to receive messages");
 
             if (latch.await(35, TimeUnit.SECONDS)) {
                 Assert.assertTrue("Didn't process the expected amount of messages: " + received + " != " + expect,
                         received == expect);
-            }
-            else {
+            } else {
                 fail("Failed to receive the messages within the specified time");
             }
 
             kafkaConnectRunner.stop();
         } catch (Exception e) {
-            log.error("JMS test failed: {}", e.getMessage(), e);
+            LOG.error("JMS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
         }
 
@@ -145,7 +143,7 @@ public class CamelSinkJMSITCase {
             }
 
         } catch (Exception e) {
-            log.error("JMS test failed: {}", e.getMessage(), e);
+            LOG.error("JMS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
         } finally {
             latch.countDown();

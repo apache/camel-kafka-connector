@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,20 +16,10 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import org.apache.camel.ConsumerTemplate;
-import org.apache.camel.Exchange;
-import org.apache.kafka.connect.sink.SinkRecord;
-import org.junit.Ignore;
-import org.junit.Test;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.junit.Test;
 
 public class PropertiesOrderTest {
 

@@ -6,17 +6,19 @@
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
+
 package org.apache.camel.kafkaconnector.source.jms;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.apache.camel.kafkaconnector.ArtemisContainer;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
@@ -33,9 +35,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.KafkaContainer;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import static org.junit.Assert.fail;
 
 /**
@@ -43,7 +42,7 @@ import static org.junit.Assert.fail;
  * messages
  */
 public class CamelSourceJMSITCase {
-    private static final Logger log = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
 
     @Rule
     public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
@@ -51,17 +50,17 @@ public class CamelSourceJMSITCase {
     @Rule
     public ArtemisContainer artemis = new ArtemisContainer();
 
-    private int received = 0;
+    private int received;
     private final int expect = 10;
     private KafkaConnectRunner kafkaConnectRunner;
 
     @Before
     public void setUp() {
         ContainerUtil.waitForInitialization(kafka);
-        log.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
+        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
 
         ContainerUtil.waitForInitialization(artemis);
-        log.info("Artemis broker running at " + artemis.getAdminURL());
+        LOG.info("Artemis broker running at {}", artemis.getAdminURL());
 
 
         ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
@@ -72,7 +71,7 @@ public class CamelSourceJMSITCase {
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
-        log.debug("Received: {}", record.value());
+        LOG.debug("Received: {}", record.value());
         received++;
 
         if (received == expect) {
@@ -99,15 +98,15 @@ public class CamelSourceJMSITCase {
             }
             jmsProducer.stop();
 
-            log.debug("Creating the consumer ...");
-            KafkaClient<String,String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+            LOG.debug("Creating the consumer ...");
+            KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
             kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
-            log.debug("Created the consumer ...");
+            LOG.debug("Created the consumer ...");
 
             kafkaConnectRunner.stop();
             Assert.assertTrue("Didn't process the expected amount of messages", received == expect);
         } catch (Exception e) {
-            log.error("JMS test failed: {}", e.getMessage(), e);
+            LOG.error("JMS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
         }
 

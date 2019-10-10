@@ -6,18 +6,19 @@
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
 package org.apache.camel.kafkaconnector.source.timer;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
@@ -26,10 +27,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.KafkaContainer;
@@ -39,12 +36,12 @@ import org.testcontainers.containers.KafkaContainer;
  * messages
  */
 public class CamelSourceTimerITCase {
-    private static final Logger log = LoggerFactory.getLogger(CamelSourceTimerITCase.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceTimerITCase.class);
 
     @Rule
     public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
-    private int received = 0;
+    private int received;
     private final int expect = 10;
     private KafkaConnectRunner kafkaConnectRunner;
 
@@ -59,7 +56,7 @@ public class CamelSourceTimerITCase {
 
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
-        log.info("Kafka bootstrap server running at address " + kafka.getBootstrapServers());
+        LOG.info("Kafka bootstrap server running at address " + kafka.getBootstrapServers());
 
 
     }
@@ -79,10 +76,10 @@ public class CamelSourceTimerITCase {
         ExecutorService service = Executors.newCachedThreadPool();
         service.submit(() -> kafkaConnectRunner.run());
 
-        log.debug("Creating the consumer ...");
-        KafkaClient<String,String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+        LOG.debug("Creating the consumer ...");
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
         kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
-        log.debug("Created the consumer ...");
+        LOG.debug("Created the consumer ...");
 
         kafkaConnectRunner.stop();
         Assert.assertTrue(received == expect);

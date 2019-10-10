@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,12 +16,16 @@
  */
 package org.apache.camel.kafkaconnector;
 
-class VersionUtil {
-   public static String getVersion() {
-      try {
-         return VersionUtil.class.getPackage().getImplementationVersion();
-      } catch (Exception ex) {
-         return "0.0.0.0";
-      }
-   }
+final class VersionUtil {
+
+    private VersionUtil() {
+    }
+
+    public static String getVersion() {
+        try {
+            return VersionUtil.class.getPackage().getImplementationVersion();
+        } catch (Exception ex) {
+            return "0.0.0.0";
+        }
+    }
 }

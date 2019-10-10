@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,19 +16,18 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.header.Headers;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class CamelSourceTaskTest {
 
@@ -122,8 +121,8 @@ public class CamelSourceTaskTest {
         assertEquals(2, camelSourceTask.getCms().getEndpoints().size());
 
         camelSourceTask.getCms().getEndpoints().stream()
-                .filter( e -> e.getEndpointUri().startsWith("direct"))
-                .forEach( e -> assertEquals("direct://end?pollingConsumerBlockTimeout=1000&pollingConsumerBlockWhenFull=false&pollingConsumerQueueSize=10", e.getEndpointUri()));
+                .filter(e -> e.getEndpointUri().startsWith("direct"))
+                .forEach(e -> assertEquals("direct://end?pollingConsumerBlockTimeout=1000&pollingConsumerBlockWhenFull=false&pollingConsumerQueueSize=10", e.getEndpointUri()));
 
         camelSourceTask.stop();
     }

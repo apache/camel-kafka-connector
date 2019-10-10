@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -17,29 +17,27 @@
 package org.apache.camel.kafkaconnector.converters;
 
 import java.util.Map;
-
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaAndValue;
 import org.apache.kafka.connect.storage.Converter;
 
-import com.amazonaws.services.s3.model.S3ObjectInputStream;
-
 public class S3ObjectConverter implements Converter {
 
-	private final S3ObjectSerializer serializer = new S3ObjectSerializer();
+    private final S3ObjectSerializer serializer = new S3ObjectSerializer();
 
-	@Override
-	public void configure(Map<String, ?> arg0, boolean arg1) {
-	}
+    @Override
+    public void configure(Map<String, ?> arg0, boolean arg1) {
+    }
 
-	@Override
-	public byte[] fromConnectData(String topic, Schema schema, Object value) {
-		return serializer.serialize(topic, (S3ObjectInputStream) value);
-	}
+    @Override
+    public byte[] fromConnectData(String topic, Schema schema, Object value) {
+        return serializer.serialize(topic, (S3ObjectInputStream) value);
+    }
 
-	@Override
-	public SchemaAndValue toConnectData(String arg0, byte[] arg1) {
-		return null;
-	}
+    @Override
+    public SchemaAndValue toConnectData(String arg0, byte[] arg1) {
+        return null;
+    }
 
 }

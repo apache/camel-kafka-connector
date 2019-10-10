@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,6 +16,13 @@
  */
 package org.apache.camel.kafkaconnector.utils;
 
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.apache.camel.CamelContext;
 import org.apache.camel.CamelContextAware;
 import org.apache.camel.ConsumerTemplate;
@@ -33,14 +40,6 @@ import org.apache.camel.util.OrderedProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class CamelMainSupport {
     private static Logger log = LoggerFactory.getLogger(CamelMainSupport.class);
 
@@ -55,12 +54,13 @@ public class CamelMainSupport {
     }
 
     public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, CamelContext camelContext) throws Exception {
-        this.camel = camelContext;//new DefaultCamelContext();
+        this.camel = camelContext; //new DefaultCamelContext();
         camelMain = new Main() {
             @Override
             protected ProducerTemplate findOrCreateCamelTemplate() {
                 return camel.createProducerTemplate();
             }
+
             @Override
             protected CamelContext createCamelContext() {
                 return camel;
@@ -72,11 +72,11 @@ public class CamelMainSupport {
         // reordering properties to place the one starting with "#class:" first
         Map<String, String> orderedProps = new LinkedHashMap<>();
         props.keySet().stream()
-                .filter( k -> props.get(k).startsWith("#class:"))
-                .forEach( k -> orderedProps.put(k, props.get(k)));
+                .filter(k -> props.get(k).startsWith("#class:"))
+                .forEach(k -> orderedProps.put(k, props.get(k)));
         props.keySet().stream()
-                .filter( k -> !props.get(k).startsWith("#class:"))
-                .forEach( k -> orderedProps.put(k, props.get(k)));
+                .filter(k -> !props.get(k).startsWith("#class:"))
+                .forEach(k -> orderedProps.put(k, props.get(k)));
 
         Properties camelProperties = new OrderedProperties();
         camelProperties.putAll(orderedProps);
@@ -88,13 +88,13 @@ public class CamelMainSupport {
         this.camel.addRoutes(new RouteBuilder() {
             public void configure() {
                 RouteDefinition rd = from(fromUrl);
-                if(marshal != null && unmarshal != null){
-                    throw new UnsupportedOperationException("Uses of both marshal (i.e. "+marshal+") and unmarshal (i.e. "+unmarshal+") is not supported");
-                } else if(marshal != null) {
+                if (marshal != null && unmarshal != null) {
+                    throw new UnsupportedOperationException("Uses of both marshal (i.e. " + marshal + ") and unmarshal (i.e. " + unmarshal + ") is not supported");
+                } else if (marshal != null) {
                     log.info("Creating Camel route from({}).marshal().custom({}).to({})", fromUrl, marshal, toUrl);
                     camel.getRegistry().bind(marshal, lookupAndInstantiateDataformat(marshal));
                     rd.marshal().custom(marshal);
-                } else if(unmarshal != null) {
+                } else if (unmarshal != null) {
                     log.info("Creating Camel route from({}).unmarshal().custom({}).to({})", fromUrl, unmarshal, toUrl);
                     camel.getRegistry().bind(unmarshal, lookupAndInstantiateDataformat(unmarshal));
                     rd.unmarshal().custom(unmarshal);
@@ -146,13 +146,13 @@ public class CamelMainSupport {
         return camel.createConsumerTemplate();
     }
 
-    private DataFormat lookupAndInstantiateDataformat(String dataformatName){
+    private DataFormat lookupAndInstantiateDataformat(String dataformatName) {
         DataFormat df = camel.resolveDataFormat(dataformatName);
 
-        if(df == null) {
+        if (df == null) {
             df = camel.createDataFormat(dataformatName);
 
-            final String prefix = "camel" + "." +  "dataformat" + "." + dataformatName + ".";
+            final String prefix = "camel" + "." + "dataformat" + "." + dataformatName + ".";
             final Properties props = camel.getPropertiesComponent().loadProperties(k -> k.startsWith(prefix));
 
             CamelContextAware.trySetCamelContext(df, camel);
@@ -169,7 +169,7 @@ public class CamelMainSupport {
         }
 
         //TODO: move it to the caller?
-        if(df == null){
+        if (df == null) {
             throw new UnsupportedOperationException("No DataFormat found with name " + dataformatName);
         }
         return df;
@@ -220,7 +220,7 @@ public class CamelMainSupport {
             }
         }
 
-        public boolean hasException()   {
+        public boolean hasException() {
             return startException != null;
         }
 
