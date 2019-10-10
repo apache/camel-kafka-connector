@@ -59,6 +59,9 @@
         <version.maven.failsafe>2.22.1</version.maven.failsafe>
         <version.scala.library>2.12.4</version.scala.library>
         <version.testcontainers>1.12.0</version.testcontainers>
+
+        <version.maven.checkstyle>7.6.1</version.maven.checkstyle>
+        <version.maven.checkstyle.plugin>3.0.0</version.maven.checkstyle.plugin>
     </properties>
 
     <repositories>
@@ -319,6 +322,50 @@
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>${version.maven.buildhelper}</version>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${version.maven.checkstyle.plugin}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.camel</groupId>
+                            <artifactId>camel-buildtools</artifactId>
+                            <version>${camel.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>${version.maven.checkstyle}</version>
+                        </dependency>
+                    </dependencies>
+                    <executions>
+                        <execution>
+                            <id>default-cli</id>
+                            <phase>validate</phase>
+                            <configuration>
+                                <includeResources>false</includeResources>
+                                <configLocation>camel-checkstyle.xml</configLocation>
+                                <consoleOutput>true</consoleOutput>
+                                <failsOnError>${checkstyle.failOnViolation}</failsOnError>
+                                <linkXRef>false</linkXRef>
+                                <suppressionsLocation>camel-checkstyle-suppressions.xml</suppressionsLocation>
+                                <encoding>UTF-8</encoding>
+                                <sourceDirectories>
+                                    <sourceDirectory>${basedir}/src</sourceDirectory>
+                                </sourceDirectories>
+                                <headerLocation>header-java.txt</headerLocation>
+                                <includes>**/*.java,**/*.groovy,**/*.scala,**/*.properties,**/*.xml,**/*.xsd</includes>
+                                <excludes>
+                                    **/archetype-resources/**/*.java,**/archetype-resources/**/*.groovy,**/archetype-resources/**/*.scala,**/archetype-resources/**/*.xml,**/org/json/simple/**/*.java
+                                </excludes>
+                            </configuration>
+                            <goals>
+                                <goal>checkstyle</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -358,4 +405,19 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>sourcecheck</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>${version.maven.checkstyle.plugin}</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
