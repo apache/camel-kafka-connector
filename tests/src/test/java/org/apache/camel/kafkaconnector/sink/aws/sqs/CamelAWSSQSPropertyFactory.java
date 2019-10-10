@@ -22,7 +22,6 @@ import org.apache.camel.kafkaconnector.AWSConfigs;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 
-
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
  */
@@ -52,7 +51,7 @@ class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
 
         String queueUrl = "aws-sqs://" + queue + "?autoCreateQueue=false&accessKey=accesskey&protocol=http&amazonAWSHost="
                 + amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_HOST, "localhost");
-        System.out.println("Queue URL => " + queueUrl);
+
         connectorProps.put("camel.sink.url", queueUrl);
         connectorProps.put("topics", topic);
 
