@@ -15,17 +15,14 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.sink.aws.sqs;
+package org.apache.camel.kafkaconnector.source.aws.sqs;
 
-import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.regions.Regions;
-import com.amazonaws.services.sqs.model.Message;
 import org.apache.camel.kafkaconnector.AWSConfigs;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
@@ -33,6 +30,7 @@ import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -42,10 +40,8 @@ import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
-import static org.junit.Assert.fail;
-
-public class CamelSinkAWSSQSITCase {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
+public class CamelSourceAWSSQSITCase {
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSSQSITCase.class);
     private static final int SQS_PORT = 4576;
 
     @Rule
@@ -87,7 +83,7 @@ public class CamelSinkAWSSQSITCase {
         properties.put(AWSConfigs.REGION, Regions.US_EAST_1.name());
 
         ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
-            TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_SQS_QUEUE, properties);
+                TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_SQS_QUEUE, properties);
 
         kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
@@ -95,12 +91,9 @@ public class CamelSinkAWSSQSITCase {
         awssqsClient = new AWSSQSClient(localStackContainer);
     }
 
-    private boolean checkMessages(List<Message> messages) {
-        for (Message message : messages) {
-            LOG.info("Received: {}", message.getBody());
-
-            received++;
-        }
+    private boolean checkRecord(ConsumerRecord<String, String> record) {
+        LOG.debug("Received: {}", record.value());
+        received++;
 
         if (received == expect) {
             return false;
@@ -109,51 +102,23 @@ public class CamelSinkAWSSQSITCase {
         return true;
     }
 
-
-
-    private void consumeMessages(CountDownLatch latch) {
-        try {
-            awssqsClient.receive(TestCommon.DEFAULT_SQS_QUEUE, this::checkMessages);
-        } catch (Throwable t) {
-            LOG.error("Failed to consume messages: {}", t.getMessage(), t);
-            fail(t.getMessage());
-        } finally {
-            latch.countDown();
-        }
-    }
-
-
     @Test
     public void testBasicSendReceive() {
-        try {
-            CountDownLatch latch = new CountDownLatch(1);
+        ExecutorService service = Executors.newCachedThreadPool();
+        service.submit(() -> kafkaConnectRunner.run());
 
-            ExecutorService service = Executors.newFixedThreadPool(2);
-            service.submit(() -> kafkaConnectRunner.run());
-
-            LOG.debug("Creating the consumer ...");
-            service.submit(() -> consumeMessages(latch));
-
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
-
-            for (int i = 0; i < expect; i++) {
-                kafkaClient.produce(TestCommon.DEFAULT_TEST_TOPIC, "Sink test message " + i);
-            }
-
-            LOG.debug("Created the consumer ... About to receive messages");
-
-            if (latch.await(120, TimeUnit.SECONDS)) {
-                Assert.assertTrue("Didn't process the expected amount of messages: " + received + " != " + expect,
-                        received == expect);
-            } else {
-                fail("Failed to receive the messages within the specified time");
-            }
-
-            kafkaConnectRunner.stop();
-        } catch (Exception e) {
-            LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
+        LOG.debug("Sending SQS messages");
+        for (int i = 0; i < expect; i++) {
+            awssqsClient.send(TestCommon.DEFAULT_SQS_QUEUE, "Test message " + i);
         }
+        LOG.debug("Done sending SQS messages");
 
+        LOG.debug("Creating the consumer ...");
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+        kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
+        LOG.debug("Created the consumer ...");
+
+        kafkaConnectRunner.stop();
+        Assert.assertTrue("Didn't process the expected amount of messages", received == expect);
     }
 }
