@@ -39,9 +39,14 @@ public final class TestCommon {
     public static final String DEFAULT_JMS_QUEUE = "ckc.queue";
 
     /**
-     * The default JMS queue name used during the tests
+     * The default SQS queue name used during the tests
      */
     public static final String DEFAULT_SQS_QUEUE = "ckc";
+
+    /**
+     * The default SNS queue name used during the tests
+     */
+    public static final String DEFAULT_SNS_QUEUE = "ckc-sns";
 
     private static final Logger LOG = LoggerFactory.getLogger(TestCommon.class);
 
