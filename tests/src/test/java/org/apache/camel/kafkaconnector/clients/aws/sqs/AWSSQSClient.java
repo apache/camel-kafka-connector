@@ -49,7 +49,7 @@ public class AWSSQSClient {
                 .build();
     }
 
-    private String getQueue(String queue) {
+    public String getQueue(String queue) {
         final Map<String, String> queueAttributes = new HashMap<>();
 
         final CreateQueueRequest createFifoQueueRequest = new CreateQueueRequest(queue)
@@ -58,6 +58,7 @@ public class AWSSQSClient {
         return sqs.createQueue(createFifoQueueRequest)
                 .getQueueUrl();
     }
+
 
     public void receive(String queue, Predicate<List<Message>> predicate) {
         final String queueUrl = getQueue(queue);
