@@ -187,6 +187,11 @@ public class KafkaConnectRunner {
      * Stops the embeddable Kafka connect runtime
      */
     public void stop() {
-        connect.stop();
+        if (connect != null) {
+            connect.stop();
+        }
+        else {
+            LOG.warn("Trying to stop an uninitialized Kafka Connect Runner");
+        }
     }
 }
