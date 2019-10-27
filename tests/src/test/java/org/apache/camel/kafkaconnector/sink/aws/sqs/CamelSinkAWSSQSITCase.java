@@ -76,15 +76,7 @@ public class CamelSinkAWSSQSITCase {
 
         LOG.info("SQS instance running at {}", sqsInstance);
 
-        Properties properties = new Properties();
-
-        properties.put(AWSConfigs.AMAZON_AWS_HOST, "localhost:" + localStackContainer.getMappedPort(SQS_PORT));
-
-        AWSCredentials credentials = localStackContainer.getDefaultCredentialsProvider().getCredentials();
-
-        properties.put(AWSConfigs.ACCESS_KEY, credentials.getAWSAccessKeyId());
-        properties.put(AWSConfigs.SECRET_KEY, credentials.getAWSSecretKey());
-        properties.put(AWSConfigs.REGION, Regions.US_EAST_1.name());
+        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
 
         ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
             TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_SQS_QUEUE, properties);

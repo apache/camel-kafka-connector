@@ -17,8 +17,13 @@
 
 package org.apache.camel.kafkaconnector;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.regions.Regions;
 import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.localstack.LocalStackContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 
 import static org.junit.Assert.fail;
@@ -79,5 +84,27 @@ public final class ContainerUtil {
                 break;
             }
         } while (retries > 0);
+    }
+
+
+    public static Properties setupAWSConfigs(LocalStackContainer container, int service) {
+        Properties properties = new Properties();
+
+        final String amazonAWSHost = "localhost:" + container.getMappedPort(service);
+        properties.put(AWSConfigs.AMAZON_AWS_HOST,  amazonAWSHost);
+        System.setProperty(AWSConfigs.AMAZON_AWS_HOST, amazonAWSHost);
+
+        AWSCredentials credentials = container.getDefaultCredentialsProvider().getCredentials();
+
+        properties.put(AWSConfigs.ACCESS_KEY, credentials.getAWSAccessKeyId());
+        System.setProperty(AWSConfigs.ACCESS_KEY, credentials.getAWSAccessKeyId());
+
+        properties.put(AWSConfigs.SECRET_KEY, credentials.getAWSSecretKey());
+        System.setProperty(AWSConfigs.SECRET_KEY, credentials.getAWSSecretKey());
+
+        properties.put(AWSConfigs.REGION, Regions.US_EAST_1.name());
+        System.setProperty(AWSConfigs.REGION, Regions.US_EAST_1.name());
+
+        return properties;
     }
 }
