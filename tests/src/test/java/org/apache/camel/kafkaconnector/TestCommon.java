@@ -49,6 +49,11 @@ public final class TestCommon {
     public static final String DEFAULT_SNS_QUEUE = "ckc-sns";
 
     /**
+     * The default S3 bucket name used during the tests
+     */
+    public static final String DEFAULT_S3_BUCKET = "ckc-s3";
+
+    /**
      * The default Kinesis stream name used during the tests
      */
     public static final String DEFAULT_KINESIS_STREAM = "ckc-kin-stream";
