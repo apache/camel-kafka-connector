@@ -30,6 +30,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.main.BaseMainSupport;
 import org.apache.camel.main.Main;
 import org.apache.camel.main.MainListener;
 import org.apache.camel.main.MainSupport;
@@ -182,23 +183,23 @@ public class CamelMainSupport {
         }
 
         @Override
-        public void beforeStart(MainSupport main) {
+        public void beforeStart(BaseMainSupport main) {
 
         }
 
         @Override
-        public void afterStart(MainSupport main) {
+        public void afterStart(BaseMainSupport main) {
             log.trace("Signaling CamelContext startup is finished (startFinishedSignal.countDown();) due to CamelMainFinishedListener been called");
             startFinishedSignal.countDown();
         }
 
         @Override
-        public void beforeStop(MainSupport main) {
+        public void beforeStop(BaseMainSupport main) {
 
         }
 
         @Override
-        public void afterStop(MainSupport main) {
+        public void afterStop(BaseMainSupport main) {
 
         }
     }
