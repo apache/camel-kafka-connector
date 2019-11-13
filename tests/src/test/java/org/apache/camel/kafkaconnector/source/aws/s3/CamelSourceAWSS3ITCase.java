@@ -34,6 +34,7 @@ import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -41,6 +42,7 @@ import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
+@Ignore("Requires Camel > 3.0.0-RC3")
 public class CamelSourceAWSS3ITCase {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSS3ITCase.class);
     private static final int S3_PORT = 4572;
@@ -105,7 +107,6 @@ public class CamelSourceAWSS3ITCase {
         return true;
     }
 
-//    @Test(timeout = 60000)
     @Test
     public void testBasicSendReceive() {
         ExecutorService service = Executors.newCachedThreadPool();
