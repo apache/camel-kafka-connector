@@ -48,6 +48,11 @@ public final class TestCommon {
      */
     public static final String DEFAULT_SNS_QUEUE = "ckc-sns";
 
+    /**
+     * The default Kinesis stream name used during the tests
+     */
+    public static final String DEFAULT_KINESIS_STREAM = "ckc-kin-stream";
+
     private static final Logger LOG = LoggerFactory.getLogger(TestCommon.class);
 
     private TestCommon() {
