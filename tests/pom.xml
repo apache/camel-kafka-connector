@@ -107,7 +107,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <!-- This is needed for the AWS Kinesis tests -->
+                    <argLine>-Dcom.amazonaws.sdk.disableCbor=true</argLine>
+                </configuration>
             </plugin>
+
         </plugins>
     </build>
 

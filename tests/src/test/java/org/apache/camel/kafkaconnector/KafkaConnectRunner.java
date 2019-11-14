@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 
 import static junit.framework.TestCase.fail;
@@ -178,6 +179,32 @@ public class KafkaConnectRunner {
             }
         }
 
+        connect.awaitStop();
+        return true;
+    }
+
+    /**
+     * Run the embeddable Kafka connect runtime
+     * @return true if successfully started the runtime or false otherwise
+     */
+    public boolean run(CountDownLatch latch) {
+        init();
+
+        LOG.info("Starting the connect interface");
+        connect.start();
+        LOG.info("Started the connect interface");
+
+        for (ConnectorPropertyFactory propertyProducer : connectorPropertyFactories) {
+            try {
+                initializeConnector(propertyProducer);
+            } catch (InterruptedException | ExecutionException e) {
+                failOnKafkaConnectInitialization(e);
+
+                return false;
+            }
+        }
+
+        latch.countDown();
         connect.awaitStop();
         return true;
     }
