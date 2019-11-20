@@ -124,7 +124,7 @@ public class CamelSinkAWSSNSITCase {
     }
 
 
-    @Test
+    @Test(timeout = 90000)
     public void testBasicSendReceive() {
         try {
             CountDownLatch latch = new CountDownLatch(1);

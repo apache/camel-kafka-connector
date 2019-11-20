@@ -81,7 +81,7 @@ public class CamelSourceJMSITCase {
         return true;
     }
 
-    @Test
+    @Test(timeout = 90000)
     public void testBasicSendReceive() {
         try {
             ExecutorService service = Executors.newCachedThreadPool();

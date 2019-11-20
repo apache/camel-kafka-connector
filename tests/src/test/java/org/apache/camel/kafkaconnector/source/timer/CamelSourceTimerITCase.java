@@ -71,7 +71,7 @@ public class CamelSourceTimerITCase {
         return true;
     }
 
-    @Test
+    @Test(timeout = 90000)
     public void testLaunchConnector() {
         ExecutorService service = Executors.newCachedThreadPool();
         service.submit(() -> kafkaConnectRunner.run());
