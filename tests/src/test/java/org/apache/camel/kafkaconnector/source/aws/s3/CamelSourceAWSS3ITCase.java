@@ -107,7 +107,7 @@ public class CamelSourceAWSS3ITCase {
         return true;
     }
 
-    @Test
+    @Test(timeout = 90000)
     public void testBasicSendReceive() {
         ExecutorService service = Executors.newCachedThreadPool();
         service.submit(() -> kafkaConnectRunner.run());
