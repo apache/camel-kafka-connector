@@ -131,6 +131,7 @@ public class CamelSourceAWSKinesisITCase {
             int seconds = 30;
 
             if (!latch.await(seconds, TimeUnit.SECONDS)) {
+                Assert.fail(String.format("The test did not start within %d seconds", seconds));
             }
 
             service.submit(() -> putRecords());
