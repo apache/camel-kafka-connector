@@ -216,8 +216,7 @@ public class KafkaConnectRunner {
     public void stop() {
         if (connect != null) {
             connect.stop();
-        }
-        else {
+        } else {
             LOG.warn("Trying to stop an uninitialized Kafka Connect Runner");
         }
     }

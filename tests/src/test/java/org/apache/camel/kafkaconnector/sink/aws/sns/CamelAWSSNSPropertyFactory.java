@@ -50,8 +50,8 @@ class CamelAWSSNSPropertyFactory implements ConnectorPropertyFactory {
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
 
-        String queueUrl = "aws-sns://" + queue + "?subscribeSNStoSQS=true" +
-                "&queueUrl=" + amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_SNS_2_SQS_QUEUE_URL);
+        String queueUrl = "aws-sns://" + queue + "?subscribeSNStoSQS=true"
+                + "&queueUrl=" + amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_SNS_2_SQS_QUEUE_URL);
 
         connectorProps.put("camel.sink.url", queueUrl);
         connectorProps.put("topics", topic);
@@ -64,8 +64,8 @@ class CamelAWSSNSPropertyFactory implements ConnectorPropertyFactory {
         connectorProps.put("camel.component.aws-sns.configuration.region",
             amazonConfigs.getProperty(AWSConfigs.REGION, ""));
 
-        connectorProps.put("camel.component.aws-sns.configuration", "#class:" +
-                TestSNSConfiguration.class.getName());
+        connectorProps.put("camel.component.aws-sns.configuration", "#class:"
+                + TestSNSConfiguration.class.getName());
 
 
         return connectorProps;
