@@ -19,4 +19,108 @@
         <module>tests</module>
     </modules>
 
+    <build>
+        <defaultGoal>install</defaultGoal>
+
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.rat</groupId>
+                    <artifactId>apache-rat-plugin</artifactId>
+                    <version>0.13</version>
+                    <configuration>
+                        <excludeSubProjects>false</excludeSubProjects>
+                        <excludes>
+                            <exclude>**/generated.txt</exclude>
+                            <exclude>**/*.json</exclude>
+                            <exclude>**/README</exclude>
+                            <exclude>**/README.txt</exclude>
+                            <exclude>**/README.md</exclude>
+                            <exclude>**/ReadMe.md</exclude>
+                            <exclude>**/resources/**/*.xsd</exclude>
+                            <exclude>**/webapp/js/**/*</exclude>
+                            <exclude>**/test/resources/**/*</exclude>
+                            <exclude>**/test/data*/**/*</exclude>
+                            <exclude>.gitignore</exclude>
+                            <exclude>.git/**/*</exclude>
+                            <exclude>**/*.adoc</exclude>
+                            <exclude>**/*.adoc.template</exclude>
+                            <exclude>**/*.md</exclude>
+                            <exclude>**/*.sh</exclude>
+                            <exclude>**/*.bat</exclude>
+                            <exclude>**/java9-maven-settings</exclude>
+                            <exclude>**/*.pfx</exclude>
+                            <!-- tooling json-simple parser -->
+                            <exclude>**/src/main/java/org/json/simple/**</exclude>
+                            <!-- tooling/camel-manual/src/styles/print.css use a different license -->
+                            <exclude>**/src/styles/print.css</exclude>
+                            <!-- tooling for component docs -->
+                            <exclude>**/component-header.mvel</exclude>
+                            <exclude>**/component-options.mvel</exclude>
+                            <exclude>**/endpoint-options.mvel</exclude>
+                            <exclude>**/dataformat-options.mvel</exclude>
+                            <exclude>**/eip-options.mvel</exclude>
+                            <exclude>**/language-options.mvel</exclude>
+                            <exclude>**/website-components-list.mvel</exclude>
+                            <exclude>**/website-languages-list.mvel</exclude>
+                            <exclude>**/website-others-list.mvel</exclude>
+                            <exclude>**/website-dataformats-list.mvel</exclude>
+                            <exclude>**/readme-examples.mvel</exclude>
+                            <exclude>**/spring-boot-auto-configure-options.mvel</exclude>
+                            <exclude>**/camel-NOTICE.txt</exclude>
+                            <exclude>**/spring-boot-starter-NOTICE.txt</exclude>
+                            <!-- cxf does not handle comments here -->
+                            <exclude>**/src/main/resources/META-INF/cxf/cxf.extension</exclude>
+                            <exclude>**/src/main/resources/META-INF/cxf/bus-extensions.txt</exclude>
+                            <!-- ignore the api signatures files -->
+                            <exclude>**/src/signatures/*.txt</exclude>
+                            <!-- camel-salesforce BSD license from salesforce developers -->
+                            <exclude>**/CometDReplayExtension.java</exclude>
+                            <exclude>**/LICENSE-SALESFORCE.txt</exclude>
+                            <!-- camel-as2 -->
+                            <exclude>**/mdnDescription.vm</exclude>
+                            <!-- camel-jbpm -->
+                            <exclude>**/src/main/resources/*.wid</exclude>
+                            <!-- camel website and user-manual -->
+                            <exclude>**/node/**</exclude>
+                            <exclude>**/node_modules/**</exclude>
+                            <exclude>**/user-manual/**</exclude>
+                            <exclude>**/yarn.lock</exclude>
+                            <!-- examples -->
+                            <exclude>**/fabric8/*.yaml</exclude>
+                            <exclude>**/src/main/data/*.patient</exclude>
+                            <exclude>**/src/main/data/*.csv</exclude>
+                            <exclude>**/src/main/resources/avro/*.avsc</exclude>
+                            <!-- generated files -->
+                            <exclude>**/target/**/*</exclude>
+                            <exclude>**/eclipse-classes/**/*</exclude>
+                            <exclude>**/.*</exclude>
+                            <exclude>**/.settings/**/*</exclude>
+                            <exclude>**/*.iml</exclude>
+                            <exclude>**/.idea/**/*</exclude>
+                            <exclude>**/avro/**/*.avpr</exclude>
+                            <exclude>**/OSGI-INF/bundle.info</exclude>
+                            <exclude>**/test_rsa*</exclude>
+                            <exclude>**/data*/**/*.xml</exclude>
+                            <exlucde>**/*.log</exlucde>
+                            <exclude>**/id_file</exclude>
+                            <exclude>**/dependency-reduced-pom.xml</exclude>
+                            <exclude>**/Dropbox_API_Terms_and_Conditions.txt</exclude>
+                            <exclude>**/MerchandiseRestResource.apxc</exclude>
+                            <exclude>**/file-sig-api.txt</exclude>
+                            <exclude>**/Tasks__c.java</exclude>
+                            <exclude>**/*.proto</exclude>
+                            <exclude>
+                                **/src/main/resources/META-INF/services/org.kie.server.services.api.KieServerExtension
+                            </exclude>
+                            <!-- Maven Wrapper -->
+                            <exclude>.mvn/**/*</exclude>
+                        </excludes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 </project>
