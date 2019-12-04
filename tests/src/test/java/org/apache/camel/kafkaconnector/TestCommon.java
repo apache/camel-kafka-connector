@@ -53,6 +53,16 @@ public final class TestCommon {
      */
     public static final String DEFAULT_KINESIS_STREAM = "ckc-kin-stream";
 
+    /**
+     * The default ElasticSearch cluster name for usage during the tests
+     */
+    public static final String DEFAULT_ELASTICSEARCH_CLUSTER = "docker-cluster";
+
+    /**
+     * The default ElasticSearch index for usage during the tests
+     */
+    public static final String DEFAULT_ELASTICSEARCH_INDEX = "ckc-index";
+
     private static final Logger LOG = LoggerFactory.getLogger(TestCommon.class);
 
     private TestCommon() {
