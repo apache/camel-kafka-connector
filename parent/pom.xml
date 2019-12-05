@@ -60,7 +60,7 @@
         <version.scala.library>2.12.4</version.scala.library>
         <version.testcontainers>1.12.0</version.testcontainers>
 
-        <version.maven.checkstyle>7.6.1</version.maven.checkstyle>
+        <version.maven.checkstyle>8.18</version.maven.checkstyle>
         <version.maven.checkstyle.plugin>3.0.0</version.maven.checkstyle.plugin>
     </properties>
 
