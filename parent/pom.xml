@@ -62,6 +62,7 @@
 
         <version.maven.checkstyle>7.6.1</version.maven.checkstyle>
         <version.maven.checkstyle.plugin>3.0.0</version.maven.checkstyle.plugin>
+        <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
     </properties>
 
     <repositories>
