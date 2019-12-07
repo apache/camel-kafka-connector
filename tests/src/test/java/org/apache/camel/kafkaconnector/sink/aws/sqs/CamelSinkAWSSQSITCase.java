@@ -24,6 +24,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import com.amazonaws.services.sqs.model.Message;
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
@@ -36,17 +37,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
 import static org.junit.Assert.fail;
 
-public class CamelSinkAWSSQSITCase {
+public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
     private static final int SQS_PORT = 4576;
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     @Rule
     public LocalStackContainer localStackContainer = new LocalStackContainer()
@@ -60,9 +57,6 @@ public class CamelSinkAWSSQSITCase {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
         LOG.info("Waiting for SQS initialization");
         ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(SQS_PORT));
         LOG.info("SQS Initialized");
@@ -76,9 +70,9 @@ public class CamelSinkAWSSQSITCase {
         Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
 
         ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
-            TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_SQS_QUEUE, properties);
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE, properties);
 
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner =  getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         awssqsClient = new AWSSQSClient(localStackContainer);
@@ -112,10 +106,10 @@ public class CamelSinkAWSSQSITCase {
 
     private void produceMessages()  {
         try {
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
             for (int i = 0; i < expect; i++) {
-                kafkaClient.produce(TestCommon.DEFAULT_TEST_TOPIC, "Sink test message " + i);
+                kafkaClient.produce(TestCommon.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
             }
         } catch (Throwable t) {
             LOG.error("Unable to publish messages to the broker: {}", t.getMessage(), t);
@@ -124,7 +118,7 @@ public class CamelSinkAWSSQSITCase {
     }
 
 
-    @Test(timeout = 90000)
+    @Test(timeout = 120000)
     public void testBasicSendReceive() {
         try {
             CountDownLatch latch = new CountDownLatch(2);
@@ -139,7 +133,7 @@ public class CamelSinkAWSSQSITCase {
             produceMessages();
 
             LOG.debug("Waiting for the test to complete");
-            if (latch.await(80, TimeUnit.SECONDS)) {
+            if (latch.await(110, TimeUnit.SECONDS)) {
                 Assert.assertTrue("Didn't process the expected amount of messages: " + received + " != " + expect,
                         received == expect);
             } else {
@@ -152,6 +146,5 @@ public class CamelSinkAWSSQSITCase {
             kafkaConnectRunner.stop();
         }
     }
-
 
 }

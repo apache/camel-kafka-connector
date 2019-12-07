@@ -28,6 +28,12 @@ To run the integration tests it is required to:
 mvn clean verify package
 ----
 
+It is also possible to point the tests to use an external Kafka broker. To do so, run the tests using:
+
+----
+mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote clean verify package
+----
+
 === Try it out locally
 
 You can use Camel Kafka connectors with local Apache Kafka installation.

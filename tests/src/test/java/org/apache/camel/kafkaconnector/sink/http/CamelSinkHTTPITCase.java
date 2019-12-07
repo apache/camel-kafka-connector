@@ -24,8 +24,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
@@ -34,20 +34,15 @@ import org.apache.http.impl.bootstrap.ServerBootstrap;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 
 import static org.junit.Assert.fail;
 
-public class CamelSinkHTTPITCase {
+public class CamelSinkHTTPITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkHTTPITCase.class);
     private static final int HTTP_PORT = 18080;
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     private HttpServer localServer;
 
@@ -58,10 +53,6 @@ public class CamelSinkHTTPITCase {
 
     @Before
     public void setUp() throws IOException {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
-
         validationHandler = new HTTPTestValidationHandler(10);
         localServer = ServerBootstrap.bootstrap()
                 .setListenerPort(HTTP_PORT)
@@ -72,9 +63,9 @@ public class CamelSinkHTTPITCase {
 
         String url = "http://localhost:" + HTTP_PORT + "/ckc";
         ConnectorPropertyFactory testProperties = new CamelHTTPPropertyFactory(1,
-                TestCommon.DEFAULT_TEST_TOPIC, url);
+                TestCommon.getDefaultTestTopic(this.getClass()), url);
 
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
@@ -85,11 +76,11 @@ public class CamelSinkHTTPITCase {
 
 
     private void putRecords() {
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
         for (int i = 0; i < expect; i++) {
             try {
-                kafkaClient.produce(TestCommon.DEFAULT_TEST_TOPIC, "test");
+                kafkaClient.produce(TestCommon.getDefaultTestTopic(this.getClass()), "test");
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
@@ -98,12 +89,9 @@ public class CamelSinkHTTPITCase {
         }
     }
 
-
-
     @Test(timeout = 90000)
     public void testBasicSendReceive() {
         try {
-
             ExecutorService service = Executors.newCachedThreadPool();
             service.submit(() -> kafkaConnectRunner.run());
             service.submit(this::putRecords);

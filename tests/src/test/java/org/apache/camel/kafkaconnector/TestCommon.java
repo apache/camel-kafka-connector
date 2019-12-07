@@ -29,11 +29,6 @@ import org.slf4j.LoggerFactory;
  */
 public final class TestCommon {
     /**
-     * The default topic for usage during the tests
-     */
-    public static final String DEFAULT_TEST_TOPIC = "mytopic";
-
-    /**
      * The default JMS queue name used during the tests
      */
     public static final String DEFAULT_JMS_QUEUE = "ckc.queue";
@@ -68,5 +63,9 @@ public final class TestCommon {
         LOG.error("Failed to create job for {} with properties {}", name, connectorProps,
                 error);
         fail("Failed to create job for " + name);
+    }
+
+    public static String getDefaultTestTopic(Class<?> clazz) {
+        return clazz.getName();
     }
 }

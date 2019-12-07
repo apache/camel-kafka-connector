@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import com.amazonaws.services.sqs.model.Message;
 import org.apache.camel.kafkaconnector.AWSConfigs;
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
@@ -38,18 +39,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
 import static org.junit.Assert.fail;
 
-public class CamelSinkAWSSNSITCase {
+public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
     private static final int SQS_PORT = 4576;
     private static final int SNS_PORT = 4575;
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     @Rule
     public LocalStackContainer localStackContainer = new LocalStackContainer()
@@ -63,9 +60,6 @@ public class CamelSinkAWSSNSITCase {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
         LOG.info("Waiting for SQS+SNS initialization");
         ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(SQS_PORT));
         LOG.info("SQS+SNS Initialized");
@@ -90,9 +84,9 @@ public class CamelSinkAWSSNSITCase {
         properties.put(AWSConfigs.AMAZON_AWS_SNS_2_SQS_QUEUE_URL, sqsQueue);
 
         ConnectorPropertyFactory testProperties = new CamelAWSSNSPropertyFactory(1,
-            TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_SNS_QUEUE, properties);
+            TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SNS_QUEUE, properties);
 
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
@@ -109,7 +103,6 @@ public class CamelSinkAWSSNSITCase {
 
         return true;
     }
-
 
 
     private void consumeMessages(CountDownLatch latch) {
@@ -135,10 +128,10 @@ public class CamelSinkAWSSNSITCase {
             LOG.debug("Creating the consumer ...");
             service.submit(() -> consumeMessages(latch));
 
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
             for (int i = 0; i < expect; i++) {
-                kafkaClient.produce(TestCommon.DEFAULT_TEST_TOPIC, "Sink test message " + i);
+                kafkaClient.produce(TestCommon.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
             }
 
             LOG.debug("Created the consumer ... About to receive messages");

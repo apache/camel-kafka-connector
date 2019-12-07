@@ -21,9 +21,12 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.TextMessage;
+
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ArtemisContainer;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
@@ -37,7 +40,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 
 import static org.junit.Assert.fail;
 
@@ -45,11 +47,8 @@ import static org.junit.Assert.fail;
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
-public class CamelSinkJMSITCase {
+public class CamelSinkJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     @Rule
     public ArtemisContainer artemis = new ArtemisContainer();
@@ -60,16 +59,13 @@ public class CamelSinkJMSITCase {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
         ContainerUtil.waitForInitialization(artemis);
         LOG.info("Artemis broker running at {}", artemis.getAdminURL());
 
         ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
-                TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_JMS_QUEUE, artemis.getDefaultAcceptorEndpoint());
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_JMS_QUEUE, artemis.getDefaultAcceptorEndpoint());
 
-        kafkaConnectRunner = new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
@@ -105,10 +101,10 @@ public class CamelSinkJMSITCase {
             LOG.debug("Creating the consumer ...");
             service.submit(() -> consumeJMSMessages(latch));
 
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
             for (int i = 0; i < expect; i++) {
-                kafkaClient.produce(TestCommon.DEFAULT_TEST_TOPIC, "Sink test message " + i);
+                kafkaClient.produce(TestCommon.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
             }
 
             LOG.debug("Created the consumer ... About to receive messages");

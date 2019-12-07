@@ -21,9 +21,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.regions.Regions;
-import org.apache.camel.kafkaconnector.AWSConfigs;
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
@@ -37,15 +35,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
-public class CamelSourceAWSSQSITCase {
+public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSSQSITCase.class);
     private static final int SQS_PORT = 4576;
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     @Rule
     public LocalStackContainer localStackContainer = new LocalStackContainer()
@@ -59,9 +53,6 @@ public class CamelSourceAWSSQSITCase {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
         LOG.info("Waiting for SQS initialization");
         ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(SQS_PORT));
         LOG.info("SQS Initialized");
@@ -75,9 +66,10 @@ public class CamelSourceAWSSQSITCase {
         Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
 
         ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
-                TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_SQS_QUEUE, properties);
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE,
+                properties);
 
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         awssqsClient = new AWSSQSClient(localStackContainer);
@@ -106,8 +98,8 @@ public class CamelSourceAWSSQSITCase {
         LOG.debug("Done sending SQS messages");
 
         LOG.debug("Creating the consumer ...");
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
-        kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
         kafkaConnectRunner.stop();

@@ -26,6 +26,7 @@ import com.amazonaws.ClientConfiguration;
 import com.amazonaws.Protocol;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
@@ -38,15 +39,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
-public class CamelSourceAWSS3ITCase {
+public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSS3ITCase.class);
     private static final int S3_PORT = 4572;
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     @Rule
     public LocalStackContainer localStackContainer = new LocalStackContainer()
@@ -60,9 +57,6 @@ public class CamelSourceAWSS3ITCase {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
         LOG.info("Waiting for S3 initialization");
         ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(S3_PORT));
         LOG.info("S3 Initialized");
@@ -76,9 +70,9 @@ public class CamelSourceAWSS3ITCase {
         Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, S3_PORT);
 
         ConnectorPropertyFactory testProperties = new CamelAWSS3PropertyFactory(1,
-                TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_S3_BUCKET, properties);
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_S3_BUCKET, properties);
 
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         ClientConfiguration clientConfiguration = new ClientConfiguration();
@@ -123,8 +117,8 @@ public class CamelSourceAWSS3ITCase {
         LOG.debug("Done putting S3S objects");
 
         LOG.debug("Creating the consumer ...");
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
-        kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
         kafkaConnectRunner.stop();
