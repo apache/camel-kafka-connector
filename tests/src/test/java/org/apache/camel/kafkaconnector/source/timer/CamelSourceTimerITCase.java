@@ -19,27 +19,24 @@ package org.apache.camel.kafkaconnector.source.timer;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 
 /**
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
-public class CamelSourceTimerITCase {
+public class CamelSourceTimerITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceTimerITCase.class);
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     private int received;
     private final int expect = 10;
@@ -47,18 +44,11 @@ public class CamelSourceTimerITCase {
 
     @Before
     public void setUp() {
-
-
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
-
         CamelTimerPropertyFactory testProperties = new CamelTimerPropertyFactory(1,
-                TestCommon.DEFAULT_TEST_TOPIC, expect);
+                TestCommon.getDefaultTestTopic(this.getClass()), expect);
 
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
-
-        LOG.info("Kafka bootstrap server running at address " + kafka.getBootstrapServers());
-
-
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -77,8 +67,8 @@ public class CamelSourceTimerITCase {
         service.submit(() -> kafkaConnectRunner.run());
 
         LOG.debug("Creating the consumer ...");
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
-        kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
         kafkaConnectRunner.stop();

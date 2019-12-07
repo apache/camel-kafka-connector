@@ -39,14 +39,14 @@ public final class ContainerUtil {
      * @param container the container to wait for
      */
     public static void waitForInitialization(GenericContainer container) {
-        int retries = 5;
+        int retries = 25;
 
         do {
             boolean state = container.isRunning();
 
             if (!state) {
                 try {
-                    Thread.sleep(TimeUnit.SECONDS.toMillis(5));
+                    Thread.sleep(TimeUnit.SECONDS.toMillis(1));
                 } catch (InterruptedException e) {
                     container.stop();
                     fail("Test interrupted");
@@ -65,14 +65,14 @@ public final class ContainerUtil {
      * @param container the container to wait for
      */
     public static void waitForHttpInitialization(GenericContainer container, int port) {
-        int retries = 5;
+        int retries = 25;
 
         do {
             boolean state = container.isRunning();
 
             if (!state) {
                 try {
-                    Thread.sleep(TimeUnit.SECONDS.toMillis(5));
+                    Thread.sleep(TimeUnit.SECONDS.toMillis(1));
                 } catch (InterruptedException e) {
                     container.stop();
                     fail("Test interrupted");

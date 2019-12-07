@@ -32,30 +32,24 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 
 import static org.junit.Assert.fail;
 
-public class CamelSinkFileITCase {
+public class CamelSinkFileITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkFileITCase.class);
 
     private static final String SINK_DIR = CamelSinkFileITCase.class.getResource(".").getPath();
     private static final String FILENAME = "test.txt";
-
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     private KafkaConnectRunner kafkaConnectRunner;
 
@@ -64,9 +58,6 @@ public class CamelSinkFileITCase {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
         String url = "file://" + SINK_DIR + "?fileName=" + FILENAME + "&doneFileName=${file:name}.done";
         LOG.debug("Saving files to {}", url);
 
@@ -76,19 +67,18 @@ public class CamelSinkFileITCase {
         }
 
         ConnectorPropertyFactory testProperties = new CamelFilePropertyFactory(1,
-                TestCommon.DEFAULT_TEST_TOPIC, url);
+                TestCommon.getDefaultTestTopic(this.getClass()), url);
 
-        kafkaConnectRunner = new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
     private void putRecords() {
-
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
         for (int i = 0; i < expect; i++) {
             try {
-                kafkaClient.produce(TestCommon.DEFAULT_TEST_TOPIC, "test");
+                kafkaClient.produce(TestCommon.getDefaultTestTopic(this.getClass()), "test");
             } catch (ExecutionException e) {
                 LOG.error("Unable to produce messages: {}", e.getMessage(), e);
             } catch (InterruptedException e) {
