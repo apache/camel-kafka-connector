@@ -99,7 +99,6 @@ public class CamelSinkAWSSQSITCase {
     }
 
 
-
     private void consumeMessages(CountDownLatch latch) {
         try {
             awssqsClient.receive(TestCommon.DEFAULT_SQS_QUEUE, this::checkMessages);
@@ -111,38 +110,48 @@ public class CamelSinkAWSSQSITCase {
         }
     }
 
-
-    @Test(timeout = 90000)
-    public void testBasicSendReceive() {
+    private void produceMessages()  {
         try {
-            CountDownLatch latch = new CountDownLatch(1);
-
-            ExecutorService service = Executors.newFixedThreadPool(2);
-            service.submit(() -> kafkaConnectRunner.run());
-
-            LOG.debug("Creating the consumer ...");
-            service.submit(() -> consumeMessages(latch));
-
             KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
 
             for (int i = 0; i < expect; i++) {
                 kafkaClient.produce(TestCommon.DEFAULT_TEST_TOPIC, "Sink test message " + i);
             }
+        } catch (Throwable t) {
+            LOG.error("Unable to publish messages to the broker: {}", t.getMessage(), t);
+            fail(String.format("Unable to publish messages to the broker: {}", t.getMessage()));
+        }
+    }
 
-            LOG.debug("Created the consumer ... About to receive messages");
 
-            if (latch.await(120, TimeUnit.SECONDS)) {
+    @Test(timeout = 90000)
+    public void testBasicSendReceive() {
+        try {
+            CountDownLatch latch = new CountDownLatch(2);
+
+            ExecutorService service = Executors.newCachedThreadPool();
+            service.submit(() -> kafkaConnectRunner.run(latch));
+
+            LOG.debug("Creating the consumer ...");
+            service.submit(() -> consumeMessages(latch));
+
+            LOG.debug("Creating the producer and sending messages ...");
+            produceMessages();
+
+            LOG.debug("Waiting for the test to complete");
+            if (latch.await(80, TimeUnit.SECONDS)) {
                 Assert.assertTrue("Didn't process the expected amount of messages: " + received + " != " + expect,
                         received == expect);
             } else {
                 fail("Failed to receive the messages within the specified time");
             }
-
-            kafkaConnectRunner.stop();
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
+        } finally {
+            kafkaConnectRunner.stop();
         }
-
     }
+
+
 }
