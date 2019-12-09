@@ -22,8 +22,11 @@ import java.io.InputStream;
 import java.util.Map;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import org.apache.kafka.common.serialization.Serializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class S3ObjectSerializer implements Serializer<S3ObjectInputStream> {
+    private static final Logger LOG = LoggerFactory.getLogger(S3ObjectSerializer.class);
 
     @Override
     public void configure(Map<String, ?> configs, boolean isKey) {
@@ -42,7 +45,7 @@ public class S3ObjectSerializer implements Serializer<S3ObjectInputStream> {
                 buffer.write(byteArray, 0, nRead);
             }
         } catch (IOException e1) {
-            e1.printStackTrace();
+            LOG.warn("I/O error while serializing data from topic {}: {}", topic, e1.getMessage(), e1);
         }
 
         return buffer.toByteArray();
