@@ -19,12 +19,14 @@ package org.apache.camel.kafkaconnector;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.support.DefaultExchange;
 import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.sink.SinkRecord;
@@ -122,7 +124,11 @@ public class CamelSinkTask extends SinkTask {
             map.put(singleHeader.key(), (long)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
             map.put(singleHeader.key(), (byte)singleHeader.value());
-        }
+        } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
+        	map.put(singleHeader.key(), (Map)singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
+        	map.put(singleHeader.key(), (List)singleHeader.value());
+        } 
     }
 
     private void addProperty(Exchange exchange, Header singleHeader) {
@@ -145,7 +151,11 @@ public class CamelSinkTask extends SinkTask {
             exchange.getProperties().put(singleHeader.key(), (long)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
             exchange.getProperties().put(singleHeader.key(), (byte)singleHeader.value());
-        }
+        } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
+        	exchange.getProperties().put(singleHeader.key(), (Map)singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
+        	exchange.getProperties().put(singleHeader.key(), (List)singleHeader.value());
+        } 
     }
 
     public CamelMainSupport getCms() {
