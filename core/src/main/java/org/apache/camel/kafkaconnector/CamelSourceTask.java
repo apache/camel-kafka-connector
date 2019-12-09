@@ -180,6 +180,8 @@ public class CamelSourceTask extends SourceTask {
                 record.headers().addTime(keyCamelHeader, (Time)value);
             } else if (value instanceof Timestamp) {
                 record.headers().addTimestamp(keyCamelHeader, (Timestamp)value);
+            } else if (value instanceof Map) {
+                record.headers().addMap(keyCamelHeader, (Map)value, Schema.STRING_SCHEMA);
             }
         }
     }
