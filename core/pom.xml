@@ -97,6 +97,11 @@
             <artifactId>connect-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>connect-transforms</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- Test -->
         <dependency>
