@@ -48,8 +48,8 @@ class CamelAWSS3PropertyFactory implements ConnectorPropertyFactory {
 
         connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.CamelSourceConnector");
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.TRANSFORMS_CONFIG, "S3ObjectTransformer");
-        connectorProps.put("transforms.S3ObjectTransformer.type", "org.apache.camel.kafkaconnector.converters.S3ObjectTransformer");
+        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.camel.kafkaconnector.converters.S3ObjectConverter");
+
         connectorProps.put("camel.source.kafka.topic", topic);
 
         String queueUrl = "aws-s3://" + bucket + "?maxMessagesPerPoll=10";
