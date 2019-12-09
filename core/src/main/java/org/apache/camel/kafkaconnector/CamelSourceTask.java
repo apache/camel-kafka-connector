@@ -31,6 +31,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.PollingConsumer;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.apache.kafka.connect.source.SourceTask;
@@ -182,6 +183,8 @@ public class CamelSourceTask extends SourceTask {
                 record.headers().addTimestamp(keyCamelHeader, (Timestamp)value);
             } else if (value instanceof Map) {
                 record.headers().addMap(keyCamelHeader, (Map)value, Schema.STRING_SCHEMA);
+            } else if (value instanceof List) {
+                record.headers().addList(keyCamelHeader, (List)value, SchemaBuilder.array(Schema.STRING_SCHEMA));
             }
         }
     }

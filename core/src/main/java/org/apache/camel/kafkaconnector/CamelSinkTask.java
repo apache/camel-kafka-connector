@@ -19,6 +19,7 @@ package org.apache.camel.kafkaconnector;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
@@ -125,6 +126,8 @@ public class CamelSinkTask extends SinkTask {
             map.put(singleHeader.key(), (byte)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
         	map.put(singleHeader.key(), (Map)singleHeader.value());
+        } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
+        	map.put(singleHeader.key(), (List)singleHeader.value());
         } 
     }
 
@@ -150,7 +153,9 @@ public class CamelSinkTask extends SinkTask {
             exchange.getProperties().put(singleHeader.key(), (byte)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
         	exchange.getProperties().put(singleHeader.key(), (Map)singleHeader.value());
-        }
+        } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
+        	exchange.getProperties().put(singleHeader.key(), (List)singleHeader.value());
+        } 
     }
 
     public CamelMainSupport getCms() {
