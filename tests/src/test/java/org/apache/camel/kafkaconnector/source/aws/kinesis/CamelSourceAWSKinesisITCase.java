@@ -33,6 +33,7 @@ import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder;
 import com.amazonaws.services.kinesis.model.PutRecordsRequest;
 import com.amazonaws.services.kinesis.model.PutRecordsRequestEntry;
 import com.amazonaws.services.kinesis.model.PutRecordsResult;
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
@@ -45,15 +46,11 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
-public class CamelSourceAWSKinesisITCase {
+public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
     private static final int KINESIS_PORT = 4568;
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     @Rule
     public LocalStackContainer localStackContainer = new LocalStackContainer()
@@ -68,9 +65,6 @@ public class CamelSourceAWSKinesisITCase {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
         LOG.info("Waiting for Kinesis initialization");
         ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(KINESIS_PORT));
         LOG.info("Kinesis Initialized");
@@ -84,9 +78,9 @@ public class CamelSourceAWSKinesisITCase {
         Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, KINESIS_PORT);
 
         ConnectorPropertyFactory testProperties = new CamelAWSKinesisPropertyFactory(1,
-                TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_KINESIS_STREAM, properties);
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_KINESIS_STREAM, properties);
 
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         ClientConfiguration clientConfiguration = new ClientConfiguration();
@@ -141,8 +135,8 @@ public class CamelSourceAWSKinesisITCase {
         }
 
         LOG.debug("Creating the consumer ...");
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
-        kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
         kafkaConnectRunner.stop();

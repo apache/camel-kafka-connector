@@ -19,6 +19,8 @@ package org.apache.camel.kafkaconnector.source.jms;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ArtemisContainer;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
@@ -33,7 +35,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
 
 import static org.junit.Assert.fail;
 
@@ -41,11 +42,8 @@ import static org.junit.Assert.fail;
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
-public class CamelSourceJMSITCase {
+public class CamelSourceJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
-
-    @Rule
-    public KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
 
     @Rule
     public ArtemisContainer artemis = new ArtemisContainer();
@@ -56,17 +54,14 @@ public class CamelSourceJMSITCase {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(kafka);
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-
         ContainerUtil.waitForInitialization(artemis);
         LOG.info("Artemis broker running at {}", artemis.getAdminURL());
 
 
         ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
-                TestCommon.DEFAULT_TEST_TOPIC, TestCommon.DEFAULT_JMS_QUEUE, artemis.getDefaultAcceptorEndpoint());
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_JMS_QUEUE, artemis.getDefaultAcceptorEndpoint());
 
-        kafkaConnectRunner =  new KafkaConnectRunner(kafka.getBootstrapServers());
+        kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
@@ -99,8 +94,8 @@ public class CamelSourceJMSITCase {
             jmsProducer.stop();
 
             LOG.debug("Creating the consumer ...");
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(kafka.getBootstrapServers());
-            kafkaClient.consume(TestCommon.DEFAULT_TEST_TOPIC, this::checkRecord);
+            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+            kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
             LOG.debug("Created the consumer ...");
 
             kafkaConnectRunner.stop();
