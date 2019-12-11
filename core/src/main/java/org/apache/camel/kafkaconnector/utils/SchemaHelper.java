@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
@@ -38,6 +39,8 @@ public final class SchemaHelper {
      * @return {@link SchemaBuilder} instance
      */
     public static SchemaBuilder buildSchemaBuilderForType(final Object value) {
+        Objects.requireNonNull(value);
+
         // gracefully try to infer the schema
         final Schema knownSchema = Values.inferSchema(value);
 
