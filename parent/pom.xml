@@ -59,6 +59,7 @@
         <version.maven.failsafe>2.22.1</version.maven.failsafe>
         <version.scala.library>2.12.4</version.scala.library>
         <version.testcontainers>1.12.0</version.testcontainers>
+        <version.qpid-jms-client>0.40.0</version.qpid-jms-client>
 
         <version.maven.checkstyle>7.6.1</version.maven.checkstyle>
         <version.maven.checkstyle.plugin>3.0.0</version.maven.checkstyle.plugin>
@@ -267,6 +268,14 @@
                 <version>${camel.version}</version>
                 <scope>test</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.qpid</groupId>
+                <artifactId>qpid-jms-client</artifactId>
+                <version>${version.qpid-jms-client}</version>
+                <scope>test</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>

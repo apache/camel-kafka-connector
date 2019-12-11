@@ -17,17 +17,19 @@
 
 package org.apache.camel.kafkaconnector.source.jms;
 
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
-import org.apache.camel.kafkaconnector.ArtemisContainer;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.services.jms.JMSService;
+import org.apache.camel.kafkaconnector.services.jms.JMSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.Assert;
 import org.junit.Before;
@@ -46,7 +48,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
 
     @Rule
-    public ArtemisContainer artemis = new ArtemisContainer();
+    public JMSService jmsService = JMSServiceFactory.createService();
 
     private int received;
     private final int expect = 10;
@@ -54,12 +56,12 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(artemis);
-        LOG.info("Artemis broker running at {}", artemis.getAdminURL());
+        ContainerUtil.waitForInitialization(jmsService);
+        LOG.info("JMS service running at {}", jmsService.getDefaultEndpoint());
 
-
+        Properties connectionProperties = JMSClient.getConnectionProperties(jmsService.getDefaultEndpoint());
         ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_JMS_QUEUE, artemis.getDefaultAcceptorEndpoint());
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_JMS_QUEUE, connectionProperties);
 
         kafkaConnectRunner = getKafkaConnectRunner();
         kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
@@ -82,10 +84,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
             ExecutorService service = Executors.newCachedThreadPool();
             service.submit(() -> kafkaConnectRunner.run());
 
-            JMSClient jmsProducer = new JMSClient(
-                    org.apache.activemq.ActiveMQConnectionFactory::new,
-                    org.apache.activemq.command.ActiveMQQueue::new,
-                    artemis.getOpenwireEndpoint());
+            JMSClient jmsProducer = JMSClient.createClient(jmsService.getDefaultEndpoint());
 
             jmsProducer.start();
             for (int i = 0; i < expect; i++) {
@@ -99,7 +98,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
             LOG.debug("Created the consumer ...");
 
             kafkaConnectRunner.stop();
-            Assert.assertTrue("Didn't process the expected amount of messages", received == expect);
+            Assert.assertEquals("Didn't process the expected amount of messages", received, expect);
         } catch (Exception e) {
             LOG.error("JMS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
