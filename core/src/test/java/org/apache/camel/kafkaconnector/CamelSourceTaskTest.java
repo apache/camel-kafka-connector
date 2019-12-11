@@ -30,6 +30,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
 
 public class CamelSourceTaskTest {
@@ -62,6 +63,51 @@ public class CamelSourceTaskTest {
     }
 
     @Test
+    public void testSourcePollingWithKey() throws InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "direct:start");
+        props.put("camel.source.kafka.topic", "mytopic");
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF, "CamelSpecialTestKey");
+
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        final ProducerTemplate template = camelSourceTask.getCms().createProducerTemplate();
+
+        // first we test if we have a key in the message with body
+        template.sendBodyAndHeader("direct:start", "awesome!", "CamelSpecialTestKey", 1234);
+
+        Thread.sleep(100L);
+
+        List<SourceRecord> poll = camelSourceTask.poll();
+        assertEquals(1, poll.size());
+        assertEquals(1234, poll.get(0).key());
+        assertEquals(Schema.Type.INT32, poll.get(0).keySchema().type());
+
+        // second we test if we have no key under the header
+        template.sendBodyAndHeader("direct:start", "awesome!", "WrongHeader", 1234);
+
+        Thread.sleep(100L);
+
+        poll = camelSourceTask.poll();
+        assertEquals(1, poll.size());
+        assertNull(poll.get(0).key());
+        assertNull(poll.get(0).keySchema());
+
+        // third we test if we have the header but with null value
+        template.sendBodyAndHeader("direct:start", "awesome!", "CamelSpecialTestKey", null);
+
+        Thread.sleep(100L);
+
+        camelSourceTask.poll();
+        assertEquals(1, poll.size());
+        assertNull(poll.get(0).key());
+        assertNull(poll.get(0).keySchema());
+
+        camelSourceTask.stop();
+    }
+
+    @Test
     public void testSourcePollingWithBody() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct:start");
@@ -81,6 +127,8 @@ public class CamelSourceTaskTest {
         assertEquals(1, poll.size());
         assertEquals("testing kafka connect", poll.get(0).value());
         assertEquals(Schema.Type.STRING, poll.get(0).valueSchema().type());
+        assertNull(poll.get(0).key());
+        assertNull(poll.get(0).keySchema());
 
         // send second data
         template.sendBody("direct:start", true);
@@ -91,6 +139,8 @@ public class CamelSourceTaskTest {
         assertEquals(1, poll.size());
         assertTrue((boolean)poll.get(0).value());
         assertEquals(Schema.Type.BOOLEAN, poll.get(0).valueSchema().type());
+        assertNull(poll.get(0).key());
+        assertNull(poll.get(0).keySchema());
 
         // second third data
         template.sendBody("direct:start", 1234L);
@@ -101,6 +151,18 @@ public class CamelSourceTaskTest {
         assertEquals(1, poll.size());
         assertEquals(1234L, poll.get(0).value());
         assertEquals(Schema.Type.INT64, poll.get(0).valueSchema().type());
+        assertNull(poll.get(0).key());
+        assertNull(poll.get(0).keySchema());
+
+        // third with null data
+        template.sendBody("direct:start", null);
+
+        Thread.sleep(100L);
+        poll = camelSourceTask.poll();
+        assertNull(poll.get(0).key());
+        assertNull(poll.get(0).keySchema());
+        assertNull(poll.get(0).value());
+        assertNull(poll.get(0).valueSchema());
 
         camelSourceTask.stop();
     }
