@@ -27,7 +27,7 @@ public final class KafkaServiceFactory {
     }
 
     public static KafkaService createService() {
-        String kafkaRemote = System.getenv("kafka.instance.type");
+        String kafkaRemote = System.getProperty("kafka.instance.type");
         if (kafkaRemote == null || kafkaRemote.equals("local-kafka-container")) {
             return new ContainerLocalKafkaService();
         }
