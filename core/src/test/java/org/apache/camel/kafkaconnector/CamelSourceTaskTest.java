@@ -20,6 +20,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.camel.ProducerTemplate;
+import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.header.Headers;
 import org.apache.kafka.connect.source.SourceRecord;
@@ -54,6 +57,50 @@ public class CamelSourceTaskTest {
             }
         }
         assertTrue(containsHeader);
+
+        camelSourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingWithBody() throws InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "direct:start");
+        props.put("camel.source.kafka.topic", "mytopic");
+
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        final ProducerTemplate template = camelSourceTask.getCms().createProducerTemplate();
+
+        // send first data
+        template.sendBody("direct:start", "testing kafka connect");
+
+        Thread.sleep(100L);
+
+        List<SourceRecord> poll = camelSourceTask.poll();
+        assertEquals(1, poll.size());
+        assertEquals("testing kafka connect", poll.get(0).value());
+        assertEquals(Schema.Type.STRING, poll.get(0).valueSchema().type());
+
+        // send second data
+        template.sendBody("direct:start", true);
+
+        Thread.sleep(100L);
+
+        poll = camelSourceTask.poll();
+        assertEquals(1, poll.size());
+        assertTrue((boolean)poll.get(0).value());
+        assertEquals(Schema.Type.BOOLEAN, poll.get(0).valueSchema().type());
+
+        // second third data
+        template.sendBody("direct:start", 1234L);
+
+        Thread.sleep(100L);
+
+        poll = camelSourceTask.poll();
+        assertEquals(1, poll.size());
+        assertEquals(1234L, poll.get(0).value());
+        assertEquals(Schema.Type.INT64, poll.get(0).valueSchema().type());
 
         camelSourceTask.stop();
     }
