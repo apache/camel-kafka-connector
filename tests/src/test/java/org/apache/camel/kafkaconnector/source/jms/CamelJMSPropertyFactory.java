@@ -17,7 +17,11 @@
 
 package org.apache.camel.kafkaconnector.source.jms;
 
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 
@@ -30,13 +34,13 @@ class CamelJMSPropertyFactory implements ConnectorPropertyFactory {
     private final String topic;
     private final String queue;
 
-    private final String brokerURL;
+    private final Properties connectionProperties;
 
-    CamelJMSPropertyFactory(int tasksMax, String topic, String queue, String brokerURL) {
+    CamelJMSPropertyFactory(int tasksMax, String topic, String queue, Properties connectionProperties) {
         this.tasksMax = tasksMax;
         this.topic = topic;
         this.queue = queue;
-        this.brokerURL = brokerURL;
+        this.connectionProperties = connectionProperties;
     }
 
     @Override
@@ -50,8 +54,9 @@ class CamelJMSPropertyFactory implements ConnectorPropertyFactory {
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
         connectorProps.put("camel.source.url", "sjms2://queue:" + queue);
         connectorProps.put("camel.source.kafka.topic", topic);
-        connectorProps.put("camel.component.sjms2.connection-factory", "#class:org.apache.activemq.ActiveMQConnectionFactory");
-        connectorProps.put("camel.component.sjms2.connection-factory.brokerURL", brokerURL);
+
+        Set<Map.Entry<Object, Object>> set = connectionProperties.entrySet();
+        connectorProps.putAll(set.stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b)->b)));
 
         return connectorProps;
     }

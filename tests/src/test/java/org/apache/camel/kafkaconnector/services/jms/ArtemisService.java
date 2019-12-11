@@ -15,9 +15,8 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector;
+package org.apache.camel.kafkaconnector.services.jms;
 
-import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.images.builder.ImageFromDockerfile;
 
@@ -25,20 +24,20 @@ import org.testcontainers.images.builder.ImageFromDockerfile;
  * A specialized container that can be used to create Apache Artemis broker
  * instances.
  */
-public class ArtemisContainer extends GenericContainer {
+public class ArtemisService extends JMSService {
     private static final int DEFAULT_MQTT_PORT = 1883;
     private static final int DEFAULT_AMQP_PORT = 5672;
     private static final int DEFAULT_ADMIN_PORT = 8161;
     private static final int DEFAULT_ACCEPTOR_PORT = 61616;
 
 
-    public ArtemisContainer() {
+    public ArtemisService() {
         super(new ImageFromDockerfile()
                 .withFileFromClasspath("Dockerfile",
-                        "org/apache/camel/kafkaconnector/Dockerfile"));
+                        "org/apache/camel/kafkaconnector/services/jms/artemis/Dockerfile"));
 
-        withExposedPorts(new Integer[]{DEFAULT_MQTT_PORT, DEFAULT_AMQP_PORT,
-            DEFAULT_ADMIN_PORT, DEFAULT_ACCEPTOR_PORT});
+        withExposedPorts(DEFAULT_MQTT_PORT, DEFAULT_AMQP_PORT,
+                DEFAULT_ADMIN_PORT, DEFAULT_ACCEPTOR_PORT);
 
         waitingFor(Wait.forListeningPort());
     }
@@ -111,7 +110,7 @@ public class ArtemisContainer extends GenericContainer {
      * Gets the end point URL used exchanging messages through the default acceptor port
      * @return the end point URL as a string
      */
-    public String getDefaultAcceptorEndpoint() {
+    public String getDefaultEndpoint() {
         return String.format("tcp://localhost:%d", getDefaultAcceptorPort());
     }
 
