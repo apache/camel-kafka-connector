@@ -1,7 +1,5 @@
 == Camel Kafka Connector
 
-image:https://img.shields.io/gitter/room/apache/camel-kafka-connector[https://gitter.im/apache/camel-kafka-connector]
-
 === Introduction
 [NOTE]
 ====
