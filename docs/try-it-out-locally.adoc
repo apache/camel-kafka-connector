@@ -70,7 +70,6 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 ----
 
 .Run the cassandraql source:
-Change your telegram bot token in `examples/CamelCassandraQLSourceConnector.properties`
 
 To run this example you'll need a bit more work:
 
