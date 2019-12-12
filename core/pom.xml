@@ -47,6 +47,17 @@
         <!--  Camel components  -->
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cassandraql</artifactId>
+            <exclusions>
+               <exclusion>
+                          <groupId>com.google.guava</groupId>
+                          <artifactId>guava</artifactId>
+               </exclusion>
+            </exclusions>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-telegram</artifactId>
             <scope>provided</scope>
         </dependency>

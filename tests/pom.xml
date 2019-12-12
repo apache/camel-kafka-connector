@@ -48,6 +48,16 @@
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cassandraql</artifactId>
+            <exclusions>
+               <exclusion>
+                          <groupId>com.google.guava</groupId>
+                          <artifactId>guava</artifactId>
+               </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-aws-sqs</artifactId>
         </dependency>
         <dependency>
