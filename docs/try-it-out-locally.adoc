@@ -94,6 +94,7 @@ Status=Up/Down
 UN  172.17.0.2  251.32 KiB  256          100.0%            5126aaad-f143-43e9-920a-0f9540a93967  rack1
 ----
 
+You'll need a local installation of cassandra, in particular the 3.11.4.
 Now we can populate the database:
 
 [source,bash]
