@@ -31,7 +31,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Aggregator module for the Camel-Kafka-Connector project</name>
+    <name>Camel-Kafka-Connector :: Root</name>
     <description>Builds the distribution of the Camel-Kafka-Connector project</description>
 
     <properties>
@@ -47,6 +47,7 @@
         <module>parent</module>
         <module>core</module>
         <module>tests</module>
+        <module>buildingtools</module>
     </modules>
 
     <developers>

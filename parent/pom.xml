@@ -6,7 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Camel-Kafka-connector Parent</name>
+    <name>Camel-Kafka-Connector :: Parent</name>
     <description>Parent for all Camel Kafka Connector modules</description>
 
     <licenses>
@@ -33,7 +33,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
+
         <jboss.releases.repo.id>jboss-releases-repository</jboss.releases.repo.id>
         <jboss.releases.nexus.url>https://repository.jboss.org/nexus</jboss.releases.nexus.url>
         <jboss.releases.repo.url>${jboss.releases.nexus.url}/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
@@ -61,9 +61,10 @@
         <version.testcontainers>1.12.0</version.testcontainers>
         <version.qpid-jms-client>0.40.0</version.qpid-jms-client>
 
-        <version.maven.checkstyle>7.6.1</version.maven.checkstyle>
-        <version.maven.checkstyle.plugin>3.0.0</version.maven.checkstyle.plugin>
+        <version.maven.checkstyle>8.26</version.maven.checkstyle>
+        <version.maven.checkstyle.plugin>3.1.0</version.maven.checkstyle.plugin>
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+        <mycila-license-version>3.0</mycila-license-version>
     </properties>
 
     <repositories>

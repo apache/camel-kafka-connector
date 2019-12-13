@@ -30,7 +30,7 @@
     <artifactId>camel-kafka-connector</artifactId>
     <packaging>jar</packaging>
 
-    <name>Camel-Kafka-Connector</name>
+    <name>Camel-Kafka-Connector :: Core</name>
     <description>Camel Kafka Connector</description>
 
     <dependencies>
