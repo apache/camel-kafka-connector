@@ -31,7 +31,7 @@
 
     <packaging>jar</packaging>
 
-    <name>Camel-Kafka-Connector Tests</name>
+    <name>Camel-Kafka-Connector :: Tests</name>
     <description>Camel Kafka Connector Tests</description>
 
     <artifactId>tests</artifactId>
