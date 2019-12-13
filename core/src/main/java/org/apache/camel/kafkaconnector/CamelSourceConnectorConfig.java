@@ -17,6 +17,7 @@
 package org.apache.camel.kafkaconnector;
 
 import java.util.Map;
+
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.config.ConfigDef.Importance;
@@ -49,8 +50,8 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
 
     public static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF = "camel.source.camelMessageHeaderKey";
-    public static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_DOC = "The camel message header key that contain an unique key for the message which can be used a Kafka message key. If this is not specified, then the Kafka message will not have a key";
-
+    public static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_DOC = "The camel message header key that contain an unique key for the message which can be used a Kafka message key."
+          +  " If this is not specified, then the Kafka message will not have a key";
 
     private static final String CAMEL_SOURCE_URL_DOC = "The camel url to configure the source";
     private static final String CAMEL_SOURCE_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the source";

@@ -79,5 +79,5 @@ public class SchemaHelperTest {
         // finally how to handle if we have no idea about the value
         final S3ObjectInputStream s3ObjectInputStream = new S3ObjectInputStream(System.in, new HttpDelete());
         assertEquals(Schema.Type.BYTES, SchemaHelper.buildSchemaBuilderForType(s3ObjectInputStream).type());
-     }
+    }
 }

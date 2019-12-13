@@ -17,6 +17,7 @@
 package org.apache.camel.kafkaconnector.converters;
 
 import java.util.Map;
+
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaAndValue;

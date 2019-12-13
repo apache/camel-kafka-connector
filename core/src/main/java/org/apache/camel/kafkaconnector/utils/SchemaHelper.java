@@ -30,6 +30,9 @@ import org.apache.kafka.connect.transforms.util.SchemaUtil;
 
 public final class SchemaHelper {
 
+    private SchemaHelper() {
+    }
+
     /**
      * Try to build a {@link SchemaBuilder} for a value of type {@link Object}
      * However, this will only build the schema only for known types, in case it can not return the precise SchemaBuilder type

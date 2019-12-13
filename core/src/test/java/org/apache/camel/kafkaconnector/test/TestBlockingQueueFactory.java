@@ -17,6 +17,7 @@
 package org.apache.camel.kafkaconnector.test;
 
 import java.util.concurrent.BlockingQueue;
+
 import org.apache.camel.component.seda.ArrayBlockingQueueFactory;
 import org.apache.camel.component.seda.BlockingQueueFactory;
 

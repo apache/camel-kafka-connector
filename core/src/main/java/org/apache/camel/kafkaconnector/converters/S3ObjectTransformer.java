@@ -18,39 +18,37 @@ package org.apache.camel.kafkaconnector.converters;
 
 import java.util.Map;
 
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.transforms.Transformation;
 
-import com.amazonaws.services.s3.model.S3ObjectInputStream;
-
 public class S3ObjectTransformer<R extends ConnectRecord<R>> implements Transformation<R> {
 
-	private final S3ObjectSerializer serializer = new S3ObjectSerializer();
-	
     public static final ConfigDef CONFIG_DEF = new ConfigDef()
-            .define("test", ConfigDef.Type.STRING, "test", ConfigDef.Importance.MEDIUM,
-                    "Transform the content of a bucket into a string ");
-	
-	@Override
-	public void configure(Map<String, ?> configs) {
-	}
+            .define("test", ConfigDef.Type.STRING, "test", ConfigDef.Importance.MEDIUM, "Transform the content of a bucket into a string ");
 
-	@Override
-	public R apply(R record) {
-		byte[] v = serializer.serialize(record.topic(), (S3ObjectInputStream) record.value());
-		String finalValue = new String(v);
-		return record.newRecord(record.topic(), record.kafkaPartition(), null, record.key(), Schema.STRING_SCHEMA, finalValue, record.timestamp());
-	}
+    private final S3ObjectSerializer serializer = new S3ObjectSerializer();
 
-	@Override
-	public void close() {	
-	}
+    @Override
+    public void configure(Map<String, ?> configs) {
+    }
 
-	@Override
-	public ConfigDef config() {
-		return CONFIG_DEF;
-	}
+    @Override
+    public R apply(R record) {
+        byte[] v = serializer.serialize(record.topic(), (S3ObjectInputStream) record.value());
+        String finalValue = new String(v);
+        return record.newRecord(record.topic(), record.kafkaPartition(), null, record.key(), Schema.STRING_SCHEMA, finalValue, record.timestamp());
+    }
+
+    @Override
+    public void close() {
+    }
+
+    @Override
+    public ConfigDef config() {
+        return CONFIG_DEF;
+    }
 
 }
