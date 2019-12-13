@@ -31,5 +31,5 @@ public abstract class JMSService extends GenericContainer {
      * Gets the default endpoint for the JMS service (ie.: amqp://host:port, or tcp://host:port, etc)
      * @return the endpoint URL as a string in the specific format used by the service
      */
-    abstract public String getDefaultEndpoint();
+    public abstract String getDefaultEndpoint();
 }

@@ -20,6 +20,7 @@ package org.apache.camel.kafkaconnector.clients.jms;
 import java.util.Properties;
 import java.util.function.Function;
 import java.util.function.Predicate;
+
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.DeliveryMode;

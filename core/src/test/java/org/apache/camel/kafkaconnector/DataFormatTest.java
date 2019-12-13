@@ -18,6 +18,7 @@ package org.apache.camel.kafkaconnector;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.camel.component.hl7.HL7DataFormat;
 import org.apache.camel.impl.DefaultCamelContext;

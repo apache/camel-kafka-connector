@@ -18,10 +18,10 @@ package org.apache.camel.kafkaconnector;
 
 import java.util.Properties;
 
-import static junit.framework.TestCase.fail;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static junit.framework.TestCase.fail;
 
 
 /**

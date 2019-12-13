@@ -32,13 +32,12 @@ import org.apache.kafka.connect.transforms.util.SimpleConfig;
 public abstract class CamelTypeConverterTransform<R extends ConnectRecord<R>> extends CamelTransformSupport<R> {
 
     public static final String FIELD_TARGET_TYPE_CONFIG = "target.type";
-
-    private static TypeConverter typeConverter;
-    private Class<?> fieldTargetType;
-
     public static final ConfigDef CONFIG_DEF = new ConfigDef()
             .define(FIELD_TARGET_TYPE_CONFIG, ConfigDef.Type.CLASS, null, ConfigDef.Importance.HIGH,
                     "The target field type to convert the value from, this is full qualified Java class, e.g: java.util.Map");
+
+    private static TypeConverter typeConverter;
+    private Class<?> fieldTargetType;
 
     @Override
     public R apply(R record) {

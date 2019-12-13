@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
@@ -125,9 +126,9 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
             map.put(singleHeader.key(), (byte)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
-        	map.put(singleHeader.key(), (Map)singleHeader.value());
+            map.put(singleHeader.key(), (Map)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
-        	map.put(singleHeader.key(), (List)singleHeader.value());
+            map.put(singleHeader.key(), (List)singleHeader.value());
         } 
     }
 
@@ -152,9 +153,9 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
             exchange.getProperties().put(singleHeader.key(), (byte)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
-        	exchange.getProperties().put(singleHeader.key(), (Map)singleHeader.value());
+            exchange.getProperties().put(singleHeader.key(), (Map)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
-        	exchange.getProperties().put(singleHeader.key(), (List)singleHeader.value());
+            exchange.getProperties().put(singleHeader.key(), (List)singleHeader.value());
         } 
     }
 

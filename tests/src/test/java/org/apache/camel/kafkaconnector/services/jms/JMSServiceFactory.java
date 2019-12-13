@@ -20,7 +20,7 @@ package org.apache.camel.kafkaconnector.services.jms;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JMSServiceFactory {
+public final class JMSServiceFactory {
     private static final Logger LOG = LoggerFactory.getLogger(JMSServiceFactory.class);
 
     private JMSServiceFactory() {

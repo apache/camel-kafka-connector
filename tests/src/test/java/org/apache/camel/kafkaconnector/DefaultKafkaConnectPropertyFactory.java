@@ -18,6 +18,7 @@
 package org.apache.camel.kafkaconnector;
 
 import java.util.Properties;
+
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
 
 

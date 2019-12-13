@@ -20,6 +20,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import org.apache.kafka.common.serialization.Serializer;
 import org.slf4j.Logger;

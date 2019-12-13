@@ -18,6 +18,7 @@
 package org.apache.camel.kafkaconnector.sink.aws.sqs;
 
 import java.util.Properties;
+
 import org.apache.camel.kafkaconnector.AWSConfigs;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
