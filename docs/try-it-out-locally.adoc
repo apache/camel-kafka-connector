@@ -126,6 +126,63 @@ export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelCassandraQLSourceConnector.properties
 ----
 
+.Run the cassandraql sink:
+
+To run this example you'll need a bit more work:
+
+First you'll need to run a cassandra instance:
+
+[source,bash]
+----
+docker run --name master_node --env MAX_HEAP_SIZE='800M' -dt oscerd/cassandra
+----
+
+Check everything is fine:
+
+[source,bash]
+----
+docker exec -ti master_node /opt/cassandra/bin/nodetool status
+Datacenter: datacenter1
+=======================
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address     Load       Tokens       Owns (effective)  Host ID                               Rack
+UN  172.17.0.2  251.32 KiB  256          100.0%            5126aaad-f143-43e9-920a-0f9540a93967  rack1
+----
+
+You'll need a local installation of cassandra, in particular the 3.11.4.
+Now we can populate the database:
+
+[source,bash]
+----
+<LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)
+----
+
+and run the script:
+
+[source,bash]
+----
+create keyspace test with replication = {'class':'SimpleStrategy', 'replication_factor':3};
+use test;
+create table users (id uuid primary key, name text );
+insert into users (id,name) values (now(), 'oscerd');
+quit;
+----
+
+The output of the following command should be used in the configuration of CamelCassandraQLSourceConnector.properties
+
+[source,bash]
+----
+<LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)
+----
+
+in particular it should be used as address instead of localhost in the `camel.sink.url`
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelCassandraQLSinkConnector.properties
+----
+
 .Run the file sink, just a camel file appending to /tmp/kafkaconnect.txt:
 [source,bash]
 ----
