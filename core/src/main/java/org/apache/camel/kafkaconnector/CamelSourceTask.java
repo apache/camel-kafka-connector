@@ -91,8 +91,8 @@ public class CamelSourceTask extends SourceTask {
 
     @Override
     public synchronized List<SourceRecord> poll() {
-        Long startPollEpochMilli = Instant.now().toEpochMilli();
-        Long collectedRecords = 0L;
+        long startPollEpochMilli = Instant.now().toEpochMilli();
+        long collectedRecords = 0L;
 
         List<SourceRecord> records = new ArrayList<>();
 
