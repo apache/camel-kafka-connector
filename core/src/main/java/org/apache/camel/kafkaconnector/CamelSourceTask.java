@@ -171,6 +171,10 @@ public class CamelSourceTask extends SourceTask {
                 record.headers().addByte(keyCamelHeader, (byte)value);
             } else if (value instanceof Byte[]) {
                 record.headers().addBytes(keyCamelHeader, (byte[])value);
+            } else if (value instanceof Time) {
+                record.headers().addTime(keyCamelHeader, (Time)value);
+            } else if (value instanceof Timestamp) {
+                record.headers().addTimestamp(keyCamelHeader, (Timestamp)value);
             } else if (value instanceof Date) {
                 SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
                 String convertedDate = sdf.format(value);
@@ -187,11 +191,7 @@ public class CamelSourceTask extends SourceTask {
                 record.headers().addLong(keyCamelHeader, (long)value);
             } else if (value instanceof Short) {
                 record.headers().addShort(keyCamelHeader, (short)value);
-            } else if (value instanceof Time) {
-                record.headers().addTime(keyCamelHeader, (Time)value);
-            } else if (value instanceof Timestamp) {
-                record.headers().addTimestamp(keyCamelHeader, (Timestamp)value);
-            } 
+            }
         }
     }
 
