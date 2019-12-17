@@ -78,7 +78,7 @@ public class CamelSinkTask extends SinkTask {
         Exchange exchange = new DefaultExchange(producer.getCamelContext());
         for (SinkRecord record : sinkRecords) {
             headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
-            for (Iterator iterator = record.headers().iterator(); iterator.hasNext();) {
+            for (Iterator<Header> iterator = record.headers().iterator(); iterator.hasNext();) {
                 Header header = (Header)iterator.next();
                 if (header.key().startsWith(HEADER_CAMEL_PREFIX)) {
                     addHeader(headers, header);
@@ -126,9 +126,9 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
             map.put(singleHeader.key(), (byte)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
-            map.put(singleHeader.key(), (Map)singleHeader.value());
+            map.put(singleHeader.key(), (Map<?, ?>)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
-            map.put(singleHeader.key(), (List)singleHeader.value());
+            map.put(singleHeader.key(), (List<?>)singleHeader.value());
         } 
     }
 
@@ -153,9 +153,9 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
             exchange.getProperties().put(singleHeader.key(), (byte)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (Map)singleHeader.value());
+            exchange.getProperties().put(singleHeader.key(), (Map<?, ?>)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (List)singleHeader.value());
+            exchange.getProperties().put(singleHeader.key(), (List<?>)singleHeader.value());
         } 
     }
 
