@@ -20,28 +20,23 @@ package org.apache.camel.kafkaconnector.services.kafka;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class KafkaServiceFactory {
-    private static final Logger LOG = LoggerFactory.getLogger(KafkaServiceFactory.class);
+public class StrimziService implements KafkaService {
+    private static final Logger LOG = LoggerFactory.getLogger(StrimziService.class);
+    private StrimziContainer container = new StrimziContainer();
 
-    private KafkaServiceFactory() {
+    private Integer getKafkaPort() {
+        return container.getServicePort("kafka", 9092);
     }
 
-    public static KafkaService createService() {
-        String kafkaRemote = System.getProperty("kafka.instance.type");
+    @Override
+    public String getBootstrapServers() {
+        return "localhost:" + getKafkaPort();
+    }
 
-        if (kafkaRemote == null || kafkaRemote.equals("local-strimzi-container")) {
-            return new StrimziService();
-        }
+    @Override
+    public void initialize() {
+        container.start();
 
-        if (kafkaRemote.equals("local-kafka-container")) {
-            return new ContainerLocalKafkaService();
-        }
-
-        if (kafkaRemote.equals("remote")) {
-            return new RemoteKafkaService();
-        }
-
-        LOG.error("Invalid Kafka instance must be one of 'local-strimzi-container', 'local-kafka-container' or 'remote");
-        throw new UnsupportedOperationException("Invalid Kafka instance type:");
+        LOG.info("Kafka bootstrap server running at address {}", getBootstrapServers());
     }
 }
