@@ -18,22 +18,25 @@ mvn clean package
 ----
 
 === Build the project and run integration tests
-
+To build the project it is sufficient to:
+[source,bash]
+----
+mvn clean install
+----
 To run the integration tests it is required to:
 
   * have Docker version 17.05 or higher running
-  * `docker pull confluentinc/cp-kafka:5.2.1` before launching integration testing (as a workaround to https://github.com/jboss-fuse/camel-kafka-connector/issues/56)
   * run:
 +
 [source,bash]
 ----
-mvn clean verify package
+mvn -DskipIntegrationTests=false clean verify package
 ----
 
 It is also possible to point the tests to use an external Kafka broker. To do so, run the tests using:
 
 ----
-mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote clean verify package
+mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote -DskipIntegrationTests=false clean verify package
 ----
 
 === Try it out locally

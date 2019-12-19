@@ -34,4 +34,4 @@ jobs:
       with:
         java-version: ${{ matrix.java }}
     - name: mvn verify
-      run: ./mvnw -V --no-transfer-progress clean install
+      run: ./mvnw -V --no-transfer-progress clean install -DskipIntegrationTests=false
