@@ -53,20 +53,55 @@ export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties config/CamelSourceConnector.properties
 ----
 
-.Run the default sink, just a camel logger:
-[source,bash]
-----
-export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties config/CamelSinkConnector.properties
-----
-
-.Run the telegram source:
-Change your telegram bot token in `examples/CamelTelegramSourceConnector.properties`
+.Run the AWS Kinesis source:
+You can adjust properties in `examples/CamelAWSKinesisSourceConnector.properties` for example configuring access key, secret key and region
+by adding `camel.component.aws-kinesis.configuration.access-key=youraccesskey`, `camel.component.aws-kinesis.configuration.secret-key=yoursecretkey` and `camel.component.aws-kinesis.configuration.region=yourregion`
 
 [source,bash]
 ----
 export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelTelegramSourceConnector.properties
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSKinesisSourceConnector.properties
+----
+
+.Run the AWS SQS sink:
+You can adjust properties in `examples/CamelAWSSQSSinkConnector.properties` for example configuring access key, secret key and region
+by adding `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
+
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSinkConnector.properties
+----
+
+.Run the AWS SQS source:
+You can adjust properties in `examples/CamelAWSSQSSourceConnector.properties` for example configuring access key, secret key and region
+by adding `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
+
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSourceConnector.properties
+----
+
+.Run the AWS SNS sink:
+You can adjust properties in `examples/CamelAWSSNSSinkConnector.properties` for example configuring access key, secret key and region
+by adding `camel.component.aws-sns.configuration.access-key=youraccesskey`, `camel.component.aws-sns.configuration.secret-key=yoursecretkey` and `camel.component.aws-sns.configuration.region=yourregion`
+
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSNSSinkConnector.properties
+----
+
+.Run the AWS S3 source:
+You can adjust properties in `examples/CamelAWSS3SourceConnector.properties` for example configuring access key, secret key and region
+by adding `camel.component.aws-s3.configuration.access-key=youraccesskey`, `camel.component.aws-s3.configuration.secret-key=yoursecretkey` and `camel.component.aws-s3.configuration.region=yourregion`
+Here you also have a converter specific for S3Object.
+
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSS3SourceConnector.properties
 ----
 
 .Run the cassandraql source:
@@ -183,11 +218,48 @@ export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelCassandraQLSinkConnector.properties
 ----
 
+.Run the Elasticsearch sink:
+You can adjust properties in `examples/CamelElasticSearchSinkConnector.properties` for example configuring the hostAddresses.
+
+For the index operation, it might be necessary to provide or implement a `transformer`. A sample configuration would be similar to the one below:
+[source,bash]
+----
+transforms=ElasticSearchTransformer
+----
+
+This is the sample Transformer used in the integration test code that transforms Kafka's ConnectRecord to a Map:
+[source,bash]
+----
+transforms.ElasticSearchTransformer.type=org.apache.camel.kafkaconnector.sink.elasticsearch.transforms.ConnectRecordValueToMapTransformer
+----
+
+This is a configuration for the sample transformer that defines the key used in the map:
+[source,bash]
+----
+transforms.ElasticSearchTransformer.key=MyKey
+----
+
+When the configuration is ready run the sink with:
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelElasticSearchSinkConnector.properties
+----
+
 .Run the file sink, just a camel file appending to /tmp/kafkaconnect.txt:
 [source,bash]
 ----
 export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelFileSinkConnector.properties
+----
+
+.Run the http sink:
+You can adjust properties in `examples/CamelHttpSinkConnector.properties` for example configuring the called url.
+
+[source,bash]
+----
+export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelHttpSinkConnector.properties
 ----
 
 .Run the JMS source:
@@ -200,7 +272,7 @@ export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelJmsSourceConnector.properties
 ----
 
-.Run the jms sink:
+.Run the JMS sink:
 You can adjust properties in `examples/CamelJmsSourceConnector.properties` for example configuring username and password
 by adding `camel.component.sjms2.connection-factory.userName=yourusername` and `camel.component.sjms2.connection-factory.password=yourpassword`
 
@@ -210,64 +282,13 @@ export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelJmsSinkConnector.properties
 ----
 
-.Run the AWS SQS sink:
-You can adjust properties in `examples/CamelAWSSQSSinkConnector.properties` for example configuring access key, secret key and region
-by adding `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
+.Run the telegram source:
+Change your telegram bot token in `examples/CamelTelegramSourceConnector.properties`
 
 [source,bash]
 ----
 export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSinkConnector.properties
-----
-
-.Run the AWS SQS source:
-You can adjust properties in `examples/CamelAWSSQSSourceConnector.properties` for example configuring access key, secret key and region
-by adding `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
-
-[source,bash]
-----
-export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSourceConnector.properties
-----
-
-.Run the AWS S3 source:
-You can adjust properties in `examples/CamelAWSS3SourceConnector.properties` for example configuring access key, secret key and region
-by adding `camel.component.aws-s3.configuration.access-key=youraccesskey`, `camel.component.aws-s3.configuration.secret-key=yoursecretkey` and `camel.component.aws-s3.configuration.region=yourregion`
-Here you also have a converter specific for S3Object.
-
-[source,bash]
-----
-export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSS3SourceConnector.properties
-----
-
-.Run the AWS SNS sink:
-You can adjust properties in `examples/CamelAWSSNSSinkConnector.properties` for example configuring access key, secret key and region
-by adding `camel.component.aws-sns.configuration.access-key=youraccesskey`, `camel.component.aws-sns.configuration.secret-key=yoursecretkey` and `camel.component.aws-sns.configuration.region=yourregion`
-
-[source,bash]
-----
-export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSNSSinkConnector.properties
-----
-
-.Run the AWS Kinesis source:
-You can adjust properties in `examples/CamelAWSKinesisSourceConnector.properties` for example configuring access key, secret key and region
-by adding `camel.component.aws-kinesis.configuration.access-key=youraccesskey`, `camel.component.aws-kinesis.configuration.secret-key=yoursecretkey` and `camel.component.aws-kinesis.configuration.region=yourregion`
-
-[source,bash]
-----
-export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSKinesisSourceConnector.properties
-----
-
-.Run the http sink:
-You can adjust properties in `examples/CamelHttpSinkConnector.properties` for example configuring the called url.
-
-[source,bash]
-----
-export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelHttpSinkConnector.properties
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelTelegramSourceConnector.properties
 ----
 
 ==== Listen or produce from a Kafka topic using Kafka utilities:
