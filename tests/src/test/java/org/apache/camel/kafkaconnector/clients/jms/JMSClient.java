@@ -202,6 +202,30 @@ public class JMSClient {
         }
     }
 
+    /**
+     * Sends data to a JMS queue or topic
+     *
+     * @param queue the queue or topic to send data to
+     * @param data  the (string) data to send
+     * @throws JMSException
+     */
+    public void send(final String queue, int data) throws JMSException {
+        MessageProducer producer = null;
+
+        try {
+            producer = session.createProducer(createDestination(queue));
+
+            producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+            producer.setTimeToLive(0);
+
+            Message message = session.createObjectMessage(data);
+
+            producer.send(message);
+        } finally {
+            capturingClose(producer);
+        }
+    }
+
     public static JMSClient createClient(String url) {
         String jmsInstanceType = System.getProperty("jms-service.instance.type");
 

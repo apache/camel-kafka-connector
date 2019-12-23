@@ -29,8 +29,6 @@ import javax.jms.TextMessage;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.ContainerUtil;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
@@ -57,21 +55,10 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
 
     private int received;
     private final int expect = 10;
-    private KafkaConnectRunner kafkaConnectRunner;
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForInitialization(jmsService);
         LOG.info("JMS service running at {}", jmsService.getDefaultEndpoint());
-
-        Properties connectionProperties = JMSClient.getConnectionProperties(jmsService.getDefaultEndpoint());
-
-        ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()),
-                TestCommon.DEFAULT_JMS_QUEUE, connectionProperties);
-
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
     private boolean checkRecord(Message jmsMessage) {
@@ -98,10 +85,17 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
     @Test(timeout = 90000)
     public void testBasicSendReceive() {
         try {
+            Properties connectionProperties = JMSClient.getConnectionProperties(jmsService.getDefaultEndpoint());
+
+            ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
+                    TestCommon.getDefaultTestTopic(this.getClass()),
+                    TestCommon.DEFAULT_JMS_QUEUE, connectionProperties);
+
+            getKafkaConnectService().initializeConnector(testProperties);
+
             CountDownLatch latch = new CountDownLatch(1);
 
-            ExecutorService service = Executors.newFixedThreadPool(2);
-            service.submit(() -> kafkaConnectRunner.run());
+            ExecutorService service = Executors.newCachedThreadPool();
 
             LOG.debug("Creating the consumer ...");
             service.submit(() -> consumeJMSMessages(latch));
@@ -120,8 +114,6 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
             } else {
                 fail("Failed to receive the messages within the specified time");
             }
-
-            kafkaConnectRunner.stop();
         } catch (Exception e) {
             LOG.error("JMS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());

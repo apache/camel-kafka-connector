@@ -21,22 +21,21 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
+import com.amazonaws.AmazonServiceException;
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.Protocol;
 import com.amazonaws.services.kinesis.AmazonKinesis;
 import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder;
+import com.amazonaws.services.kinesis.model.CreateStreamResult;
 import com.amazonaws.services.kinesis.model.PutRecordsRequest;
 import com.amazonaws.services.kinesis.model.PutRecordsRequestEntry;
 import com.amazonaws.services.kinesis.model.PutRecordsResult;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -48,6 +47,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
+import static org.junit.Assert.fail;
+
 public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
     private static final int KINESIS_PORT = 4568;
@@ -56,7 +57,6 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     public LocalStackContainer localStackContainer = new LocalStackContainer()
             .withServices(LocalStackContainer.Service.KINESIS);
 
-    private KafkaConnectRunner kafkaConnectRunner;
     private AmazonKinesis awsKinesisClient;
 
     private volatile int received;
@@ -65,23 +65,14 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     @Before
     public void setUp() {
-        LOG.info("Waiting for Kinesis initialization");
-        ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(KINESIS_PORT));
-        LOG.info("Kinesis Initialized");
-
+        if (!localStackContainer.isRunning()) {
+            LOG.info("Kinesis is not running");
+        }
         final String kinesisInstance = localStackContainer
                 .getEndpointConfiguration(LocalStackContainer.Service.KINESIS)
                 .getServiceEndpoint();
 
         LOG.info("Kinesis instance running at {}", kinesisInstance);
-
-        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, KINESIS_PORT);
-
-        ConnectorPropertyFactory testProperties = new CamelAWSKinesisPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_KINESIS_STREAM, properties);
-
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         ClientConfiguration clientConfiguration = new ClientConfiguration();
         clientConfiguration.setProtocol(Protocol.HTTP);
@@ -92,9 +83,6 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
                 .withCredentials(localStackContainer.getDefaultCredentialsProvider())
                 .withClientConfiguration(clientConfiguration)
                 .build();
-
-        awsKinesisClient.createStream(TestCommon.DEFAULT_KINESIS_STREAM, 1);
-
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -109,41 +97,33 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     }
 
     @Test(timeout = 120000)
-    public void testBasicSendReceive() {
-        CountDownLatch latch = new CountDownLatch(1);
+    public void testBasicSendReceive() throws ExecutionException, InterruptedException {
+        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, KINESIS_PORT);
 
-        ExecutorService service = Executors.newCachedThreadPool();
+        ConnectorPropertyFactory testProperties = new CamelAWSKinesisPropertyFactory(1,
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_KINESIS_STREAM, properties);
 
-        service.submit(() -> kafkaConnectRunner.run(latch));
+        getKafkaConnectService().initializeConnectorBlocking(testProperties);
 
-        try {
-            /*
-             * These tests need the embedded Kafka connect runner to be completely
-             * initialized before they can start running. Therefore we force it to
-             * wait until the connect instance signals it's done initializing.
-             */
-            int seconds = 30;
-
-            if (!latch.await(seconds, TimeUnit.SECONDS)) {
-                Assert.fail(String.format("The test did not start within %d seconds", seconds));
-            }
-
-            service.submit(() -> putRecords());
-            LOG.debug("Initialized the connector and put the data for the test execution");
-        } catch (InterruptedException e) {
-            Assert.fail("Test interrupted");
-        }
+        putRecords();
+        LOG.debug("Initialized the connector and put the data for the test execution");
 
         LOG.debug("Creating the consumer ...");
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
         kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
-        kafkaConnectRunner.stop();
         Assert.assertTrue("Didn't process the expected amount of messages", received == expect);
     }
 
     private void putRecords() {
+        CreateStreamResult result = awsKinesisClient.createStream(TestCommon.DEFAULT_KINESIS_STREAM, 1);
+        if (result.getSdkHttpMetadata().getHttpStatusCode() != 200) {
+            fail("Failed to create the stream");
+        } else {
+            LOG.info("Stream created successfully");
+        }
+
         PutRecordsRequest putRecordsRequest = new PutRecordsRequest();
         putRecordsRequest.setStreamName(TestCommon.DEFAULT_KINESIS_STREAM);
 
@@ -163,14 +143,43 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         }
 
         LOG.debug("Done creating the data records");
-        putRecordsRequest.setRecords(putRecordsRequestEntryList);
-        PutRecordsResult putRecordsResult = awsKinesisClient.putRecords(putRecordsRequest);
 
-        if (putRecordsResult.getFailedRecordCount() == 0) {
-            LOG.debug("Done putting the data records into the stream");
-        } else {
-            Assert.fail("Unable to put all the records into the stream");
-        }
+        int retries = 5;
+        do {
+            try {
+                putRecordsRequest.setRecords(putRecordsRequestEntryList);
+                PutRecordsResult putRecordsResult = awsKinesisClient.putRecords(putRecordsRequest);
+
+                if (putRecordsResult.getFailedRecordCount() == 0) {
+                    LOG.debug("Done putting the data records into the stream");
+                } else {
+                    fail("Unable to put all the records into the stream");
+                }
+
+                break;
+            } catch (AmazonServiceException e) {
+                retries--;
+
+                /*
+                 This works around the "... Cannot deserialize instance of `...AmazonKinesisException` out of NOT_AVAILABLE token
+
+                 It may take some time for the local Kinesis backend to be fully up - even though the container is
+                 reportedly up and running. Therefore, it tries a few more times
+                 */
+
+                LOG.error("Failed to put the records: {}", e.getMessage(), e);
+                if (retries == 0) {
+                    throw e;
+                }
+
+
+                try {
+                    Thread.sleep(TimeUnit.SECONDS.toMillis(2));
+                } catch (InterruptedException ex) {
+                    break;
+                }
+            }
+        } while (retries > 0);
 
 
     }

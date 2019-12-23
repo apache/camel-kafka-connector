@@ -28,13 +28,10 @@ import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.junit.Assert;
@@ -51,26 +48,15 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
     private static final String SINK_DIR = CamelSinkFileITCase.class.getResource(".").getPath();
     private static final String FILENAME = "test.txt";
 
-    private KafkaConnectRunner kafkaConnectRunner;
-
     private final int expect = 1;
 
 
     @Before
     public void setUp() {
-        String url = "file://" + SINK_DIR + "?fileName=" + FILENAME + "&doneFileName=${file:name}.done";
-        LOG.debug("Saving files to {}", url);
-
         File doneFile = new File(SINK_DIR, FILENAME + ".done");
         if (doneFile.exists()) {
             doneFile.delete();
         }
-
-        ConnectorPropertyFactory testProperties = new CamelFilePropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), url);
-
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
     private void putRecords() {
@@ -91,8 +77,13 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
     @Test(timeout = 90000)
     public void testBasicSendReceive() {
         try {
-            ExecutorService service = Executors.newCachedThreadPool();
-            service.submit(() -> kafkaConnectRunner.run());
+            String url = "file://" + SINK_DIR + "?fileName=" + FILENAME + "&doneFileName=${file:name}.done";
+            LOG.debug("Saving files to {}", url);
+
+            ConnectorPropertyFactory testProperties = new CamelFilePropertyFactory(1,
+                    TestCommon.getDefaultTestTopic(this.getClass()), url);
+
+            getKafkaConnectService().initializeConnector(testProperties);
 
             putRecords();
 
@@ -110,8 +101,6 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
         } catch (Exception e) {
             LOG.error("HTTP test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
-        } finally {
-            kafkaConnectRunner.stop();
         }
     }
 

@@ -29,7 +29,6 @@ import org.apache.camel.kafkaconnector.AWSConfigs;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
@@ -45,14 +44,12 @@ import static org.junit.Assert.fail;
 
 public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
-    private static final int SQS_PORT = 4576;
     private static final int SNS_PORT = 4575;
 
     @Rule
     public LocalStackContainer localStackContainer = new LocalStackContainer()
             .withServices(LocalStackContainer.Service.SQS, LocalStackContainer.Service.SNS);
 
-    private KafkaConnectRunner kafkaConnectRunner;
     private AWSSQSClient awsSqsClient;
 
     private volatile int received;
@@ -60,10 +57,6 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
 
     @Before
     public void setUp() {
-        LOG.info("Waiting for SQS+SNS initialization");
-        ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(SQS_PORT));
-        LOG.info("SQS+SNS Initialized");
-
         final String sqsInstance = localStackContainer
                 .getEndpointConfiguration(LocalStackContainer.Service.SQS)
                 .getServiceEndpoint();
@@ -71,23 +64,13 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
         LOG.info("SQS instance running at {}", sqsInstance);
 
         awsSqsClient = new AWSSQSClient(localStackContainer);
-        final String sqsQueue = awsSqsClient.getQueue(TestCommon.DEFAULT_SQS_QUEUE);
-        LOG.info("Created SQS queue {}", sqsQueue);
+
 
         final String snsInstance = localStackContainer
                 .getEndpointConfiguration(LocalStackContainer.Service.SNS)
                 .getServiceEndpoint();
 
         LOG.info("SNS instance running at {}", snsInstance);
-
-        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SNS_PORT);
-        properties.put(AWSConfigs.AMAZON_AWS_SNS_2_SQS_QUEUE_URL, sqsQueue);
-
-        ConnectorPropertyFactory testProperties = new CamelAWSSNSPropertyFactory(1,
-            TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SNS_QUEUE, properties);
-
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
     private boolean checkMessages(List<Message> messages) {
@@ -107,7 +90,7 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
 
     private void consumeMessages(CountDownLatch latch) {
         try {
-            awsSqsClient.receive(TestCommon.DEFAULT_SQS_QUEUE, this::checkMessages);
+            awsSqsClient.receive(TestCommon.DEFAULT_SQS_QUEUE_FOR_SNS, this::checkMessages);
         } catch (Throwable t) {
             LOG.error("Failed to consume messages: {}", t.getMessage(), t);
             fail(t.getMessage());
@@ -120,12 +103,21 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     @Test(timeout = 90000)
     public void testBasicSendReceive() {
         try {
-            CountDownLatch latch = new CountDownLatch(1);
+            final String sqsQueue = awsSqsClient.getQueue(TestCommon.DEFAULT_SQS_QUEUE_FOR_SNS);
+            LOG.info("Created SQS queue {}", sqsQueue);
 
-            ExecutorService service = Executors.newFixedThreadPool(2);
-            service.submit(() -> kafkaConnectRunner.run());
+            Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SNS_PORT);
+            properties.put(AWSConfigs.AMAZON_AWS_SNS_2_SQS_QUEUE_URL, sqsQueue);
+
+            ConnectorPropertyFactory testProperties = new CamelAWSSNSPropertyFactory(1,
+                    TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE_FOR_SNS, properties);
+
+            getKafkaConnectService().initializeConnector(testProperties);
+
+            ExecutorService service = Executors.newCachedThreadPool();
 
             LOG.debug("Creating the consumer ...");
+            CountDownLatch latch = new CountDownLatch(1);
             service.submit(() -> consumeMessages(latch));
 
             KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
@@ -142,10 +134,8 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
             } else {
                 fail("Failed to receive the messages within the specified time");
             }
-
-            kafkaConnectRunner.stop();
         } catch (Exception e) {
-            LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
+            LOG.error("Amazon SNS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
         }
 

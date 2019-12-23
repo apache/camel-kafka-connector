@@ -15,25 +15,15 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.services.kafka;
+package org.apache.camel.kafkaconnector.services.kafkaconnect;
 
-import org.apache.camel.kafkaconnector.ContainerUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.KafkaContainer;
+import java.util.concurrent.ExecutionException;
 
-public class ContainerLocalKafkaService implements KafkaService {
-    private static final Logger LOG = LoggerFactory.getLogger(ContainerLocalKafkaService.class);
-    private KafkaContainer kafka = new KafkaContainer().withEmbeddedZookeeper();
+import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import org.junit.rules.MethodRule;
 
-    public String getBootstrapServers() {
-        return kafka.getBootstrapServers();
-    }
+public interface KafkaConnectService extends MethodRule {
 
-    @Override
-    public void initialize() {
-        kafka.start();
-
-        LOG.info("Kafka bootstrap server running at address {}", kafka.getBootstrapServers());
-    }
+    void initializeConnector(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException;
+    void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException;
 }

@@ -19,8 +19,7 @@ package org.apache.camel.kafkaconnector.source.aws.s3;
 
 import java.io.File;
 import java.util.Properties;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutionException;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.Protocol;
@@ -29,7 +28,6 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -49,7 +47,6 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     public LocalStackContainer localStackContainer = new LocalStackContainer()
             .withServices(LocalStackContainer.Service.S3);
 
-    private KafkaConnectRunner kafkaConnectRunner;
     private AmazonS3 awsS3Client;
 
     private volatile int received;
@@ -57,23 +54,11 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
 
     @Before
     public void setUp() {
-        LOG.info("Waiting for S3 initialization");
-        ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(S3_PORT));
-        LOG.info("S3 Initialized");
-
         final String s3Instance = localStackContainer
                 .getEndpointConfiguration(LocalStackContainer.Service.S3)
                 .getServiceEndpoint();
 
         LOG.info("S3 instance running at {}", s3Instance);
-
-        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, S3_PORT);
-
-        ConnectorPropertyFactory testProperties = new CamelAWSS3PropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_S3_BUCKET, properties);
-
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         ClientConfiguration clientConfiguration = new ClientConfiguration();
         clientConfiguration.setProtocol(Protocol.HTTP);
@@ -100,9 +85,13 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     }
 
     @Test(timeout = 180000)
-    public void testBasicSendReceive() {
-        ExecutorService service = Executors.newCachedThreadPool();
-        service.submit(() -> kafkaConnectRunner.run());
+    public void testBasicSendReceive() throws ExecutionException, InterruptedException {
+        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, S3_PORT);
+
+        ConnectorPropertyFactory testProperties = new CamelAWSS3PropertyFactory(1,
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_S3_BUCKET, properties);
+
+        getKafkaConnectService().initializeConnector(testProperties);
 
         awsS3Client.createBucket(TestCommon.DEFAULT_S3_BUCKET);
 
@@ -121,7 +110,6 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
-        kafkaConnectRunner.stop();
         Assert.assertTrue("Didn't process the expected amount of messages", received == expect);
     }
 }

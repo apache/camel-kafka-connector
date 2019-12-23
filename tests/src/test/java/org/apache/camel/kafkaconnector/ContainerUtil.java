@@ -18,72 +18,15 @@
 package org.apache.camel.kafkaconnector;
 
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.regions.Regions;
-import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
-import org.testcontainers.containers.wait.strategy.Wait;
 
-import static org.junit.Assert.fail;
 
 public final class ContainerUtil {
 
     private ContainerUtil() {
-    }
-
-    /**
-     * Wait for the container to be in running state
-     *
-     * @param container the container to wait for
-     */
-    public static void waitForInitialization(GenericContainer container) {
-        int retries = 25;
-
-        do {
-            boolean state = container.isRunning();
-
-            if (!state) {
-                try {
-                    Thread.sleep(TimeUnit.SECONDS.toMillis(1));
-                } catch (InterruptedException e) {
-                    container.stop();
-                    fail("Test interrupted");
-                }
-
-                retries--;
-            } else {
-                break;
-            }
-        } while (retries > 0);
-    }
-
-    /**
-     * Wait for the container to be in running state
-     *
-     * @param container the container to wait for
-     */
-    public static void waitForHttpInitialization(GenericContainer container, int port) {
-        int retries = 25;
-
-        do {
-            boolean state = container.isRunning();
-
-            if (!state) {
-                try {
-                    Thread.sleep(TimeUnit.SECONDS.toMillis(1));
-                } catch (InterruptedException e) {
-                    container.stop();
-                    fail("Test interrupted");
-                }
-
-                retries--;
-            } else {
-                container.waitingFor(Wait.forHttp("/").forPort(port));
-                break;
-            }
-        } while (retries > 0);
     }
 
 

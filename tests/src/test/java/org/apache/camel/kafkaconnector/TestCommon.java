@@ -16,12 +16,8 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import java.util.Properties;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static junit.framework.TestCase.fail;
 
 
 /**
@@ -37,6 +33,11 @@ public final class TestCommon {
      * The default SQS queue name used during the tests
      */
     public static final String DEFAULT_SQS_QUEUE = "ckc";
+
+    /**
+     * The default SQS queue name used during the tests
+     */
+    public static final String DEFAULT_SQS_QUEUE_FOR_SNS = "ckcsns";
 
     /**
      * The default SNS queue name used during the tests
@@ -68,12 +69,6 @@ public final class TestCommon {
     private TestCommon() {
     }
 
-
-    public static void failOnConnectorError(Throwable error, Properties connectorProps, String name) {
-        LOG.error("Failed to create job for {} with properties {}", name, connectorProps,
-                error);
-        fail("Failed to create job for " + name);
-    }
 
     public static String getDefaultTestTopic(Class<?> clazz) {
         return clazz.getName();

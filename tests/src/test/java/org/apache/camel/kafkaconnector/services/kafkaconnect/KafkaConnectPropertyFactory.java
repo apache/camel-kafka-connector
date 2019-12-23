@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector;
+package org.apache.camel.kafkaconnector.services.kafkaconnect;
 
 import java.util.Properties;
 
