@@ -25,7 +25,7 @@ public class QpidDispatchRouterService extends JMSService {
 
 
     public QpidDispatchRouterService() {
-        super(new ImageFromDockerfile()
+        super(new ImageFromDockerfile("qpid-dispatch:ckc", false)
                 .withFileFromClasspath("Dockerfile",
                         "org/apache/camel/kafkaconnector/services/jms/qpid-dispatch-router/Dockerfile"));
 
