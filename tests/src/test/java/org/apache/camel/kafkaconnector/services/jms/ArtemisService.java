@@ -32,7 +32,7 @@ public class ArtemisService extends JMSService {
 
 
     public ArtemisService() {
-        super(new ImageFromDockerfile()
+        super(new ImageFromDockerfile("apache-artemis:ckc", false)
                 .withFileFromClasspath("Dockerfile",
                         "org/apache/camel/kafkaconnector/services/jms/artemis/Dockerfile"));
 
