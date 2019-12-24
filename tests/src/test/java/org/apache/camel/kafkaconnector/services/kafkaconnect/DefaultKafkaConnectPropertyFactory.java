@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector;
+package org.apache.camel.kafkaconnector.services.kafkaconnect;
 
 import java.util.Properties;
 
@@ -26,7 +26,7 @@ import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
  * A set of properties for the Kafka connect runtime that match the standard configuration
  * used for the standalone CLI connect runtime.
  */
-public class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory {
+class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory {
     private final String bootstrapServer;
 
     /**
@@ -48,7 +48,7 @@ public class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyF
         props.put(StandaloneConfig.OFFSET_STORAGE_FILE_FILENAME_CONFIG, this.getClass().getResource("/").getPath() + "connect.offsets");
         props.put(StandaloneConfig.OFFSET_COMMIT_INTERVAL_MS_CONFIG, "10000");
         props.put(StandaloneConfig.PLUGIN_PATH_CONFIG, "");
-        props.put(StandaloneConfig.REST_PORT_CONFIG, "9999");
+        props.put(StandaloneConfig.LISTENERS_CONFIG, "http://localhost:9999");
 
         return props;
     }

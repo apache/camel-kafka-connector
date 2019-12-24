@@ -17,11 +17,9 @@
 
 package org.apache.camel.kafkaconnector.source.timer;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -40,15 +38,10 @@ public class CamelSourceTimerITCase extends AbstractKafkaTest {
 
     private int received;
     private final int expect = 10;
-    private KafkaConnectRunner kafkaConnectRunner;
 
     @Before
     public void setUp() {
-        CamelTimerPropertyFactory testProperties = new CamelTimerPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), expect);
 
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -62,16 +55,17 @@ public class CamelSourceTimerITCase extends AbstractKafkaTest {
     }
 
     @Test(timeout = 90000)
-    public void testLaunchConnector() {
-        ExecutorService service = Executors.newCachedThreadPool();
-        service.submit(() -> kafkaConnectRunner.run());
+    public void testLaunchConnector() throws ExecutionException, InterruptedException {
+        CamelTimerPropertyFactory testProperties = new CamelTimerPropertyFactory(1,
+                TestCommon.getDefaultTestTopic(this.getClass()), expect);
+
+        getKafkaConnectService().initializeConnector(testProperties);
 
         LOG.debug("Creating the consumer ...");
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
         kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
-        kafkaConnectRunner.stop();
         Assert.assertTrue(received == expect);
     }
 }

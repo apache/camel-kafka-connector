@@ -19,14 +19,19 @@ package org.apache.camel.kafkaconnector;
 
 import org.apache.camel.kafkaconnector.services.kafka.KafkaService;
 import org.apache.camel.kafkaconnector.services.kafka.KafkaServiceFactory;
+import org.apache.camel.kafkaconnector.services.kafkaconnect.KafkaConnectRunnerService;
+import org.apache.camel.kafkaconnector.services.kafkaconnect.KafkaConnectService;
 import org.junit.Rule;
 
 public class AbstractKafkaTest {
     private static final KafkaService KAFKA_SERVICE;
+    private static final KafkaConnectService KAFKA_CONNECT_RUNNER_SERVICE;
 
     static {
         KAFKA_SERVICE = KafkaServiceFactory.createService();
         KAFKA_SERVICE.initialize();
+
+        KAFKA_CONNECT_RUNNER_SERVICE = new KafkaConnectRunnerService(KAFKA_SERVICE);
     }
 
     public AbstractKafkaTest() {
@@ -38,7 +43,9 @@ public class AbstractKafkaTest {
         return KAFKA_SERVICE;
     }
 
-    public KafkaConnectRunner getKafkaConnectRunner() {
-        return new KafkaConnectRunner(getKafkaService().getBootstrapServers());
+
+    @Rule
+    public KafkaConnectService getKafkaConnectService() {
+        return KAFKA_CONNECT_RUNNER_SERVICE;
     }
 }

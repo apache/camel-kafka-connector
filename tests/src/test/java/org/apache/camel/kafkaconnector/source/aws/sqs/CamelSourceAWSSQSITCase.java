@@ -18,13 +18,11 @@
 package org.apache.camel.kafkaconnector.source.aws.sqs;
 
 import java.util.Properties;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
@@ -45,7 +43,6 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     public LocalStackContainer localStackContainer = new LocalStackContainer()
             .withServices(LocalStackContainer.Service.SQS);
 
-    private KafkaConnectRunner kafkaConnectRunner;
     private AWSSQSClient awssqsClient;
 
     private volatile int received;
@@ -53,24 +50,11 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
 
     @Before
     public void setUp() {
-        LOG.info("Waiting for SQS initialization");
-        ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(SQS_PORT));
-        LOG.info("SQS Initialized");
-
         final String sqsInstance = localStackContainer
                 .getEndpointConfiguration(LocalStackContainer.Service.SQS)
                 .getServiceEndpoint();
 
         LOG.info("SQS instance running at {}", sqsInstance);
-
-        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
-
-        ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE,
-                properties);
-
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         awssqsClient = new AWSSQSClient(localStackContainer);
     }
@@ -87,9 +71,14 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     }
 
     @Test(timeout = 90000)
-    public void testBasicSendReceive() {
-        ExecutorService service = Executors.newCachedThreadPool();
-        service.submit(() -> kafkaConnectRunner.run());
+    public void testBasicSendReceive() throws ExecutionException, InterruptedException {
+        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
+
+        ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
+                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE,
+                properties);
+
+        getKafkaConnectService().initializeConnector(testProperties);
 
         LOG.debug("Sending SQS messages");
         for (int i = 0; i < expect; i++) {
@@ -102,7 +91,6 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
-        kafkaConnectRunner.stop();
         Assert.assertTrue("Didn't process the expected amount of messages", received == expect);
     }
 }

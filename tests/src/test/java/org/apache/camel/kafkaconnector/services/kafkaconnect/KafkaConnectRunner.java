@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector;
+package org.apache.camel.kafkaconnector.services.kafkaconnect;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
+import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;
 import org.apache.kafka.connect.runtime.Connect;
@@ -42,15 +45,12 @@ import org.apache.kafka.connect.util.FutureCallback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static junit.framework.TestCase.fail;
-
-
 
 /**
  * An embeddable Kafka Connect runtime for usage during the tests. It is equivalent
  * to the Kafka connect standalone CLI
  */
-public class KafkaConnectRunner {
+class KafkaConnectRunner {
     private static final Logger LOG = LoggerFactory.getLogger(KafkaConnectRunner.class);
 
     private final String bootstrapServer;
@@ -59,6 +59,35 @@ public class KafkaConnectRunner {
 
     private Connect connect;
     private Herder herder;
+
+
+    /**
+     * Contains the initialization state. This just abstracts internal details from the
+     * runner, so those details don't leak in other parts of the test code
+     */
+    public class ConnectorInitState {
+        private Map<String, String> configs;
+        private boolean created;
+        private Throwable error;
+
+        public ConnectorInitState(Map<String, String> configs, boolean created, Throwable error) {
+            this.configs = configs;
+            this.created = created;
+            this.error = error;
+        }
+
+        public Map<String, String> getConfigs() {
+            return configs;
+        }
+
+        public boolean isCreated() {
+            return created;
+        }
+
+        public Throwable getError() {
+            return error;
+        }
+    }
 
     /**
      * Constructs the properties using the given bootstrap server
@@ -125,23 +154,12 @@ public class KafkaConnectRunner {
     }
 
 
-    private void callTestErrorHandler(Properties connectorProps, Throwable error) {
-        if (error != null) {
-            LOG.error("Failed to create the connector");
-            error.printStackTrace();
-            TestCommon.failOnConnectorError(error, connectorProps,
-                    (String) connectorProps.get(ConnectorConfig.NAME_CONFIG));
-        } else {
-            LOG.debug("Created connector {}", connectorProps.get(ConnectorConfig.NAME_CONFIG));
-        }
-    }
-
-
-    public void initializeConnector(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+    public void initializeConnector(ConnectorPropertyFactory connectorPropertyFactory,
+                                    Consumer<ConnectorInitState> callback) throws ExecutionException, InterruptedException {
         Properties connectorProps = connectorPropertyFactory.getProperties();
 
         FutureCallback<Herder.Created<ConnectorInfo>> cb = new FutureCallback<>((error, info) ->
-                callTestErrorHandler(connectorProps, error));
+                callback.accept(new ConnectorInitState(info.result().config(), info.created(), error)));
 
         herder.putConnectorConfig(
                 connectorProps.getProperty(ConnectorConfig.NAME_CONFIG),
@@ -150,61 +168,37 @@ public class KafkaConnectRunner {
         cb.get();
     }
 
-    private static void failOnKafkaConnectInitialization(Throwable error) {
-        LOG.error("Failed to initialize the embedded Kafka Connect Runtime: {}",
-                error.getMessage(), error);
+    public <T> void initializeConnector(ConnectorPropertyFactory connectorPropertyFactory,
+                                    BiConsumer<ConnectorInitState, T> callback, T payload) throws ExecutionException, InterruptedException {
+        Properties connectorProps = connectorPropertyFactory.getProperties();
 
-        fail("Failed to initialize the embedded Kafka Connect Runtime: "
-                + error.getMessage());
+        FutureCallback<Herder.Created<ConnectorInfo>> cb = new FutureCallback<>((error, info) ->
+                callback.accept(new ConnectorInitState(info.result().config(), info.created(), error), payload));
+
+        herder.putConnectorConfig(
+                connectorProps.getProperty(ConnectorConfig.NAME_CONFIG),
+                Utils.propsToStringMap(connectorProps), false, cb);
+
+        cb.get();
     }
 
-    /**
-     * Run the embeddable Kafka connect runtime
-     * @return true if successfully started the runtime or false otherwise
-     */
-    public boolean run() {
-        init();
-
-        LOG.info("Starting the connect interface");
-        connect.start();
-        LOG.info("Started the connect interface");
-
-        for (ConnectorPropertyFactory propertyProducer : connectorPropertyFactories) {
-            try {
-                initializeConnector(propertyProducer);
-            } catch (InterruptedException | ExecutionException e) {
-                failOnKafkaConnectInitialization(e);
-
-                return false;
-            }
-        }
-
-        connect.awaitStop();
-        return true;
-    }
 
     /**
      * Run the embeddable Kafka connect runtime
      * @return true if successfully started the runtime or false otherwise
      */
     public boolean run(CountDownLatch latch) {
-        init();
+        try {
+            init();
 
-        LOG.info("Starting the connect interface");
-        connect.start();
-        LOG.info("Started the connect interface");
+            LOG.info("Starting the connect interface");
+            connect.start();
+            LOG.info("Started the connect interface");
 
-        for (ConnectorPropertyFactory propertyProducer : connectorPropertyFactories) {
-            try {
-                initializeConnector(propertyProducer);
-            } catch (InterruptedException | ExecutionException e) {
-                failOnKafkaConnectInitialization(e);
-
-                return false;
-            }
+        } finally {
+            latch.countDown();
         }
 
-        latch.countDown();
         connect.awaitStop();
         return true;
     }

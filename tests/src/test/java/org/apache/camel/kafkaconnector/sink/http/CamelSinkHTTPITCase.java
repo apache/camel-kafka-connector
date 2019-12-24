@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.http.impl.bootstrap.HttpServer;
@@ -46,7 +45,6 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
 
     private HttpServer localServer;
 
-    private KafkaConnectRunner kafkaConnectRunner;
     private HTTPTestValidationHandler validationHandler;
 
     private final int expect = 10;
@@ -60,13 +58,6 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
                 .create();
 
         localServer.start();
-
-        String url = "http://localhost:" + HTTP_PORT + "/ckc";
-        ConnectorPropertyFactory testProperties = new CamelHTTPPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), url);
-
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
     }
 
     @After
@@ -92,8 +83,13 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
     @Test(timeout = 90000)
     public void testBasicSendReceive() {
         try {
+            String url = "http://localhost:" + HTTP_PORT + "/ckc";
+            ConnectorPropertyFactory testProperties = new CamelHTTPPropertyFactory(1,
+                    TestCommon.getDefaultTestTopic(this.getClass()), url);
+
+            getKafkaConnectService().initializeConnector(testProperties);
+
             ExecutorService service = Executors.newCachedThreadPool();
-            service.submit(() -> kafkaConnectRunner.run());
             service.submit(this::putRecords);
 
             LOG.debug("Created the consumer ... About to receive messages");
@@ -109,8 +105,6 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
 
             Assert.assertEquals("Did not receive the same amount of messages that were sent", replies.size(),
                     expect);
-
-            kafkaConnectRunner.stop();
         } catch (Exception e) {
             LOG.error("HTTP test failed: {}", e.getMessage(), e);
             fail(e.getMessage());

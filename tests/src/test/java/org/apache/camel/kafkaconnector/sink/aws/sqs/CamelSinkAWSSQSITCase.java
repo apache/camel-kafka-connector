@@ -28,7 +28,6 @@ import com.amazonaws.services.sqs.model.Message;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.ContainerUtil;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
@@ -50,7 +49,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     public LocalStackContainer localStackContainer = new LocalStackContainer()
             .withServices(LocalStackContainer.Service.SQS);
 
-    private KafkaConnectRunner kafkaConnectRunner;
     private AWSSQSClient awssqsClient;
 
     private volatile int received;
@@ -58,23 +56,11 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @Before
     public void setUp() {
-        LOG.info("Waiting for SQS initialization");
-        ContainerUtil.waitForHttpInitialization(localStackContainer, localStackContainer.getMappedPort(SQS_PORT));
-        LOG.info("SQS Initialized");
-
         final String sqsInstance = localStackContainer
                 .getEndpointConfiguration(LocalStackContainer.Service.SQS)
                 .getServiceEndpoint();
 
         LOG.info("SQS instance running at {}", sqsInstance);
-
-        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
-
-        ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE, properties);
-
-        kafkaConnectRunner =  getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         awssqsClient = new AWSSQSClient(localStackContainer);
     }
@@ -99,7 +85,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
             awssqsClient.receive(TestCommon.DEFAULT_SQS_QUEUE, this::checkMessages);
         } catch (Throwable t) {
             LOG.error("Failed to consume messages: {}", t.getMessage(), t);
-            fail(t.getMessage());
         } finally {
             latch.countDown();
         }
@@ -114,7 +99,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
             }
         } catch (Throwable t) {
             LOG.error("Unable to publish messages to the broker: {}", t.getMessage(), t);
-            fail(String.format("Unable to publish messages to the broker: {}", t.getMessage()));
+            fail(String.format("Unable to publish messages to the broker: %s", t.getMessage()));
         }
     }
 
@@ -122,12 +107,17 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     @Test(timeout = 120000)
     public void testBasicSendReceive() {
         try {
-            CountDownLatch latch = new CountDownLatch(2);
+            Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
 
-            ExecutorService service = Executors.newCachedThreadPool();
-            service.submit(() -> kafkaConnectRunner.run(latch));
+            ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
+                    TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE, properties);
+
+            getKafkaConnectService().initializeConnectorBlocking(testProperties);
 
             LOG.debug("Creating the consumer ...");
+            ExecutorService service = Executors.newCachedThreadPool();
+
+            CountDownLatch latch = new CountDownLatch(1);
             service.submit(() -> consumeMessages(latch));
 
             LOG.debug("Creating the producer and sending messages ...");
@@ -138,13 +128,12 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
                 Assert.assertTrue("Didn't process the expected amount of messages: " + received + " != " + expect,
                         received == expect);
             } else {
-                fail("Failed to receive the messages within the specified time");
+                fail(String.format("Failed to receive the messages within the specified time: received %d of %d",
+                        received, expect));
             }
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
-        } finally {
-            kafkaConnectRunner.stop();
         }
     }
 

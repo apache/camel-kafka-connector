@@ -45,11 +45,7 @@ public interface KafkaService extends MethodRule {
 
             @Override
             public void evaluate() throws Throwable {
-                try {
                     base.evaluate();
-                } finally {
-
-                }
             }
         };
     }

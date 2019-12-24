@@ -24,8 +24,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
-import org.apache.camel.kafkaconnector.ContainerUtil;
-import org.apache.camel.kafkaconnector.KafkaConnectRunner;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.elasticsearch.ElasticSearchClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
@@ -51,7 +49,6 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     @Rule
     public ElasticsearchContainer elasticsearch = new ElasticsearchContainer(ELASTIC_SEARCH_CONTAINER);
 
-    private KafkaConnectRunner kafkaConnectRunner;
     private ElasticSearchClient client;
 
     private final int expect = 10;
@@ -60,20 +57,12 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
 
     @Before
     public void setUp() {
-        ContainerUtil.waitForHttpInitialization(elasticsearch, elasticsearch.getMappedPort(ELASTIC_SEARCH_PORT));
-
         final String elasticSearchInstance = elasticsearch
                 .getHttpHostAddress();
 
         LOG.info("ElasticSearch instance running at {}", elasticSearchInstance);
 
-        String topic = TestCommon.getDefaultTestTopic(this.getClass());
-        CamelElasticSearchPropertyFactory testProperties = new CamelElasticSearchIndexPropertyFactory(1, topic,
-                TestCommon.DEFAULT_ELASTICSEARCH_CLUSTER,
-                elasticSearchInstance, TestCommon.DEFAULT_ELASTICSEARCH_INDEX, transformKey);
 
-        kafkaConnectRunner = getKafkaConnectRunner();
-        kafkaConnectRunner.getConnectorPropertyProducers().add(testProperties);
 
         client = new ElasticSearchClient(elasticsearch.getMappedPort(ELASTIC_SEARCH_PORT),
                 TestCommon.DEFAULT_ELASTICSEARCH_INDEX);
@@ -116,9 +105,18 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     @Test(timeout = 90000)
     public void testIndexOperation() {
         try {
-            CountDownLatch latch = new CountDownLatch(2);
+            final String elasticSearchInstance = elasticsearch
+                    .getHttpHostAddress();
+
+            String topic = TestCommon.getDefaultTestTopic(this.getClass());
+            CamelElasticSearchPropertyFactory testProperties = new CamelElasticSearchIndexPropertyFactory(1, topic,
+                    TestCommon.DEFAULT_ELASTICSEARCH_CLUSTER,
+                    elasticSearchInstance, TestCommon.DEFAULT_ELASTICSEARCH_INDEX, transformKey);
+
+            getKafkaConnectService().initializeConnector(testProperties);
+
+            CountDownLatch latch = new CountDownLatch(1);
             ExecutorService service = Executors.newCachedThreadPool();
-            service.submit(() -> kafkaConnectRunner.run(latch));
             service.submit(() -> putRecords(latch));
 
             latch.await(30, TimeUnit.SECONDS);
@@ -139,8 +137,6 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
         } catch (Exception e) {
             LOG.error("ElasticSearch test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
-        } finally {
-            kafkaConnectRunner.stop();
         }
     }
 }
