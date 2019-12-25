@@ -193,7 +193,8 @@ public class CamelSourceTaskTest {
             }
         } while (poll == null && retries > 0);
 
-        assertEquals(1, poll.size());
+        assertTrue("Received messages are: "+poll.size()+", expected between 1 and 2.", poll.size() >= 1);
+        assertTrue("Received messages are: "+poll.size()+", expected between 1 and 2.", poll.size() <= 2);
 
         camelSourceTask.stop();
     }
