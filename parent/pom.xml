@@ -40,6 +40,7 @@
         <jboss.snapshots.repo.id>jboss-snapshots-repository</jboss.snapshots.repo.id>
         <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
 
+        <activemq.version>5.15.9</activemq.version>
         <kafka.version>2.1.1</kafka.version>
         <junit.version>4.12</junit.version>
         <camel.version>3.0.0</camel.version>
@@ -112,17 +113,17 @@
                 <artifactId>camel-main</artifactId>
                 <version>${camel.version}</version>
             </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-cassandraql</artifactId>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-cassandraql</artifactId>
                 <version>${camel.version}</version>
-            <exclusions>
-               <exclusion>
-                          <groupId>com.google.guava</groupId>
-                          <artifactId>guava</artifactId>
-               </exclusion>
-            </exclusions>
-        </dependency>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-telegram</artifactId>
@@ -188,7 +189,7 @@
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>5.15.9</version>
+                <version>${activemq.version}</version>
             </dependency>
 
             <!--  Kafka dependencies -->
