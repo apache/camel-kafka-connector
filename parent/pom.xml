@@ -40,9 +40,11 @@
         <jboss.snapshots.repo.id>jboss-snapshots-repository</jboss.snapshots.repo.id>
         <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
 
+        <activemq.version>5.15.9</activemq.version>
         <kafka.version>2.1.1</kafka.version>
         <junit.version>4.12</junit.version>
         <camel.version>3.0.0</camel.version>
+        <jackson.version>2.10.1</jackson.version>
         <log4j2.version>2.8.2</log4j2.version>
         <version.java>1.8</version.java>
 
@@ -111,17 +113,17 @@
                 <artifactId>camel-main</artifactId>
                 <version>${camel.version}</version>
             </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-cassandraql</artifactId>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-cassandraql</artifactId>
                 <version>${camel.version}</version>
-            <exclusions>
-               <exclusion>
-                          <groupId>com.google.guava</groupId>
-                          <artifactId>guava</artifactId>
-               </exclusion>
-            </exclusions>
-        </dependency>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-telegram</artifactId>
@@ -172,22 +174,22 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-cbor</artifactId>
-                <version>2.10.1</version>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.10.1</version>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.databind</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.10.1</version>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>5.15.9</version>
+                <version>${activemq.version}</version>
             </dependency>
 
             <!--  Kafka dependencies -->
