@@ -176,7 +176,7 @@ public class CamelSourceTask extends SourceTask {
             } else if (value instanceof Timestamp) {
                 record.headers().addTimestamp(keyCamelHeader, (Timestamp)value);
             } else if (value instanceof Date) {
-                SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String convertedDate = sdf.format(value);
                 record.headers().addString(keyCamelHeader, (String)convertedDate);
             } else if (value instanceof BigDecimal) {
