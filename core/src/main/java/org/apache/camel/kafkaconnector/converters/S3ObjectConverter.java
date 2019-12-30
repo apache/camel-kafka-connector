@@ -28,7 +28,7 @@ public class S3ObjectConverter implements Converter {
     private final S3ObjectSerializer serializer = new S3ObjectSerializer();
 
     @Override
-    public void configure(Map<String, ?> arg0, boolean arg1) {
+    public void configure(Map<String, ?> configs, boolean isKey) {
     }
 
     @Override
