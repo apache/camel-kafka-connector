@@ -80,7 +80,6 @@ public class DataFormatTest {
         DefaultCamelContext dcc = new DefaultCamelContext();
         CamelMainSupport cms = new CamelMainSupport(props, "direct://start", "log://test", null, "hl7", dcc);
 
-
         HL7DataFormat hl7df = new HL7DataFormat();
         hl7df.setValidate(false);
         dcc.getRegistry().bind("hl7", hl7df);
