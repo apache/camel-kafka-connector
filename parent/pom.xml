@@ -44,7 +44,7 @@
         <kafka.version>2.1.1</kafka.version>
         <junit.version>4.13</junit.version>
         <camel.version>3.0.0</camel.version>
-        <jackson.version>2.10.1</jackson.version>
+        <jackson.version>2.10.2</jackson.version>
         <log4j2.version>2.8.2</log4j2.version>
         <version.java>1.8</version.java>
 
