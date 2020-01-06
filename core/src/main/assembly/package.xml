@@ -29,8 +29,8 @@
   <includeBaseDirectory>false</includeBaseDirectory>
   <fileSets>
     <fileSet>
-      <directory>${project.basedir}</directory>
-      <outputDirectory>share/doc/${project.name}/</outputDirectory>
+      <directory>${project.basedir}/..</directory>
+      <outputDirectory>share/doc/${project.artifactId}/</outputDirectory>
       <includes>
         <include>README*</include>
         <include>LICENSE*</include>
@@ -39,8 +39,8 @@
       </includes>
     </fileSet>
     <fileSet>
-      <directory>${project.basedir}/config</directory>
-      <outputDirectory>etc/${project.name}</outputDirectory>
+      <directory>${project.basedir}/../config</directory>
+      <outputDirectory>etc/${project.artifactId}</outputDirectory>
       <includes>
         <include>*</include>
       </includes>
@@ -48,7 +48,7 @@
   </fileSets>
   <dependencySets>
     <dependencySet>
-      <outputDirectory>share/java/${project.name}</outputDirectory>
+      <outputDirectory>share/java/${project.artifactId}</outputDirectory>
       <useProjectArtifact>true</useProjectArtifact>
       <useTransitiveFiltering>true</useTransitiveFiltering>
       <excludes>
