@@ -29,6 +29,8 @@ import java.util.function.Consumer;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;
+import org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy;
+import org.apache.kafka.connect.connector.policy.ConnectorClientConfigOverridePolicy;
 import org.apache.kafka.connect.runtime.Connect;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 import org.apache.kafka.connect.runtime.Herder;
@@ -125,6 +127,7 @@ class KafkaConnectRunner {
 
         StandaloneConfig config = new StandaloneConfig(standAloneProperties);
         String kafkaClusterId = ConnectUtils.lookupKafkaClusterId(config);
+        AllConnectorClientConfigOverridePolicy allConnectorClientConfigOverridePolicy = new AllConnectorClientConfigOverridePolicy();
 
         RestServer rest = new RestServer(config);
 
@@ -132,13 +135,13 @@ class KafkaConnectRunner {
          According to the Kafka source code "... Worker runs a (dynamic) set of tasks
          in a set of threads, doing the work of actually moving data to/from Kafka ..."
          */
-        Worker worker = new Worker(bootstrapServer, time, plugins, config, new FileOffsetBackingStore());
+        Worker worker = new Worker(bootstrapServer, time, plugins, config, new FileOffsetBackingStore(), allConnectorClientConfigOverridePolicy);
 
         /*
         From Kafka source code: " ... The herder interface tracks and manages workers
         and connectors ..."
          */
-        herder = new StandaloneHerder(worker, kafkaClusterId);
+        herder = new StandaloneHerder(worker, kafkaClusterId, allConnectorClientConfigOverridePolicy);
         connect = new Connect(herder, rest);
         LOG.info("Finished initializing the worker");
     }
