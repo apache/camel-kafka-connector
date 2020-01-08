@@ -41,7 +41,7 @@
         <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
 
         <activemq.version>5.15.9</activemq.version>
-        <kafka.version>2.1.1</kafka.version>
+        <kafka.version>2.3.1</kafka.version>
         <junit.version>4.13</junit.version>
         <camel.version>3.0.0</camel.version>
         <jackson.version>2.10.2</jackson.version>
