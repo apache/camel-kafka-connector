@@ -18,9 +18,6 @@
 package org.apache.camel.kafkaconnector.clients.elasticsearch;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import java.util.function.BooleanSupplier;
-import java.util.function.Predicate;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.search.SearchRequest;
@@ -35,6 +32,8 @@ import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.apache.camel.kafkaconnector.TestCommon.waitFor;
 
 public class ElasticSearchClient {
     private static final Logger LOG = LoggerFactory.getLogger(ElasticSearchClient.class);
@@ -119,48 +118,6 @@ public class ElasticSearchClient {
         }
 
         return true;
-    }
-
-    private <T> void waitFor(Predicate<T> resourceCheck, T payload) {
-        boolean state;
-        int retries = 30;
-        int waitTime = 1000;
-        do {
-            try {
-                state = resourceCheck.test(payload);
-
-                if (!state) {
-                    LOG.debug("The resource is not yet available. Waiting {} seconds before retrying",
-                            TimeUnit.MILLISECONDS.toSeconds(waitTime));
-                    retries--;
-                    Thread.sleep(waitTime);
-                }
-            } catch (InterruptedException e) {
-                break;
-            }
-
-        } while (!state && retries > 0);
-    }
-
-    private void waitFor(BooleanSupplier resourceCheck) {
-        boolean state;
-        int retries = 30;
-        int waitTime = 1000;
-        do {
-            try {
-                state = resourceCheck.getAsBoolean();
-
-                if (!state) {
-                    LOG.debug("The resource is not yet available. Waiting {} seconds before retrying",
-                            TimeUnit.MILLISECONDS.toSeconds(waitTime));
-                    retries--;
-                    Thread.sleep(waitTime);
-                }
-            } catch (InterruptedException e) {
-                break;
-            }
-
-        } while (!state && retries > 0);
     }
 
     public void waitForIndex() {

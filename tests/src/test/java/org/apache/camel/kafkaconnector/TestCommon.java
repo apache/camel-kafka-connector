@@ -16,6 +16,9 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.util.concurrent.TimeUnit;
+import java.util.function.BooleanSupplier;
+import java.util.function.Predicate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,5 +75,59 @@ public final class TestCommon {
 
     public static String getDefaultTestTopic(Class<?> clazz) {
         return clazz.getName();
+    }
+
+
+    /**
+     * Wait for a given condition to be true or the retry amount (30) to expire
+     * @param resourceCheck
+     * @param payload
+     * @param <T>
+     */
+    public static <T> void waitFor(Predicate<T> resourceCheck, T payload) {
+        boolean state;
+        int retries = 30;
+        int waitTime = 1000;
+        do {
+            try {
+                state = resourceCheck.test(payload);
+
+                if (!state) {
+                    LOG.debug("The resource is not yet available. Waiting {} seconds before retrying",
+                            TimeUnit.MILLISECONDS.toSeconds(waitTime));
+                    retries--;
+                    Thread.sleep(waitTime);
+                }
+            } catch (InterruptedException e) {
+                break;
+            }
+
+        } while (!state && retries > 0);
+    }
+
+
+    /**
+     * Wait for a given condition to be true or the retry amount (30) to expire
+     * @param resourceCheck
+     */
+    public static void waitFor(BooleanSupplier resourceCheck) {
+        boolean state;
+        int retries = 30;
+        int waitTime = 1000;
+        do {
+            try {
+                state = resourceCheck.getAsBoolean();
+
+                if (!state) {
+                    LOG.debug("The resource is not yet available. Waiting {} seconds before retrying",
+                            TimeUnit.MILLISECONDS.toSeconds(waitTime));
+                    retries--;
+                    Thread.sleep(waitTime);
+                }
+            } catch (InterruptedException e) {
+                break;
+            }
+
+        } while (!state && retries > 0);
     }
 }
