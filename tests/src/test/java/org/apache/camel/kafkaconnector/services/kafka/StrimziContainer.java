@@ -21,6 +21,7 @@ import java.util.function.Consumer;
 import com.github.dockerjava.api.command.CreateContainerCmd;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
+import org.testcontainers.containers.wait.strategy.Wait;
 
 public class StrimziContainer extends GenericContainer {
     private static final String STRIMZI_CONTAINER = "strimzi/kafka:0.11.4-kafka-2.1.0";
@@ -45,12 +46,13 @@ public class StrimziContainer extends GenericContainer {
                 }
         );
 
-
         withCommand("sh", "-c",
                 "bin/kafka-server-start.sh config/server.properties "
                         + "--override listeners=${KAFKA_LISTENERS} "
                         + "--override advertised.listeners=${KAFKA_ADVERTISED_LISTENERS} "
                         + "--override zookeeper.connect=${KAFKA_ZOOKEEPER_CONNECT}");
+
+        waitingFor(Wait.forListeningPort());
     }
 
 

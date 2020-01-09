@@ -45,6 +45,8 @@ public class ZookeeperContainer extends GenericContainer {
 
         withCommand( "sh", "-c",
                 "bin/zookeeper-server-start.sh config/zookeeper.properties");
+
+        waitingFor(Wait.forListeningPort());
     }
 
 

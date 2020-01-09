@@ -46,13 +46,11 @@ public class StrimziService implements KafkaService {
     @Override
     public void initialize() {
         zookeeperContainer.start();
-        ContainerUtil.waitForInitialization(zookeeperContainer);
 
         String zookeeperConnect = "zookeeper:" + zookeeperContainer.getZookeeperPort();
         LOG.info("Apache Zookeeper running at address {}", zookeeperConnect);
 
         strimziContainer.start();
-        ContainerUtil.waitForInitialization(strimziContainer);
 
         LOG.info("Kafka bootstrap server running at address {}", getBootstrapServers());
     }
