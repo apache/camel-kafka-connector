@@ -24,7 +24,7 @@ import org.testcontainers.containers.Network;
 import org.testcontainers.containers.wait.strategy.Wait;
 
 public class ZookeeperContainer extends GenericContainer {
-    private static final String ZOOKEEPER_CONTAINER = "strimzi/kafka:0.11.4-kafka-2.1.0";
+    private static final String ZOOKEEPER_CONTAINER = System.getProperty("itest.zookeeper.container.image");
     private static final int ZOOKEEPER_PORT = 2181;
 
     public ZookeeperContainer(Network network, String name) {

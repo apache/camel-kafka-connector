@@ -24,7 +24,7 @@ import org.testcontainers.containers.Network;
 import org.testcontainers.containers.wait.strategy.Wait;
 
 public class StrimziContainer extends GenericContainer {
-    private static final String STRIMZI_CONTAINER = "strimzi/kafka:0.11.4-kafka-2.1.0";
+    private static final String STRIMZI_CONTAINER = System.getProperty("itest.strimzi.container.image");
     private static final int KAFKA_PORT = 9092;
 
     public StrimziContainer(Network network, String name) {
