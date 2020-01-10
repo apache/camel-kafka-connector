@@ -31,6 +31,7 @@ public class StrimziContainer extends GenericContainer {
         super(STRIMZI_CONTAINER);
 
         withEnv("LOG_DIR", "/tmp/logs");
+        withExposedPorts(KAFKA_PORT);
         withEnv("KAFKA_ADVERTISED_LISTENERS", "PLAINTEXT://localhost:9092");
         withEnv("KAFKA_LISTENERS", "PLAINTEXT://0.0.0.0:9092");
         withEnv("KAFKA_ZOOKEEPER_CONNECT", "zookeeper:2181");
