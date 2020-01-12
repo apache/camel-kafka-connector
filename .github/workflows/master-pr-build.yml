@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-name: Build PR
+name: master pr build
 
 on:
   pull_request:
@@ -33,5 +33,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: ${{ matrix.java }}
-    - name: mvn verify
-      run: ./mvnw -V --no-transfer-progress clean install -DskipIntegrationTests=false
+    - name: mvn sourcecheck
+      run: ./mvnw -V --no-transfer-progress -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean verify
+    - name: mvn build and itests
+      run: ./mvnw -V --no-transfer-progress -DskipIntegrationTests=false clean install
