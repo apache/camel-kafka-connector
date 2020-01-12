@@ -178,7 +178,7 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <configuration>
                     <!-- This is needed for the AWS Kinesis tests -->
-                    <argLine>-Dcom.amazonaws.sdk.disableCbor=true</argLine>
+                    <argLine>-Dcom.amazonaws.sdk.disableCbor=true -Ditest.strimzi.container.image=${itest.strimzi.container.image} -Ditest.zookeeper.container.image=${itest.zookeeper.container.image}</argLine>
                     <skipTests>${skipIntegrationTests}</skipTests>
                 </configuration>
             </plugin>

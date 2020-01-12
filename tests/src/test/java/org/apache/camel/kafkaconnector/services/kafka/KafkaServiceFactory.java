@@ -28,7 +28,12 @@ public final class KafkaServiceFactory {
 
     public static KafkaService createService() {
         String kafkaRemote = System.getProperty("kafka.instance.type");
-        if (kafkaRemote == null || kafkaRemote.equals("local-kafka-container")) {
+
+        if (kafkaRemote == null || kafkaRemote.equals("local-strimzi-container")) {
+            return new StrimziService();
+        }
+
+        if (kafkaRemote.equals("local-kafka-container")) {
             return new ContainerLocalKafkaService();
         }
 
@@ -36,8 +41,7 @@ public final class KafkaServiceFactory {
             return new RemoteKafkaService();
         }
 
-        LOG.error("Invalid Kafka instance type: {}. Must be one of 'local-kafka-container' or 'remote",
-                kafkaRemote);
+        LOG.error("Invalid Kafka instance must be one of 'local-strimzi-container', 'local-kafka-container' or 'remote");
         throw new UnsupportedOperationException("Invalid Kafka instance type:");
     }
 }
