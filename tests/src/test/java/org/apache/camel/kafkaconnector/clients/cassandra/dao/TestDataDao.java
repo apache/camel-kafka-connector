@@ -78,8 +78,8 @@ public class TestDataDao {
         session.execute(statement);
     }
 
-    public boolean hasData() {
-        ResultSet rs = session.execute("select * from test_data");
+    public boolean hasEnoughData(long expected) {
+        ResultSet rs = session.execute("select count(*) from test_data");
 
         if (rs == null) {
             return false;
@@ -90,7 +90,9 @@ public class TestDataDao {
             return false;
         }
 
-        return true;
+        long count = all.get(0).getLong("count");
+
+        return count == expected;
     }
 
     public String getInsertStatement() {
