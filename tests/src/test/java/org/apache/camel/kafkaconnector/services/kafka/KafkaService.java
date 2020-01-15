@@ -17,14 +17,13 @@
 
 package org.apache.camel.kafkaconnector.services.kafka;
 
-import org.junit.rules.MethodRule;
-import org.junit.runners.model.FrameworkMethod;
-import org.junit.runners.model.Statement;
+import org.junit.jupiter.api.extension.BeforeAllCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
 /**
  * Provides an interface for any type of Kafka service: remote instances, local container, etc
  */
-public interface KafkaService extends MethodRule {
+public interface KafkaService extends BeforeAllCallback {
 
     /**
      * Gets the addresses of the bootstrap servers in the format host1:port,host2:port,etc
@@ -40,14 +39,7 @@ public interface KafkaService extends MethodRule {
 
 
     @Override
-    default Statement apply(Statement base, FrameworkMethod frameworkMethod, Object o) {
-        return new Statement() {
-
-            @Override
-            public void evaluate() throws Throwable {
-                    base.evaluate();
-            }
-        };
+    default void beforeAll(ExtensionContext extensionContext) throws Exception {
+        initialize();
     }
-
 }

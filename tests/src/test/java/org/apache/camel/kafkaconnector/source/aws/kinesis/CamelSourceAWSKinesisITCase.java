@@ -39,21 +39,24 @@ import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.localstack.LocalStackContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Testcontainers
 public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
     private static final int KINESIS_PORT = 4568;
 
-    @Rule
+    @Container
     public LocalStackContainer localStackContainer = new LocalStackContainer()
             .withServices(LocalStackContainer.Service.KINESIS);
 
@@ -63,7 +66,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     private final int expect = 10;
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         if (!localStackContainer.isRunning()) {
             LOG.info("Kinesis is not running");
@@ -96,7 +99,8 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         return true;
     }
 
-    @Test(timeout = 120000)
+    @Test
+    @Timeout(120)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
         Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, KINESIS_PORT);
 
@@ -113,7 +117,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
-        Assert.assertTrue("Didn't process the expected amount of messages", received == expect);
+        assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
 
     private void putRecords() {

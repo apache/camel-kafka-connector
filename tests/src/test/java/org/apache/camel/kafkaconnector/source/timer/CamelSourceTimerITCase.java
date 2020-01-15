@@ -23,23 +23,27 @@ import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.junit.jupiter.Testcontainers;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
+@Testcontainers
 public class CamelSourceTimerITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceTimerITCase.class);
 
     private int received;
     private final int expect = 10;
 
-    @Before
+    @BeforeEach
     public void setUp() {
 
     }
@@ -54,7 +58,8 @@ public class CamelSourceTimerITCase extends AbstractKafkaTest {
         return true;
     }
 
-    @Test(timeout = 90000)
+    @Test
+    @Timeout(90)
     public void testLaunchConnector() throws ExecutionException, InterruptedException {
         CamelTimerPropertyFactory testProperties = new CamelTimerPropertyFactory(1,
                 TestCommon.getDefaultTestTopic(this.getClass()), expect);
@@ -66,6 +71,6 @@ public class CamelSourceTimerITCase extends AbstractKafkaTest {
         kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
-        Assert.assertTrue(received == expect);
+        assertEquals(received, expect);
     }
 }

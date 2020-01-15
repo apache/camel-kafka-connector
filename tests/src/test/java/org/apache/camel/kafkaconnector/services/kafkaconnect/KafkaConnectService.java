@@ -20,10 +20,27 @@ package org.apache.camel.kafkaconnector.services.kafkaconnect;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.junit.rules.MethodRule;
+import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
+import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
-public interface KafkaConnectService extends MethodRule {
+public interface KafkaConnectService extends BeforeTestExecutionCallback, AfterTestExecutionCallback {
 
     void initializeConnector(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException;
     void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException;
+
+    void stop();
+    void start();
+
+    @Override
+    default void afterTestExecution(ExtensionContext extensionContext) throws Exception {
+        stop();
+    }
+
+    @Override
+    default void beforeTestExecution(ExtensionContext extensionContext) throws Exception {
+        start();
+    }
+
+
 }

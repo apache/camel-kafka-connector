@@ -21,14 +21,21 @@ import org.apache.camel.kafkaconnector.services.kafka.KafkaService;
 import org.apache.camel.kafkaconnector.services.kafka.KafkaServiceFactory;
 import org.apache.camel.kafkaconnector.services.kafkaconnect.KafkaConnectRunnerService;
 import org.apache.camel.kafkaconnector.services.kafkaconnect.KafkaConnectService;
-import org.junit.Rule;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
+@Testcontainers
 public class AbstractKafkaTest {
-    private static final KafkaService KAFKA_SERVICE;
-    private static final KafkaConnectService KAFKA_CONNECT_RUNNER_SERVICE;
+
+    @RegisterExtension
+    public static final KafkaService KAFKA_SERVICE;
+
+    @RegisterExtension
+    public static final KafkaConnectService KAFKA_CONNECT_RUNNER_SERVICE;
 
     static {
         KAFKA_SERVICE = KafkaServiceFactory.createService();
+
         KAFKA_SERVICE.initialize();
 
         KAFKA_CONNECT_RUNNER_SERVICE = new KafkaConnectRunnerService(KAFKA_SERVICE);
@@ -38,13 +45,12 @@ public class AbstractKafkaTest {
 
     }
 
-    @Rule
+
     public KafkaService getKafkaService() {
         return KAFKA_SERVICE;
     }
 
 
-    @Rule
     public KafkaConnectService getKafkaConnectService() {
         return KAFKA_CONNECT_RUNNER_SERVICE;
     }

@@ -29,16 +29,21 @@ import org.apache.camel.kafkaconnector.clients.elasticsearch.ElasticSearchClient
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.elasticsearch.ElasticsearchContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
+@Testcontainers
 public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelElasticSearchPropertyFactory.class);
     // This is required in order to use the Open Source one by default
@@ -46,7 +51,7 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
 
     private static final int ELASTIC_SEARCH_PORT = 9200;
 
-    @Rule
+    @Container
     public ElasticsearchContainer elasticsearch = new ElasticsearchContainer(ELASTIC_SEARCH_CONTAINER);
 
     private ElasticSearchClient client;
@@ -55,7 +60,7 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     private int received;
     private final String transformKey = "index-test";
 
-    @Before
+    @BeforeEach
     public void setUp() {
         final String elasticSearchInstance = elasticsearch
                 .getHttpHostAddress();
@@ -90,11 +95,11 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     private void verifyHit(SearchHit searchHit) {
         String source = searchHit.getSourceAsString();
 
-        Assert.assertTrue(source != null);
-        Assert.assertFalse(source.isEmpty());
+        assertTrue(source != null);
+        assertFalse(source.isEmpty());
 
         // TODO: this is not enough, we need to parse the json and check the key itself
-        Assert.assertTrue(source.contains(transformKey));
+        assertTrue(source.contains(transformKey));
 
         LOG.debug("Search hit: {} ", searchHit.getSourceAsString());
         received++;
@@ -102,7 +107,8 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
 
 
 
-    @Test(timeout = 90000)
+    @Test
+    @Timeout(90)
     public void testIndexOperation() {
         try {
             final String elasticSearchInstance = elasticsearch
@@ -131,7 +137,8 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
             SearchHits hits = client.getData();
 
             hits.forEach(this::verifyHit);
-            Assert.assertEquals("Did not receive the same amount of messages sent", expect, received);
+            assertEquals(expect, received, "Did not receive the same amount of messages sent");
+
 
             LOG.debug("Created the consumer ... About to receive messages");
         } catch (Exception e) {
