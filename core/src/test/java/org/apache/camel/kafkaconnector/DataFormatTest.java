@@ -24,8 +24,10 @@ import org.apache.camel.component.hl7.HL7DataFormat;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.kafka.connect.errors.ConnectException;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DataFormatTest {
 
@@ -53,7 +55,8 @@ public class DataFormatTest {
         camelsinkTask.stop();
     }
 
-    @Test(expected = ConnectException.class)
+
+    @Test
     public void testDataFormatNotFound() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct://test");
@@ -61,13 +64,17 @@ public class DataFormatTest {
         props.put("camel.sink.marshal", "missingDataformat");
 
         CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
-        camelsinkTask.stop();
+        assertThrows(ConnectException.class, () -> camelsinkTask.start(props));
+        assertThrows(ConnectException.class, () -> camelsinkTask.stop());
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void testBothDataFormatConfiguredError() throws Exception {
-        new CamelMainSupport(new HashMap<>(), "direct://start", "log://test", "syslog", "syslog");
+        Map<String, String> props = new HashMap<>();
+
+
+        assertThrows(UnsupportedOperationException.class, () -> new CamelMainSupport(props, "direct://start",
+                "log://test", "syslog", "syslog"));
     }
 
     @Test
@@ -86,7 +93,7 @@ public class DataFormatTest {
 
         cms.start();
         HL7DataFormat hl7dfLoaded = dcc.getRegistry().lookupByNameAndType("hl7", HL7DataFormat.class);
-        Assert.assertFalse(hl7dfLoaded.isValidate());
+        assertFalse(hl7dfLoaded.isValidate());
         cms.stop();
     }
 
@@ -103,7 +110,7 @@ public class DataFormatTest {
 
         cms.start();
         HL7DataFormat hl7dfLoaded = dcc.getRegistry().lookupByNameAndType("hl7", HL7DataFormat.class);
-        Assert.assertFalse(hl7dfLoaded.isValidate());
+        assertFalse(hl7dfLoaded.isValidate());
         cms.stop();
     }
 }

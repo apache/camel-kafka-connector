@@ -30,15 +30,18 @@ import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.http.impl.bootstrap.HttpServer;
 import org.apache.http.impl.bootstrap.ServerBootstrap;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
+@Testcontainers
 public class CamelSinkHTTPITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkHTTPITCase.class);
     private static final int HTTP_PORT = 18080;
@@ -49,7 +52,7 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
 
     private final int expect = 10;
 
-    @Before
+    @BeforeEach
     public void setUp() throws IOException {
         validationHandler = new HTTPTestValidationHandler(10);
         localServer = ServerBootstrap.bootstrap()
@@ -60,7 +63,7 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
         localServer.start();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         localServer.stop();
     }
@@ -80,7 +83,8 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
         }
     }
 
-    @Test(timeout = 90000)
+    @Test
+    @Timeout(90)
     public void testBasicSendReceive() {
         try {
             String url = "http://localhost:" + HTTP_PORT + "/ckc";
@@ -103,8 +107,7 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
                 LOG.debug("Received: {} ", reply);
             }
 
-            Assert.assertEquals("Did not receive the same amount of messages that were sent", replies.size(),
-                    expect);
+            assertEquals(replies.size(), expect, "Did not receive the same amount of messages that were sent");
         } catch (Exception e) {
             LOG.error("HTTP test failed: {}", e.getMessage(), e);
             fail(e.getMessage());

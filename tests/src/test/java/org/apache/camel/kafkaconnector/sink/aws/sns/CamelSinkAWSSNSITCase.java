@@ -32,21 +32,24 @@ import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.localstack.LocalStackContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
+@Testcontainers
 public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
     private static final int SNS_PORT = 4575;
 
-    @Rule
+    @Container
     public LocalStackContainer localStackContainer = new LocalStackContainer()
             .withServices(LocalStackContainer.Service.SQS, LocalStackContainer.Service.SNS);
 
@@ -55,7 +58,7 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     private volatile int received;
     private final int expect = 10;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         final String sqsInstance = localStackContainer
                 .getEndpointConfiguration(LocalStackContainer.Service.SQS)
@@ -100,7 +103,8 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     }
 
 
-    @Test(timeout = 90000)
+    @Test
+    @Timeout(value = 90)
     public void testBasicSendReceive() {
         try {
             final String sqsQueue = awsSqsClient.getQueue(TestCommon.DEFAULT_SQS_QUEUE_FOR_SNS);
@@ -129,8 +133,8 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
             LOG.debug("Created the consumer ... About to receive messages");
 
             if (latch.await(120, TimeUnit.SECONDS)) {
-                Assert.assertTrue("Didn't process the expected amount of messages: " + received + " != " + expect,
-                        received == expect);
+                assertTrue(received == expect,
+                        "Didn't process the expected amount of messages: " + received + " != " + expect);
             } else {
                 fail("Failed to receive the messages within the specified time");
             }

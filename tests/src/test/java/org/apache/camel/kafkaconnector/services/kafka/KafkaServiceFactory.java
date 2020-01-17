@@ -24,6 +24,7 @@ public final class KafkaServiceFactory {
     private static final Logger LOG = LoggerFactory.getLogger(KafkaServiceFactory.class);
 
     private KafkaServiceFactory() {
+
     }
 
     public static KafkaService createService() {
@@ -44,4 +45,5 @@ public final class KafkaServiceFactory {
         LOG.error("Invalid Kafka instance must be one of 'local-strimzi-container', 'local-kafka-container' or 'remote");
         throw new UnsupportedOperationException("Invalid Kafka instance type:");
     }
+
 }

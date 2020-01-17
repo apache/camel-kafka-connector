@@ -27,19 +27,23 @@ import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.localstack.LocalStackContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@Testcontainers
 public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSSQSITCase.class);
     private static final int SQS_PORT = 4576;
 
-    @Rule
+    @Container
     public LocalStackContainer localStackContainer = new LocalStackContainer()
             .withServices(LocalStackContainer.Service.SQS);
 
@@ -48,7 +52,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     private volatile int received;
     private final int expect = 10;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         final String sqsInstance = localStackContainer
                 .getEndpointConfiguration(LocalStackContainer.Service.SQS)
@@ -70,7 +74,8 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         return true;
     }
 
-    @Test(timeout = 90000)
+    @Test
+    @Timeout(90)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
         Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
 
@@ -91,6 +96,6 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
-        Assert.assertTrue("Didn't process the expected amount of messages", received == expect);
+        assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
 }

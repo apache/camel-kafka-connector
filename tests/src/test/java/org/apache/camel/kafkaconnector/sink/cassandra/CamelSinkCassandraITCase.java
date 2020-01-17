@@ -30,19 +30,21 @@ import org.apache.camel.kafkaconnector.clients.cassandra.CassandraClient;
 import org.apache.camel.kafkaconnector.clients.cassandra.dao.TestDataDao;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.cassandra.CassandraService;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Testcontainers
 public class CamelSinkCassandraITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCassandraITCase.class);
 
-    @Rule
+    @Container
     public CassandraService cassandraService = new CassandraService();
 
     private CassandraClient cassandraClient;
@@ -52,7 +54,7 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
     private final int expect = 10;
     private int received;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         String host = cassandraService.getCassandraHost();
         int port = cassandraService.getCQL3Port();
@@ -111,8 +113,8 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
 
         TestCommon.waitFor(testDataDao::hasEnoughData, (long) expect);
         testDataDao.getData(this::checkRetrievedData);
-        assertTrue(String.format("Did not receive as much data as expected: %d < %d", received, expect),
-                received >= expect);
+        assertTrue(received >= expect,
+                String.format("Did not receive as much data as expected: %d < %d", received, expect));
 
     }
 }

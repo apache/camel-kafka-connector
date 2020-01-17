@@ -34,29 +34,32 @@ import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.jms.JMSService;
 import org.apache.camel.kafkaconnector.services.jms.JMSServiceFactory;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
+@Testcontainers
 public class CamelSinkJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
 
-    @Rule
+    @Container
     public JMSService jmsService = JMSServiceFactory.createService();
 
     private int received;
     private final int expect = 10;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         LOG.info("JMS service running at {}", jmsService.getDefaultEndpoint());
     }
@@ -82,7 +85,8 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
         return false;
     }
 
-    @Test(timeout = 90000)
+    @Test
+    @Timeout(90)
     public void testBasicSendReceive() {
         try {
             Properties connectionProperties = JMSClient.getConnectionProperties(jmsService.getDefaultEndpoint());
@@ -109,8 +113,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
             LOG.debug("Created the consumer ... About to receive messages");
 
             if (latch.await(35, TimeUnit.SECONDS)) {
-                Assert.assertEquals("Didn't process the expected amount of messages: " + received + " != " + expect,
-                        received, expect);
+                assertEquals(received, expect, "Didn't process the expected amount of messages: " + received + " != " + expect);
             } else {
                 fail("Failed to receive the messages within the specified time");
             }

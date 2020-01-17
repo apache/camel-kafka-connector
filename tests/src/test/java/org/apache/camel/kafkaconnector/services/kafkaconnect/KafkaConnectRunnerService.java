@@ -28,9 +28,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.services.kafka.KafkaService;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
-import org.jetbrains.annotations.NotNull;
-import org.junit.runners.model.FrameworkMethod;
-import org.junit.runners.model.Statement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,40 +47,6 @@ public class KafkaConnectRunnerService implements KafkaConnectService {
         this.kafkaConnectRunner = new KafkaConnectRunner(kafkaService.getBootstrapServers());
     }
 
-
-    @Override
-    public Statement apply(Statement base, FrameworkMethod frameworkMethod, Object o) {
-        CountDownLatch latch = new CountDownLatch(1);
-        service.submit(() -> kafkaConnectRunner.run(latch));
-
-        try {
-            if (!latch.await(30, TimeUnit.SECONDS)) {
-                LOG.warn("The Kafka Connect Runner timed out while initializing");
-                throw new RuntimeException("The Kafka Connect Runner timed out while initializing");
-            }
-        } catch (InterruptedException e) {
-            LOG.error("The test was interrupted while executing {}", frameworkMethod.getName());
-        }
-
-        return runStatement(base);
-
-    }
-
-    @NotNull
-    private Statement runStatement(Statement base) {
-        return new Statement() {
-
-            @Override
-            public void evaluate() throws Throwable {
-                try {
-                    base.evaluate();
-                } finally {
-                    kafkaConnectRunner.stop();
-                    service.awaitTermination(5, TimeUnit.SECONDS);
-                }
-            }
-        };
-    }
 
     private void checkInitializationState(KafkaConnectRunner.ConnectorInitState initState) {
         Objects.nonNull(initState);
@@ -127,6 +90,29 @@ public class KafkaConnectRunnerService implements KafkaConnectService {
 
         if (!latch.await(30, TimeUnit.SECONDS)) {
             fail("The connector did not start within a reasonable time");
+        }
+    }
+
+    public void stop() {
+        kafkaConnectRunner.stop();
+        try {
+            service.awaitTermination(5, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            LOG.warn("The test was interrupted while executing");
+        }
+    }
+
+    public void start() {
+        CountDownLatch latch = new CountDownLatch(1);
+        service.submit(() -> kafkaConnectRunner.run(latch));
+
+        try {
+            if (!latch.await(30, TimeUnit.SECONDS)) {
+                LOG.warn("The Kafka Connect Runner timed out while initializing");
+                throw new RuntimeException("The Kafka Connect Runner timed out while initializing");
+            }
+        } catch (InterruptedException e) {
+            LOG.error("The test was interrupted while executing");
         }
     }
 }

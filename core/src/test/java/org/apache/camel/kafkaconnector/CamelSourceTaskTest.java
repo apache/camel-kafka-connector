@@ -26,12 +26,12 @@ import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.header.Headers;
 import org.apache.kafka.connect.source.SourceRecord;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class CamelSourceTaskTest {
 
@@ -193,8 +193,8 @@ public class CamelSourceTaskTest {
             }
         } while (poll == null && retries > 0);
 
-        assertTrue("Received messages are: " + poll.size() + ", expected between 1 and 2.", poll.size() >= 1);
-        assertTrue("Received messages are: " + poll.size() + ", expected between 1 and 2.", poll.size() <= 2);
+        assertTrue(poll.size() >= 1, "Received messages are: " + poll.size() + ", expected between 1 and 2.");
+        assertTrue(poll.size() <= 2, "Received messages are: " + poll.size() + ", expected between 1 and 2.");
 
         camelSourceTask.stop();
     }

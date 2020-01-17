@@ -42,7 +42,7 @@
 
         <activemq.version>5.15.11</activemq.version>
         <kafka.version>2.4.0</kafka.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>5.5.2</junit.version>
         <camel.version>3.0.0</camel.version>
         <jackson.version>2.10.2</jackson.version>
         <log4j2.version>2.8.2</log4j2.version>
@@ -58,7 +58,7 @@
         <version.maven.buildhelper>1.12</version.maven.buildhelper>
         <version.maven.bundle>3.5.1</version.maven.bundle>
         <version.maven.jar>3.1.0</version.maven.jar>
-        <version.maven.failsafe>2.22.1</version.maven.failsafe>
+        <version.maven.failsafe>2.22.2</version.maven.failsafe>
         <version.scala.library>2.12.4</version.scala.library>
         <version.testcontainers>1.12.4</version.testcontainers>
         <version.qpid-jms-client>0.40.0</version.qpid-jms-client>
@@ -66,7 +66,7 @@
 
         <version.maven.checkstyle>8.26</version.maven.checkstyle>
         <version.maven.checkstyle.plugin>3.1.0</version.maven.checkstyle.plugin>
-        <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+        <version.maven.surefire.plugin>3.0.0-M4</version.maven.surefire.plugin>
         <mycila-license-version>3.0</mycila-license-version>
 
         <itest.zookeeper.container.image>strimzi/kafka:0.16.0-rc1-kafka-2.4.0</itest.zookeeper.container.image>
@@ -226,8 +226,20 @@
 
             <!--  Test dependencies -->
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
@@ -264,6 +276,12 @@
             <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>testcontainers</artifactId>
+                <version>${version.testcontainers}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>junit-jupiter</artifactId>
                 <version>${version.testcontainers}</version>
                 <scope>test</scope>
             </dependency>

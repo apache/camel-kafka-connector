@@ -26,12 +26,13 @@ import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.data.Struct;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.apache.kafka.connect.transforms.Transformation;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CamelTypeConverterTransformTest {
 
@@ -99,14 +100,14 @@ public class CamelTypeConverterTransformTest {
         assertEquals(Schema.Type.MAP, transformedValueSourceRecord.valueSchema().type());
     }
 
-    @Test(expected = ConfigException.class)
+    @Test
     public void testIfItCanHandleEmptyKeyProps() {
         final Transformation<SourceRecord> transformationKey = new CamelTypeConverterTransform.Key<>();
 
         final Map<String, Object> props = new HashMap<>();
         props.put(CamelTypeConverterTransform.FIELD_TARGET_TYPE_CONFIG, Map.class.getName());
 
-        transformationKey.configure(Collections.emptyMap());
+        assertThrows(ConfigException.class, () -> transformationKey.configure(Collections.emptyMap()));
     }
 
 }

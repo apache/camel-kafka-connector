@@ -34,14 +34,19 @@ import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
+
+@Testcontainers
 public class CamelSinkFileITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkFileITCase.class);
 
@@ -51,7 +56,7 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
     private final int expect = 1;
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         File doneFile = new File(SINK_DIR, FILENAME + ".done");
         if (doneFile.exists()) {
@@ -74,7 +79,8 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
 
     }
 
-    @Test(timeout = 90000)
+    @Test
+    @Timeout(90)
     public void testBasicSendReceive() {
         try {
             String url = "file://" + SINK_DIR + "?fileName=" + FILENAME + "&doneFileName=${file:name}.done";
@@ -94,7 +100,7 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
 
             waitForFile(sinkFile, doneFile);
 
-            Assert.assertTrue(String.format("The file %s does not exist", sinkFile.getPath()), sinkFile.exists());
+            assertTrue(sinkFile.exists(), String.format("The file %s does not exist", sinkFile.getPath()));
 
             checkFileContents(sinkFile);
 
@@ -112,12 +118,12 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
         do {
             line = reader.readLine();
             if (line != null) {
-                Assert.assertEquals(String.format("Unexpected data: %s", line), "test", line);
+                assertEquals("test", line, String.format("Unexpected data: %s", line));
                 i++;
             }
         } while (line != null);
 
-        Assert.assertEquals("Did not receive the same amount of messages that were sent", expect, i);
+        assertEquals(expect, i, "Did not receive the same amount of messages that were sent");
     }
 
     private void waitForFile(File sinkFile, File doneFile) throws IOException, InterruptedException {
