@@ -69,8 +69,8 @@
         <version.maven.surefire.plugin>3.0.0-M4</version.maven.surefire.plugin>
         <mycila-license-version>3.0</mycila-license-version>
 
-        <itest.zookeeper.container.image>strimzi/kafka:0.16.0-rc1-kafka-2.4.0</itest.zookeeper.container.image>
-        <itest.strimzi.container.image>strimzi/kafka:0.16.0-rc1-kafka-2.4.0</itest.strimzi.container.image>
+        <itest.zookeeper.container.image>strimzi/kafka:0.16.0-kafka-2.4.0</itest.zookeeper.container.image>
+        <itest.strimzi.container.image>strimzi/kafka:0.16.0-kafka-2.4.0</itest.strimzi.container.image>
 
         <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
     </properties>
