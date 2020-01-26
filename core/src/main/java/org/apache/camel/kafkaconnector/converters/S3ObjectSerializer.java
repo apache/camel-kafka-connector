@@ -46,7 +46,7 @@ public class S3ObjectSerializer implements Serializer<S3ObjectInputStream> {
                 buffer.write(byteArray, 0, nRead);
             }
         } catch (IOException e) {
-            LOG.warn("I/O error while serializing data from topic {}: {}", topic, e.getMessage(), e);
+            LOG.warn("I/O error while serializing data from or to topic {}: {} | {}", topic, e.getMessage(), e);
         }
 
         return buffer.toByteArray();
