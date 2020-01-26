@@ -48,6 +48,8 @@
         <module>core</module>
         <module>tests</module>
         <module>buildingtools</module>
+        <module>tooling</module>
+        <module>connectors</module>
     </modules>
 
     <developers>

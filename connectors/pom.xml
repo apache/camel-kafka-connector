@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.apache.camel.kafkaconnector</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>connectors</artifactId>
+    <packaging>pom</packaging>
+    <name>Camel-Kafka-Connector :: Connectors Parent</name>
+    <description>Camel Kafka Connector Connectors</description>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.camel.kafkaconnector</groupId>
+                <artifactId>camel-kafka-connector</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <!-- Test dependencies -->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+<!--            <plugin>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <failIfNoTests>false</failIfNoTests>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.camel.kafkaconnector</groupId>-->
+<!--                <artifactId>camel-kafka-connector-generator-maven-plugin</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash; set to true to make build fail fast if missing documentation in docs files &ndash;&gt;-->
+<!--                    <failFast>false</failFast>-->
+<!--                    &lt;!&ndash; set to true to make build fail if an option has no description &ndash;&gt;-->
+<!--                    <failOnMissingDescription>false</failOnMissingDescription>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>generate</id>-->
+<!--                        <goals>-->
+<!--                            <goal>prepare-spring-boot-starter</goal>-->
+<!--                            <goal>prepare-spring-boot-auto-configuration</goal>-->
+<!--                            <goal>prepare-catalog-springboot</goal>-->
+<!--                        </goals>-->
+<!--                        <phase>generate-resources</phase>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+    <modules>
+        <module>camel-sjms2-kafka-connector</module>
+    </modules>
+</project>
