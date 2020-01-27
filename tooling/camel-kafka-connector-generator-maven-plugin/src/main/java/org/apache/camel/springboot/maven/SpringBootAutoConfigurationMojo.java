@@ -375,7 +375,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
 
             configClass.addField().setName("enabled").setType(boolean.class).setPrivate().setLiteralInitializer("true").getJavaDoc().setFullText("Enable the component");
             configClass.addField().setName("configurations").setType(loadType("java.util.Map<java.lang.String, " + packageName + "." + commonName + ">")).setPrivate()
-                .setLiteralInitializer("new HashMap<>()").getJavaDoc().setFullText("Define additional configuration definitions");
+                    .setLiteralInitializer("new HashMap<>()").getJavaDoc().setFullText("Define additional configuration definitions");
 
             Method method;
 
@@ -511,24 +511,24 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         method.addAnnotation(ConditionalOnClass.class).setLiteralValue("value", "CamelContext.class");
         method.addAnnotation(ConditionalOnMissingBean.class);
         method.setBody("" + "Map<String, Object> properties = new HashMap<>();\n" + "IntrospectionSupport.getProperties(config, properties, null, false);\n"
-                       + "// These options is configured specially further below, so remove them first\n" + "properties.remove(\"enableCors\");\n"
-                       + "properties.remove(\"apiProperty\");\n" + "properties.remove(\"componentProperty\");\n" + "properties.remove(\"consumerProperty\");\n"
-                       + "properties.remove(\"dataFormatProperty\");\n" + "properties.remove(\"endpointProperty\");\n" + "properties.remove(\"corsHeaders\");\n" + "\n"
-                       + "RestConfiguration definition = new RestConfiguration();\n" + "CamelPropertiesHelper.setCamelProperties(camelContext, definition, properties, true);\n"
-                       + "\n" + "// Workaround for spring-boot properties name as It would appear\n" + "// as enable-c-o-r-s if left uppercase in Configuration\n"
-                       + "definition.setEnableCORS(config.getEnableCors());\n" + "\n" + "if (config.getApiProperty() != null) {\n"
-                       + "    definition.setApiProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getApiProperty(), \".\")));\n" + "}\n"
-                       + "if (config.getComponentProperty() != null) {\n"
-                       + "    definition.setComponentProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getComponentProperty(), \".\")));\n" + "}\n"
-                       + "if (config.getConsumerProperty() != null) {\n"
-                       + "    definition.setConsumerProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getConsumerProperty(), \".\")));\n" + "}\n"
-                       + "if (config.getDataFormatProperty() != null) {\n"
-                       + "    definition.setDataFormatProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getDataFormatProperty(), \".\")));\n" + "}\n"
-                       + "if (config.getEndpointProperty() != null) {\n"
-                       + "    definition.setEndpointProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getEndpointProperty(), \".\")));\n" + "}\n"
-                       + "if (config.getCorsHeaders() != null) {\n" + "    Map<String, Object> map = CollectionHelper.flattenKeysInMap(config.getCorsHeaders(), \".\");\n"
-                       + "    Map<String, String> target = new HashMap<>();\n" + "    map.forEach((k, v) -> target.put(k, v.toString()));\n"
-                       + "    definition.setCorsHeaders(target);\n" + "}\n" + "return definition;");
+                + "// These options is configured specially further below, so remove them first\n" + "properties.remove(\"enableCors\");\n"
+                + "properties.remove(\"apiProperty\");\n" + "properties.remove(\"componentProperty\");\n" + "properties.remove(\"consumerProperty\");\n"
+                + "properties.remove(\"dataFormatProperty\");\n" + "properties.remove(\"endpointProperty\");\n" + "properties.remove(\"corsHeaders\");\n" + "\n"
+                + "RestConfiguration definition = new RestConfiguration();\n" + "CamelPropertiesHelper.setCamelProperties(camelContext, definition, properties, true);\n"
+                + "\n" + "// Workaround for spring-boot properties name as It would appear\n" + "// as enable-c-o-r-s if left uppercase in Configuration\n"
+                + "definition.setEnableCORS(config.getEnableCors());\n" + "\n" + "if (config.getApiProperty() != null) {\n"
+                + "    definition.setApiProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getApiProperty(), \".\")));\n" + "}\n"
+                + "if (config.getComponentProperty() != null) {\n"
+                + "    definition.setComponentProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getComponentProperty(), \".\")));\n" + "}\n"
+                + "if (config.getConsumerProperty() != null) {\n"
+                + "    definition.setConsumerProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getConsumerProperty(), \".\")));\n" + "}\n"
+                + "if (config.getDataFormatProperty() != null) {\n"
+                + "    definition.setDataFormatProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getDataFormatProperty(), \".\")));\n" + "}\n"
+                + "if (config.getEndpointProperty() != null) {\n"
+                + "    definition.setEndpointProperties(new HashMap<>(CollectionHelper.flattenKeysInMap(config.getEndpointProperty(), \".\")));\n" + "}\n"
+                + "if (config.getCorsHeaders() != null) {\n" + "    Map<String, Object> map = CollectionHelper.flattenKeysInMap(config.getCorsHeaders(), \".\");\n"
+                + "    Map<String, String> target = new HashMap<>();\n" + "    map.forEach((k, v) -> target.put(k, v.toString()));\n"
+                + "    definition.setCorsHeaders(target);\n" + "}\n" + "return definition;");
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + name + ".java";
         writeSourceIfChanged(javaClass, fileName, true);
@@ -557,7 +557,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             for (String componentClass : grModels.keySet()) {
                 List<ComponentModel> compModels = grModels.get(componentClass);
                 ComponentModel model = compModels.get(0); // They should be
-                                                          // equivalent
+                // equivalent
                 List<String> aliases = compModels.stream().map(ComponentModel::getScheme).sorted().collect(Collectors.toList());
 
                 // use springboot as sub package name so the code is not in normal
@@ -600,7 +600,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             for (String dataFormatClass : grModels.keySet()) {
                 List<DataFormatModel> dfModels = grModels.get(dataFormatClass);
                 DataFormatModel model = dfModels.get(0); // They should be
-                                                         // equivalent
+                // equivalent
                 List<String> aliases = dfModels.stream().map(DataFormatModel::getName).sorted().collect(Collectors.toList());
 
                 // use springboot as sub package name so the code is not in
@@ -644,7 +644,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             for (String languageClass : grModels.keySet()) {
                 List<LanguageModel> dfModels = grModels.get(languageClass);
                 LanguageModel model = dfModels.get(0); // They should be
-                                                       // equivalent
+                // equivalent
                 List<String> aliases = dfModels.stream().map(LanguageModel::getName).sorted().collect(Collectors.toList());
 
                 // use springboot as sub package name so the code is not in
@@ -739,7 +739,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             Property prop = javaClass.addProperty(type, option.getName());
             if (ADD_NESTED_CONFIGURATION_PROPERTY) {
                 if (!type.endsWith(INNER_TYPE_SUFFIX) && type.indexOf('[') == -1 && INCLUDE_INNER_PATTERN.matcher(type).matches() && Strings.isBlank(option.getEnums())
-                    && (javaClassSource == null || (javaClassSource.isClass() && !javaClassSource.isAbstract()))) {
+                        && (javaClassSource == null || (javaClassSource.isClass() && !javaClassSource.isAbstract()))) {
                     // add nested configuration annotation for complex
                     // properties
                     prop.getField().addAnnotation(NestedConfigurationProperty.class);
@@ -793,7 +793,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             final JavaClass innerClass = javaClass.addNestedType().setPublic().setStatic(true).setName(nestedType.getName() + INNER_TYPE_SUFFIX);
             // add source class name as a static field
             innerClass.addField().setPublic().setStatic(true).setFinal(true).setType(Class.class).setName("CAMEL_NESTED_CLASS")
-                .setLiteralInitializer(nestedType.getCanonicalName() + ".class");
+                    .setLiteralInitializer(nestedType.getCanonicalName() + ".class");
 
             // parse option type
             for (Property sourceProp : getProperties(nestedType)) {
@@ -816,7 +816,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
 
                 ComponentOptionModel com = model.getComponentOptions().stream().filter(o -> o.getName().equals(sourceProp.getName())).findFirst().orElse(null);
                 EndpointOptionModel eom = Stream.concat(model.getEndpointOptions().stream(), model.getEndpointPathOptions().stream())
-                    .filter(o -> o.getName().equals(sourceProp.getName())).findFirst().orElse(null);
+                        .filter(o -> o.getName().equals(sourceProp.getName())).findFirst().orElse(null);
                 String deprecationNote = null;
                 if (eom != null) {
                     prop.getField().getJavaDoc().setText(eom.getDescription());
@@ -841,7 +841,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                 // add nested configuration annotation for complex properties
                 if (ADD_NESTED_CONFIGURATION_PROPERTY) {
                     if (INCLUDE_INNER_PATTERN.matcher(propType.toString()).matches() && !propType.getRawClass().isArray() && !anEnum && optionClass != null
-                        && !optionClass.isInterface() && !optionClass.isAnnotation() && !Modifier.isAbstract(optionClass.getModifiers())) {
+                            && !optionClass.isInterface() && !optionClass.isAnnotation() && !Modifier.isAbstract(optionClass.getModifiers())) {
                         prop.getField().addAnnotation(NestedConfigurationProperty.class);
                     }
                 }
@@ -1129,78 +1129,78 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                     return null;
                 }
                 JavaClass nestedType = new JavaClass(getProjectClassLoader()).setPackage(clazz.getPackage().getName()).setName(clazz.getSimpleName()).setEnum(clazz.isEnum())
-                    .setClass(!clazz.isInterface()).setAbstract((clazz.getModifiers() & Modifier.ABSTRACT) != 0).setStatic((clazz.getModifiers() & Modifier.STATIC) != 0)
-                    .extendSuperType(clazz.getGenericSuperclass() != null ? new GenericType(clazz.getGenericSuperclass()).toString() : null);
+                        .setClass(!clazz.isInterface()).setAbstract((clazz.getModifiers() & Modifier.ABSTRACT) != 0).setStatic((clazz.getModifiers() & Modifier.STATIC) != 0)
+                        .extendSuperType(clazz.getGenericSuperclass() != null ? new GenericType(clazz.getGenericSuperclass()).toString() : null);
 
                 List<java.lang.reflect.Method> publicMethods = Stream.of(clazz.getDeclaredMethods()).filter(m -> Modifier.isPublic(m.getModifiers())).collect(Collectors.toList());
                 List<java.lang.reflect.Method> allSetters = publicMethods.stream().filter(m -> m.getReturnType() == void.class || m.getReturnType() == clazz)
-                    .filter(m -> m.getParameterCount() == 1).filter(m -> m.getName().matches("set[A-Z][a-zA-Z0-9]*")).collect(Collectors.toList());
+                        .filter(m -> m.getParameterCount() == 1).filter(m -> m.getName().matches("set[A-Z][a-zA-Z0-9]*")).collect(Collectors.toList());
                 List<java.lang.reflect.Method> allGetters = publicMethods.stream().filter(m -> m.getReturnType() != void.class).filter(m -> m.getParameterCount() == 0)
-                    .filter(m -> m.getName().matches("(get|is)[A-Z][a-zA-Z0-9]*")).collect(Collectors.toList());
+                        .filter(m -> m.getName().matches("(get|is)[A-Z][a-zA-Z0-9]*")).collect(Collectors.toList());
                 allSetters.stream()
                         .sorted(Comparator.<java.lang.reflect.Method>comparingInt(m -> getSetterPosition(sourceCode, m))
-                                          .thenComparing(java.lang.reflect.Method::getName))
+                                .thenComparing(java.lang.reflect.Method::getName))
                         .map(m -> Strings.uncapitalize(m.getName().substring(3)))
                         .forEach(fn -> {
-                    Class<?> ft;
-                    Type wft;
-                    boolean isBoolean;
-                    java.lang.reflect.Field field = Stream.of(clazz.getDeclaredFields()).filter(f -> f.getName().equals(fn)).findAny().orElse(null);
-                    List<java.lang.reflect.Method> setters = allSetters.stream().filter(m -> m.getName().equals("set" + Strings.capitalize(fn))).collect(Collectors.toList());
-                    List<java.lang.reflect.Method> getters = allGetters.stream()
-                        .filter(m -> m.getName().equals("get" + Strings.capitalize(fn)) || m.getName().equals("is" + Strings.capitalize(fn))).collect(Collectors.toList());
-                    java.lang.reflect.Method mutator;
-                    java.lang.reflect.Method accessor;
-                    if (setters.size() == 1) {
-                        mutator = setters.get(0);
-                        ft = mutator.getParameterTypes()[0];
-                        wft = PRIMITIVE_CLASSES.getOrDefault(ft, ft);
-                        isBoolean = ft == boolean.class || ft == Boolean.class;
-                        accessor = allGetters.stream()
-                            .filter(m -> m.getName().equals("get" + Strings.capitalize(fn)) || isBoolean && m.getName().equals("is" + Strings.capitalize(fn)))
-                            .filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getReturnType(), m.getReturnType()) == wft).findAny().orElse(null);
-                    } else if (field != null) {
-                        ft = field.getType();
-                        wft = PRIMITIVE_CLASSES.getOrDefault(ft, ft);
-                        isBoolean = ft == boolean.class || ft == Boolean.class;
-                        mutator = allSetters.stream().filter(m -> m.getName().equals("set" + Strings.capitalize(fn)))
-                            .filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getParameterTypes()[0], m.getParameterTypes()[0]) == wft).findAny().orElse(null);
-                        accessor = allGetters.stream()
-                            .filter(m -> m.getName().equals("get" + Strings.capitalize(fn)) || isBoolean && m.getName().equals("is" + Strings.capitalize(fn)))
-                            .filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getReturnType(), m.getReturnType()) == wft).findAny().orElse(null);
-                    } else {
-                        if (getters.size() == 1) {
-                            ft = getters.get(0).getReturnType();
-                        } else {
-                            throw new IllegalStateException("Unable to determine type for property " + fn);
-                        }
-                        wft = PRIMITIVE_CLASSES.getOrDefault(ft, ft);
-                        mutator = setters.stream().filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getParameterTypes()[0], m.getParameterTypes()[0]) == wft).findAny().orElse(null);
-                        accessor = getters.stream().filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getReturnType(), m.getReturnType()) == wft).findAny().orElse(null);
-                    }
-                    if (mutator == null) {
-                        throw new IllegalStateException("Could not find mutator for property " + fn);
-                    }
-                    Property property = nestedType.addProperty(new GenericType(wft), fn);
-                    property.getMutator().getJavaDoc().setText(getSetterJavaDoc(sourceCode, fn));
-                    for (java.lang.annotation.Annotation ann : mutator.getAnnotations()) {
-                        addAnnotation(ac -> property.getMutator().addAnnotation(ac), ann);
-                    }
-                    if (accessor != null) {
-                        for (java.lang.annotation.Annotation ann : accessor.getAnnotations()) {
-                            addAnnotation(ac -> property.getAccessor().addAnnotation(ac), ann);
-                        }
-                    } else {
-                        property.removeAccessor();
-                    }
-                    if (field != null) {
-                        for (java.lang.annotation.Annotation ann : field.getAnnotations()) {
-                            addAnnotation(ac -> property.getField().addAnnotation(ac), ann);
-                        }
-                    } else {
-                        property.removeField();
-                    }
-                });
+                            Class<?> ft;
+                            Type wft;
+                            boolean isBoolean;
+                            java.lang.reflect.Field field = Stream.of(clazz.getDeclaredFields()).filter(f -> f.getName().equals(fn)).findAny().orElse(null);
+                            List<java.lang.reflect.Method> setters = allSetters.stream().filter(m -> m.getName().equals("set" + Strings.capitalize(fn))).collect(Collectors.toList());
+                            List<java.lang.reflect.Method> getters = allGetters.stream()
+                                    .filter(m -> m.getName().equals("get" + Strings.capitalize(fn)) || m.getName().equals("is" + Strings.capitalize(fn))).collect(Collectors.toList());
+                            java.lang.reflect.Method mutator;
+                            java.lang.reflect.Method accessor;
+                            if (setters.size() == 1) {
+                                mutator = setters.get(0);
+                                ft = mutator.getParameterTypes()[0];
+                                wft = PRIMITIVE_CLASSES.getOrDefault(ft, ft);
+                                isBoolean = ft == boolean.class || ft == Boolean.class;
+                                accessor = allGetters.stream()
+                                        .filter(m -> m.getName().equals("get" + Strings.capitalize(fn)) || isBoolean && m.getName().equals("is" + Strings.capitalize(fn)))
+                                        .filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getReturnType(), m.getReturnType()) == wft).findAny().orElse(null);
+                            } else if (field != null) {
+                                ft = field.getType();
+                                wft = PRIMITIVE_CLASSES.getOrDefault(ft, ft);
+                                isBoolean = ft == boolean.class || ft == Boolean.class;
+                                mutator = allSetters.stream().filter(m -> m.getName().equals("set" + Strings.capitalize(fn)))
+                                        .filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getParameterTypes()[0], m.getParameterTypes()[0]) == wft).findAny().orElse(null);
+                                accessor = allGetters.stream()
+                                        .filter(m -> m.getName().equals("get" + Strings.capitalize(fn)) || isBoolean && m.getName().equals("is" + Strings.capitalize(fn)))
+                                        .filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getReturnType(), m.getReturnType()) == wft).findAny().orElse(null);
+                            } else {
+                                if (getters.size() == 1) {
+                                    ft = getters.get(0).getReturnType();
+                                } else {
+                                    throw new IllegalStateException("Unable to determine type for property " + fn);
+                                }
+                                wft = PRIMITIVE_CLASSES.getOrDefault(ft, ft);
+                                mutator = setters.stream().filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getParameterTypes()[0], m.getParameterTypes()[0]) == wft).findAny().orElse(null);
+                                accessor = getters.stream().filter(m -> PRIMITIVE_CLASSES.getOrDefault(m.getReturnType(), m.getReturnType()) == wft).findAny().orElse(null);
+                            }
+                            if (mutator == null) {
+                                throw new IllegalStateException("Could not find mutator for property " + fn);
+                            }
+                            Property property = nestedType.addProperty(new GenericType(wft), fn);
+                            property.getMutator().getJavaDoc().setText(getSetterJavaDoc(sourceCode, fn));
+                            for (java.lang.annotation.Annotation ann : mutator.getAnnotations()) {
+                                addAnnotation(ac -> property.getMutator().addAnnotation(ac), ann);
+                            }
+                            if (accessor != null) {
+                                for (java.lang.annotation.Annotation ann : accessor.getAnnotations()) {
+                                    addAnnotation(ac -> property.getAccessor().addAnnotation(ac), ann);
+                                }
+                            } else {
+                                property.removeAccessor();
+                            }
+                            if (field != null) {
+                                for (java.lang.annotation.Annotation ann : field.getAnnotations()) {
+                                    addAnnotation(ac -> property.getField().addAnnotation(ac), ann);
+                                }
+                            } else {
+                                property.removeField();
+                            }
+                        });
                 return nestedType;
             } catch (ClassNotFoundException e) {
                 return null;
@@ -1227,7 +1227,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                 if (idx > 0) {
                     sourceCode = sourceCode.substring(0, idx);
                     List<String> lines = Stream.of(sourceCode.split("\n")).map(String::trim).map(s -> s.startsWith("*") ? s.substring(1) : s).map(String::trim)
-                        .filter(s -> !s.isEmpty()).collect(Collectors.toList());
+                            .filter(s -> !s.isEmpty()).collect(Collectors.toList());
                     int lastLine = 0;
                     while (lastLine < lines.size()) {
                         if (lines.get(lastLine).startsWith("@")) {
@@ -1268,8 +1268,8 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         if ("netty-http".equals(model.getScheme())) {
             String name = option.getName();
             if (name.equals("textline") || name.equals("delimiter") || name.equals("autoAppendDelimiter") || name.equals("decoderMaxLineLength") || name.equals("encoding")
-                || name.equals("allowDefaultCodec") || name.equals("udpConnectionlessSending") || name.equals("networkInterface") || name.equals("clientMode")
-                || name.equals("reconnect") || name.equals("reconnectInterval") || name.equals("useByteBuf") || name.equals("udpByteArrayCodec") || name.equals("broadcast")) {
+                    || name.equals("allowDefaultCodec") || name.equals("udpConnectionlessSending") || name.equals("networkInterface") || name.equals("clientMode")
+                    || name.equals("reconnect") || name.equals("reconnectInterval") || name.equals("useByteBuf") || name.equals("udpByteArrayCodec") || name.equals("broadcast")) {
                 return true;
             }
         }
@@ -1422,8 +1422,8 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             } else if ("tokenize".equals(model.getName())) {
                 // and skip following as they are not global options
                 if ("token".equals(option.getName()) || "endToken".equals(option.getName()) || "inheritNamespaceTagName".equals(option.getName())
-                    || "headerName".equals(option.getName()) || "regex".equals(option.getName()) || "xml".equals(option.getName()) || "includeTokens".equals(option.getName())
-                    || "group".equals(option.getName()) || "skipFirst".equals(option.getName())) {
+                        || "headerName".equals(option.getName()) || "regex".equals(option.getName()) || "xml".equals(option.getName()) || "includeTokens".equals(option.getName())
+                        || "group".equals(option.getName()) || "skipFirst".equals(option.getName())) {
                     continue;
                 }
             } else if ("xtokenize".equals(model.getName())) {
@@ -1502,7 +1502,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
     }
 
     private void createComponentAutoConfigurationSource(String packageName, ComponentModel model, List<String> componentAliases, String overrideComponentName)
-        throws MojoFailureException {
+            throws MojoFailureException {
 
         final String name = model.getJavaType().substring(model.getJavaType().lastIndexOf(".") + 1).replace("Component", "ComponentAutoConfiguration");
         final String configurationName = name.replace("ComponentAutoConfiguration", "ComponentConfiguration");
@@ -1542,15 +1542,15 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         javaClass.addImport(model.getJavaType());
 
         javaClass.addField().setPrivate().setStatic(true).setFinal(true).setName("LOGGER").setType(loadClass("org.slf4j.Logger"))
-            .setLiteralInitializer("LoggerFactory\n            .getLogger(" + name + ".class)");
+                .setLiteralInitializer("LoggerFactory\n            .getLogger(" + name + ".class)");
         javaClass.addField().setPrivate().setName("applicationContext").setType(ApplicationContext.class).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("camelContext").setType(loadClass("org.apache.camel.CamelContext")).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("configuration").setType(configClass).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("customizers").setType(loadType("java.util.List<org.apache.camel.spi.ComponentCustomizer<" + model.getJavaType() + ">>"))
-            .addAnnotation(Autowired.class).setLiteralValue("required", "false");
+                .addAnnotation(Autowired.class).setLiteralValue("required", "false");
 
         javaClass.addNestedType().setName("GroupConditions").setStatic(true).setPackagePrivate().extendSuperType("GroupCondition").addMethod().setName("GroupConditions")
-            .setConstructor(true).setPublic().setBody("super(\"camel.component\", \"camel.component." + componentName + "\");");
+                .setConstructor(true).setPublic().setBody("super(\"camel.component\", \"camel.component." + componentName + "\");");
 
         // add method for auto configure
         String body = createComponentBody(model.getShortJavaType(), componentName);
@@ -1576,7 +1576,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
     }
 
     private void createDataFormatAutoConfigurationSource(String packageName, DataFormatModel model, List<String> dataFormatAliases, String overrideDataFormatName)
-        throws MojoFailureException {
+            throws MojoFailureException {
 
         final String name = model.getJavaType().substring(model.getJavaType().lastIndexOf(".") + 1).replace("DataFormat", "DataFormatAutoConfiguration");
         final String configurationName = name.replace("DataFormatAutoConfiguration", "DataFormatConfiguration");
@@ -1620,22 +1620,22 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         javaClass.addImport(model.getJavaType());
 
         javaClass.addField().setPrivate().setStatic(true).setFinal(true).setName("LOGGER").setType(loadType("org.slf4j.Logger"))
-            .setLiteralInitializer("LoggerFactory\n            .getLogger(" + name + ".class)");
+                .setLiteralInitializer("LoggerFactory\n            .getLogger(" + name + ".class)");
         javaClass.addField().setPrivate().setName("applicationContext").setType(ApplicationContext.class).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("camelContext").setType(loadType("org.apache.camel.CamelContext")).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("configuration").setType(configClass).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("customizers").setType(loadType("java.util.List<org.apache.camel.spi.DataFormatCustomizer<" + model.getJavaType() + ">>"))
-            .addAnnotation(Autowired.class).setLiteralValue("required", "false");
+                .addAnnotation(Autowired.class).setLiteralValue("required", "false");
 
         JavaClass groupConditions = javaClass.addNestedType().setName("GroupConditions").setStatic(true).setPackagePrivate().extendSuperType("GroupCondition");
         groupConditions.addMethod().setName("GroupConditions").setConstructor(true).setPublic()
-            .setBody("super(\"camel.dataformat\", \"camel.dataformat." + dataformatName + "\");");
+                .setBody("super(\"camel.dataformat\", \"camel.dataformat." + dataformatName + "\");");
 
         String body = createDataFormatBody(model.getShortJavaType(), dataformatName);
         String methodName = "configure" + model.getShortJavaType() + "Factory";
 
         Method method = javaClass.addMethod().setName(methodName).setPublic().setBody(body).setReturnType(loadType("org.apache.camel.spi.DataFormatFactory"))
-            .addThrows(Exception.class);
+                .addThrows(Exception.class);
 
         // Determine all the aliases
         // adding the '-dataformat' suffix to prevent collision with component
@@ -1652,7 +1652,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
     }
 
     private void createLanguageAutoConfigurationSource(String packageName, LanguageModel model, List<String> languageAliases, String overrideLanguageName)
-        throws MojoFailureException {
+            throws MojoFailureException {
 
         final String name = model.getJavaType().substring(model.getJavaType().lastIndexOf(".") + 1).replace("Language", "LanguageAutoConfiguration");
         final String configurationName = name.replace("LanguageAutoConfiguration", "LanguageConfiguration");
@@ -1694,15 +1694,15 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         javaClass.addImport(model.getJavaType());
 
         javaClass.addField().setPrivate().setStatic(true).setFinal(true).setName("LOGGER").setType(loadType("org.slf4j.Logger"))
-            .setLiteralInitializer("LoggerFactory\n            .getLogger(" + name + ".class)");
+                .setLiteralInitializer("LoggerFactory\n            .getLogger(" + name + ".class)");
         javaClass.addField().setPrivate().setName("applicationContext").setType(ApplicationContext.class).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("camelContext").setType(loadType("org.apache.camel.CamelContext")).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("configuration").setType(configClass).addAnnotation(Autowired.class);
         javaClass.addField().setPrivate().setName("customizers").setType(loadType("java.util.List<org.apache.camel.spi.LanguageCustomizer<" + model.getJavaType() + ">>"))
-            .addAnnotation(Autowired.class).setLiteralValue("required", "false");
+                .addAnnotation(Autowired.class).setLiteralValue("required", "false");
 
         javaClass.addNestedType().setName("GroupConditions").setStatic(true).setPackagePrivate().extendSuperType("GroupCondition").addMethod().setName("GroupConditions")
-            .setConstructor(true).setPublic().setBody("super(\"camel.component\", \"camel.component." + languageName + "\");");
+                .setConstructor(true).setPublic().setBody("super(\"camel.component\", \"camel.component." + languageName + "\");");
 
         String body = createLanguageBody(model.getShortJavaType(), languageName);
         String methodName = "configure" + model.getShortJavaType();
@@ -1827,7 +1827,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         sb.append("                                \"camel.dataformat.").append(name).append(".customizer\");\n");
         sb.append("                if (useCustomizer) {\n");
         sb.append("                    LOGGER.debug(\n" + "                            \"Configure dataformat {}, with customizer {}\",\n"
-                  + "                            dataformat, customizer);\n");
+                + "                            dataformat, customizer);\n");
         sb.append("                    customizer.customize(dataformat);\n");
         sb.append("                }\n");
         sb.append("            }\n");

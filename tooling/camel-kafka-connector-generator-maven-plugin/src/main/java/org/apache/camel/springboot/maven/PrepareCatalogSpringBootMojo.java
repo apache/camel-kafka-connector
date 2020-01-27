@@ -90,8 +90,8 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
                 String json = loadComponentJson(jsonFiles, componentName);
                 if (json != null) {
                     json = json.replace("\"groupId\": \"" + getMainDepGroupId() + "\"", "\"groupId\": \"" + project.getGroupId() + "\"")
-                               .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
-                               .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
+                            .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
+                            .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
                     writeIfChanged(json, new File(catalogDir,
                             "src/main/resources/org/apache/camel/springboot/catalog/components/" + componentName + ".json"));
                     actual.add(componentName);
@@ -115,8 +115,8 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
                 String json = loadDataFormatJson(jsonFiles, dataformatName);
                 if (json != null) {
                     json = json.replace("\"groupId\": \"" + getMainDepGroupId() + "\"", "\"groupId\": \"" + project.getGroupId() + "\"")
-                               .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
-                               .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
+                            .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
+                            .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
                     writeIfChanged(json, new File(catalogDir,
                             "src/main/resources/org/apache/camel/springboot/catalog/dataformats/" + dataformatName + ".json"));
                     actual.add(dataformatName);
@@ -140,8 +140,8 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
                 String json = loadLanguageJson(jsonFiles, languageName);
                 if (json != null) {
                     json = json.replace("\"groupId\": \"" + getMainDepGroupId() + "\"", "\"groupId\": \"" + project.getGroupId() + "\"")
-                               .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
-                               .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
+                            .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
+                            .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
                     writeIfChanged(json, new File(catalogDir,
                             "src/main/resources/org/apache/camel/springboot/catalog/languages/" + languageName + ".json"));
                     actual.add(languageName);

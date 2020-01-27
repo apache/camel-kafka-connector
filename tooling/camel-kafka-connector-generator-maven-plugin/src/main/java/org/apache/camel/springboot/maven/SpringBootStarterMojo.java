@@ -87,16 +87,16 @@ public class SpringBootStarterMojo extends AbstractSpringBootGenerator {
     private static final String GENERATED_SECTION_END_COMMENT = "<!--" + GENERATED_SECTION_END + "-->";
 
     /**
-     * The maven session.
-     */
-    @Parameter(defaultValue = "${session}", readonly = true)
-    private MavenSession session;
-
-    /**
      * The project directory
      */
     @Parameter(defaultValue = "${basedir}")
     protected File baseDir;
+    
+    /**
+     * The maven session.
+     */
+    @Parameter(defaultValue = "${session}", readonly = true)
+    private MavenSession session;
 
     @Component
     private ProjectDependenciesResolver projectDependenciesResolver;

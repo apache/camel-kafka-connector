@@ -173,8 +173,8 @@ public class BomGeneratorMojo extends AbstractMojo {
         for (Dependency dep : dependencyList) {
             boolean accept = inclusions.matches(dep) && !exclusions.matches(dep)
                     && !(dep.getGroupId().equals("org.apache.camel.springboot")
-                            && dep.getArtifactId().startsWith("camel-")
-                            && dep.getArtifactId().endsWith("-starter"));
+                    && dep.getArtifactId().startsWith("camel-")
+                    && dep.getArtifactId().endsWith("-starter"));
             getLog().debug(dep + (accept ? " included in the BOM" : " excluded from BOM"));
 
             if (accept) {
@@ -198,7 +198,7 @@ public class BomGeneratorMojo extends AbstractMojo {
                 })
                 .forEach(outDependencies::add);
 
-        outDependencies.sort(Comparator.comparing(d -> (d.getGroupId() + ":" + d.getArtifactId())));
+        outDependencies.sort(Comparator.comparing(d -> d.getGroupId() + ":" + d.getArtifactId()));
 
         return outDependencies;
     }

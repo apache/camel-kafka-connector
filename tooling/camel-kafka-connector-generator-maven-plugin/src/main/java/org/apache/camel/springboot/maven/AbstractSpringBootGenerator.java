@@ -115,8 +115,9 @@ public abstract class AbstractSpringBootGenerator extends AbstractMojo {
         Map<String, Supplier<String>> files;
         files = componentJar.stream()
                 .filter(je -> je.getName().endsWith(".json"))
-                .collect(Collectors.toMap(je -> "jar:" + mainDep.getFile().toURI().toString() + "!" + je.getName(),
-                        je -> cache(() -> loadJson(componentJar, je))));
+                .collect(Collectors.toMap(
+                    je -> "jar:" + mainDep.getFile().toURI().toString() + "!" + je.getName(),
+                    je -> cache(() -> loadJson(componentJar, je))));
         return files;
     }
 

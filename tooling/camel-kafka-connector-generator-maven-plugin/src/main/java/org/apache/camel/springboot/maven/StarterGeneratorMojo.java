@@ -1,3 +1,19 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.apache.camel.springboot.maven;
 
 import java.io.File;
@@ -55,14 +71,15 @@ public class StarterGeneratorMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        if (!"create".equals(action) && !"delete".equals(action))
-            throw new MojoFailureException("Unknown action: " + action);
-        if (name == null || name.isEmpty())
+        if (name == null || name.isEmpty()) {
             throw new MojoFailureException("Starter name must be specified as the parameter");
-        if (name.startsWith("camel-"))
+        }
+        if (name.startsWith("camel-")) {
             name = name.substring("camel-".length());
-        if (name.endsWith("-starter"))
+        }
+        if (name.endsWith("-starter")) {
             name = name.substring(0, name.length() - "-starter".length());
+        }
         try {
             doExecute();
         } catch (MojoExecutionException | MojoFailureException e) {
@@ -74,12 +91,14 @@ public class StarterGeneratorMojo extends AbstractMojo {
 
     protected void doExecute() throws Exception {
         switch (action) {
-            case "create":
-                createStarter();
-                break;
-            case "delete":
-                deleteStarter();
-                break;
+        case "create":
+            createStarter();
+            break;
+        case "delete":
+            deleteStarter();
+            break;
+        default:
+            throw new MojoFailureException("Unknown action: " + action);
         }
     }
 
@@ -92,19 +111,21 @@ public class StarterGeneratorMojo extends AbstractMojo {
         FileUtils.deleteDirectory(directory);
         Path parent = new File(startersDir, "pom.xml").toPath();
         List<String> lines = Files.readAllLines(parent);
-        int modulesStart = -1, modulesEnd = -1;
+        int modulesStart = -1;
+        int modulesEnd = -1;
         for (int i = 0; i < lines.size(); i++) {
             String s = lines.get(i);
-            if (s.contains("<modules>"))
+            if (s.contains("<modules>")) {
                 modulesStart = i + 1;
-            else if (s.contains("</modules>"))
+            } else if (s.contains("</modules>")) {
                 modulesEnd = i;
+            }
         }
         lines = concat(lines.subList(0, modulesStart).stream(),
-                       lines.subList(modulesStart, modulesEnd).stream()
-                            .filter(s -> !s.contains("<module>camel-" + name + "-starter</module>")),
-                       lines.subList(modulesEnd, lines.size()).stream())
-                 .collect(Collectors.toList());
+                lines.subList(modulesStart, modulesEnd).stream()
+                        .filter(s -> !s.contains("<module>camel-" + name + "-starter</module>")),
+                lines.subList(modulesEnd, lines.size()).stream())
+                .collect(Collectors.toList());
         Files.write(parent, lines);
     }
 
@@ -127,20 +148,22 @@ public class StarterGeneratorMojo extends AbstractMojo {
                         .collect(Collectors.toList()));
         Path parent = new File(startersDir, "pom.xml").toPath();
         List<String> lines = Files.readAllLines(parent);
-        int modulesStart = -1, modulesEnd = -1;
+        int modulesStart = -1;
+        int modulesEnd = -1;
         for (int i = 0; i < lines.size(); i++) {
             String s = lines.get(i);
-            if (s.contains("<modules>"))
+            if (s.contains("<modules>")) {
                 modulesStart = i + 1;
-            else if (s.contains("</modules>"))
+            } else if (s.contains("</modules>")) {
                 modulesEnd = i;
+            }
         }
         lines = concat(lines.subList(0, modulesStart).stream(),
-                       Stream.concat(lines.subList(modulesStart, modulesEnd).stream(),
-                                     Stream.of("    <module>camel-" + name + "-starter</module>"))
-                             .sorted().distinct(),
-                       lines.subList(modulesEnd, lines.size()).stream())
-                           .collect(Collectors.toList());
+                Stream.concat(lines.subList(modulesStart, modulesEnd).stream(),
+                        Stream.of("    <module>camel-" + name + "-starter</module>"))
+                        .sorted().distinct(),
+                lines.subList(modulesEnd, lines.size()).stream())
+                .collect(Collectors.toList());
         Files.write(parent, lines);
     }
 
