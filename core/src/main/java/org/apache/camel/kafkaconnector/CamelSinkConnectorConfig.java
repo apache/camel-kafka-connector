@@ -26,12 +26,11 @@ import org.apache.kafka.common.config.ConfigDef.Type;
 public class CamelSinkConnectorConfig extends AbstractConfig {
     public static final String CAMEL_SINK_URL_DEFAULT = "log:kafkaconnector?showAll=true";
     public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
+    public static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination";
 
     public static final String CAMEL_SINK_MARSHAL_DEFAULT = null;
     public static final String CAMEL_SINK_MARSHAL_CONF = "camel.sink.marshal";
-
-    private static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination";
-    private static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
+    public static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
 
     public CamelSinkConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
         super(config, parsedConfig);
