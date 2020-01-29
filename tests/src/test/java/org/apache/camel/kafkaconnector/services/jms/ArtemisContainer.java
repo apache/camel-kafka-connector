@@ -17,21 +17,20 @@
 
 package org.apache.camel.kafkaconnector.services.jms;
 
+import java.util.Properties;
+
+import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.images.builder.ImageFromDockerfile;
 
-/**
- * A specialized container that can be used to create Apache Artemis broker
- * instances.
- */
-public class ArtemisService extends JMSService {
+public class ArtemisContainer extends JMSContainer {
     private static final int DEFAULT_MQTT_PORT = 1883;
     private static final int DEFAULT_AMQP_PORT = 5672;
     private static final int DEFAULT_ADMIN_PORT = 8161;
     private static final int DEFAULT_ACCEPTOR_PORT = 61616;
 
 
-    public ArtemisService() {
+    public ArtemisContainer() {
         super(new ImageFromDockerfile("apache-artemis:ckc", false)
                 .withFileFromClasspath("Dockerfile",
                         "org/apache/camel/kafkaconnector/services/jms/artemis/Dockerfile"));
@@ -115,7 +114,6 @@ public class ArtemisService extends JMSService {
     }
 
 
-
     /**
      * Gets the port number used for exchanging messages using the Openwire protocol
      * @return the port number
@@ -131,5 +129,20 @@ public class ArtemisService extends JMSService {
      */
     public String getOpenwireEndpoint() {
         return String.format("tcp://localhost:%d", getOpenwirePort());
+    }
+
+    @Override
+    public Properties getConnectionProperties() {
+        Properties properties = new Properties();
+
+        properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.activemq.ActiveMQConnectionFactory");
+        properties.put("camel.component.sjms2.connection-factory.brokerURL", getDefaultEndpoint());
+
+        return properties;
+    }
+
+    @Override
+    public JMSClient getClient() {
+        return new JMSClient(org.apache.activemq.ActiveMQConnectionFactory::new, getDefaultEndpoint());
     }
 }

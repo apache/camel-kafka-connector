@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.clients.jms;
 
-import java.util.Properties;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -29,9 +28,9 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
-import javax.jms.Queue;
 import javax.jms.Session;
 
+import org.junit.jupiter.api.Assertions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,21 +40,27 @@ import org.slf4j.LoggerFactory;
 public class JMSClient {
     private static final Logger LOG = LoggerFactory.getLogger(JMSClient.class);
 
-    private final String url;
     private Connection connection;
     private Session session;
 
-    private final Function<String, ? extends ConnectionFactory> connectionFactory;
-    private final Function<String, ? extends Queue> destinationFactory;
+    private ConnectionFactory factory;
 
     public JMSClient(Function<String, ? extends ConnectionFactory> connectionFactory,
-                     Function<String, ? extends Queue> destinationFactory,
                      String url) {
-        this.connectionFactory = connectionFactory;
-        this.destinationFactory = destinationFactory;
-        this.url = url;
+        factory = connectionFactory.apply(url);
     }
 
+    public JMSClient(String className, String url) {
+        Class<? extends ConnectionFactory> clazz;
+        try {
+            clazz = (Class<? extends ConnectionFactory>) Class.forName(className);
+
+            factory = clazz.getConstructor(String.class).newInstance(url);
+        } catch (Exception e) {
+            LOG.error("Unable to create the JMS client classL {}", e.getMessage(), e);
+            Assertions.fail(e);
+        }
+    }
 
     @SuppressWarnings("UnusedReturnValue")
     public static Throwable capturingClose(MessageProducer closeable) {
@@ -113,8 +118,6 @@ public class JMSClient {
         LOG.debug("Starting the JMS client");
 
         try {
-            final ConnectionFactory factory = connectionFactory.apply(url);
-
             LOG.debug("Creating the connection");
             connection = factory.createConnection();
             LOG.debug("Connection created successfully");
@@ -146,7 +149,14 @@ public class JMSClient {
     }
 
     private Destination createDestination(final String destinationName) {
-        return destinationFactory.apply(destinationName);
+        try {
+            return session.createQueue(destinationName);
+        } catch (JMSException e) {
+            Assertions.fail(e.getMessage());
+
+            // unreachable
+            return null;
+        }
     }
 
 
@@ -225,49 +235,4 @@ public class JMSClient {
             capturingClose(producer);
         }
     }
-
-    public static JMSClient createClient(String url) {
-        String jmsInstanceType = System.getProperty("jms-service.instance.type");
-
-        if (jmsInstanceType == null || jmsInstanceType.equals("local-dispatch-router-container")) {
-            return new JMSClient(org.apache.qpid.jms.JmsConnectionFactory::new,
-                    org.apache.qpid.jms.JmsQueue::new, url);
-        }
-
-        if (jmsInstanceType.equals("local-artemis-container")) {
-            return new JMSClient(
-                    org.apache.activemq.ActiveMQConnectionFactory::new,
-                    org.apache.activemq.command.ActiveMQQueue::new,
-                    url);
-        }
-
-        LOG.error("Invalid JMS instance type: {}. Must be one of 'local-artemis-container' or 'local-dispatch-router-container",
-                jmsInstanceType);
-        throw new UnsupportedOperationException("Invalid JMS instance type:");
-    }
-
-    public static Properties getConnectionProperties(String url) {
-        Properties properties = new Properties();
-
-        String jmsInstanceType = System.getProperty("jms-service.instance.type");
-
-        if (jmsInstanceType == null || jmsInstanceType.equals("local-dispatch-router-container")) {
-            properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
-            properties.put("camel.component.sjms2.connection-factory.remoteURI", url);
-
-            return properties;
-        }
-
-        if (jmsInstanceType.equals("local-artemis-container")) {
-            properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.activemq.ActiveMQConnectionFactory");
-            properties.put("camel.component.sjms2.connection-factory.brokerURL", url);
-
-            return properties;
-        }
-
-        LOG.error("Invalid JMS instance type: {}. Must be one of 'local-artemis-container' or 'local-dispatch-router-container",
-                jmsInstanceType);
-        throw new UnsupportedOperationException("Invalid JMS instance type:");
-    }
-
 }

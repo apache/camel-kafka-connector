@@ -20,37 +20,41 @@ package org.apache.camel.kafkaconnector.services.jms;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public interface JMSService extends BeforeAllCallback {
+/**
+ * A specialized container that can be used to create Apache Artemis broker
+ * instances.
+ */
+public class ContainerLocalService implements JMSService {
+    private static final Logger LOG = LoggerFactory.getLogger(ContainerLocalService.class);
 
-    /**
-     * Gets the connection properties for accessing the service
-     * @return
-     */
-    Properties getConnectionProperties();
+    private final JMSContainer container;
 
-    /**
-     * Get the appropriate client for the service
-     * @return
-     */
-    JMSClient getClient();
+    public ContainerLocalService(JMSContainer container) {
+        this.container = container;
 
-    /**
-     * Gets the default endpoint for the JMS service (ie.: amqp://host:port, or tcp://host:port, etc)
-     * @return the endpoint URL as a string in the specific format used by the service
-     */
-    String getDefaultEndpoint();
-
-    /**
-     * Perform any initialization necessary
-     */
-    void initialize();
-
+        container.start();
+    }
 
     @Override
-    default void beforeAll(ExtensionContext extensionContext) throws Exception {
-        initialize();
+    public Properties getConnectionProperties() {
+        return container.getConnectionProperties();
+    }
+
+    @Override
+    public JMSClient getClient() {
+        return container.getClient();
+    }
+
+    @Override
+    public String getDefaultEndpoint() {
+        return container.getDefaultEndpoint();
+    }
+
+    @Override
+    public void initialize() {
+        LOG.info("JMS broker running at address {}", container.getDefaultEndpoint());
     }
 }

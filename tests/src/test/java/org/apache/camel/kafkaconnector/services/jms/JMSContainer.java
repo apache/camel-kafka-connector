@@ -20,37 +20,32 @@ package org.apache.camel.kafkaconnector.services.jms;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
+import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.images.builder.ImageFromDockerfile;
 
-public interface JMSService extends BeforeAllCallback {
+public abstract class JMSContainer extends GenericContainer {
+
+
+    public JMSContainer(ImageFromDockerfile dockerfile) {
+        super(dockerfile);
+    }
 
     /**
      * Gets the connection properties for accessing the service
      * @return
      */
-    Properties getConnectionProperties();
+    public abstract Properties getConnectionProperties();
+
 
     /**
-     * Get the appropriate client for the service
+     * Get a client that can access the container
      * @return
      */
-    JMSClient getClient();
+    public abstract JMSClient getClient();
 
     /**
-     * Gets the default endpoint for the JMS service (ie.: amqp://host:port, or tcp://host:port, etc)
-     * @return the endpoint URL as a string in the specific format used by the service
+     * Gets the end point URL used exchanging messages through the default acceptor port
+     * @return the end point URL as a string
      */
-    String getDefaultEndpoint();
-
-    /**
-     * Perform any initialization necessary
-     */
-    void initialize();
-
-
-    @Override
-    default void beforeAll(ExtensionContext extensionContext) throws Exception {
-        initialize();
-    }
+    public abstract String getDefaultEndpoint();
 }

@@ -30,14 +30,18 @@ public final class JMSServiceFactory {
         String jmsInstanceType = System.getProperty("jms-service.instance.type");
 
         if (jmsInstanceType == null || jmsInstanceType.equals("local-dispatch-router-container")) {
-            return new QpidDispatchRouterService();
+            return new ContainerLocalService(new QpidDispatchRouterContainer());
         }
 
         if (jmsInstanceType.equals("local-artemis-container")) {
-            return new ArtemisService();
+            return new ContainerLocalService(new ArtemisContainer());
         }
 
-        LOG.error("Invalid JMS instance type: {}. Must be one of 'local-artemis-container' or 'local-dispatch-router-container",
+        if (jmsInstanceType.equals("remote")) {
+            return new RemoteJMSService();
+        }
+
+        LOG.error("Invalid JMS instance type: {}. Must be one of 'remote', 'local-artemis-container' or 'local-dispatch-router-container",
                 jmsInstanceType);
         throw new UnsupportedOperationException("Invalid JMS instance type:");
     }
