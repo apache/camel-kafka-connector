@@ -29,9 +29,14 @@ import org.slf4j.LoggerFactory;
 
 public final class PropertyUtils {
     private static final Logger LOG = LoggerFactory.getLogger(PropertyUtils.class);
+    private static Properties properties = new Properties();
 
     private PropertyUtils() {
 
+    }
+
+    public static Properties getProperties() {
+        return properties;
     }
 
     public static void load() {
@@ -44,8 +49,6 @@ public final class PropertyUtils {
         }
 
         try (InputStream stream = new FileInputStream(fileName)) {
-            Properties properties = new Properties();
-
             properties.load(stream);
 
             System.getProperties().putAll(properties);

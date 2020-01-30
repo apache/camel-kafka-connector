@@ -19,38 +19,35 @@ package org.apache.camel.kafkaconnector.services.jms;
 
 import java.util.Properties;
 
+import org.apache.camel.kafkaconnector.PropertyUtils;
 import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
 
-public interface JMSService extends BeforeAllCallback {
-
-    /**
-     * Gets the connection properties for accessing the service
-     * @return
-     */
-    Properties getConnectionProperties();
-
-    /**
-     * Get the appropriate client for the service
-     * @return
-     */
-    JMSClient getClient();
-
-    /**
-     * Gets the default endpoint for the JMS service (ie.: amqp://host:port, or tcp://host:port, etc)
-     * @return the endpoint URL as a string in the specific format used by the service
-     */
-    String getDefaultEndpoint();
-
-    /**
-     * Perform any initialization necessary
-     */
-    void initialize();
+public class RemoteJMSService implements JMSService {
 
 
     @Override
-    default void beforeAll(ExtensionContext extensionContext) throws Exception {
-        initialize();
+    public void initialize() {
+        // NO-OP
+    }
+
+    @Override
+    public Properties getConnectionProperties() {
+        return PropertyUtils.getProperties();
+    }
+
+    @Override
+    public String getDefaultEndpoint() {
+        return System.getProperty("jms.broker.address");
+    }
+
+    @Override
+    public JMSClient getClient() {
+        String tmpConnectionFactory = System.getProperty("camel.component.sjms2.connection-factory");
+
+        String connectionFactory = tmpConnectionFactory.replace("#class:", "");
+
+        return new JMSClient(connectionFactory, getDefaultEndpoint());
+
+
     }
 }

@@ -37,9 +37,9 @@ import org.apache.camel.kafkaconnector.services.jms.JMSServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.Assert.fail;
@@ -53,7 +53,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CamelSinkJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
 
-    @Container
+    @RegisterExtension
     public JMSService jmsService = JMSServiceFactory.createService();
 
     private int received;
@@ -89,7 +89,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
     @Timeout(90)
     public void testBasicSendReceive() {
         try {
-            Properties connectionProperties = JMSClient.getConnectionProperties(jmsService.getDefaultEndpoint());
+            Properties connectionProperties = jmsService.getConnectionProperties();
 
             ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
                     TestCommon.getDefaultTestTopic(this.getClass()),
@@ -128,7 +128,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
         JMSClient jmsClient = null;
 
         try {
-            jmsClient = JMSClient.createClient(jmsService.getDefaultEndpoint());
+            jmsClient = jmsService.getClient();
 
             jmsClient.start();
 

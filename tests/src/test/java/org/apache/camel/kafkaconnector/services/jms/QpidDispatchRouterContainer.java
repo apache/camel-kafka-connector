@@ -17,14 +17,17 @@
 
 package org.apache.camel.kafkaconnector.services.jms;
 
+import java.util.Properties;
+
+import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.images.builder.ImageFromDockerfile;
 
-public class QpidDispatchRouterService extends JMSService {
+public class QpidDispatchRouterContainer extends JMSContainer {
     private static final int DEFAULT_AMQP_PORT = 5672;
 
 
-    public QpidDispatchRouterService() {
+    public QpidDispatchRouterContainer() {
         super(new ImageFromDockerfile("qpid-dispatch:ckc", false)
                 .withFileFromClasspath("Dockerfile",
                         "org/apache/camel/kafkaconnector/services/jms/qpid-dispatch-router/Dockerfile"));
@@ -55,5 +58,20 @@ public class QpidDispatchRouterService extends JMSService {
     @Override
     public String getDefaultEndpoint() {
         return getAMQPEndpoint();
+    }
+
+    @Override
+    public Properties getConnectionProperties() {
+        Properties properties = new Properties();
+
+        properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
+        properties.put("camel.component.sjms2.connection-factory.remoteURI", getDefaultEndpoint());
+
+        return properties;
+    }
+
+    @Override
+    public JMSClient getClient() {
+        return new JMSClient(org.apache.qpid.jms.JmsConnectionFactory::new, getDefaultEndpoint());
     }
 }
