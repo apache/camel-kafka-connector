@@ -34,6 +34,8 @@ public class AbstractKafkaTest {
     public static final KafkaConnectService KAFKA_CONNECT_RUNNER_SERVICE;
 
     static {
+        PropertyUtils.load();
+
         KAFKA_SERVICE = KafkaServiceFactory.createService();
 
         KAFKA_SERVICE.initialize();
