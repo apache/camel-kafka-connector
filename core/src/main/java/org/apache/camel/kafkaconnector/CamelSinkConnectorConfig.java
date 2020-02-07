@@ -24,14 +24,19 @@ import org.apache.kafka.common.config.ConfigDef.Importance;
 import org.apache.kafka.common.config.ConfigDef.Type;
 
 public class CamelSinkConnectorConfig extends AbstractConfig {
-    public static final String CAMEL_SINK_URL_DEFAULT = "log:kafkaconnector?showAll=true";
-    public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
-
     public static final String CAMEL_SINK_MARSHAL_DEFAULT = null;
     public static final String CAMEL_SINK_MARSHAL_CONF = "camel.sink.marshal";
+    public static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
 
-    private static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination";
-    private static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
+    public static final String CAMEL_SINK_COMPONENT_DEFAULT = null;
+    public static final String CAMEL_SINK_COMPONENT_CONF = "camel.sink.component";
+
+    public static final String CAMEL_SINK_URL_DEFAULT = null;
+    public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
+
+    public static final String CAMEL_SINK_COMPONENT_DOC = "The camel component to use. This is normally set by default for you. It is ignored if " + CAMEL_SINK_URL_CONF + " is set.";
+    public static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination. If this is set " + CAMEL_SINK_COMPONENT_CONF
+            + " and all the properties starting with " + CamelSinkTask.getCamelSinkEndpointConfigPrefix() + ".<" + CAMEL_SINK_COMPONENT_CONF + " value> are ignored.";
 
     public CamelSinkConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
         super(config, parsedConfig);
@@ -44,6 +49,7 @@ public class CamelSinkConnectorConfig extends AbstractConfig {
     public static ConfigDef conf() {
         return new ConfigDef()
                 .define(CAMEL_SINK_URL_CONF, Type.STRING, CAMEL_SINK_URL_DEFAULT, Importance.HIGH, CAMEL_SINK_URL_DOC)
-                .define(CAMEL_SINK_MARSHAL_CONF, Type.STRING, CAMEL_SINK_MARSHAL_DEFAULT, Importance.HIGH, CAMEL_SINK_MARSHAL_DOC);
+                .define(CAMEL_SINK_MARSHAL_CONF, Type.STRING, CAMEL_SINK_MARSHAL_DEFAULT, Importance.HIGH, CAMEL_SINK_MARSHAL_DOC)
+                .define(CAMEL_SINK_COMPONENT_CONF, Type.STRING, CAMEL_SINK_COMPONENT_DEFAULT, Importance.HIGH, CAMEL_SINK_COMPONENT_DOC);
     }
 }

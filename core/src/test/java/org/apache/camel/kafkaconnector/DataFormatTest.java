@@ -36,19 +36,19 @@ public class DataFormatTest {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct://test");
         props.put("camel.source.kafka.topic", "mytopic");
-        props.put("camel.sink.marshal", "syslog");
+        props.put("camel.source.marshal", "syslog");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
-        camelsinkTask.stop();
+        CamelSourceTask camelsourceTask = new CamelSourceTask();
+        camelsourceTask.start(props);
+        camelsourceTask.stop();
     }
 
     @Test
     public void testDataFormatSink() throws JsonProcessingException, InterruptedException {
         Map<String, String> props = new HashMap<>();
-        props.put("camel.source.url", "direct://test");
-        props.put("camel.source.kafka.topic", "mytopic");
-        props.put("camel.source.unmarshal", "syslog");
+        props.put("camel.sink.url", "direct://test");
+        props.put("camel.sink.kafka.topic", "mytopic");
+        props.put("camel.sink.unmarshal", "syslog");
 
         CamelSinkTask camelsinkTask = new CamelSinkTask();
         camelsinkTask.start(props);
@@ -59,8 +59,8 @@ public class DataFormatTest {
     @Test
     public void testDataFormatNotFound() {
         Map<String, String> props = new HashMap<>();
-        props.put("camel.source.url", "direct://test");
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("camel.sink.url", "direct://test");
+        props.put("camel.sink.kafka.topic", "mytopic");
         props.put("camel.sink.marshal", "missingDataformat");
 
         CamelSinkTask camelsinkTask = new CamelSinkTask();
@@ -82,7 +82,7 @@ public class DataFormatTest {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct://test");
         props.put("camel.source.kafka.topic", "mytopic");
-        props.put("camel.sink.marshal", "hl7");
+        props.put("camel.source.marshal", "hl7");
 
         DefaultCamelContext dcc = new DefaultCamelContext();
         CamelMainSupport cms = new CamelMainSupport(props, "direct://start", "log://test", null, "hl7", dcc);
@@ -102,7 +102,7 @@ public class DataFormatTest {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct://test");
         props.put("camel.source.kafka.topic", "mytopic");
-        props.put("camel.sink.marshal", "hl7");
+        props.put("camel.source.marshal", "hl7");
         props.put("camel.dataformat.hl7.validate", "false");
 
         DefaultCamelContext dcc = new DefaultCamelContext();

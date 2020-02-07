@@ -89,6 +89,47 @@
                 </executions>
             </plugin>
             <plugin><!--
+                     This loads the content of header-*.txt into
+                     header-* Maven properties to be included for
+                     resource filtering below.
+                -->
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>${gmavenplus-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <scripts>
+                                <script><![CDATA[
+                                    import groovy.xml.XmlUtil
+                                    project.properties['header-java'] = XmlUtil.escapeXml(new File(project.basedir, 'src/main/resources/header-java.txt').text.replace('\r', '').replace('\n', '\\n'))
+                                    project.properties['header-properties'] = XmlUtil.escapeXml(new File(project.basedir, 'src/main/resources/header-properties.txt').text.replace('\r', '').replace('\n', '\\n'))
+                                    project.properties['header-xml'] = XmlUtil.escapeXml(new File(project.basedir, 'src/main/resources/header-xml.txt').text.replace('\r', '').replaceAll('(.*)\n', '^\\\\Q$1\\\\E\\$\\\\n'))
+                                    ]]></script>
+                            </scripts>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-ant</artifactId>
+                        <version>${groovy-version}</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-xml</artifactId>
+                        <version>${groovy-version}</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin><!--
                      This is needed so that the camel-checkstyle.xml is
                      filltered so that the header values are updated
                      with header-* Maven properties.
