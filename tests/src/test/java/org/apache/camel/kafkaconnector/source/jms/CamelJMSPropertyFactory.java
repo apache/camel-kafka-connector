@@ -23,6 +23,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.sjms2.CamelSjms2SinkConnectorConfig;
+import org.apache.camel.kafkaconnector.sjms2.CamelSjms2SourceConnectorConfig;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 
@@ -49,10 +51,10 @@ class CamelJMSPropertyFactory implements ConnectorPropertyFactory {
         connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelJMSSourceConnector");
         connectorProps.put("tasks.max", String.valueOf(tasksMax));
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.CamelSourceConnector");
+        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.sjms2.CamelSjms2SourceConnector");
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put("camel.source.url", "sjms2://queue:" + queue);
+        connectorProps.put(CamelSjms2SourceConnectorConfig.CAMEL_SOURCE_SJMS2_PATH_DESTINATION_NAME_CONF, queue);
         connectorProps.put("camel.source.kafka.topic", topic);
 
         Set<Map.Entry<Object, Object>> set = connectionProperties.entrySet();
