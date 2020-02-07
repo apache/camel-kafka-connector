@@ -24,6 +24,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +33,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.PollingConsumer;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.kafkaconnector.utils.SchemaHelper;
+import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.source.SourceRecord;
@@ -41,6 +43,9 @@ import org.slf4j.LoggerFactory;
 
 public class CamelSourceTask extends SourceTask {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceTask.class);
+
+    private static final String CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX = "camel.source.endpoint.";
+    private static final String CAMEL_SOURCE_PATH_PROPERTIES_PREFIX = "camel.source.path.";
 
     private static final String LOCAL_URL = "direct:end";
     private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
@@ -63,20 +68,25 @@ public class CamelSourceTask extends SourceTask {
     public void start(Map<String, String> props) {
         try {
             LOG.info("Starting CamelSourceTask connector task");
-            config = new CamelSourceConnectorConfig(props);
+            Map<String, String> actualProps = TaskHelper.mergeProperties(getDefaultConfig(), props);
+            config = getCamelSourceConnectorConfig(actualProps);
 
             maxBatchPollSize = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF);
             maxPollDuration = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_POLL_DURATION_CONF);
 
             camelMessageHeaderKey = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF);
 
-            final String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
+            String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
             final String unmarshaller = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_UNMARSHAL_CONF);
             topic = config.getString(CamelSourceConnectorConfig.TOPIC_CONF);
 
             String localUrl = getLocalUrlWithPollingOptions(config);
 
-            cms = new CamelMainSupport(props, remoteUrl, localUrl, null, unmarshaller);
+            if (remoteUrl == null) {
+                remoteUrl = TaskHelper.buildUrl(actualProps, config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF), CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX, CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
+            }
+
+            cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, null, unmarshaller);
 
             Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();
@@ -154,6 +164,22 @@ public class CamelSourceTask extends SourceTask {
         } finally {
             LOG.info("CamelSourceTask connector task stopped");
         }
+    }
+
+    protected CamelSourceConnectorConfig getCamelSourceConnectorConfig(Map<String, String> props) {
+        return new CamelSourceConnectorConfig(props);
+    }
+
+    protected Map<String, String> getDefaultConfig() {
+        return Collections.EMPTY_MAP;
+    }
+
+    protected static String getCamelSourceEndpointConfigPrefix() {
+        return CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX;
+    }
+
+    protected static String getCamelSourcePathConfigPrefix() {
+        return CAMEL_SOURCE_PATH_PROPERTIES_PREFIX;
     }
 
     private void setAdditionalHeaders(SourceRecord record, Map<String, Object> map, String prefix) {

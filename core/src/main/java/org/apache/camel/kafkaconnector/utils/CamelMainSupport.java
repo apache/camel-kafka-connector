@@ -42,6 +42,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CamelMainSupport {
+    public static final String CAMEL_DATAFORMAT_PROPERTIES_PREFIX = "camel.dataformat.";
     private static Logger log = LoggerFactory.getLogger(CamelMainSupport.class);
 
     private Main camelMain;
@@ -55,7 +56,7 @@ public class CamelMainSupport {
     }
 
     public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, CamelContext camelContext) throws Exception {
-        this.camel = camelContext; //new DefaultCamelContext();
+        camel = camelContext;
         camelMain = new Main() {
             @Override
             protected ProducerTemplate findOrCreateCamelTemplate() {
@@ -153,7 +154,7 @@ public class CamelMainSupport {
         if (df == null) {
             df = camel.createDataFormat(dataformatName);
 
-            final String prefix = "camel" + "." + "dataformat" + "." + dataformatName + ".";
+            final String prefix = CAMEL_DATAFORMAT_PROPERTIES_PREFIX + dataformatName + ".";
             final Properties props = camel.getPropertiesComponent().loadProperties(k -> k.startsWith(prefix));
 
             CamelContextAware.trySetCamelContext(df, camel);

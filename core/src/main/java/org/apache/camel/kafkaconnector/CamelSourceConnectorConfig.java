@@ -26,7 +26,13 @@ import org.apache.kafka.common.config.ConfigDef.Type;
 public class CamelSourceConnectorConfig extends AbstractConfig {
     public static final String CAMEL_SOURCE_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_URL_CONF = "camel.source.url";
-    public static final String CAMEL_SOURCE_URL_DOC = "The camel url to configure the source";
+
+    public static final String CAMEL_SOURCE_COMPONENT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_COMPONENT_CONF = "camel.source.component";
+
+    public static final String CAMEL_SOURCE_COMPONENT_DOC = "The camel component to use. This is normally set by default for you. It is ignored if " + CAMEL_SOURCE_URL_CONF + " is set.";
+    public static final String CAMEL_SOURCE_URL_DOC = "The camel url to configure the source. If this is set " + CAMEL_SOURCE_COMPONENT_CONF
+            + " and all the properties starting with " + CamelSourceTask.getCamelSourceEndpointConfigPrefix() + ".<" + CAMEL_SOURCE_COMPONENT_CONF + " value> are ignored.";
 
     public static final String CAMEL_SOURCE_UNMARSHAL_DEFAULT = null;
     public static final String CAMEL_SOURCE_UNMARSHAL_CONF = "camel.source.unmarshal";
@@ -79,6 +85,7 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
                 .define(CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_CONF, Type.LONG, CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_DOC)
                 .define(CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_CONF, Type.LONG, CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_DOC)
                 .define(CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_CONF, Type.BOOLEAN, CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_DOC)
-                .define(CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF, Type.STRING, CAMEL_SOURCE_MESSAGE_HEADER_KEY_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_MESSAGE_HEADER_KEY_DOC);
+                .define(CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF, Type.STRING, CAMEL_SOURCE_MESSAGE_HEADER_KEY_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_MESSAGE_HEADER_KEY_DOC)
+                .define(CAMEL_SOURCE_COMPONENT_CONF, Type.STRING, CAMEL_SOURCE_COMPONENT_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_COMPONENT_DOC);
     }
 }

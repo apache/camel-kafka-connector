@@ -32,9 +32,9 @@ public class PropertiesOrderTest {
         props.put("camel.component.seda.defaultQueueFactory", "#class:org.apache.camel.kafkaconnector.test.TestBlockingQueueFactory");
         props.put("camel.component.seda.defaultQueueFactory.counter", "1");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
-        camelsinkTask.stop();
+        CamelSourceTask camelsourceTask = new CamelSourceTask();
+        camelsourceTask.start(props);
+        camelsourceTask.stop();
     }
 
     @Test
@@ -45,8 +45,8 @@ public class PropertiesOrderTest {
         props.put("camel.component.seda.defaultQueueFactory.counter", "1");
         props.put("camel.component.seda.defaultQueueFactory", "#class:org.apache.camel.kafkaconnector.test.TestBlockingQueueFactory");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
-        camelsinkTask.stop();
+        CamelSourceTask camelsourceTask = new CamelSourceTask();
+        camelsourceTask.start(props);
+        camelsourceTask.stop();
     }
 }

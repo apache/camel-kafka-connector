@@ -59,7 +59,7 @@ public class CamelSourceConnector extends SourceConnector {
 
     @Override
     public void stop() {
-        // Nothing to do
+        //Nothing to do
     }
 
     @Override

@@ -16,15 +16,20 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.apache.camel.ConsumerTemplate;
+import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.header.Headers;
+import org.apache.kafka.connect.sink.SinkRecord;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 
@@ -233,6 +238,99 @@ public class CamelSourceTaskTest {
         camelSourceTask.getCms().getEndpoints().stream()
                 .filter(e -> e.getEndpointUri().startsWith("direct"))
                 .forEach(e -> assertEquals("direct://end?pollingConsumerBlockTimeout=1000&pollingConsumerBlockWhenFull=false&pollingConsumerQueueSize=10", e.getEndpointUri()));
+
+        camelSourceTask.stop();
+    }
+
+    @Test
+    public void testUrlPrecedenceOnComponentProperty() throws JsonProcessingException, InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.kafka.topic", "mytopic");
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "shouldNotBeUsed");
+        props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "endpointProperty", "shouldNotBeUsed");
+        props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "pathChunk", "shouldNotBeUsed");
+
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        Thread.sleep(2100L);
+        List<SourceRecord> poll = camelSourceTask.poll();
+        assertEquals(2, poll.size());
+        assertEquals("mytopic", poll.get(0).topic());
+        Headers headers = poll.get(0).headers();
+        boolean containsHeader = false;
+        for (Iterator iterator = headers.iterator(); iterator.hasNext();) {
+            Header header = (Header)iterator.next();
+            if (header.key().equalsIgnoreCase("CamelPropertyCamelTimerPeriod")) {
+                containsHeader = true;
+                break;
+            }
+        }
+        assertTrue(containsHeader);
+
+        camelSourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingUsingComponentProperty() throws JsonProcessingException, InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.kafka.topic", "mytopic");
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
+        props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "period", "1000");
+        props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "pathChunk", "kafkaconnector");
+
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        Thread.sleep(2100L);
+        List<SourceRecord> poll = camelSourceTask.poll();
+        assertEquals(2, poll.size());
+        assertEquals("mytopic", poll.get(0).topic());
+        Headers headers = poll.get(0).headers();
+        boolean containsHeader = false;
+        for (Iterator iterator = headers.iterator(); iterator.hasNext();) {
+            Header header = (Header)iterator.next();
+            if (header.key().equalsIgnoreCase("CamelPropertyCamelTimerPeriod")) {
+                containsHeader = true;
+                break;
+            }
+        }
+        assertTrue(containsHeader);
+
+        assertEquals(1, camelSourceTask.getCms().getEndpoints().stream().filter(e -> e.getEndpointUri().equals("timer://kafkaconnector?period=1000")).count());
+
+        camelSourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingUsingMultipleComponentProperties() throws JsonProcessingException, InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.kafka.topic", "mytopic");
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
+        props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "period", "1000");
+        props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "repeatCount", "0");
+        props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "pathChunk", "kafkaconnector");
+
+        CamelSourceTask camelSourceTask = new CamelSourceTask();
+        camelSourceTask.start(props);
+
+        Thread.sleep(2100L);
+        List<SourceRecord> poll = camelSourceTask.poll();
+        assertEquals(2, poll.size());
+        assertEquals("mytopic", poll.get(0).topic());
+        Headers headers = poll.get(0).headers();
+        boolean containsHeader = false;
+        for (Iterator iterator = headers.iterator(); iterator.hasNext();) {
+            Header header = (Header)iterator.next();
+            if (header.key().equalsIgnoreCase("CamelPropertyCamelTimerPeriod")) {
+                containsHeader = true;
+                break;
+            }
+        }
+        assertTrue(containsHeader);
+
+        assertEquals(1, camelSourceTask.getCms().getEndpoints().stream().filter(e -> e.getEndpointUri().equals("timer://kafkaconnector?period=1000&repeatCount=0")).count());
 
         camelSourceTask.stop();
     }

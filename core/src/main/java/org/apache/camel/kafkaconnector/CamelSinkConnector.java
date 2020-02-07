@@ -59,7 +59,7 @@ public class CamelSinkConnector extends SinkConnector {
 
     @Override
     public void stop() {
-        //nothing to do
+        //Nothing to do
     }
 
     @Override

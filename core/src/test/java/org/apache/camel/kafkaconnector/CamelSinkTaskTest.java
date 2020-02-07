@@ -41,22 +41,22 @@ public class CamelSinkTaskTest {
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
 
         String topic = "mytopic";
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(topic, 1, null, "test", null, "camel", 42);
         records.add(record);
-        camelsinkTask.put(records);
+        camelSinkTask.put(records);
 
-        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
 
-        camelsinkTask.stop();
+        camelSinkTask.stop();
     }
 
     @Test
@@ -65,8 +65,8 @@ public class CamelSinkTaskTest {
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
 
         String topic = "mytopic";
         Byte myByte = new Byte("100");
@@ -86,9 +86,9 @@ public class CamelSinkTaskTest {
         record.headers().addInt("CamelHeaderMyInteger", myInteger);
         record.headers().addLong("CamelHeaderMyLong", myLong);
         records.add(record);
-        camelsinkTask.put(records);
+        camelSinkTask.put(records);
 
-        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -100,7 +100,7 @@ public class CamelSinkTaskTest {
         assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
         assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
 
-        camelsinkTask.stop();
+        camelSinkTask.stop();
     }
     
     @Test
@@ -109,8 +109,8 @@ public class CamelSinkTaskTest {
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
 
         String topic = "mytopic";
         Byte myByte = new Byte("100");
@@ -130,9 +130,9 @@ public class CamelSinkTaskTest {
         record.headers().addInt("CamelPropertyMyInteger", myInteger);
         record.headers().addLong("CamelPropertyMyLong", myLong);
         records.add(record);
-        camelsinkTask.put(records);
+        camelSinkTask.put(records);
 
-        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -144,7 +144,7 @@ public class CamelSinkTaskTest {
         assertEquals(myInteger, exchange.getProperties().get("CamelPropertyMyInteger"));
         assertEquals(myLong, (Long) exchange.getProperties().get("CamelPropertyMyLong"));
 
-        camelsinkTask.stop();
+        camelSinkTask.stop();
     }
     
     @Test
@@ -153,8 +153,8 @@ public class CamelSinkTaskTest {
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
 
         String topic = "mytopic";
         Byte myByte = new Byte("100");
@@ -181,9 +181,9 @@ public class CamelSinkTaskTest {
         record.headers().addInt("CamelHeaderMyInteger", myInteger);
         record.headers().addLong("CamelHeaderMyLong", myLong);
         records.add(record);
-        camelsinkTask.put(records);
+        camelSinkTask.put(records);
 
-        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -202,7 +202,7 @@ public class CamelSinkTaskTest {
         assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
         assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
 
-        camelsinkTask.stop();
+        camelSinkTask.stop();
     }
     
     @Test
@@ -211,8 +211,8 @@ public class CamelSinkTaskTest {
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
 
         String topic = "mytopic";
         Byte myByte = new Byte("100");
@@ -241,9 +241,9 @@ public class CamelSinkTaskTest {
         record.headers().addMap("CamelHeaderMyMap1", map1, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.STRING_SCHEMA));
         record.headers().addMap("CamelHeaderMyMap2", map2, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.INT64_SCHEMA));
         records.add(record);
-        camelsinkTask.put(records);
+        camelSinkTask.put(records);
 
-        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -257,7 +257,7 @@ public class CamelSinkTaskTest {
         assertEquals(map, exchange.getIn().getHeader("CamelHeaderMyMap", Map.class));
         assertEquals(map1, exchange.getIn().getHeader("CamelHeaderMyMap1", Map.class));
         assertEquals(map2, exchange.getIn().getHeader("CamelHeaderMyMap2", Map.class));
-        camelsinkTask.stop();
+        camelSinkTask.stop();
     }
     
     @Test
@@ -266,8 +266,8 @@ public class CamelSinkTaskTest {
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
 
         String topic = "mytopic";
         Byte myByte = new Byte("100");
@@ -306,9 +306,9 @@ public class CamelSinkTaskTest {
         record.headers().addMap("CamelHeaderMyMap1", map1, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.STRING_SCHEMA));
         record.headers().addMap("CamelHeaderMyMap2", map2, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.INT64_SCHEMA));
         records.add(record);
-        camelsinkTask.put(records);
+        camelSinkTask.put(records);
 
-        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -333,7 +333,7 @@ public class CamelSinkTaskTest {
         assertEquals(map1, exchange.getIn().getHeader("CamelHeaderMyMap1", Map.class));
         assertEquals(map2, exchange.getIn().getHeader("CamelHeaderMyMap2", Map.class));
 
-        camelsinkTask.stop();
+        camelSinkTask.stop();
     }
     
     @Test
@@ -342,8 +342,8 @@ public class CamelSinkTaskTest {
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
 
         String topic = "mytopic";
         Byte myByte = new Byte("100");
@@ -369,9 +369,9 @@ public class CamelSinkTaskTest {
         record.headers().addList("CamelHeaderMyList", list, SchemaBuilder.array(Schema.STRING_SCHEMA));
         record.headers().addList("CamelHeaderMyList1", list1, SchemaBuilder.array(Schema.INT64_SCHEMA));
         records.add(record);
-        camelsinkTask.put(records);
+        camelSinkTask.put(records);
 
-        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -384,7 +384,7 @@ public class CamelSinkTaskTest {
         assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
         assertEquals(list, exchange.getIn().getHeader("CamelHeaderMyList", List.class));
         assertEquals(list1, exchange.getIn().getHeader("CamelHeaderMyList1", List.class));
-        camelsinkTask.stop();
+        camelSinkTask.stop();
     }
     
     @Test
@@ -393,8 +393,8 @@ public class CamelSinkTaskTest {
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
 
-        CamelSinkTask camelsinkTask = new CamelSinkTask();
-        camelsinkTask.start(props);
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
 
         String topic = "mytopic";
         Byte myByte = new Byte("100");
@@ -429,9 +429,9 @@ public class CamelSinkTaskTest {
         record.headers().addList("CamelPropertyMyList", list, SchemaBuilder.array(Schema.STRING_SCHEMA));
         record.headers().addList("CamelPropertyMyList1", list1, SchemaBuilder.array(Schema.INT64_SCHEMA));
         records.add(record);
-        camelsinkTask.put(records);
+        camelSinkTask.put(records);
 
-        ConsumerTemplate c = camelsinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -454,6 +454,91 @@ public class CamelSinkTaskTest {
         assertEquals(list, exchange.getIn().getHeader("CamelHeaderMyList", List.class));
         assertEquals(list1, exchange.getIn().getHeader("CamelHeaderMyList1", List.class));
 
-        camelsinkTask.stop();
+        camelSinkTask.stop();
     }
+
+    @Test
+    public void testUrlPrecedenceOnComponentProperty() throws JsonProcessingException, InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.sink.url", "seda:test");
+        props.put("topics", "mytopic");
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "shouldNotBeUsed");
+        props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "endpointProperty", "shouldNotBeUsed");
+        props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "pathChunk", "shouldNotBeUsed");
+
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
+
+        String topic = "mytopic";
+
+        List<SinkRecord> records = new ArrayList<SinkRecord>();
+        SinkRecord record = new SinkRecord(topic, 1, null, "test", null, "camel", 42);
+        records.add(record);
+        camelSinkTask.put(records);
+
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
+        Exchange exchange = c.receive("seda:test", 1000L);
+        assertEquals("camel", exchange.getMessage().getBody());
+        assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
+
+        camelSinkTask.stop();
+    }
+
+    @Test
+    public void testOnlyBodyUsingComponentProperty() throws JsonProcessingException, InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("topics", "mytopic");
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "seda");
+        props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "bridgeErrorHandler", "true");
+        props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "pathChunk", "test");
+
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
+
+        String topic = "mytopic";
+
+        List<SinkRecord> records = new ArrayList<SinkRecord>();
+        SinkRecord record = new SinkRecord(topic, 1, null, "test", null, "camel", 42);
+        records.add(record);
+        camelSinkTask.put(records);
+
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
+        Exchange exchange = c.receive("seda:test", 1000L);
+        assertEquals("camel", exchange.getMessage().getBody());
+        assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
+
+        assertEquals(1, camelSinkTask.getCms().getEndpoints().stream().filter(e -> e.getEndpointUri().equals("seda://test?bridgeErrorHandler=true")).count());
+
+        camelSinkTask.stop();
+    }
+
+    @Test
+    public void testOnlyBodyUsingMultipleComponentProperties() throws JsonProcessingException, InterruptedException {
+        Map<String, String> props = new HashMap<>();
+        props.put("topics", "mytopic");
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "seda");
+        props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "bridgeErrorHandler", "true");
+        props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "size", "50");
+        props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "pathChunk", "test");
+
+        CamelSinkTask camelSinkTask = new CamelSinkTask();
+        camelSinkTask.start(props);
+
+        String topic = "mytopic";
+
+        List<SinkRecord> records = new ArrayList<SinkRecord>();
+        SinkRecord record = new SinkRecord(topic, 1, null, "test", null, "camel", 42);
+        records.add(record);
+        camelSinkTask.put(records);
+
+        ConsumerTemplate c = camelSinkTask.getCms().createConsumerTemplate();
+        Exchange exchange = c.receive("seda:test", 1000L);
+        assertEquals("camel", exchange.getMessage().getBody());
+        assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
+
+        assertEquals(1, camelSinkTask.getCms().getEndpoints().stream().filter(e -> e.getEndpointUri().equals("seda://test?bridgeErrorHandler=true&size=50")).count());
+
+        camelSinkTask.stop();
+    }
+
 }
