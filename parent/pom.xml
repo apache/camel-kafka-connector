@@ -67,7 +67,10 @@
         <version.maven.checkstyle>8.26</version.maven.checkstyle>
         <version.maven.checkstyle.plugin>3.1.0</version.maven.checkstyle.plugin>
         <version.maven.surefire.plugin>3.0.0-M4</version.maven.surefire.plugin>
+
         <mycila-license-version>3.0</mycila-license-version>
+        <gmavenplus-plugin-version>1.6.2</gmavenplus-plugin-version>
+        <groovy-version>2.5.8</groovy-version>
 
         <itest.zookeeper.container.image>strimzi/kafka:0.16.0-kafka-2.4.0</itest.zookeeper.container.image>
         <itest.strimzi.container.image>strimzi/kafka:0.16.0-kafka-2.4.0</itest.strimzi.container.image>
@@ -417,9 +420,9 @@
                     <version>${version.maven.checkstyle.plugin}</version>
                     <dependencies>
                         <dependency>
-                            <groupId>org.apache.camel</groupId>
+                            <groupId>org.apache.camel.kafkaconnector</groupId>
                             <artifactId>camel-buildtools</artifactId>
-                            <version>${camel.version}</version>
+                            <version>${project.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
