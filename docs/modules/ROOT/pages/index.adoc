@@ -1,0 +1,5 @@
+# About Apache Camel Kafka Connector
+
+Camel Kafka Connector allows you to use all Camel xref:components::index.adoc[components] within the http://kafka.apache.org/documentation/#connect[Kafka Connect].
+
+To get started try it out xref:try-it-out-locally.adoc[locally] or on xref:try-it-out-on-openshift-with-strimzi.adoc[OpenShift cluster] with https://strimzi.io/[Strimzi].

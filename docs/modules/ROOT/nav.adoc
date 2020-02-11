@@ -1,0 +1,3 @@
+* xref:index.adoc[About]
+* xref:try-it-out-locally.adoc[Try it out locally]
+* xref:try-it-out-on-openshift-with-strimzi.adoc[Try it out on OpenShift with Strimzi]
