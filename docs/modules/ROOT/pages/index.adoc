@@ -1,4 +1,4 @@
-# About Apache Camel Kafka Connector
+= About Apache Camel Kafka Connector
 
 Camel Kafka Connector allows you to use all Camel xref:components::index.adoc[components] within the http://kafka.apache.org/documentation/#connect[Kafka Connect].
 
