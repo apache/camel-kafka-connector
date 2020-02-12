@@ -91,14 +91,14 @@ public class StarterGeneratorMojo extends AbstractMojo {
 
     protected void doExecute() throws Exception {
         switch (action) {
-        case "create":
-            createStarter();
-            break;
-        case "delete":
-            deleteStarter();
-            break;
-        default:
-            throw new MojoFailureException("Unknown action: " + action);
+            case "create":
+                createStarter();
+                break;
+            case "delete":
+                deleteStarter();
+                break;
+            default:
+                throw new MojoFailureException("Unknown action: " + action);
         }
     }
 
