@@ -14,37 +14,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.camel.kafkaconnector.services.cassandra;
 
 import org.apache.camel.kafkaconnector.clients.cassandra.CassandraClient;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
 
 /**
- * Represents an endpoint to a Cassandra instnace
+ * A remote instance of Apache Cassandra
  */
-public interface CassandraService extends BeforeAllCallback {
-
-    int getCQL3Port();
-
-    default String getCQL3Endpoint() {
-        return getCassandraHost() + ":" + getCQL3Port();
-    }
-
-    String getCassandraHost();
-
-    /**
-     * Perform any initialization necessary
-     */
-    void initialize();
-
-
-    CassandraClient getClient();
-
+public class RemoteCassandraService implements CassandraService {
+    private static final int DEFAULT_CQL_PORT = 9042;
 
     @Override
-    default void beforeAll(ExtensionContext extensionContext) throws Exception {
-        initialize();
+    public int getCQL3Port() {
+        String strPort = System.getProperty("cassandra.cql3.port");
+
+        if (strPort != null) {
+            return Integer.parseInt(strPort);
+        }
+
+        return DEFAULT_CQL_PORT;
+    }
+
+    @Override
+    public String getCassandraHost() {
+        return System.getProperty("cassandra.host");
+    }
+
+    @Override
+    public CassandraClient getClient() {
+        String host = getCassandraHost();
+        int port = getCQL3Port();
+
+        return new CassandraClient(host, port);
+    }
+
+    @Override
+    public void initialize() {
+        // NO-OP
     }
 }

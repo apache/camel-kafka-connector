@@ -57,10 +57,7 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        String host = cassandraService.getCassandraHost();
-        int port = cassandraService.getCQL3Port();
-
-        cassandraClient = new CassandraClient(host, port);
+        cassandraClient = cassandraService.getClient();
 
         testDataDao = cassandraClient.newTestDataDao();
 

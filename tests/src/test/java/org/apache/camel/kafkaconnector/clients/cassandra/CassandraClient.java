@@ -20,8 +20,6 @@ package org.apache.camel.kafkaconnector.clients.cassandra;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
 import org.apache.camel.kafkaconnector.clients.cassandra.dao.TestDataDao;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * A simple client for Cassandra for testing purposes

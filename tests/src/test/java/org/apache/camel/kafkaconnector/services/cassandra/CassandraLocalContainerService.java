@@ -16,9 +16,14 @@
  */
 package org.apache.camel.kafkaconnector.services.cassandra;
 
+import org.apache.camel.kafkaconnector.clients.cassandra.CassandraClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+/**
+ * A service for a local instance of Apache Cassandra running with TestContainers
+ */
 public class CassandraLocalContainerService implements CassandraService {
     private static final Logger LOG = LoggerFactory.getLogger(CassandraLocalContainerService.class);
 
@@ -36,13 +41,16 @@ public class CassandraLocalContainerService implements CassandraService {
     }
 
     @Override
-    public String getCQL3Endpoint() {
-        return container.getCQL3Endpoint();
+    public String getCassandraHost() {
+        return container.getCassandraHost();
     }
 
     @Override
-    public String getCassandraHost() {
-        return container.getCassandraHost();
+    public CassandraClient getClient() {
+        String host = getCassandraHost();
+        int port = getCQL3Port();
+
+        return new CassandraClient(host, port);
     }
 
     @Override

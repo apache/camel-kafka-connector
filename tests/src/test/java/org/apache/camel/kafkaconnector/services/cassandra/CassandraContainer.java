@@ -19,6 +19,9 @@ package org.apache.camel.kafkaconnector.services.cassandra;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 
+/**
+ * A local instance of Apache Cassandra
+ */
 public class CassandraContainer extends GenericContainer {
     private static final String CASSANDRA_IMAGE = "cassandra:3.11";
     private static final int CQL3_PORT = 9042;
@@ -33,10 +36,6 @@ public class CassandraContainer extends GenericContainer {
 
     public int getCQL3Port() {
         return getMappedPort(CQL3_PORT);
-    }
-
-    public String getCQL3Endpoint() {
-        return getCassandraHost() + ":" + getCQL3Port();
     }
 
     public String getCassandraHost() {
