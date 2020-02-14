@@ -41,10 +41,10 @@ public class ElasticSearchClient {
     private final RestHighLevelClient client;
     private final String index;
 
-    public ElasticSearchClient(int port, String index) {
+    public ElasticSearchClient(String host, int port, String index) {
         client = new RestHighLevelClient(
                 RestClient.builder(
-                        new HttpHost("localhost", port, "http")));
+                        new HttpHost(host, port, "http")));
 
         this.index = index;
     }
