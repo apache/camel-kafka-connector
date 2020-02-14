@@ -30,11 +30,12 @@ import org.apache.camel.kafkaconnector.clients.cassandra.CassandraClient;
 import org.apache.camel.kafkaconnector.clients.cassandra.dao.TestDataDao;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.cassandra.CassandraService;
+import org.apache.camel.kafkaconnector.services.cassandra.CassandraServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -44,8 +45,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CamelSinkCassandraITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCassandraITCase.class);
 
-    @Container
-    public CassandraService cassandraService = new CassandraService();
+    @RegisterExtension
+    public CassandraService cassandraService = CassandraServiceFactory.createService();
 
     private CassandraClient cassandraClient;
     private TestDataDao testDataDao;

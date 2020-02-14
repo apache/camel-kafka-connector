@@ -14,31 +14,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.camel.kafkaconnector.services.cassandra;
 
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
+import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.wait.strategy.Wait;
 
-/**
- * A specialized container for running the official Cassandra image
- */
-public interface CassandraService extends BeforeAllCallback {
+public class CassandraContainer extends GenericContainer {
+    private static final String CASSANDRA_IMAGE = "cassandra:3.11";
+    private static final int CQL3_PORT = 9042;
 
-    int getCQL3Port();
+    public CassandraContainer() {
+        super(CASSANDRA_IMAGE);
 
-    String getCQL3Endpoint();
+        withExposedPorts(CQL3_PORT);
 
-    String getCassandraHost();
-
-    /**
-     * Perform any initialization necessary
-     */
-    void initialize();
-
-
-    @Override
-    default void beforeAll(ExtensionContext extensionContext) throws Exception {
-        initialize();
+        waitingFor(Wait.forListeningPort());
     }
+
+    public int getCQL3Port() {
+        return getMappedPort(CQL3_PORT);
+    }
+
+    public String getCQL3Endpoint() {
+        return getCassandraHost() + ":" + getCQL3Port();
+    }
+
+    public String getCassandraHost() {
+        return getContainerIpAddress();
+    }
+
 }
