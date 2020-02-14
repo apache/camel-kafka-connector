@@ -14,37 +14,47 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.camel.kafkaconnector.services.cassandra;
 
 import org.apache.camel.kafkaconnector.clients.cassandra.CassandraClient;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 /**
- * Represents an endpoint to a Cassandra instnace
+ * A service for a local instance of Apache Cassandra running with TestContainers
  */
-public interface CassandraService extends BeforeAllCallback {
+public class CassandraLocalContainerService implements CassandraService {
+    private static final Logger LOG = LoggerFactory.getLogger(CassandraLocalContainerService.class);
 
-    int getCQL3Port();
+    private CassandraContainer container;
 
-    default String getCQL3Endpoint() {
-        return getCassandraHost() + ":" + getCQL3Port();
+    public CassandraLocalContainerService() {
+        container = new CassandraContainer();
+
+        container.start();
     }
 
-    String getCassandraHost();
-
-    /**
-     * Perform any initialization necessary
-     */
-    void initialize();
-
-
-    CassandraClient getClient();
-
+    @Override
+    public int getCQL3Port() {
+        return container.getCQL3Port();
+    }
 
     @Override
-    default void beforeAll(ExtensionContext extensionContext) throws Exception {
-        initialize();
+    public String getCassandraHost() {
+        return container.getCassandraHost();
+    }
+
+    @Override
+    public CassandraClient getClient() {
+        String host = getCassandraHost();
+        int port = getCQL3Port();
+
+        return new CassandraClient(host, port);
+    }
+
+    @Override
+    public void initialize() {
+        LOG.info("Cassandra server running at address {}", getCQL3Endpoint());
     }
 }

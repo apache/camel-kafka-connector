@@ -14,37 +14,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.camel.kafkaconnector.services.cassandra;
 
-import org.apache.camel.kafkaconnector.clients.cassandra.CassandraClient;
-import org.junit.jupiter.api.extension.BeforeAllCallback;
-import org.junit.jupiter.api.extension.ExtensionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * Represents an endpoint to a Cassandra instnace
- */
-public interface CassandraService extends BeforeAllCallback {
+public final class CassandraServiceFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(CassandraServiceFactory.class);
 
-    int getCQL3Port();
+    private CassandraServiceFactory() {
 
-    default String getCQL3Endpoint() {
-        return getCassandraHost() + ":" + getCQL3Port();
     }
 
-    String getCassandraHost();
-
-    /**
-     * Perform any initialization necessary
-     */
-    void initialize();
+    public static CassandraService createService() {
+        String instanceType = System.getProperty("cassandra.instance.type");
 
 
-    CassandraClient getClient();
+        if (instanceType == null || instanceType.equals("local-cassandra-container")) {
+            return new CassandraLocalContainerService();
+        }
 
+        if (instanceType.equals("remote")) {
+            return new RemoteCassandraService();
+        }
 
-    @Override
-    default void beforeAll(ExtensionContext extensionContext) throws Exception {
-        initialize();
+        LOG.error("Cassandra instance must be one of 'local-cassandra-container' or 'remote");
+        throw new UnsupportedOperationException("Invalid Cassandra instance type:");
+
     }
 }
