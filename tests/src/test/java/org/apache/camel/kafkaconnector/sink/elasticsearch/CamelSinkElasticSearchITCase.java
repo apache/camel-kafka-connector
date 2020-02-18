@@ -27,18 +27,20 @@ import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.elasticsearch.ElasticSearchClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.services.elasticsearch.ElasticSearchService;
+import org.apache.camel.kafkaconnector.services.elasticsearch.ElasticSearchServiceFactory;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.elasticsearch.ElasticsearchContainer;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -46,13 +48,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Testcontainers
 public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelElasticSearchPropertyFactory.class);
-    // This is required in order to use the Open Source one by default
-    private static final String ELASTIC_SEARCH_CONTAINER = "docker.elastic.co/elasticsearch/elasticsearch-oss:7.3.2";
 
-    private static final int ELASTIC_SEARCH_PORT = 9200;
-
-    @Container
-    public ElasticsearchContainer elasticsearch = new ElasticsearchContainer(ELASTIC_SEARCH_CONTAINER);
+    @RegisterExtension
+    public ElasticSearchService elasticSearch = ElasticSearchServiceFactory.createService();
 
     private ElasticSearchClient client;
 
@@ -62,15 +60,7 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        final String elasticSearchInstance = elasticsearch
-                .getHttpHostAddress();
-
-        LOG.info("ElasticSearch instance running at {}", elasticSearchInstance);
-
-
-
-        client = new ElasticSearchClient(elasticsearch.getMappedPort(ELASTIC_SEARCH_PORT),
-                TestCommon.DEFAULT_ELASTICSEARCH_INDEX);
+        client = elasticSearch.getClient();
     }
 
     private void putRecords(CountDownLatch latch) {
@@ -111,13 +101,10 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     @Timeout(90)
     public void testIndexOperation() {
         try {
-            final String elasticSearchInstance = elasticsearch
-                    .getHttpHostAddress();
-
             String topic = TestCommon.getDefaultTestTopic(this.getClass());
             CamelElasticSearchPropertyFactory testProperties = new CamelElasticSearchIndexPropertyFactory(1, topic,
                     TestCommon.DEFAULT_ELASTICSEARCH_CLUSTER,
-                    elasticSearchInstance, TestCommon.DEFAULT_ELASTICSEARCH_INDEX, transformKey);
+                    elasticSearch.getHttpHostAddress(), TestCommon.DEFAULT_ELASTICSEARCH_INDEX, transformKey);
 
             getKafkaConnectService().initializeConnector(testProperties);
 
@@ -125,7 +112,9 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
             ExecutorService service = Executors.newCachedThreadPool();
             service.submit(() -> putRecords(latch));
 
-            latch.await(30, TimeUnit.SECONDS);
+            if (!latch.await(30, TimeUnit.SECONDS)) {
+                fail("Timed out wait for data to be added to the Kafka cluster");
+            }
 
             LOG.debug("Waiting for indices");
 
@@ -135,6 +124,8 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
             client.waitForData(expect);
 
             SearchHits hits = client.getData();
+
+            assertNotNull(hits);
 
             hits.forEach(this::verifyHit);
             assertEquals(expect, received, "Did not receive the same amount of messages sent");
