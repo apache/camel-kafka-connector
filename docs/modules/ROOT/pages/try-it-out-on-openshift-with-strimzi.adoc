@@ -50,7 +50,7 @@ oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/0.13.0/example
 
 == Add Camel Kafka connector binaries
 
-Strimzi uses Source2Image builds to allow users to add their own connectors to the existing Strimzi Docker images.
+Strimzi uses `Source2Image` builds to allow users to add their own connectors to the existing Strimzi Docker images.
 We now need to build the connectors and add them to the image:
 
 [source,bash,options="nowrap"]
@@ -105,7 +105,7 @@ oc exec -i -c kafka my-cluster-kafka-0 -- curl -X POST \
 EOF
 ----
 
-You can check that status of the connector using
+You can check the status of the connector using
 
 [source,bash,options="nowrap"]
 ----
