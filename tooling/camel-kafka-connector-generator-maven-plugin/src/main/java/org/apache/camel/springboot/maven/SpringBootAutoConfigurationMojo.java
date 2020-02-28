@@ -16,8 +16,6 @@
  */
 package org.apache.camel.springboot.maven;
 
-import static org.apache.camel.maven.packaging.AbstractGeneratorMojo.updateResource;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -93,6 +91,8 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
+
+import static org.apache.camel.maven.packaging.AbstractGeneratorMojo.updateResource;
 
 /**
  * Generate Spring Boot auto configuration files for Camel components and data
