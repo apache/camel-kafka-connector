@@ -45,24 +45,27 @@ import java.util.zip.ZipEntry;
 import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlTransient;
 
-import org.apache.camel.maven.packaging.JSonSchemaHelper;
-import org.apache.camel.maven.packaging.model.ComponentModel;
-import org.apache.camel.maven.packaging.model.ComponentOptionModel;
-import org.apache.camel.maven.packaging.model.DataFormatModel;
-import org.apache.camel.maven.packaging.model.DataFormatOptionModel;
-import org.apache.camel.maven.packaging.model.EndpointOptionModel;
-import org.apache.camel.maven.packaging.model.LanguageModel;
-import org.apache.camel.maven.packaging.model.LanguageOptionModel;
-import org.apache.camel.maven.packaging.model.OtherModel;
-import org.apache.camel.maven.packaging.model.OtherOptionModel;
-import org.apache.camel.maven.packaging.srcgen.Annotation;
-import org.apache.camel.maven.packaging.srcgen.GenericType;
-import org.apache.camel.maven.packaging.srcgen.JavaClass;
-import org.apache.camel.maven.packaging.srcgen.Method;
-import org.apache.camel.maven.packaging.srcgen.Property;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriPath;
+import org.apache.camel.tooling.model.BaseOptionModel;
+import org.apache.camel.tooling.model.ComponentModel;
+import org.apache.camel.tooling.model.ComponentModel.ComponentOptionModel;
+import org.apache.camel.tooling.model.ComponentModel.EndpointOptionModel;
+import org.apache.camel.tooling.model.DataFormatModel;
+import org.apache.camel.tooling.model.DataFormatModel.DataFormatOptionModel;
+import org.apache.camel.tooling.model.JsonMapper;
+import org.apache.camel.tooling.model.LanguageModel;
+import org.apache.camel.tooling.model.LanguageModel.LanguageOptionModel;
+import org.apache.camel.tooling.model.OtherModel;
+import org.apache.camel.tooling.util.PackageHelper;
+import org.apache.camel.tooling.util.srcgen.Annotation;
+import org.apache.camel.tooling.util.srcgen.GenericType;
+import org.apache.camel.tooling.util.srcgen.JavaClass;
+import org.apache.camel.tooling.util.srcgen.Method;
+import org.apache.camel.tooling.util.srcgen.Property;
+import org.apache.camel.util.json.JsonObject;
+import org.apache.camel.util.json.Jsoner;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -90,13 +93,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 import static org.apache.camel.maven.packaging.AbstractGeneratorMojo.updateResource;
-import static org.apache.camel.maven.packaging.JSonSchemaHelper.getPropertyDefaultValue;
-import static org.apache.camel.maven.packaging.JSonSchemaHelper.getPropertyDescriptionValue;
-import static org.apache.camel.maven.packaging.JSonSchemaHelper.getPropertyJavaType;
-import static org.apache.camel.maven.packaging.JSonSchemaHelper.getPropertyType;
-import static org.apache.camel.maven.packaging.JSonSchemaHelper.getSafeValue;
-import static org.apache.camel.maven.packaging.JSonSchemaHelper.parseJsonSchema;
-import static org.apache.camel.maven.packaging.PackageHelper.loadText;
 
 /**
  * Generate Spring Boot auto configuration files for Camel components and data
@@ -209,7 +205,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // Hystrix
         json = loadModelJson(files, "hystrixConfiguration");
         if (json != null) {
-            OtherModel model = generateOtherModel(json);
+            OtherModel model = JsonMapper.generateOtherModel(json);
 
             int pos = model.getJavaType().lastIndexOf(".");
             String pkg = model.getJavaType().substring(0, pos) + ".springboot";
@@ -221,7 +217,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // Resilience4j
         json = loadModelJson(files, "resilience4jConfiguration");
         if (json != null) {
-            OtherModel model = generateOtherModel(json);
+            OtherModel model = JsonMapper.generateOtherModel(json);
 
             int pos = model.getJavaType().lastIndexOf(".");
             String pkg = model.getJavaType().substring(0, pos) + ".springboot";
@@ -233,7 +229,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // Consul
         json = loadModelJson(files, "consulServiceDiscovery");
         if (json != null) {
-            OtherModel model = generateOtherModel(json);
+            OtherModel model = JsonMapper.generateOtherModel(json);
 
             int pos = model.getJavaType().lastIndexOf(".");
             String pkg = model.getJavaType().substring(0, pos) + ".springboot";
@@ -245,7 +241,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // DNS
         json = loadModelJson(files, "dnsServiceDiscovery");
         if (json != null) {
-            OtherModel model = generateOtherModel(json);
+            OtherModel model = JsonMapper.generateOtherModel(json);
 
             int pos = model.getJavaType().lastIndexOf(".");
             String pkg = model.getJavaType().substring(0, pos) + ".springboot";
@@ -257,7 +253,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // Etcd
         json = loadModelJson(files, "etcdServiceDiscovery");
         if (json != null) {
-            OtherModel model = generateOtherModel(json);
+            OtherModel model = JsonMapper.generateOtherModel(json);
 
             int pos = model.getJavaType().lastIndexOf(".");
             String pkg = model.getJavaType().substring(0, pos) + ".springboot";
@@ -269,7 +265,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // Kubernetes
         json = loadModelJson(files, "kubernetesServiceDiscovery");
         if (json != null) {
-            OtherModel model = generateOtherModel(json);
+            OtherModel model = JsonMapper.generateOtherModel(json);
 
             int pos = model.getJavaType().lastIndexOf(".");
             String pkg = model.getJavaType().substring(0, pos) + ".springboot";
@@ -282,7 +278,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // Ribbon
         json = loadModelJson(files, "ribbonLoadBalancer");
         if (json != null) {
-            OtherModel model = generateOtherModel(json);
+            OtherModel model = JsonMapper.generateOtherModel(json);
 
             int pos = model.getJavaType().lastIndexOf(".");
             String pkg = model.getJavaType().substring(0, pos) + ".springboot";
@@ -294,7 +290,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // Rest
         json = loadModelJson(files, "restConfiguration");
         if (json != null) {
-            OtherModel model = generateOtherModel(json);
+            OtherModel model = JsonMapper.generateOtherModel(json);
 
             int pos = model.getJavaType().lastIndexOf(".");
             String pkg = model.getJavaType().substring(0, pos) + ".springboot";
@@ -322,7 +318,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         commonClass.getJavaDoc().setFullText(doc);
         commonClass.addAnnotation(Generated.class).setStringValue("value", SpringBootAutoConfigurationMojo.class.getName());
 
-        for (OtherOptionModel option : model.getOptions()) {
+        for (BaseOptionModel option : model.getOptions()) {
             String type = option.getJavaType();
             String name = option.getName();
 
@@ -340,16 +336,16 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             if (!Strings.isBlank(option.getDescription())) {
                 prop.getField().getJavaDoc().setFullText(option.getDescription());
             }
-            if (!Strings.isBlank(option.getDefaultValue())) {
+            if (!Strings.isBlank((String) option.getDefaultValue())) {
                 if ("java.lang.String".equals(type)) {
-                    prop.getField().setStringInitializer(option.getDefaultValue());
+                    prop.getField().setStringInitializer((String) option.getDefaultValue());
                 } else if ("long".equals(type) || "java.lang.Long".equals(type)) {
                     // the value should be a Long number
                     String value = option.getDefaultValue() + "L";
                     prop.getField().setLiteralInitializer(value);
                 } else if ("integer".equals(option.getType()) || "boolean".equals(option.getType())) {
-                    prop.getField().setLiteralInitializer(option.getDefaultValue());
-                } else if (!Strings.isBlank(option.getEnums())) {
+                    prop.getField().setLiteralInitializer((String) option.getDefaultValue());
+                } else if (!Strings.isBlank(option.getEnums().toString())) {
                     String enumShortName = type.substring(type.lastIndexOf(".") + 1);
                     prop.getField().setLiteralInitializer(enumShortName + "." + option.getDefaultValue());
                     commonClass.addImport(model.getJavaType());
@@ -421,7 +417,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         }
         javaClass.getJavaDoc().setFullText(doc);
 
-        for (OtherOptionModel option : model.getOptions()) {
+        for (BaseOptionModel option : model.getOptions()) {
             String type = option.getJavaType();
             String name = option.getName();
 
@@ -446,16 +442,16 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             if (!Strings.isBlank(option.getDescription())) {
                 prop.getField().getJavaDoc().setFullText(option.getDescription());
             }
-            if (!Strings.isBlank(option.getDefaultValue())) {
+            if (!Strings.isBlank((String) option.getDefaultValue())) {
                 if ("java.lang.String".equals(type)) {
-                    prop.getField().setStringInitializer(option.getDefaultValue());
+                    prop.getField().setStringInitializer((String) option.getDefaultValue());
                 } else if ("long".equals(type) || "java.lang.Long".equals(type)) {
                     // the value should be a Long number
                     String value = option.getDefaultValue() + "L";
                     prop.getField().setLiteralInitializer(value);
                 } else if ("integer".equals(option.getType()) || "boolean".equals(option.getType())) {
-                    prop.getField().setLiteralInitializer(option.getDefaultValue());
-                } else if (!Strings.isBlank(option.getEnums())) {
+                    prop.getField().setLiteralInitializer((String) option.getDefaultValue());
+                } else if (!Strings.isBlank(option.getEnums().toString())) {
                     String enumShortName = type.substring(type.lastIndexOf(".") + 1);
                     prop.getField().setLiteralInitializer(enumShortName + "." + option.getDefaultValue());
                     javaClass.addImport(model.getJavaType());
@@ -547,7 +543,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             for (String componentName : componentNames) {
                 String json = loadComponentJson(jsonFiles, componentName);
                 if (json != null) {
-                    ComponentModel model = generateComponentModel(componentName, json);
+                    ComponentModel model = JsonMapper.generateComponentModel(json);
                     allModels.add(model);
                 }
             }
@@ -590,7 +586,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             for (String dataFormatName : dataFormatNames) {
                 String json = loadDataFormatJson(jsonFiles, dataFormatName);
                 if (json != null) {
-                    DataFormatModel model = generateDataFormatModel(dataFormatName, json);
+                    DataFormatModel model = JsonMapper.generateDataFormatModel(json);
                     allModels.add(model);
                 }
             }
@@ -634,7 +630,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             for (String languageName : languageNames) {
                 String json = loadLanguageJson(jsonFiles, languageName);
                 if (json != null) {
-                    LanguageModel model = generateLanguageModel(languageName, json);
+                    LanguageModel model = JsonMapper.generateLanguageModel(json);
                     allModels.add(model);
                 }
             }
@@ -725,7 +721,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             // and therefore there is no problem, eg
             // camel.component.jdbc.data-source = myDataSource
             // where the type would have been javax.sql.DataSource
-            boolean complex = isComplexType(option) && !isNestedProperty && Strings.isBlank(option.getEnums());
+            boolean complex = isComplexType(option) && !isNestedProperty && Strings.isBlank(option.getEnums().toString());
             if (complex) {
                 // force to use a string type
                 type = "java.lang.String";
@@ -738,14 +734,14 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
 
             Property prop = javaClass.addProperty(type, option.getName());
             if (ADD_NESTED_CONFIGURATION_PROPERTY) {
-                if (!type.endsWith(INNER_TYPE_SUFFIX) && type.indexOf('[') == -1 && INCLUDE_INNER_PATTERN.matcher(type).matches() && Strings.isBlank(option.getEnums())
+                if (!type.endsWith(INNER_TYPE_SUFFIX) && type.indexOf('[') == -1 && INCLUDE_INNER_PATTERN.matcher(type).matches() && Strings.isBlank(option.getEnums().toString())
                         && (javaClassSource == null || (javaClassSource.isClass() && !javaClassSource.isAbstract()))) {
                     // add nested configuration annotation for complex
                     // properties
                     prop.getField().addAnnotation(NestedConfigurationProperty.class);
                 }
             }
-            if ("true".equals(option.getDeprecated())) {
+            if ("true".equals(option.isDeprecated())) {
                 prop.getField().addAnnotation(Deprecated.class);
                 prop.getAccessor().addAnnotation(Deprecated.class);
                 prop.getMutator().addAnnotation(Deprecated.class);
@@ -763,16 +759,16 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                 }
                 prop.getField().getJavaDoc().setFullText(desc);
             }
-            if (!Strings.isBlank(option.getDefaultValue())) {
+            if (!Strings.isBlank((String) option.getDefaultValue())) {
                 if ("java.lang.String".equals(option.getJavaType())) {
-                    prop.getField().setStringInitializer(option.getDefaultValue());
+                    prop.getField().setStringInitializer((String) option.getDefaultValue());
                 } else if ("long".equals(option.getJavaType()) || "java.lang.Long".equals(option.getJavaType())) {
                     // the value should be a Long number
                     String value = option.getDefaultValue() + "L";
                     prop.getField().setLiteralInitializer(value);
                 } else if ("integer".equals(option.getType()) || "boolean".equals(option.getType())) {
-                    prop.getField().setLiteralInitializer(option.getDefaultValue());
-                } else if (!Strings.isBlank(option.getEnums())) {
+                    prop.getField().setLiteralInitializer((String) option.getDefaultValue());
+                } else if (!Strings.isBlank(option.getEnums().toString())) {
                     String enumShortName = type.substring(type.lastIndexOf(".") + 1);
                     prop.getField().setLiteralInitializer(enumShortName + "." + option.getDefaultValue());
                     javaClass.addImport(model.getJavaType());
@@ -820,11 +816,11 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                 String deprecationNote = null;
                 if (eom != null) {
                     prop.getField().getJavaDoc().setText(eom.getDescription());
-                    prop.getField().setLiteralInitializer(asLiteralDefault(sourceProp.getType(), eom.getDefaultValue()));
+                    prop.getField().setLiteralInitializer(asLiteralDefault(sourceProp.getType(), (String) eom.getDefaultValue()));
                     deprecationNote = eom.getDeprecationNote();
                 } else if (com != null) {
                     prop.getField().getJavaDoc().setText(com.getDescription());
-                    prop.getField().setLiteralInitializer(asLiteralDefault(sourceProp.getType(), com.getDefaultValue()));
+                    prop.getField().setLiteralInitializer(asLiteralDefault(sourceProp.getType(), (String) com.getDefaultValue()));
                     deprecationNote = com.getDeprecationNote();
                 }
 
@@ -902,9 +898,10 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                     fileName = fileName.replace('.', '/');
                     File jsonFile = new File(classesDir, fileName + "/" + model.getScheme() + ".json");
                     if (jsonFile.isFile() && jsonFile.exists()) {
+                        /*
                         try {
                             String json = FileUtils.readFileToString(jsonFile, StandardCharsets.UTF_8);
-                            List<Map<String, String>> rows = JSonSchemaHelper.parseJsonSchema("properties", json, true);
+                            ComponentModel model = JsonMapper.generateComponentModel(json);
 
                             // grab name from annotation
                             String optionName;
@@ -918,11 +915,12 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                             }
 
                             if (optionName != null) {
-                                javaType = getPropertyJavaType(rows, optionName);
-                                type = getPropertyType(rows, optionName);
-                                defaultValue = getPropertyDefaultValue(rows, optionName);
+                                model.get
+                                javaType = JSonSchemaHelper.getPropertyJavaType(rows, optionName);
+                                type = JSonSchemaHelper.getPropertyType(rows, optionName);
+                                defaultValue = JSonSchemaHelper.getPropertyDefaultValue(rows, optionName);
                                 // favour description from the model
-                                description = getPropertyDescriptionValue(rows, optionName);
+                                description = JSonSchemaHelper.getPropertyDescriptionValue(rows, optionName);
                                 if (description != null) {
                                     prop.getField().getJavaDoc().setFullText(description);
                                 }
@@ -930,6 +928,8 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                         } catch (IOException e) {
                             // ignore
                         }
+                        */
+                        throw new UnsupportedOperationException();
                     }
 
                     if (!Strings.isBlank(defaultValue)) {
@@ -1306,7 +1306,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         javaClass.addAnnotation(Generated.class).setStringValue("value", SpringBootAutoConfigurationMojo.class.getName());
         javaClass.addAnnotation("org.springframework.boot.context.properties.ConfigurationProperties").setStringValue("prefix", prefix);
 
-        for (DataFormatOptionModel option : model.getDataFormatOptions()) {
+        for (DataFormatOptionModel option : model.getOptions()) {
             // skip option with name id in data format as we do not need that
             if ("id".equals(option.getName())) {
                 continue;
@@ -1332,14 +1332,14 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             // and therefore there is no problem, eg
             // camel.component.jdbc.data-source = myDataSource
             // where the type would have been javax.sql.DataSource
-            boolean complex = isComplexType(option) && Strings.isBlank(option.getEnumValues());
+            boolean complex = isComplexType(option) && Strings.isBlank(option.getEnums().toString());
             if (complex) {
                 // force to use a string type
                 type = "java.lang.String";
             }
 
             Property prop = javaClass.addProperty(type, option.getName());
-            if ("true".equals(option.getDeprecated())) {
+            if ("true".equals(option.isDeprecated())) {
                 prop.getField().addAnnotation(Deprecated.class);
                 prop.getAccessor().addAnnotation(Deprecated.class);
                 prop.getMutator().addAnnotation(Deprecated.class);
@@ -1357,16 +1357,16 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                 }
                 prop.getField().getJavaDoc().setFullText(desc);
             }
-            if (!Strings.isBlank(option.getDefaultValue())) {
+            if (!Strings.isBlank((String) option.getDefaultValue())) {
                 if ("java.lang.String".equals(option.getJavaType())) {
-                    prop.getField().setStringInitializer(option.getDefaultValue());
+                    prop.getField().setStringInitializer((String) option.getDefaultValue());
                 } else if ("long".equals(option.getJavaType()) || "java.lang.Long".equals(option.getJavaType())) {
                     // the value should be a Long number
                     String value = option.getDefaultValue() + "L";
                     prop.getField().setLiteralInitializer(value);
                 } else if ("integer".equals(option.getType()) || "boolean".equals(option.getType())) {
-                    prop.getField().setLiteralInitializer(option.getDefaultValue());
-                } else if (!Strings.isBlank(option.getEnumValues())) {
+                    prop.getField().setLiteralInitializer((String) option.getDefaultValue());
+                } else if (!Strings.isBlank(option.getEnums().toString())) {
                     String enumShortName = type.substring(type.lastIndexOf(".") + 1);
                     prop.getField().setLiteralInitializer(enumShortName + "." + option.getDefaultValue());
                     javaClass.addImport(model.getJavaType());
@@ -1407,7 +1407,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         javaClass.addAnnotation(Generated.class).setStringValue("value", SpringBootAutoConfigurationMojo.class.getName());
         javaClass.addAnnotation("org.springframework.boot.context.properties.ConfigurationProperties").setStringValue("prefix", prefix);
 
-        for (LanguageOptionModel option : model.getLanguageOptions()) {
+        for (LanguageOptionModel option : model.getOptions()) {
             // skip option with name id, or expression in language as we do not
             // need that and skip resultType as they are not global options
             if ("id".equals(option.getName()) || "expression".equals(option.getName()) || "resultType".equals(option.getName())) {
@@ -1455,14 +1455,14 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             // and therefore there is no problem, eg
             // camel.component.jdbc.data-source = myDataSource
             // where the type would have been javax.sql.DataSource
-            boolean complex = isComplexType(option) && Strings.isBlank(option.getEnumValues());
+            boolean complex = isComplexType(option) && Strings.isBlank(option.getEnums().toString());
             if (complex) {
                 // force to use a string type
                 type = "java.lang.String";
             }
 
             Property prop = javaClass.addProperty(type, option.getName());
-            if ("true".equals(option.getDeprecated())) {
+            if ("true".equals(option.isDeprecated())) {
                 prop.getField().addAnnotation(Deprecated.class);
                 prop.getAccessor().addAnnotation(Deprecated.class);
                 prop.getMutator().addAnnotation(Deprecated.class);
@@ -1480,16 +1480,16 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
                 }
                 prop.getField().getJavaDoc().setFullText(desc);
             }
-            if (!Strings.isBlank(option.getDefaultValue())) {
+            if (!Strings.isBlank((String) option.getDefaultValue())) {
                 if ("java.lang.String".equals(option.getJavaType())) {
-                    prop.getField().setStringInitializer(option.getDefaultValue());
+                    prop.getField().setStringInitializer((String) option.getDefaultValue());
                 } else if ("long".equals(option.getJavaType()) || "java.lang.Long".equals(option.getJavaType())) {
                     // the value should be a Long number
                     String value = option.getDefaultValue() + "L";
                     prop.getField().setLiteralInitializer(value);
                 } else if ("integer".equals(option.getType()) || "boolean".equals(option.getType())) {
-                    prop.getField().setLiteralInitializer(option.getDefaultValue());
-                } else if (!Strings.isBlank(option.getEnumValues())) {
+                    prop.getField().setLiteralInitializer((String) option.getDefaultValue());
+                } else if (!Strings.isBlank(option.getEnums().toString())) {
                     String enumShortName = type.substring(type.lastIndexOf(".") + 1);
                     prop.getField().setLiteralInitializer(enumShortName + "." + option.getDefaultValue());
                     javaClass.addImport(model.getJavaType());
@@ -1879,173 +1879,6 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         // do nothing, as imports are sorted automatically when displayed
     }
 
-    private static ComponentModel generateComponentModel(String componentName, String json) {
-        List<Map<String, String>> rows = JSonSchemaHelper.parseJsonSchema("component", json, false);
-
-        ComponentModel component = new ComponentModel();
-        component.setScheme(getSafeValue("scheme", rows));
-        component.setSyntax(getSafeValue("syntax", rows));
-        component.setAlternativeSyntax(getSafeValue("alternativeSyntax", rows));
-        component.setTitle(getSafeValue("title", rows));
-        component.setDescription(getSafeValue("description", rows));
-        component.setFirstVersion(JSonSchemaHelper.getSafeValue("firstVersion", rows));
-        component.setLabel(getSafeValue("label", rows));
-        component.setDeprecated(getSafeValue("deprecated", rows));
-        component.setDeprecationNote(getSafeValue("deprecationNote", rows));
-        component.setConsumerOnly(getSafeValue("consumerOnly", rows));
-        component.setProducerOnly(getSafeValue("producerOnly", rows));
-        component.setJavaType(getSafeValue("javaType", rows));
-        component.setGroupId(getSafeValue("groupId", rows));
-        component.setArtifactId(getSafeValue("artifactId", rows));
-        component.setVersion(getSafeValue("version", rows));
-
-        rows = JSonSchemaHelper.parseJsonSchema("componentProperties", json, true);
-        for (Map<String, String> row : rows) {
-            ComponentOptionModel option = new ComponentOptionModel();
-            option.setName(getSafeValue("name", row));
-            option.setDisplayName(getSafeValue("displayName", row));
-            option.setKind(getSafeValue("kind", row));
-            option.setType(getSafeValue("type", row));
-            option.setJavaType(getSafeValue("javaType", row));
-            option.setDeprecated(getSafeValue("deprecated", row));
-            option.setDeprecationNote(getSafeValue("deprecationNote", row));
-            option.setDescription(getSafeValue("description", row));
-            option.setDefaultValue(getSafeValue("defaultValue", row));
-            option.setEnums(getSafeValue("enum", row));
-            component.addComponentOption(option);
-        }
-
-        rows = JSonSchemaHelper.parseJsonSchema("properties", json, true);
-        for (Map<String, String> row : rows) {
-            EndpointOptionModel option = new EndpointOptionModel();
-            option.setName(getSafeValue("name", row));
-            option.setDisplayName(getSafeValue("displayName", row));
-            option.setKind(getSafeValue("kind", row));
-            option.setGroup(getSafeValue("group", row));
-            option.setRequired(getSafeValue("required", row));
-            option.setType(getSafeValue("type", row));
-            option.setJavaType(getSafeValue("javaType", row));
-            option.setEnums(getSafeValue("enum", row));
-            option.setPrefix(getSafeValue("prefix", row));
-            option.setMultiValue(getSafeValue("multiValue", row));
-            option.setDeprecated(getSafeValue("deprecated", row));
-            option.setDeprecationNote(getSafeValue("deprecationNote", row));
-            option.setDefaultValue(getSafeValue("defaultValue", row));
-            option.setDescription(getSafeValue("description", row));
-            option.setEnumValues(getSafeValue("enum", row));
-            component.addEndpointOption(option);
-        }
-
-        return component;
-    }
-
-    private static DataFormatModel generateDataFormatModel(String dataFormatName, String json) {
-        List<Map<String, String>> rows = JSonSchemaHelper.parseJsonSchema("dataformat", json, false);
-
-        DataFormatModel dataFormat = new DataFormatModel();
-        dataFormat.setTitle(getSafeValue("title", rows));
-        dataFormat.setName(getSafeValue("name", rows));
-        dataFormat.setModelName(getSafeValue("modelName", rows));
-        dataFormat.setDescription(getSafeValue("description", rows));
-        dataFormat.setFirstVersion(JSonSchemaHelper.getSafeValue("firstVersion", rows));
-        dataFormat.setLabel(getSafeValue("label", rows));
-        dataFormat.setDeprecated(getSafeValue("deprecated", rows));
-        dataFormat.setDeprecationNote(getSafeValue("deprecationNote", rows));
-        dataFormat.setJavaType(getSafeValue("javaType", rows));
-        dataFormat.setGroupId(getSafeValue("groupId", rows));
-        dataFormat.setArtifactId(getSafeValue("artifactId", rows));
-        dataFormat.setVersion(getSafeValue("version", rows));
-
-        rows = JSonSchemaHelper.parseJsonSchema("properties", json, true);
-        for (Map<String, String> row : rows) {
-            DataFormatOptionModel option = new DataFormatOptionModel();
-            option.setName(getSafeValue("name", row));
-            option.setDisplayName(getSafeValue("displayName", row));
-            option.setKind(getSafeValue("kind", row));
-            option.setType(getSafeValue("type", row));
-            option.setJavaType(getSafeValue("javaType", row));
-            option.setDeprecated(getSafeValue("deprecated", row));
-            option.setDeprecationNote(getSafeValue("deprecationNote", row));
-            option.setDescription(getSafeValue("description", row));
-            option.setDefaultValue(getSafeValue("defaultValue", row));
-            option.setEnumValues(getSafeValue("enum", row));
-            dataFormat.addDataFormatOption(option);
-        }
-
-        return dataFormat;
-    }
-
-    private static LanguageModel generateLanguageModel(String languageName, String json) {
-        List<Map<String, String>> rows = JSonSchemaHelper.parseJsonSchema("language", json, false);
-
-        LanguageModel language = new LanguageModel();
-        language.setTitle(getSafeValue("title", rows));
-        language.setName(getSafeValue("name", rows));
-        language.setModelName(getSafeValue("modelName", rows));
-        language.setDescription(getSafeValue("description", rows));
-        language.setFirstVersion(JSonSchemaHelper.getSafeValue("firstVersion", rows));
-        language.setLabel(getSafeValue("label", rows));
-        language.setDeprecated(getSafeValue("deprecated", rows));
-        language.setDeprecationNote(getSafeValue("deprecationNote", rows));
-        language.setJavaType(getSafeValue("javaType", rows));
-        language.setGroupId(getSafeValue("groupId", rows));
-        language.setArtifactId(getSafeValue("artifactId", rows));
-        language.setVersion(getSafeValue("version", rows));
-
-        rows = JSonSchemaHelper.parseJsonSchema("properties", json, true);
-        for (Map<String, String> row : rows) {
-            LanguageOptionModel option = new LanguageOptionModel();
-            option.setName(getSafeValue("name", row));
-            option.setDisplayName(getSafeValue("displayName", row));
-            option.setKind(getSafeValue("kind", row));
-            option.setType(getSafeValue("type", row));
-            option.setJavaType(getSafeValue("javaType", row));
-            option.setDeprecated(getSafeValue("deprecated", row));
-            option.setDeprecationNote(getSafeValue("deprecationNote", row));
-            option.setDescription(getSafeValue("description", row));
-            option.setDefaultValue(getSafeValue("defaultValue", row));
-            option.setEnumValues(getSafeValue("enum", row));
-            language.addLanguageOption(option);
-        }
-
-        return language;
-    }
-
-    private OtherModel generateOtherModel(String json) {
-        List<Map<String, String>> rows = parseJsonSchema("model", json, false);
-
-        OtherModel model = new OtherModel();
-        model.setName(getSafeValue("name", rows));
-        model.setTitle(getSafeValue("title", rows));
-        model.setDescription(getSafeValue("description", rows));
-        model.setJavaType(getSafeValue("javaType", rows));
-        model.setLabel(getSafeValue("label", rows));
-        model.setDeprecated(getSafeValue("deprecated", rows));
-        model.setDeprecationNote(getSafeValue("deprecationNote", rows));
-
-        rows = parseJsonSchema("properties", json, true);
-        for (Map<String, String> row : rows) {
-            OtherOptionModel option = new OtherOptionModel();
-            option.setName(getSafeValue("name", row));
-            option.setDisplayName(getSafeValue("displayName", row));
-            option.setKind(getSafeValue("kind", row));
-            option.setGroup(getSafeValue("group", row));
-            option.setRequired(getSafeValue("required", row));
-            option.setType(getSafeValue("type", row));
-            option.setJavaType(getSafeValue("javaType", row));
-            option.setEnums(getSafeValue("enum", row));
-            option.setDeprecated(getSafeValue("deprecated", row));
-            option.setDeprecationNote(getSafeValue("deprecationNote", row));
-            option.setDefaultValue(getSafeValue("defaultValue", row));
-            option.setDescription(getSafeValue("description", row));
-            option.setEnums(getSafeValue("enums", row));
-
-            model.addOptionModel(option);
-        }
-
-        return model;
-    }
-
     private void findComponentNames(Set<String> componentNames) {
         componentJar.stream()
                 .filter(je -> !je.isDirectory())
@@ -2089,7 +1922,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
         try {
             String header;
             try (InputStream is = getClass().getClassLoader().getResourceAsStream("license-header-java.txt")) {
-                header = loadText(is);
+                header = PackageHelper.loadText(is);
             }
             String code = header + source;
             getLog().debug("Source code generated:\n" + code);
@@ -2158,7 +1991,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
             // create new file
             try {
                 InputStream is = getClass().getClassLoader().getResourceAsStream("license-header.txt");
-                String header = loadText(is);
+                String header = PackageHelper.loadText(is);
                 String code = sb.toString();
                 // add empty new line after header
                 code = header + "\n" + code;

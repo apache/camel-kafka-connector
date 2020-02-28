@@ -203,6 +203,10 @@ public class CamelMainSupport {
         public void afterStop(BaseMainSupport main) {
 
         }
+
+        @Override
+        public void beforeConfigure(BaseMainSupport main) {
+        }
     }
 
     private class CamelContextStarter implements Runnable {

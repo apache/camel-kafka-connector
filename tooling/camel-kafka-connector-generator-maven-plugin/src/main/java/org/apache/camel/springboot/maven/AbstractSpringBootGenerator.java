@@ -33,6 +33,7 @@ import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 
+import org.apache.camel.tooling.util.PackageHelper;
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
@@ -43,8 +44,6 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
-
-import static org.apache.camel.maven.packaging.PackageHelper.loadText;
 
 public abstract class AbstractSpringBootGenerator extends AbstractMojo {
 
@@ -145,7 +144,7 @@ public abstract class AbstractSpringBootGenerator extends AbstractMojo {
 
     protected static String loadJson(JarFile jar, JarEntry je) {
         try (InputStream is = jar.getInputStream(je)) {
-            return loadText(is);
+            return PackageHelper.loadText(is);
         } catch (IOException e) {
             throw new IOError(e);
         }

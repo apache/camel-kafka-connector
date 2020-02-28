@@ -52,7 +52,7 @@ class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
 
         connectorProps.put("camel.source.kafka.topic", topic);
 
-        String queueUrl = "aws-sqs://" + queue + "?autoCreateQueue=true&accessKey=accesskey&protocol=http&amazonAWSHost="
+        String queueUrl = "aws-sqs://" + queue + "?autoCreateQueue=true&accessKey=accesskey&secretKey=secretKey&region=EU_WEST_1&protocol=http&amazonAWSHost="
                 + amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_HOST, "localhost");
         connectorProps.put("camel.source.url", queueUrl);
 
