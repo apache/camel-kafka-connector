@@ -23,7 +23,6 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 import com.amazonaws.services.sqs.AmazonSQS;
-import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
 import com.amazonaws.services.sqs.model.CreateQueueRequest;
 import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
@@ -31,7 +30,6 @@ import com.amazonaws.services.sqs.model.ReceiveMessageResult;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.localstack.LocalStackContainer;
 
 public class AWSSQSClient {
     private static final Logger LOG = LoggerFactory.getLogger(AWSSQSClient.class);
@@ -40,13 +38,8 @@ public class AWSSQSClient {
     private int maxWaitTime = 10;
     private int maxNumberOfMessages = 1;
 
-    public AWSSQSClient(LocalStackContainer localStackContainer) {
-        sqs = AmazonSQSClientBuilder
-                .standard()
-                .withEndpointConfiguration(localStackContainer
-                        .getEndpointConfiguration(LocalStackContainer.Service.SQS))
-                .withCredentials(localStackContainer.getDefaultCredentialsProvider())
-                .build();
+    public AWSSQSClient(AmazonSQS sqs) {
+        this.sqs = sqs;
     }
 
     public String getQueue(String queue) {

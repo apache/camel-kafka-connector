@@ -21,35 +21,30 @@ import java.io.File;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
-import com.amazonaws.ClientConfiguration;
-import com.amazonaws.Protocol;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.services.aws.AWSService;
+import org.apache.camel.kafkaconnector.services.aws.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.localstack.LocalStackContainer;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Testcontainers
 public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSS3ITCase.class);
-    private static final int S3_PORT = 4572;
+    @RegisterExtension
+    public static AWSService<AmazonS3> service = AWSServiceFactory.createS3Service();
 
-    @Container
-    public LocalStackContainer localStackContainer = new LocalStackContainer()
-            .withServices(LocalStackContainer.Service.S3);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSS3ITCase.class);
 
     private AmazonS3 awsS3Client;
 
@@ -58,23 +53,7 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        final String s3Instance = localStackContainer
-                .getEndpointConfiguration(LocalStackContainer.Service.S3)
-                .getServiceEndpoint();
-
-        LOG.info("S3 instance running at {}", s3Instance);
-
-        ClientConfiguration clientConfiguration = new ClientConfiguration();
-        clientConfiguration.setProtocol(Protocol.HTTP);
-
-        awsS3Client = AmazonS3ClientBuilder
-                .standard()
-                .withEndpointConfiguration(localStackContainer.getEndpointConfiguration(LocalStackContainer.Service.S3))
-                .withCredentials(localStackContainer.getDefaultCredentialsProvider())
-                .withClientConfiguration(clientConfiguration)
-
-                .build();
-
+        awsS3Client = service.getClient();
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -91,7 +70,7 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     @Test
     @Timeout(180)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, S3_PORT);
+        Properties properties = service.getConnectionProperties();
 
         ConnectorPropertyFactory testProperties = new CamelAWSS3PropertyFactory(1,
                 TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_S3_BUCKET, properties);
