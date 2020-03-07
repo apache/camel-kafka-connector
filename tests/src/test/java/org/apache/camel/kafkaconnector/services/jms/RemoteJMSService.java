@@ -31,6 +31,11 @@ public class RemoteJMSService implements JMSService {
     }
 
     @Override
+    public void shutdown() {
+        // NO-OP
+    }
+
+    @Override
     public Properties getConnectionProperties() {
         return PropertyUtils.getProperties();
     }

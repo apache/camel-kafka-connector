@@ -47,10 +47,10 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @Testcontainers
 public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelElasticSearchPropertyFactory.class);
-
     @RegisterExtension
-    public ElasticSearchService elasticSearch = ElasticSearchServiceFactory.createService();
+    public static ElasticSearchService elasticSearch = ElasticSearchServiceFactory.createService();
+
+    private static final Logger LOG = LoggerFactory.getLogger(CamelElasticSearchPropertyFactory.class);
 
     private ElasticSearchClient client;
 

@@ -57,4 +57,10 @@ public class ContainerLocalService implements JMSService {
     public void initialize() {
         LOG.info("JMS broker running at address {}", container.getDefaultEndpoint());
     }
+
+    @Override
+    public void shutdown() {
+        LOG.info("Stopping JMS broker container");
+        container.stop();
+    }
 }

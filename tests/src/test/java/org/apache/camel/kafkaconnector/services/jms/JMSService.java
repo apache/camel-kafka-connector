@@ -20,10 +20,11 @@ package org.apache.camel.kafkaconnector.services.jms;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
+import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-public interface JMSService extends BeforeAllCallback {
+public interface JMSService extends BeforeAllCallback, AfterAllCallback {
 
     /**
      * Gets the connection properties for accessing the service
@@ -48,9 +49,19 @@ public interface JMSService extends BeforeAllCallback {
      */
     void initialize();
 
+    /**
+     * Shuts down the service after the test has completed
+     */
+    void shutdown();
+
 
     @Override
     default void beforeAll(ExtensionContext extensionContext) throws Exception {
         initialize();
+    }
+
+    @Override
+    default void afterAll(ExtensionContext extensionContext) throws Exception {
+        shutdown();
     }
 }

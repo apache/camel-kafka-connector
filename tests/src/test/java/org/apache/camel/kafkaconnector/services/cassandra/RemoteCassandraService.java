@@ -52,4 +52,9 @@ public class RemoteCassandraService implements CassandraService {
     public void initialize() {
         // NO-OP
     }
+
+    @Override
+    public void shutdown() {
+        // NO-OP
+    }
 }
