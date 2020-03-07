@@ -57,4 +57,10 @@ public class CassandraLocalContainerService implements CassandraService {
     public void initialize() {
         LOG.info("Cassandra server running at address {}", getCQL3Endpoint());
     }
+
+    @Override
+    public void shutdown() {
+        LOG.info("Stopping the Cassandra container");
+        container.stop();
+    }
 }

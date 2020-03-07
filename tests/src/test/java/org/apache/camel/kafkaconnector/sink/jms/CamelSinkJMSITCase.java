@@ -51,10 +51,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @Testcontainers
 public class CamelSinkJMSITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
-
     @RegisterExtension
-    public JMSService jmsService = JMSServiceFactory.createService();
+    public static JMSService jmsService = JMSServiceFactory.createService();
+
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
 
     private int received;
     private final int expect = 10;

@@ -43,14 +43,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Testcontainers
 public class CamelSinkCassandraITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCassandraITCase.class);
-
     @RegisterExtension
-    public CassandraService cassandraService = CassandraServiceFactory.createService();
+    public static CassandraService cassandraService = CassandraServiceFactory.createService();
+
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCassandraITCase.class);
 
     private CassandraClient cassandraClient;
     private TestDataDao testDataDao;
-
 
     private final int expect = 10;
     private int received;

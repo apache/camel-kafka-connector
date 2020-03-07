@@ -48,6 +48,11 @@ public class RemoteElasticSearchService implements ElasticSearchService {
     }
 
     @Override
+    public void shutdown() {
+        // NO-OP
+    }
+
+    @Override
     public ElasticSearchClient getClient() {
         return new ElasticSearchClient(getHost(), getPort(), TestCommon.DEFAULT_ELASTICSEARCH_INDEX);
     }

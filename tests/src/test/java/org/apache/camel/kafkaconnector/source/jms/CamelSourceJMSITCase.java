@@ -29,6 +29,7 @@ import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.jms.JMSService;
 import org.apache.camel.kafkaconnector.services.jms.JMSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -46,10 +47,10 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 @Testcontainers
 public class CamelSourceJMSITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
-
     @RegisterExtension
-    public JMSService jmsService = JMSServiceFactory.createService();
+    public static JMSService jmsService = JMSServiceFactory.createService();
+
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
 
     private int received;
     private final int expect = 10;

@@ -53,6 +53,12 @@ public class ElasticSearchLocalContainerService implements ElasticSearchService 
     }
 
     @Override
+    public void shutdown() {
+        LOG.info("Stopping the ElasticSearch container");
+        container.stop();
+    }
+
+    @Override
     public ElasticSearchClient getClient() {
         return new ElasticSearchClient("localhost", container.getMappedPort(ELASTIC_SEARCH_PORT),
                 TestCommon.DEFAULT_ELASTICSEARCH_INDEX);
