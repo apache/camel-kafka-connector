@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.springboot.maven;
+package org.apache.camel.kafkaconnector.maven;
 
 import java.io.File;
 import java.io.IOException;
@@ -64,8 +64,6 @@ import org.apache.camel.tooling.util.srcgen.GenericType;
 import org.apache.camel.tooling.util.srcgen.JavaClass;
 import org.apache.camel.tooling.util.srcgen.Method;
 import org.apache.camel.tooling.util.srcgen.Property;
-import org.apache.camel.util.json.JsonObject;
-import org.apache.camel.util.json.Jsoner;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -102,7 +100,7 @@ import static org.apache.camel.maven.packaging.AbstractGeneratorMojo.updateResou
         requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME,
         requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME,
         defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
-public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator {
+public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnectorMojo {
 
     protected static final String[] IGNORE_MODULES = {/* Non-standard -> */ "camel-grape"};
 
@@ -186,7 +184,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
 
     private void executeAll(String groupId, String artifactId) throws MojoExecutionException, MojoFailureException, IOException {
         try (JarFile componentJar = getJarFile(groupId, artifactId)) {
-            Map<String, Supplier<String>> files = getJSonFiles(componentJar);
+            Map<String, Supplier<String>> files = null; //getJSonFiles(componentJar);
             executeModels(componentJar, files);
             executeComponents(componentJar, files);
             executeDataFormats(componentJar, files);
@@ -197,6 +195,11 @@ public class SpringBootAutoConfigurationMojo extends AbstractSpringBootGenerator
     @Override
     protected boolean isIgnore(String artifactId) {
         return Arrays.asList(IGNORE_MODULES).contains(artifactId);
+    }
+
+    @Override
+    protected String getMainDepArtifactId() {
+        return null;
     }
 
     private void executeModels(JarFile componentJar, Map<String, Supplier<String>> files) throws MojoExecutionException, MojoFailureException {

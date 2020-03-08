@@ -14,13 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.springboot.maven;
+package org.apache.camel.kafkaconnector.maven;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +28,7 @@ import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -44,7 +43,7 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
         requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME,
         requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME,
         defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
-public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
+public class PrepareCatalogSpringBootMojo extends AbstractCamelKafkaConnectorMojo {
 
     protected static final String[] IGNORE_MODULES = {/* Non-standard -> */ "camel-grape"};
 
@@ -66,7 +65,7 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
 
     private void executeAll(String groupId, String artifactId) throws MojoExecutionException, MojoFailureException, IOException {
         try (JarFile componentJar = getJarFile(groupId, artifactId)) {
-            Map<String, Supplier<String>> files = getJSonFiles(componentJar);
+            Map<String, Supplier<String>> files = null; //getJSonFiles(componentJar);
             executeOthers(componentJar, files);
             executeComponents(componentJar, files);
             executeDataFormats(componentJar, files);
@@ -77,6 +76,11 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
     @Override
     protected boolean isIgnore(String artifactId) {
         return Arrays.asList(IGNORE_MODULES).contains(artifactId);
+    }
+
+    @Override
+    protected String getMainDepArtifactId() {
+        return null;
     }
 
     protected void executeComponents(JarFile componentJar, Map<String, Supplier<String>> jsonFiles) throws MojoExecutionException, MojoFailureException, IOException {
@@ -90,8 +94,8 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
                     json = json.replace("\"groupId\": \"" + getMainDepGroupId() + "\"", "\"groupId\": \"" + project.getGroupId() + "\"")
                             .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
                             .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
-                    writeIfChanged(json, new File(catalogDir,
-                            "src/main/resources/org/apache/camel/springboot/catalog/components/" + componentName + ".json"));
+                    MavenUtils.writeFileIfChanged(json, new File(catalogDir,
+                            "src/main/resources/org/apache/camel/springboot/catalog/components/" + componentName + ".json"), getLog());
                     actual.add(componentName);
                 }
             }
@@ -100,7 +104,7 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
             String content = Stream.concat(existing, actual.stream())
                     .sorted().distinct()
                     .collect(Collectors.joining("\n"));
-            writeIfChanged(content, components);
+            MavenUtils.writeFileIfChanged(content, components, getLog());
         }
     }
 
@@ -115,8 +119,8 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
                     json = json.replace("\"groupId\": \"" + getMainDepGroupId() + "\"", "\"groupId\": \"" + project.getGroupId() + "\"")
                             .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
                             .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
-                    writeIfChanged(json, new File(catalogDir,
-                            "src/main/resources/org/apache/camel/springboot/catalog/dataformats/" + dataformatName + ".json"));
+                    MavenUtils.writeFileIfChanged(json, new File(catalogDir,
+                            "src/main/resources/org/apache/camel/springboot/catalog/dataformats/" + dataformatName + ".json"), getLog());
                     actual.add(dataformatName);
                 }
             }
@@ -125,7 +129,7 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
             String content = Stream.concat(existing, actual.stream())
                     .sorted().distinct()
                     .collect(Collectors.joining("\n"));
-            writeIfChanged(content, dataformats);
+            MavenUtils.writeFileIfChanged(content, dataformats, getLog());
         }
     }
 
@@ -140,8 +144,8 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
                     json = json.replace("\"groupId\": \"" + getMainDepGroupId() + "\"", "\"groupId\": \"" + project.getGroupId() + "\"")
                             .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
                             .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
-                    writeIfChanged(json, new File(catalogDir,
-                            "src/main/resources/org/apache/camel/springboot/catalog/languages/" + languageName + ".json"));
+                    MavenUtils.writeFileIfChanged(json, new File(catalogDir,
+                            "src/main/resources/org/apache/camel/springboot/catalog/languages/" + languageName + ".json"), getLog());
                     actual.add(languageName);
                 }
             }
@@ -150,7 +154,7 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
             String content = Stream.concat(existing, actual.stream())
                     .sorted().distinct()
                     .collect(Collectors.joining("\n"));
-            writeIfChanged(content, languages);
+            MavenUtils.writeFileIfChanged(content, languages, getLog());
         }
     }
 
@@ -168,8 +172,8 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
                     json = json.replace("\"groupId\": \"" + getMainDepGroupId() + "\"", "\"groupId\": \"" + project.getGroupId() + "\"")
                             .replace("\"artifactId\": \"" + getMainDepArtifactId() + "\"", "\"artifactId\": \"" + project.getArtifactId() + "\"")
                             .replace("\"version\": \"" + getMainDepVersion() + "\"", "\"version\": \"" + project.getVersion() + "\"");
-                    writeIfChanged(json, new File(catalogDir,
-                            "src/main/resources/org/apache/camel/springboot/catalog/others/" + otherName + ".json"));
+                    MavenUtils.writeFileIfChanged(json, new File(catalogDir,
+                            "src/main/resources/org/apache/camel/springboot/catalog/others/" + otherName + ".json"), getLog());
                     actual.add(otherName);
                 }
             }
@@ -178,7 +182,7 @@ public class PrepareCatalogSpringBootMojo extends AbstractSpringBootGenerator {
             String content = Stream.concat(existing, actual.stream())
                     .sorted().distinct()
                     .collect(Collectors.joining("\n"));
-            writeIfChanged(content, others);
+            MavenUtils.writeFileIfChanged(content, others, getLog());
         }
     }
 
