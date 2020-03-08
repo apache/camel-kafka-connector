@@ -33,7 +33,6 @@
     <name>Camel-Kafka-Connector :: Connectors Parent</name>
     <description>Camel Kafka Connector Connectors</description>
 
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -44,8 +43,33 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>apache.snapshots</id>
+            <url>https://repository.apache.org/snapshots/</url>
+            <name>Apache Snapshot Repo</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <!-- camel-jira -->
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://packages.atlassian.com/maven-external</url>
+            <name>Atlassian Public Repo</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
