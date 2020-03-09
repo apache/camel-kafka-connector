@@ -33,7 +33,6 @@
 
     <properties>
         <maven-version>3.6.3</maven-version>
-
     </properties>
 
     <dependencyManagement>
@@ -152,7 +151,6 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>${google-guava-version}</version>
         </dependency>
 
         <!-- roaster to create java source for Spring Boot auto configuration support -->

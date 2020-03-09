@@ -52,7 +52,6 @@
         <spring-boot-version>2.2.2.RELEASE</spring-boot-version>
         <jandex-version>2.1.1.Final</jandex-version>
         <freemarker-version>2.3.29</freemarker-version>
-        <google-guava-version>19.0</google-guava-version>
     </properties>
 
     <build>
