@@ -172,7 +172,7 @@ class KafkaConnectRunner {
     }
 
     public <T> void initializeConnector(ConnectorPropertyFactory connectorPropertyFactory,
-                                    BiConsumer<ConnectorInitState, T> callback, T payload) throws ExecutionException, InterruptedException {
+                                        BiConsumer<ConnectorInitState, T> callback, T payload) throws ExecutionException, InterruptedException {
         Properties connectorProps = connectorPropertyFactory.getProperties();
 
         FutureCallback<Herder.Created<ConnectorInfo>> cb = new FutureCallback<>((error, info) ->
@@ -198,6 +198,8 @@ class KafkaConnectRunner {
             connect.start();
             LOG.info("Started the connect interface");
 
+        } catch (Throwable t) {
+            LOG.error("Container init or start has failed due to: ", t);
         } finally {
             latch.countDown();
         }
