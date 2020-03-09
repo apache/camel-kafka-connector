@@ -46,17 +46,6 @@
     </dependencies>
 
     <repositories>
-        <repository>
-            <id>apache.snapshots</id>
-            <url>https://repository.apache.org/snapshots/</url>
-            <name>Apache Snapshot Repo</name>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
         <!-- camel-jira -->
         <repository>
             <id>atlassian-public</id>
@@ -85,11 +74,11 @@
                 <artifactId>camel-kafka-connector-generator-maven-plugin</artifactId>
                 <version>${project.version}</version>
                 <configuration>
-                    <!--                    &lt;!&ndash; set to true to make build fail fast if missing documentation in docs files &ndash;&gt;-->
-                    <!--                    <failFast>false</failFast>-->
-                    <!--                    &lt;!&ndash; set to true to make build fail if an option has no description &ndash;&gt;-->
-                    <!--                    <failOnMissingDescription>false</failOnMissingDescription>-->
-                    <!--                    &lt;!&ndash; Process just this components &ndash;&gt;-->
+                    <!-- set to true to make build fail fast if missing documentation in docs files -->
+                    <!--  <failFast>false</failFast>-->
+                    <!-- set to true to make build fail if an option has no description -->
+                    <!--  <failOnMissingDescription>false</failOnMissingDescription>-->
+                    <!-- Process just this components -->
                     <!-- <filter></filter>-->
                     <initialPomTemplate>${project.basedir}/template-connector-pom.xml</initialPomTemplate>
                     <noticeTemplate>${project.basedir}/camel-kafka-connector-NOTICE.txt</noticeTemplate>
