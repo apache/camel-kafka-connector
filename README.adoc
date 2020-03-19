@@ -34,11 +34,39 @@ To run the integration tests it is required to:
 mvn -DskipIntegrationTests=false clean verify package
 ----
 
-It is also possible to point the tests to use an external Kafka broker. To do so, run the tests using:
+It is also possible to point the tests to use an external services. To do so, you must set
+properties for the services that you want to run. This causes the tests to not launch the local
+container and use existing remote instances. At the moment, the following properties can be set
+for remote testing:
+
+* kafka.instance.type
+** kafka.bootstrap.servers
+* aws-service.instance.type
+** access.key: AWS access key (mandatory for remote testing)
+** secret.key: AWS secret key (mandatory for remote testing)
+** aws.region: AWS region (optional)
+** aws.host: AWS host (optional)
+* aws-service.kinesis.instance.type
+** access.key: AWS access key (mandatory for remote testing)
+** secret.key: AWS secret key (mandatory for remote testing)
+** aws.region: AWS region (optional)
+** aws.host: AWS host (optional)
+* elasticsearch.instance.type
+** elasticsearch.host
+** elasticsearch.port
+* cassandra.instance.type
+** cassandra.host
+** cassandra.cql3.port
+* jms-service.instance.type
+** jms.broker.address
+
 
 ----
 mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote -DskipIntegrationTests=false clean verify package
 ----
+
+It's possible to use a properties file to set these properties. To do so use `-Dtest.properties=/path/to/file.properties`.
+
 
 === Try it out locally
 

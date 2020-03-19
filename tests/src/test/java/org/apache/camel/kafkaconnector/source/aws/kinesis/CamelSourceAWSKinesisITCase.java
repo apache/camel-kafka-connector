@@ -25,27 +25,24 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import com.amazonaws.AmazonServiceException;
-import com.amazonaws.ClientConfiguration;
-import com.amazonaws.Protocol;
 import com.amazonaws.services.kinesis.AmazonKinesis;
-import com.amazonaws.services.kinesis.AmazonKinesisClientBuilder;
 import com.amazonaws.services.kinesis.model.CreateStreamResult;
 import com.amazonaws.services.kinesis.model.PutRecordsRequest;
 import com.amazonaws.services.kinesis.model.PutRecordsRequestEntry;
 import com.amazonaws.services.kinesis.model.PutRecordsResult;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.services.aws.AWSService;
+import org.apache.camel.kafkaconnector.services.aws.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.localstack.LocalStackContainer;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.Assert.fail;
@@ -53,12 +50,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Testcontainers
 public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
+    @RegisterExtension
+    public static AWSService<AmazonKinesis> service = AWSServiceFactory.createKinesisService();
+    
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
-    private static final int KINESIS_PORT = 4568;
-
-    @Container
-    public LocalStackContainer localStackContainer = new LocalStackContainer()
-            .withServices(LocalStackContainer.Service.KINESIS);
 
     private AmazonKinesis awsKinesisClient;
 
@@ -68,24 +63,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        if (!localStackContainer.isRunning()) {
-            LOG.info("Kinesis is not running");
-        }
-        final String kinesisInstance = localStackContainer
-                .getEndpointConfiguration(LocalStackContainer.Service.KINESIS)
-                .getServiceEndpoint();
-
-        LOG.info("Kinesis instance running at {}", kinesisInstance);
-
-        ClientConfiguration clientConfiguration = new ClientConfiguration();
-        clientConfiguration.setProtocol(Protocol.HTTP);
-
-        awsKinesisClient = AmazonKinesisClientBuilder
-                .standard()
-                .withEndpointConfiguration(localStackContainer.getEndpointConfiguration(LocalStackContainer.Service.KINESIS))
-                .withCredentials(localStackContainer.getDefaultCredentialsProvider())
-                .withClientConfiguration(clientConfiguration)
-                .build();
+        awsKinesisClient = service.getClient();
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -102,7 +80,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     @Test
     @Timeout(120)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, KINESIS_PORT);
+        Properties properties = service.getConnectionProperties();
 
         ConnectorPropertyFactory testProperties = new CamelAWSKinesisPropertyFactory(1,
                 TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_KINESIS_STREAM, properties);

@@ -25,20 +25,20 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import com.amazonaws.services.sqs.model.Message;
-import org.apache.camel.kafkaconnector.AWSConfigs;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.TestCommon;
+import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
 import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.services.aws.AWSService;
+import org.apache.camel.kafkaconnector.services.aws.AWSServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.localstack.LocalStackContainer;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -46,12 +46,10 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @Testcontainers
 public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
-    private static final int SNS_PORT = 4575;
+    @RegisterExtension
+    public static AWSService<AWSSQSClient> service = AWSServiceFactory.createSNSService();
 
-    @Container
-    public LocalStackContainer localStackContainer = new LocalStackContainer()
-            .withServices(LocalStackContainer.Service.SQS, LocalStackContainer.Service.SNS);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
 
     private AWSSQSClient awsSqsClient;
 
@@ -60,20 +58,7 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
 
     @BeforeEach
     public void setUp() {
-        final String sqsInstance = localStackContainer
-                .getEndpointConfiguration(LocalStackContainer.Service.SQS)
-                .getServiceEndpoint();
-
-        LOG.info("SQS instance running at {}", sqsInstance);
-
-        awsSqsClient = new AWSSQSClient(localStackContainer);
-
-
-        final String snsInstance = localStackContainer
-                .getEndpointConfiguration(LocalStackContainer.Service.SNS)
-                .getServiceEndpoint();
-
-        LOG.info("SNS instance running at {}", snsInstance);
+        awsSqsClient = service.getClient();
     }
 
     private boolean checkMessages(List<Message> messages) {
@@ -110,7 +95,7 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
             final String sqsQueue = awsSqsClient.getQueue(TestCommon.DEFAULT_SQS_QUEUE_FOR_SNS);
             LOG.info("Created SQS queue {}", sqsQueue);
 
-            Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SNS_PORT);
+            Properties properties = service.getConnectionProperties();
             properties.put(AWSConfigs.AMAZON_AWS_SNS_2_SQS_QUEUE_URL, sqsQueue);
 
             ConnectorPropertyFactory testProperties = new CamelAWSSNSPropertyFactory(1,

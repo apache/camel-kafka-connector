@@ -19,8 +19,9 @@ package org.apache.camel.kafkaconnector.sink.aws.sqs;
 
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.AWSConfigs;
+import com.amazonaws.regions.Regions;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 /**
@@ -43,6 +44,7 @@ class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
     @Override
     public Properties getProperties() {
         Properties connectorProps = new Properties();
+
         connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAWSSQSSinkConnector");
         connectorProps.put("tasks.max", String.valueOf(tasksMax));
 
@@ -50,8 +52,24 @@ class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
 
-        String queueUrl = "aws-sqs://" + queue + "?autoCreateQueue=true&accessKey=accesskey&secretKey=secretKey&region=EU_WEST_1&protocol=http&amazonAWSHost="
-                + amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_HOST, "localhost");
+        String accessKey = amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, "");
+        String secretKey = amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, "");
+
+        String region = amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name());
+
+        String queueUrl = String.format("aws-sqs://%s?autoCreateQueue=true&accessKey=%s&secretKey=%s&region=%s",
+                    queue, accessKey, secretKey, region);
+
+        String protocol = amazonConfigs.getProperty(AWSConfigs.PROTOCOL);
+        if (protocol != null && !protocol.isEmpty()) {
+            queueUrl = String.format("%s&protocol=%s", queueUrl, protocol);
+        }
+
+        String amazonAWSHost = amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_HOST);
+        if (amazonAWSHost != null && !amazonAWSHost.isEmpty()) {
+            queueUrl = String.format("%s&amazonAWSHost=%s", queueUrl, amazonAWSHost);
+        }
+
 
         connectorProps.put("camel.sink.url", queueUrl);
         connectorProps.put("topics", topic);
@@ -61,8 +79,7 @@ class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
         connectorProps.put("camel.component.aws-sqs.configuration.secret-key",
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
 
-        connectorProps.put("camel.component.aws-sqs.configuration.region",
-            amazonConfigs.getProperty(AWSConfigs.REGION, ""));
+        connectorProps.put("camel.component.aws-sqs.configuration.region", region);
 
         return connectorProps;
     }

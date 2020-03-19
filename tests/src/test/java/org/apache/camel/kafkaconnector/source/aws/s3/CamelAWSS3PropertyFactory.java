@@ -19,8 +19,8 @@ package org.apache.camel.kafkaconnector.source.aws.s3;
 
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.AWSConfigs;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 

@@ -14,8 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package org.apache.camel.kafkaconnector;
+package org.apache.camel.kafkaconnector.clients.aws;
 
 
 public final class AWSConfigs {
@@ -24,6 +23,7 @@ public final class AWSConfigs {
     public static final String REGION = "aws.region";
     public static final String AMAZON_AWS_HOST = "aws.host";
     public static final String AMAZON_AWS_SNS_2_SQS_QUEUE_URL = "aws.sns.2.sqs.queue.url";
+    public static final String PROTOCOL = "aws.protocol";
 
     private AWSConfigs() {
     }

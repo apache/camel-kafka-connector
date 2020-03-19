@@ -27,17 +27,18 @@ import java.util.concurrent.TimeUnit;
 import com.amazonaws.services.sqs.model.Message;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.ContainerUtil;
 import org.apache.camel.kafkaconnector.TestCommon;
+import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
 import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.services.aws.AWSService;
+import org.apache.camel.kafkaconnector.services.aws.AWSServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.localstack.LocalStackContainer;
-import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -45,12 +46,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Testcontainers
 public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
-    private static final int SQS_PORT = 4576;
+    @RegisterExtension
+    public static AWSService<AWSSQSClient> awsService = AWSServiceFactory.createSQSService();
 
-    @Container
-    public LocalStackContainer localStackContainer = new LocalStackContainer()
-            .withServices(LocalStackContainer.Service.SQS);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
 
     private AWSSQSClient awssqsClient;
 
@@ -59,13 +58,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        final String sqsInstance = localStackContainer
-                .getEndpointConfiguration(LocalStackContainer.Service.SQS)
-                .getServiceEndpoint();
-
-        LOG.info("SQS instance running at {}", sqsInstance);
-
-        awssqsClient = new AWSSQSClient(localStackContainer);
+        awssqsClient = awsService.getClient();
     }
 
     private boolean checkMessages(List<Message> messages) {
@@ -111,7 +104,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     @Timeout(value = 120)
     public void testBasicSendReceive() {
         try {
-            Properties properties = ContainerUtil.setupAWSConfigs(localStackContainer, SQS_PORT);
+            Properties properties = awsService.getConnectionProperties();
 
             ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
                     TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE, properties);
