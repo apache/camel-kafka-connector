@@ -34,6 +34,6 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
       - name: mvn sourcecheck
-        run: ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:camel-buildtools clean install && ./mvnw -V --no-transfer-progress -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean verify
+        run: ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:camel-buildtools clean install && ./mvnw -V --no-transfer-progress -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean compile test-compile
       - name: mvn build and itests
         run: ./mvnw -V --no-transfer-progress -DskipIntegrationTests=false clean install
