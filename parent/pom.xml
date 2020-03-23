@@ -1,6 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.apache</groupId>
+        <artifactId>apache</artifactId>
+        <version>21</version>
+    </parent>
+
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -17,28 +23,8 @@
         </license>
     </licenses>
 
-    <distributionManagement>
-        <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Release Repository</name>
-            <url>${jboss.releases.repo.url}</url>
-        </repository>
-
-        <snapshotRepository>
-            <id>jboss-snapshots-repository</id>
-            <name>JBoss Snapshot Repository</name>
-            <url>${jboss.snapshots.repo.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <jboss.releases.repo.id>jboss-releases-repository</jboss.releases.repo.id>
-        <jboss.releases.nexus.url>https://repository.jboss.org/nexus</jboss.releases.nexus.url>
-        <jboss.releases.repo.url>${jboss.releases.nexus.url}/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
-        <jboss.snapshots.repo.id>jboss-snapshots-repository</jboss.snapshots.repo.id>
-        <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
 
         <activemq.version>5.15.12</activemq.version>
         <kafka.version>2.4.1</kafka.version>
@@ -81,33 +67,27 @@
 
     <repositories>
         <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
+            <id>apache.snapshots</id>
+            <url>https://repository.apache.org/snapshots/</url>
+            <name>Apache Snapshot Repo</name>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
             </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
         </repository>
     </repositories>
-
     <pluginRepositories>
         <pluginRepository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
+            <id>apache.snapshots</id>
+            <url>https://repository.apache.org/snapshots/</url>
             <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
+                <enabled>true</enabled>
             </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
         </pluginRepository>
     </pluginRepositories>
 
@@ -378,17 +358,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <!-- See configuration details at http://books.sonatype.com/nexus-book/reference/staging-deployment.html -->
-                    <nexusUrl>${jboss.releases.nexus.url}</nexusUrl>
-                    <serverId>${jboss.releases.repo.id}</serverId>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
