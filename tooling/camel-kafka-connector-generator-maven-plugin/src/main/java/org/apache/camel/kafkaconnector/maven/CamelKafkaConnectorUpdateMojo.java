@@ -32,12 +32,15 @@ import java.util.TreeSet;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+
+import org.xml.sax.SAXException;
 
 import freemarker.template.Template;
 import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
@@ -51,6 +54,7 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.codehaus.plexus.resource.loader.FileResourceCreationException;
 import org.codehaus.plexus.resource.loader.ResourceNotFoundException;
 
+import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.sanitizeMavenArtifactId;
 import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.writeFileIfChanged;
 import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.writeXmlFormatted;
 
@@ -74,6 +78,9 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
     @Parameter(property = "name", required = true)
     protected String name;
 
+    @Parameter(property = "componentJson", required = true)
+    protected String componentJson;
+
     /**
      * The maven session.
      */
@@ -86,12 +93,6 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
      */
     @Parameter(defaultValue = "", readonly = true)
     private String additionalDependencies;
-
-//    @Component
-//    private ProjectDependenciesResolver projectDependenciesResolver;
-//
-//    @Component
-//    private ProjectBuilder projectBuilder;
 
     @Override
     protected String getMainDepArtifactId() {
@@ -117,8 +118,9 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
     }
 
     private void updateConnector() throws Exception {
+        String sanitizedName = sanitizeMavenArtifactId(name);
         // create the starter directory
-        File connectorDir = new File(projectDir, "camel-" + name + KAFKA_CONNECTORS_SUFFIX);
+        File connectorDir = new File(projectDir, "camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX);
         if (!connectorDir.exists() || !connectorDir.isDirectory()) {
             getLog().info("Connector " + name + " can not be updated since directory " + connectorDir.getAbsolutePath() + " dose not exist.");
             throw new MojoFailureException("Directory already exists: " + connectorDir);
@@ -165,7 +167,8 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         Set<String> libsToRemove = new TreeSet<>();
         libsToRemove.addAll(loggingImpl);
         libsToRemove.addAll(configExclusions);
-//        libsToRemove = filterIncludedArtifacts(libsToRemove);
+        //TODO: enable if needed.
+        //        libsToRemove = filterIncludedArtifacts(libsToRemove);
 
         if (libsToRemove.size() > 0) {
             getLog().info("Camel-kafka-connector: the following dependencies will be removed from the connector: " + libsToRemove);
@@ -223,7 +226,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         }
     }
 
-//TODO: reneable if needed.
+//TODO: enable if needed.
 //  private Set<String> filterIncludedArtifacts(Set<String> artifacts) {
 //
 //        Set<Artifact> dependencies;
@@ -259,47 +262,32 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         return null;
     }
 
-    private Document createBasePom(File connectorDir) {
-        try {
-            File pomFile = new File(connectorDir, "pom.xml");
-            if (pomFile.exists()) {
-                try (InputStream in = new FileInputStream(pomFile)) {
-                    String content = IOUtils.toString(in, StandardCharsets.UTF_8);
-                    boolean editablePom = content.contains(GENERATED_SECTION_START_COMMENT);
-                    if (editablePom) {
-                        content = MavenUtils.removeGeneratedSections(content, GENERATED_SECTION_START_COMMENT, GENERATED_SECTION_END_COMMENT, 10);
-                        DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+    private Document createBasePom(File connectorDir) throws IOException, SAXException, ParserConfigurationException {
+        File pomFile = new File(connectorDir, "pom.xml");
+        if (pomFile.exists()) {
+            try (InputStream in = new FileInputStream(pomFile)) {
+                String content = IOUtils.toString(in, StandardCharsets.UTF_8);
+                boolean editablePom = content.contains(GENERATED_SECTION_START_COMMENT);
+                if (editablePom) {
+                    content = MavenUtils.removeGeneratedSections(content, GENERATED_SECTION_START_COMMENT, GENERATED_SECTION_END_COMMENT, 10);
+                    DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
-                        Document pom;
-                        try (InputStream contentIn = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8))) {
-                            pom = builder.parse(contentIn);
-                        }
-
-                        getLog().debug("Reusing the existing pom.xml for the starter");
-                        return pom;
-                    } else {
-                        getLog().error("Cannot use the existing pom.xml file since it is not editable. It does not contain " + GENERATED_SECTION_START_COMMENT);
+                    Document pom;
+                    try (InputStream contentIn = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8))) {
+                        pom = builder.parse(contentIn);
                     }
-                }
-            } else {
-                getLog().info("Creating a new pom.xml for the connector from scratch.");
-                Template pomTemplate = MavenUtils.getTemplate(rm.getResourceAsFile(initialPomTemplate));
-                Map<String, String> props = new HashMap<>();
-                props.put("version", project.getVersion());
-                props.put("componentId", getComponentId());
-                props.put("componentName", name);
-                props.put("componentDescription", getMainDepArtifactId());
-                try {
-                    return MavenUtils.createCrateXmlDocumentFromTemplate(pomTemplate, props);
-                } catch (Exception e) {
-                    getLog().error("Cannot create pom.xml file from Template: " + pomTemplate + " with properties: " + props, e);
+
+                    getLog().debug("Reusing the existing pom.xml for the starter");
+                    return pom;
+                } else {
+                    getLog().error("Cannot use the existing pom.xml file since it is not editable. It does not contain " + GENERATED_SECTION_START_COMMENT);
+                    throw new UnsupportedOperationException("Cannot use the existing pom.xml file since it is not editable. It does not contain " + GENERATED_SECTION_START_COMMENT);
                 }
             }
-        } catch (Exception e) {
-            getLog().error("Cannot use the existing pom.xml file or create a new one.", e);
+        } else {
+            getLog().error("The pom.xml file is not present, please use camel-kafka-connector-create first.");
+            throw new UnsupportedOperationException("The pom.xml file is not present, please use camel-kafka-connector-create first.");
         }
-
-        return null;
     }
 
     private void writeStaticFiles(File connectorDir) throws IOException, ResourceNotFoundException, FileResourceCreationException {

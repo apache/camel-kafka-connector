@@ -29,12 +29,14 @@ import org.w3c.dom.Document;
 
 import freemarker.template.Template;
 import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
+import org.apache.camel.tooling.model.ComponentModel;
+import org.apache.camel.tooling.model.JsonMapper;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
-
+import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.sanitizeMavenArtifactId;
 import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.writeXmlFormatted;
 
 @Mojo(name = "camel-kafka-connector-create", threadSafe = true,
@@ -43,6 +45,9 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
 
     @Parameter(property = "name", required = true)
     protected String name;
+
+    @Parameter(property = "componentJson", required = true)
+    protected String componentJson;
 
     @Override
     protected String getMainDepArtifactId() {
@@ -69,8 +74,9 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
 
     private void createConnector() throws Exception {
         getLog().info("Creating camel kafka connector for " + name);
+        String sanitizedName = sanitizeMavenArtifactId(name);
         //check if the connector is already created
-        File directory = new File(projectDir, "camel-" + name + KAFKA_CONNECTORS_SUFFIX);
+        File directory = new File(projectDir, "camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX);
         if (directory.exists()) {
             if (directory.isDirectory()) {
                 //nothing to do
@@ -85,13 +91,16 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
         }
 
         //create initial connector pom
+        ComponentModel cm = JsonMapper.generateComponentModel(componentJson);
         getLog().info("Creating a new pom.xml for the connector from scratch");
         Template pomTemplate = MavenUtils.getTemplate(rm.getResourceAsFile(initialPomTemplate));
         Map<String, String> props = new HashMap<>();
         props.put("version", project.getVersion());
-        props.put("componentId", getComponentId());
+        props.put("dependencyId", cm.getArtifactId());
+        props.put("dependencyGroup", cm.getGroupId());
         props.put("componentName", name);
-        props.put("componentDescription", getMainDepArtifactId());
+        props.put("componentSanitizedName", sanitizedName);
+        props.put("componentDescription", name);
         try {
             Document pom = MavenUtils.createCrateXmlDocumentFromTemplate(pomTemplate, props);
             // Write the starter pom
@@ -117,13 +126,13 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
         }
         lines = MavenUtils.concat(lines.subList(0, modulesStart).stream(),
                 Stream.concat(lines.subList(modulesStart, modulesEnd).stream(),
-                        Stream.of("        <module>camel-" + name + KAFKA_CONNECTORS_SUFFIX + "</module>"))
+                        Stream.of("        <module>camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX + "</module>"))
                         .sorted().distinct(),
                 lines.subList(modulesEnd, lines.size()).stream())
                 .collect(Collectors.toList());
         Files.write(parent, lines);
 
-        //TODO: invoke conenctor update mojo as well?
+        //TODO: invoke connector update mojo as well?
     }
 
     private String getComponentId() {

@@ -18,9 +18,11 @@ package org.apache.camel.kafkaconnector.maven.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -56,8 +58,13 @@ import freemarker.cache.URLTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.apache.camel.tooling.util.PackageHelper;
+import org.apache.camel.tooling.util.srcgen.JavaClass;
 import org.apache.commons.io.IOUtils;
+import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
+
+import static org.apache.camel.maven.packaging.AbstractGeneratorMojo.updateResource;
 
 public final class MavenUtils {
 
@@ -265,5 +272,43 @@ public final class MavenUtils {
             set.add(s.trim());
         }
         return set;
+    }
+
+    public static void writeSourceIfChanged(JavaClass source, String fileName, boolean innerClassesLast, File baseDir, File javaFileHeader) throws MojoFailureException {
+        writeSourceIfChanged(source.printClass(innerClassesLast), fileName, baseDir, javaFileHeader);
+    }
+
+    public static void writeSourceIfChanged(String source, String fileName, File baseDir, File javaFileHeader) throws MojoFailureException {
+
+        File target = new File(new File(baseDir, "src/main/java"), fileName);
+
+        deleteFile(baseDir, target);
+
+        try {
+            String header;
+            try (InputStream is = new FileInputStream(javaFileHeader)) {
+                header = PackageHelper.loadText(is);
+            }
+            String code = header + source;
+
+            updateResource(null, target.toPath(), code);
+        } catch (Exception e) {
+            throw new MojoFailureException("IOError with file " + target, e);
+        }
+    }
+
+    public static void deleteFile(File baseDir, File targetFile) {
+        String relativePath = baseDir.toPath().relativize(targetFile.toPath()).toString();
+        File mainArtifactFile = new File(baseDir, relativePath);
+        if (mainArtifactFile.exists()) {
+            boolean deleted = mainArtifactFile.delete();
+            if (!deleted) {
+                throw new IllegalStateException("Cannot delete file " + mainArtifactFile);
+            }
+        }
+    }
+
+    public static String sanitizeMavenArtifactId(String toBesanitizedArtifactId) {
+        return toBesanitizedArtifactId != null ? toBesanitizedArtifactId.toLowerCase().replaceAll("[^A-Za-z0-9]", "-") : null;
     }
 }
