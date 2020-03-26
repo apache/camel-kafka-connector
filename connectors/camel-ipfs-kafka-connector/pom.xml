@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-ipfs-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: ipfs</name>
-  <description>Camel Kafka Connector for camel-ipfs</description>
+  <description>Camel Kafka Connector for ipfs</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

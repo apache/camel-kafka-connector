@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-platform-http-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: platform-http</name>
-  <description>Camel Kafka Connector for camel-platform-http</description>
+  <description>Camel Kafka Connector for platform-http</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

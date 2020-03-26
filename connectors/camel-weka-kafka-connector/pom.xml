@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-weka-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: weka</name>
-  <description>Camel Kafka Connector for camel-weka</description>
+  <description>Camel Kafka Connector for weka</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

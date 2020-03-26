@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-paho-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: paho</name>
-  <description>Camel Kafka Connector for camel-paho</description>
+  <description>Camel Kafka Connector for paho</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

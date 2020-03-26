@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-hbase-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: hbase</name>
-  <description>Camel Kafka Connector for camel-hbase</description>
+  <description>Camel Kafka Connector for hbase</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

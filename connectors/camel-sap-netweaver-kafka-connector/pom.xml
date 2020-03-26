@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-sap-netweaver-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: sap-netweaver</name>
-  <description>Camel Kafka Connector for camel-sap-netweaver</description>
+  <description>Camel Kafka Connector for sap-netweaver</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

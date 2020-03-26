@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-atom-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: atom</name>
-  <description>Camel Kafka Connector for camel-atom</description>
+  <description>Camel Kafka Connector for atom</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

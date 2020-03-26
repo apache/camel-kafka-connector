@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-paxlogging-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: paxlogging</name>
-  <description>Camel Kafka Connector for camel-paxlogging</description>
+  <description>Camel Kafka Connector for paxlogging</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

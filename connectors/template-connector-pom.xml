@@ -27,7 +27,7 @@
         <version>${version}</version>
     </parent>
 
-    <artifactId>camel-${componentName}-kafka-connector</artifactId>
+    <artifactId>camel-${componentSanitizedName}-kafka-connector</artifactId>
     <name>Camel-Kafka-Connector :: ${componentName}</name>
     <description>Camel Kafka Connector for ${componentDescription}</description>
 
@@ -47,7 +47,7 @@
         <!-- Camel -->
         <dependency>
             <groupId>${dependencyGroup}</groupId>
-            <artifactId>camel-${dependencyId}</artifactId>
+            <artifactId>${dependencyId}</artifactId>
         </dependency>
         <!--START OF GENERATED CODE-->
         <!--END OF GENERATED CODE-->

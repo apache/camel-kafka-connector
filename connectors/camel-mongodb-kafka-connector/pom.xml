@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-mongodb-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: mongodb</name>
-  <description>Camel Kafka Connector for camel-mongodb</description>
+  <description>Camel Kafka Connector for mongodb</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

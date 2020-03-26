@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-box-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: box</name>
-  <description>Camel Kafka Connector for camel-box</description>
+  <description>Camel Kafka Connector for box</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

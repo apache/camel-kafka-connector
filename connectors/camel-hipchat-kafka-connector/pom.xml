@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-hipchat-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: hipchat</name>
-  <description>Camel Kafka Connector for camel-hipchat</description>
+  <description>Camel Kafka Connector for hipchat</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

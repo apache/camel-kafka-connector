@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-dataset-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: dataset</name>
-  <description>Camel Kafka Connector for camel-dataset</description>
+  <description>Camel Kafka Connector for dataset</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

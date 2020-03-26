@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-robotframework-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: robotframework</name>
-  <description>Camel Kafka Connector for camel-robotframework</description>
+  <description>Camel Kafka Connector for robotframework</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

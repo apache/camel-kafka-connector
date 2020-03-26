@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-workday-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: workday</name>
-  <description>Camel Kafka Connector for camel-workday</description>
+  <description>Camel Kafka Connector for workday</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

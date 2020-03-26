@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-schematron-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: schematron</name>
-  <description>Camel Kafka Connector for camel-schematron</description>
+  <description>Camel Kafka Connector for schematron</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

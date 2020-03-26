@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-dataformat-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: dataformat</name>
-  <description>Camel Kafka Connector for camel-dataformat</description>
+  <description>Camel Kafka Connector for dataformat</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

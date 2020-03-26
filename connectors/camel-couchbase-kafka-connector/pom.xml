@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-couchbase-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: couchbase</name>
-  <description>Camel Kafka Connector for camel-couchbase</description>
+  <description>Camel Kafka Connector for couchbase</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

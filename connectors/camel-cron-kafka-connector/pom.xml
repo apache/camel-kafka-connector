@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-cron-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: cron</name>
-  <description>Camel Kafka Connector for camel-cron</description>
+  <description>Camel Kafka Connector for cron</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

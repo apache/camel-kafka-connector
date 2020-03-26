@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-grape-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: grape</name>
-  <description>Camel Kafka Connector for camel-grape</description>
+  <description>Camel Kafka Connector for grape</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

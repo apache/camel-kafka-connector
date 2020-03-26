@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-ldap-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: ldap</name>
-  <description>Camel Kafka Connector for camel-ldap</description>
+  <description>Camel Kafka Connector for ldap</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

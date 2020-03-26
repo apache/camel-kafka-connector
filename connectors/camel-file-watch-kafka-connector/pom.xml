@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-file-watch-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: file-watch</name>
-  <description>Camel Kafka Connector for camel-file-watch</description>
+  <description>Camel Kafka Connector for file-watch</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

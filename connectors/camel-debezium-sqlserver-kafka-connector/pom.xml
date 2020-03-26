@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-debezium-sqlserver-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: debezium-sqlserver</name>
-  <description>Camel Kafka Connector for camel-debezium-sqlserver</description>
+  <description>Camel Kafka Connector for debezium-sqlserver</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

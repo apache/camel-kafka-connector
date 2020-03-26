@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-telegram-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: telegram</name>
-  <description>Camel Kafka Connector for camel-telegram</description>
+  <description>Camel Kafka Connector for telegram</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

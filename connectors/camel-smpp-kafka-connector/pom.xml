@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-smpp-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: smpp</name>
-  <description>Camel Kafka Connector for camel-smpp</description>
+  <description>Camel Kafka Connector for smpp</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

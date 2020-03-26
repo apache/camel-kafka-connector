@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-service-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: service</name>
-  <description>Camel Kafka Connector for camel-service</description>
+  <description>Camel Kafka Connector for service</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

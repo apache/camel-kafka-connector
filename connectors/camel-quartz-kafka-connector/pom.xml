@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-quartz-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: quartz</name>
-  <description>Camel Kafka Connector for camel-quartz</description>
+  <description>Camel Kafka Connector for quartz</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

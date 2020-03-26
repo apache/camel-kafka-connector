@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-mllp-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: mllp</name>
-  <description>Camel Kafka Connector for camel-mllp</description>
+  <description>Camel Kafka Connector for mllp</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

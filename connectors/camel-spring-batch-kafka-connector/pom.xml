@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-spring-batch-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: spring-batch</name>
-  <description>Camel Kafka Connector for camel-spring-batch</description>
+  <description>Camel Kafka Connector for spring-batch</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

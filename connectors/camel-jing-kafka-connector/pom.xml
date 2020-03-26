@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-jing-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jing</name>
-  <description>Camel Kafka Connector for camel-jing</description>
+  <description>Camel Kafka Connector for jing</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

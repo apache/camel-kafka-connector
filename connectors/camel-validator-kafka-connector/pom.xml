@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-validator-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: validator</name>
-  <description>Camel Kafka Connector for camel-validator</description>
+  <description>Camel Kafka Connector for validator</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

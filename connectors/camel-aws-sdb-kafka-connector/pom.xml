@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws-sdb-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-sdb</name>
-  <description>Camel Kafka Connector for camel-aws-sdb</description>
+  <description>Camel Kafka Connector for aws-sdb</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

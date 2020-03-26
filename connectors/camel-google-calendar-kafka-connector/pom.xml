@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-google-calendar-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: google-calendar</name>
-  <description>Camel Kafka Connector for camel-google-calendar</description>
+  <description>Camel Kafka Connector for google-calendar</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

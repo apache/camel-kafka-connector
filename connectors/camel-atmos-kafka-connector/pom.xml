@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-atmos-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: atmos</name>
-  <description>Camel Kafka Connector for camel-atmos</description>
+  <description>Camel Kafka Connector for atmos</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

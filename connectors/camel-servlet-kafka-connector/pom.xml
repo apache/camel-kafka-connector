@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-servlet-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: servlet</name>
-  <description>Camel Kafka Connector for camel-servlet</description>
+  <description>Camel Kafka Connector for servlet</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

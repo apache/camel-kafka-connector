@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-zookeeper-master-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: zookeeper-master</name>
-  <description>Camel Kafka Connector for camel-zookeeper-master</description>
+  <description>Camel Kafka Connector for zookeeper-master</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

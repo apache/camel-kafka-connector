@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-consul-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: consul</name>
-  <description>Camel Kafka Connector for camel-consul</description>
+  <description>Camel Kafka Connector for consul</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws2-sqs-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws2-sqs</name>
-  <description>Camel Kafka Connector for camel-aws2-sqs</description>
+  <description>Camel Kafka Connector for aws2-sqs</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

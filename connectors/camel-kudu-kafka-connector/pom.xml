@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-kudu-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: kudu</name>
-  <description>Camel Kafka Connector for camel-kudu</description>
+  <description>Camel Kafka Connector for kudu</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

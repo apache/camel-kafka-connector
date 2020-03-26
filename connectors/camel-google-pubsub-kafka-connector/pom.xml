@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-google-pubsub-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: google-pubsub</name>
-  <description>Camel Kafka Connector for camel-google-pubsub</description>
+  <description>Camel Kafka Connector for google-pubsub</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

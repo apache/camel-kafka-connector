@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-velocity-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: velocity</name>
-  <description>Camel Kafka Connector for camel-velocity</description>
+  <description>Camel Kafka Connector for velocity</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

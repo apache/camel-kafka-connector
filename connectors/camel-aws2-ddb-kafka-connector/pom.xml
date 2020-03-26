@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws2-ddb-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws2-ddb</name>
-  <description>Camel Kafka Connector for camel-aws2-ddb</description>
+  <description>Camel Kafka Connector for aws2-ddb</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

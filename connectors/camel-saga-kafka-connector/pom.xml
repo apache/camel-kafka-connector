@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-saga-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: saga</name>
-  <description>Camel Kafka Connector for camel-saga</description>
+  <description>Camel Kafka Connector for saga</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

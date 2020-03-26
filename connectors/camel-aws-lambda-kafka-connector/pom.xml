@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws-lambda-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-lambda</name>
-  <description>Camel Kafka Connector for camel-aws-lambda</description>
+  <description>Camel Kafka Connector for aws-lambda</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

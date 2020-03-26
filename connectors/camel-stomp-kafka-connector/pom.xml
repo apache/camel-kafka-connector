@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-stomp-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: stomp</name>
-  <description>Camel Kafka Connector for camel-stomp</description>
+  <description>Camel Kafka Connector for stomp</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

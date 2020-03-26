@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-mustache-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: mustache</name>
-  <description>Camel Kafka Connector for camel-mustache</description>
+  <description>Camel Kafka Connector for mustache</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

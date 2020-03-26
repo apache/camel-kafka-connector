@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-microprofile-metrics-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: microprofile-metrics</name>
-  <description>Camel Kafka Connector for camel-microprofile-metrics</description>
+  <description>Camel Kafka Connector for microprofile-metrics</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

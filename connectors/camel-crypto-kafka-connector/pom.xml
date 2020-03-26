@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-crypto-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: crypto</name>
-  <description>Camel Kafka Connector for camel-crypto</description>
+  <description>Camel Kafka Connector for crypto</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

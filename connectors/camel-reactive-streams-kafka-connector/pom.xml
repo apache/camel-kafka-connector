@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-reactive-streams-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: reactive-streams</name>
-  <description>Camel Kafka Connector for camel-reactive-streams</description>
+  <description>Camel Kafka Connector for reactive-streams</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-vm-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: vm</name>
-  <description>Camel Kafka Connector for camel-vm</description>
+  <description>Camel Kafka Connector for vm</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

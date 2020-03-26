@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-webhook-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: webhook</name>
-  <description>Camel Kafka Connector for camel-webhook</description>
+  <description>Camel Kafka Connector for webhook</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

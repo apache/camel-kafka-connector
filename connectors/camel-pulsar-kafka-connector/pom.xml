@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-pulsar-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: pulsar</name>
-  <description>Camel Kafka Connector for camel-pulsar</description>
+  <description>Camel Kafka Connector for pulsar</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

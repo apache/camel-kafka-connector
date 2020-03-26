@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-rest-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: rest</name>
-  <description>Camel Kafka Connector for camel-rest</description>
+  <description>Camel Kafka Connector for rest</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

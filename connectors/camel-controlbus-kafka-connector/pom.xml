@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-controlbus-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: controlbus</name>
-  <description>Camel Kafka Connector for camel-controlbus</description>
+  <description>Camel Kafka Connector for controlbus</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

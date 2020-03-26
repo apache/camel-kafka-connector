@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-web3j-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: web3j</name>
-  <description>Camel Kafka Connector for camel-web3j</description>
+  <description>Camel Kafka Connector for web3j</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

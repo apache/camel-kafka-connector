@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-elsql-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: elsql</name>
-  <description>Camel Kafka Connector for camel-elsql</description>
+  <description>Camel Kafka Connector for elsql</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

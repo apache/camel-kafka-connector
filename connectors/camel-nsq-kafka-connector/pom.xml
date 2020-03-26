@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-nsq-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: nsq</name>
-  <description>Camel Kafka Connector for camel-nsq</description>
+  <description>Camel Kafka Connector for nsq</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

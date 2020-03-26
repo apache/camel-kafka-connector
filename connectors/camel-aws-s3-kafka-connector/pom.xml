@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws-s3-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-s3</name>
-  <description>Camel Kafka Connector for camel-aws-s3</description>
+  <description>Camel Kafka Connector for aws-s3</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

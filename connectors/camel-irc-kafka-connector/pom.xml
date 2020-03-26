@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-irc-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: irc</name>
-  <description>Camel Kafka Connector for camel-irc</description>
+  <description>Camel Kafka Connector for irc</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

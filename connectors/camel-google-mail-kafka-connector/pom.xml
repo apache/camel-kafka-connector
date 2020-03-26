@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-google-mail-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: google-mail</name>
-  <description>Camel Kafka Connector for camel-google-mail</description>
+  <description>Camel Kafka Connector for google-mail</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

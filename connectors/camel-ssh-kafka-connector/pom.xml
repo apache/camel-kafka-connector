@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-ssh-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: ssh</name>
-  <description>Camel Kafka Connector for camel-ssh</description>
+  <description>Camel Kafka Connector for ssh</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

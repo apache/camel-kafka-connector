@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-jira-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jira</name>
-  <description>Camel Kafka Connector for camel-jira</description>
+  <description>Camel Kafka Connector for jira</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

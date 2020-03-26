@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-geocoder-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: geocoder</name>
-  <description>Camel Kafka Connector for camel-geocoder</description>
+  <description>Camel Kafka Connector for geocoder</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-stub-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: stub</name>
-  <description>Camel Kafka Connector for camel-stub</description>
+  <description>Camel Kafka Connector for stub</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-zendesk-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: zendesk</name>
-  <description>Camel Kafka Connector for camel-zendesk</description>
+  <description>Camel Kafka Connector for zendesk</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>
