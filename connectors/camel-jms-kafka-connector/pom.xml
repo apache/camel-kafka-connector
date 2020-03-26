@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-jms-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jms</name>
-  <description>Camel Kafka Connector for camel-jms</description>
+  <description>Camel Kafka Connector for jms</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

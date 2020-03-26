@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-undertow-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: undertow</name>
-  <description>Camel Kafka Connector for camel-undertow</description>
+  <description>Camel Kafka Connector for undertow</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

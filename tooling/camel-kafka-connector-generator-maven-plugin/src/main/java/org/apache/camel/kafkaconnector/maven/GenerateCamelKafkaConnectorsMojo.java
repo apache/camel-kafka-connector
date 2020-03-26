@@ -103,7 +103,7 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
             Set<String> filterComponentNames = new HashSet<>(Arrays.asList(filter.split(",")));
             components = cc.findComponentNames().stream().filter(componentName -> filterComponentNames.contains(componentName)).collect(Collectors.toList());
         }
-        getLog().debug("Components found to be generated/updated: " + components);
+        getLog().info("Components found to be generated/updated: " + components);
 
         //TODO: evaluate dataformats to include in each camel kafka connector generated placing them as a
         // commma separatev GAV in:
@@ -112,7 +112,8 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
         final Properties properties = new Properties();
         properties.load(new FileInputStream(rm.getResourceAsFile("project.properties")));
         for (String component : components) {
-            ComponentModel cm = JsonMapper.generateComponentModel(cc.componentJSonSchema(component));
+            String cJson = cc.componentJSonSchema(component);
+            ComponentModel cm = JsonMapper.generateComponentModel(cJson);
 
             executeMojo(
                     plugin(
@@ -122,14 +123,13 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                     ),
                     goal("camel-kafka-connector-create"),
                     configuration(
-                            element(name("name"), cm.getArtifactId().substring("camel-".length())),
+                            element(name("name"), component),
+                            element(name("componentJson"), cJson),
                             element(name("initialPomTemplate"), initialPomTemplate),
                             element(name("noticeTemplate"), noticeTemplate),
                             element(name("licenseTemplate"), licenseTemplate),
                             element(name("fixDependenciesProperties"), fixDependenciesProperties),
                             element(name("packageFileTemplate"), packageFileTemplate)
-
-
                     ),
                     executionEnvironment(
                             project,
@@ -147,7 +147,8 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                     goal("camel-kafka-connector-update"),
                     configuration(
                             element(name("additionalDependencies"), additionalDependencies),
-                            element(name("name"), cm.getArtifactId().substring("camel-".length())),
+                            element(name("name"), component),
+                            element(name("componentJson"), cJson),
                             element(name("initialPomTemplate"), initialPomTemplate),
                             element(name("noticeTemplate"), noticeTemplate),
                             element(name("licenseTemplate"), licenseTemplate),

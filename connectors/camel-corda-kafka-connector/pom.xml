@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-corda-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: corda</name>
-  <description>Camel Kafka Connector for camel-corda</description>
+  <description>Camel Kafka Connector for corda</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

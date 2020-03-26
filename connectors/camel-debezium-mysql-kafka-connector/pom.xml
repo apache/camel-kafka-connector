@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-debezium-mysql-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: debezium-mysql</name>
-  <description>Camel Kafka Connector for camel-debezium-mysql</description>
+  <description>Camel Kafka Connector for debezium-mysql</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-activemq-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: activemq</name>
-  <description>Camel Kafka Connector for camel-activemq</description>
+  <description>Camel Kafka Connector for activemq</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

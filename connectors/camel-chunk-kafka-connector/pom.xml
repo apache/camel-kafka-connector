@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-chunk-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: chunk</name>
-  <description>Camel Kafka Connector for camel-chunk</description>
+  <description>Camel Kafka Connector for chunk</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

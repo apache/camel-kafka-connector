@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-splunk-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: splunk</name>
-  <description>Camel Kafka Connector for camel-splunk</description>
+  <description>Camel Kafka Connector for splunk</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

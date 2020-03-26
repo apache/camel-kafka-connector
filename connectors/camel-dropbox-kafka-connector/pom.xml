@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-dropbox-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: dropbox</name>
-  <description>Camel Kafka Connector for camel-dropbox</description>
+  <description>Camel Kafka Connector for dropbox</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

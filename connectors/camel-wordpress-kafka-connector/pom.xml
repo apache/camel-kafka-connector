@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-wordpress-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: wordpress</name>
-  <description>Camel Kafka Connector for camel-wordpress</description>
+  <description>Camel Kafka Connector for wordpress</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

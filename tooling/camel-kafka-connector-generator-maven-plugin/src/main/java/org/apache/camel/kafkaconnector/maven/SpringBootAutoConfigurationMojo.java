@@ -17,6 +17,7 @@
 package org.apache.camel.kafkaconnector.maven;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Modifier;
@@ -45,6 +46,7 @@ import java.util.zip.ZipEntry;
 import javax.annotation.Generated;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriPath;
@@ -72,6 +74,8 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
+import org.codehaus.plexus.resource.loader.FileResourceCreationException;
+import org.codehaus.plexus.resource.loader.ResourceNotFoundException;
 import org.jboss.forge.roaster.model.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -90,6 +94,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
+import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.writeSourceIfChanged;
 import static org.apache.camel.maven.packaging.AbstractGeneratorMojo.updateResource;
 
 /**
@@ -172,7 +177,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
 
     JarFile componentJar;
 
-    protected void executeAll() throws MojoExecutionException, MojoFailureException, IOException {
+    protected void executeAll() throws MojoExecutionException, MojoFailureException, IOException, ResourceNotFoundException, FileResourceCreationException {
         if ("camel-core".equals(getMainDepArtifactId())) {
             executeAll(getMainDepGroupId(), "camel-core");
             executeAll(getMainDepGroupId(), "camel-base");
@@ -182,7 +187,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
     }
 
-    private void executeAll(String groupId, String artifactId) throws MojoExecutionException, MojoFailureException, IOException {
+    private void executeAll(String groupId, String artifactId) throws MojoExecutionException, MojoFailureException, IOException, ResourceNotFoundException, FileResourceCreationException {
         try (JarFile componentJar = getJarFile(groupId, artifactId)) {
             Map<String, Supplier<String>> files = null; //getJSonFiles(componentJar);
             executeModels(componentJar, files);
@@ -202,7 +207,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         return null;
     }
 
-    private void executeModels(JarFile componentJar, Map<String, Supplier<String>> files) throws MojoExecutionException, MojoFailureException {
+    private void executeModels(JarFile componentJar, Map<String, Supplier<String>> files) throws MojoExecutionException, MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         String json;
 
         // Hystrix
@@ -304,7 +309,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
     }
 
-    private void createOtherModelConfigurationSource(String packageName, OtherModel model, String propertiesPrefix, boolean generatedNestedConfig) throws MojoFailureException {
+    private void createOtherModelConfigurationSource(String packageName, OtherModel model, String propertiesPrefix, boolean generatedNestedConfig) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         final int pos = model.getJavaType().lastIndexOf(".");
         final String commonName = model.getJavaType().substring(pos + 1) + (generatedNestedConfig ? "Common" : "Properties");
         final String configName = model.getJavaType().substring(pos + 1) + (generatedNestedConfig ? "Properties" : null);
@@ -356,7 +361,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
             }
         }
 
-        writeSourceIfChanged(commonClass, packageName.replaceAll("\\.", "\\/") + "/" + commonName + ".java", true);
+        writeSourceIfChanged(commonClass, packageName.replaceAll("\\.", "\\/") + "/" + commonName + ".java", true, baseDir, rm.getResourceAsFile(javaFilesHeader));
 
         Class commonClazz = generateDummyClass(commonClass.getCanonicalName());
 
@@ -397,11 +402,11 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
             method.setBody("this.enabled = enabled;");
 
             String fileName = packageName.replaceAll("\\.", "\\/") + "/" + configName + ".java";
-            writeSourceIfChanged(configClass, fileName, true);
+            writeSourceIfChanged(configClass, fileName, true, baseDir, rm.getResourceAsFile(javaFilesHeader));
         }
     }
 
-    private void createRestConfigurationSource(String packageName, OtherModel model, String propertiesPrefix) throws MojoFailureException {
+    private void createRestConfigurationSource(String packageName, OtherModel model, String propertiesPrefix) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         final int pos = model.getJavaType().lastIndexOf(".");
         final String className = model.getJavaType().substring(pos + 1) + "Properties";
 
@@ -463,10 +468,10 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + className + ".java";
-        writeSourceIfChanged(javaClass, fileName, true);
+        writeSourceIfChanged(javaClass, fileName, true, baseDir, rm.getResourceAsFile(javaFilesHeader));
     }
 
-    private void createRestModuleAutoConfigurationSource(String packageName, OtherModel model) throws MojoFailureException {
+    private void createRestModuleAutoConfigurationSource(String packageName, OtherModel model) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         final JavaClass javaClass = new JavaClass(getProjectClassLoader());
         final int pos = model.getJavaType().lastIndexOf(".");
         final String name = model.getJavaType().substring(pos + 1) + "AutoConfiguration";
@@ -530,11 +535,11 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
                 + "    definition.setCorsHeaders(target);\n" + "}\n" + "return definition;");
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + name + ".java";
-        writeSourceIfChanged(javaClass, fileName, true);
+        writeSourceIfChanged(javaClass, fileName, true, baseDir, rm.getResourceAsFile(javaFilesHeader));
         writeComponentSpringFactorySource(packageName, name);
     }
 
-    private void executeComponents(JarFile componentJar, Map<String, Supplier<String>> jsonFiles) throws MojoFailureException {
+    private void executeComponents(JarFile componentJar, Map<String, Supplier<String>> jsonFiles) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         // find the component names
         List<String> componentNames = findComponentNames(componentJar);
 
@@ -577,7 +582,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
     }
 
-    private void executeDataFormats(JarFile componentJar, Map<String, Supplier<String>> jsonFiles) throws MojoFailureException {
+    private void executeDataFormats(JarFile componentJar, Map<String, Supplier<String>> jsonFiles) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         // find the data format names
         List<String> dataFormatNames = findDataFormatNames(componentJar);
 
@@ -621,7 +626,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
     }
 
-    private void executeLanguages(JarFile componentJar, Map<String, Supplier<String>> jsonFiles) throws MojoFailureException {
+    private void executeLanguages(JarFile componentJar, Map<String, Supplier<String>> jsonFiles) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         // find the language names
         List<String> languageNames = findLanguageNames(componentJar);
 
@@ -665,7 +670,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
     }
 
-    private void createComponentConfigurationSource(String packageName, ComponentModel model, String overrideComponentName) throws MojoFailureException {
+    private void createComponentConfigurationSource(String packageName, ComponentModel model, String overrideComponentName) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         int pos = model.getJavaType().lastIndexOf(".");
         String name = model.getJavaType().substring(pos + 1);
         name = name.replace("Component", "ComponentConfiguration");
@@ -782,7 +787,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         createComponentConfigurationSourceInnerClass(javaClass, nestedTypes, model);
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + name + ".java";
-        writeSourceIfChanged(javaClass, fileName, true);
+        writeSourceIfChanged(javaClass, fileName, true, baseDir, rm.getResourceAsFile(javaFilesHeader));
     }
 
     private void createComponentConfigurationSourceInnerClass(JavaClass javaClass, Set<JavaClass> nestedTypes, ComponentModel model) throws MojoFailureException {
@@ -1280,7 +1285,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
     }
     // CHECKSTYLE:ON
 
-    private void createDataFormatConfigurationSource(String packageName, DataFormatModel model, String overrideDataFormatName) throws MojoFailureException {
+    private void createDataFormatConfigurationSource(String packageName, DataFormatModel model, String overrideDataFormatName) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         final JavaClass javaClass = new JavaClass(getProjectClassLoader());
 
         int pos = model.getJavaType().lastIndexOf(".");
@@ -1378,10 +1383,10 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + name + ".java";
-        writeSourceIfChanged(javaClass, fileName, true);
+        writeSourceIfChanged(javaClass, fileName, true, baseDir, rm.getResourceAsFile(javaFilesHeader));
     }
 
-    private void createLanguageConfigurationSource(String packageName, LanguageModel model, String overrideLanguageName) throws MojoFailureException {
+    private void createLanguageConfigurationSource(String packageName, LanguageModel model, String overrideLanguageName) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
         final JavaClass javaClass = new JavaClass(getProjectClassLoader());
 
         int pos = model.getJavaType().lastIndexOf(".");
@@ -1501,11 +1506,11 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + name + ".java";
-        writeSourceIfChanged(javaClass, fileName, true);
+        writeSourceIfChanged(javaClass, fileName, true, baseDir, rm.getResourceAsFile(javaFilesHeader));
     }
 
     private void createComponentAutoConfigurationSource(String packageName, ComponentModel model, List<String> componentAliases, String overrideComponentName)
-            throws MojoFailureException {
+            throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
 
         final String name = model.getJavaType().substring(model.getJavaType().lastIndexOf(".") + 1).replace("Component", "ComponentAutoConfiguration");
         final String configurationName = name.replace("ComponentAutoConfiguration", "ComponentConfiguration");
@@ -1571,7 +1576,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         sortImports(javaClass);
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + name + ".java";
-        writeSourceIfChanged(javaClass, fileName, false);
+        writeSourceIfChanged(javaClass, fileName, false, baseDir, rm.getResourceAsFile(javaFilesHeader));
     }
 
     private Class generateDummyClass(String clazzName) {
@@ -1579,7 +1584,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
     }
 
     private void createDataFormatAutoConfigurationSource(String packageName, DataFormatModel model, List<String> dataFormatAliases, String overrideDataFormatName)
-            throws MojoFailureException {
+            throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
 
         final String name = model.getJavaType().substring(model.getJavaType().lastIndexOf(".") + 1).replace("DataFormat", "DataFormatAutoConfiguration");
         final String configurationName = name.replace("DataFormatAutoConfiguration", "DataFormatConfiguration");
@@ -1651,11 +1656,11 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         sortImports(javaClass);
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + name + ".java";
-        writeSourceIfChanged(javaClass, fileName, false);
+        writeSourceIfChanged(javaClass, fileName, false, baseDir, rm.getResourceAsFile(javaFilesHeader));
     }
 
     private void createLanguageAutoConfigurationSource(String packageName, LanguageModel model, List<String> languageAliases, String overrideLanguageName)
-            throws MojoFailureException {
+            throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException {
 
         final String name = model.getJavaType().substring(model.getJavaType().lastIndexOf(".") + 1).replace("Language", "LanguageAutoConfiguration");
         final String configurationName = name.replace("LanguageAutoConfiguration", "LanguageConfiguration");
@@ -1722,7 +1727,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         method.addAnnotation(ConditionalOnMissingBean.class).setLiteralValue("value", model.getShortJavaType() + ".class");
 
         String fileName = packageName.replaceAll("\\.", "\\/") + "/" + name + ".java";
-        writeSourceIfChanged(javaClass, fileName, false);
+        writeSourceIfChanged(javaClass, fileName, false, baseDir, rm.getResourceAsFile(javaFilesHeader));
     }
 
     private void createComponentSpringFactorySource(String packageName, ComponentModel model) throws MojoFailureException {
@@ -1912,29 +1917,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
                 .collect(Collectors.toList());
     }
 
-    private void writeSourceIfChanged(JavaClass source, String fileName, boolean innerClassesLast) throws MojoFailureException {
-        writeSourceIfChanged(source.printClass(innerClassesLast), fileName);
-    }
 
-    private void writeSourceIfChanged(String source, String fileName) throws MojoFailureException {
-
-        File target = new File(new File(baseDir, "src/main/java"), fileName);
-
-        deleteFileOnMainArtifact(target);
-
-        try {
-            String header;
-            try (InputStream is = getClass().getClassLoader().getResourceAsStream("license-header-java.txt")) {
-                header = PackageHelper.loadText(is);
-            }
-            String code = header + source;
-            getLog().debug("Source code generated:\n" + code);
-
-            updateResource(null, target.toPath(), code);
-        } catch (Exception e) {
-            throw new MojoFailureException("IOError with file " + target, e);
-        }
-    }
 
     private void writeComponentSpringFactorySource(String packageName, String name) throws MojoFailureException {
         StringBuilder sb = new StringBuilder();
@@ -1946,7 +1929,7 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         String fileName = "META-INF/spring.factories";
         File target = new File(new File(baseDir, "src/main/resources"), fileName);
 
-        deleteFileOnMainArtifact(target);
+        MavenUtils.deleteFile(baseDir, target);
 
         if (target.exists()) {
             try {
@@ -2016,19 +1999,6 @@ public class SpringBootAutoConfigurationMojo extends AbstractCamelKafkaConnector
         }
     }
 
-    private void deleteFileOnMainArtifact(File starterFile) {
-        if (!DELETE_FILES_ON_MAIN_ARTIFACTS) {
-            return;
-        }
 
-        String relativePath = baseDir.toPath().relativize(starterFile.toPath()).toString();
-        File mainArtifactFile = new File(baseDir, relativePath);
-        if (mainArtifactFile.exists()) {
-            boolean deleted = mainArtifactFile.delete();
-            if (!deleted) {
-                throw new IllegalStateException("Cannot delete file " + mainArtifactFile);
-            }
-        }
-    }
 
 }

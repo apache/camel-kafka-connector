@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-tika-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: tika</name>
-  <description>Camel Kafka Connector for camel-tika</description>
+  <description>Camel Kafka Connector for tika</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

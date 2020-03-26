@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-mock-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: mock</name>
-  <description>Camel Kafka Connector for camel-mock</description>
+  <description>Camel Kafka Connector for mock</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

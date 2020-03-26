@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-bonita-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: bonita</name>
-  <description>Camel Kafka Connector for camel-bonita</description>
+  <description>Camel Kafka Connector for bonita</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

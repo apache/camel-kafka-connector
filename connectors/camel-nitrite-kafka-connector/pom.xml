@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-nitrite-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: nitrite</name>
-  <description>Camel Kafka Connector for camel-nitrite</description>
+  <description>Camel Kafka Connector for nitrite</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

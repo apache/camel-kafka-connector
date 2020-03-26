@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-ftp-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: ftp</name>
-  <description>Camel Kafka Connector for camel-ftp</description>
+  <description>Camel Kafka Connector for ftp</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

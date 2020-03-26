@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-braintree-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: braintree</name>
-  <description>Camel Kafka Connector for camel-braintree</description>
+  <description>Camel Kafka Connector for braintree</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

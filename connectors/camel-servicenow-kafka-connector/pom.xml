@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-servicenow-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: servicenow</name>
-  <description>Camel Kafka Connector for camel-servicenow</description>
+  <description>Camel Kafka Connector for servicenow</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

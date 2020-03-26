@@ -84,6 +84,12 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
     protected String packageFileTemplate;
 
     /**
+     * Java file header to be placed at the start of every generated .java file.
+     */
+    @Parameter(defaultValue = "camel-kafka-connecotr-java-header.txt")
+    protected String javaFilesHeader;
+
+    /**
      * The project directory
      */
     @Parameter(defaultValue = "${basedir}")

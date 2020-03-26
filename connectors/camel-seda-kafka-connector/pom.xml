@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-seda-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: seda</name>
-  <description>Camel Kafka Connector for camel-seda</description>
+  <description>Camel Kafka Connector for seda</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

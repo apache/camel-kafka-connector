@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-cm-sms-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: cm-sms</name>
-  <description>Camel Kafka Connector for camel-cm-sms</description>
+  <description>Camel Kafka Connector for cm-sms</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

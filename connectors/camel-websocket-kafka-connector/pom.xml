@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-websocket-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: websocket</name>
-  <description>Camel Kafka Connector for camel-websocket</description>
+  <description>Camel Kafka Connector for websocket</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

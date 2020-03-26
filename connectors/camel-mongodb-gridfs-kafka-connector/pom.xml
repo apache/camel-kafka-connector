@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-mongodb-gridfs-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: mongodb-gridfs</name>
-  <description>Camel Kafka Connector for camel-mongodb-gridfs</description>
+  <description>Camel Kafka Connector for mongodb-gridfs</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

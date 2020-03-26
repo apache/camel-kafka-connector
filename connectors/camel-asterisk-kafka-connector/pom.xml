@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-asterisk-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: asterisk</name>
-  <description>Camel Kafka Connector for camel-asterisk</description>
+  <description>Camel Kafka Connector for asterisk</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

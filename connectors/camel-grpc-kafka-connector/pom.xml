@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-grpc-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: grpc</name>
-  <description>Camel Kafka Connector for camel-grpc</description>
+  <description>Camel Kafka Connector for grpc</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-lucene-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: lucene</name>
-  <description>Camel Kafka Connector for camel-lucene</description>
+  <description>Camel Kafka Connector for lucene</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

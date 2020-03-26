@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-cometd-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: cometd</name>
-  <description>Camel Kafka Connector for camel-cometd</description>
+  <description>Camel Kafka Connector for cometd</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

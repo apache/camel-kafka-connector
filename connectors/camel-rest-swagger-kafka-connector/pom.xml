@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-rest-swagger-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: rest-swagger</name>
-  <description>Camel Kafka Connector for camel-rest-swagger</description>
+  <description>Camel Kafka Connector for rest-swagger</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

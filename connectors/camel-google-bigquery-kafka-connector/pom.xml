@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-google-bigquery-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: google-bigquery</name>
-  <description>Camel Kafka Connector for camel-google-bigquery</description>
+  <description>Camel Kafka Connector for google-bigquery</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

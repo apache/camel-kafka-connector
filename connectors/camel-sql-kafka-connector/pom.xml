@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-sql-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: sql</name>
-  <description>Camel Kafka Connector for camel-sql</description>
+  <description>Camel Kafka Connector for sql</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

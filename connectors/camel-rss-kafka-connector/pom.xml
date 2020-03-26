@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-rss-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: rss</name>
-  <description>Camel Kafka Connector for camel-rss</description>
+  <description>Camel Kafka Connector for rss</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-netty-http-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: netty-http</name>
-  <description>Camel Kafka Connector for camel-netty-http</description>
+  <description>Camel Kafka Connector for netty-http</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

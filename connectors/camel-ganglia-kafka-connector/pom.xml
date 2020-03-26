@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-ganglia-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: ganglia</name>
-  <description>Camel Kafka Connector for camel-ganglia</description>
+  <description>Camel Kafka Connector for ganglia</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

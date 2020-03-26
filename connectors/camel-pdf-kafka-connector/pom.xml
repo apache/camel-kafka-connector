@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-pdf-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: pdf</name>
-  <description>Camel Kafka Connector for camel-pdf</description>
+  <description>Camel Kafka Connector for pdf</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

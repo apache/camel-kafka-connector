@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-flatpack-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: flatpack</name>
-  <description>Camel Kafka Connector for camel-flatpack</description>
+  <description>Camel Kafka Connector for flatpack</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

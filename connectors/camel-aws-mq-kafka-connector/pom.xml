@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws-mq-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-mq</name>
-  <description>Camel Kafka Connector for camel-aws-mq</description>
+  <description>Camel Kafka Connector for aws-mq</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

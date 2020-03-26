@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws-sns-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-sns</name>
-  <description>Camel Kafka Connector for camel-aws-sns</description>
+  <description>Camel Kafka Connector for aws-sns</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

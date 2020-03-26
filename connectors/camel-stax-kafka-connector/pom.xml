@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-stax-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: stax</name>
-  <description>Camel Kafka Connector for camel-stax</description>
+  <description>Camel Kafka Connector for stax</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

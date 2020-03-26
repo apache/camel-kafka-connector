@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-browse-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: browse</name>
-  <description>Camel Kafka Connector for camel-browse</description>
+  <description>Camel Kafka Connector for browse</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

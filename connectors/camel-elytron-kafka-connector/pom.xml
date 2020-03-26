@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-elytron-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: elytron</name>
-  <description>Camel Kafka Connector for camel-elytron</description>
+  <description>Camel Kafka Connector for elytron</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-nats-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: nats</name>
-  <description>Camel Kafka Connector for camel-nats</description>
+  <description>Camel Kafka Connector for nats</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

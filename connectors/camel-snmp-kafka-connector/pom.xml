@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-snmp-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: snmp</name>
-  <description>Camel Kafka Connector for camel-snmp</description>
+  <description>Camel Kafka Connector for snmp</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

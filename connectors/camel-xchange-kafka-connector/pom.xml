@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-xchange-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: xchange</name>
-  <description>Camel Kafka Connector for camel-xchange</description>
+  <description>Camel Kafka Connector for xchange</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

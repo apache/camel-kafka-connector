@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-slack-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: slack</name>
-  <description>Camel Kafka Connector for camel-slack</description>
+  <description>Camel Kafka Connector for slack</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-spring-integration-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: spring-integration</name>
-  <description>Camel Kafka Connector for camel-spring-integration</description>
+  <description>Camel Kafka Connector for spring-integration</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-quickfix-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: quickfix</name>
-  <description>Camel Kafka Connector for camel-quickfix</description>
+  <description>Camel Kafka Connector for quickfix</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

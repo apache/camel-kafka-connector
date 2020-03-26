@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws-ses-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-ses</name>
-  <description>Camel Kafka Connector for camel-aws-ses</description>
+  <description>Camel Kafka Connector for aws-ses</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

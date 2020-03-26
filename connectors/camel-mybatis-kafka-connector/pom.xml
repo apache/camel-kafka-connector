@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-mybatis-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: mybatis</name>
-  <description>Camel Kafka Connector for camel-mybatis</description>
+  <description>Camel Kafka Connector for mybatis</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-jclouds-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jclouds</name>
-  <description>Camel Kafka Connector for camel-jclouds</description>
+  <description>Camel Kafka Connector for jclouds</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

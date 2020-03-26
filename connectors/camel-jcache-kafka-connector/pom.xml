@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-jcache-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jcache</name>
-  <description>Camel Kafka Connector for camel-jcache</description>
+  <description>Camel Kafka Connector for jcache</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-docker-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: docker</name>
-  <description>Camel Kafka Connector for camel-docker</description>
+  <description>Camel Kafka Connector for docker</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

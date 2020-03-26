@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-digitalocean-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: digitalocean</name>
-  <description>Camel Kafka Connector for camel-digitalocean</description>
+  <description>Camel Kafka Connector for digitalocean</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

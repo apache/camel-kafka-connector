@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-xj-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: xj</name>
-  <description>Camel Kafka Connector for camel-xj</description>
+  <description>Camel Kafka Connector for xj</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

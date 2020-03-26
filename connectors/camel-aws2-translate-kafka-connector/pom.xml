@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws2-translate-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws2-translate</name>
-  <description>Camel Kafka Connector for camel-aws2-translate</description>
+  <description>Camel Kafka Connector for aws2-translate</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

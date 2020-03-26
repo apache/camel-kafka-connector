@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-iota-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: iota</name>
-  <description>Camel Kafka Connector for camel-iota</description>
+  <description>Camel Kafka Connector for iota</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

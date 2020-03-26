@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-solr-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: solr</name>
-  <description>Camel Kafka Connector for camel-solr</description>
+  <description>Camel Kafka Connector for solr</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

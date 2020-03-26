@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-jmx-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jmx</name>
-  <description>Camel Kafka Connector for camel-jmx</description>
+  <description>Camel Kafka Connector for jmx</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

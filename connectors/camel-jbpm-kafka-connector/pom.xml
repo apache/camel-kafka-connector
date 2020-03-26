@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-jbpm-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jbpm</name>
-  <description>Camel Kafka Connector for camel-jbpm</description>
+  <description>Camel Kafka Connector for jbpm</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

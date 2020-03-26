@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-aws-swf-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: aws-swf</name>
-  <description>Camel Kafka Connector for camel-aws-swf</description>
+  <description>Camel Kafka Connector for aws-swf</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

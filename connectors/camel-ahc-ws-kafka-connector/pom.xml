@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-ahc-ws-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: ahc-ws</name>
-  <description>Camel Kafka Connector for camel-ahc-ws</description>
+  <description>Camel Kafka Connector for ahc-ws</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

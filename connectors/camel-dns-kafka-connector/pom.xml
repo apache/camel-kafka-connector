@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-dns-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: dns</name>
-  <description>Camel Kafka Connector for camel-dns</description>
+  <description>Camel Kafka Connector for dns</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

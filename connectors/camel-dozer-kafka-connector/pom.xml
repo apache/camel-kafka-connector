@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-dozer-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: dozer</name>
-  <description>Camel Kafka Connector for camel-dozer</description>
+  <description>Camel Kafka Connector for dozer</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

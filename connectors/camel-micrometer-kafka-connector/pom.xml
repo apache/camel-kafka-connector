@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-micrometer-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: micrometer</name>
-  <description>Camel Kafka Connector for camel-micrometer</description>
+  <description>Camel Kafka Connector for micrometer</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-xslt-saxon-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: xslt-saxon</name>
-  <description>Camel Kafka Connector for camel-xslt-saxon</description>
+  <description>Camel Kafka Connector for xslt-saxon</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

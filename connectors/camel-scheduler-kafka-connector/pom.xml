@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-scheduler-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: scheduler</name>
-  <description>Camel Kafka Connector for camel-scheduler</description>
+  <description>Camel Kafka Connector for scheduler</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-mina-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: mina</name>
-  <description>Camel Kafka Connector for camel-mina</description>
+  <description>Camel Kafka Connector for mina</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

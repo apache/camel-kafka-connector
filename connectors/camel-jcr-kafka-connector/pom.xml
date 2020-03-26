@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-jcr-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: jcr</name>
-  <description>Camel Kafka Connector for camel-jcr</description>
+  <description>Camel Kafka Connector for jcr</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>

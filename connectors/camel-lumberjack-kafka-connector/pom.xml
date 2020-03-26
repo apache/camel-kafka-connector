@@ -26,7 +26,7 @@
   </parent>
   <artifactId>camel-lumberjack-kafka-connector</artifactId>
   <name>Camel-Kafka-Connector :: lumberjack</name>
-  <description>Camel Kafka Connector for camel-lumberjack</description>
+  <description>Camel Kafka Connector for lumberjack</description>
   <dependencies>
     <!-- Kafka -->
     <dependency>
