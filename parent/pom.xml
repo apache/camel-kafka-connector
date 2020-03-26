@@ -292,6 +292,7 @@
                     <executions>
                         <execution>
                             <id>integration-test</id>
+                            <phase>test</phase>
                             <goals>
                                 <goal>integration-test</goal>
                                 <goal>verify</goal>
