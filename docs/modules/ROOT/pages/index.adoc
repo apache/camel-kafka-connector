@@ -4,4 +4,4 @@ Camel Kafka Connector allows you to use all Camel xref:components::index.adoc[co
 
 To get started try it out xref:try-it-out-locally.adoc[locally] or on xref:try-it-out-on-openshift-with-strimzi.adoc[OpenShift cluster] with https://strimzi.io/[Strimzi].
 
-For more information join the community on the [Camel Users mailing list](/community/mailing-list/) or chat on [Gitter chat](https://gitter.im/apache/camel-kafka-connector) and have a look at the [Camel Kafka Connector GitHub repository](https://github.com/apache/camel-kafka-connector/).
+For more information join the community on the https://camel.apache.org/community/mailing-list/[Camel Users mailing list] or chat on https://gitter.im/apache/camel-kafka-connector[Gitter chat] and have a look at the https://github.com/apache/camel-kafka-connector/[Camel Kafka Connector GitHub repository].
