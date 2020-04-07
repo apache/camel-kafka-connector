@@ -130,6 +130,7 @@ class KafkaConnectRunner {
         AllConnectorClientConfigOverridePolicy allConnectorClientConfigOverridePolicy = new AllConnectorClientConfigOverridePolicy();
 
         RestServer rest = new RestServer(config);
+        rest.initializeServer();
 
         /*
          According to the Kafka source code "... Worker runs a (dynamic) set of tasks
