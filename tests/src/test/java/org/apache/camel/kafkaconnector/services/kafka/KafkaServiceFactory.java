@@ -28,21 +28,26 @@ public final class KafkaServiceFactory {
     }
 
     public static KafkaService createService() {
-        String kafkaRemote = System.getProperty("kafka.instance.type");
+        String kafkaInstanceType = System.getProperty("kafka.instance.type");
 
-        if (kafkaRemote == null || kafkaRemote.equals("local-strimzi-container")) {
+
+        if (kafkaInstanceType == null || kafkaInstanceType.equals("embedded")) {
+            return new EmbeddedKafkaService();
+        }
+
+        if (kafkaInstanceType.equals("local-strimzi-container")) {
             return new StrimziService();
         }
 
-        if (kafkaRemote.equals("local-kafka-container")) {
+        if (kafkaInstanceType.equals("local-kafka-container")) {
             return new ContainerLocalKafkaService();
         }
 
-        if (kafkaRemote.equals("remote")) {
+        if (kafkaInstanceType.equals("remote")) {
             return new RemoteKafkaService();
         }
 
-        LOG.error("Invalid Kafka instance must be one of 'local-strimzi-container', 'local-kafka-container' or 'remote");
+        LOG.error("Kafka instance must be one of 'local-strimzi-container', 'local-kafka-container', 'embedded' or 'remote");
         throw new UnsupportedOperationException("Invalid Kafka instance type:");
     }
 

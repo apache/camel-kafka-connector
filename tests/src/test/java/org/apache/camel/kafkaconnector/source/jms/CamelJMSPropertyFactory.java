@@ -23,7 +23,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.sjms2.CamelSjms2SinkConnectorConfig;
 import org.apache.camel.kafkaconnector.sjms2.CamelSjms2SourceConnectorConfig;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 
