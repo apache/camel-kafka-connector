@@ -148,9 +148,9 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
                  It may take some time for the local Kinesis backend to be fully up - even though the container is
                  reportedly up and running. Therefore, it tries a few more times
                  */
-
-                LOG.error("Failed to put the records: {}", e.getMessage(), e);
+                LOG.trace("Failed to put the records: {}. Retrying in 2 seconds ...", e.getMessage());
                 if (retries == 0) {
+                    LOG.error("Failed to put the records: {}", e.getMessage(), e);
                     throw e;
                 }
 
