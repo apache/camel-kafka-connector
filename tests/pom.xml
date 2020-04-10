@@ -157,6 +157,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jul</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <scope>test</scope>
@@ -262,9 +267,11 @@
                     - com.amazonaws.sdk.disableCbor is used to ensure the AWS Kinesis reply is parseable
                     - itest.strimzi.container.image and itest.zookeeper.container.image define the strimzi and zookeeper
                     images used when running the tests w/ those containers
+                    - java.util.logging.manager sets the logging manager used in GlassFish to the log4j one. GlassFish
+                    is used by the rest API of the Kafka Connect.
 
                      -->
-                    <argLine>-Dproject.basedir=${project.basedir}/.. -Dcom.amazonaws.sdk.disableCbor=true -Ditest.strimzi.container.image=${itest.strimzi.container.image} -Ditest.zookeeper.container.image=${itest.zookeeper.container.image}</argLine>
+                    <argLine>-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -Dproject.basedir=${project.basedir}/.. -Dcom.amazonaws.sdk.disableCbor=true -Ditest.strimzi.container.image=${itest.strimzi.container.image} -Ditest.zookeeper.container.image=${itest.zookeeper.container.image}</argLine>
                     <skipTests>${skipIntegrationTests}</skipTests>
                 </configuration>
             </plugin>
