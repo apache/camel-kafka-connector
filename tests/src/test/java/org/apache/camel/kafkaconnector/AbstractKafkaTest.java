@@ -19,7 +19,7 @@ package org.apache.camel.kafkaconnector;
 
 import org.apache.camel.kafkaconnector.services.kafka.KafkaService;
 import org.apache.camel.kafkaconnector.services.kafka.KafkaServiceFactory;
-import org.apache.camel.kafkaconnector.services.kafkaconnect.KafkaConnectRunnerService;
+import org.apache.camel.kafkaconnector.services.kafkaconnect.KafkaConnectRunnerFactory;
 import org.apache.camel.kafkaconnector.services.kafkaconnect.KafkaConnectService;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -40,7 +40,7 @@ public class AbstractKafkaTest {
 
         KAFKA_SERVICE.initialize();
 
-        KAFKA_CONNECT_RUNNER_SERVICE = new KafkaConnectRunnerService(KAFKA_SERVICE);
+        KAFKA_CONNECT_RUNNER_SERVICE = KafkaConnectRunnerFactory.createService(KAFKA_SERVICE);
     }
 
     public AbstractKafkaTest() {

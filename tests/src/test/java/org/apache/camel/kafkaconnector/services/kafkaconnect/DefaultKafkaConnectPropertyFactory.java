@@ -19,6 +19,7 @@ package org.apache.camel.kafkaconnector.services.kafkaconnect;
 
 import java.util.Properties;
 
+import org.apache.camel.kafkaconnector.PluginPathHelper;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
 
 
@@ -47,8 +48,10 @@ class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory 
         props.put(StandaloneConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.json.JsonConverter");
         props.put(StandaloneConfig.OFFSET_STORAGE_FILE_FILENAME_CONFIG, this.getClass().getResource("/").getPath() + "connect.offsets");
         props.put(StandaloneConfig.OFFSET_COMMIT_INTERVAL_MS_CONFIG, "10000");
-        props.put(StandaloneConfig.PLUGIN_PATH_CONFIG, "");
         props.put(StandaloneConfig.LISTENERS_CONFIG, "http://localhost:9999");
+
+        String pluginPaths = PluginPathHelper.pluginPaths();
+        props.put(StandaloneConfig.PLUGIN_PATH_CONFIG, pluginPaths);
 
         return props;
     }
