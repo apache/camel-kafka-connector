@@ -79,7 +79,7 @@
                     <!-- set to true to make build fail if an option has no description -->
                     <!--  <failOnMissingDescription>false</failOnMissingDescription> -->
                     <!-- Process just this components -->
-                    <!--  <filter></filter> -->
+                    <!-- <filter></filter> -->
                     <initialPomTemplate>${project.basedir}/template-connector-pom.xml</initialPomTemplate>
                     <noticeTemplate>${project.basedir}/camel-kafka-connector-NOTICE.txt</noticeTemplate>
                     <licenseTemplate>${project.basedir}/camel-kafka-connector-LICENSE.txt</licenseTemplate>
