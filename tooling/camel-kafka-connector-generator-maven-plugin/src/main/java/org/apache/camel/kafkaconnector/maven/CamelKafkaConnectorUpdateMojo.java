@@ -24,11 +24,14 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 
+import javax.annotation.Generated;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -44,7 +47,13 @@ import org.xml.sax.SAXException;
 
 import freemarker.template.Template;
 import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
+import org.apache.camel.tooling.model.BaseOptionModel;
+import org.apache.camel.tooling.model.ComponentModel;
+import org.apache.camel.tooling.model.JsonMapper;
+import org.apache.camel.tooling.util.srcgen.JavaClass;
+import org.apache.camel.tooling.util.srcgen.Method;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -53,6 +62,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.codehaus.plexus.resource.loader.FileResourceCreationException;
 import org.codehaus.plexus.resource.loader.ResourceNotFoundException;
+
 
 import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.sanitizeMavenArtifactId;
 import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.writeFileIfChanged;
@@ -73,7 +83,37 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
     private static final String GENERATED_SECTION_END_COMMENT = "<!--" + GENERATED_SECTION_END + "-->";
 
     private static final String EXCLUDE_DEPENDENCY_PROPERTY_PREFIX = "exclude_";
+    private static final String ADDITIONAL_COMMON_PROPERTIES_PROPERTY_PREFIX = "additional_properties_";
     private static final String XML_FEATURES_DISALLOW_DOCTYPE_DECL = "http://apache.org/xml/features/disallow-doctype-decl";
+
+
+    private static final Map<String, Class<?>> PRIMITIVEMAP;
+    private static final Map<String, String> CONFIGDEFMAP;
+
+    private static final Map<String, String> RESERVEDWORDSUBSTITUTIONMAP;
+
+    static {
+        PRIMITIVEMAP = new HashMap<>();
+        PRIMITIVEMAP.put("boolean", Boolean.class);
+        PRIMITIVEMAP.put("long", Long.class);
+        PRIMITIVEMAP.put("int", Integer.class);
+        PRIMITIVEMAP.put("short", Short.class);
+        PRIMITIVEMAP.put("double", Double.class);
+        PRIMITIVEMAP.put("float", Float.class);
+
+        CONFIGDEFMAP = new HashMap<>();
+        CONFIGDEFMAP.put("boolean", "ConfigDef.Type.BOOLEAN");
+        CONFIGDEFMAP.put("long", "ConfigDef.Type.LONG");
+        CONFIGDEFMAP.put("int", "ConfigDef.Type.INT");
+        CONFIGDEFMAP.put("short", "ConfigDef.Type.SHORT");
+        CONFIGDEFMAP.put("double", "ConfigDef.Type.DOUBLE");
+        CONFIGDEFMAP.put("float", "ConfigDef.Type.DOUBLE");
+
+        RESERVEDWORDSUBSTITUTIONMAP = new HashMap<>();
+        RESERVEDWORDSUBSTITUTIONMAP.put("class", "clazz");
+    }
+
+    protected DynamicClassLoader projectClassLoader;
 
     @Parameter(property = "name", required = true)
     protected String name;
@@ -117,6 +157,19 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         }
     }
 
+    protected DynamicClassLoader getProjectClassLoader() {
+        if (projectClassLoader == null) {
+            final List<String> classpathElements;
+            try {
+                classpathElements = project.getTestClasspathElements();
+            } catch (org.apache.maven.artifact.DependencyResolutionRequiredException e) {
+                throw new RuntimeException(e.getMessage(), e);
+            }
+            projectClassLoader = DynamicClassLoader.createDynamicClassLoader(classpathElements);
+        }
+        return projectClassLoader;
+    }
+
     private void updateConnector() throws Exception {
         String sanitizedName = sanitizeMavenArtifactId(name);
         // create the starter directory
@@ -145,6 +198,17 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
 
         // write LICENSE, USAGE
         writeStaticFiles(connectorDir);
+
+        // generate classes
+        ComponentModel model = JsonMapper.generateComponentModel(componentJson);
+        if (model.isConsumerOnly()) {
+            createClasses(sanitizedName, connectorDir, model, ConnectorType.SOURCE);
+        } else if (model.isProducerOnly()) {
+            createClasses(sanitizedName, connectorDir, model, ConnectorType.SINK);
+        } else {
+            createClasses(sanitizedName, connectorDir, model, ConnectorType.SOURCE);
+            createClasses(sanitizedName, connectorDir, model, ConnectorType.SINK);
+        }
     }
 
     private void fixExcludedDependencies(Document pom) throws Exception {
@@ -167,8 +231,6 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         Set<String> libsToRemove = new TreeSet<>();
         libsToRemove.addAll(loggingImpl);
         libsToRemove.addAll(configExclusions);
-        //TODO: enable if needed.
-        //        libsToRemove = filterIncludedArtifacts(libsToRemove);
 
         if (libsToRemove.size() > 0) {
             getLog().info("Camel-kafka-connector: the following dependencies will be removed from the connector: " + libsToRemove);
@@ -225,30 +287,6 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
             getLog().warn("Cannot access the project pom file to retrieve repositories");
         }
     }
-
-//TODO: enable if needed.
-//  private Set<String> filterIncludedArtifacts(Set<String> artifacts) {
-//
-//        Set<Artifact> dependencies;
-//        try {
-//            Artifact artifact = project.getArtifactMap().get(getMainDepGroupId() + ":" + getMainDepArtifactId());
-//            ProjectBuildingResult result = projectBuilder.build(artifact, project.getProjectBuildingRequest());
-//            MavenProject prj = result.getProject();
-//            prj.setRemoteArtifactRepositories(project.getRemoteArtifactRepositories());
-//            dependencies = projectDependenciesResolver.resolve(prj, Collections.singleton(Artifact.SCOPE_COMPILE), session);
-//        } catch (Exception e) {
-//            throw new RuntimeException("Unable to build project dependency tree", e);
-//        }
-//
-//        Set<String> included = new TreeSet<>();
-//        dependencies.stream()
-//                .filter(a -> !Artifact.SCOPE_TEST.equals(a.getScope()))
-//                .map(a -> a.getGroupId() + ":" + a.getArtifactId())
-//                .forEach(included::add);
-//        included.retainAll(artifacts);
-//
-//        return included;
-//    }
 
     private Document createPackageFile() throws ResourceNotFoundException, FileResourceCreationException, IOException {
         getLog().info("Creating a new package.xml for the connector.");
@@ -307,5 +345,213 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         String componentName = getMainDepArtifactId();
         String componentId = componentName.replace("camel-", "");
         return componentId;
+    }
+
+    private void createClasses(String sanitizedName, File connectorDir, ComponentModel model, ConnectorType ct) throws MojoFailureException, ResourceNotFoundException, FileResourceCreationException, IOException {
+        String ctCapitalizedName = StringUtils.capitalize(ct.name().toLowerCase());
+        String ctLowercaseName = ct.name().toLowerCase();
+        String packageName = "org.apache.camel.kafkaconnector." + RESERVEDWORDSUBSTITUTIONMAP.getOrDefault(sanitizedName.replace("-", ""), sanitizedName.replace("-", ""));
+        Map<String, String> additionalProperties = new HashMap<>();
+        Properties properties = new Properties();
+        properties.load(new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties)));
+        String commonPropertyValue = properties.getProperty(ADDITIONAL_COMMON_PROPERTIES_PROPERTY_PREFIX + getMainDepArtifactId());
+        getLog().debug("Additional common connector properties: " + commonPropertyValue);
+        addProperties(additionalProperties, commonPropertyValue);
+        String sourceOrSinkPropertyValue = properties.getProperty(ADDITIONAL_COMMON_PROPERTIES_PROPERTY_PREFIX + ctLowercaseName + "_" + getMainDepArtifactId());
+        getLog().debug("Additional " + ctLowercaseName + " connector properties: " + sourceOrSinkPropertyValue);
+        addProperties(additionalProperties, sourceOrSinkPropertyValue);
+
+        //Camel{sanitizedName}{Sink,Source}ConnectorConfig.java
+        String javaClassConnectorConfigName = "Camel" + StringUtils.capitalize(sanitizedName.replace("-", "")) + ctCapitalizedName + "ConnectorConfig";
+        final JavaClass javaClassConnectorConfig = new JavaClass(getProjectClassLoader());
+        javaClassConnectorConfig.setPackage(packageName);
+        javaClassConnectorConfig.setName(javaClassConnectorConfigName);
+        javaClassConnectorConfig.addAnnotation(Generated.class).setStringValue("value", "This class has been generated by camel-kafka-connector-generator-maven-plugin, remove this annotation to prevent it from being generated.");
+        javaClassConnectorConfig.extendSuperType("Camel" + ctCapitalizedName + "ConnectorConfig");
+        javaClassConnectorConfig.addImport("java.util.Map");
+        javaClassConnectorConfig.addImport("org.apache.camel.kafkaconnector.Camel" + ctCapitalizedName + "ConnectorConfig");
+        javaClassConnectorConfig.addImport("org.apache.kafka.common.config.ConfigDef");
+
+        javaClassConnectorConfig.addMethod().setConstructor(true).setName(javaClassConnectorConfigName)
+                .addParameter("ConfigDef", "config")
+                .addParameter("Map<String, String>", "parsedConfig")
+                .setPublic()
+                .setBody("super(config, parsedConfig);");
+        javaClassConnectorConfig.addMethod().setConstructor(true).setName(javaClassConnectorConfigName)
+                .addParameter("Map<String, String>", "parsedConfig")
+                .setPublic()
+                .setBody("this(conf(), parsedConfig);");
+
+        Method confMethod = javaClassConnectorConfig.addMethod().setConstructor(false).setName("conf")
+                .addParameter("Map<String, String>", "parsedConfig")
+                .setReturnType("ConfigDef")
+                .setPublic()
+                .setStatic()
+                .setBody("ConfigDef conf = new ConfigDef(Camel" + ctCapitalizedName + "ConnectorConfig.conf());\n");
+
+        Predicate<? super BaseOptionModel> filterEndpointOptions;
+        switch (ct) {
+            case SINK:
+                filterEndpointOptions = new Predicate<BaseOptionModel>() {
+                    @Override
+                    public boolean test(BaseOptionModel optionModel) {
+                        return optionModel.getLabel() == null
+                                || optionModel.getLabel().contains("producer")
+                                || (!optionModel.getLabel().contains("producer")
+                                && !optionModel.getLabel().contains("consumer"));
+                    }
+                };
+                break;
+            case SOURCE:
+                filterEndpointOptions = new Predicate<BaseOptionModel>() {
+                    @Override
+                    public boolean test(BaseOptionModel optionModel) {
+                        return optionModel.getLabel() == null
+                                || optionModel.getLabel().contains("consumer")
+                                || (!optionModel.getLabel().contains("producer")
+                                && !optionModel.getLabel().contains("consumer"));
+                    }
+                };
+                break;
+            default:
+                throw new UnsupportedOperationException("Connector type not supported: " + ct + " must be one of " + ConnectorType.SINK + ", " + ConnectorType.SOURCE);
+        }
+
+        model.getEndpointPathOptions().stream()
+                .filter(filterEndpointOptions)
+                .forEachOrdered(epo -> addConnectorOptions(sanitizedName, ct, javaClassConnectorConfig, confMethod, "PATH",  ctLowercaseName, "path", epo));
+        model.getEndpointParameterOptions().stream()
+                .filter(filterEndpointOptions)
+                .forEachOrdered(epo -> addConnectorOptions(sanitizedName, ct, javaClassConnectorConfig, confMethod, "ENDPOINT", ctLowercaseName, "endpoint", epo));
+        model.getComponentOptions().stream()
+                .filter(filterEndpointOptions)
+                .forEachOrdered(co -> addConnectorOptions(sanitizedName, ct, javaClassConnectorConfig, confMethod, "COMPONENT", "component", sanitizedName, co));
+
+        confMethod.setBody(confMethod.getBody() + "return conf;");
+
+        String javaClassConnectorConfigFileName = packageName.replaceAll("\\.", "\\/") + "/" + javaClassConnectorConfigName + ".java";
+        MavenUtils.writeSourceIfChanged(javaClassConnectorConfig, javaClassConnectorConfigFileName, false, connectorDir, rm.getResourceAsFile(javaFilesHeader));
+
+        //Camel{sanitizedName}{Sink,Source}Task.java
+        String javaClassTaskName = "Camel" + StringUtils.capitalize(sanitizedName.replace("-", "")) + ctCapitalizedName + "Task";
+        final JavaClass javaClassTask = new JavaClass(getProjectClassLoader());
+        javaClassTask.setPackage(packageName);
+        javaClassTask.setName(javaClassTaskName);
+        javaClassTask.addAnnotation(Generated.class).setStringValue("value", "This class has been generated by camel-kafka-connector-generator-maven-plugin, remove this annotation to prevent it from being generated.");
+        javaClassTask.extendSuperType("Camel" + ctCapitalizedName + "Task");
+        javaClassTask.addImport("java.util.HashMap");
+        javaClassTask.addImport("java.util.Map");
+        javaClassTask.addImport("org.apache.camel.kafkaconnector.Camel" + ctCapitalizedName + "ConnectorConfig");
+        javaClassTask.addImport("org.apache.camel.kafkaconnector.Camel" + ctCapitalizedName + "Task");
+
+        javaClassTask.addMethod().setConstructor(false).setName("getCamel" + ctCapitalizedName + "ConnectorConfig")
+                .setProtected()
+                .addParameter("Map<String, String>", "props")
+                .setReturnType("Camel" + ctCapitalizedName + "ConnectorConfig")
+                .setBody("return new Camel" + StringUtils.capitalize(sanitizedName.replace("-", "")) + ctCapitalizedName + "ConnectorConfig(props);")
+                .addAnnotation(Override.class);
+        Method getDefaultConfigMethod = javaClassTask.addMethod().setConstructor(false).setName("getDefaultConfig")
+                .setProtected()
+                .setReturnType("Map<String, String>")
+                .setBody("return new HashMap<String, String>() {{\n");
+        getDefaultConfigMethod.setBody(getDefaultConfigMethod.getBody() + "    put(Camel" + ctCapitalizedName + "ConnectorConfig.CAMEL_" + ct + "_COMPONENT_CONF, \"" + model.getScheme() + "\");\n");
+        for (String key : new TreeSet<String>(additionalProperties.keySet())) {
+            getDefaultConfigMethod.setBody(getDefaultConfigMethod.getBody() + "    put(\"" + key + "\", \"" + additionalProperties.get(key) + "\");\n");
+        }
+        getDefaultConfigMethod.setBody(getDefaultConfigMethod.getBody() + "}};\n");
+        getDefaultConfigMethod.addAnnotation(Override.class);
+        String javaClassTaskFileName = packageName.replaceAll("\\.", "\\/") + "/" + javaClassTaskName + ".java";
+        MavenUtils.writeSourceIfChanged(javaClassTask, javaClassTaskFileName, false, connectorDir, rm.getResourceAsFile(javaFilesHeader));
+
+        //Camel{sanitizedName}{Sink,Source}Connector.java
+        String javaClassConnectorName = "Camel" + StringUtils.capitalize(sanitizedName.replace("-", "")) + ctCapitalizedName + "Connector";
+        final JavaClass javaClassConnector = new JavaClass(getProjectClassLoader());
+        javaClassConnector.setPackage(packageName);
+        javaClassConnector.setName(javaClassConnectorName);
+        javaClassConnector.addAnnotation(Generated.class).setStringValue("value", "This class has been generated by camel-kafka-connector-generator-maven-plugin, remove this annotation to prevent it from being generated.");
+        javaClassConnector.extendSuperType("Camel" + ctCapitalizedName + "Connector");
+        javaClassConnector.addImport("org.apache.camel.kafkaconnector.Camel" + ctCapitalizedName + "Connector");
+        javaClassConnector.addImport("org.apache.kafka.common.config.ConfigDef");
+        javaClassConnector.addImport("org.apache.kafka.connect.connector.Task");
+
+        javaClassConnector.addMethod().setConstructor(false).setName("config")
+                .setPublic()
+                .setReturnType("ConfigDef")
+                .setBody("return Camel" + StringUtils.capitalize(sanitizedName.replace("-", "")) + ctCapitalizedName + "ConnectorConfig.conf();")
+                .addAnnotation(Override.class);
+        javaClassConnector.addMethod().setConstructor(false).setName("taskClass")
+                .setPublic()
+                .setReturnType("Class<? extends Task>")
+                .setBody("return Camel" + StringUtils.capitalize(sanitizedName.replace("-", "")) + ctCapitalizedName + "Task.class;")
+                .addAnnotation(Override.class);
+
+        String javaClassConnectorFileName = packageName.replaceAll("\\.", "\\/") + "/" + javaClassConnectorName + ".java";
+        MavenUtils.writeSourceIfChanged(javaClassConnector, javaClassConnectorFileName, false, connectorDir, rm.getResourceAsFile(javaFilesHeader));
+    }
+
+    private void addProperties(Map<String, String> additionalProperties, String additionalProp) {
+        if (additionalProp != null && additionalProp.trim().length() > 0) {
+            for (String prop : additionalProp.split(",")) {
+                getLog().debug("Additional property before key value split: " + prop);
+                String[] keyValue = prop.split("=");
+                getLog().debug("Additional property key value: " + keyValue);
+                additionalProperties.put(keyValue[0], keyValue[1]);
+            }
+        }
+    }
+
+    private void addConnectorOptions(String sanitizedName, ConnectorType ct, JavaClass javaClass, Method confMethod, String propertyQualifier, String firstNamespace, String secondNamespace, BaseOptionModel epo) {
+        String propertyName = epo.getName();
+
+        String regex = "([A-Z][a-z]+)";
+        String replacement = "$1_";
+
+        String propertyPrefix = "CAMEL_" + ct + "_" + sanitizedName.replace("-", "").toUpperCase() + "_" + propertyQualifier.toUpperCase() + "_" + StringUtils.capitalize(propertyName).replaceAll(regex, replacement).toUpperCase();
+        String propertyValue = "camel." + firstNamespace + "." + secondNamespace + "." + epo.getName();
+
+        String confFieldName = propertyPrefix + "CONF";
+        javaClass.addField().setFinal(true).setPublic().setStatic(true)
+                .setName(confFieldName)
+                .setType(String.class)
+                .setStringInitializer(propertyValue);
+
+        String docFieldName = propertyPrefix + "DOC";
+        String docLiteralInitializer = epo.getDescription();
+        if (epo.getEnums() != null && !epo.getEnums().isEmpty()) {
+            docLiteralInitializer = docLiteralInitializer + " One of:";
+            String enumOptionListing = epo.getEnums().stream().reduce("", (s, s2) -> s + " [" + s2 + "]");
+            docLiteralInitializer = docLiteralInitializer + enumOptionListing;
+        }
+        javaClass.addField().setFinal(true).setPublic().setStatic(true)
+                .setName(docFieldName)
+                .setType(String.class)
+                .setStringInitializer(docLiteralInitializer);
+
+        String defaultFieldName = propertyPrefix + "DEFAULT";
+        Class<?> defaultValueClass = PRIMITIVEMAP.getOrDefault(epo.getShortJavaType(), String.class);
+        String defaultValueClassLiteralInitializer = epo.getDefaultValue() ==  null ? "null" : epo.getDefaultValue().toString();
+        if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(String.class)) {
+            defaultValueClassLiteralInitializer = "\"" + defaultValueClassLiteralInitializer + "\"";
+        } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Long.class)) {
+            defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "L";
+        } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Float.class)) {
+            defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "F";
+        } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Double.class)) {
+            defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "D";
+        }
+        javaClass.addField().setFinal(true).setPublic().setStatic(true)
+                .setName(defaultFieldName)
+                .setType(defaultValueClass)
+                .setLiteralInitializer(defaultValueClassLiteralInitializer);
+
+        String confType = CONFIGDEFMAP.getOrDefault(epo.getShortJavaType(), "ConfigDef.Type.STRING");
+        String confPriority = epo.isDeprecated() ? "ConfigDef.Importance.LOW" : "ConfigDef.Importance.MEDIUM";
+        confPriority = epo.isRequired() ? "ConfigDef.Importance.HIGH" : confPriority;
+        confMethod.setBody(confMethod.getBody() + "conf.define(" + confFieldName + ", " + confType + ", " + defaultFieldName + ", " + confPriority + ", " + docFieldName + ");\n");
+    }
+
+    private enum ConnectorType {
+        SINK,
+        SOURCE
     }
 }

@@ -97,6 +97,7 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
     protected void executeAll() throws MojoExecutionException, IOException, ResourceNotFoundException, FileResourceCreationException {
         CamelCatalog cc = new DefaultCamelCatalog();
         List<String> components;
+        //TODO: implement an exclusion mechanism
         if (filter == null || filter.isEmpty()) {
             components = cc.findComponentNames();
         } else {
@@ -105,8 +106,7 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
         }
         getLog().info("Components found to be generated/updated: " + components);
 
-        //TODO: evaluate dataformats to include in each camel kafka connector generated placing them as a
-        // commma separatev GAV in:
+        //TODO: evaluate dataformats to include in each camel kafka connector generated placing them as a comma separated GAV in:
         String additionalDependencies = "";
 
         final Properties properties = new Properties();
