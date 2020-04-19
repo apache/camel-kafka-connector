@@ -25,11 +25,23 @@
               files=".+[\\\/]generated[\\\/].+\.java"
               />
     <suppress checks=".*"
-              files=".*/camel-endpointdsl/src/main/java/org/apache/camel/builder/endpoint/dsl/.*"
+              files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SinkConnector"
               />
     <suppress checks=".*"
-              files=".*/platforms/spring-boot/components-starter/camel-.+-starter/src/main/java/org/apache/camel/.*"
-              />
+              files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SinkConnectorConfig"
+    />
+    <suppress checks=".*"
+              files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SinkTask"
+    />
+    <suppress checks=".*"
+              files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SourceConnector"
+    />
+    <suppress checks=".*"
+              files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SourceConnectorConfig"
+    />
+    <suppress checks=".*"
+              files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SourceTask"
+    />
     <suppress checks=".*"
               files=".+[\\\/]build[\\\/]src[\\\/].+\.java"
               />

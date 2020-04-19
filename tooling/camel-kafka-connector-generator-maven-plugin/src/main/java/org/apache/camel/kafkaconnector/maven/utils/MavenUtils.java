@@ -226,21 +226,6 @@ public final class MavenUtils {
         return builder.parse(bin);
     }
 
-//    public static Template getTemplate(String name) throws IOException {
-//        Configuration cfg = new Configuration(Configuration.getVersion());
-//
-//        cfg.setTemplateLoader(new URLTemplateLoader() {
-//            @Override
-//            protected URL getURL(String name) {
-//                return CamelKafkaConnectorUpdateMojo.class.getResource("/" + name);
-//            }
-//        });
-//
-//        cfg.setDefaultEncoding("UTF-8");
-//        Template template = cfg.getTemplate(name);
-//        return template;
-//    }
-
     public static Template getTemplate(File templateFile) throws IOException {
         Configuration cfg = new Configuration(Configuration.getVersion());
 
@@ -279,7 +264,7 @@ public final class MavenUtils {
     }
 
     public static void writeSourceIfChanged(String source, String fileName, File baseDir, File javaFileHeader) throws MojoFailureException {
-
+        //TODO: Do not write class if a class already exist and has no @generated annotation.
         File target = new File(new File(baseDir, "src/main/java"), fileName);
 
         deleteFile(baseDir, target);

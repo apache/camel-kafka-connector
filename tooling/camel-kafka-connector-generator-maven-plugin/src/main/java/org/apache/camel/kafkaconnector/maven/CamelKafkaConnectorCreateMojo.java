@@ -131,13 +131,5 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
                 lines.subList(modulesEnd, lines.size()).stream())
                 .collect(Collectors.toList());
         Files.write(parent, lines);
-
-        //TODO: invoke connector update mojo as well?
-    }
-
-    private String getComponentId() {
-        String componentName = getMainDepArtifactId();
-        String componentId = componentName.replace("camel-", "");
-        return componentId;
     }
 }

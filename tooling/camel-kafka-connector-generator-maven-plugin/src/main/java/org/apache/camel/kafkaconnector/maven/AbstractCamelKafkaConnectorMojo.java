@@ -112,14 +112,9 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
     public void execute() throws MojoExecutionException, MojoFailureException {
         configureResourceManager();
         if (!project.getArtifactId().equals(connectorsProjectName)) {
+            getLog().debug("Skipping porject " + project.getArtifactId() + " since it is not " + connectorsProjectName + " can be configured with <connectors-project-name> option.");
             return;
         }
-        //TODO: Do not generate code for ignored module
-        //        if (isIgnore(getMainDepArtifactId())) {
-        //            getLog().info("Skipping module contained in the ignore list");
-        //            return;
-        //        }
-
         try {
             executeAll();
         } catch (IOException | ResourceNotFoundException | FileResourceCreationException e) {
@@ -132,10 +127,6 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
         File dir = project.getFile().getParentFile();
         rm.addSearchPath(FileResourceLoader.ID, dir.getAbsolutePath());
         rm.addSearchPath("url", "");
-    }
-
-    protected boolean isIgnore(String artifactId) {
-        return false;
     }
 
     protected abstract String getMainDepArtifactId();
@@ -157,18 +148,6 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
     protected JarFile getJarFile(String groupId, String artifactId) throws IOException {
         return new JarFile(project.getArtifactMap().get(groupId + ":" + artifactId).getFile());
     }
-
-    //TODO: reneamble this if needed to generate connector classes
-//    protected Map<String, Supplier<String>> getJSonFiles(JarFile componentJar) {
-//        Artifact mainDep = getMainDep();
-//        Map<String, Supplier<String>> files;
-//        files = componentJar.stream()
-//                .filter(je -> je.getName().endsWith(".json"))
-//                .collect(Collectors.toMap(
-//                    je -> "jar:" + mainDep.getFile().toURI().toString() + "!" + je.getName(),
-//                    je -> cache(() -> loadJson(componentJar, je))));
-//        return files;
-//    }
 
     protected List<String> findComponentNames(JarFile componentJar) {
         return findNames(componentJar, "META-INF/services/org/apache/camel/component/");
