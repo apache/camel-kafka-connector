@@ -39,7 +39,7 @@
 
         <version.maven.compiler>3.8.1</version.maven.compiler>
         <version.maven.surefire>2.19.1</version.maven.surefire>
-        <version.maven.javadoc>2.10.4</version.maven.javadoc>
+        <version.maven.javadoc>3.1.1</version.maven.javadoc>
         <version.maven.source>3.0.1</version.maven.source>
         <version.maven.resources>3.0.1</version.maven.resources>
         <version.maven.antrun>1.8</version.maven.antrun>
@@ -301,6 +301,9 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${version.maven.javadoc}</version>
+                    <configuration>
+                         <doclint>none</doclint>
+                    </configuration>
                 </plugin>
 
                 <plugin>

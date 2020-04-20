@@ -282,7 +282,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <additionalOptions>${javadoc.opts}</additionalOptions>
+                            <doclint>none</doclint>
                         </configuration>
                     </plugin>
                     <!-- We want to sign the artifact, the POM, and all attached artifacts -->
