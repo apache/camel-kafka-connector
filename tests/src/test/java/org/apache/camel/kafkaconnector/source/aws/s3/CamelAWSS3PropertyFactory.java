@@ -56,11 +56,11 @@ class CamelAWSS3PropertyFactory implements ConnectorPropertyFactory {
         connectorProps.put("camel.source.url", queueUrl);
 
 
-        connectorProps.put("camel.component.aws-s3.configuration.access-key",
+        connectorProps.put("camel.component.aws-s3.accessKey",
                 amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        connectorProps.put("camel.component.aws-s3.configuration.secret-key",
+        connectorProps.put("camel.component.aws-s3.secretKey",
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        connectorProps.put("camel.component.aws-s3.configuration.region",
+        connectorProps.put("camel.component.aws-s3.region",
                 amazonConfigs.getProperty(AWSConfigs.REGION, ""));
 
         connectorProps.put("camel.component.aws-s3.configuration", "#class:"

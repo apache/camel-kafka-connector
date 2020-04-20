@@ -31,6 +31,14 @@ import org.testcontainers.shaded.org.apache.commons.io.DirectoryWalker;
 public final class PluginPathHelper {
     private static final Logger LOG = LoggerFactory.getLogger(PluginPathHelper.class);
 
+    private static final String[] MODULES = {
+        "core", "connectors/camel-sjms2-kafka-connector", "connectors/camel-cql-kafka-connector",
+        "connectors/camel-aws-sns-kafka-connector", "connectors/camel-aws-sqs-kafka-connector",
+        "connectors/camel-aws-s3-kafka-connector", "connectors/camel-aws-kinesis-kafka-connector",
+        "connectors/camel-elasticsearch-rest-kafka-connector", "connectors/camel-http-kafka-connector",
+        "connectors/camel-timer-kafka-connector", "connectors/camel-file-kafka-connector"
+    };
+
     private static class PluginWalker extends DirectoryWalker<String> {
         @Override
         protected void handleFile(File file, int depth, Collection<String> results) throws IOException {
@@ -40,12 +48,29 @@ public final class PluginPathHelper {
                 if (fileName.contains("kafka-connector") && fileName.contains("camel")) {
                     String parentDir = file.getParentFile().getCanonicalPath();
                     if (parentDir.endsWith("target")) {
-                        LOG.debug("Adding file: {}", file.getCanonicalPath());
+                        String pluginDir = file.getParentFile().getCanonicalPath();
+                        LOG.debug("Adding directory: {}", pluginDir);
 
-                        results.add(file.getCanonicalPath());
+                        results.add(pluginDir);
                     }
                 }
             }
+        }
+
+
+
+        @Override
+        protected boolean handleDirectory(File directory, int depth, Collection<String> results) throws IOException {
+            String directoryName = directory.getName();
+
+            if (directoryName.equals("target")) {
+                String pluginDir = directory.getCanonicalPath();
+                LOG.debug("Adding directory: {}", pluginDir);
+
+                results.add(pluginDir);
+            }
+
+            return true;
         }
 
         public List<String> findPlugins(File startDir) {
@@ -79,8 +104,13 @@ public final class PluginPathHelper {
     }
 
     private static List<String> findPlugins() {
-        return findPlugins("core");
+        /*
+         * Only load the subset of modules that has a related test, otherwise the startup time for the
+         * Kafka Connect runtime is extremely long
+         */
+        return findPlugins(MODULES);
     }
+
 
     /*
      * We need to construct a list of directories containing *only* the connector classes (ie.: those that
@@ -97,8 +127,8 @@ public final class PluginPathHelper {
      * 2) is located in the target directory
      * 3) contains the strings 'camel' and 'kafka-connector' as part of their name.
      *
-     * This is also leverage by the fact that the core and connectors modules have the provided scope on the test
-     * pom file.
+     * Then for every connector jar file that it finds, it configures the embedded runtime to  includes the parent dir
+     * into the configuration.
      *
      * Why it does this?
      *
@@ -111,7 +141,7 @@ public final class PluginPathHelper {
      */
     public static String pluginPaths() {
         String ret = findPlugins().stream().collect(Collectors.joining(","));
-        LOG.info("Returning the following directories for the plugins: {}", ret);
+        LOG.info("Returning the following directories for the plugin path: {}", ret);
 
         return ret;
     }

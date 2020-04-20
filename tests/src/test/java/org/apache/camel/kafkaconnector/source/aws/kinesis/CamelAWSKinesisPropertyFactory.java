@@ -56,12 +56,11 @@ class CamelAWSKinesisPropertyFactory implements ConnectorPropertyFactory {
         String sourceUrl = "aws-kinesis://" + streamName;
         connectorProps.put("camel.source.url", sourceUrl);
 
-
-        connectorProps.put("camel.component.aws-kinesis.configuration.access-key",
+        connectorProps.put("camel.component.aws-kinesis.accessKey",
                 amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        connectorProps.put("camel.component.aws-kinesis.configuration.secret-key",
+        connectorProps.put("camel.component.aws-kinesis.secretKey",
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        connectorProps.put("camel.component.aws-kinesis.configuration.region",
+        connectorProps.put("camel.component.aws-kinesis.region",
                 amazonConfigs.getProperty(AWSConfigs.REGION, ""));
 
         connectorProps.put("camel.component.aws-kinesis.configuration", "#class:"
