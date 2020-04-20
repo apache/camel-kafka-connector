@@ -271,9 +271,12 @@
                     images used when running the tests w/ those containers
                     - java.util.logging.manager sets the logging manager used in GlassFish to the log4j one. GlassFish
                     is used by the rest API of the Kafka Connect.
+                    - com.datastax.driver.FORCE_NIO=true prevents the ClassCastException from
+                    io.netty.channel.epoll.EpollEventLoopGroup cannot be cast to io.netty.channel.EventLoopGroup
+                    probably caused by a netty incompatibility somewhere
 
                      -->
-                    <argLine>-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -Dproject.basedir=${project.basedir}/.. -Dcom.amazonaws.sdk.disableCbor=true -Ditest.strimzi.container.image=${itest.strimzi.container.image} -Ditest.zookeeper.container.image=${itest.zookeeper.container.image}</argLine>
+                    <argLine>-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -Dcom.datastax.driver.FORCE_NIO=true -Dproject.basedir=${project.basedir}/.. -Dcom.amazonaws.sdk.disableCbor=true -Ditest.strimzi.container.image=${itest.strimzi.container.image} -Ditest.zookeeper.container.image=${itest.zookeeper.container.image}</argLine>
                     <skipTests>${skipIntegrationTests}</skipTests>
                 </configuration>
             </plugin>
