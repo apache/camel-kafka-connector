@@ -45,10 +45,10 @@ class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
     public Properties getProperties() {
         Properties connectorProps = new Properties();
 
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAWSSQSSinkConnector");
+        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAwssqsSinkConnector");
         connectorProps.put("tasks.max", String.valueOf(tasksMax));
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.CamelSinkConnector");
+        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awssqs.CamelAwssqsSinkConnector");
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
 

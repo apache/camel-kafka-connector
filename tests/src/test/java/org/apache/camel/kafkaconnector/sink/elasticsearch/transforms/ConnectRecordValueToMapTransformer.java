@@ -44,7 +44,7 @@ public class ConnectRecordValueToMapTransformer<R extends ConnectRecord<R>> impl
 
         targetMap.put(key, value);
         return r.newRecord(r.topic(), r.kafkaPartition(), null, r.key(),
-                SchemaHelper.buildSchemaBuilderForType(value), targetMap, r.timestamp());
+                 SchemaHelper.buildSchemaBuilderForType(value), targetMap, r.timestamp());
     }
 
     @Override

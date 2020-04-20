@@ -79,7 +79,7 @@ public final class PluginPathHelper {
     }
 
     private static List<String> findPlugins() {
-        return findPlugins("core", "connectors/camel-sjms2-kafka-connector");
+        return findPlugins("core");
     }
 
     /*

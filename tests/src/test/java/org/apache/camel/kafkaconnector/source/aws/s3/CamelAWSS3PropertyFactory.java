@@ -44,7 +44,7 @@ class CamelAWSS3PropertyFactory implements ConnectorPropertyFactory {
     @Override
     public Properties getProperties() {
         Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAWSS3SSourceConnector");
+        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAwss3SourceConnector");
 
         connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector");
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
