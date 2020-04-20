@@ -18,16 +18,17 @@
 
 -->
 <assembly>
-  <!-- Assembles a packaged version targeting OS installation. XXXX-->
+  <!-- Assembles a packaged version targeting OS installation. -->
   <id>package</id>
   <formats>
-    <format>dir</format>
+    <format>zip</format>
+    <format>tar.gz</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
   <fileSets>
     <fileSet>
       <directory>${project.basedir}/../..</directory>
-      <outputDirectory>share/doc/${project.artifactId}/</outputDirectory>
+      <outputDirectory>${project.artifactId}/</outputDirectory>
       <includes>
         <include>README*</include>
         <include>LICENSE*</include>
@@ -45,7 +46,7 @@
   </fileSets>
   <dependencySets>
     <dependencySet>
-      <outputDirectory>share/java/${project.artifactId}</outputDirectory>
+      <outputDirectory>${project.artifactId}/</outputDirectory>
       <useProjectArtifact>true</useProjectArtifact>
       <useTransitiveFiltering>true</useTransitiveFiltering>
       <excludes>
