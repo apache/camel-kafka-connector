@@ -67,6 +67,9 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
     private static final String GENERATED_SECTION_END = "END OF GENERATED CODE";
     private static final String GENERATED_SECTION_END_COMMENT = "<!--" + GENERATED_SECTION_END + "-->";
 
+    @Parameter(property = "overridePomFile", required = false, defaultValue = "false")
+    protected Boolean overridePomFile;
+
     /**
      * The maven session.
      */
@@ -129,7 +132,8 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                             element(name("noticeTemplate"), noticeTemplate),
                             element(name("licenseTemplate"), licenseTemplate),
                             element(name("fixDependenciesProperties"), fixDependenciesProperties),
-                            element(name("packageFileTemplate"), packageFileTemplate)
+                            element(name("packageFileTemplate"), packageFileTemplate),
+                            element(name("overridePomFile"), overridePomFile.toString())
                     ),
                     executionEnvironment(
                             project,
