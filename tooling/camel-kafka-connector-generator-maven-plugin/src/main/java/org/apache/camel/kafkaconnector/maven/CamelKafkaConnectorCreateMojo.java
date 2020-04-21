@@ -17,6 +17,7 @@
 package org.apache.camel.kafkaconnector.maven;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -49,6 +50,9 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
     @Parameter(property = "componentJson", required = true)
     protected String componentJson;
 
+    @Parameter(property = "overridePomFile", required = false, defaultValue = "false")
+    protected Boolean overridePomFile;
+
     @Override
     protected String getMainDepArtifactId() {
         return "camel-" + name;
@@ -79,8 +83,12 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
         File directory = new File(projectDir, "camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX);
         if (directory.exists()) {
             if (directory.isDirectory()) {
-                //nothing to do
                 getLog().info("Connector " + name + " already exists since a sub directory named: " + directory.getName() + " already exists.");
+                if (overridePomFile) {
+                    getLog().info("Since overridePomFile is " + overridePomFile + " regenerating pom file for connector:" + name + " in directory named: " + directory.getName());
+                    generateAndWritePom(sanitizedName, directory);
+                    addConnectorAsProjectSubmodule(sanitizedName);
+                }
                 return;
             } else {
                 throw new MojoFailureException("Can not create directory as a file already exists: " + directory);
@@ -89,7 +97,11 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
         if (!directory.mkdirs()) {
             throw new MojoFailureException("Unable to create directory: " + directory);
         }
+        generateAndWritePom(sanitizedName, directory);
+        addConnectorAsProjectSubmodule(sanitizedName);
+    }
 
+    private void generateAndWritePom(String sanitizedName, File directory) throws Exception {
         //create initial connector pom
         ComponentModel cm = JsonMapper.generateComponentModel(componentJson);
         getLog().info("Creating a new pom.xml for the connector from scratch");
@@ -110,7 +122,9 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
             getLog().error("Cannot create pom.xml file from Template: " + pomTemplate + " with properties: " + props, e);
             throw e;
         }
+    }
 
+    private void addConnectorAsProjectSubmodule(String sanitizedName) throws IOException {
         //add connector as a sub module
         Path parent = new File(projectDir, "pom.xml").toPath();
         List<String> lines = Files.readAllLines(parent);

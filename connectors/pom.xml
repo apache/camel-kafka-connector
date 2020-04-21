@@ -80,6 +80,9 @@
                     <!--  <failOnMissingDescription>false</failOnMissingDescription> -->
                     <!-- Process just this components -->
                     <!-- <filter></filter> -->
+                    <!-- Regenerate connector pom file completely even if one already exists -->
+                    <!-- WARNING: you may lose some changes done to the pom. -->
+                    <!-- <overridePomFile>false</overridePomFile> -->
                     <initialPomTemplate>${project.basedir}/template-connector-pom.xml</initialPomTemplate>
                     <noticeTemplate>${project.basedir}/camel-kafka-connector-NOTICE.txt</noticeTemplate>
                     <licenseTemplate>${project.basedir}/camel-kafka-connector-LICENSE.txt</licenseTemplate>
