@@ -1,0 +1,3 @@
+== Camel Kafka Connector generator plugin
+
+//TODO: write the plugin documentation
