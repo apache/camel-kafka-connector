@@ -44,59 +44,6 @@
             <artifactId>camel-main</artifactId>
         </dependency>
 
-        <!--  Camel components  -->
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-cassandraql</artifactId>
-            <exclusions>
-               <exclusion>
-                          <groupId>com.google.guava</groupId>
-                          <artifactId>guava</artifactId>
-               </exclusion>
-            </exclusions>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-telegram</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-aws-sqs</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-aws-s3</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-aws-sns</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-aws-kinesis</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-syslog</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-http</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-elasticsearch-rest</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
         <!-- Kafka -->
         <dependency>
             <groupId>org.apache.kafka</groupId>

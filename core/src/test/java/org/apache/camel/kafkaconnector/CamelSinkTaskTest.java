@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.Exchange;
 import org.apache.kafka.connect.data.Schema;
@@ -36,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class CamelSinkTaskTest {
 
     @Test
-    public void testOnlyBody() throws JsonProcessingException, InterruptedException {
+    public void testOnlyBody() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -60,7 +59,7 @@ public class CamelSinkTaskTest {
     }
 
     @Test
-    public void testBodyAndHeaders() throws JsonProcessingException, InterruptedException {
+    public void testBodyAndHeaders() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -104,7 +103,7 @@ public class CamelSinkTaskTest {
     }
     
     @Test
-    public void testBodyAndProperties() throws JsonProcessingException, InterruptedException {
+    public void testBodyAndProperties() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -148,7 +147,7 @@ public class CamelSinkTaskTest {
     }
     
     @Test
-    public void testBodyAndPropertiesHeadersMixed() throws JsonProcessingException, InterruptedException {
+    public void testBodyAndPropertiesHeadersMixed() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -206,7 +205,7 @@ public class CamelSinkTaskTest {
     }
     
     @Test
-    public void testBodyAndHeadersMap() throws JsonProcessingException, InterruptedException {
+    public void testBodyAndHeadersMap() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -261,7 +260,7 @@ public class CamelSinkTaskTest {
     }
     
     @Test
-    public void testBodyAndPropertiesHeadersMapMixed() throws JsonProcessingException, InterruptedException {
+    public void testBodyAndPropertiesHeadersMapMixed() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -337,7 +336,7 @@ public class CamelSinkTaskTest {
     }
     
     @Test
-    public void testBodyAndHeadersList() throws JsonProcessingException, InterruptedException {
+    public void testBodyAndHeadersList() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -388,7 +387,7 @@ public class CamelSinkTaskTest {
     }
     
     @Test
-    public void testBodyAndPropertiesHeadersListMixed() throws JsonProcessingException, InterruptedException {
+    public void testBodyAndPropertiesHeadersListMixed() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -458,7 +457,7 @@ public class CamelSinkTaskTest {
     }
 
     @Test
-    public void testUrlPrecedenceOnComponentProperty() throws JsonProcessingException, InterruptedException {
+    public void testUrlPrecedenceOnComponentProperty() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "seda:test");
         props.put("topics", "mytopic");
@@ -485,7 +484,7 @@ public class CamelSinkTaskTest {
     }
 
     @Test
-    public void testOnlyBodyUsingComponentProperty() throws JsonProcessingException, InterruptedException {
+    public void testOnlyBodyUsingComponentProperty() {
         Map<String, String> props = new HashMap<>();
         props.put("topics", "mytopic");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "seda");
@@ -513,7 +512,7 @@ public class CamelSinkTaskTest {
     }
 
     @Test
-    public void testOnlyBodyUsingMultipleComponentProperties() throws JsonProcessingException, InterruptedException {
+    public void testOnlyBodyUsingMultipleComponentProperties() {
         Map<String, String> props = new HashMap<>();
         props.put("topics", "mytopic");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "seda");

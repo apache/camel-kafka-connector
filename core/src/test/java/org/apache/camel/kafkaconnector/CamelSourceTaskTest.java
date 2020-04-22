@@ -16,20 +16,15 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import org.apache.camel.ConsumerTemplate;
-import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.header.Headers;
-import org.apache.kafka.connect.sink.SinkRecord;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 
@@ -222,7 +217,7 @@ public class CamelSourceTaskTest {
     }
 
     @Test
-    public void testSourcePollingConsumerOptions() throws InterruptedException {
+    public void testSourcePollingConsumerOptions() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "timer:kafkaconnector");
         props.put("camel.source.kafka.topic", "mytopic");
@@ -243,7 +238,7 @@ public class CamelSourceTaskTest {
     }
 
     @Test
-    public void testUrlPrecedenceOnComponentProperty() throws JsonProcessingException, InterruptedException {
+    public void testUrlPrecedenceOnComponentProperty() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "timer:kafkaconnector");
         props.put("camel.source.kafka.topic", "mytopic");
@@ -273,7 +268,7 @@ public class CamelSourceTaskTest {
     }
 
     @Test
-    public void testSourcePollingUsingComponentProperty() throws JsonProcessingException, InterruptedException {
+    public void testSourcePollingUsingComponentProperty() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.kafka.topic", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
@@ -304,7 +299,7 @@ public class CamelSourceTaskTest {
     }
 
     @Test
-    public void testSourcePollingUsingMultipleComponentProperties() throws JsonProcessingException, InterruptedException {
+    public void testSourcePollingUsingMultipleComponentProperties() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.kafka.topic", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
