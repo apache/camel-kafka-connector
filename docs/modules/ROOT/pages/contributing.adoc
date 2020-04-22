@@ -1,0 +1,35 @@
+[[Contributing-Contributing]]
+= Contributing to Camel-Kafka-connector
+
+First of all, thank you for having an interest in contributing to Camel-Kafka-connector.
+
+The Apache Camel community is a great group of contributors and Camel-Kafka-connector is the newer subproject in the ecosystem.
+
+There are multiple areas in which camel-kafka-connector could be improved. Here are some examples:
+
+* Surfing the basic documentation - if something is not clear, let us know or fix it yourself.
+* Try the xref:getting-started.adoc[Getting started] guide
+* Digging in the codebase and tune some operations or add new features.
+* Take a look at the https://github.com/apache/camel-kafka-connector/issues[open issues] and leave a comment on the issue to let us know you are working on it.
+
+[[Contributing-Contents]]
+== Table of Contents
+
+* <<getting-in-touch,Getting in touch>>
+
+[#getting-in-touch]
+== Getting in touch
+
+Apache Camel Kafka Connector is an Apache Software Foundation project.
+
+All communication is subject to the https://www.apache.org/foundation/policies/conduct.html[ASF Code of Conduct].
+
+There are various ways of communicating with the Camel community.
+
+We can also be reached on the Gitter chat at https://gitter.im/apache/camel-kafka-connector/.
+
+We track issues using the https://github.com/apache/camel-kafka-connector/issues[issues tracker in Github]
+
+When you're ready to contribute create a Pull request to the https://github.com/apache/camel-kafka-connector/[camel-kafka-connector repository]
+
+Expect that your Pull request will receive a review and that you will need to respond and correspond to that via comments at GitHub.
