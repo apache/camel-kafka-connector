@@ -19,13 +19,12 @@ package org.apache.camel.kafkaconnector;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 public class PropertiesOrderTest {
 
     @Test
-    public void testOneOrder() throws JsonProcessingException, InterruptedException {
+    public void testOneOrder() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "seda://test");
         props.put("camel.source.kafka.topic", "mytopic");
@@ -38,7 +37,7 @@ public class PropertiesOrderTest {
     }
 
     @Test
-    public void testOppositOrder() throws JsonProcessingException, InterruptedException {
+    public void testOppositOrder() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "seda://test");
         props.put("camel.source.kafka.topic", "mytopic");

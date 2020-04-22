@@ -19,7 +19,6 @@ package org.apache.camel.kafkaconnector;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.camel.component.hl7.HL7DataFormat;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
@@ -32,7 +31,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class DataFormatTest {
 
     @Test
-    public void testDataFormatSource() throws JsonProcessingException, InterruptedException {
+    public void testDataFormatSource() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct://test");
         props.put("camel.source.kafka.topic", "mytopic");
@@ -44,7 +43,7 @@ public class DataFormatTest {
     }
 
     @Test
-    public void testDataFormatSink() throws JsonProcessingException, InterruptedException {
+    public void testDataFormatSink() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "direct://test");
         props.put("camel.sink.kafka.topic", "mytopic");

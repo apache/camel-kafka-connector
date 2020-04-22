@@ -14,11 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.kafkaconnector.converters;
+package org.apache.camel.kafkaconnector.awss3.converters;
 
 import java.util.Map;
 
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import org.apache.camel.kafkaconnector.awss3.serializers.S3ObjectSerializer;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaAndValue;
 import org.apache.kafka.connect.storage.Converter;

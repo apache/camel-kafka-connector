@@ -23,8 +23,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.amazonaws.services.s3.model.S3ObjectInputStream;
-import org.apache.http.client.methods.HttpDelete;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
@@ -78,7 +76,11 @@ public class SchemaHelperTest {
         assertEquals(Schema.Type.STRUCT, SchemaHelper.buildSchemaBuilderForType(structValue).type());
 
         // finally how to handle if we have no idea about the value
-        final S3ObjectInputStream s3ObjectInputStream = new S3ObjectInputStream(System.in, new HttpDelete());
-        assertEquals(Schema.Type.BYTES, SchemaHelper.buildSchemaBuilderForType(s3ObjectInputStream).type());
+        final CustomType customType = new CustomType();
+        assertEquals(Schema.Type.BYTES, SchemaHelper.buildSchemaBuilderForType(customType).type());
+    }
+
+    private class CustomType {
+
     }
 }
