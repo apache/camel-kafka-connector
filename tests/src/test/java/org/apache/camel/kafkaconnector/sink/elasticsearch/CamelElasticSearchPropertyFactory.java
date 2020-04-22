@@ -17,59 +17,44 @@
 
 package org.apache.camel.kafkaconnector.sink.elasticsearch;
 
-import java.util.Properties;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SinkConnectorPropertyFactory;
 
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
+final class CamelElasticSearchPropertyFactory extends SinkConnectorPropertyFactory<CamelElasticSearchPropertyFactory> {
 
-public class CamelElasticSearchPropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private final String clusterName;
-    private final String hostAddress;
-    private final String index;
+    private CamelElasticSearchPropertyFactory() {
 
-
-    CamelElasticSearchPropertyFactory(int tasksMax, String topic, String clusterName, String hostAddress, String index) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.clusterName = clusterName;
-        this.hostAddress = hostAddress;
-        this.index = index;
     }
 
-    protected int getTasksMax() {
-        return tasksMax;
+    public CamelElasticSearchPropertyFactory withClusterName(String clusterName) {
+        return setProperty("camel.sink.path.clusterName", clusterName);
     }
 
-    protected String getTopic() {
-        return topic;
+    public CamelElasticSearchPropertyFactory withHostAddress(String hostAddress) {
+        return setProperty("camel.sink.endpoint.hostAddresses", hostAddress);
     }
 
-    protected String getClusterName() {
-        return clusterName;
+    public CamelElasticSearchPropertyFactory withIndexName(String indexName) {
+        return setProperty("camel.sink.endpoint.indexName", indexName);
     }
 
-    protected String getHostAddress() {
-        return hostAddress;
+    public CamelElasticSearchPropertyFactory withOperation(String operation) {
+        return setProperty("camel.sink.endpoint.operation", operation);
     }
 
-    protected String getIndex() {
-        return index;
+    public EndpointUrlBuilder<CamelElasticSearchPropertyFactory> withUrl(String clusterName) {
+        String queueUrl = String.format("elasticsearch-rest://%s", clusterName);
+
+        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelElasticSearchSinkConnector");
-        connectorProps.put("tasks.max", String.valueOf(tasksMax));
-
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.elasticsearchrest.CamelElasticsearchrestSinkConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-
-        connectorProps.put("topics", topic);
-
-        return connectorProps;
+    public static CamelElasticSearchPropertyFactory basic() {
+        return new CamelElasticSearchPropertyFactory()
+                .withName("CamelElasticSearchSinkConnector")
+                .withTasksMax(1)
+                .withConnectorClass("org.apache.camel.kafkaconnector.elasticsearchrest.CamelElasticsearchrestSinkConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
+
 }

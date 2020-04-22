@@ -17,70 +17,95 @@
 
 package org.apache.camel.kafkaconnector.sink.aws.sqs;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import com.amazonaws.regions.Regions;
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SinkConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
  */
-class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private final String queue;
-    private final Properties amazonConfigs;
+final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<CamelAWSSQSPropertyFactory> {
+    public static final Map<String, String> SPRING_STYLE = new HashMap();
+    public static final Map<String, String> KAFKA_STYLE = new HashMap();
+
+    static {
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-sqs.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-sqs.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws-sqs.region");
+        SPRING_STYLE.put(AWSConfigs.PROTOCOL, "camel.sink.endpoint.protocol");
+        SPRING_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.sink.endpoint.amazonAWSHost");
 
 
-    CamelAWSSQSPropertyFactory(int tasksMax, String topic, String queue, Properties amazonConfigs) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.queue = queue;
-        this.amazonConfigs = amazonConfigs;
+        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-sqs.access-key");
+        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-sqs.secret-key");
+        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws-sqs.region");
+        KAFKA_STYLE.put(AWSConfigs.PROTOCOL, "camel.sink.endpoint.protocol");
+        KAFKA_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.sink.endpoint.amazonAWSHost");
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAwssqsSinkConnector");
-        connectorProps.put("tasks.max", String.valueOf(tasksMax));
-
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awssqs.CamelAwssqsSinkConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-
-        String accessKey = amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, "");
-        String secretKey = amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, "");
-
-        String region = amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name());
-
-        String queueUrl = String.format("aws-sqs://%s?autoCreateQueue=true&accessKey=%s&secretKey=%s&region=%s",
-                    queue, accessKey, secretKey, region);
-
-        String protocol = amazonConfigs.getProperty(AWSConfigs.PROTOCOL);
-        if (protocol != null && !protocol.isEmpty()) {
-            queueUrl = String.format("%s&protocol=%s", queueUrl, protocol);
-        }
-
-        String amazonAWSHost = amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_HOST);
-        if (amazonAWSHost != null && !amazonAWSHost.isEmpty()) {
-            queueUrl = String.format("%s&amazonAWSHost=%s", queueUrl, amazonAWSHost);
-        }
+    private CamelAWSSQSPropertyFactory() {
+    }
 
 
-        connectorProps.put("camel.sink.url", queueUrl);
-        connectorProps.put("topics", topic);
+    public CamelAWSSQSPropertyFactory withAmazonConfig(Properties amazonConfigs) {
+        return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
+    }
 
-        connectorProps.put("camel.component.aws-sqs.accessKey",
+    public CamelAWSSQSPropertyFactory withAmazonConfig(Properties amazonConfigs, Map<String, String> style) {
+        String accessKeyKey = style.get(AWSConfigs.ACCESS_KEY);
+        String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
+        String regionKey = style.get(AWSConfigs.REGION);
+        String protocolKey = style.get(AWSConfigs.PROTOCOL);
+        String hostKey = style.get(AWSConfigs.AMAZON_AWS_HOST);
+
+        setProperty(accessKeyKey,
                 amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        connectorProps.put("camel.component.aws-sqs.secretKey",
+        setProperty(secretKeyKey,
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
+        setProperty(regionKey,
+                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
 
-        connectorProps.put("camel.component.aws-sqs.region", region);
+        String protocol = amazonConfigs.getProperty(AWSConfigs.PROTOCOL, "");
 
-        return connectorProps;
+        if (protocol != null && !protocol.isEmpty()) {
+            setProperty(protocolKey, protocol);
+        }
+
+        String amazonAwsHost = amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_HOST, "");
+        if (amazonAwsHost != null && !amazonAwsHost.isEmpty()) {
+            setProperty(hostKey, amazonAwsHost);
+        }
+
+        return this;
     }
+
+    public CamelAWSSQSPropertyFactory withConfiguration(String configurationClass) {
+        return setProperty("camel.component.aws-sqs.configuration",
+                classRef(configurationClass));
+    }
+
+    public EndpointUrlBuilder withUrl(String queueNameOrArn) {
+        String queueUrl = String.format("aws-sqs://%s", queueNameOrArn);
+
+        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
+    }
+
+    public CamelAWSSQSPropertyFactory withQueueNameOrArn(String queueNameOrArn) {
+        return setProperty("camel.sink.path.queueNameOrArn", queueNameOrArn);
+    }
+
+    public static CamelAWSSQSPropertyFactory basic() {
+        return new CamelAWSSQSPropertyFactory()
+                .withName("CamelAwssqsSinkConnector")
+                .withTasksMax(1)
+                .withConnectorClass("org.apache.camel.kafkaconnector.awssqs.CamelAwssqsSinkConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+    }
+
 }
