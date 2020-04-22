@@ -1,9 +1,11 @@
+[[Tryitoutcloud-Tryitoutcloud]]
 = Try it out on OpenShift with Strimzi
 
 You can use the Camel Kafka connectors also on Kubernetes and OpenShift with the https://strimzi.io[Strimzi project].
 Strimzi provides a set of operators and container images for running Kafka on Kubernetes and OpenShift.
 The following example shows how to run it with Camel Kafka connectors on OpenShift.
 
+[[Tryitoutcloud-DeployKafka]]
 == Deploy Kafka and Kafka Connect
 
 First we install the Strimzi operator and use it to deploy the Kafka broker and Kafka Connect into our OpenShift project.
@@ -48,6 +50,7 @@ oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/0.13.0/example
 oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/0.13.0/examples/kafka-connect/kafka-connect-s2i-single-node-kafka.yaml
 ----
 
+[[Tryitoutcloud-AddCamelKafkaConnectors]]
 == Add Camel Kafka connector binaries
 
 Strimzi uses `Source2Image` builds to allow users to add their own connectors to the existing Strimzi Docker images.
@@ -77,6 +80,7 @@ You should see something like this:
 [{"class":"org.apache.camel.kafkaconnector.CamelSinkConnector","type":"sink","version":"0.0.1-SNAPSHOT"},{"class":"org.apache.camel.kafkaconnector.CamelSourceConnector","type":"source","version":"0.0.1-SNAPSHOT"},{"class":"org.apache.kafka.connect.file.FileStreamSinkConnector","type":"sink","version":"2.3.0"},{"class":"org.apache.kafka.connect.file.FileStreamSourceConnector","type":"source","version":"2.3.0"}]
 ----
 
+[[Tryitoutcloud-CreateConnectorInstances]]
 == Create connector instance
 
 Now we can create some instance of a connector plugin - got example of the S3 connector:
@@ -112,6 +116,7 @@ You can check the status of the connector using
 oc exec -i -c kafka my-cluster-kafka-0 -- curl -s http://my-connect-cluster-connect-api:8083/connectors/s3-connector/status
 ----
 
+[[Tryitoutcloud-CheckMessages]]
 == Check received messages
 
 You can also run the Kafka console consumer to see the messages received from the topic:
