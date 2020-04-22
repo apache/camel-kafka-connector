@@ -25,7 +25,7 @@ import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 
 /**
- * Creates the set of properties used by a Camel JMS Sink Connector
+ * Creates the set of properties used by a Camel Kinesis Source Connector
  */
 class CamelAWSKinesisPropertyFactory implements ConnectorPropertyFactory {
     private final int tasksMax;
@@ -44,10 +44,10 @@ class CamelAWSKinesisPropertyFactory implements ConnectorPropertyFactory {
     @Override
     public Properties getProperties() {
         Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAWSKinesisSourceConnector");
+        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAwskinesisSourceConnector");
         connectorProps.put("tasks.max", String.valueOf(tasksMax));
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.CamelSourceConnector");
+        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awskinesis.CamelAwskinesisSourceConnector");
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
 
@@ -56,12 +56,11 @@ class CamelAWSKinesisPropertyFactory implements ConnectorPropertyFactory {
         String sourceUrl = "aws-kinesis://" + streamName;
         connectorProps.put("camel.source.url", sourceUrl);
 
-
-        connectorProps.put("camel.component.aws-kinesis.configuration.access-key",
+        connectorProps.put("camel.component.aws-kinesis.accessKey",
                 amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        connectorProps.put("camel.component.aws-kinesis.configuration.secret-key",
+        connectorProps.put("camel.component.aws-kinesis.secretKey",
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        connectorProps.put("camel.component.aws-kinesis.configuration.region",
+        connectorProps.put("camel.component.aws-kinesis.region",
                 amazonConfigs.getProperty(AWSConfigs.REGION, ""));
 
         connectorProps.put("camel.component.aws-kinesis.configuration", "#class:"

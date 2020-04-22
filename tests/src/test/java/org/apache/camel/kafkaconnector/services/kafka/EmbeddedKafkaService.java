@@ -47,7 +47,7 @@ public class EmbeddedKafkaService implements KafkaService {
 
         String pluginPaths = PluginPathHelper.pluginPaths();
 
-        LOG.info("Adding the following directories to the plugin path: {}", pluginPaths);
+        LOG.info("Adding the returned directories to the plugin path. This may take A VERY long time to complete");
         workerProps.put(WorkerConfig.PLUGIN_PATH_CONFIG, pluginPaths);
 
         LOG.info("Building the embedded Kafka connect instance");

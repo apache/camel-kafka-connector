@@ -97,7 +97,6 @@
             <artifactId>camel-debezium-common</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>

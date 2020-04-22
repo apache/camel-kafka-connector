@@ -45,10 +45,10 @@ class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
     @Override
     public Properties getProperties() {
         Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAWSSQSSourceConnector");
+        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAwssqsSourceConnector");
         connectorProps.put("tasks.max", String.valueOf(tasksMax));
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.CamelSourceConnector");
+        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awssqs.CamelAwssqsSourceConnector");
         connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
 
@@ -74,11 +74,11 @@ class CamelAWSSQSPropertyFactory implements ConnectorPropertyFactory {
 
         connectorProps.put("camel.source.url", queueUrl);
 
-        connectorProps.put("camel.component.aws-sqs.configuration.access-key",
+        connectorProps.put("camel.component.aws-sqs.accessKey",
                 amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        connectorProps.put("camel.component.aws-sqs.configuration.secret-key",
+        connectorProps.put("camel.component.aws-sqs.secretKey",
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        connectorProps.put("camel.component.aws-sqs.configuration.region",
+        connectorProps.put("camel.component.aws-sqs.region",
                 amazonConfigs.getProperty(AWSConfigs.REGION, ""));
 
         return connectorProps;

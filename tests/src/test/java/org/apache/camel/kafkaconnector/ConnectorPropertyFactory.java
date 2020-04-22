@@ -21,9 +21,7 @@ import java.util.Properties;
 
 /**
  * An interface for producing different types of connector properties that match
- * an specific type of connector in test. Examples of runtime equivalent for this
- * file are the CamelSinkConnector.properties and the CamelSourceConnector.properties
- * files
+ * an specific type of connector in test.
  */
 public interface ConnectorPropertyFactory {
 
