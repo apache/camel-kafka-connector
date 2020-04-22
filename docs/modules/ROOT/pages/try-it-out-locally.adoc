@@ -1,5 +1,7 @@
+[[Tryitoutlocally-Tryitoutlocally]]
 = Try it out locally
 
+[[Tryitoutlocally-RunKafka]]
 == Run Kafka
 
 First, get a locally running kafka instance by following Apache Kafka https://kafka.apache.org/quickstart[quickstart guide]. This usually boils down to:
@@ -60,6 +62,7 @@ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --to
 $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 ----
 
+[[Tryitoutlocally-TryExamples]]
 == Try some examples
 
 For the following examples you need to fetch the `camel-kafka-connector` project and https://github.com/apache/camel-kafka-connector/blob/master/README.adoc#build-the-project[build] it locally by running `./mvnw package` from the root of the project. Look into the `config` and `examples` directories for the configuration files (`*.properties`) of the examples showcased here.
@@ -71,6 +74,7 @@ First you need to set the `CLASSPATH` environment variable to include the `jar` 
 export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
 ----
 
+[[Tryitoutlocally-SimpleLogger]]
 === Simple logger (sink)
 
 This is an example of a _sink_ that logs messages consumed from `mytopic`.
@@ -81,6 +85,7 @@ This is an example of a _sink_ that logs messages consumed from `mytopic`.
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties config/CamelSinkConnector.properties 
 ----
 
+[[Tryitoutlocally-Timer]]
 === Timer (source)
 
 This is an example of a _source_ that produces a message every second to `mytopic`.
@@ -91,6 +96,7 @@ This is an example of a _source_ that produces a message every second to `mytopi
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties config/CamelSourceConnector.properties
 ----
 
+[[Tryitoutlocally-AwsKinesis]]
 === AWS Kinesis (source)
 
 This example consumes from AWS Kinesis data stream and transfers the payload to `mytopic` topic in Kafka.
@@ -103,6 +109,7 @@ Adjust properties in `examples/CamelAWSKinesisSourceConnector.properties` for yo
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSKinesisSourceConnector.properties
 ----
 
+[[Tryitoutlocally-AWSSQSSink]]
 === AWS SQS (sink)
 
 This example consumes from Kafka topic `mytopic` and transfers the payload to AWS SQS.
@@ -115,6 +122,7 @@ Adjust properties in `examples/CamelAWSSQSSinkConnector.properties` for your env
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSinkConnector.properties
 ----
 
+[[Tryitoutlocally-AWSSQSSource]]
 === AWS SQS (source)
 
 This example consumes from AWS SQS queue `mysqs` and transfers the payload to `mytopic` topic in Kafka.
@@ -127,6 +135,7 @@ Adjust properties in `examples/CamelAWSSQSSourceConnector.properties` for your e
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSQSSourceConnector.properties
 ----
 
+[[Tryitoutlocally-AWSSNSSink]]
 === AWS SNS (sink)
 
 This example consumes from `mytopic` Kafka topic and transfers the payload to AWS SNS `topic` topic.
@@ -139,6 +148,7 @@ Adjust properties in `examples/CamelAWSSNSSinkConnector.properties` for your env
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSSNSSinkConnector.properties
 ----
 
+[[Tryitoutlocally-AWSSNSSource]]
 === AWS S3 (source)
 
 This example fetches objects from AWS S3 in the `camel-kafka-connector` bucket and transfers the payload to `mytopic` Kafka topic. This example shows how to implement a custom converter converting from bytes received from S3 to Kafka's `SchemaAndValue`.
@@ -151,6 +161,7 @@ Adjust properties in `examples/CamelAWSS3SourceConnector.properties` for your en
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelAWSS3SourceConnector.properties
 ----
 
+[[Tryitoutlocally-CassandraQL]]
 === Apache Cassandra
 
 This examples require a running Cassandra instance, for simplicity the steps below show how to start Cassandra using Docker. First you'll need to run a Cassandra instance:
@@ -198,6 +209,7 @@ In the configuration `.properties` file we use below the IP address of the Cassa
 docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node
 ----
 
+[[Tryitoutlocally-CassandraQLSource]]
 ==== Apache Cassandra (source)
 
 This example polls Cassandra via CSQL (`select * from users`) in the `test` keyspace and transfers the result to the `mytopic` Kafka topic. 
@@ -208,6 +220,7 @@ This example polls Cassandra via CSQL (`select * from users`) in the `test` keys
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelCassandraQLSourceConnector.properties
 ----
 
+[[Tryitoutlocally-CassandraQLSink]]
 ==== Apache Cassandra (sink)
 
 This example adds data to the `users` table in Cassandra from the data consumed from the `mytopic` Kafka topic. Notice how the `name` column is populated from the Kafka message using CQL comand `insert into users...`.
@@ -218,6 +231,7 @@ This example adds data to the `users` table in Cassandra from the data consumed 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelCassandraQLSinkConnector.properties
 ----
 
+[[Tryitoutlocally-ElasticsearchSink]]
 === Elasticsearch (sink)
 
 This example passes data from `mytopic` Kafka topic to `sampleIndexName` index in Elasticsearch. Adjust properties in `examples/CamelElasticSearchSinkConnector.properties` to reflect your environment, for example change the `hostAddresses` to a valid Elasticsearch instance hostname and port.
@@ -251,6 +265,7 @@ When the configuration is ready run the sink with:
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelElasticSearchSinkConnector.properties
 ----
 
+[[Tryitoutlocally-FileSink]]
 === File (sink)
 
 This example appends data from `mytopic` Kafka topic to a file in `/tmp/kafkaconnect.txt`.
@@ -261,6 +276,7 @@ This example appends data from `mytopic` Kafka topic to a file in `/tmp/kafkacon
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelFileSinkConnector.properties
 ----
 
+[[Tryitoutlocally-HttpSink]]
 === HTTP (sink)
 
 This example sends data from `mytopic` Kafka topic to a HTTP service. Adjust properties in `examples/CamelHttpSinkConnector.properties` for your environment, for example configuring the `camel.sink.url`. 
@@ -271,6 +287,7 @@ This example sends data from `mytopic` Kafka topic to a HTTP service. Adjust pro
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelHttpSinkConnector.properties
 ----
 
+[[Tryitoutlocally-JMSSource]]
 === JMS (source)
 
 This example receives messages from a JMS queue named `myqueue` and transfers them to `mytopic` Kafka topic. In this example ActiveMQ is used and it's configured to connect to the broker running on `localhost:61616`. Adjust properties in `examples/CamelJmsSourceConnector.properties` for your environment, for example configuring username and password by setting `camel.component.sjms2.connection-factory.userName=yourusername` and `camel.component.sjms2.connection-factory.password=yourpassword` or change the `camel.component.sjms2.connection-factory` and `camel.component.sjms2.connection-factory.brokerURL` to reflect your JMS implementation and URL.
@@ -281,6 +298,7 @@ This example receives messages from a JMS queue named `myqueue` and transfers th
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelJmsSourceConnector.properties
 ----
 
+[[Tryitoutlocally-JMSSink]]
 === JMS (sink)
 
 This example receives messages from `mytopic` Kafka topic and transfers them to JMS queue named `myqueue`. In this example ActiveMQ is used and it's configured to connect to the broker running on `localhost:61616`. You can adjust properties in `examples/CamelJmsSinkConnector.properties` for your environment, for example configure username and password by adding `camel.component.sjms2.connection-factory.userName=yourusername` and `camel.component.sjms2.connection-factory.password=yourpassword` or change the `camel.component.sjms2.connection-factory` and `camel.component.sjms2.connection-factory.brokerURL` to reflect your JMS implementation and URL.
@@ -291,6 +309,7 @@ This example receives messages from `mytopic` Kafka topic and transfers them to 
 $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties examples/CamelJmsSinkConnector.properties
 ----
 
+[[Tryitoutlocally-TelegramSource]]
 === Telegram (source)
 
 This example transfers messages sent to Telegram bot to the `mytopic` Kafka topic. Adjust to set telegram bot token in `examples/CamelTelegramSourceConnector.properties` to reflect your bot's token.
