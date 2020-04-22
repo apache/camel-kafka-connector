@@ -1,0 +1,8 @@
+[[WhatIsIt-WhatIsIt]]
+= What is Camel-Kafka-connector project?
+
+Camel Kafka Connector allows you to use all Camel xref:components::index.adoc[components] as http://kafka.apache.org/documentation/#connect[Kafka Connect] connectors.
+
+The basic idea is reusing the available Camel components as Kafka sink and source connectors in a simple way.
+
+  
