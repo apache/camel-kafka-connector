@@ -17,35 +17,39 @@
 
 package org.apache.camel.kafkaconnector.sink.file;
 
-import java.util.Properties;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SinkConnectorPropertyFactory;
 
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
+final class CamelFilePropertyFactory extends SinkConnectorPropertyFactory<CamelFilePropertyFactory> {
+    private CamelFilePropertyFactory() {
 
-class CamelFilePropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private final String url;
-
-    CamelFilePropertyFactory(int tasksMax, String topic, String url) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.url = url;
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelFileSinkConnector");
-        connectorProps.put("tasks.max", String.valueOf(tasksMax));
+    public CamelFilePropertyFactory withFileName(String fileName) {
+        return setProperty("camel.sink.endpoint.fileName", fileName);
+    }
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.file.CamelFileSinkConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
+    public CamelFilePropertyFactory withDoneFileName(String doneFileName) {
+        return setProperty("camel.sink.endpoint.doneFileName", doneFileName);
+    }
 
-        connectorProps.put("camel.sink.url", url);
-        connectorProps.put("topics", topic);
+    public CamelFilePropertyFactory withDirectoryName(String directoryName) {
+        return setProperty("camel.sink.path.directoryName", directoryName);
+    }
 
-        return connectorProps;
+    public EndpointUrlBuilder<CamelFilePropertyFactory> withUrl(String fileOrDirName) {
+        String queueUrl = String.format("file://%s", fileOrDirName);
+
+        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
+    }
+
+    public static CamelFilePropertyFactory basic() {
+        return new CamelFilePropertyFactory()
+                .withTasksMax(1)
+                .withName("CamelFileSinkConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.file.CamelFileSinkConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+
     }
 }
