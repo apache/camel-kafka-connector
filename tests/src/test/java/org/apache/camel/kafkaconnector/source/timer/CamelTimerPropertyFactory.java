@@ -17,34 +17,35 @@
 
 package org.apache.camel.kafkaconnector.source.timer;
 
-import java.util.Properties;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SourceConnectorPropertyFactory;
 
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
+final class CamelTimerPropertyFactory extends SourceConnectorPropertyFactory<CamelTimerPropertyFactory> {
 
-class CamelTimerPropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private int repeatCount;
+    private CamelTimerPropertyFactory() {
 
-    public CamelTimerPropertyFactory(int tasksMax, String topic, int repeatCount) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.repeatCount = repeatCount;
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelTimerSourceConnector");
-        connectorProps.put("tasks.max", String.valueOf(tasksMax));
+    public CamelTimerPropertyFactory withRepeatCount(int repeatCount) {
+        return setProperty("camel.source.endpoint.repeatCount", repeatCount);
+    }
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.timer.CamelTimerSourceConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put("camel.source.url", String.format("timer:kafkaconnector?repeatCount=%d", repeatCount));
-        connectorProps.put("camel.source.kafka.topic", topic);
+    public CamelTimerPropertyFactory withTimerName(String timerName) {
+        return setProperty("camel.source.path.timerName", timerName);
+    }
 
-        return connectorProps;
+    public EndpointUrlBuilder<CamelTimerPropertyFactory> withUrl(String timerName) {
+        String url = String.format("timer:%s", timerName);
+
+        return new EndpointUrlBuilder<>(this::withSourceUrl, url);
+    }
+
+    public static CamelTimerPropertyFactory basic() {
+        return new CamelTimerPropertyFactory()
+                .withName("CamelTimerSourceConnector")
+                .withTasksMax(1)
+                .withConnectorClass("org.apache.camel.kafkaconnector.timer.CamelTimerSourceConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
 }
