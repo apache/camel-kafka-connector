@@ -17,8 +17,8 @@
 
 package org.apache.camel.kafkaconnector.sink.jms;
 
-import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -42,12 +42,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * A simple test case that checks whether the timer produces the expected number of
- * messages
+ * Integration tests for the JMS sink
  */
 @Testcontainers
 public class CamelSinkJMSITCase extends AbstractKafkaTest {
@@ -62,6 +61,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         LOG.info("JMS service running at {}", jmsService.getDefaultEndpoint());
+        received = 0;
     }
 
     private boolean checkRecord(Message jmsMessage) {
@@ -85,43 +85,67 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
         return false;
     }
 
+    private void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+        connectorPropertyFactory.log();
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
+
+        CountDownLatch latch = new CountDownLatch(1);
+
+        ExecutorService service = Executors.newCachedThreadPool();
+
+        LOG.debug("Creating the consumer ...");
+        service.submit(() -> consumeJMSMessages(latch));
+
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+
+        for (int i = 0; i < expect; i++) {
+            kafkaClient.produce(TestCommon.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
+        }
+
+        LOG.debug("Created the consumer ... About to receive messages");
+
+        if (latch.await(35, TimeUnit.SECONDS)) {
+            assertEquals(received, expect, "Didn't process the expected amount of messages: " + received + " != " + expect);
+        } else {
+            fail("Failed to receive the messages within the specified time");
+        }
+    }
+
     @Test
     @Timeout(90)
     public void testBasicSendReceive() {
         try {
-            Properties connectionProperties = jmsService.getConnectionProperties();
+            ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
+                    .basic()
+                    .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
+                    .withConnectionProperties(jmsService.getConnectionProperties())
+                    .withDestinationName(TestCommon.DEFAULT_JMS_QUEUE);
 
-            ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
-                    TestCommon.getDefaultTestTopic(this.getClass()),
-                    TestCommon.DEFAULT_JMS_QUEUE, connectionProperties);
+            runTest(connectorPropertyFactory);
 
-            getKafkaConnectService().initializeConnector(testProperties);
-
-            CountDownLatch latch = new CountDownLatch(1);
-
-            ExecutorService service = Executors.newCachedThreadPool();
-
-            LOG.debug("Creating the consumer ...");
-            service.submit(() -> consumeJMSMessages(latch));
-
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-
-            for (int i = 0; i < expect; i++) {
-                kafkaClient.produce(TestCommon.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
-            }
-
-            LOG.debug("Created the consumer ... About to receive messages");
-
-            if (latch.await(35, TimeUnit.SECONDS)) {
-                assertEquals(received, expect, "Didn't process the expected amount of messages: " + received + " != " + expect);
-            } else {
-                fail("Failed to receive the messages within the specified time");
-            }
         } catch (Exception e) {
             LOG.error("JMS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
         }
+    }
 
+    @Test
+    @Timeout(90)
+    public void testBasicSendReceiveUsingUrl() {
+        try {
+            ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
+                    .basic()
+                    .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
+                    .withConnectionProperties(jmsService.getConnectionProperties())
+                        .withUrl(TestCommon.DEFAULT_JMS_QUEUE)
+                        .buildUrl();
+
+            runTest(connectorPropertyFactory);
+
+        } catch (Exception e) {
+            LOG.error("JMS test failed: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        }
     }
 
     private void consumeJMSMessages(CountDownLatch latch) {
