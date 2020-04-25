@@ -17,55 +17,78 @@
 
 package org.apache.camel.kafkaconnector.source.aws.s3;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import com.amazonaws.regions.Regions;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SourceConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
  */
-class CamelAWSS3PropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private final String bucket;
-    private final Properties amazonConfigs;
+final class CamelAWSS3PropertyFactory extends SourceConnectorPropertyFactory<CamelAWSS3PropertyFactory> {
+    public static final Map<String, String> SPRING_STYLE = new HashMap();
+    public static final Map<String, String> KAFKA_STYLE = new HashMap();
 
+    static {
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-s3.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-s3.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws-s3.region");
 
-    CamelAWSS3PropertyFactory(int tasksMax, String topic, String bucket, Properties amazonConfigs) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.bucket = bucket;
-        this.amazonConfigs = amazonConfigs;
+        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-s3.access-key");
+        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-s3.secret-key");
+        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws-s3.region");
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAwss3SourceConnector");
+    private CamelAWSS3PropertyFactory() {
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awss3.converters.S3ObjectConverter");
+    }
 
-        connectorProps.put("camel.source.kafka.topic", topic);
+    public CamelAWSS3PropertyFactory withAmazonConfig(Properties amazonConfigs) {
+        return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
+    }
 
-        String queueUrl = "aws-s3://" + bucket + "?maxMessagesPerPoll=10";
-        connectorProps.put("camel.source.url", queueUrl);
+    public CamelAWSS3PropertyFactory withAmazonConfig(Properties amazonConfigs, Map<String, String> style) {
+        String accessKeyKey = style.get(AWSConfigs.ACCESS_KEY);
+        String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
+        String regionKey = style.get(AWSConfigs.REGION);
 
-
-        connectorProps.put("camel.component.aws-s3.accessKey",
+        setProperty(accessKeyKey,
                 amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        connectorProps.put("camel.component.aws-s3.secretKey",
+        setProperty(secretKeyKey,
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        connectorProps.put("camel.component.aws-s3.region",
-                amazonConfigs.getProperty(AWSConfigs.REGION, ""));
+        return setProperty(regionKey,
+                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
+    }
 
-        connectorProps.put("camel.component.aws-s3.configuration", "#class:"
-                + TestS3Configuration.class.getName());
+    public EndpointUrlBuilder<CamelAWSS3PropertyFactory> withUrl(String bucket) {
+        String queueUrl = String.format("aws-s3://%s", bucket);
 
-        return connectorProps;
+        return new EndpointUrlBuilder<>(this::withSourceUrl, queueUrl);
+    }
+
+    public CamelAWSS3PropertyFactory withMaxMessagesPerPoll(int value) {
+        return setProperty("camel.source.endpoint.maxMessagesPerPoll", Integer.toString(value));
+    }
+
+    public CamelAWSS3PropertyFactory withBucketNameOrArn(String bucketNameOrArn) {
+        return setProperty("camel.source.path.bucketNameOrArn", bucketNameOrArn);
+    }
+
+    public CamelAWSS3PropertyFactory withConfiguration(String configurationClass) {
+        return setProperty("camel.component.aws-s3.configuration", classRef(configurationClass));
+    }
+
+    public static CamelAWSS3PropertyFactory basic() {
+        return new CamelAWSS3PropertyFactory()
+                .withName("CamelAwss3SourceConnector")
+                .withTasksMax(1)
+                .withConnectorClass("org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
 }
