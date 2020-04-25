@@ -20,6 +20,7 @@ package org.apache.camel.kafkaconnector.source.aws.sqs;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
+import com.amazonaws.regions.Regions;
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.TestCommon;
@@ -29,14 +30,17 @@ import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.aws.AWSService;
 import org.apache.camel.kafkaconnector.services.aws.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Testcontainers
@@ -54,6 +58,14 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         awssqsClient = service.getClient();
+        received = 0;
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if (!awssqsClient.deleteQueue(TestCommon.DEFAULT_SQS_QUEUE)) {
+            fail("Failed to delete queue");
+        }
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -67,16 +79,9 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         return true;
     }
 
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        Properties properties = service.getConnectionProperties();
-
-        ConnectorPropertyFactory testProperties = new CamelAWSSQSPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_SQS_QUEUE,
-                properties);
-
-        getKafkaConnectService().initializeConnector(testProperties);
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+        connectorPropertyFactory.log();
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
         LOG.debug("Sending SQS messages");
         for (int i = 0; i < expect; i++) {
@@ -90,5 +95,53 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         LOG.debug("Created the consumer ...");
 
         assertEquals(received, expect, "Didn't process the expected amount of messages");
+    }
+
+    @Test
+    @Timeout(90)
+    public void testBasicSendReceive() throws ExecutionException, InterruptedException {
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
+                .basic()
+                .withKafkaTopic(TestCommon.getDefaultTestTopic(this.getClass()))
+                .withQueueOrArn(TestCommon.DEFAULT_SQS_QUEUE)
+                .withAmazonConfig(service.getConnectionProperties());
+
+        runTest(connectorPropertyFactory);
+    }
+
+    // This test does not run remotely because SQS has a cool down period for
+    // creating and removing the SQS queue
+    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
+    @Test
+    @Timeout(90)
+    public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
+                .basic()
+                .withKafkaTopic(TestCommon.getDefaultTestTopic(this.getClass()))
+                .withQueueOrArn(TestCommon.DEFAULT_SQS_QUEUE)
+                .withAmazonConfig(service.getConnectionProperties(), CamelAWSSQSPropertyFactory.KAFKA_STYLE);
+
+        runTest(connectorPropertyFactory);
+    }
+
+    // This test does not run remotely because SQS has a cool down period for
+    // creating and removing the SQS queue
+    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
+    @Test
+    @Timeout(90)
+    public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
+        Properties amazonProperties = service.getConnectionProperties();
+
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
+                .basic()
+                .withKafkaTopic(TestCommon.getDefaultTestTopic(this.getClass()))
+                .withUrl(TestCommon.DEFAULT_SQS_QUEUE)
+                    .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
+                    .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
+                    .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
+                    .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
+                    .buildUrl();
+
+        runTest(connectorPropertyFactory);
     }
 }

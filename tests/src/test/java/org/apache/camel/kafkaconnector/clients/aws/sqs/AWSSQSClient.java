@@ -24,6 +24,8 @@ import java.util.function.Predicate;
 
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.model.CreateQueueRequest;
+import com.amazonaws.services.sqs.model.DeleteQueueResult;
+import com.amazonaws.services.sqs.model.GetQueueUrlResult;
 import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.amazonaws.services.sqs.model.ReceiveMessageResult;
@@ -84,5 +86,28 @@ public class AWSSQSClient {
                 .withMessageBody(body);
 
         sqs.sendMessage(request);
+    }
+
+    public boolean deleteQueue(String queue) {
+        GetQueueUrlResult getQueueUrlResult = sqs.getQueueUrl(queue);
+
+        if (getQueueUrlResult.getSdkHttpMetadata().getHttpStatusCode() == 404) {
+            return true;
+        } else {
+            if (getQueueUrlResult.getSdkHttpMetadata().getHttpStatusCode() != 200) {
+                LOG.warn("Unable to get queue {} for deletion", queue);
+
+                return false;
+            }
+        }
+
+        DeleteQueueResult result = sqs.deleteQueue(getQueueUrlResult.getQueueUrl());
+
+        if (result.getSdkHttpMetadata().getHttpStatusCode() != 200) {
+            LOG.warn("Unable to delete queue {}", queue);
+            return false;
+        }
+
+        return true;
     }
 }
