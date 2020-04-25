@@ -17,55 +17,74 @@
 
 package org.apache.camel.kafkaconnector.source.aws.kinesis;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import com.amazonaws.regions.Regions;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SourceConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
-
 
 /**
  * Creates the set of properties used by a Camel Kinesis Source Connector
  */
-class CamelAWSKinesisPropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private final String streamName;
-    private final Properties amazonConfigs;
+final class CamelAWSKinesisPropertyFactory extends SourceConnectorPropertyFactory<CamelAWSKinesisPropertyFactory> {
+    public static final Map<String, String> SPRING_STYLE = new HashMap();
+    public static final Map<String, String> KAFKA_STYLE = new HashMap();
 
+    static {
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-kinesis.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-kinesis.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws-kinesis.region");
 
-    CamelAWSKinesisPropertyFactory(int tasksMax, String topic, String streamName, Properties amazonConfigs) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.streamName = streamName;
-        this.amazonConfigs = amazonConfigs;
+        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-kinesis.access-key");
+        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-kinesis.secret-key");
+        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws-kinesis.region");
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAwskinesisSourceConnector");
-        connectorProps.put("tasks.max", String.valueOf(tasksMax));
+    private CamelAWSKinesisPropertyFactory() {
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awskinesis.CamelAwskinesisSourceConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
+    }
 
-        connectorProps.put("camel.source.kafka.topic", topic);
+    public CamelAWSKinesisPropertyFactory withAmazonConfig(Properties amazonConfigs) {
+        return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
+    }
 
-        String sourceUrl = "aws-kinesis://" + streamName;
-        connectorProps.put("camel.source.url", sourceUrl);
+    public CamelAWSKinesisPropertyFactory withAmazonConfig(Properties amazonConfigs, Map<String, String> style) {
+        String accessKeyKey = style.get(AWSConfigs.ACCESS_KEY);
+        String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
+        String regionKey = style.get(AWSConfigs.REGION);
 
-        connectorProps.put("camel.component.aws-kinesis.accessKey",
+        setProperty(accessKeyKey,
                 amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        connectorProps.put("camel.component.aws-kinesis.secretKey",
+        setProperty(secretKeyKey,
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        connectorProps.put("camel.component.aws-kinesis.region",
-                amazonConfigs.getProperty(AWSConfigs.REGION, ""));
+        return setProperty(regionKey,
+                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
+    }
 
-        connectorProps.put("camel.component.aws-kinesis.configuration", "#class:"
-                + TestKinesisConfiguration.class.getName());
+    public CamelAWSKinesisPropertyFactory withStreamName(String streamName) {
+        return setProperty("camel.source.path.streamName", streamName);
+    }
 
-        return connectorProps;
+    public EndpointUrlBuilder<CamelAWSKinesisPropertyFactory> withUrl(String streamName) {
+        String sourceUrl = String.format("aws-kinesis://%s", streamName);
+
+        return new EndpointUrlBuilder<>(this::withSourceUrl, sourceUrl);
+    }
+
+    public CamelAWSKinesisPropertyFactory withConfiguration(String configurationClass) {
+        return setProperty("camel.component.aws-kinesis.configuration",
+                classRef(configurationClass));
+    }
+
+    public static CamelAWSKinesisPropertyFactory basic() {
+        return new CamelAWSKinesisPropertyFactory()
+                .withName("CamelAwskinesisSourceConnector")
+                .withTasksMax(1)
+                .withConnectorClass("org.apache.camel.kafkaconnector.awskinesis.CamelAwskinesisSourceConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
 }
