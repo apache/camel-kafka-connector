@@ -54,6 +54,7 @@ public class KafkaConnectEmbedded implements KafkaConnectService {
         propertyFactory.getProperties().forEach((k, v) -> convertProperty(configuredProperties, k, v));
 
         connectorName = configuredProperties.get(ConnectorConfig.NAME_CONFIG);
+        LOG.info("Initializing connector {}", connectorName);
         cluster.configureConnector(connectorName, configuredProperties);
         LOG.trace("Added the new connector");
     }
@@ -73,6 +74,7 @@ public class KafkaConnectEmbedded implements KafkaConnectService {
     public void stop() {
         if (connectorName != null) {
             try {
+                LOG.info("Removing connector {}", connectorName);
                 cluster.deleteConnector(connectorName);
             } finally {
                 connectorName = null;

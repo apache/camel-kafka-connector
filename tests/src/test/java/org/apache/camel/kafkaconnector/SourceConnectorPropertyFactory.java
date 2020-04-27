@@ -17,31 +17,17 @@
 
 package org.apache.camel.kafkaconnector;
 
-import java.util.Properties;
-import java.util.stream.Collectors;
+public abstract class SourceConnectorPropertyFactory<T extends SourceConnectorPropertyFactory<T>>  extends BasicConnectorPropertyFactory<T> {
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+    public T withKafkaTopic(String topic) {
+        getProperties().put("camel.source.kafka.topic", topic);
 
-/**
- * An interface for producing different types of connector properties that match
- * an specific type of connector in test.
- */
-public interface ConnectorPropertyFactory {
+        return (T) this;
+    }
 
+    public T withSourceUrl(String sinkUrl) {
+        getProperties().put("camel.source.url", sinkUrl);
 
-    /**
-     * Gets the properties used to configure the connector
-     * @return a Properties object containing the set of properties for the connector
-     */
-    Properties getProperties();
-
-    default void log() {
-        Properties properties = getProperties();
-
-        Logger log = LoggerFactory.getLogger(ConnectorPropertyFactory.class);
-
-        log.info("Using the following properties for the test: ");
-        properties.entrySet().forEach(entry -> log.info("{}={}", entry.getKey(), entry.getValue()));
+        return (T) this;
     }
 }

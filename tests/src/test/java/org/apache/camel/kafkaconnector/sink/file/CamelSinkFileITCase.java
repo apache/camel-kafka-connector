@@ -34,6 +34,7 @@ import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -58,6 +59,15 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
+        cleanup();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        cleanup();
+    }
+
+    private void cleanup() {
         File doneFile = new File(SINK_DIR, FILENAME + ".done");
         if (doneFile.exists()) {
             doneFile.delete();
@@ -76,6 +86,24 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
                 break;
             }
         }
+    }
+
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException, IOException {
+        connectorPropertyFactory.log();
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
+
+        putRecords();
+
+        LOG.debug("Created the consumer ... About to receive messages");
+
+        File sinkFile = new File(SINK_DIR, FILENAME);
+        File doneFile = new File(SINK_DIR, FILENAME + ".done");
+
+        waitForFile(sinkFile, doneFile);
+
+        assertTrue(sinkFile.exists(), String.format("The file %s does not exist", sinkFile.getPath()));
+
+        checkFileContents(sinkFile);
 
     }
 
@@ -83,26 +111,33 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
     @Timeout(90)
     public void testBasicSendReceive() {
         try {
-            String url = "file://" + SINK_DIR + "?fileName=" + FILENAME + "&doneFileName=${file:name}.done";
-            LOG.debug("Saving files to {}", url);
+            ConnectorPropertyFactory connectorPropertyFactory = CamelFilePropertyFactory.basic()
+                    .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
+                    .withDirectoryName(SINK_DIR)
+                    .withFileName(FILENAME)
+                    .withDoneFileName("${file:name}.done");
 
-            ConnectorPropertyFactory testProperties = new CamelFilePropertyFactory(1,
-                    TestCommon.getDefaultTestTopic(this.getClass()), url);
+            runTest(connectorPropertyFactory);
 
-            getKafkaConnectService().initializeConnector(testProperties);
+        } catch (Exception e) {
+            LOG.error("HTTP test failed: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        }
+    }
 
-            putRecords();
+    @Test
+    @Timeout(90)
+    public void testBasicSendReceiveUsingUrl() {
+        try {
+            ConnectorPropertyFactory connectorPropertyFactory = CamelFilePropertyFactory.basic()
+                    .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
+                    .withUrl(SINK_DIR)
+                        .append("fileName", FILENAME)
+                        .append("doneFileName", "${file:name}.done")
+                        .buildUrl();
 
-            LOG.debug("Created the consumer ... About to receive messages");
 
-            File sinkFile = new File(SINK_DIR, FILENAME);
-            File doneFile = new File(SINK_DIR, FILENAME + ".done");
-
-            waitForFile(sinkFile, doneFile);
-
-            assertTrue(sinkFile.exists(), String.format("The file %s does not exist", sinkFile.getPath()));
-
-            checkFileContents(sinkFile);
+            runTest(connectorPropertyFactory);
 
         } catch (Exception e) {
             LOG.error("HTTP test failed: {}", e.getMessage(), e);

@@ -18,30 +18,30 @@
 package org.apache.camel.kafkaconnector;
 
 import java.util.Properties;
-import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-/**
- * An interface for producing different types of connector properties that match
- * an specific type of connector in test.
- */
-public interface ConnectorPropertyFactory {
+import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 
-    /**
-     * Gets the properties used to configure the connector
-     * @return a Properties object containing the set of properties for the connector
-     */
-    Properties getProperties();
+public class TransformsConfigBuilder<T extends ConnectorPropertyFactory> {
+    private T handle;
+    private Properties properties;
+    private String name;
 
-    default void log() {
-        Properties properties = getProperties();
+    public TransformsConfigBuilder(T handle, Properties properties, String name) {
+        this.handle = handle;
+        this.properties = properties;
+        this.name = name;
 
-        Logger log = LoggerFactory.getLogger(ConnectorPropertyFactory.class);
+        properties.put(ConnectorConfig.TRANSFORMS_CONFIG, name);
+    }
 
-        log.info("Using the following properties for the test: ");
-        properties.entrySet().forEach(entry -> log.info("{}={}", entry.getKey(), entry.getValue()));
+    public TransformsConfigBuilder<T> withEntry(String key, String value) {
+        properties.put(ConnectorConfig.TRANSFORMS_CONFIG + "." + name + "." + key, value);
+
+        return this;
+    }
+
+    public T end() {
+        return handle;
     }
 }

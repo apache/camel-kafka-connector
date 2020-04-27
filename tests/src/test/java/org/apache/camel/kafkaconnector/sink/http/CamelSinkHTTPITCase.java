@@ -23,6 +23,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
@@ -65,7 +66,11 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
 
     @AfterEach
     public void tearDown() {
-        localServer.stop();
+        try {
+            localServer.stop();
+        } finally {
+            localServer.shutdown(2, TimeUnit.SECONDS);
+        }
     }
 
 
@@ -83,31 +88,58 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
         }
     }
 
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException, TimeoutException {
+        connectorPropertyFactory.log();
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
+
+        ExecutorService service = Executors.newCachedThreadPool();
+        service.submit(this::putRecords);
+
+        LOG.debug("Created the consumer ... About to receive messages");
+
+        List<String> replies = validationHandler.getReplies().get(30, TimeUnit.SECONDS);
+        if (replies == null) {
+            fail("Some messages should have been exchanged, but none seems to have gone through");
+        }
+
+        for (String reply : replies) {
+            LOG.debug("Received: {} ", reply);
+        }
+
+        assertEquals(replies.size(), expect, "Did not receive the same amount of messages that were sent");
+
+    }
+
     @Test
     @Timeout(90)
     public void testBasicSendReceive() {
         try {
-            String url = "http://localhost:" + HTTP_PORT + "/ckc";
-            ConnectorPropertyFactory testProperties = new CamelHTTPPropertyFactory(1,
-                    TestCommon.getDefaultTestTopic(this.getClass()), url);
+            String url = "localhost:" + HTTP_PORT + "/ckc";
 
-            getKafkaConnectService().initializeConnector(testProperties);
+            ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPPropertyFactory.basic()
+                    .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
+                    .withHttpUri(url);
 
-            ExecutorService service = Executors.newCachedThreadPool();
-            service.submit(this::putRecords);
+            runTest(connectorPropertyFactory);
+        } catch (Exception e) {
+            LOG.error("HTTP test failed: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        }
+    }
 
-            LOG.debug("Created the consumer ... About to receive messages");
+    @Test
+    @Timeout(90)
+    public void testBasicSendReceiveUsingUrl() {
+        try {
+            String hostName = "localhost:" + HTTP_PORT + "/ckc";
 
-            List<String> replies = validationHandler.getReplies().get(30, TimeUnit.SECONDS);
-            if (replies == null) {
-                fail("Some messages should have been exchanged, but none seems to have gone through");
-            }
+            ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPPropertyFactory.basic()
+                    .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
+                    .withUrl(hostName)
+                        .buildUrl();
 
-            for (String reply : replies) {
-                LOG.debug("Received: {} ", reply);
-            }
 
-            assertEquals(replies.size(), expect, "Did not receive the same amount of messages that were sent");
+            runTest(connectorPropertyFactory);
         } catch (Exception e) {
             LOG.error("HTTP test failed: {}", e.getMessage(), e);
             fail(e.getMessage());

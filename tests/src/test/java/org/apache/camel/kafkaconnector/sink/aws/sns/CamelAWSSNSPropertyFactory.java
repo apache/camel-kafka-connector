@@ -17,57 +17,79 @@
 
 package org.apache.camel.kafkaconnector.sink.aws.sns;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
+import com.amazonaws.regions.Regions;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SinkConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
  */
-class CamelAWSSNSPropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private final String queue;
-    private final Properties amazonConfigs;
+final class CamelAWSSNSPropertyFactory extends SinkConnectorPropertyFactory<CamelAWSSNSPropertyFactory> {
+    public static final Map<String, String> SPRING_STYLE = new HashMap();
+    public static final Map<String, String> KAFKA_STYLE = new HashMap();
 
+    static {
+        SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-sns.accessKey");
+        SPRING_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-sns.secretKey");
+        SPRING_STYLE.put(AWSConfigs.REGION, "camel.component.aws-sns.region");
 
-    CamelAWSSNSPropertyFactory(int tasksMax, String topic, String queue, Properties amazonConfigs) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.queue = queue;
-        this.amazonConfigs = amazonConfigs;
+        KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-sns.access-key");
+        KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-sns.secret-key");
+        KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws-sns.region");
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelAwssnsSinkConnector");
-        connectorProps.put("tasks.max", String.valueOf(tasksMax));
+    private CamelAWSSNSPropertyFactory() {
+    }
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.awssns.CamelAwssnsSinkConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
+    public EndpointUrlBuilder withUrl(String topicOrArn) {
+        String queueUrl = String.format("aws-sns://%s", topicOrArn);
 
-        String queueUrl = "aws-sns://" + queue + "?subscribeSNStoSQS=true"
-                + "&queueUrl=" + amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_SNS_2_SQS_QUEUE_URL);
+        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
+    }
 
-        connectorProps.put("camel.sink.url", queueUrl);
-        connectorProps.put("topics", topic);
+    public CamelAWSSNSPropertyFactory withTopicOrArn(String topicOrArn) {
+        return setProperty("camel.sink.path.topicNameOrArn", topicOrArn);
+    }
 
-        connectorProps.put("camel.component.aws-sns.accessKey",
+    public CamelAWSSNSPropertyFactory withSubscribeSNStoSQS(String queue) {
+        return setProperty("camel.sink.endpoint.subscribeSNStoSQS", "true")
+                .setProperty("camel.sink.endpoint.queueUrl", queue);
+    }
+
+    public CamelAWSSNSPropertyFactory withAmazonConfig(Properties amazonConfigs) {
+        return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
+    }
+
+    public CamelAWSSNSPropertyFactory withAmazonConfig(Properties amazonConfigs, Map<String, String> style) {
+        String accessKeyKey = style.get(AWSConfigs.ACCESS_KEY);
+        String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
+        String regionKey = style.get(AWSConfigs.REGION);
+
+        setProperty(accessKeyKey,
                 amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        connectorProps.put("camel.component.aws-sns.secretKey",
+        setProperty(secretKeyKey,
                 amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
+        return setProperty(regionKey,
+                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
+    }
 
-        connectorProps.put("camel.component.aws-sns.region",
-            amazonConfigs.getProperty(AWSConfigs.REGION, ""));
+    public CamelAWSSNSPropertyFactory withConfiguration(String configurationClass) {
+        return setProperty("camel.component.aws-sns.configuration",
+                classRef(configurationClass));
+    }
 
-        connectorProps.put("camel.component.aws-sns.configuration", "#class:"
-                + TestSNSConfiguration.class.getName());
 
-
-        return connectorProps;
+    public static CamelAWSSNSPropertyFactory basic() {
+        return new CamelAWSSNSPropertyFactory()
+                .withName("CamelAWSSNSSinkConnector")
+                .withTasksMax(1)
+                .withConnectorClass("org.apache.camel.kafkaconnector.awssns.CamelAwssnsSinkConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
 }

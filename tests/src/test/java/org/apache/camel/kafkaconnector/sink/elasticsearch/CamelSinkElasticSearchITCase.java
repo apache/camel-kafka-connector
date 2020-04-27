@@ -24,6 +24,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
+import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.elasticsearch.ElasticSearchClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
@@ -61,6 +62,7 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         client = elasticSearch.getClient();
+        received = 0;
     }
 
     private void putRecords(CountDownLatch latch) {
@@ -95,6 +97,34 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
         received++;
     }
 
+    public void runTest(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException {
+        propertyFactory.log();
+        getKafkaConnectService().initializeConnector(propertyFactory);
+
+        CountDownLatch latch = new CountDownLatch(1);
+        ExecutorService service = Executors.newCachedThreadPool();
+        service.submit(() -> putRecords(latch));
+
+        if (!latch.await(30, TimeUnit.SECONDS)) {
+            fail("Timed out wait for data to be added to the Kafka cluster");
+        }
+
+        LOG.debug("Waiting for indices");
+
+        client.waitForIndex();
+
+        LOG.debug("Waiting for data");
+        client.waitForData(expect);
+
+        SearchHits hits = client.getData();
+
+        assertNotNull(hits);
+
+        hits.forEach(this::verifyHit);
+        assertEquals(expect, received, "Did not receive the same amount of messages sent");
+
+        LOG.debug("Created the consumer ... About to receive messages");
+    }
 
 
     @Test
@@ -102,34 +132,48 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     public void testIndexOperation() {
         try {
             String topic = TestCommon.getDefaultTestTopic(this.getClass());
-            CamelElasticSearchPropertyFactory testProperties = new CamelElasticSearchIndexPropertyFactory(1, topic,
-                    TestCommon.DEFAULT_ELASTICSEARCH_CLUSTER,
-                    elasticSearch.getHttpHostAddress(), TestCommon.DEFAULT_ELASTICSEARCH_INDEX, transformKey);
 
-            getKafkaConnectService().initializeConnector(testProperties);
+            ConnectorPropertyFactory propertyFactory = CamelElasticSearchPropertyFactory
+                    .basic()
+                    .withTopics(topic)
+                    .withOperation("Index")
+                    .withClusterName(TestCommon.DEFAULT_ELASTICSEARCH_CLUSTER)
+                    .withHostAddress(elasticSearch.getHttpHostAddress())
+                    .withIndexName(TestCommon.DEFAULT_ELASTICSEARCH_INDEX)
+                    .withTransformsConfig("ElasticSearchTransformer")
+                        .withEntry("type", "org.apache.camel.kafkaconnector.sink.elasticsearch.transforms.ConnectRecordValueToMapTransformer")
+                        .withEntry("key", transformKey)
+                        .end();
 
-            CountDownLatch latch = new CountDownLatch(1);
-            ExecutorService service = Executors.newCachedThreadPool();
-            service.submit(() -> putRecords(latch));
+            runTest(propertyFactory);
 
-            if (!latch.await(30, TimeUnit.SECONDS)) {
-                fail("Timed out wait for data to be added to the Kafka cluster");
-            }
+            LOG.debug("Created the consumer ... About to receive messages");
+        } catch (Exception e) {
+            LOG.error("ElasticSearch test failed: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        }
+    }
 
-            LOG.debug("Waiting for indices");
+    @Test
+    @Timeout(90)
+    public void testIndexOperationUsingUrl() {
+        try {
+            String topic = TestCommon.getDefaultTestTopic(this.getClass());
 
-            client.waitForIndex();
+            ConnectorPropertyFactory propertyFactory = CamelElasticSearchPropertyFactory
+                    .basic()
+                    .withTopics(topic)
+                    .withUrl(TestCommon.DEFAULT_ELASTICSEARCH_CLUSTER)
+                        .append("hostAddresses", elasticSearch.getHttpHostAddress())
+                        .append("operation", "Index")
+                        .append("indexName", TestCommon.DEFAULT_ELASTICSEARCH_INDEX)
+                        .buildUrl()
+                    .withTransformsConfig("ElasticSearchTransformer")
+                        .withEntry("type", "org.apache.camel.kafkaconnector.sink.elasticsearch.transforms.ConnectRecordValueToMapTransformer")
+                        .withEntry("key", transformKey)
+                        .end();
 
-            LOG.debug("Waiting for data");
-            client.waitForData(expect);
-
-            SearchHits hits = client.getData();
-
-            assertNotNull(hits);
-
-            hits.forEach(this::verifyHit);
-            assertEquals(expect, received, "Did not receive the same amount of messages sent");
-
+            runTest(propertyFactory);
 
             LOG.debug("Created the consumer ... About to receive messages");
         } catch (Exception e) {

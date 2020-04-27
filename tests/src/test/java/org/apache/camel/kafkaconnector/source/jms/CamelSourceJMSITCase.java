@@ -18,6 +18,7 @@
 package org.apache.camel.kafkaconnector.source.jms;
 
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 
 import javax.jms.JMSException;
 
@@ -29,7 +30,7 @@ import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.jms.JMSService;
 import org.apache.camel.kafkaconnector.services.jms.JMSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -55,7 +56,12 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
     private int received;
     private final int expect = 10;
 
-    private boolean checkRecord(ConsumerRecord<String, String> record) {
+    @BeforeEach
+    public void setUp() {
+        received = 0;
+    }
+
+    private <T> boolean checkRecord(ConsumerRecord<String, T> record) {
         LOG.debug("Received: {}", record.value());
         received++;
 
@@ -87,31 +93,75 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
         }
     }
 
+    private void produceMessages(String queue) {
+        JMSClient jmsProducer = null;
+
+        try {
+            jmsProducer = jmsService.getClient();
+
+            jmsProducer.start();
+            for (int i = 0; i < expect; i++) {
+                jmsProducer.send(queue, i);
+            }
+        } catch (JMSException e) {
+            LOG.error("JMS exception trying to send messages to the queue: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        } catch (Exception e) {
+            LOG.error("Failed to send messages to the queue: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        } finally {
+            jmsProducer.stop();
+        }
+    }
+
+    public void runBasicStringTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+        connectorPropertyFactory.log();
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
+
+        produceMessages(TestCommon.DEFAULT_JMS_QUEUE, "Test string message");
+
+        LOG.debug("Creating the consumer ...");
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
+        LOG.debug("Created the consumer ...");
+
+        assertEquals(received, expect, "Didn't process the expected amount of messages");
+    }
+
     @Test
     @Timeout(90)
     public void testBasicSendReceive() {
         try {
-            Properties connectionProperties = jmsService.getConnectionProperties();
+            ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
+                    .basic()
+                    .withKafkaTopic(TestCommon.getDefaultTestTopic(this.getClass()))
+                    .withDestinationName(TestCommon.DEFAULT_JMS_QUEUE)
+                    .withConnectionProperties(jmsService.getConnectionProperties());
 
-            ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
-                    TestCommon.getDefaultTestTopic(this.getClass()), TestCommon.DEFAULT_JMS_QUEUE, connectionProperties);
-
-            getKafkaConnectService().initializeConnector(testProperties);
-
-            produceMessages(TestCommon.DEFAULT_JMS_QUEUE, "Test string message");
-
-            LOG.debug("Creating the consumer ...");
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-            kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()), this::checkRecord);
-            LOG.debug("Created the consumer ...");
-
-            assertEquals(received, expect, "Didn't process the expected amount of messages");
+            runBasicStringTest(connectorPropertyFactory);
         } catch (Exception e) {
             LOG.error("JMS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
         }
     }
 
+    @Test
+    @Timeout(90)
+    public void testBasicSendReceiveUsingUrl() {
+        try {
+            ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
+                    .basic()
+                    .withConnectionProperties(jmsService.getConnectionProperties())
+                    .withKafkaTopic(TestCommon.getDefaultTestTopic(this.getClass()))
+                    .withUrl(TestCommon.DEFAULT_JMS_QUEUE)
+                        .buildUrl();
+
+            runBasicStringTest(connectorPropertyFactory);
+        } catch (Exception e) {
+            LOG.error("JMS test failed: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        }
+    }
 
 
     @Test
@@ -120,18 +170,19 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
         try {
             final String jmsQueueName = "testIntSendReceive";
 
-            Properties connectionProperties = jmsService.getConnectionProperties();
+            ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
+                    .basic()
+                    .withKafkaTopic(TestCommon.getDefaultTestTopic(this.getClass()) + jmsQueueName)
+                    .withDestinationName(jmsQueueName)
+                    .withConnectionProperties(jmsService.getConnectionProperties());
 
-            ConnectorPropertyFactory testProperties = new CamelJMSPropertyFactory(1,
-                    TestCommon.getDefaultTestTopic(this.getClass()) + jmsQueueName,
-                    jmsQueueName, connectionProperties);
+            connectorPropertyFactory.log();
+            getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
-            getKafkaConnectService().initializeConnector(testProperties);
-
-            produceMessages(jmsQueueName, "Test string message");
+            produceMessages(jmsQueueName);
 
             LOG.debug("Creating the consumer ...");
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+            KafkaClient<String, Integer> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
             kafkaClient.consume(TestCommon.getDefaultTestTopic(this.getClass()) + "testIntSendReceive", this::checkRecord);
             LOG.debug("Created the consumer ...");
 

@@ -20,6 +20,7 @@ package org.apache.camel.kafkaconnector.source.timer;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.AbstractKafkaTest;
+import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -45,7 +46,7 @@ public class CamelSourceTimerITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-
+        received = 0;
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -58,13 +59,9 @@ public class CamelSourceTimerITCase extends AbstractKafkaTest {
         return true;
     }
 
-    @Test
-    @Timeout(90)
-    public void testLaunchConnector() throws ExecutionException, InterruptedException {
-        CamelTimerPropertyFactory testProperties = new CamelTimerPropertyFactory(1,
-                TestCommon.getDefaultTestTopic(this.getClass()), expect);
-
-        getKafkaConnectService().initializeConnector(testProperties);
+    private void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+        connectorPropertyFactory.log();
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
         LOG.debug("Creating the consumer ...");
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
@@ -72,5 +69,30 @@ public class CamelSourceTimerITCase extends AbstractKafkaTest {
         LOG.debug("Created the consumer ...");
 
         assertEquals(received, expect);
+    }
+
+    @Test
+    @Timeout(90)
+    public void testLaunchConnector() throws ExecutionException, InterruptedException {
+        CamelTimerPropertyFactory connectorPropertyFactory = CamelTimerPropertyFactory
+                .basic()
+                .withKafkaTopic(TestCommon.getDefaultTestTopic(this.getClass()))
+                .withTimerName("launchTest")
+                .withRepeatCount(expect);
+
+        runTest(connectorPropertyFactory);
+    }
+
+    @Test
+    @Timeout(90)
+    public void testLaunchConnectorUsingUrl() throws ExecutionException, InterruptedException {
+        CamelTimerPropertyFactory connectorPropertyFactory = CamelTimerPropertyFactory
+                .basic()
+                .withKafkaTopic(TestCommon.getDefaultTestTopic(this.getClass()))
+                .withUrl("launchTestUsingUrl")
+                    .append("repeatCount", expect)
+                    .buildUrl();
+
+        runTest(connectorPropertyFactory);
     }
 }

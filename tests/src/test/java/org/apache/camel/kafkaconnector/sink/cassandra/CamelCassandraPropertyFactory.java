@@ -17,42 +17,51 @@
 
 package org.apache.camel.kafkaconnector.sink.cassandra;
 
-import java.util.Properties;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SinkConnectorPropertyFactory;
 
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
+final class CamelCassandraPropertyFactory extends SinkConnectorPropertyFactory<CamelCassandraPropertyFactory> {
+    private CamelCassandraPropertyFactory() {
 
-public class CamelCassandraPropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private final String host;
-    private final String keySpace;
-    private final String cql;
-
-    public CamelCassandraPropertyFactory(int tasksMax, String topic, String host, String keySpace, String cql) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.host = host;
-        this.keySpace = keySpace;
-        this.cql = cql;
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelCqlSinkConnector");
-        connectorProps.put("tasks.max", String.valueOf(tasksMax));
+    public CamelCassandraPropertyFactory withKeySpace(String keySpace) {
+        return setProperty("camel.sink.path.keyspace", keySpace);
+    }
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.cql.CamelCqlSinkConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
+    public CamelCassandraPropertyFactory withCql(String cql) {
+        return setProperty("camel.sink.endpoint.cql", cql);
+    }
 
-        connectorProps.put("topics", topic);
+    public CamelCassandraPropertyFactory withHosts(String hosts) {
+        return setProperty("camel.sink.path.hosts", hosts);
+    }
 
-        String url = String.format("cql://%s/%s?cql=%s", host, keySpace, cql);
+    public CamelCassandraPropertyFactory withPort(int port) {
+        return withPort(Integer.toString(port));
+    }
 
-        connectorProps.put("camel.sink.url", url);
+    public CamelCassandraPropertyFactory withPort(String port) {
+        return setProperty("camel.sink.path.port", port);
+    }
 
-        return connectorProps;
+    public CamelCassandraPropertyFactory withCluster(String cluster) {
+        return setProperty("camel.sink.endpoint.cluster", cluster);
+    }
+
+    public EndpointUrlBuilder withUrl(String host, String keySpace) {
+        String queueUrl = String.format("cql://%s/%s", host, keySpace);
+
+        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
+    }
+
+
+    public static CamelCassandraPropertyFactory basic() {
+        return new CamelCassandraPropertyFactory()
+                .withName("CamelCqlSinkConnector")
+                .withTasksMax(1)
+                .withConnectorClass("org.apache.camel.kafkaconnector.cql.CamelCqlSinkConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
 }

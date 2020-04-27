@@ -17,35 +17,30 @@
 
 package org.apache.camel.kafkaconnector.sink.http;
 
-import java.util.Properties;
+import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
+import org.apache.camel.kafkaconnector.SinkConnectorPropertyFactory;
 
-import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
-import org.apache.kafka.connect.runtime.ConnectorConfig;
+final class CamelHTTPPropertyFactory extends SinkConnectorPropertyFactory<CamelHTTPPropertyFactory> {
+    private CamelHTTPPropertyFactory() {
 
-class CamelHTTPPropertyFactory implements ConnectorPropertyFactory {
-    private final int tasksMax;
-    private final String topic;
-    private final String url;
-
-    CamelHTTPPropertyFactory(int tasksMax, String topic, String url) {
-        this.tasksMax = tasksMax;
-        this.topic = topic;
-        this.url = url;
     }
 
-    @Override
-    public Properties getProperties() {
-        Properties connectorProps = new Properties();
-        connectorProps.put(ConnectorConfig.NAME_CONFIG, "CamelHttpSinkConnector");
-        connectorProps.put("tasks.max", String.valueOf(tasksMax));
+    public CamelHTTPPropertyFactory withHttpUri(String uri) {
+        return setProperty("camel.sink.path.httpUri", uri);
+    }
 
-        connectorProps.put(ConnectorConfig.CONNECTOR_CLASS_CONFIG, "org.apache.camel.kafkaconnector.http.CamelHttpSinkConnector");
-        connectorProps.put(ConnectorConfig.KEY_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
-        connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.storage.StringConverter");
+    public EndpointUrlBuilder<CamelHTTPPropertyFactory> withUrl(String hostname) {
+        String url = String.format("http://%s", hostname);
 
-        connectorProps.put("camel.sink.url", url);
-        connectorProps.put("topics", topic);
+        return new EndpointUrlBuilder<>(this::withSinkUrl, url);
+    }
 
-        return connectorProps;
+    public static CamelHTTPPropertyFactory basic() {
+        return new CamelHTTPPropertyFactory()
+                .withTasksMax(1)
+                .withName("CamelHttpSinkConnector")
+                .withConnectorClass("org.apache.camel.kafkaconnector.http.CamelHttpSinkConnector")
+                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
+                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
 }
