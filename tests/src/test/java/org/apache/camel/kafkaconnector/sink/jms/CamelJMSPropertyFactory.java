@@ -17,10 +17,7 @@
 
 package org.apache.camel.kafkaconnector.sink.jms;
 
-import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.apache.camel.kafkaconnector.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.SinkConnectorPropertyFactory;
