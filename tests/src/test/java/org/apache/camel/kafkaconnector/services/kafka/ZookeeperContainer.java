@@ -24,7 +24,7 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.containers.wait.strategy.Wait;
 
-public class ZookeeperContainer extends GenericContainer {
+public class ZookeeperContainer extends GenericContainer<ZookeeperContainer> {
     private static final String ZOOKEEPER_CONTAINER = System.getProperty("itest.zookeeper.container.image");
     private static final int ZOOKEEPER_PORT = 2181;
 

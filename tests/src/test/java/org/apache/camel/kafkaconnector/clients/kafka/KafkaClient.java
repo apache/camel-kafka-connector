@@ -89,7 +89,7 @@ public class KafkaClient<K, V> {
     public void produce(String topic, V message) throws ExecutionException, InterruptedException {
         Properties props = producerPropertyFactory.getProperties();
 
-        KafkaProducer<K, V> producer = new KafkaProducer<K, V>(props);
+        KafkaProducer<K, V> producer = new KafkaProducer<>(props);
         ProducerRecord<K, V> record = new ProducerRecord<>(topic, message);
 
         Future<RecordMetadata> future = producer.send(record);

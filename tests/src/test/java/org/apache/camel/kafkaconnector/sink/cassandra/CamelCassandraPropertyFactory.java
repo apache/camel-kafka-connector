@@ -49,7 +49,7 @@ final class CamelCassandraPropertyFactory extends SinkConnectorPropertyFactory<C
         return setProperty("camel.sink.endpoint.cluster", cluster);
     }
 
-    public EndpointUrlBuilder withUrl(String host, String keySpace) {
+    public EndpointUrlBuilder<CamelCassandraPropertyFactory> withUrl(String host, String keySpace) {
         String queueUrl = String.format("cql://%s/%s", host, keySpace);
 
         return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
