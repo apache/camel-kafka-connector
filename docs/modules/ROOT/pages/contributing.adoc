@@ -16,6 +16,7 @@ There are multiple areas in which camel-kafka-connector could be improved. Here 
 == Table of Contents
 
 * <<getting-in-touch,Getting in touch>>
+* <<building-the-project,Building the project>>
 
 [#getting-in-touch]
 == Getting in touch
@@ -33,3 +34,67 @@ We track issues using the https://github.com/apache/camel-kafka-connector/issues
 When you're ready to contribute create a Pull request to the https://github.com/apache/camel-kafka-connector/[camel-kafka-connector repository]
 
 Expect that your Pull request will receive a review and that you will need to respond and correspond to that via comments at GitHub.
+
+[#building-the-project]
+== Building the project
+
+Basically you could run
+
+[source,bash]
+----
+mvn clean package
+----
+
+=== Build the project and run integration tests
+
+To build the project it is sufficient to:
+
+[source,bash]
+----
+mvn clean install
+----
+To run the integration tests it is required to:
+
+  * have Docker version 17.05 or higher running
+  * run:
+
+[source,bash]
+----
+mvn -DskipIntegrationTests=false clean verify package
+----
+
+It is also possible to point the tests to use an external services. To do so, you must set
+properties for the services that you want to run. This causes the tests to not launch the local
+container and use existing remote instances. At the moment, the following properties can be set
+for remote testing:
+
+* kafka.instance.type
+** kafka.bootstrap.servers
+* aws-service.instance.type
+** access.key: AWS access key (mandatory for remote testing)
+** secret.key: AWS secret key (mandatory for remote testing)
+** aws.region: AWS region (optional)
+** aws.host: AWS host (optional)
+* aws-service.kinesis.instance.type
+** access.key: AWS access key (mandatory for remote testing)
+** secret.key: AWS secret key (mandatory for remote testing)
+** aws.region: AWS region (optional)
+** aws.host: AWS host (optional)
+* elasticsearch.instance.type
+** elasticsearch.host
+** elasticsearch.port
+* cassandra.instance.type
+** cassandra.host
+** cassandra.cql3.port
+* jms-service.instance.type
+** jms.broker.address
+
+For example you can run
+
+----
+mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote -DskipIntegrationTests=false clean verify package
+----
+
+It's possible to use a properties file to set these properties. To do so use `-Dtest.properties=/path/to/file.properties`.
+
+
