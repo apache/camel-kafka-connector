@@ -250,8 +250,8 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         boolean inGlobal = false;
         for (String gp : globalProps) {
             String camelGav = getMainDepGroupId() + ":" + getMainDepArtifactId();
-            String camelSpringBootGav = project.getGroupId() + ":" + project.getArtifactId();
-            if (gp.equals(camelGav) || gp.equals(camelSpringBootGav)) {
+            String camelKafkaConnectorGav = project.getGroupId() + ":" + project.getArtifactId();
+            if (gp.equals(camelGav) || gp.equals(camelKafkaConnectorGav)) {
                 inGlobal = true;
                 break;
             }
