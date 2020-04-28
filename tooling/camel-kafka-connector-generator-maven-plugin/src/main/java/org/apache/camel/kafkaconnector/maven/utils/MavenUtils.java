@@ -190,7 +190,8 @@ public final class MavenUtils {
                 String[] comps = dep.split("\\:");
                 String groupIdStr = comps[0];
                 String artifactIdStr = comps[1];
-                String versionStr = comps.length > 2 ? comps[2] : null;
+                String versionStr = comps.length > 2 && !comps[2].isEmpty() ? comps[2] : null;
+                String scopeStr = comps.length > 3 ? comps[3] : null;
 
                 Element groupId = pom.createElement("groupId");
                 groupId.setTextContent(groupIdStr);
@@ -204,6 +205,12 @@ public final class MavenUtils {
                     Element version = pom.createElement("version");
                     version.setTextContent(versionStr);
                     dependency.appendChild(version);
+                }
+
+                if (scopeStr != null) {
+                    Element scope = pom.createElement("scope");
+                    scope.setTextContent(scopeStr);
+                    dependency.appendChild(scope);
                 }
 
             }
