@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.source.jms;
 
-import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 import javax.jms.JMSException;

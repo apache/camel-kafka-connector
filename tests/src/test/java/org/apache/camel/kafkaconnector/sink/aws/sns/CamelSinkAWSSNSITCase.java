@@ -35,7 +35,6 @@ import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.aws.AWSService;
 import org.apache.camel.kafkaconnector.services.aws.AWSServiceFactory;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;

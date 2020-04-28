@@ -30,8 +30,8 @@ import org.apache.camel.kafkaconnector.clients.aws.AWSConfigs;
  * Creates the set of properties used by a Camel JMS Sink Connector
  */
 final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<CamelAWSSQSPropertyFactory> {
-    public static final Map<String, String> SPRING_STYLE = new HashMap();
-    public static final Map<String, String> KAFKA_STYLE = new HashMap();
+    public static final Map<String, String> SPRING_STYLE = new HashMap<>();
+    public static final Map<String, String> KAFKA_STYLE = new HashMap<>();
 
     static {
         SPRING_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-sqs.accessKey");
@@ -89,7 +89,7 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
                 classRef(configurationClass));
     }
 
-    public EndpointUrlBuilder withUrl(String queueNameOrArn) {
+    public EndpointUrlBuilder<CamelAWSSQSPropertyFactory> withUrl(String queueNameOrArn) {
         String queueUrl = String.format("aws-sqs://%s", queueNameOrArn);
 
         return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);

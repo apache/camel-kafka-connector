@@ -23,7 +23,7 @@ import org.apache.camel.kafkaconnector.clients.jms.JMSClient;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.images.builder.ImageFromDockerfile;
 
-public abstract class JMSContainer extends GenericContainer {
+public abstract class JMSContainer extends GenericContainer<JMSContainer> {
 
 
     public JMSContainer(ImageFromDockerfile dockerfile) {
