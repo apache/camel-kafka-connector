@@ -18,7 +18,6 @@ package org.apache.camel.kafkaconnector.utils;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
