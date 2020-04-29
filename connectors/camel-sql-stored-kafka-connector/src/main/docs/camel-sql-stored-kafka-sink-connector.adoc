@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-sql-stored-kafka-connector-source]]
-== camel-sql-stored-kafka-connector source configuration
+= camel-sql-stored-kafka-connector source configuration
 
 When using camel-sql-stored-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

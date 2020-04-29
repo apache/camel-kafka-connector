@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-cm-sms-kafka-connector-source]]
-== camel-cm-sms-kafka-connector source configuration
+= camel-cm-sms-kafka-connector source configuration
 
 When using camel-cm-sms-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

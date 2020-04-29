@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-spark-rest-kafka-connector-source]]
-== camel-spark-rest-kafka-connector source configuration
+= camel-spark-rest-kafka-connector source configuration
 
 When using camel-spark-rest-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

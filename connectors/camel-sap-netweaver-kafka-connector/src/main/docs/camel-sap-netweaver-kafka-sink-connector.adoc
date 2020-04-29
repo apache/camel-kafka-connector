@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-sap-netweaver-kafka-connector-source]]
-== camel-sap-netweaver-kafka-connector source configuration
+= camel-sap-netweaver-kafka-connector source configuration
 
 When using camel-sap-netweaver-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

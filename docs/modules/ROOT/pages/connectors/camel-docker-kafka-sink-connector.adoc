@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-docker-kafka-connector-source]]
-== camel-docker-kafka-connector source configuration
+= camel-docker-kafka-connector source configuration
 
 When using camel-docker-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

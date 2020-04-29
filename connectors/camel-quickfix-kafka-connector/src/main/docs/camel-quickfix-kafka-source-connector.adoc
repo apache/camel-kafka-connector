@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-quickfix-kafka-connector-source]]
-== camel-quickfix-kafka-connector source configuration
+= camel-quickfix-kafka-connector source configuration
 
 When using camel-quickfix-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

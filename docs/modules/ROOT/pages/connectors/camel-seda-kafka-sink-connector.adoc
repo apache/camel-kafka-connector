@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-seda-kafka-connector-source]]
-== camel-seda-kafka-connector source configuration
+= camel-seda-kafka-connector source configuration
 
 When using camel-seda-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

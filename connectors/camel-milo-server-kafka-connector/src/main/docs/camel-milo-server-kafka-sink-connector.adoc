@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-milo-server-kafka-connector-source]]
-== camel-milo-server-kafka-connector source configuration
+= camel-milo-server-kafka-connector source configuration
 
 When using camel-milo-server-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

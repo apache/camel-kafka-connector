@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-file-watch-kafka-connector-source]]
-== camel-file-watch-kafka-connector source configuration
+= camel-file-watch-kafka-connector source configuration
 
 When using camel-file-watch-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

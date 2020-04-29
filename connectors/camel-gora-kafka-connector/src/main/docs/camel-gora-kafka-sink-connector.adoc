@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-gora-kafka-connector-source]]
-== camel-gora-kafka-connector source configuration
+= camel-gora-kafka-connector source configuration
 
 When using camel-gora-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

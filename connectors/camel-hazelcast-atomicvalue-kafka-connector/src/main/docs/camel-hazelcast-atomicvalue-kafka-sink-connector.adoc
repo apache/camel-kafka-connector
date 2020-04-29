@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-hazelcast-atomicvalue-kafka-connector-source]]
-== camel-hazelcast-atomicvalue-kafka-connector source configuration
+= camel-hazelcast-atomicvalue-kafka-connector source configuration
 
 When using camel-hazelcast-atomicvalue-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

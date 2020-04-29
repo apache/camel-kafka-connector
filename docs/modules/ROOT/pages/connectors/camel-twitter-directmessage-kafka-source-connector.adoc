@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-twitter-directmessage-kafka-connector-source]]
-== camel-twitter-directmessage-kafka-connector source configuration
+= camel-twitter-directmessage-kafka-connector source configuration
 
 When using camel-twitter-directmessage-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

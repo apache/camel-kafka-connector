@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-pop3s-kafka-connector-source]]
-== camel-pop3s-kafka-connector source configuration
+= camel-pop3s-kafka-connector source configuration
 
 When using camel-pop3s-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

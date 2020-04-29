@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-google-drive-kafka-connector-source]]
-== camel-google-drive-kafka-connector source configuration
+= camel-google-drive-kafka-connector source configuration
 
 When using camel-google-drive-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

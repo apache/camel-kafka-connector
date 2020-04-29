@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-zookeeper-master-kafka-connector-source]]
-== camel-zookeeper-master-kafka-connector source configuration
+= camel-zookeeper-master-kafka-connector source configuration
 
 When using camel-zookeeper-master-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

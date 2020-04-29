@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-kubernetes-hpa-kafka-connector-source]]
-== camel-kubernetes-hpa-kafka-connector source configuration
+= camel-kubernetes-hpa-kafka-connector source configuration
 
 When using camel-kubernetes-hpa-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

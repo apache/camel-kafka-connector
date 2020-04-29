@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-telegram-kafka-connector-source]]
-== camel-telegram-kafka-connector source configuration
+= camel-telegram-kafka-connector source configuration
 
 When using camel-telegram-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

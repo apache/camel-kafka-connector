@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-metrics-kafka-connector-source]]
-== camel-metrics-kafka-connector source configuration
+= camel-metrics-kafka-connector source configuration
 
 When using camel-metrics-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

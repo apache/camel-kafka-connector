@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-lpr-kafka-connector-source]]
-== camel-lpr-kafka-connector source configuration
+= camel-lpr-kafka-connector source configuration
 
 When using camel-lpr-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

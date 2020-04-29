@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-ignite-messaging-kafka-connector-source]]
-== camel-ignite-messaging-kafka-connector source configuration
+= camel-ignite-messaging-kafka-connector source configuration
 
 When using camel-ignite-messaging-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

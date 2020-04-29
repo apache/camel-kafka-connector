@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-etcd-stats-kafka-connector-source]]
-== camel-etcd-stats-kafka-connector source configuration
+= camel-etcd-stats-kafka-connector source configuration
 
 When using camel-etcd-stats-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

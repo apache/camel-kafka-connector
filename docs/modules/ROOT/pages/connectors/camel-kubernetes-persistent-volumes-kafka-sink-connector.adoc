@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-kubernetes-persistent-volumes-kafka-connector-source]]
-== camel-kubernetes-persistent-volumes-kafka-connector source configuration
+= camel-kubernetes-persistent-volumes-kafka-connector source configuration
 
 When using camel-kubernetes-persistent-volumes-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
