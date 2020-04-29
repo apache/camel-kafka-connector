@@ -94,6 +94,12 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
      */
     @Parameter(defaultValue = "${basedir}")
     protected File projectDir;
+    
+    /**
+     * The project directory
+     */
+    @Parameter(defaultValue = "${basedir}/../")
+    protected File projectBaseDir;
 
     /**
      * The maven project.

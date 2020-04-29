@@ -1,0 +1,59 @@
+// kafka-connector options: START
+== camel-milo-client-kafka-connector source configuration
+
+When using camel-milo-client-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-milo-client-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.source.path.endpointUri* | The OPC UA server endpoint | null | ConfigDef.Importance.HIGH
+| *camel.source.endpoint.clientId* | A virtual client id to force the creation of a new connection instance | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.defaultAwaitWrites* | Default await setting for writes | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.discoveryEndpointSuffix* | A suffix for endpoint URI when discovering | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.discoveryEndpointUri* | An alternative discovery URI | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.method* | The method definition (see Method ID) | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.node* | The node definition (see Node ID) | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.samplingInterval* | The sampling interval in milliseconds | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.allowedSecurityPolicies* | A set of allowed security policy URIs. Default is to accept all and use the highest. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.applicationName* | The application name | "Apache Camel adapter for Eclipse Milo" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.applicationUri* | The application URI | "http://camel.apache.org/EclipseMilo/Client" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.channelLifetime* | Channel lifetime in milliseconds | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.keyAlias* | The name of the key in the keystore file | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.keyPassword* | The key password | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.keyStorePassword* | The keystore password | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.keyStoreType* | The key store type | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.keyStoreUrl* | The URL where the key should be loaded from | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.maxPendingPublishRequests* | The maximum number of pending publish requests | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.maxResponseMessageSize* | The maximum number of bytes a response message may have | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.overrideHost* | Override the server reported endpoint host with the host from the endpoint URI. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.productUri* | The product URI | "http://camel.apache.org/EclipseMilo" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.requestTimeout* | Request timeout in milliseconds | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.sessionName* | Session name | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.sessionTimeout* | Session timeout in milliseconds | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-client.applicationName* | Default application name | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-client.applicationUri* | Default application URI | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-client.defaultConfiguration* | All default options for client | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-client.productUri* | Default product URI | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-client.reconnectTimeout* | Default reconnect timeout | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-client.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-client.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

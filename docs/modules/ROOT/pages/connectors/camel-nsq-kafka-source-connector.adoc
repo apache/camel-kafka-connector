@@ -1,0 +1,44 @@
+// kafka-connector options: START
+== camel-nsq-kafka-connector source configuration
+
+When using camel-nsq-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-nsq-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.source.path.topic* | The NSQ topic | null | ConfigDef.Importance.HIGH
+| *camel.source.endpoint.servers* | The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer). | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.userAgent* | A String to identify the kind of client | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.autoFinish* | Automatically finish the NSQ Message when it is retrieved from the queue and before the Exchange is processed | "true" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.channel* | The NSQ channel | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.lookupInterval* | The lookup interval | 5000L | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.lookupServerPort* | The NSQ lookup server port | 4161 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.messageTimeout* | The NSQ consumer timeout period for messages retrieved from the queue. A value of -1 is the server default | -1L | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.poolSize* | Consumer pool size | 10 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.requeueInterval* | The requeue interval in milliseconds. A value of -1 is the server default | -1L | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.secure* | Set secure option indicating TLS is required | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
+| *camel.component.nsq.servers* | The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer). | null | ConfigDef.Importance.MEDIUM
+| *camel.component.nsq.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.nsq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.nsq.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

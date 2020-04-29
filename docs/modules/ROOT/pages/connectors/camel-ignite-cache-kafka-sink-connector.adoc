@@ -1,0 +1,38 @@
+// kafka-connector options: START
+== camel-ignite-cache-kafka-connector source configuration
+
+When using camel-ignite-cache-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ignite-cache-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.cacheName* | The cache name. | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue* | Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.treatCollectionsAsCacheObjects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.query* | The Query to execute, only needed for operations that require it, and for the Continuous Query Consumer. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cachePeekMode* | The CachePeekMode, only needed for operations that require it (IgniteCacheOperation#SIZE). One of: [ALL] [NEAR] [PRIMARY] [BACKUP] [ONHEAP] [OFFHEAP] | "ALL" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.failIfInexistentCache* | Whether to fail the initialization if the cache doesn't exist. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.operation* | The cache operation to invoke. Possible values: GET, PUT, REMOVE, SIZE, REBALANCE, QUERY, CLEAR. One of: [GET] [PUT] [REMOVE] [SIZE] [REBALANCE] [QUERY] [CLEAR] | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-cache.configurationResource* | Resource from where to load configuration. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-cache.ignite* | Ignite instance. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-cache.igniteConfiguration* | Ignite configuration. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-cache.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-cache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

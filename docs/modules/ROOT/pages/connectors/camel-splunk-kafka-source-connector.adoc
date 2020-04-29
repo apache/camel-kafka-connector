@@ -1,0 +1,65 @@
+// kafka-connector options: START
+== camel-splunk-kafka-connector source configuration
+
+When using camel-splunk-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-splunk-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.source.path.name* | Name has no purpose | null | ConfigDef.Importance.HIGH
+| *camel.source.endpoint.app* | Splunk app | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.connectionTimeout* | Timeout in MS when connecting to Splunk server | 5000 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.host* | Splunk host. | "localhost" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.owner* | Splunk owner | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.port* | Splunk port | 8089 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.scheme* | Splunk scheme | "https" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.count* | A number that indicates the maximum number of entities to return. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.earliestTime* | Earliest time of the search time window. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.initEarliestTime* | Initial start offset of the first search | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.latestTime* | Latest time of the search time window. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.savedSearch* | The name of the query saved in Splunk to run | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.search* | The Splunk query to run | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.streaming* | Sets streaming mode. Streaming mode sends exchanges as they are received, rather than in a batch. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.delay* | Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 500L | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 1000L | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.password* | Password for Splunk | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.sslProtocol* | Set the ssl protocol to use One of: [TLSv1.2] [TLSv1.1] [TLSv1] [SSLv3] | "TLSv1.2" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.username* | Username for Splunk | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.useSunHttpsHandler* | Use sun.net.www.protocol.https.Handler Https handler to establish the Splunk Connection. Can be useful when running in application servers to avoid app. server https handling. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.splunk.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.splunk.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.splunk.splunkConfigurationFactory* | To use the SplunkConfigurationFactory | null | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END
