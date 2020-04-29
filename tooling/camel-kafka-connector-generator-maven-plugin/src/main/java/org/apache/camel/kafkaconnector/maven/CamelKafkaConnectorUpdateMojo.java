@@ -564,7 +564,13 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         model.setArtifactId(getMainDepArtifactId());
         model.setGroupId(getMainDepGroupId());
         model.setVersion(getMainDepVersion());
-        model.setTitle(getMainDepArtifactId());
+        if (getMainDepArtifactId().equalsIgnoreCase("camel-coap+tcp")) {
+            model.setTitle("camel-coap-tcp");
+        } else if (getMainDepArtifactId().equalsIgnoreCase("camel-coaps+tcp")) {
+            model.setTitle("camel-coaps-tcp");
+        } else {
+            model.setTitle(getMainDepArtifactId());
+        }
 
         try {
             String template = null;
