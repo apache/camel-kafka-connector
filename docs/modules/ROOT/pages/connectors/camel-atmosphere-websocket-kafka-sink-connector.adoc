@@ -1,0 +1,56 @@
+// kafka-connector options: START
+== camel-atmosphere-websocket-kafka-connector source configuration
+
+When using camel-atmosphere-websocket-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-atmosphere-websocket-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.servicePath* | Name of websocket endpoint | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.chunked* | If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.disableStreamCache* | Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sendToAll* | Whether to send to all (broadcast) or send to a single receiver. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.transferException* | If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.useStreaming* | To enable streaming to send data as multiple text fragments. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpBinding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.bridgeEndpoint* | If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request. You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.connectionClose* | Specifies whether a Connection Close header must be added to HTTP Request. By default connectionClose is false. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.copyHeaders* | If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers). | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpMethod* | Configure the HTTP method to use. The HttpMethod header cannot override this option if set. One of: [GET] [POST] [PUT] [DELETE] [HEAD] [OPTIONS] [TRACE] [PATCH] | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.ignoreResponseBody* | If this option is true, The http producer won't read response body and cache the input stream | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.preserveHostHeader* | If the option is true, HttpProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.throwExceptionOnFailure* | Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server. This allows you to get all responses regardless of the HTTP status code. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cookieHandler* | Configure a cookie handler to maintain a HTTP session | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.okStatusCodeRange* | The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included. | "200-299" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.mapHttpMessageBody* | If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.mapHttpMessageFormUrlEncodedBody* | If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.mapHttpMessageHeaders* | If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxyAuthScheme* | Proxy authentication scheme to use One of: [http] [https] | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxyHost* | Proxy hostname to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxyPort* | Proxy port to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.authHost* | Authentication host to use with NTML | null | ConfigDef.Importance.MEDIUM
+| *camel.component.atmosphere-websocket.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.atmosphere-websocket.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.atmosphere-websocket.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.atmosphere-websocket.httpBinding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.atmosphere-websocket.httpConfiguration* | To use the shared HttpConfiguration as base configuration. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.atmosphere-websocket.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

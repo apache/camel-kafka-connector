@@ -1,0 +1,44 @@
+// kafka-connector options: START
+== camel-xquery-kafka-connector source configuration
+
+When using camel-xquery-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-xquery-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.resourceUri* | The name of the template to load from classpath or file system | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.allowStAX* | Whether to allow using StAX mode | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.headerName* | To use a Camel Message header as the input source instead of Message body. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.namespacePrefixes* | Allows to control which namespace prefixes to use for a set of namespace mappings | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.resultsFormat* | What output result to use One of: [Bytes] [BytesSource] [DOM] [DOMSource] [List] [String] [StringSource] | "DOM" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.resultType* | What output result to use defined as a class | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.stripsAllWhiteSpace* | Whether to strip all whitespaces | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.configuration* | To use a custom Saxon configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.configurationProperties* | To set custom Saxon configuration properties | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.moduleURIResolver* | To use the custom ModuleURIResolver | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.parameters* | Additional parameters | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.properties* | Properties to configure the serialization parameters | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.staticQueryContext* | To use a custom Saxon StaticQueryContext | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.xquery.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.xquery.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.xquery.configuration* | To use a custom Saxon configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.xquery.configurationProperties* | To set custom Saxon configuration properties | null | ConfigDef.Importance.MEDIUM
+| *camel.component.xquery.moduleURIResolver* | To use the custom ModuleURIResolver | null | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

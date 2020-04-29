@@ -1,0 +1,46 @@
+// kafka-connector options: START
+== camel-milo-server-kafka-connector source configuration
+
+When using camel-milo-server-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-milo-server-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.itemId* | ID of the item | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.applicationName* | The application name | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.applicationUri* | The application URI | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.bindAddresses* | Set the addresses of the local addresses the server should bind to | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.bindPort* | The TCP port the server binds to | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.buildInfo* | Server build info | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.certificateManager* | Server certificate manager | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.certificateValidator* | Validator for client certificates | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.defaultCertificateValidator* | Validator for client certificates using default file based approach | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.enableAnonymousAuthentication* | Enable anonymous authentication, disabled by default | false | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.namespaceUri* | The URI of the namespace, defaults to urn:org:apache:camel | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.path* | The path to be appended to the end of the endpoint url. (doesn't need to start with '/') | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.productUri* | The product URI | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.securityPolicies* | Security policies | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.securityPoliciesById* | Security policies by URI or name | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.serverCertificate* | Server certificate | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.userAuthenticationCredentials* | Set user password combinations in the form of user1:pwd1,user2:pwd2 Usernames and passwords will be URL decoded | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.usernameSecurityPolicyUri* | Set the UserTokenPolicy used when One of: [None] [Basic128Rsa15] [Basic256] [Basic256Sha256] [Aes128_Sha256_RsaOaep] [Aes256_Sha256_RsaPss] | null | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.milo-server.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

@@ -477,6 +477,8 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
 
         File docFolder = new File(connectorDir, "src/main/docs/");
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
+        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/connectors/");
+        File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
 
         String changed = templateAutoConfigurationOptions(listOptions, getMainDepArtifactId(), connectorDir, ct);
         boolean updated = updateAutoConfigureOptions(docFile, changed);
@@ -485,7 +487,12 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         } else {
             getLog().debug("No changes to doc file: " + docFile);
         }
-
+        boolean updatedWebsite = updateAutoConfigureOptions(docFileWebsite, changed);
+        if (updatedWebsite) {
+            getLog().info("Updated website doc file: " + docFileWebsite);
+        } else {
+            getLog().debug("No changes to website doc file: " + docFileWebsite);
+        }
     }
 
     private void addProperties(Map<String, String> additionalProperties, String additionalProp) {
