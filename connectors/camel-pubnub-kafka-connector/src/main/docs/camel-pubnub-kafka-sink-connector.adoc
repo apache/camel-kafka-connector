@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-pubnub-kafka-connector-source]]
-== camel-pubnub-kafka-connector source configuration
+= camel-pubnub-kafka-connector source configuration
 
 When using camel-pubnub-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

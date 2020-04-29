@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-hbase-kafka-connector-source]]
-== camel-hbase-kafka-connector source configuration
+= camel-hbase-kafka-connector source configuration
 
 When using camel-hbase-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

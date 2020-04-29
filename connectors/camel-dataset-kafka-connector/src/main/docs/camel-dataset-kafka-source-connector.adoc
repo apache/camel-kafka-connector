@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-dataset-kafka-connector-source]]
-== camel-dataset-kafka-connector source configuration
+= camel-dataset-kafka-connector source configuration
 
 When using camel-dataset-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

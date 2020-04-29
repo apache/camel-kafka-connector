@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-aws-sqs-kafka-connector-source]]
-== camel-aws-sqs-kafka-connector source configuration
+= camel-aws-sqs-kafka-connector source configuration
 
 When using camel-aws-sqs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-aws-swf-kafka-connector-source]]
-== camel-aws-swf-kafka-connector source configuration
+= camel-aws-swf-kafka-connector source configuration
 
 When using camel-aws-swf-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-corda-kafka-connector-source]]
-== camel-corda-kafka-connector source configuration
+= camel-corda-kafka-connector source configuration
 
 When using camel-corda-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

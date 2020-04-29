@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-ftp-kafka-connector-source]]
-== camel-ftp-kafka-connector source configuration
+= camel-ftp-kafka-connector source configuration
 
 When using camel-ftp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

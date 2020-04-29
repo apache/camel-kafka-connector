@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-nats-kafka-connector-source]]
-== camel-nats-kafka-connector source configuration
+= camel-nats-kafka-connector source configuration
 
 When using camel-nats-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

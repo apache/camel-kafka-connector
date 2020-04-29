@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-elsql-kafka-connector-source]]
-== camel-elsql-kafka-connector source configuration
+= camel-elsql-kafka-connector source configuration
 
 When using camel-elsql-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

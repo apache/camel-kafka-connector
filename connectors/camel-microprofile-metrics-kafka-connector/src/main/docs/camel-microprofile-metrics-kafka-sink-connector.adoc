@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-microprofile-metrics-kafka-connector-source]]
-== camel-microprofile-metrics-kafka-connector source configuration
+= camel-microprofile-metrics-kafka-connector source configuration
 
 When using camel-microprofile-metrics-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

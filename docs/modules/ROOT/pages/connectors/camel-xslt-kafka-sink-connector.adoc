@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-xslt-kafka-connector-source]]
-== camel-xslt-kafka-connector source configuration
+= camel-xslt-kafka-connector source configuration
 
 When using camel-xslt-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

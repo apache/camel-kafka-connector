@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-olingo4-kafka-connector-source]]
-== camel-olingo4-kafka-connector source configuration
+= camel-olingo4-kafka-connector source configuration
 
 When using camel-olingo4-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

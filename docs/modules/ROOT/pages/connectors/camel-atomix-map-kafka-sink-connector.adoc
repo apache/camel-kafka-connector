@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-atomix-map-kafka-connector-source]]
-== camel-atomix-map-kafka-connector source configuration
+= camel-atomix-map-kafka-connector source configuration
 
 When using camel-atomix-map-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

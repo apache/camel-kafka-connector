@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-pulsar-kafka-connector-source]]
-== camel-pulsar-kafka-connector source configuration
+= camel-pulsar-kafka-connector source configuration
 
 When using camel-pulsar-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

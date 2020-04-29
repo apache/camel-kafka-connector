@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-crypto-kafka-connector-source]]
-== camel-crypto-kafka-connector source configuration
+= camel-crypto-kafka-connector source configuration
 
 When using camel-crypto-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

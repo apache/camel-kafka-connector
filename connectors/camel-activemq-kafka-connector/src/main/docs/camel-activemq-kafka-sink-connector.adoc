@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-activemq-kafka-connector-source]]
-== camel-activemq-kafka-connector source configuration
+= camel-activemq-kafka-connector source configuration
 
 When using camel-activemq-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

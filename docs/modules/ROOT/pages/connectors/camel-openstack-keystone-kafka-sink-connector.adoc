@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-openstack-keystone-kafka-connector-source]]
-== camel-openstack-keystone-kafka-connector source configuration
+= camel-openstack-keystone-kafka-connector source configuration
 
 When using camel-openstack-keystone-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

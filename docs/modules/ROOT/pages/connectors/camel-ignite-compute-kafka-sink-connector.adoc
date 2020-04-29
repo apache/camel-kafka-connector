@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-ignite-compute-kafka-connector-source]]
-== camel-ignite-compute-kafka-connector source configuration
+= camel-ignite-compute-kafka-connector source configuration
 
 When using camel-ignite-compute-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

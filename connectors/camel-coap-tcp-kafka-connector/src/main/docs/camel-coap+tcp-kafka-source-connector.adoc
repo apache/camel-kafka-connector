@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-coap+tcp-kafka-connector-source]]
-== camel-coap+tcp-kafka-connector source configuration
+= camel-coap+tcp-kafka-connector source configuration
 
 When using camel-coap+tcp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

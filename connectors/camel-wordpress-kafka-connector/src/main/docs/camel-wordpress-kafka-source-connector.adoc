@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-wordpress-kafka-connector-source]]
-== camel-wordpress-kafka-connector source configuration
+= camel-wordpress-kafka-connector source configuration
 
 When using camel-wordpress-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 

@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-solrs-kafka-connector-source]]
-== camel-solrs-kafka-connector source configuration
+= camel-solrs-kafka-connector source configuration
 
 When using camel-solrs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

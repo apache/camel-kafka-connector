@@ -1,6 +1,6 @@
 // kafka-connector options: START
 [[camel-ehcache-kafka-connector-source]]
-== camel-ehcache-kafka-connector source configuration
+= camel-ehcache-kafka-connector source configuration
 
 When using camel-ehcache-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
