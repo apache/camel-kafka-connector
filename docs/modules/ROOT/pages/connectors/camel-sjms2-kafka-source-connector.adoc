@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-sjms2-kafka-connector-source]]
 == camel-sjms2-kafka-connector source configuration
 
 When using camel-sjms2-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -71,6 +72,4 @@ When using camel-sjms2-kafka-connector as source make sure to use the following 
 | *camel.component.sjms2.connectionUsername* | The username to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.sjms2.transactionCommitStrategy* | To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

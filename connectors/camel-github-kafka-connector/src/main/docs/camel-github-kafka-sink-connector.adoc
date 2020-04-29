@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-github-kafka-connector-source]]
 == camel-github-kafka-connector source configuration
 
 When using camel-github-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

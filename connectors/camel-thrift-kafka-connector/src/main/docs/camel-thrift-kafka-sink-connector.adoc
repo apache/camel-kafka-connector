@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-thrift-kafka-connector-source]]
 == camel-thrift-kafka-connector source configuration
 
 When using camel-thrift-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-zookeeper-master-kafka-connector-source]]
 == camel-zookeeper-master-kafka-connector source configuration
 
 When using camel-zookeeper-master-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -33,6 +34,4 @@ When using camel-zookeeper-master-kafka-connector as source make sure to use the
 | *camel.component.zookeeper-master.curator* | To use a custom configured CuratorFramework as connection to zookeeper ensemble. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.zookeeper-master.zooKeeperPassword* | The password to use when connecting to the zookeeper ensemble | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

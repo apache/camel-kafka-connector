@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-twitter-search-kafka-connector-source]]
 == camel-twitter-search-kafka-connector source configuration
 
 When using camel-twitter-search-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -72,6 +73,4 @@ When using camel-twitter-search-kafka-connector as source make sure to use the f
 | *camel.component.twitter-search.consumerKey* | The consumer key | null | ConfigDef.Importance.MEDIUM
 | *camel.component.twitter-search.consumerSecret* | The consumer secret | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

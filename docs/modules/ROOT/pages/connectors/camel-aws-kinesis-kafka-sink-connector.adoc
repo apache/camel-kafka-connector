@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-aws-kinesis-kafka-connector-source]]
 == camel-aws-kinesis-kafka-connector source configuration
 
 When using camel-aws-kinesis-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -35,6 +36,4 @@ When using camel-aws-kinesis-kafka-connector as sink make sure to use the follow
 | *camel.component.aws-kinesis.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.aws-kinesis.configuration* | The AWS S3 default configuration | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

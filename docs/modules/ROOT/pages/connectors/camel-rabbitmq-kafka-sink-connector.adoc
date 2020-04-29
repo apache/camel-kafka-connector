@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-rabbitmq-kafka-connector-source]]
 == camel-rabbitmq-kafka-connector source configuration
 
 When using camel-rabbitmq-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -111,6 +112,4 @@ When using camel-rabbitmq-kafka-connector as sink make sure to use the following
 | *camel.component.rabbitmq.trustManager* | Configure SSL trust manager, SSL should be enabled for this option to be effective | null | ConfigDef.Importance.MEDIUM
 | *camel.component.rabbitmq.username* | Username in case of authenticated access | "guest" | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

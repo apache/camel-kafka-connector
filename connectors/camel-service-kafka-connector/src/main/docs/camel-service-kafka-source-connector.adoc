@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-service-kafka-connector-source]]
 == camel-service-kafka-connector source configuration
 
 When using camel-service-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -28,6 +29,4 @@ When using camel-service-kafka-connector as source make sure to use the followin
 | *camel.component.service.service* | Inject the service to use. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.service.serviceSelector* | Inject the service selector used to lookup the ServiceRegistry to use. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

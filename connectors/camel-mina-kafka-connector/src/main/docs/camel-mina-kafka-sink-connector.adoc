@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-mina-kafka-connector-source]]
 == camel-mina-kafka-connector source configuration
 
 When using camel-mina-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

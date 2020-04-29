@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-salesforce-kafka-connector-source]]
 == camel-salesforce-kafka-connector source configuration
 
 When using camel-salesforce-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -96,6 +97,4 @@ When using camel-salesforce-kafka-connector as source make sure to use the follo
 | *camel.component.salesforce.useGlobalSslContextParameters* | Enable usage of global SSL context parameters | false | ConfigDef.Importance.MEDIUM
 | *camel.component.salesforce.userName* | Username used in OAuth flow to gain access to access token. It's easy to get started with password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

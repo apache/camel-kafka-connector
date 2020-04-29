@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-kubernetes-persistent-volumes-claims-kafka-connector-source]]
 == camel-kubernetes-persistent-volumes-claims-kafka-connector source configuration
 
 When using camel-kubernetes-persistent-volumes-claims-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

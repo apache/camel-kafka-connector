@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-cron-kafka-connector-source]]
 == camel-cron-kafka-connector source configuration
 
 When using camel-cron-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -28,6 +29,4 @@ When using camel-cron-kafka-connector as source make sure to use the following M
 | *camel.component.cron.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.cron.cronService* | The id of the CamelCronService to use when multiple implementations are provided | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

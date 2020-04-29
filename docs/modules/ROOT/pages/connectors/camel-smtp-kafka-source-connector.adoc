@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-smtp-kafka-connector-source]]
 == camel-smtp-kafka-connector source configuration
 
 When using camel-smtp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -84,6 +85,4 @@ When using camel-smtp-kafka-connector as source make sure to use the following M
 | *camel.component.smtp.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.smtp.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

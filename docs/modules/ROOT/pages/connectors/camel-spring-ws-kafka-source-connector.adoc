@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-spring-ws-kafka-connector-source]]
 == camel-spring-ws-kafka-connector source configuration
 
 When using camel-spring-ws-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -33,6 +34,4 @@ When using camel-spring-ws-kafka-connector as source make sure to use the follow
 | *camel.component.spring-ws.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.spring-ws.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

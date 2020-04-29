@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-solrCloud-kafka-connector-source]]
 == camel-solrCloud-kafka-connector source configuration
 
 When using camel-solrCloud-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

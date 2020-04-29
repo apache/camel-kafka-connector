@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-twitter-timeline-kafka-connector-source]]
 == camel-twitter-timeline-kafka-connector source configuration
 
 When using camel-twitter-timeline-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -41,6 +42,4 @@ When using camel-twitter-timeline-kafka-connector as sink make sure to use the f
 | *camel.component.twitter-timeline.consumerKey* | The consumer key | null | ConfigDef.Importance.MEDIUM
 | *camel.component.twitter-timeline.consumerSecret* | The consumer secret | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

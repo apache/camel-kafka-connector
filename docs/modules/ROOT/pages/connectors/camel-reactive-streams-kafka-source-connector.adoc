@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-reactive-streams-kafka-connector-source]]
 == camel-reactive-streams-kafka-connector source configuration
 
 When using camel-reactive-streams-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -33,6 +34,4 @@ When using camel-reactive-streams-kafka-connector as source make sure to use the
 | *camel.component.reactive-streams.internalEngineConfiguration* | Configures the internal engine for Reactive Streams. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.reactive-streams.serviceType* | Set the type of the underlying reactive streams implementation to use. The implementation is looked up from the registry or using a ServiceLoader, the default implementation is DefaultCamelReactiveStreamsService | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

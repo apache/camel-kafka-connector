@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-master-kafka-connector-source]]
 == camel-master-kafka-connector source configuration
 
 When using camel-master-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -29,6 +30,4 @@ When using camel-master-kafka-connector as source make sure to use the following
 | *camel.component.master.service* | Inject the service to use. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.master.serviceSelector* | Inject the service selector used to lookup the CamelClusterService to use. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

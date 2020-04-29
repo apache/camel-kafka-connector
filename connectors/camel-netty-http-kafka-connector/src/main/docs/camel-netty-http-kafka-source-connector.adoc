@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-netty-http-kafka-connector-source]]
 == camel-netty-http-kafka-connector source configuration
 
 When using camel-netty-http-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -98,6 +99,4 @@ When using camel-netty-http-kafka-connector as source make sure to use the follo
 | *camel.component.netty-http.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
 | *camel.component.netty-http.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

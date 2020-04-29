@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-quickfix-kafka-connector-source]]
 == camel-quickfix-kafka-connector source configuration
 
 When using camel-quickfix-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -31,6 +32,4 @@ When using camel-quickfix-kafka-connector as sink make sure to use the following
 | *camel.component.quickfix.messageFactory* | To use the given MessageFactory | null | ConfigDef.Importance.MEDIUM
 | *camel.component.quickfix.messageStoreFactory* | To use the given MessageStoreFactory | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

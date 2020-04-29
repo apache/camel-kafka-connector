@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-scp-kafka-connector-source]]
 == camel-scp-kafka-connector source configuration
 
 When using camel-scp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -48,6 +49,4 @@ When using camel-scp-kafka-connector as sink make sure to use the following Mave
 | *camel.component.scp.verboseLogging* | JSCH is verbose logging out of the box. Therefore we turn the logging down to DEBUG logging by default. But setting this option to true turns on the verbose logging again. | false | ConfigDef.Importance.MEDIUM
 | *camel.component.scp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

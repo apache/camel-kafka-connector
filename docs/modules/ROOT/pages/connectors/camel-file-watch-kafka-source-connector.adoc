@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-file-watch-kafka-connector-source]]
 == camel-file-watch-kafka-connector source configuration
 
 When using camel-file-watch-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -40,6 +41,4 @@ When using camel-file-watch-kafka-connector as source make sure to use the follo
 | *camel.component.file-watch.useFileHashing* | Enables or disables file hashing to detect duplicate events. If you disable this, you can get some events multiple times on some platforms and JDKs. Check java.nio.file.WatchService limitations for your target platform. | true | ConfigDef.Importance.MEDIUM
 | *camel.component.file-watch.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

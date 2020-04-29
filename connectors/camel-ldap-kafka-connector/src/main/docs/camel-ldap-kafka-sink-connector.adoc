@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-ldap-kafka-connector-source]]
 == camel-ldap-kafka-connector source configuration
 
 When using camel-ldap-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

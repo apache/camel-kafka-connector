@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-dataformat-kafka-connector-source]]
 == camel-dataformat-kafka-connector source configuration
 
 When using camel-dataformat-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

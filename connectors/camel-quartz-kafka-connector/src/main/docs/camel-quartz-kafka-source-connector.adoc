@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-quartz-kafka-connector-source]]
 == camel-quartz-kafka-connector source configuration
 
 When using camel-quartz-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -53,6 +54,4 @@ When using camel-quartz-kafka-connector as source make sure to use the following
 | *camel.component.quartz.interruptJobsOnShutdown* | Whether to interrupt jobs on shutdown which forces the scheduler to shutdown quicker and attempt to interrupt any running jobs. If this is enabled then any running jobs can fail due to being interrupted. | false | ConfigDef.Importance.MEDIUM
 | *camel.component.quartz.startDelayedSeconds* | Seconds to wait before starting the quartz scheduler. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

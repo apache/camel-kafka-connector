@@ -1,3 +1,4 @@
+[[@{title}-kafka-connector-source]]
 == @{title}-kafka-connector source configuration
 
 When using @{title}-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

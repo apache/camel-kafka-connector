@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-vm-kafka-connector-source]]
 == camel-vm-kafka-connector source configuration
 
 When using camel-vm-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -36,6 +37,4 @@ When using camel-vm-kafka-connector as source make sure to use the following Mav
 | *camel.component.vm.defaultQueueFactory* | Sets the default queue factory. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.vm.queueSize* | Sets the default maximum capacity of the SEDA queue (i.e., the number of messages it can hold). | 1000 | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END
