@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-validator-kafka-connector sink configuration
+== camel-validator-kafka-connector source configuration
 
 When using camel-validator-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -34,6 +34,4 @@ When using camel-validator-kafka-connector as sink make sure to use the followin
 | *camel.component.validator.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.validator.resourceResolverFactory* | To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

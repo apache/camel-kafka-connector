@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-google-mail-kafka-connector sink configuration
+== camel-google-mail-kafka-connector source configuration
 
 When using camel-google-mail-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -33,6 +33,4 @@ When using camel-google-mail-kafka-connector as sink make sure to use the follow
 | *camel.component.google-mail.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.google-mail.clientFactory* | To use the GoogleCalendarClientFactory as factory for creating the client. Will by default use BatchGoogleMailClientFactory | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

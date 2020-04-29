@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-twilio-kafka-connector sink configuration
+== camel-twilio-kafka-connector source configuration
 
 When using camel-twilio-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -31,6 +31,4 @@ When using camel-twilio-kafka-connector as sink make sure to use the following M
 | *camel.component.twilio.password* | Auth token for the account. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.twilio.username* | The account to use. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

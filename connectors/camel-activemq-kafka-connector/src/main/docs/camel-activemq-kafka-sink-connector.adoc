@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-activemq-kafka-connector sink configuration
+== camel-activemq-kafka-connector source configuration
 
 When using camel-activemq-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -154,6 +154,4 @@ When using camel-activemq-kafka-connector as sink make sure to use the following
 | *camel.component.activemq.transactionName* | The name of the transaction to use. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.activemq.transactionTimeout* | The timeout value of the transaction (in seconds), if using transacted mode. | -1 | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

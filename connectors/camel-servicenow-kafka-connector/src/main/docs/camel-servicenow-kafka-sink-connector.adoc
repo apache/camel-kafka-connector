@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-servicenow-kafka-connector sink configuration
+== camel-servicenow-kafka-connector source configuration
 
 When using camel-servicenow-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -80,6 +80,4 @@ When using camel-servicenow-kafka-connector as sink make sure to use the followi
 | *camel.component.servicenow.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 | *camel.component.servicenow.userName* | ServiceNow user account name | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

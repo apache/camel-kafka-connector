@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-sjms-kafka-connector sink configuration
+== camel-sjms-kafka-connector source configuration
 
 When using camel-sjms-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -60,6 +60,4 @@ When using camel-sjms-kafka-connector as sink make sure to use the following Mav
 | *camel.component.sjms.connectionUsername* | The username to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.sjms.transactionCommitStrategy* | To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

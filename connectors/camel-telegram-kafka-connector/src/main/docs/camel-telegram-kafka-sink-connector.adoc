@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-telegram-kafka-connector sink configuration
+== camel-telegram-kafka-connector source configuration
 
 When using camel-telegram-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -35,6 +35,4 @@ When using camel-telegram-kafka-connector as sink make sure to use the following
 | *camel.component.telegram.clientConfig* | To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.telegram.authorizationToken* | The default Telegram authorization token to be used when the information is not provided in the endpoints. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

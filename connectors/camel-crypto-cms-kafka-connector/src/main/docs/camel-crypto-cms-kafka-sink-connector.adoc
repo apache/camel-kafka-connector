@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-crypto-cms-kafka-connector sink configuration
+== camel-crypto-cms-kafka-connector source configuration
 
 When using camel-crypto-cms-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -41,6 +41,4 @@ When using camel-crypto-cms-kafka-connector as sink make sure to use the followi
 | *camel.component.crypto-cms.envelopedDataDecryptorConfiguration* | To configure the shared EnvelopedDataDecryptorConfiguration, which determines the uri parameters for the decrypt operation. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.crypto-cms.signedDataVerifierConfiguration* | To configure the shared SignedDataVerifierConfiguration, which determines the uri parameters for the verify operation. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

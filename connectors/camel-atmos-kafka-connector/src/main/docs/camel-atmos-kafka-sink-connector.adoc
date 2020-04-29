@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-atmos-kafka-connector sink configuration
+== camel-atmos-kafka-connector source configuration
 
 When using camel-atmos-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -37,6 +37,4 @@ When using camel-atmos-kafka-connector as sink make sure to use the following Ma
 | *camel.component.atmos.secretKey* | The secret key to pass to the Atmos client (should be base64 encoded) | null | ConfigDef.Importance.MEDIUM
 | *camel.component.atmos.sslValidation* | Whether the Atmos client should perform SSL validation | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

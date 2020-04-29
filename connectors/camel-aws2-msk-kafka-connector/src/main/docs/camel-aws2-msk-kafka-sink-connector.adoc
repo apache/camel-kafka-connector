@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-aws2-msk-kafka-connector sink configuration
+== camel-aws2-msk-kafka-connector source configuration
 
 When using camel-aws2-msk-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -36,6 +36,4 @@ When using camel-aws2-msk-kafka-connector as sink make sure to use the following
 | *camel.component.aws2-msk.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.aws2-msk.configuration* | The AWS MSK default configuration | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

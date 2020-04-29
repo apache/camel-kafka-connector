@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-rest-openapi-kafka-connector sink configuration
+== camel-rest-openapi-kafka-connector source configuration
 
 When using camel-rest-openapi-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -38,6 +38,4 @@ When using camel-rest-openapi-kafka-connector as sink make sure to use the follo
 | *camel.component.rest-openapi.sslContextParameters* | Customize TLS parameters used by the component. If not set defaults to the TLS parameters set in the Camel context | null | ConfigDef.Importance.MEDIUM
 | *camel.component.rest-openapi.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

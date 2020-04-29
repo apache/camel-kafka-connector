@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-msv-kafka-connector sink configuration
+== camel-msv-kafka-connector source configuration
 
 When using camel-msv-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -35,6 +35,4 @@ When using camel-msv-kafka-connector as sink make sure to use the following Mave
 | *camel.component.msv.resourceResolverFactory* | To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI | null | ConfigDef.Importance.MEDIUM
 | *camel.component.msv.schemaFactory* | To use the javax.xml.validation.SchemaFactory. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

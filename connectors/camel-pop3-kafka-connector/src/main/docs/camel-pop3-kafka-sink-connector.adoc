@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-pop3-kafka-connector sink configuration
+== camel-pop3-kafka-connector source configuration
 
 When using camel-pop3-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -53,6 +53,4 @@ When using camel-pop3-kafka-connector as sink make sure to use the following Mav
 | *camel.component.pop3.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.pop3.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-mllp-kafka-connector sink configuration
+== camel-mllp-kafka-connector source configuration
 
 When using camel-mllp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -44,6 +44,4 @@ When using camel-mllp-kafka-connector as sink make sure to use the following Mav
 | *camel.component.mllp.logPhi* | Set the component to log PHI data. | "true" | ConfigDef.Importance.MEDIUM
 | *camel.component.mllp.logPhiMaxBytes* | Set the maximum number of bytes of PHI that will be logged in a log entry. | "5120" | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

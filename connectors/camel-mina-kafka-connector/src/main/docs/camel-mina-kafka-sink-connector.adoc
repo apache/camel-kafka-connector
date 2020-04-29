@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-mina-kafka-connector sink configuration
+== camel-mina-kafka-connector source configuration
 
 When using camel-mina-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -48,6 +48,4 @@ When using camel-mina-kafka-connector as sink make sure to use the following Mav
 | *camel.component.mina.configuration* | To use the shared mina configuration. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.mina.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

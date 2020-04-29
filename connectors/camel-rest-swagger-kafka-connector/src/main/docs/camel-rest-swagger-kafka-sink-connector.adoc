@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-rest-swagger-kafka-connector sink configuration
+== camel-rest-swagger-kafka-connector source configuration
 
 When using camel-rest-swagger-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -39,6 +39,4 @@ When using camel-rest-swagger-kafka-connector as sink make sure to use the follo
 | *camel.component.rest-swagger.sslContextParameters* | Customize TLS parameters used by the component. If not set defaults to the TLS parameters set in the Camel context | null | ConfigDef.Importance.MEDIUM
 | *camel.component.rest-swagger.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

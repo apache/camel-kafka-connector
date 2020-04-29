@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-bean-validator-kafka-connector sink configuration
+== camel-bean-validator-kafka-connector source configuration
 
 When using camel-bean-validator-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -36,6 +36,4 @@ When using camel-bean-validator-kafka-connector as sink make sure to use the fol
 | *camel.component.bean-validator.traversableResolver* | To use a custom TraversableResolver | null | ConfigDef.Importance.MEDIUM
 | *camel.component.bean-validator.validationProviderResolver* | To use a a custom ValidationProviderResolver | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

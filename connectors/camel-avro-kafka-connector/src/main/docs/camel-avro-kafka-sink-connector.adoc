@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-avro-kafka-connector sink configuration
+== camel-avro-kafka-connector source configuration
 
 When using camel-avro-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -34,6 +34,4 @@ When using camel-avro-kafka-connector as sink make sure to use the following Mav
 | *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.avro.configuration* | To use a shared AvroConfiguration to configure options once | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

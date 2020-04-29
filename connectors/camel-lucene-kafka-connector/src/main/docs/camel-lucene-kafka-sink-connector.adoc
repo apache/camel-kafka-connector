@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-lucene-kafka-connector sink configuration
+== camel-lucene-kafka-connector source configuration
 
 When using camel-lucene-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -30,6 +30,4 @@ When using camel-lucene-kafka-connector as sink make sure to use the following M
 | *camel.component.lucene.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.lucene.config* | To use a shared lucene configuration | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-robotframework-kafka-connector sink configuration
+== camel-robotframework-kafka-connector source configuration
 
 When using camel-robotframework-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -71,6 +71,4 @@ When using camel-robotframework-kafka-connector as sink make sure to use the fol
 | *camel.component.robotframework.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.robotframework.configuration* | The configuration | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

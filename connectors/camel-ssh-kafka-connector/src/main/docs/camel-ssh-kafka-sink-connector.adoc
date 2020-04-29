@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-ssh-kafka-connector sink configuration
+== camel-ssh-kafka-connector source configuration
 
 When using camel-ssh-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -51,6 +51,4 @@ When using camel-ssh-kafka-connector as sink make sure to use the following Mave
 | *camel.component.ssh.password* | Sets the password to use in connecting to remote SSH server. Requires keyPairProvider to be set to null. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.ssh.username* | Sets the username to use in logging into the remote SSH server. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

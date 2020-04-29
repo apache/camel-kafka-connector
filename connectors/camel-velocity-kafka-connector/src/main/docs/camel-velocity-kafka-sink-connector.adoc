@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-velocity-kafka-connector sink configuration
+== camel-velocity-kafka-connector source configuration
 
 When using camel-velocity-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -29,6 +29,4 @@ When using camel-velocity-kafka-connector as sink make sure to use the following
 | *camel.component.velocity.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.velocity.velocityEngine* | To use the VelocityEngine otherwise a new engine is created | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

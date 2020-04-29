@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-aws-translate-kafka-connector sink configuration
+== camel-aws-translate-kafka-connector source configuration
 
 When using camel-aws-translate-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -39,6 +39,4 @@ When using camel-aws-translate-kafka-connector as sink make sure to use the foll
 | *camel.component.aws-translate.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.aws-translate.configuration* | The AWS Translate default configuration | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-cometds-kafka-connector sink configuration
+== camel-cometds-kafka-connector source configuration
 
 When using camel-cometds-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -44,6 +44,4 @@ When using camel-cometds-kafka-connector as sink make sure to use the following 
 | *camel.component.cometds.sslPassword* | The password when using SSL. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.cometds.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

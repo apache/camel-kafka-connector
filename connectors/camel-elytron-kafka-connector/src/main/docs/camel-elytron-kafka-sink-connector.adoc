@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-elytron-kafka-connector sink configuration
+== camel-elytron-kafka-connector source configuration
 
 When using camel-elytron-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -47,6 +47,4 @@ When using camel-elytron-kafka-connector as sink make sure to use the following 
 | *camel.component.elytron.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
 | *camel.component.elytron.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

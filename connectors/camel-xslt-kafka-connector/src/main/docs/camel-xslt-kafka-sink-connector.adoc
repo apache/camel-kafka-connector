@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-xslt-kafka-connector sink configuration
+== camel-xslt-kafka-connector source configuration
 
 When using camel-xslt-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -41,6 +41,4 @@ When using camel-xslt-kafka-connector as sink make sure to use the following Mav
 | *camel.component.xslt.uriResolver* | To use a custom UriResolver. Should not be used together with the option 'uriResolverFactory'. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.xslt.uriResolverFactory* | To use a custom UriResolver which depends on a dynamic endpoint resource URI. Should not be used together with the option 'uriResolver'. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

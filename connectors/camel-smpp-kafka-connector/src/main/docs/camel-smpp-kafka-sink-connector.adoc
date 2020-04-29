@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-smpp-kafka-connector sink configuration
+== camel-smpp-kafka-connector source configuration
 
 When using camel-smpp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -59,6 +59,4 @@ When using camel-smpp-kafka-connector as sink make sure to use the following Mav
 | *camel.component.smpp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.smpp.configuration* | To use the shared SmppConfiguration as configuration. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

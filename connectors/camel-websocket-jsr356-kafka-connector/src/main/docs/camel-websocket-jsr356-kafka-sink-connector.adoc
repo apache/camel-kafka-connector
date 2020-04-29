@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-websocket-jsr356-kafka-connector sink configuration
+== camel-websocket-jsr356-kafka-connector source configuration
 
 When using camel-websocket-jsr356-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -26,6 +26,4 @@ When using camel-websocket-jsr356-kafka-connector as sink make sure to use the f
 | *camel.component.websocket-jsr356.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.websocket-jsr356.serverEndpointDeploymentStrategy* | To enable customization of how a WebSocket ServerEndpoint is configured and deployed. By default DefaultServerEndpointDeploymentStrategy is used. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

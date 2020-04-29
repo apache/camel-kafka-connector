@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-stub-kafka-connector sink configuration
+== camel-stub-kafka-connector source configuration
 
 When using camel-stub-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -38,6 +38,4 @@ When using camel-stub-kafka-connector as sink make sure to use the following Mav
 | *camel.component.stub.defaultQueueFactory* | Sets the default queue factory. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.stub.queueSize* | Sets the default maximum capacity of the SEDA queue (i.e., the number of messages it can hold). | 1000 | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

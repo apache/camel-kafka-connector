@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-ahc-kafka-connector sink configuration
+== camel-ahc-kafka-connector source configuration
 
 When using camel-ahc-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -43,6 +43,4 @@ When using camel-ahc-kafka-connector as sink make sure to use the following Mave
 | *camel.component.ahc.sslContextParameters* | Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.ahc.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

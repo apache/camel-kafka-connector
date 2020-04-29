@@ -1,5 +1,5 @@
 // kafka-connector options: START
-== camel-cxfrs-kafka-connector sink configuration
+== camel-cxfrs-kafka-connector source configuration
 
 When using camel-cxfrs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -50,6 +50,4 @@ When using camel-cxfrs-kafka-connector as sink make sure to use the following Ma
 | *camel.component.cxfrs.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.cxfrs.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END
