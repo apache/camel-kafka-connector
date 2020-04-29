@@ -1,0 +1,46 @@
+// kafka-connector options: START
+== camel-iec60870-client-kafka-connector sink configuration
+
+When using camel-iec60870-client-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-iec60870-client-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.uriPath* | The object information address | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.dataModuleOptions* | Data module options | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.protocolOptions* | Protocol options | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.acknowledgeWindow* | Parameter W - Acknowledgment window. | 10 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.adsuAddressType* | The common ASDU address size. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2] | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.causeOfTransmissionType* | The cause of transmission type. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2] | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.informationObjectAddressType* | The information address size. May be either SIZE_1, SIZE_2 or SIZE_3. One of: [SIZE_1] [SIZE_2] [SIZE_3] | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxUnacknowledged* | Parameter K - Maximum number of un-acknowledged messages. | 15 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.timeout1* | Timeout T1 in milliseconds. | 15000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.timeout2* | Timeout T2 in milliseconds. | 10000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.timeout3* | Timeout T3 in milliseconds. | 20000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.causeSourceAddress* | Whether to include the source address | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.connectionTimeout* | Timeout in millis to wait for client to establish a connected connection. | 10000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.ignoreBackgroundScan* | Whether background scan transmissions should be ignored. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.ignoreDaylightSavingTime* | Whether to ignore or respect DST | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.timeZone* | The timezone to use. May be any Java time zone string | "UTC" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.connectionId* | An identifier grouping connection instances | null | ConfigDef.Importance.MEDIUM
+| *camel.component.iec60870-client.defaultConnectionOptions* | Default connection options | null | ConfigDef.Importance.MEDIUM
+| *camel.component.iec60870-client.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.iec60870-client.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

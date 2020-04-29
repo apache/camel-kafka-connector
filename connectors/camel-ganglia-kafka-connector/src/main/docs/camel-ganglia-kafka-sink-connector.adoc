@@ -1,0 +1,43 @@
+// kafka-connector options: START
+== camel-ganglia-kafka-connector sink configuration
+
+When using camel-ganglia-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ganglia-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.host* | Host name for Ganglia server | "239.2.11.71" | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.port* | Port for Ganglia server | 8649 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.dmax* | Minumum time in seconds before Ganglia will purge the metric value if it expires. Set to 0 and the value will remain in Ganglia indefinitely until a gmond agent restart. | 0 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.groupName* | The group that the metric belongs to. | "java" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.metricName* | The name to use for the metric. | "metric" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.mode* | Send the UDP metric packets using MULTICAST or UNICAST One of: [MULTICAST] [UNICAST] | "MULTICAST" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.prefix* | Prefix the metric name with this string and an underscore. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.slope* | The slope One of: [ZERO] [POSITIVE] [NEGATIVE] [BOTH] | "BOTH" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.spoofHostname* | Spoofing information IP:hostname | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.tmax* | Maximum time in seconds that the value can be considered current. After this, Ganglia considers the value to have expired. | 60 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.ttl* | If using multicast, set the TTL of the packets | 5 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.type* | The type of value One of: [STRING] [INT8] [UINT8] [INT16] [UINT16] [INT32] [UINT32] [FLOAT] [DOUBLE] | "STRING" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.units* | Any unit of measurement that qualifies the metric, e.g. widgets, litres, bytes. Do not include a prefix such as k (kilo) or m (milli), other tools may scale the units later. The value should be unscaled. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.wireFormat31x* | Use the wire format of Ganglia 3.1.0 and later versions. Set this to false to use Ganglia 3.0.x or earlier. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ganglia.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ganglia.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ganglia.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

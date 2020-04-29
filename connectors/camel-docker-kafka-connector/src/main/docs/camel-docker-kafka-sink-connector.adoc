@@ -1,0 +1,47 @@
+// kafka-connector options: START
+== camel-docker-kafka-connector sink configuration
+
+When using camel-docker-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-docker-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.operation* | Which operation to use One of: [events] [stats] [auth] [info] [ping] [version] [imagebuild] [imagecreate] [imageinspect] [imagelist] [imagepull] [imagepushimageremove] [imagesearch] [imagetag] [containerattach] [containercommit] [containercopyfile] [containercreate] [containerdiffinspectcontainer] [containerkill] [containerlist] [containerlog] [containerpause] [containerrestart] [containerremove] [containerstartcontainerstop] [containertop] [containerunpause] [containerwait] [execcreate] [execstart] | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.email* | Email address associated with the user | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.host* | Docker host | "localhost" | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.port* | Docker port | "2375" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.requestTimeout* | Request timeout for response (in seconds) | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cmdExecFactory* | The fully qualified class name of the DockerCmdExecFactory implementation to use | "com.github.dockerjava.netty.NettyDockerCmdExecFactory" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.followRedirectFilter* | Whether to follow redirect filter | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.loggingFilter* | Whether to use logging filter | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxPerRouteConnections* | Maximum route connections | "100" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxTotalConnections* | Maximum total connections | "100" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.parameters* | Additional configuration parameters as key/value pairs | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.serverAddress* | Server address for docker registry. | "https://index.docker.io/v1/" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.socket* | Socket connection mode | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.certPath* | Location containing the SSL certificate chain | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.password* | Password to authenticate with | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.secure* | Use HTTPS communication | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.tlsVerify* | Check TLS | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.username* | User name to authenticate with | null | ConfigDef.Importance.MEDIUM
+| *camel.component.docker.configuration* | To use the shared docker configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.docker.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.docker.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

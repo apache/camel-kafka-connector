@@ -1,0 +1,36 @@
+// kafka-connector options: START
+== camel-quickfix-kafka-connector sink configuration
+
+When using camel-quickfix-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-quickfix-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.configurationName* | The configFile is the name of the QuickFIX/J configuration to use for the FIX engine (located as a resource found in your classpath). | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.lazyCreateEngine* | This option allows to create QuickFIX/J engine on demand. Value true means the engine is started when first message is send or there's consumer configured in route definition. When false value is used, the engine is started at the endpoint creation. When this parameter is missing, the value of component's property lazyCreateEngines is being used. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sessionID* | The optional sessionID identifies a specific FIX session. The format of the sessionID is: (BeginString):(SenderCompID)/(SenderSubID)/(SenderLocationID)-(TargetCompID)/(TargetSubID)/(TargetLocationID) | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.quickfix.configurations* | To use the given map of pre configured QuickFix configurations mapped to the key | null | ConfigDef.Importance.MEDIUM
+| *camel.component.quickfix.lazyCreateEngines* | If set to true, the engines will be created and started when needed (when first message is send) | false | ConfigDef.Importance.MEDIUM
+| *camel.component.quickfix.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.quickfix.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.quickfix.logFactory* | To use the given LogFactory | null | ConfigDef.Importance.MEDIUM
+| *camel.component.quickfix.messageFactory* | To use the given MessageFactory | null | ConfigDef.Importance.MEDIUM
+| *camel.component.quickfix.messageStoreFactory* | To use the given MessageStoreFactory | null | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

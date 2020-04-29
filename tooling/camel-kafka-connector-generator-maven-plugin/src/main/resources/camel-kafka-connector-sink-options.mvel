@@ -1,0 +1,21 @@
+== @{title}-kafka-connector source configuration
+
+When using @{title}-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>@{groupId}.kafkaconnector</groupId>
+  <artifactId>@{artifactId}-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+@if{!options.isEmpty()}
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+@foreach{row : options}| *@{row.name}* | @{util.escape(row.description)} | @{row.defaultValue} | @{row.priority}
+@end{}|===
+@end{}

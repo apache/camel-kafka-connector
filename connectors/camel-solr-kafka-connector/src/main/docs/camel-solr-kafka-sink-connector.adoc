@@ -1,0 +1,43 @@
+// kafka-connector options: START
+== camel-solr-kafka-connector sink configuration
+
+When using camel-solr-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-solr-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.url* | Hostname and port for the solr server | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.allowCompression* | Server side must support gzip or deflate for this to have any effect | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.connectionTimeout* | connectionTimeout on the underlying HttpConnectionManager | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.defaultMaxConnectionsPerHost* | maxConnectionsPerHost on the underlying HttpConnectionManager | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.followRedirects* | indicates whether redirects are used to get to the Solr server | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxRetries* | Maximum number of retries to attempt in the event of transient errors | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxTotalConnections* | maxTotalConnection on the underlying HttpConnectionManager | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.requestHandler* | Set the request handler to be used | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.soTimeout* | Read timeout on the underlying HttpConnectionManager. This is desirable for queries, but probably not for indexing | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.streamingQueueSize* | Set the queue size for the StreamingUpdateSolrServer | 10 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.streamingThreadCount* | Set the number of threads for the StreamingUpdateSolrServer | 2 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.password* | Sets password for basic auth plugin enabled servers | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.username* | Sets username for basic auth plugin enabled servers | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.collection* | Set the collection name which the solrCloud server could use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.zkHost* | Set the ZooKeeper host information which the solrCloud could use, such as zkhost=localhost:8123. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.solr.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.solr.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

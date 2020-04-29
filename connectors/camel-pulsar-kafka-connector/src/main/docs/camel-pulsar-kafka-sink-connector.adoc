@@ -1,0 +1,46 @@
+// kafka-connector options: START
+== camel-pulsar-kafka-connector sink configuration
+
+When using camel-pulsar-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-pulsar-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.persistence* | Whether the topic is persistent or non-persistent One of: [persistent] [non-persistent] | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.tenant* | The tenant | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.namespace* | The namespace | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.topic* | The topic | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.batchingEnabled* | Control whether automatic batching of messages is enabled for the producer. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.batchingMaxMessages* | The maximum size to batch messages. | 1000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.batchingMaxPublishDelayMicros* | The maximum time period within which the messages sent will be batched if batchingEnabled is true. | 1000L | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.blockIfQueueFull* | Whether to block the producing thread if pending messages queue is full or to throw a ProducerQueueIsFullError | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.compressionType* | Compression type to use One of: [NONE] [LZ4] [ZLIB] [ZSTD] [SNAPPY] | "NONE" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.initialSequenceId* | The first message published will have a sequence Id of initialSequenceId 1. | -1L | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxPendingMessages* | Size of the pending massages queue. When the queue is full, by default, any further sends will fail unless blockIfQueueFull=true | 1000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxPendingMessagesAcrossPartitions* | The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition. | 50000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.messageRouter* | Custom Message Router to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.messageRoutingMode* | Message Routing Mode to use One of: [SinglePartition] [RoundRobinPartition] [CustomPartition] | "RoundRobinPartition" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.producerName* | Name of the producer. If unset, lets Pulsar select a unique identifier. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sendTimeoutMs* | Send timeout in milliseconds | 30000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.pulsar.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.pulsar.autoConfiguration* | The pulsar auto configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.pulsar.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.pulsar.pulsarClient* | The pulsar client | null | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

@@ -1,0 +1,51 @@
+// kafka-connector options: START
+== camel-couchbase-kafka-connector sink configuration
+
+When using camel-couchbase-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-couchbase-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.protocol* | The protocol to use | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.hostname* | The hostname to use | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.port* | The port number to use | 8091 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.bucket* | The bucket to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.key* | The key to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.autoStartIdForInserts* | Define if we want an autostart Id when we are doing an insert operation | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.operation* | The operation to do | "CCB_PUT" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.persistTo* | Where to persist the data | 0 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.producerRetryAttempts* | Define the number of retry attempts | 2 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.producerRetryPause* | Define the retry pause between different attempts | 5000 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.replicateTo* | Where to replicate the data | 0 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.startingIdForInsertsFrom* | Define the starting Id where we are doing an insert operation | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.additionalHosts* | The additional hosts | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxReconnectDelay* | Define the max delay during a reconnection | 30000L | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.obsPollInterval* | Define the observation polling interval | 400L | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.obsTimeout* | Define the observation timeout | -1L | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.opQueueMaxBlockTime* | Define the max time an operation can be in queue blocked | 10000L | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.opTimeOut* | Define the operation timeout | 2500L | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.readBufferSize* | Define the buffer size | 16384 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.shouldOptimize* | Define if we want to use optimization or not where possible | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.timeoutExceptionThreshold* | Define the threshold for throwing a timeout Exception | 998 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.password* | The password to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.username* | The username to use | null | ConfigDef.Importance.MEDIUM
+| *camel.component.couchbase.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.couchbase.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

@@ -1,0 +1,44 @@
+// kafka-connector options: START
+== camel-xmpp-kafka-connector sink configuration
+
+When using camel-xmpp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-xmpp-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.host* | Hostname for the chat server | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.port* | Port number for the chat server | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.participant* | JID (Jabber ID) of person to receive messages. room parameter has precedence over participant. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.login* | Whether to login the user. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.nickname* | Use nickname when joining room. If room is specified and nickname is not, user will be used for the nickname. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.pubsub* | Accept pubsub packets on input, default is false | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.room* | If this option is specified, the component will connect to MUC (Multi User Chat). Usually, the domain name for MUC is different from the login domain. For example, if you are supermanjabber.org and want to join the krypton room, then the room URL is kryptonconference.jabber.org. Note the conference part. It is not a requirement to provide the full room JID. If the room parameter does not contain the symbol, the domain part will be discovered and added by Camel | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.serviceName* | The name of the service you are connecting to. For Google Talk, this would be gmail.com. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.testConnectionOnStartup* | Specifies whether to test the connection on startup. This is used to ensure that the XMPP client has a valid connection to the XMPP server when the route starts. Camel throws an exception on startup if a connection cannot be established. When this option is set to false, Camel will attempt to establish a lazy connection when needed by a producer, and will poll for a consumer connection until the connection is established. Default is true. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.createAccount* | If true, an attempt to create an account will be made. Default is false. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.resource* | XMPP resource. The default is Camel. | "Camel" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.connectionConfig* | To use an existing connection configuration. Currently org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only supported (XMPP over TCP). | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.password* | Password for login | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.roomPassword* | Password for room | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.user* | User name (without server name). If not specified, anonymous login will be attempted. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.xmpp.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.xmpp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

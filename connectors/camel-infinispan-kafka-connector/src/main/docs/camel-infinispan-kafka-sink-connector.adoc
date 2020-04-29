@@ -1,0 +1,41 @@
+// kafka-connector options: START
+== camel-infinispan-kafka-connector sink configuration
+
+When using camel-infinispan-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-infinispan-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.cacheName* | The cache to use | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.hosts* | Specifies the host of the cache on Infinispan instance | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.queryBuilder* | Specifies the query builder. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.operation* | The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC] | "PUT" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cacheContainer* | Specifies the cache Container to connect | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cacheContainerConfiguration* | The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration; | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.configurationProperties* | Implementation specific properties for the CacheManager | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.configurationUri* | An implementation specific URI for the CacheManager | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.flags* | A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.remappingFunction* | Set a specific remappingFunction to use in a compute operation | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.resultHeader* | Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.infinispan.cacheContainer* | Default Cache container | null | ConfigDef.Importance.MEDIUM
+| *camel.component.infinispan.configuration* | Default configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.infinispan.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.infinispan.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END
