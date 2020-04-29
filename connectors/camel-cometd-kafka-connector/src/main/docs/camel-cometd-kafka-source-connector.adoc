@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-cometd-kafka-connector-source]]
 == camel-cometd-kafka-connector source configuration
 
 When using camel-cometd-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -46,6 +47,4 @@ When using camel-cometd-kafka-connector as source make sure to use the following
 | *camel.component.cometd.sslPassword* | The password when using SSL. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.cometd.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

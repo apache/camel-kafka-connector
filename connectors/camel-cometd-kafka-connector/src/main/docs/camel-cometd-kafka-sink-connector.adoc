@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-cometd-kafka-connector-source]]
 == camel-cometd-kafka-connector source configuration
 
 When using camel-cometd-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

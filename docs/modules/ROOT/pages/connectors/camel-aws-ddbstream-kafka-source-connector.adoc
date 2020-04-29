@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-aws-ddbstream-kafka-connector-source]]
 == camel-aws-ddbstream-kafka-connector source configuration
 
 When using camel-aws-ddbstream-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -56,6 +57,4 @@ When using camel-aws-ddbstream-kafka-connector as source make sure to use the fo
 | *camel.component.aws-ddbstream.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.aws-ddbstream.configuration* | The AWS DDB stream default configuration | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

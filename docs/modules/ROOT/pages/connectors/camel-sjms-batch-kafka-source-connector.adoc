@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-sjms-batch-kafka-connector-source]]
 == camel-sjms-batch-kafka-connector source configuration
 
 When using camel-sjms-batch-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -49,6 +50,4 @@ When using camel-sjms-batch-kafka-connector as source make sure to use the follo
 | *camel.component.sjms-batch.recoveryInterval* | Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds. | 5000 | ConfigDef.Importance.MEDIUM
 | *camel.component.sjms-batch.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

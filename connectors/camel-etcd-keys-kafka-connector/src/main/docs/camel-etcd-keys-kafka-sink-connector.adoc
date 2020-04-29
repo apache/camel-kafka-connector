@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-etcd-keys-kafka-connector-source]]
 == camel-etcd-keys-kafka-connector source configuration
 
 When using camel-etcd-keys-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

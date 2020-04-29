@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-direct-vm-kafka-connector-source]]
 == camel-direct-vm-kafka-connector source configuration
 
 When using camel-direct-vm-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -33,6 +34,4 @@ When using camel-direct-vm-kafka-connector as sink make sure to use the followin
 | *camel.component.direct-vm.headerFilterStrategy* | Sets a HeaderFilterStrategy that will only be applied on producer endpoints (on both directions: request and response). Default value: none. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.direct-vm.propagateProperties* | Whether to propagate or not properties from the producer side to the consumer side, and vice versa. Default value: true. | true | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

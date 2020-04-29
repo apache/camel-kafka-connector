@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-websocket-kafka-connector-source]]
 == camel-websocket-kafka-connector source configuration
 
 When using camel-websocket-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -50,6 +51,4 @@ When using camel-websocket-kafka-connector as sink make sure to use the followin
 | *camel.component.websocket.sslPassword* | The password when using SSL. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.websocket.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

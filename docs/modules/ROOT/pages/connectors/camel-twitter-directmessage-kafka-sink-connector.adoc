@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-twitter-directmessage-kafka-connector-source]]
 == camel-twitter-directmessage-kafka-connector source configuration
 
 When using camel-twitter-directmessage-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -40,6 +41,4 @@ When using camel-twitter-directmessage-kafka-connector as sink make sure to use 
 | *camel.component.twitter-directmessage.consumerKey* | The consumer key | null | ConfigDef.Importance.MEDIUM
 | *camel.component.twitter-directmessage.consumerSecret* | The consumer secret | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

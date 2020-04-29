@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-aws-s3-kafka-connector-source]]
 == camel-aws-s3-kafka-connector source configuration
 
 When using camel-aws-s3-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

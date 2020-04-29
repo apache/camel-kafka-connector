@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-msv-kafka-connector-source]]
 == camel-msv-kafka-connector source configuration
 
 When using camel-msv-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

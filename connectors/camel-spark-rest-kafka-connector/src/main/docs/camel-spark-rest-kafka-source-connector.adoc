@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-spark-rest-kafka-connector-source]]
 == camel-spark-rest-kafka-connector source configuration
 
 When using camel-spark-rest-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -45,6 +46,4 @@ When using camel-spark-rest-kafka-connector as source make sure to use the follo
 | *camel.component.spark-rest.truststoreFile* | Configures connection to be secure to use the truststore file | null | ConfigDef.Importance.MEDIUM
 | *camel.component.spark-rest.truststorePassword* | Configures connection to be secure to use the truststore password | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

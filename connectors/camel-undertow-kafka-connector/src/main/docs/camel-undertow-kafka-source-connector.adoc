@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-undertow-kafka-connector-source]]
 == camel-undertow-kafka-connector source configuration
 
 When using camel-undertow-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -43,6 +44,4 @@ When using camel-undertow-kafka-connector as source make sure to use the followi
 | *camel.component.undertow.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
 | *camel.component.undertow.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-atmosphere-websocket-kafka-connector-source]]
 == camel-atmosphere-websocket-kafka-connector source configuration
 
 When using camel-atmosphere-websocket-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -51,6 +52,4 @@ When using camel-atmosphere-websocket-kafka-connector as sink make sure to use t
 | *camel.component.atmosphere-websocket.httpConfiguration* | To use the shared HttpConfiguration as base configuration. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.atmosphere-websocket.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

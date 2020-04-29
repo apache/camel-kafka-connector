@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-avro-kafka-connector-source]]
 == camel-avro-kafka-connector source configuration
 
 When using camel-avro-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:

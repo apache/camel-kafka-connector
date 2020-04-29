@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-hazelcast-list-kafka-connector-source]]
 == camel-hazelcast-list-kafka-connector source configuration
 
 When using camel-hazelcast-list-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -31,6 +32,4 @@ When using camel-hazelcast-list-kafka-connector as source make sure to use the f
 | *camel.component.hazelcast-list.hazelcastInstance* | The hazelcast instance reference which can be used for hazelcast endpoint. If you don't specify the instance reference, camel use the default hazelcast instance from the camel-hazelcast instance. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.hazelcast-list.hazelcastMode* | The hazelcast mode reference which kind of instance should be used. If you don't specify the mode, then the node mode will be the default. | "node" | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

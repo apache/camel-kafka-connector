@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-grpc-kafka-connector-source]]
 == camel-grpc-kafka-connector source configuration
 
 When using camel-grpc-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -45,6 +46,4 @@ When using camel-grpc-kafka-connector as source make sure to use the following M
 | *camel.component.grpc.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
 | *camel.component.grpc.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

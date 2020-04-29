@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-jgroups-kafka-connector-source]]
 == camel-jgroups-kafka-connector source configuration
 
 When using camel-jgroups-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -31,6 +32,4 @@ When using camel-jgroups-kafka-connector as source make sure to use the followin
 | *camel.component.jgroups.enableViewMessages* | If set to true, the consumer endpoint will receive org.jgroups.View messages as well (not only org.jgroups.Message instances). By default only regular messages are consumed by the endpoint. | false | ConfigDef.Importance.MEDIUM
 | *camel.component.jgroups.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-atomix-multimap-kafka-connector-source]]
 == camel-atomix-multimap-kafka-connector source configuration
 
 When using camel-atomix-multimap-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
@@ -42,6 +43,4 @@ When using camel-atomix-multimap-kafka-connector as sink make sure to use the fo
 | *camel.component.atomix-multimap.nodes* | The nodes the AtomixClient should connect to | null | ConfigDef.Importance.MEDIUM
 | *camel.component.atomix-multimap.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END

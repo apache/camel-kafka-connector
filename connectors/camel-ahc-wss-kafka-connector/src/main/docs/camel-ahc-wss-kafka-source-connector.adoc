@@ -1,4 +1,5 @@
 // kafka-connector options: START
+[[camel-ahc-wss-kafka-connector-source]]
 == camel-ahc-wss-kafka-connector source configuration
 
 When using camel-ahc-wss-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
@@ -44,6 +45,4 @@ When using camel-ahc-wss-kafka-connector as source make sure to use the followin
 | *camel.component.ahc-wss.sslContextParameters* | Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.ahc-wss.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
-
-
 // kafka-connector options: END
