@@ -6,4 +6,5 @@
 ** xref:try-it-out-locally.adoc[Try it locally]
 ** xref:try-it-out-on-openshift-with-strimzi.adoc[Try it on OpenShift cluster]
 ** xref:getting-started-with-packages.adoc[Packages documentation]
+* xref:connectors.adoc[Connectors list]
 * xref:contributing.adoc[Contributing]

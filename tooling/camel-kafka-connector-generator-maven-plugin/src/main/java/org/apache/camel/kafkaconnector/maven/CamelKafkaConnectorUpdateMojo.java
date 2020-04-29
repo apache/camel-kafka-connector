@@ -48,6 +48,7 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import freemarker.template.Template;
+
 import org.apache.camel.kafkaconnector.maven.dto.CamelKafkaConnectorModel;
 import org.apache.camel.kafkaconnector.maven.dto.CamelKafkaConnectorOptionModel;
 import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
@@ -479,7 +480,6 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
         File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/connectors/");
         File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-
         String changed = templateAutoConfigurationOptions(listOptions, getMainDepArtifactId(), connectorDir, ct);
         boolean updated = updateAutoConfigureOptions(docFile, changed);
         if (updated) {
