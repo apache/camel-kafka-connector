@@ -1,5 +1,5 @@
 [[connectors-connectors]]
-Supported connectors and documentation
+= Supported connectors and documentation
 
 * xref:connectors/camel-activemq-kafka-source-connector.adoc[activemq-kafka-source-connector]
 * xref:connectors/camel-activemq-kafka-sink-connector.adoc[activemq-kafka-sink-connector]
