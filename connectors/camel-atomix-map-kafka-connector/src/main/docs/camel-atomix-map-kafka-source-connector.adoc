@@ -1,0 +1,49 @@
+// kafka-connector options: START
+== camel-atomix-map-kafka-connector source configuration
+
+When using camel-atomix-map-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-atomix-map-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.source.path.resourceName* | The distributed resource name | null | ConfigDef.Importance.HIGH
+| *camel.source.endpoint.atomix* | The Atomix instance to use | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.configurationUri* | The Atomix configuration uri. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.defaultAction* | The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES] | "PUT" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.key* | The key to use if none is set in the header or to listen for events for a specific key. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.nodes* | The address of the nodes composing the cluster. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.resultHeader* | The header that wil carry the result. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.ttl* | The resource ttl. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.defaultResourceConfig* | The cluster wide default resource configuration. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.defaultResourceOptions* | The local default resource options. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.resourceOptions* | Local resources configurations | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.atomix-map.atomix* | The shared AtomixClient instance | null | ConfigDef.Importance.MEDIUM
+| *camel.component.atomix-map.configuration* | The shared component configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.atomix-map.configurationUri* | The path to the AtomixClient configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.atomix-map.nodes* | The nodes the AtomixClient should connect to | null | ConfigDef.Importance.MEDIUM
+| *camel.component.atomix-map.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.atomix-map.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+
+
+// kafka-connector options: END

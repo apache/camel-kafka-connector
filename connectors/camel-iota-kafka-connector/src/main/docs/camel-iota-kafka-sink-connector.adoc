@@ -1,0 +1,33 @@
+// kafka-connector options: START
+== camel-iota-kafka-connector source configuration
+
+When using camel-iota-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-iota-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.name* | Component name | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.depth* | The depth determines how deep the tangle is analysed for getting Tips | "9" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.minWeightMagnitude* | The minWeightMagnitude is the minimum number of zeroes that a proof-of-work output/transaction hash must end with to be considered valid by full nodes | "14" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.operation* | Which operation to perform, one of: sendTransfer, getNewAddress, getTransfers One of: [sendTransfer] [getNewAddress] [getTransfers] | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.tag* | TAG | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.url* | Node url | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.securityLevel* | Address security level | "1" | ConfigDef.Importance.MEDIUM
+| *camel.component.iota.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.iota.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+// kafka-connector options: END

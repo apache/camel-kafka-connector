@@ -1,0 +1,62 @@
+// kafka-connector options: START
+== camel-web3j-kafka-connector source configuration
+
+When using camel-web3j-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-web3j-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.nodeAddress* | Sets the node address used to communicate | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.addresses* | Contract address or a list of addresses. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.fromAddress* | The address the transaction is send from | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.fromBlock* | The block number, or the string latest for the last mined block or pending, earliest for not yet mined transactions. | "latest" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.fullTransactionObjects* | If true it returns the full transaction objects, if false only the hashes of the transactions. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.gasLimit* | The maximum gas allowed in this block. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.privateFor* | A transaction privateFor nodes with public keys in a Quorum network | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.quorumAPI* | If true, this will support Quorum API. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.toAddress* | The address the transaction is directed to. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.toBlock* | The block number, or the string latest for the last mined block or pending, earliest for not yet mined transactions. | "latest" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.topics* | Topics are order-dependent. Each topic can also be a list of topics. Specify multiple topics separated by comma. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.web3j* | The preconfigured Web3j object. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.address* | Contract address. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.atBlock* | The block number, or the string latest for the last mined block or pending, earliest for not yet mined transactions. | "latest" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.blockHash* | Hash of the block where this transaction was in. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clientId* | A random hexadecimal(32 bytes) ID identifying the client. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.data* | The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.databaseName* | The local database name. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.filterId* | The filter id to use. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.gasPrice* | Gas price used for each paid gas. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.hashrate* | A hexadecimal string representation (32 bytes) of the hash rate. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.headerPowHash* | The header's pow-hash (256 bits) used for submitting a proof-of-work solution. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.index* | The transactions/uncle index position in the block. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.keyName* | The key name in the database. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.mixDigest* | The mix digest (256 bits) used for submitting a proof-of-work solution. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.nonce* | The nonce found (64 bits) used for submitting a proof-of-work solution. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.operation* | Operation to use. | "transaction" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.position* | The transaction index position withing a block. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.priority* | The priority of a whisper message. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sha3HashOfDataToSign* | Message to sign by calculating an Ethereum specific signature. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.signedTransactionData* | The signed transaction data for a new message call transaction or a contract creation for signed transactions. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sourceCode* | The source code to compile. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.transactionHash* | The information about a transaction requested by transaction hash. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.ttl* | The time to live in seconds of a whisper message. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.value* | The value sent within a transaction. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.web3j.configuration* | Default configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.web3j.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.web3j.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+// kafka-connector options: END

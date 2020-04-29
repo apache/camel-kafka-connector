@@ -1,0 +1,37 @@
+// kafka-connector options: START
+== camel-ignite-compute-kafka-connector source configuration
+
+When using camel-ignite-compute-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-ignite-compute-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.endpointId* | The endpoint ID (not used). | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.clusterGroupExpression* | An expression that returns the Cluster Group for the IgniteCompute instance. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.computeName* | The name of the compute job, which will be set via IgniteCompute#withName(String). | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.executionType* | The compute operation to perform. Possible values: CALL, BROADCAST, APPLY, EXECUTE, RUN, AFFINITY_CALL, AFFINITY_RUN. The component expects different payload types depending on the operation. One of: [CALL] [BROADCAST] [APPLY] [EXECUTE] [RUN] [AFFINITY_CALL] [AFFINITY_RUN] | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue* | Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.taskName* | The task name, only applicable if using the IgniteComputeExecutionType#EXECUTE execution type. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.timeoutMillis* | The timeout interval for triggered jobs, in milliseconds, which will be set via IgniteCompute#withTimeout(long). | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.treatCollectionsAsCacheObjects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-compute.configurationResource* | Resource from where to load configuration. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-compute.ignite* | Ignite instance. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-compute.igniteConfiguration* | Ignite configuration. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-compute.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ignite-compute.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+// kafka-connector options: END

@@ -1,0 +1,45 @@
+// kafka-connector options: START
+== camel-box-kafka-connector source configuration
+
+When using camel-box-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-box-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.apiName* | What kind of operation to perform One of: [COLLABORATIONS] [COMMENTS] [EVENT_LOGS] [FILES] [FOLDERS] [GROUPS] [EVENTS] [SEARCH] [TASKS] [USERS] | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.methodName* | What sub operation to use for the selected operation | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.clientId* | Box application client ID | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.enterpriseId* | The enterprise ID to use for an App Enterprise. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.userId* | The user ID to use for an App User. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpParams* | Custom HTTP params for settings like proxy host | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.accessTokenCache* | Custom Access Token Cache for storing and retrieving access tokens. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clientSecret* | Box application client secret | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.encryptionAlgorithm* | The type of encryption algorithm for JWT. Supported Algorithms: RSA_SHA_256 RSA_SHA_384 RSA_SHA_512 One of: [RSA_SHA_256] [RSA_SHA_384] [RSA_SHA_512] | "RSA_SHA_256" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maxCacheEntries* | The maximum number of access tokens in cache. | 100 | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.authenticationType* | The type of authentication for connection. Types of Authentication: STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION - OAuth 2.0 with JSON Web Tokens | "APP_USER_AUTHENTICATION" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.privateKeyFile* | The private key for generating the JWT signature. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.privateKeyPassword* | The password for the private key. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.publicKeyId* | The ID for public key for validating the JWT signature. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.userName* | Box user name, MUST be provided | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.userPassword* | Box user password, MUST be provided if authSecureStorage is not set, or returns null on first call | null | ConfigDef.Importance.MEDIUM
+| *camel.component.box.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.box.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.box.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+// kafka-connector options: END

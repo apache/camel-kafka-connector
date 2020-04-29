@@ -1,0 +1,42 @@
+// kafka-connector options: START
+== camel-braintree-kafka-connector source configuration
+
+When using camel-braintree-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-braintree-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.apiName* | What kind of operation to perform One of: [ADDON] [ADDRESS] [CLIENTTOKEN] [CREDITCARDVERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENTUPLOAD] [MERCHANTACCOUNT] [PAYMENTMETHOD] [PAYMENTMETHODNONCE] [PLAN] [REPORT] [SETTLEMENTBATCHSUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOKNOTIFICATION] | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.methodName* | What sub operation to use for the selected operation | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.environment* | The environment Either SANDBOX or PRODUCTION | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.merchantId* | The merchant id provided by Braintree. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpReadTimeout* | Set read timeout for http calls. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpLogLevel* | Set logging level for http calls, see java.util.logging.Level | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpLogName* | Set log category to use to log http calls. | "Braintree" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.logHandlerEnabled* | Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to 'false' where an existing JUL - SLF4J logger bridge is on the classpath. This option can also be configured globally on the BraintreeComponent. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxyHost* | The proxy host | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxyPort* | The proxy port | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.accessToken* | The access token granted by a merchant to another in order to process transactions on their behalf. Used in place of environment, merchant id, public key and private key fields. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.privateKey* | The private key provided by Braintree. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.publicKey* | The public key provided by Braintree. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.braintree.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.braintree.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.braintree.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.braintree.logHandlerEnabled* | Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to false where an existing JUL - SLF4J logger bridge is on the classpath. | true | ConfigDef.Importance.MEDIUM
+|===
+// kafka-connector options: END

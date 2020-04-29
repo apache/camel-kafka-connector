@@ -1,0 +1,46 @@
+// kafka-connector options: START
+== camel-undertow-kafka-connector source configuration
+
+When using camel-undertow-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-undertow-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.httpURI* | The url of the HTTP endpoint to use. | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.useStreaming* | For HTTP endpoint: if true, text and binary messages will be wrapped as java.io.InputStream before they are passed to an Exchange; otherwise they will be passed as byte. For WebSocket endpoint: if true, text and binary messages will be wrapped as java.io.Reader and java.io.InputStream respectively before they are passed to an Exchange; otherwise they will be passed as String and byte respectively. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cookieHandler* | Configure a cookie handler to maintain a HTTP session | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.keepAlive* | Setting to ensure socket is not closed due to inactivity | "true" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.options* | Sets additional channel options. The options that can be used are defined in org.xnio.Options. To configure from endpoint uri, then prefix each option with option., such as option.close-abort=true&option.send-buffer=8192 | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.preserveHostHeader* | If the option is true, UndertowProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.reuseAddresses* | Setting to facilitate socket multiplexing | "true" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.tcpNoDelay* | Setting to improve TCP protocol performance | "true" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.throwExceptionOnFailure* | Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server. This allows you to get all responses regardless of the HTTP status code. | "true" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.transferException* | If enabled and an Exchange failed processing on the consumer side and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | "false" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.accessLogReceiver* | Which Undertow AccessLogReciever should be used Will use JBossLoggingAccessLogReceiver if not specifid | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.undertowHttpBinding* | To use a custom UndertowHttpBinding to control the mapping between Camel message and undertow. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sendTimeout* | Timeout in milliseconds when sending to a websocket channel. The default timeout is 30000 (30 seconds). | "30000" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sendToAll* | To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the UndertowConstants.SEND_TO_ALL header on the message. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
+| *camel.component.undertow.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.undertow.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.undertow.hostOptions* | To configure common options, such as thread pools | null | ConfigDef.Importance.MEDIUM
+| *camel.component.undertow.undertowHttpBinding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.undertow.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
+| *camel.component.undertow.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+|===
+// kafka-connector options: END

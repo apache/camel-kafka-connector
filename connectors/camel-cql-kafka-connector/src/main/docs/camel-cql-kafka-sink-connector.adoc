@@ -1,0 +1,40 @@
+// kafka-connector options: START
+== camel-cql-kafka-connector source configuration
+
+When using camel-cql-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-cql-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.beanRef* | beanRef is defined using bean:id | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.hosts* | Hostname(s) cassansdra server(s). Multiple hosts can be separated by comma. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.port* | Port number of cassansdra server(s) | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.keyspace* | Keyspace to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cluster* | To use the Cluster instance (you would normally not use this option) | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clusterName* | Cluster name | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.consistencyLevel* | Consistency level to use One of: [ANY] [ONE] [TWO] [THREE] [QUORUM] [ALL] [LOCAL_QUORUM] [EACH_QUORUM] [SERIAL] [LOCAL_SERIAL] [LOCAL_ONE] | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cql* | CQL query to perform. Can be overridden with the message header with key CamelCqlQuery. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.loadBalancingPolicy* | To use a specific LoadBalancingPolicy | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.password* | Password for session authentication | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.prepareStatements* | Whether to use PreparedStatements or regular Statements | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.resultSetConversionStrategy* | To use a custom class that implements logic for converting ResultSet into message body ALL, ONE, LIMIT_10, LIMIT_100... | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.session* | To use the Session instance (you would normally not use this option) | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.username* | Username for session authentication | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.cql.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.cql.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+// kafka-connector options: END

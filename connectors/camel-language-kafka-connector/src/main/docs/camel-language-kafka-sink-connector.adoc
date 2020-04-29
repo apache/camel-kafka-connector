@@ -1,0 +1,33 @@
+// kafka-connector options: START
+== camel-language-kafka-connector source configuration
+
+When using camel-language-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-language-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.languageName* | Sets the name of the language to use One of: [bean] [constant] [exchangeProperty] [file] [groovy] [header] [javascript] [jsonpath] [mvel] [ognl] [] [ref] [simple] [spel] [sql] [terser] [tokenize] [xpath] [xquery] [xtokenize] | null | ConfigDef.Importance.HIGH
+| *camel.sink.path.resourceUri* | Path to the resource, or a reference to lookup a bean in the Registry to use as the resource | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.binary* | Whether the script is binary content or text content. By default the script is read as text content (eg java.lang.String) | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.cacheScript* | Whether to cache the compiled script and reuse Notice reusing the script can cause side effects from processing one Camel org.apache.camel.Exchange to the next org.apache.camel.Exchange. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.contentCache* | Sets whether to use resource content cache or not | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.script* | Sets the script to execute | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.transform* | Whether or not the result of the script should be used as message body. This options is default true. | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.language.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.language.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+|===
+// kafka-connector options: END
