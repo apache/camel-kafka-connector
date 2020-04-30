@@ -13,6 +13,12 @@ When using @{title}-kafka-connector as source make sure to use the following Mav
 </dependency>
 ----
 
+@if{options.isEmpty()}
+The @{title} source connector has no options.
+@else{}
+The @{title} source connector supports @{options.size()} options, which are listed below.
+@end{}
+
 @if{!options.isEmpty()}
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
