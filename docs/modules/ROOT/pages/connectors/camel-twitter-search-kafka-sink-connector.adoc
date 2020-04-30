@@ -23,26 +23,26 @@ The camel-twitter-search sink connector supports 22 options, which are listed be
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.keywords* | The search query, use the keywords AND, OR, - and () to narrow the search results. | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpProxyHost* | The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpProxyPort* | The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpProxyUser* | The http proxy user which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.accessToken* | The access token. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.accessTokenSecret* | The access secret. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.consumerKey* | The consumer key. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.consumerSecret* | The consumer secret. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.httpProxyHost* | The http proxy host which can be used for the camel-twitter. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.httpProxyPort* | The http proxy port which can be used for the camel-twitter. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.httpProxyUser* | The http proxy user which can be used for the camel-twitter. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.accessToken* | The access token | null | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.accessTokenSecret* | The access token secret | null | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.consumerKey* | The consumer key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.twitter-search.consumerSecret* | The consumer secret | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpProxy Host* | The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpProxy Password* | The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpProxy Port* | The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.httpProxy User* | The http proxy user which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.access Token* | The access token. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.access TokenSecret* | The access secret. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.consumer Key* | The consumer key. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.consumer Secret* | The consumer secret. Can also be configured on the TwitterComponent level instead. | null | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.http ProxyHost* | The http proxy host which can be used for the camel-twitter. | null | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.http ProxyPassword* | The http proxy password which can be used for the camel-twitter. | null | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.http ProxyPort* | The http proxy port which can be used for the camel-twitter. | null | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.http ProxyUser* | The http proxy user which can be used for the camel-twitter. | null | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.access Token* | The access token | null | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.access TokenSecret* | The access token secret | null | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.consumer Key* | The consumer key | null | ConfigDef.Importance.MEDIUM
+| * camel.component.twitter-search.consumer Secret* | The consumer secret | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

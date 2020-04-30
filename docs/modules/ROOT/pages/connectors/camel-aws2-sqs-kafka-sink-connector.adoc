@@ -23,37 +23,37 @@ The camel-aws2-sqs sink connector supports 33 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.queueNameOrArn* | Queue name or ARN | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.amazonAWS Host* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.amazonSQS Client* | To use the AmazonSQS as client | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.autoCreate Queue* | Setting the autocreation of the queue | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.header FilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxy Protocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.queue OwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.region* | The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.delaySeconds* | Delay sending messages for a number of seconds. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.messageDeduplicationIdStrategy* | Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication] | "useExchangeId" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.messageGroupIdStrategy* | Only for FIFO queues. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue] | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.delay Seconds* | Delay sending messages for a number of seconds. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.message DeduplicationIdStrategy* | Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication] | "useExchangeId" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.message GroupIdStrategy* | Only for FIFO queues. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue] | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.operation* | The operation to do in case the user don't want to send only a message One of: [sendBatchMessage] [deleteMessage] [listQueues] | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the SQS client | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the SQS client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.maximumMessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.messageRetentionPeriod* | The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.maximum MessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.message RetentionPeriod* | The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.policy* | The policy for this queue | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.receiveMessageWaitTimeSeconds* | If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.redrivePolicy* | Specify the policy that send message to DeadLetter queue. See detail at Amazon docs. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.receive MessageWaitTimeSeconds* | If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.redrive Policy* | Specify the policy that send message to DeadLetter queue. See detail at Amazon docs. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-sqs.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-sqs.region* | Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-sqs.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-sqs.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-sqs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-sqs.configuration* | The AWS SQS default configuration | null | ConfigDef.Importance.MEDIUM
+| * camel.component.aws2-sqs.access Key* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
+| * camel.component.aws2-sqs.region* | Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL. | null | ConfigDef.Importance.MEDIUM
+| * camel.component.aws2-sqs.secret Key* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws2-sqs.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.aws2-sqs.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.component.aws2-sqs.configuration* | The AWS SQS default configuration | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

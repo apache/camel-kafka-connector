@@ -23,11 +23,11 @@ The camel-jbpm sink connector supports 33 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.connectionURL* | The URL to the jBPM server. | null | ConfigDef.Importance.HIGH
-| *camel.sink.path.eventListenerType* | Sets the event listener type to attach to | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.attachmentId* | attachId to use when retrieving attachments | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.eventListener Type* | Sets the event listener type to attach to | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.attachment Id* | attachId to use when retrieving attachments | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.contentId* | contentId to use when retrieving attachments | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.deploymentId* | The id of the deployment | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.emitterSendItems* | Sets if event produced by emitter should be sent as single items or complete collection | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.deployment Id* | The id of the deployment | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.emitter SendItems* | Sets if event produced by emitter should be sent as single items or complete collection | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.event* | the data associated with this event when signalEvent operation is performed | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.eventType* | the type of event to use when signalEvent operation is performed | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.identifier* | identifier the global identifier | null | ConfigDef.Importance.MEDIUM
@@ -35,25 +35,25 @@ The camel-jbpm sink connector supports 33 options, which are listed below.
 | *camel.sink.endpoint.page* | The page to use when retrieving user tasks | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.pageSize* | The page size to use when retrieving user tasks | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.processId* | the id of the process that should be acted upon | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.processInstanceId* | the id of the process instance | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.targetUserId* | The targetUserId used when delegating a task | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.process InstanceId* | the id of the process instance | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.targetUser Id* | The targetUserId used when delegating a task | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.task* | The task instance to use with task operations | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.taskId* | the id of the task | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.timeout* | A timeout value | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.userId* | userId to use with task operations | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.value* | the value to assign to the global identifier | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.workItemId* | the id of the work item | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.operation* | The operation to perform | "startProcess" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.entities* | The potentialOwners when nominateTask operation is performed | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.extraJaxbClasses* | To load additional classes when working with XML | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.extraJaxb Classes* | To load additional classes when working with XML | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.parameters* | the variables that should be set for various operations | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.statuses* | The list of status to use when filtering tasks | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.password* | Password for authentication | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.userName* | Username for authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.component.jbpm.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.jbpm.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.jbpm.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.jbpm.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

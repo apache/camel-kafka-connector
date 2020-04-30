@@ -23,25 +23,25 @@ The camel-aws-ses sink connector supports 21 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.from* | The sender's email address. | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.amazonSESClient* | To use the AmazonSimpleEmailService as the client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.amazonSES Client* | To use the AmazonSimpleEmailService as the client | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the SES client | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the SES client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SES client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxy Protocol* | To define a proxy protocol when instantiating the SES client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.region* | The region in which SES client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.replyToAddresses* | List of reply-to email address(es) for the message, override it using 'CamelAwsSesReplyToAddresses' header. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.replyTo Addresses* | List of reply-to email address(es) for the message, override it using 'CamelAwsSesReplyToAddresses' header. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.returnPath* | The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.subject* | The subject which is used if the message header 'CamelAwsSesSubject' is not present. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.to* | List of destination email address. Can be overriden with 'CamelAwsSesTo' header. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-ses.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-ses.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-ses.access Key* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-ses.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
 | *camel.component.aws-ses.region* | The region in which SES client needs to work | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-ses.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-ses.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-ses.configuration* | The AWS SES default configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-ses.secret Key* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-ses.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.component.aws-ses.configuration* | The AWS SES default configuration | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

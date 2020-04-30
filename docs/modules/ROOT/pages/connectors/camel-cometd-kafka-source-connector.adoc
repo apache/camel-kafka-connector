@@ -25,30 +25,30 @@ The camel-cometd source connector supports 28 options, which are listed below.
 | *camel.source.path.host* | Hostname | null | ConfigDef.Importance.HIGH
 | *camel.source.path.port* | Host port number | null | ConfigDef.Importance.HIGH
 | *camel.source.path.channelName* | The channelName represents a topic that can be subscribed to by the Camel endpoints. | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.allowedOrigins* | The origins domain that support to cross, if the crosssOriginFilterOn is true | "*" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.baseResource* | The root directory for the web resources or classpath. Use the protocol file: or classpath: depending if you want that the component loads the resource from file system or classpath. Classpath is required for OSGI deployment where the resources are packaged in the jar | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.crossOriginFilterOn* | If true, the server will support for cross-domain filtering | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.filterPath* | The filterPath will be used by the CrossOriginFilter, if the crosssOriginFilterOn is true | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.allowed Origins* | The origins domain that support to cross, if the crosssOriginFilterOn is true | "*" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.base Resource* | The root directory for the web resources or classpath. Use the protocol file: or classpath: depending if you want that the component loads the resource from file system or classpath. Classpath is required for OSGI deployment where the resources are packaged in the jar | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.cross OriginFilterOn* | If true, the server will support for cross-domain filtering | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.filter Path* | The filterPath will be used by the CrossOriginFilter, if the crosssOriginFilterOn is true | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.interval* | The client side poll timeout in milliseconds. How long a client will wait between reconnects | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.jsonCommented* | If true, the server will accept JSON wrapped in a comment and will generate JSON wrapped in a comment. This is a defence against Ajax Hijacking. | true | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.json Commented* | If true, the server will accept JSON wrapped in a comment and will generate JSON wrapped in a comment. This is a defence against Ajax Hijacking. | true | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.logLevel* | Logging level. 0=none, 1=info, 2=debug. One of: [0] [1] [2] | 1 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.maxInterval* | The max client side poll timeout in milliseconds. A client will be removed if a connection is not received in this time. | 30000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.multiFrameInterval* | The client side poll timeout, if multiple connections are detected from the same browser. | 1500 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.max Interval* | The max client side poll timeout in milliseconds. A client will be removed if a connection is not received in this time. | 30000 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.multi FrameInterval* | The client side poll timeout, if multiple connections are detected from the same browser. | 1500 | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.timeout* | The server side poll timeout in milliseconds. This is how long the server will hold a reconnect request before responding. | 240000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sessionHeadersEnabled* | Whether to include the server session headers in the Camel message when creating a Camel Message for incoming requests. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.extensions* | To use a list of custom BayeuxServer.Extension that allows modifying incoming and outgoing requests. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.securityPolicy* | To use a custom configured SecurityPolicy to control authorization | null | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.sslKeyPassword* | The password for the keystore when using SSL. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.sslKeystore* | The path to the keystore. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.sslPassword* | The password when using SSL. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.cometd.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.session HeadersEnabled* | Whether to include the server session headers in the Camel message when creating a Camel Message for incoming requests. | false | ConfigDef.Importance.MEDIUM
+| * camel.source.endpoint.exception Handler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchange Pattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| * camel.component.cometd.extensions* | To use a list of custom BayeuxServer.Extension that allows modifying incoming and outgoing requests. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.cometd.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.cometd.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.component.cometd.security Policy* | To use a custom configured SecurityPolicy to control authorization | null | ConfigDef.Importance.MEDIUM
+| *camel.component.cometd.ssl ContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
+| *camel.component.cometd.sslKey Password* | The password for the keystore when using SSL. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.cometd.ssl Keystore* | The path to the keystore. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.cometd.ssl Password* | The password when using SSL. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.cometd.use GlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

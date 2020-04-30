@@ -24,24 +24,24 @@ The camel-stomp sink connector supports 21 options, which are listed below.
 | Name | Description | Default | Priority
 | *camel.sink.path.destination* | Name of the queue | null | ConfigDef.Importance.HIGH
 | *camel.sink.endpoint.brokerURL* | The URI of the Stomp broker to connect to | "tcp://localhost:61613" | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.customHeaders* | To set custom headers | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.custom Headers* | To set custom headers | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.host* | The virtual host name | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.version* | The stomp version (1.1, or 1.2) | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.header FilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.login* | The username | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.passcode* | The password | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
-| *camel.component.stomp.brokerURL* | The URI of the Stomp broker to connect to | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sslContext Parameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
+| * camel.component.stomp.brokerURL* | The URI of the Stomp broker to connect to | null | ConfigDef.Importance.MEDIUM
 | *camel.component.stomp.host* | The virtual host | null | ConfigDef.Importance.MEDIUM
-| *camel.component.stomp.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.stomp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.stomp.configuration* | To use the shared stomp configuration | null | ConfigDef.Importance.MEDIUM
-| *camel.component.stomp.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.stomp.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.stomp.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.component.stomp.configuration* | To use the shared stomp configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.stomp.header FilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | ConfigDef.Importance.MEDIUM
 | *camel.component.stomp.login* | The username | null | ConfigDef.Importance.MEDIUM
 | *camel.component.stomp.passcode* | The password | null | ConfigDef.Importance.MEDIUM
-| *camel.component.stomp.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.stomp.use GlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END
