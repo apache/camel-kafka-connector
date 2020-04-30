@@ -24,19 +24,19 @@ The camel-yammer sink connector supports 16 options, which are listed below.
 | Name | Description | Default | Priority
 | *camel.sink.path.function* | The function to use One of: [MESSAGES] [MY_FEED] [ALGO] [FOLLOWING] [SENT] [PRIVATE] [RECEIVED] [USERS] [CURRENT] | null | ConfigDef.Importance.HIGH
 | *camel.sink.endpoint.useJson* | Set to true if you want to use raw JSON rather than converting to POJOs. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.requestor* | To use a specific requester to communicate with Yammer. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.accessToken* | The access token | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.consumerKey* | The consumer key | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.consumerSecret* | The consumer secret | null | ConfigDef.Importance.HIGH
-| *camel.component.yammer.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.yammer.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.access Token* | The access token | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.consumer Key* | The consumer key | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.consumer Secret* | The consumer secret | null | ConfigDef.Importance.HIGH
+| *camel.component.yammer.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.yammer.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.component.yammer.config* | To use a shared yammer configuration | null | ConfigDef.Importance.MEDIUM
-| *camel.component.yammer.requestor* | To use a specific requester to communicate with Yammer. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.yammer.accessToken* | The access token | null | ConfigDef.Importance.MEDIUM
-| *camel.component.yammer.consumerKey* | The consumer key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.yammer.consumerSecret* | The consumer secret | null | ConfigDef.Importance.MEDIUM
+| * camel.component.yammer.requestor* | To use a specific requester to communicate with Yammer. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.yammer.access Token* | The access token | null | ConfigDef.Importance.MEDIUM
+| * camel.component.yammer.consumer Key* | The consumer key | null | ConfigDef.Importance.MEDIUM
+| * camel.component.yammer.consumer Secret* | The consumer secret | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

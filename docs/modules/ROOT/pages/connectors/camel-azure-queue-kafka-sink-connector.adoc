@@ -22,18 +22,18 @@ The camel-azure-queue sink connector supports 13 options, which are listed below
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.containerAndQueueUri* | Container Queue compact Uri | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.azureQueueClient* | The queue service client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.credentials* | Set the storage credentials, required in most cases | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.messageTimeToLive* | Message Time To Live in seconds | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.messageVisibilityDelay* | Message Visibility Delay in seconds | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.containerAnd QueueUri* | Container Queue compact Uri | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.azureQueue Client* | The queue service client | null | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.credentials* | Set the storage credentials, required in most cases | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.message TimeToLive* | Message Time To Live in seconds | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.message VisibilityDelay* | Message Visibility Delay in seconds | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.queuePrefix* | Set a prefix which can be used for listing the queues | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.azure-queue.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.azure-queue.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.azure-queue.configuration* | The Queue Service configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.queue Prefix* | Set a prefix which can be used for listing the queues | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| * camel.component.azure-queue.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| * camel.component.azure-queue.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.component.azure-queue.configuration* | The Queue Service configuration | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

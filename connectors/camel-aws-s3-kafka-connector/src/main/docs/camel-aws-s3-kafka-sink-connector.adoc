@@ -22,42 +22,42 @@ The camel-aws-s3 sink connector supports 37 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.bucketNameOrArn* | Bucket name or ARN | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.autoCreateBucket* | Setting the autocreation of the bucket | true | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.pathStyleAccess* | Whether or not the S3 client should use path style access | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.bucketNameOr Arn* | Bucket name or ARN | null | ConfigDef.Importance.HIGH
+| *camel.sink.endpoint.amazonS3 Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.autoCreate Bucket* | Setting the autocreation of the bucket | true | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.pathStyle Access* | Whether or not the S3 client should use path style access | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the SQS client | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.proxyPort* | Specify a proxy port to be used inside the client definition. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxy Protocol* | To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.region* | The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.useIAMCredentials* | Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.encryptionMaterials* | The encryption materials to use in case of Symmetric/Asymmetric client usage | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.useEncryption* | Define if encryption must be used or not | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.deleteAfterWrite* | Delete file object after the S3 file has been uploaded | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.useIAM Credentials* | Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.encryption Materials* | The encryption materials to use in case of Symmetric/Asymmetric client usage | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.use Encryption* | Define if encryption must be used or not | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.delete AfterWrite* | Delete file object after the S3 file has been uploaded | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.keyName* | Setting the key name for an element in the bucket through endpoint parameter | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.multiPartUpload* | If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.multiPart Upload* | If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.operation* | The operation to do in case the user don't want to do only an upload One of: [copyObject] [deleteBucket] [listBuckets] [downloadLink] | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.partSize* | Setup the partSize which is used in multi part upload, the default size is 25M. | 26214400L | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.serverSideEncryption* | Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys. For example use AES256. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.storageClass* | The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.awsKMSKeyId* | Define the id of KMS key to use in case KMS is enabled | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.serverSide Encryption* | Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys. For example use AES256. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.storage Class* | The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.awsKMSKey Id* | Define the id of KMS key to use in case KMS is enabled | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.useAwsKMS* | Define if KMS must be used or not | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.accelerateModeEnabled* | Define if Accelerate Mode enabled is true or false | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.chunkedEncodingDisabled* | Define if disabled Chunked Encoding is true or false | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.dualstackEnabled* | Define if Dualstack enabled is true or false | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.forceGlobalBucketAccessEnabled* | Define if Force Global Bucket Access enabled is true or false | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.payloadSigningEnabled* | Define if Payload Signing enabled is true or false | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.accelerate ModeEnabled* | Define if Accelerate Mode enabled is true or false | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.chunked EncodingDisabled* | Define if disabled Chunked Encoding is true or false | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.dualstack Enabled* | Define if Dualstack enabled is true or false | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.force GlobalBucketAccessEnabled* | Define if Force Global Bucket Access enabled is true or false | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.payload SigningEnabled* | Define if Payload Signing enabled is true or false | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-s3.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-s3.access Key* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
 | *camel.component.aws-s3.region* | The region where the bucket is located. This option is used in the com.amazonaws.services.s3.model.CreateBucketRequest. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-s3.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-s3.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-s3.configuration* | The AWS S3 default configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-s3.secret Key* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-s3.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-s3.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| * camel.component.aws-s3.configuration* | The AWS S3 default configuration | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END
