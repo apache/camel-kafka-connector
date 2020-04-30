@@ -23,35 +23,35 @@ The camel-nats source connector supports 31 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.source.path.topic* | The name of topic we want to use | null | ConfigDef.Importance.HIGH
-| * camel.source.endpoint.connection Timeout* | Timeout for connection attempts. (in milliseconds) | 2000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.flush Connection* | Define if we want to flush connection when stopping or not | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.flush Timeout* | Set the flush timeout (in milliseconds) | 1000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.maxPings Out* | maximum number of pings have not received a response allowed by the client | 2 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.max ReconnectAttempts* | Max reconnection attempts | 60 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.connectionTimeout* | Timeout for connection attempts. (in milliseconds) | 2000 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.flushConnection* | Define if we want to flush connection when stopping or not | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.flushTimeout* | Set the flush timeout (in milliseconds) | 1000 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.maxPingsOut* | maximum number of pings have not received a response allowed by the client | 2 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.maxReconnectAttempts* | Max reconnection attempts | 60 | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.noEcho* | Turn off echo. If supported by the gnatsd version you are connecting to this flag will prevent the server from echoing messages back to the connection if it has subscriptions on the subject being published to. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.no RandomizeServers* | Whether or not randomizing the order of servers for the connection attempts | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.noRandomizeServers* | Whether or not randomizing the order of servers for the connection attempts | false | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.pedantic* | Whether or not running in pedantic mode (this affects performace) | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.ping Interval* | Ping interval to be aware if connection is still alive (in milliseconds) | 120000 | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.reconnect* | Whether or not using reconnection feature | true | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.reconnect TimeWait* | Waiting time before attempts reconnection (in milliseconds) | 2000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.request CleanupInterval* | Interval to clean up cancelled/timed out requests. | 5000 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.pingInterval* | Ping interval to be aware if connection is still alive (in milliseconds) | 120000 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.reconnect* | Whether or not using reconnection feature | true | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.reconnectTimeWait* | Waiting time before attempts reconnection (in milliseconds) | 2000 | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.requestCleanupInterval* | Interval to clean up cancelled/timed out requests. | 5000 | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.servers* | URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers. | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.verbose* | Whether or not running in verbose mode | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.max Messages* | Stop receiving messages from a topic we are subscribing to after maxMessages | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.maxMessages* | Stop receiving messages from a topic we are subscribing to after maxMessages | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.poolSize* | Consumer thread pool size (default is 10) | 10 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.queue Name* | The Queue name if we are using nats for a queue configuration | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.replyTo Disabled* | Can be used to turn off sending back reply message in the consumer. | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.exception Handler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchange Pattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.connection* | Reference an already instantiated connection to Nats server | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.queueName* | The Queue name if we are using nats for a queue configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.replyToDisabled* | Can be used to turn off sending back reply message in the consumer. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.connection* | Reference an already instantiated connection to Nats server | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.secure* | Set secure option indicating TLS is required | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.ssl ContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
 | *camel.component.nats.servers* | URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.nats.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.nats.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.nats.useGlobal SslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.nats.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.nats.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.nats.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

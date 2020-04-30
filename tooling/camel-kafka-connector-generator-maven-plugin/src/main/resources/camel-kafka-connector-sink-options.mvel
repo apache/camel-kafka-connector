@@ -23,6 +23,6 @@ The @{title} sink connector supports @{options.size()} options, which are listed
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-@foreach{row : options}| *@{row.getShortName(30)}* | @{util.escape(row.description)} | @{row.defaultValue} | @{row.priority}
+@foreach{row : options}| *@{row.getShortName(50)}* | @{util.escape(row.description)} | @{row.defaultValue} | @{row.priority}
 @end{}|===
 @end{}

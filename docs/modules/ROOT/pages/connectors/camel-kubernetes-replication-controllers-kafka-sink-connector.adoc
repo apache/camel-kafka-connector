@@ -25,22 +25,22 @@ The camel-kubernetes-replication-controllers sink connector supports 25 options,
 | *camel.sink.path.masterUrl* | Kubernetes Master url | null | ConfigDef.Importance.HIGH
 | *camel.sink.endpoint.apiVersion* | The Kubernetes API Version to use | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.dnsDomain* | The dns domain, used for ServiceCall EIP | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.kubernetes Client* | Default KubernetesClient to use if provided | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.kubernetesClient* | Default KubernetesClient to use if provided | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.portName* | The port name, used for ServiceCall EIP | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.port Protocol* | The port protocol, used for ServiceCall EIP | "tcp" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.portProtocol* | The port protocol, used for ServiceCall EIP | "tcp" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.operation* | Producer operation to do on Kubernetes | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.connection Timeout* | Connection timeout in milliseconds to use when making requests to the Kubernetes API server. | null | ConfigDef.Importance.MEDIUM
-| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.connectionTimeout* | Connection timeout in milliseconds to use when making requests to the Kubernetes API server. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.caCertData* | The CA Cert Data | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.caCertFile* | The CA Cert File | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientCert Data* | The Client Cert Data | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientCert File* | The Client Cert File | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientKey Algo* | The Key Algorithm used by the client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientKey Data* | The Client Key data | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientKey File* | The Client Key file | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientKey Passphrase* | The Client Key Passphrase | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clientCertData* | The Client Cert Data | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clientCertFile* | The Client Cert File | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clientKeyAlgo* | The Key Algorithm used by the client | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clientKeyData* | The Client Key data | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clientKeyFile* | The Client Key file | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.clientKeyPassphrase* | The Client Key Passphrase | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.oauthToken* | The Auth Token | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.password* | Password to connect to Kubernetes | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.trustCerts* | Define if the certs we used are trusted anyway or not | null | ConfigDef.Importance.MEDIUM

@@ -22,39 +22,39 @@ The camel-jbpm source connector supports 34 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| * camel.source.path.connectionURL* | The URL to the jBPM server. | null | ConfigDef.Importance.HIGH
-| *camel.source.path.event ListenerType* | Sets the event listener type to attach to | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.attachment Id* | attachId to use when retrieving attachments | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.content Id* | contentId to use when retrieving attachments | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.deployment Id* | The id of the deployment | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.emitter SendItems* | Sets if event produced by emitter should be sent as single items or complete collection | null | ConfigDef.Importance.MEDIUM
+| *camel.source.path.connectionURL* | The URL to the jBPM server. | null | ConfigDef.Importance.HIGH
+| *camel.source.path.eventListenerType* | Sets the event listener type to attach to | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.attachmentId* | attachId to use when retrieving attachments | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.contentId* | contentId to use when retrieving attachments | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.deploymentId* | The id of the deployment | null | ConfigDef.Importance.HIGH
+| *camel.source.endpoint.emitterSendItems* | Sets if event produced by emitter should be sent as single items or complete collection | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.event* | the data associated with this event when signalEvent operation is performed | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.event Type* | the type of event to use when signalEvent operation is performed | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.identifier* | identifier the global identifier | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.max Number* | the maximum number of rules that should be fired | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.eventType* | the type of event to use when signalEvent operation is performed | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.identifier* | identifier the global identifier | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.maxNumber* | the maximum number of rules that should be fired | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.page* | The page to use when retrieving user tasks | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.pageSize* | The page size to use when retrieving user tasks | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.process Id* | the id of the process that should be acted upon | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.process InstanceId* | the id of the process instance | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.target UserId* | The targetUserId used when delegating a task | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.processId* | the id of the process that should be acted upon | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.processInstanceId* | the id of the process instance | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.targetUserId* | The targetUserId used when delegating a task | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.task* | The task instance to use with task operations | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.taskId* | the id of the task | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.timeout* | A timeout value | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.userId* | userId to use with task operations | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.value* | the value to assign to the global identifier | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.workItem Id* | the id of the work item | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.exception Handler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchange Pattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.workItemId* | the id of the work item | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.entities* | The potentialOwners when nominateTask operation is performed | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.extra JaxbClasses* | To load additional classes when working with XML | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.parameters* | the variables that should be set for various operations | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.extraJaxbClasses* | To load additional classes when working with XML | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.parameters* | the variables that should be set for various operations | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.statuses* | The list of status to use when filtering tasks | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.password* | Password for authentication | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.userName* | Username for authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.component.jbpm.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.jbpm.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.jbpm.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.jbpm.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

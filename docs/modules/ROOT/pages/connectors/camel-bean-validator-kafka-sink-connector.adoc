@@ -24,21 +24,21 @@ The camel-bean-validator sink connector supports 18 options, which are listed be
 | Name | Description | Default | Priority
 | *camel.sink.path.label* | Where label is an arbitrary text value describing the endpoint | null | ConfigDef.Importance.HIGH
 | *camel.sink.endpoint.group* | To use a custom validation group | "javax.validation.groups.Default" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.ignoreXml Configuration* | Whether to ignore data from the META-INF/validation.xml file. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.constraint ValidatorFactory* | To use a custom ConstraintValidatorFactory | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.message Interpolator* | To use a custom MessageInterpolator | null | ConfigDef.Importance.MEDIUM
-| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| * camel.sink.endpoint.traversable Resolver* | To use a custom TraversableResolver | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.validation ProviderResolver* | To use a a custom ValidationProviderResolver | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.validator Factory* | To use a custom ValidatorFactory | null | ConfigDef.Importance.MEDIUM
-| * camel.component.bean-validator.ignore XmlConfiguration* | Whether to ignore data from the META-INF/validation.xml file. | false | ConfigDef.Importance.MEDIUM
-| * camel.component.bean-validator.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| * camel.component.bean-validator.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| * camel.component.bean-validator.constraint ValidatorFactory* | To use a custom ConstraintValidatorFactory | null | ConfigDef.Importance.MEDIUM
-| * camel.component.bean-validator.message Interpolator* | To use a custom MessageInterpolator | null | ConfigDef.Importance.MEDIUM
-| * camel.component.bean-validator.traversable Resolver* | To use a custom TraversableResolver | null | ConfigDef.Importance.MEDIUM
-| * camel.component.bean-validator.validation ProviderResolver* | To use a a custom ValidationProviderResolver | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.ignoreXmlConfiguration* | Whether to ignore data from the META-INF/validation.xml file. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.constraintValidatorFactory* | To use a custom ConstraintValidatorFactory | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.messageInterpolator* | To use a custom MessageInterpolator | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.traversableResolver* | To use a custom TraversableResolver | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.validationProviderResolver* | To use a a custom ValidationProviderResolver | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.validatorFactory* | To use a custom ValidatorFactory | null | ConfigDef.Importance.MEDIUM
+| *camel.component.bean-validator.ignoreXml Configuration* | Whether to ignore data from the META-INF/validation.xml file. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.bean-validator.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.bean-validator.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.bean-validator.constraintValidator Factory* | To use a custom ConstraintValidatorFactory | null | ConfigDef.Importance.MEDIUM
+| *camel.component.bean-validator.messageInterpolator* | To use a custom MessageInterpolator | null | ConfigDef.Importance.MEDIUM
+| *camel.component.bean-validator.traversableResolver* | To use a custom TraversableResolver | null | ConfigDef.Importance.MEDIUM
+| *camel.component.bean-validator.validationProvider Resolver* | To use a a custom ValidationProviderResolver | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

@@ -23,29 +23,29 @@ The camel-ehcache source connector supports 25 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.source.path.cacheName* | the cache name | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.cache Manager* | The cache manager | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.cache ManagerConfiguration* | The cache manager configuration | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.configuration Uri* | URI pointing to the Ehcache XML configuration file's location | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.create CacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.event Firing* | Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS] | "ASYNCHRONOUS" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.event Ordering* | Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED] | "ORDERED" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.event Types* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.exception Handler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchange Pattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.configuration* | The default cache configuration to be used to create caches. | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.configurations* | A map of cache configuration to be used to create caches. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.cacheManager* | The cache manager | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.cacheManagerConfiguration* | The cache manager configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.configurationUri* | URI pointing to the Ehcache XML configuration file's location | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.eventFiring* | Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS] | "ASYNCHRONOUS" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.eventOrdering* | Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED] | "ORDERED" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.eventTypes* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.configuration* | The default cache configuration to be used to create caches. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.configurations* | A map of cache configuration to be used to create caches. | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.keyType* | The cache key type, default java.lang.Object | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.value Type* | The cache value type, default java.lang.Object | null | ConfigDef.Importance.MEDIUM
-| *camel.component.ehcache.cache Configuration* | The default cache configuration to be used to create caches. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.ehcache.cache ConfigurationUri* | URI pointing to the Ehcache XML configuration file's location | null | ConfigDef.Importance.MEDIUM
-| *camel.component.ehcache.cache Manager* | The cache manager | null | ConfigDef.Importance.MEDIUM
-| *camel.component.ehcache.cache ManagerConfiguration* | The cache manager configuration | null | ConfigDef.Importance.MEDIUM
-| *camel.component.ehcache.caches Configurations* | A map of caches configurations to be used to create caches. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.ehcache.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.ehcache.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| * camel.component.ehcache.configuration* | Sets the global component configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.valueType* | The cache value type, default java.lang.Object | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ehcache.cacheConfiguration* | The default cache configuration to be used to create caches. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ehcache.cacheConfigurationUri* | URI pointing to the Ehcache XML configuration file's location | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ehcache.cacheManager* | The cache manager | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ehcache.cacheManagerConfiguration* | The cache manager configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ehcache.cachesConfigurations* | A map of caches configurations to be used to create caches. | null | ConfigDef.Importance.MEDIUM
+| *camel.component.ehcache.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ehcache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.ehcache.configuration* | Sets the global component configuration | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

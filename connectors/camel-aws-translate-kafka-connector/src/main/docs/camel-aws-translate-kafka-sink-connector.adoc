@@ -24,24 +24,24 @@ The camel-aws-translate sink connector supports 21 options, which are listed bel
 | Name | Description | Default | Priority
 | *camel.sink.path.label* | Logical name | null | ConfigDef.Importance.HIGH
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.autodetect SourceLanguage* | Being able to autodetect the source language | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.autodetectSourceLanguage* | Being able to autodetect the source language | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.operation* | The operation to perform One of: [translateText] | "translateText" | ConfigDef.Importance.HIGH
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the Translate client | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the Translate client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxy Protocol* | To define a proxy protocol when instantiating the Translate client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Translate client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.region* | The region in which Translate client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.source Language* | Source language to use | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.target Language* | Target language to use | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.translate Client* | To use a existing configured AWS Translate as client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| * camel.component.aws-translate.access Key* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
-| * camel.component.aws-translate.lazy StartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| * camel.component.aws-translate.region* | The region in which Translate client needs to work | null | ConfigDef.Importance.MEDIUM
-| * camel.component.aws-translate.secret Key* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| * camel.component.aws-translate.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| * camel.component.aws-translate.configuration* | The AWS Translate default configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sourceLanguage* | Source language to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.targetLanguage* | Target language to use | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.translateClient* | To use a existing configured AWS Translate as client | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-translate.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-translate.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-translate.region* | The region in which Translate client needs to work | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-translate.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-translate.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.aws-translate.configuration* | The AWS Translate default configuration | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

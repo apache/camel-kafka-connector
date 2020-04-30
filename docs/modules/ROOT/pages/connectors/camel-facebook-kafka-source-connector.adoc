@@ -23,111 +23,111 @@ The camel-facebook source connector supports 107 options, which are listed below
 |===
 | Name | Description | Default | Priority
 | *camel.source.path.methodName* | What operation to perform | null | ConfigDef.Importance.HIGH
-| * camel.source.endpoint.achievementURL* | The unique URL of the achievement | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.achievementURL* | The unique URL of the achievement | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.albumId* | The album ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.album Update* | The facebook Album to be created or updated | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.albumUpdate* | The facebook Album to be created or updated | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.appId* | The ID of the Facebook Application | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.center* | Location latitude and longitude | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.checkin Id* | The checkin ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.checkin Update* | The checkin to be created. Deprecated, instead create a Post with an attached location | null | ConfigDef.Importance.LOW
-| * camel.source.endpoint.clientURL* | Facebook4J API client URL | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.client Version* | Facebook4J client API version | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.comment Id* | The comment ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.comment Update* | The facebook Comment to be created or updated | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.debug Enabled* | Enables deubg output. Effective only with the embedded logger | "false" | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.description* | The description text | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.checkinId* | The checkin ID | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.checkinUpdate* | The checkin to be created. Deprecated, instead create a Post with an attached location | null | ConfigDef.Importance.LOW
+| *camel.source.endpoint.clientURL* | Facebook4J API client URL | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.clientVersion* | Facebook4J client API version | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.commentId* | The comment ID | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.commentUpdate* | The facebook Comment to be created or updated | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.debugEnabled* | Enables deubg output. Effective only with the embedded logger | "false" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.description* | The description text | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.distance* | Distance in meters | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.domainId* | The domain ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.domain Name* | The domain name | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.domain Names* | The domain names | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.domainName* | The domain name | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.domainNames* | The domain names | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.eventId* | The event ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.event Update* | The event to be created or updated | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.eventUpdate* | The event to be created or updated | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.friendId* | The friend ID | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.friendlist Id* | The friend list ID | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.friendlist Name* | The friend list Name | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.friend UserId* | The friend user ID | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.friendlistId* | The friend list ID | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.friendlistName* | The friend list Name | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.friendUserId* | The friend user ID | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.groupId* | The group ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.gzip Enabled* | Use Facebook GZIP encoding | "true" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http ConnectionTimeout* | Http connection timeout in milliseconds | "20000" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http DefaultMaxPerRoute* | HTTP maximum connections per route | "2" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.httpMax TotalConnections* | HTTP maximum total connections | "20" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.httpRead Timeout* | Http read timeout in milliseconds | "120000" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http RetryCount* | Number of HTTP retries | "0" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http RetryIntervalSeconds* | HTTP retry interval in seconds | "5" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http StreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.gzipEnabled* | Use Facebook GZIP encoding | "true" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpConnectionTimeout* | Http connection timeout in milliseconds | "20000" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpDefaultMaxPerRoute* | HTTP maximum connections per route | "2" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpMaxTotalConnections* | HTTP maximum total connections | "20" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpReadTimeout* | Http read timeout in milliseconds | "120000" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpRetryCount* | Number of HTTP retries | "0" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpRetryIntervalSeconds* | HTTP retry interval in seconds | "5" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpStreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.ids* | The ids of users | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.include Read* | Enables notifications that the user has already read in addition to unread ones | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.includeRead* | Enables notifications that the user has already read in addition to unread ones | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.isHidden* | Whether hidden | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.json StoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.jsonStoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.link* | Link URL | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.linkId* | Link ID | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.locale* | Desired FQL locale | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.mbean Enabled* | If set to true, Facebook4J mbean will be registerd | "false" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.mbeanEnabled* | If set to true, Facebook4J mbean will be registerd | "false" | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.message* | The message text | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.message Id* | The message ID | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.messageId* | The message ID | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.metric* | The metric name | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.milestone Id* | The milestone id | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.milestoneId* | The milestone id | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.name* | Test user name, must be of the form 'first last' | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.noteId* | The note ID | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.notification Id* | The notification ID | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.notificationId* | The notification ID | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.objectId* | The insight object ID | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.offerId* | The offer id | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.option Description* | The question's answer option description | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.optionDescription* | The question's answer option description | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.pageId* | The page id | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.permission Name* | The permission name | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.permissions* | Test user permissions in the format perm1,perm2,... | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.permissionName* | The permission name | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.permissions* | Test user permissions in the format perm1,perm2,... | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.photoId* | The photo ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.picture Id* | The picture id | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.picture Id2* | The picture2 id | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.picture Size* | The picture size One of: [square] [small] [normal] [large] [thumbnail] [album] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.pictureId* | The picture id | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.pictureId2* | The picture2 id | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.pictureSize* | The picture size One of: [square] [small] [normal] [large] [thumbnail] [album] | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.placeId* | The place ID | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.postId* | The post ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.post Update* | The post to create or update | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.pretty DebugEnabled* | Prettify JSON debug output if set to true | "false" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.postUpdate* | The post to create or update | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.prettyDebugEnabled* | Prettify JSON debug output if set to true | "false" | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.queries* | FQL queries | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.query* | FQL query or search terms for search endpoints | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.question Id* | The question id | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.questionId* | The question id | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.reading* | Optional reading parameters. See Reading Options(#reading) | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.reading Options* | To configure Reading using key/value pairs from the Map. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.rest BaseURL* | API base URL | "https://graph.facebook.com/" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.score Value* | The numeric score with value | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.readingOptions* | To configure Reading using key/value pairs from the Map. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.restBaseURL* | API base URL | "https://graph.facebook.com/" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.scoreValue* | The numeric score with value | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.size* | The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album] | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.source* | The media content from either a java.io.File or java.io.Inputstream | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.subject* | The note of the subject | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.tabId* | The tab id | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.tag Update* | Photo tag information | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.test User1* | Test user 1 | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.test User2* | Test user 2 | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.testUser Id* | The ID of the test user | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.tagUpdate* | Photo tag information | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.testUser1* | Test user 1 | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.testUser2* | Test user 2 | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.testUserId* | The ID of the test user | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.title* | The title text | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.toUserId* | The ID of the user to tag | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.toUser Ids* | The IDs of the users to tag | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.toUserIds* | The IDs of the users to tag | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.userId* | The Facebook user ID | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.userId1* | The ID of a user 1 | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.userId2* | The ID of a user 2 | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.userIds* | The IDs of users to invite to event | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.user Locale* | The test user locale | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.userLocale* | The test user locale | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.useSSL* | Use SSL | "true" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.video BaseURL* | Video API base URL | "https://graph-video.facebook.com/" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.videoId* | The video ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.exception Handler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchange Pattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http ProxyHost* | HTTP proxy server host name | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http ProxyPassword* | HTTP proxy server password | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http ProxyPort* | HTTP proxy server port | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.http ProxyUser* | HTTP proxy server user name | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.oAuth AccessToken* | The user access token | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.oAuth AccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.oAuthApp Id* | The application Id | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.oAuthApp Secret* | The application Secret | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.oAuth AuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.oAuth Permissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | ConfigDef.Importance.MEDIUM
-| * camel.component.facebook.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.facebook.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| * camel.component.facebook.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpProxyHost* | HTTP proxy server host name | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpProxyPassword* | HTTP proxy server password | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpProxyPort* | HTTP proxy server port | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.httpProxyUser* | HTTP proxy server user name | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.oAuthAccessToken* | The user access token | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.oAuthAccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.oAuthAppId* | The application Id | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.oAuthAppSecret* | The application Secret | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | ConfigDef.Importance.MEDIUM
+| *camel.component.facebook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.facebook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.facebook.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END

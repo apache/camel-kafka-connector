@@ -26,16 +26,16 @@ The camel-irc sink connector supports 31 options, which are listed below.
 | *camel.sink.path.port* | Port number for the IRC chat server. If no port is configured then a default port of either 6667, 6668 or 6669 is used. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.autoRejoin* | Whether to auto re-join when being kicked | true | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.channels* | Comma separated list of IRC channels. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.command Timeout* | Delay in milliseconds before sending commands after the connection is established. | 5000L | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.commandTimeout* | Delay in milliseconds before sending commands after the connection is established. | 5000L | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.keys* | Comma separated list of keys for channels. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.namesOn Join* | Sends NAMES command to channel after joining it. onReply has to be true in order to process the result which will have the header value irc.num = '353'. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.namesOnJoin* | Sends NAMES command to channel after joining it. onReply has to be true in order to process the result which will have the header value irc.num = '353'. | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.nickname* | The nickname used in chat. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.persistent* | Use persistent messages. | true | ConfigDef.Importance.LOW
 | *camel.sink.endpoint.realname* | The IRC user's actual name. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.colors* | Whether or not the server supports color codes. | true | ConfigDef.Importance.MEDIUM
-| * camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.onJoin* | Handle user join events. | true | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.onKick* | Handle kick events. | true | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.onMode* | Handle mode change events. | true | ConfigDef.Importance.MEDIUM
@@ -45,13 +45,13 @@ The camel-irc sink connector supports 31 options, which are listed below.
 | *camel.sink.endpoint.onQuit* | Handle user quit events. | true | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.onReply* | Whether or not to handle general responses to commands or informational messages. | false | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.onTopic* | Handle topic change events. | true | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.nick Password* | Your IRC server nickname password. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.nickPassword* | Your IRC server nickname password. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.password* | The IRC server password. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.sslContext Parameters* | Used for configuring security using SSL. Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. Note that this setting overrides the trustManager option. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.trust Manager* | The trust manager used to verify the SSL server's certificate. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.sslContextParameters* | Used for configuring security using SSL. Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. Note that this setting overrides the trustManager option. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.endpoint.trustManager* | The trust manager used to verify the SSL server's certificate. | null | ConfigDef.Importance.MEDIUM
 | *camel.sink.endpoint.username* | The IRC server user name. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.irc.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.irc.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.irc.useGlobal SslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.irc.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.irc.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.irc.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END
