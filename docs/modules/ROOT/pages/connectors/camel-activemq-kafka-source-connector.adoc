@@ -15,6 +15,10 @@ When using camel-activemq-kafka-connector as source make sure to use the followi
 ----
 
 
+The camel-activemq source connector supports 137 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

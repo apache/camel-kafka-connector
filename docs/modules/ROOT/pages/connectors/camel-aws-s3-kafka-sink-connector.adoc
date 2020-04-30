@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-aws-s3-kafka-connector-source]]
-= camel-aws-s3-kafka-connector source configuration
+[[camel-aws-s3-kafka-connector-sink]]
+= camel-aws-s3-kafka-connector sink configuration
 
 When using camel-aws-s3-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-aws-s3-kafka-connector as sink make sure to use the following M
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-aws-s3 sink connector supports 37 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

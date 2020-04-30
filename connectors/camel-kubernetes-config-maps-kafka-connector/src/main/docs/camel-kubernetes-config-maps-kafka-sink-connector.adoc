@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-kubernetes-config-maps-kafka-connector-source]]
-= camel-kubernetes-config-maps-kafka-connector source configuration
+[[camel-kubernetes-config-maps-kafka-connector-sink]]
+= camel-kubernetes-config-maps-kafka-connector sink configuration
 
 When using camel-kubernetes-config-maps-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-kubernetes-config-maps-kafka-connector as sink make sure to use
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-kubernetes-config-maps sink connector supports 25 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

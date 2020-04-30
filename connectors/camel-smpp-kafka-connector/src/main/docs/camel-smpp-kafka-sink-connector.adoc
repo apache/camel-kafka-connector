@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-smpp-kafka-connector-source]]
-= camel-smpp-kafka-connector source configuration
+[[camel-smpp-kafka-connector-sink]]
+= camel-smpp-kafka-connector sink configuration
 
 When using camel-smpp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-smpp-kafka-connector as sink make sure to use the following Mav
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-smpp sink connector supports 41 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

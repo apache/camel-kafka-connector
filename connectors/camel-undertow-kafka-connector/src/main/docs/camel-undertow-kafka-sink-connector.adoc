@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-undertow-kafka-connector-source]]
-= camel-undertow-kafka-connector source configuration
+[[camel-undertow-kafka-connector-sink]]
+= camel-undertow-kafka-connector sink configuration
 
 When using camel-undertow-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-undertow-kafka-connector as sink make sure to use the following
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-undertow sink connector supports 25 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

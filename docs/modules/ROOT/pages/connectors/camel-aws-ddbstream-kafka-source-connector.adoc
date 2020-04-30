@@ -15,6 +15,10 @@ When using camel-aws-ddbstream-kafka-connector as source make sure to use the fo
 ----
 
 
+The camel-aws-ddbstream source connector supports 38 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-http-kafka-connector-source]]
-= camel-http-kafka-connector source configuration
+[[camel-http-kafka-connector-sink]]
+= camel-http-kafka-connector sink configuration
 
 When using camel-http-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-http-kafka-connector as sink make sure to use the following Mav
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-http sink connector supports 72 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

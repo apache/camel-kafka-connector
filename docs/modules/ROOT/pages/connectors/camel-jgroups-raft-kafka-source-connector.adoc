@@ -15,6 +15,10 @@ When using camel-jgroups-raft-kafka-connector as source make sure to use the fol
 ----
 
 
+The camel-jgroups-raft source connector supports 13 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

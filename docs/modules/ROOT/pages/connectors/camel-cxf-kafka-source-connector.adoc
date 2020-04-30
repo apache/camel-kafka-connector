@@ -15,6 +15,10 @@ When using camel-cxf-kafka-connector as source make sure to use the following Ma
 ----
 
 
+The camel-cxf source connector supports 36 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

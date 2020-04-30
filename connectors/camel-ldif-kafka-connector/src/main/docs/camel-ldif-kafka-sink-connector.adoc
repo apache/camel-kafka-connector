@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-ldif-kafka-connector-source]]
-= camel-ldif-kafka-connector source configuration
+[[camel-ldif-kafka-connector-sink]]
+= camel-ldif-kafka-connector sink configuration
 
 When using camel-ldif-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-ldif-kafka-connector as sink make sure to use the following Mav
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-ldif sink connector supports 6 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

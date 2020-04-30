@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-wordpress-kafka-connector-source]]
-= camel-wordpress-kafka-connector source configuration
+[[camel-wordpress-kafka-connector-sink]]
+= camel-wordpress-kafka-connector sink configuration
 
 When using camel-wordpress-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-wordpress-kafka-connector as sink make sure to use the followin
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-wordpress sink connector supports 16 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

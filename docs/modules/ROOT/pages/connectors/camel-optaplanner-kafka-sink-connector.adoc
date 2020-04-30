@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-optaplanner-kafka-connector-source]]
-= camel-optaplanner-kafka-connector source configuration
+[[camel-optaplanner-kafka-connector-sink]]
+= camel-optaplanner-kafka-connector sink configuration
 
 When using camel-optaplanner-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-optaplanner-kafka-connector as sink make sure to use the follow
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-optaplanner sink connector supports 9 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

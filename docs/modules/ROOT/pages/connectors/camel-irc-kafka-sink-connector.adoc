@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-irc-kafka-connector-source]]
-= camel-irc-kafka-connector source configuration
+[[camel-irc-kafka-connector-sink]]
+= camel-irc-kafka-connector sink configuration
 
 When using camel-irc-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-irc-kafka-connector as sink make sure to use the following Mave
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-irc sink connector supports 31 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

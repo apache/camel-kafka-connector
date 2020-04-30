@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-iec60870-server-kafka-connector-source]]
-= camel-iec60870-server-kafka-connector source configuration
+[[camel-iec60870-server-kafka-connector-sink]]
+= camel-iec60870-server-kafka-connector sink configuration
 
 When using camel-iec60870-server-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-iec60870-server-kafka-connector as sink make sure to use the fo
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-iec60870-server sink connector supports 24 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

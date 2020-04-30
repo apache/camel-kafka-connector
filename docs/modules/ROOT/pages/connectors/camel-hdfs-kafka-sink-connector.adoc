@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-hdfs-kafka-connector-source]]
-= camel-hdfs-kafka-connector source configuration
+[[camel-hdfs-kafka-connector-sink]]
+= camel-hdfs-kafka-connector sink configuration
 
 When using camel-hdfs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-hdfs-kafka-connector as sink make sure to use the following Mav
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-hdfs sink connector supports 32 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

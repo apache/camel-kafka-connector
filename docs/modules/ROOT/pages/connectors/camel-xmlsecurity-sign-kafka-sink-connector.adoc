@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-xmlsecurity-sign-kafka-connector-source]]
-= camel-xmlsecurity-sign-kafka-connector source configuration
+[[camel-xmlsecurity-sign-kafka-connector-sink]]
+= camel-xmlsecurity-sign-kafka-connector sink configuration
 
 When using camel-xmlsecurity-sign-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-xmlsecurity-sign-kafka-connector as sink make sure to use the f
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-xmlsecurity-sign sink connector supports 33 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

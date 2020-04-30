@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-weather-kafka-connector-source]]
-= camel-weather-kafka-connector source configuration
+[[camel-weather-kafka-connector-sink]]
+= camel-weather-kafka-connector sink configuration
 
 When using camel-weather-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-weather-kafka-connector as sink make sure to use the following 
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-weather sink connector supports 34 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

@@ -15,6 +15,10 @@ When using camel-aws-s3-kafka-connector as source make sure to use the following
 ----
 
 
+The camel-aws-s3 source connector supports 54 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

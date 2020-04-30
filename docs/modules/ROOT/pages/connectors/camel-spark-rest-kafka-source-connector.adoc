@@ -15,6 +15,10 @@ When using camel-spark-rest-kafka-connector as source make sure to use the follo
 ----
 
 
+The camel-spark-rest source connector supports 27 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

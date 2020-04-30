@@ -15,6 +15,10 @@ When using camel-aws-kinesis-kafka-connector as source make sure to use the foll
 ----
 
 
+The camel-aws-kinesis source connector supports 40 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

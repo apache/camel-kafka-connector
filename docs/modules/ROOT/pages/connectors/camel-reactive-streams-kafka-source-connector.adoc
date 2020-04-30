@@ -15,6 +15,10 @@ When using camel-reactive-streams-kafka-connector as source make sure to use the
 ----
 
 
+The camel-reactive-streams source connector supports 15 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

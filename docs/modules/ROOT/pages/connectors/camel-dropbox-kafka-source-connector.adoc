@@ -15,6 +15,10 @@ When using camel-dropbox-kafka-connector as source make sure to use the followin
 ----
 
 
+The camel-dropbox source connector supports 16 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

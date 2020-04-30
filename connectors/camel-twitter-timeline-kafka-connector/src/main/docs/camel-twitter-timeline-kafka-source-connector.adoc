@@ -15,6 +15,10 @@ When using camel-twitter-timeline-kafka-connector as source make sure to use the
 ----
 
 
+The camel-twitter-timeline source connector supports 55 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

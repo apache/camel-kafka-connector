@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-google-calendar-kafka-connector-source]]
-= camel-google-calendar-kafka-connector source configuration
+[[camel-google-calendar-kafka-connector-sink]]
+= camel-google-calendar-kafka-connector sink configuration
 
 When using camel-google-calendar-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-google-calendar-kafka-connector as sink make sure to use the fo
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-google-calendar sink connector supports 19 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

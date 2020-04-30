@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-openstack-nova-kafka-connector-source]]
-= camel-openstack-nova-kafka-connector source configuration
+[[camel-openstack-nova-kafka-connector-sink]]
+= camel-openstack-nova-kafka-connector sink configuration
 
 When using camel-openstack-nova-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-openstack-nova-kafka-connector as sink make sure to use the fol
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-openstack-nova sink connector supports 14 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

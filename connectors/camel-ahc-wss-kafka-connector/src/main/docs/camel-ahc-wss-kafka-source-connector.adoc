@@ -15,6 +15,10 @@ When using camel-ahc-wss-kafka-connector as source make sure to use the followin
 ----
 
 
+The camel-ahc-wss source connector supports 26 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

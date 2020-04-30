@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-json-validator-kafka-connector-source]]
-= camel-json-validator-kafka-connector source configuration
+[[camel-json-validator-kafka-connector-sink]]
+= camel-json-validator-kafka-connector sink configuration
 
 When using camel-json-validator-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-json-validator-kafka-connector as sink make sure to use the fol
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-json-validator sink connector supports 12 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

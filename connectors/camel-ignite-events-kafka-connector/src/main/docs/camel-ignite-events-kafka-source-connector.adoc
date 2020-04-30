@@ -15,6 +15,10 @@ When using camel-ignite-events-kafka-connector as source make sure to use the fo
 ----
 
 
+The camel-ignite-events source connector supports 15 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

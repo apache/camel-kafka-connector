@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-kubernetes-nodes-kafka-connector-source]]
-= camel-kubernetes-nodes-kafka-connector source configuration
+[[camel-kubernetes-nodes-kafka-connector-sink]]
+= camel-kubernetes-nodes-kafka-connector sink configuration
 
 When using camel-kubernetes-nodes-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-kubernetes-nodes-kafka-connector as sink make sure to use the f
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-kubernetes-nodes sink connector supports 25 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

@@ -15,6 +15,10 @@ When using camel-jmx-kafka-connector as source make sure to use the following Ma
 ----
 
 
+The camel-jmx source connector supports 34 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

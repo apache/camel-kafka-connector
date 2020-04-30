@@ -15,6 +15,10 @@ When using camel-smtp-kafka-connector as source make sure to use the following M
 ----
 
 
+The camel-smtp source connector supports 66 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

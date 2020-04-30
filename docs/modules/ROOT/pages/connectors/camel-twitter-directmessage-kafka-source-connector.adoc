@@ -15,6 +15,10 @@ When using camel-twitter-directmessage-kafka-connector as source make sure to us
 ----
 
 
+The camel-twitter-directmessage source connector supports 54 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

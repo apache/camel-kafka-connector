@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-box-kafka-connector-source]]
-= camel-box-kafka-connector source configuration
+[[camel-box-kafka-connector-sink]]
+= camel-box-kafka-connector sink configuration
 
 When using camel-box-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-box-kafka-connector as sink make sure to use the following Mave
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-box sink connector supports 24 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

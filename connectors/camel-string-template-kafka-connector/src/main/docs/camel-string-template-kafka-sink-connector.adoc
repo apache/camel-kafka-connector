@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-string-template-kafka-connector-source]]
-= camel-string-template-kafka-connector source configuration
+[[camel-string-template-kafka-connector-sink]]
+= camel-string-template-kafka-connector sink configuration
 
 When using camel-string-template-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-string-template-kafka-connector as sink make sure to use the fo
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-string-template sink connector supports 9 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

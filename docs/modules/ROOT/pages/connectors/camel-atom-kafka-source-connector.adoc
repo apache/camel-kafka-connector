@@ -15,6 +15,10 @@ When using camel-atom-kafka-connector as source make sure to use the following M
 ----
 
 
+The camel-atom source connector supports 32 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
