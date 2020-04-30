@@ -78,3 +78,27 @@ The camel-aws-s3 source connector supports 54 options, which are listed below.
 | *camel.component.aws-s3.configuration* | The AWS S3 default configuration | null | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END
+
+== Examples
+
+Here is an example of configuration of the source connector
+
+[source,bash]
+--------------------------------------------------------------------------------
+name=CamelAWSS3SourceConnector
+connector.class=org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector
+key.converter=org.apache.kafka.connect.storage.StringConverter
+value.converter=org.apache.camel.kafkaconnector.awss3.converters.S3ObjectConverter
+
+camel.source.maxPollDuration=10000
+
+camel.source.kafka.topic=mytopic
+
+camel.source.url=aws-s3://camel-kafka-connector?autocloseBody=false
+
+camel.component.aws-s3.access-key=xxxx
+camel.component.aws-s3.secret-key=yyyy
+camel.component.aws-s3.region=EU_WEST_1
+--------------------------------------------------------------------------------
+
+In this example we are polling the bucket camel-kafka-connector as source.
