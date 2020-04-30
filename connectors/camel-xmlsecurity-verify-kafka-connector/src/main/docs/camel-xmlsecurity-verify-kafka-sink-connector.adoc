@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-xmlsecurity-verify-kafka-connector-source]]
-= camel-xmlsecurity-verify-kafka-connector source configuration
+[[camel-xmlsecurity-verify-kafka-connector-sink]]
+= camel-xmlsecurity-verify-kafka-connector sink configuration
 
 When using camel-xmlsecurity-verify-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-xmlsecurity-verify-kafka-connector as sink make sure to use the
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-xmlsecurity-verify sink connector supports 23 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

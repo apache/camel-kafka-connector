@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-jslt-kafka-connector-source]]
-= camel-jslt-kafka-connector source configuration
+[[camel-jslt-kafka-connector-sink]]
+= camel-jslt-kafka-connector sink configuration
 
 When using camel-jslt-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-jslt-kafka-connector as sink make sure to use the following Mav
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-jslt sink connector supports 9 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

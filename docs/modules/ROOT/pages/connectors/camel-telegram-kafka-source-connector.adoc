@@ -15,6 +15,10 @@ When using camel-telegram-kafka-connector as source make sure to use the followi
 ----
 
 
+The camel-telegram source connector supports 36 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

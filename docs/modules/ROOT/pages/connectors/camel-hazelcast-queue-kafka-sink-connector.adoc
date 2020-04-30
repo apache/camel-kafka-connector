@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-hazelcast-queue-kafka-connector-source]]
-= camel-hazelcast-queue-kafka-connector source configuration
+[[camel-hazelcast-queue-kafka-connector-sink]]
+= camel-hazelcast-queue-kafka-connector sink configuration
 
 When using camel-hazelcast-queue-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-hazelcast-queue-kafka-connector as sink make sure to use the fo
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-hazelcast-queue sink connector supports 11 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

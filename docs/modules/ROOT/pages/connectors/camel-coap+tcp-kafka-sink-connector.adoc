@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-coap-tcp-kafka-connector-source]]
-= camel-coap-tcp-kafka-connector source configuration
+[[camel-coap-tcp-kafka-connector-sink]]
+= camel-coap-tcp-kafka-connector sink configuration
 
 When using camel-coap-tcp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-coap-tcp-kafka-connector as sink make sure to use the following
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-coap-tcp sink connector supports 15 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-sjms2-kafka-connector-source]]
-= camel-sjms2-kafka-connector source configuration
+[[camel-sjms2-kafka-connector-sink]]
+= camel-sjms2-kafka-connector sink configuration
 
 When using camel-sjms2-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-sjms2-kafka-connector as sink make sure to use the following Ma
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-sjms2 sink connector supports 42 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

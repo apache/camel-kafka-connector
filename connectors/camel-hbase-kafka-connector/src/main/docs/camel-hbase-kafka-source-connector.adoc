@@ -15,6 +15,10 @@ When using camel-hbase-kafka-connector as source make sure to use the following 
 ----
 
 
+The camel-hbase source connector supports 21 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

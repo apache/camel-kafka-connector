@@ -15,6 +15,10 @@ When using camel-wordpress-kafka-connector as source make sure to use the follow
 ----
 
 
+The camel-wordpress source connector supports 18 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

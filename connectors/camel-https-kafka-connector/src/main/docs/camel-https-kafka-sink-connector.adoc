@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-https-kafka-connector-source]]
-= camel-https-kafka-connector source configuration
+[[camel-https-kafka-connector-sink]]
+= camel-https-kafka-connector sink configuration
 
 When using camel-https-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-https-kafka-connector as sink make sure to use the following Ma
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-https sink connector supports 72 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-elsql-kafka-connector-source]]
-= camel-elsql-kafka-connector source configuration
+[[camel-elsql-kafka-connector-sink]]
+= camel-elsql-kafka-connector sink configuration
 
 When using camel-elsql-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-elsql-kafka-connector as sink make sure to use the following Ma
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-elsql sink connector supports 29 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

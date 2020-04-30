@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-google-pubsub-kafka-connector-source]]
-= camel-google-pubsub-kafka-connector source configuration
+[[camel-google-pubsub-kafka-connector-sink]]
+= camel-google-pubsub-kafka-connector sink configuration
 
 When using camel-google-pubsub-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-google-pubsub-kafka-connector as sink make sure to use the foll
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-google-pubsub sink connector supports 13 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-scp-kafka-connector-source]]
-= camel-scp-kafka-connector source configuration
+[[camel-scp-kafka-connector-sink]]
+= camel-scp-kafka-connector sink configuration
 
 When using camel-scp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-scp-kafka-connector as sink make sure to use the following Mave
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-scp sink connector supports 30 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

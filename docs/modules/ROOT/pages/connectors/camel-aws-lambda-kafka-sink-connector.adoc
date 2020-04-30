@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-aws-lambda-kafka-connector-source]]
-= camel-aws-lambda-kafka-connector source configuration
+[[camel-aws-lambda-kafka-connector-sink]]
+= camel-aws-lambda-kafka-connector sink configuration
 
 When using camel-aws-lambda-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-aws-lambda-kafka-connector as sink make sure to use the followi
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-aws-lambda sink connector supports 18 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

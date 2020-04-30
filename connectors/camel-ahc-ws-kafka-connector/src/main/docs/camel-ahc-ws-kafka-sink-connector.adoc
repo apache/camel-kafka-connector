@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-ahc-ws-kafka-connector-source]]
-= camel-ahc-ws-kafka-connector source configuration
+[[camel-ahc-ws-kafka-connector-sink]]
+= camel-ahc-ws-kafka-connector sink configuration
 
 When using camel-ahc-ws-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-ahc-ws-kafka-connector as sink make sure to use the following M
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-ahc-ws sink connector supports 26 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

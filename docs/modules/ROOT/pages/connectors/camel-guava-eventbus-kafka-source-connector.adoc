@@ -15,6 +15,10 @@ When using camel-guava-eventbus-kafka-connector as source make sure to use the f
 ----
 
 
+The camel-guava-eventbus source connector supports 12 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

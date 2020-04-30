@@ -15,6 +15,10 @@ When using camel-rss-kafka-connector as source make sure to use the following Ma
 ----
 
 
+The camel-rss source connector supports 32 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

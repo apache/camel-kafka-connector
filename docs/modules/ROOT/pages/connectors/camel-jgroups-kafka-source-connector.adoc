@@ -15,6 +15,10 @@ When using camel-jgroups-kafka-connector as source make sure to use the followin
 ----
 
 
+The camel-jgroups source connector supports 13 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

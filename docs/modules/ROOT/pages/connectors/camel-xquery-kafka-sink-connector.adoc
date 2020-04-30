@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-xquery-kafka-connector-source]]
-= camel-xquery-kafka-connector source configuration
+[[camel-xquery-kafka-connector-sink]]
+= camel-xquery-kafka-connector sink configuration
 
 When using camel-xquery-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-xquery-kafka-connector as sink make sure to use the following M
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-xquery sink connector supports 21 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

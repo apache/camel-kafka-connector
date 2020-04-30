@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-infinispan-kafka-connector-source]]
-= camel-infinispan-kafka-connector source configuration
+[[camel-infinispan-kafka-connector-sink]]
+= camel-infinispan-kafka-connector sink configuration
 
 When using camel-infinispan-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-infinispan-kafka-connector as sink make sure to use the followi
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-infinispan sink connector supports 18 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

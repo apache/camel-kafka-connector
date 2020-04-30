@@ -15,6 +15,10 @@ When using camel-servlet-kafka-connector as source make sure to use the followin
 ----
 
 
+The camel-servlet source connector supports 35 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

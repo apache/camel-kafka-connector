@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-aws2-ses-kafka-connector-source]]
-= camel-aws2-ses-kafka-connector source configuration
+[[camel-aws2-ses-kafka-connector-sink]]
+= camel-aws2-ses-kafka-connector sink configuration
 
 When using camel-aws2-ses-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-aws2-ses-kafka-connector as sink make sure to use the following
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-aws2-ses sink connector supports 21 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

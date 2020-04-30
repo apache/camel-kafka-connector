@@ -15,6 +15,10 @@ When using camel-iec60870-server-kafka-connector as source make sure to use the 
 ----
 
 
+The camel-iec60870-server source connector supports 26 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

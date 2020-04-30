@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-disruptor-vm-kafka-connector-source]]
-= camel-disruptor-vm-kafka-connector source configuration
+[[camel-disruptor-vm-kafka-connector-sink]]
+= camel-disruptor-vm-kafka-connector sink configuration
 
 When using camel-disruptor-vm-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-disruptor-vm-kafka-connector as sink make sure to use the follo
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-disruptor-vm sink connector supports 15 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

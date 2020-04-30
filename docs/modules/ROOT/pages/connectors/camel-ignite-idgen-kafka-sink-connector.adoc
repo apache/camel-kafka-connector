@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-ignite-idgen-kafka-connector-source]]
-= camel-ignite-idgen-kafka-connector source configuration
+[[camel-ignite-idgen-kafka-connector-sink]]
+= camel-ignite-idgen-kafka-connector sink configuration
 
 When using camel-ignite-idgen-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-ignite-idgen-kafka-connector as sink make sure to use the follo
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-ignite-idgen sink connector supports 14 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

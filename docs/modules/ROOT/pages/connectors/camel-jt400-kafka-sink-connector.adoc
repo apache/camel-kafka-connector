@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-jt400-kafka-connector-source]]
-= camel-jt400-kafka-connector source configuration
+[[camel-jt400-kafka-connector-sink]]
+= camel-jt400-kafka-connector sink configuration
 
 When using camel-jt400-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-jt400-kafka-connector as sink make sure to use the following Ma
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-jt400 sink connector supports 20 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]

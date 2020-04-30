@@ -15,6 +15,10 @@ When using camel-ftps-kafka-connector as source make sure to use the following M
 ----
 
 
+The camel-ftps source connector supports 110 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

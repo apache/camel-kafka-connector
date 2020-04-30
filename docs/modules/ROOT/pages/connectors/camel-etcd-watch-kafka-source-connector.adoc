@@ -15,6 +15,10 @@ When using camel-etcd-watch-kafka-connector as source make sure to use the follo
 ----
 
 
+The camel-etcd-watch source connector supports 23 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

@@ -15,6 +15,10 @@ When using camel-cql-kafka-connector as source make sure to use the following Ma
 ----
 
 
+The camel-cql source connector supports 37 options, which are listed below.
+
+
+
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority

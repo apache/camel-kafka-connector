@@ -1,6 +1,6 @@
 // kafka-connector options: START
-[[camel-microprofile-metrics-kafka-connector-source]]
-= camel-microprofile-metrics-kafka-connector source configuration
+[[camel-microprofile-metrics-kafka-connector-sink]]
+= camel-microprofile-metrics-kafka-connector sink configuration
 
 When using camel-microprofile-metrics-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
@@ -13,6 +13,10 @@ When using camel-microprofile-metrics-kafka-connector as sink make sure to use t
   <!-- use the same version as your Camel Kafka connector version -->
 </dependency>
 ----
+
+
+The camel-microprofile-metrics sink connector supports 19 options, which are listed below.
+
 
 
 [width="100%",cols="2,5,^1,2",options="header"]
