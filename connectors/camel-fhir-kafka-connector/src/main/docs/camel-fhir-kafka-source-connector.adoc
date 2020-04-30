@@ -25,52 +25,52 @@ The camel-fhir source connector supports 50 options, which are listed below.
 | *camel.source.path.apiName* | What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate] | null | ConfigDef.Importance.HIGH
 | *camel.source.path.methodName* | What sub operation to use for the selected operation | null | ConfigDef.Importance.HIGH
 | *camel.source.endpoint.encoding* | Encoding to use for all request One of: [JSON] [XML] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.fhir Version* | The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5] | "R4" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.fhirVersion* | The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5] | "R4" | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.log* | Will log every requests and responses | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.pretty Print* | Pretty print all request | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.server Url* | The FHIR server base URL | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.send EmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.exception Handler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchange Pattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.poll Strategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basic PropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.prettyPrint* | Pretty print all request | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.serverUrl* | The FHIR server base URL | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.client* | To use the custom client | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.client Factory* | To use the custom client factory | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.clientFactory* | To use the custom client factory | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.compress* | Compresses outgoing (POST/PUT) contents to the GZIP format | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.connection Timeout* | How long to try and establish the initial TCP connection (in ms) | "10000" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.defer ModelScanning* | When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.fhir Context* | FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.force ConformanceCheck* | Force conformance check | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.session Cookie* | HTTP session cookie to add to every request | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.socket Timeout* | How long to block for individual read/write operations (in ms) | "10000" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.connectionTimeout* | How long to try and establish the initial TCP connection (in ms) | "10000" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.deferModelScanning* | When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.fhirContext* | FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.forceConformanceCheck* | Force conformance check | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.sessionCookie* | HTTP session cookie to add to every request | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.socketTimeout* | How long to block for individual read/write operations (in ms) | "10000" | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.summary* | Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE] | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.validation Mode* | When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE] | "ONCE" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.backoff ErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.backoff IdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.backoff Multiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.validationMode* | When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE] | "ONCE" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.delay* | Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 500L | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.initial Delay* | Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 1000L | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.repeat Count* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.run LoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.scheduled ExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | ConfigDef.Importance.MEDIUM
-| * camel.source.endpoint.scheduler Properties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.start Scheduler* | Whether the scheduler should be auto started. | true | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 1000L | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.useFixed Delay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.proxy Host* | The proxy host | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.proxy Password* | The proxy password | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.proxy Port* | The proxy port | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.proxy User* | The proxy username | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.access Token* | OAuth access token | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.proxyHost* | The proxy host | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.proxyPassword* | The proxy password | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.proxyPort* | The proxy port | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.proxyUser* | The proxy username | null | ConfigDef.Importance.MEDIUM
+| *camel.source.endpoint.accessToken* | OAuth access token | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.password* | Username to use for basic authentication | null | ConfigDef.Importance.MEDIUM
 | *camel.source.endpoint.username* | Username to use for basic authentication | null | ConfigDef.Importance.MEDIUM
-| * camel.component.fhir.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
-| *camel.component.fhir.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.fhir.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.component.fhir.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.component.fhir.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
+| *camel.component.fhir.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
 |===
 // kafka-connector options: END
