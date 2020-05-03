@@ -112,7 +112,7 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
     public void execute() throws MojoExecutionException, MojoFailureException {
         configureResourceManager();
         if (!project.getArtifactId().equals(connectorsProjectName)) {
-            getLog().debug("Skipping porject " + project.getArtifactId() + " since it is not " + connectorsProjectName + " can be configured with <connectors-project-name> option.");
+            getLog().debug("Skipping project " + project.getArtifactId() + " since it is not " + connectorsProjectName + " can be configured with <connectors-project-name> option.");
             return;
         }
         try {

@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory;
 
 public class CamelMainSupport {
     public static final String CAMEL_DATAFORMAT_PROPERTIES_PREFIX = "camel.dataformat.";
-    private static Logger log = LoggerFactory.getLogger(CamelMainSupport.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelMainSupport.class);
 
     private Main camelMain;
     private CamelContext camel;
@@ -83,7 +83,7 @@ public class CamelMainSupport {
         Properties camelProperties = new OrderedProperties();
         camelProperties.putAll(orderedProps);
 
-        log.info("Setting initial properties in Camel context: [{}]", camelProperties);
+        LOG.info("Setting initial properties in Camel context: [{}]", camelProperties);
         this.camel.getPropertiesComponent().setInitialProperties(camelProperties);
 
         //creating the actual route
@@ -93,15 +93,15 @@ public class CamelMainSupport {
                 if (marshal != null && unmarshal != null) {
                     throw new UnsupportedOperationException("Uses of both marshal (i.e. " + marshal + ") and unmarshal (i.e. " + unmarshal + ") is not supported");
                 } else if (marshal != null) {
-                    log.info("Creating Camel route from({}).marshal().custom({}).to({})", fromUrl, marshal, toUrl);
+                    LOG.info("Creating Camel route from({}).marshal().custom({}).to({})", fromUrl, marshal, toUrl);
                     camel.getRegistry().bind(marshal, lookupAndInstantiateDataformat(marshal));
                     rd.marshal().custom(marshal);
                 } else if (unmarshal != null) {
-                    log.info("Creating Camel route from({}).unmarshal().custom({}).to({})", fromUrl, unmarshal, toUrl);
+                    LOG.info("Creating Camel route from({}).unmarshal().custom({}).to({})", fromUrl, unmarshal, toUrl);
                     camel.getRegistry().bind(unmarshal, lookupAndInstantiateDataformat(unmarshal));
                     rd.unmarshal().custom(unmarshal);
                 } else {
-                    log.info("Creating Camel route from({}).to({})", fromUrl, toUrl);
+                    LOG.info("Creating Camel route from({}).to({})", fromUrl, toUrl);
                 }
                 rd.to(toUrl);
             }
@@ -109,27 +109,27 @@ public class CamelMainSupport {
     }
 
     public void start() throws Exception {
-        log.info("Starting CamelContext");
+        LOG.info("Starting CamelContext");
 
         CamelContextStarter starter = new CamelContextStarter();
         exService.execute(starter);
         startFinishedSignal.await();
 
         if (starter.hasException()) {
-            log.info("CamelContext failed to start", starter.getException());
+            LOG.info("CamelContext failed to start", starter.getException());
             throw starter.getException();
         }
 
-        log.info("CamelContext started");
+        LOG.info("CamelContext started");
     }
 
     public void stop() {
-        log.info("Stopping CamelContext");
+        LOG.info("Stopping CamelContext");
 
         camelMain.stop();
         exService.shutdown();
 
-        log.info("CamelContext stopped");
+        LOG.info("CamelContext stopped");
     }
 
     public ProducerTemplate createProducerTemplate() {
@@ -190,7 +190,7 @@ public class CamelMainSupport {
 
         @Override
         public void afterStart(BaseMainSupport main) {
-            log.trace("Signaling CamelContext startup is finished (startFinishedSignal.countDown();) due to CamelMainFinishedListener been called");
+            LOG.trace("Signaling CamelContext startup is finished (startFinishedSignal.countDown();) due to CamelMainFinishedListener been called");
             startFinishedSignal.countDown();
         }
 
@@ -217,10 +217,10 @@ public class CamelMainSupport {
             try {
                 camelMain.run();
             } catch (Exception e) {
-                log.error("An exception has occurred before CamelContext startup has finished", e);
+                LOG.error("An exception has occurred before CamelContext startup has finished", e);
                 startException = e;
                 if (startFinishedSignal.getCount() > 0) {
-                    log.trace("Signaling CamelContext startup is finished (startFinishedSignal.countDown();) due to an exception");
+                    LOG.trace("Signaling CamelContext startup is finished (startFinishedSignal.countDown();) due to an exception");
                     startFinishedSignal.countDown();
                 }
             }

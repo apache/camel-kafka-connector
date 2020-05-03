@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CamelSinkConnector extends SinkConnector {
-    private static Logger log = LoggerFactory.getLogger(CamelSinkConnector.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkConnector.class);
 
     private Map<String, String> configProps;
 
@@ -38,7 +38,7 @@ public class CamelSinkConnector extends SinkConnector {
 
     @Override
     public void start(Map<String, String> configProps) {
-        log.info("Connector config keys: {}", String.join(", ", configProps.keySet()));
+        LOG.info("Connector config keys: {}", String.join(", ", configProps.keySet()));
         this.configProps = configProps;
     }
 
@@ -49,7 +49,7 @@ public class CamelSinkConnector extends SinkConnector {
 
     @Override
     public List<Map<String, String>> taskConfigs(int maxTasks) {
-        log.info("Setting task configurations for {} workers.", maxTasks);
+        LOG.info("Setting task configurations for {} workers.", maxTasks);
         final List<Map<String, String>> configs = new ArrayList<>(maxTasks);
         for (int i = 0; i < maxTasks; ++i) {
             configs.add(configProps);

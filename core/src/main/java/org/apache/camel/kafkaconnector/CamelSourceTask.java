@@ -24,7 +24,6 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -91,7 +90,7 @@ public class CamelSourceTask extends SourceTask {
             Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();
             consumer.start();
-            
+
             cms.start();
             LOG.info("CamelSourceTask connector task started");
         } catch (Exception e) {
@@ -143,7 +142,7 @@ public class CamelSourceTask extends SourceTask {
         }
 
         if (records.isEmpty()) {
-            return null;
+            return Collections.EMPTY_LIST;
         } else {
             return records;
         }

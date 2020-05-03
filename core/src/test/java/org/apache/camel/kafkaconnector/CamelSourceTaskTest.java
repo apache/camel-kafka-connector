@@ -16,20 +16,15 @@
  */
 package org.apache.camel.kafkaconnector;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import org.apache.camel.ConsumerTemplate;
-import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.header.Headers;
-import org.apache.kafka.connect.sink.SinkRecord;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 
@@ -40,16 +35,18 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class CamelSourceTaskTest {
 
+    private static final String TIMER_URI = "timer:kafkaconnector?period=10&fixedRate=true&delay=0";
+
     @Test
     public void testSourcePolling() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
-        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.url", TIMER_URI);
         props.put("camel.source.kafka.topic", "mytopic");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);
 
-        Thread.sleep(2100L);
+        Thread.sleep(11L);
         List<SourceRecord> poll = camelSourceTask.poll();
         assertEquals(2, poll.size());
         assertEquals("mytopic", poll.get(0).topic());
@@ -62,9 +59,9 @@ public class CamelSourceTaskTest {
                 break;
             }
         }
-        assertTrue(containsHeader);
 
         camelSourceTask.stop();
+        assertTrue(containsHeader);
     }
 
     @Test
@@ -82,7 +79,7 @@ public class CamelSourceTaskTest {
         // first we test if we have a key in the message with body
         template.sendBodyAndHeader("direct:start", "awesome!", "CamelSpecialTestKey", 1234);
 
-        Thread.sleep(100L);
+        Thread.sleep(11L);
 
         List<SourceRecord> poll = camelSourceTask.poll();
         assertEquals(1, poll.size());
@@ -92,7 +89,7 @@ public class CamelSourceTaskTest {
         // second we test if we have no key under the header
         template.sendBodyAndHeader("direct:start", "awesome!", "WrongHeader", 1234);
 
-        Thread.sleep(100L);
+        Thread.sleep(11L);
 
         poll = camelSourceTask.poll();
         assertEquals(1, poll.size());
@@ -102,7 +99,7 @@ public class CamelSourceTaskTest {
         // third we test if we have the header but with null value
         template.sendBodyAndHeader("direct:start", "awesome!", "CamelSpecialTestKey", null);
 
-        Thread.sleep(100L);
+        Thread.sleep(10L);
 
         camelSourceTask.poll();
         assertEquals(1, poll.size());
@@ -126,7 +123,7 @@ public class CamelSourceTaskTest {
         // send first data
         template.sendBody("direct:start", "testing kafka connect");
 
-        Thread.sleep(100L);
+        Thread.sleep(11L);
 
         List<SourceRecord> poll = camelSourceTask.poll();
         assertEquals(1, poll.size());
@@ -138,7 +135,7 @@ public class CamelSourceTaskTest {
         // send second data
         template.sendBody("direct:start", true);
 
-        Thread.sleep(100L);
+        Thread.sleep(11L);
 
         poll = camelSourceTask.poll();
         assertEquals(1, poll.size());
@@ -150,7 +147,7 @@ public class CamelSourceTaskTest {
         // second third data
         template.sendBody("direct:start", 1234L);
 
-        Thread.sleep(100L);
+        Thread.sleep(10L);
 
         poll = camelSourceTask.poll();
         assertEquals(1, poll.size());
@@ -162,7 +159,7 @@ public class CamelSourceTaskTest {
         // third with null data
         template.sendBody("direct:start", null);
 
-        Thread.sleep(100L);
+        Thread.sleep(10L);
         poll = camelSourceTask.poll();
         assertNull(poll.get(0).key());
         assertNull(poll.get(0).keySchema());
@@ -175,50 +172,48 @@ public class CamelSourceTaskTest {
     @Test
     public void testSourcePollingTimeout() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
-        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.url", TIMER_URI);
         props.put("camel.source.kafka.topic", "mytopic");
         props.put("camel.source.maxPollDuration", "1");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);
 
-        Thread.sleep(3000L);
+        long sleepTime = 30L;
+        Thread.sleep(sleepTime);
         List<SourceRecord> poll;
         int retries = 3;
         do {
             poll = camelSourceTask.poll();
             if (poll == null) {
                 retries--;
-
                 if (retries == 0) {
                     fail("Exhausted the maximum retries and no record was returned");
                 }
-
-                Thread.sleep(3000L);
+                Thread.sleep(sleepTime);
             }
         } while (poll == null && retries > 0);
 
         assertTrue(poll.size() >= 1, "Received messages are: " + poll.size() + ", expected between 1 and 2.");
         assertTrue(poll.size() <= 2, "Received messages are: " + poll.size() + ", expected between 1 and 2.");
-
         camelSourceTask.stop();
     }
 
     @Test
     public void testSourcePollingMaxRecordNumber() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
-        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.url", TIMER_URI);
         props.put("camel.source.kafka.topic", "mytopic");
         props.put("camel.source.maxBatchPollSize", "1");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);
 
-        Thread.sleep(2000L);
+        Thread.sleep(11L);
         List<SourceRecord> poll = camelSourceTask.poll();
-        assertEquals(1, poll.size());
-
         camelSourceTask.stop();
+
+        assertEquals(1, poll.size());
     }
 
     @Test
@@ -243,9 +238,9 @@ public class CamelSourceTaskTest {
     }
 
     @Test
-    public void testUrlPrecedenceOnComponentProperty() throws JsonProcessingException, InterruptedException {
+    public void testUrlPrecedenceOnComponentProperty() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
-        props.put("camel.source.url", "timer:kafkaconnector");
+        props.put("camel.source.url", TIMER_URI);
         props.put("camel.source.kafka.topic", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "shouldNotBeUsed");
         props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "endpointProperty", "shouldNotBeUsed");
@@ -254,7 +249,7 @@ public class CamelSourceTaskTest {
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);
 
-        Thread.sleep(2100L);
+        Thread.sleep(11L);
         List<SourceRecord> poll = camelSourceTask.poll();
         assertEquals(2, poll.size());
         assertEquals("mytopic", poll.get(0).topic());
@@ -267,13 +262,13 @@ public class CamelSourceTaskTest {
                 break;
             }
         }
-        assertTrue(containsHeader);
-
         camelSourceTask.stop();
+
+        assertTrue(containsHeader);
     }
 
     @Test
-    public void testSourcePollingUsingComponentProperty() throws JsonProcessingException, InterruptedException {
+    public void testSourcePollingUsingComponentProperty() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.kafka.topic", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
@@ -298,13 +293,14 @@ public class CamelSourceTaskTest {
         }
         assertTrue(containsHeader);
 
-        assertEquals(1, camelSourceTask.getCms().getEndpoints().stream().filter(e -> e.getEndpointUri().equals("timer://kafkaconnector?period=1000")).count());
+        assertEquals(1, camelSourceTask.getCms().getEndpoints().stream()
+            .filter(e -> e.getEndpointUri().equals("timer://kafkaconnector?period=1000")).count());
 
         camelSourceTask.stop();
     }
 
     @Test
-    public void testSourcePollingUsingMultipleComponentProperties() throws JsonProcessingException, InterruptedException {
+    public void testSourcePollingUsingMultipleComponentProperties() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.kafka.topic", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
@@ -330,7 +326,8 @@ public class CamelSourceTaskTest {
         }
         assertTrue(containsHeader);
 
-        assertEquals(1, camelSourceTask.getCms().getEndpoints().stream().filter(e -> e.getEndpointUri().equals("timer://kafkaconnector?period=1000&repeatCount=0")).count());
+        assertEquals(1, camelSourceTask.getCms().getEndpoints().stream()
+            .filter(e -> e.getEndpointUri().equals("timer://kafkaconnector?period=1000&repeatCount=0")).count());
 
         camelSourceTask.stop();
     }

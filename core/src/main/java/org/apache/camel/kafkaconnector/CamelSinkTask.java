@@ -19,11 +19,9 @@ package org.apache.camel.kafkaconnector;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
@@ -44,7 +42,7 @@ public class CamelSinkTask extends SinkTask {
     private static final String CAMEL_SINK_ENDPOINT_PROPERTIES_PREFIX = "camel.sink.endpoint.";
     private static final String CAMEL_SINK_PATH_PROPERTIES_PREFIX = "camel.sink.path.";
 
-    private static Logger log = LoggerFactory.getLogger(CamelSinkTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkTask.class);
 
     private static final String LOCAL_URL = "direct:start";
     private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
@@ -62,7 +60,7 @@ public class CamelSinkTask extends SinkTask {
     @Override
     public void start(Map<String, String> props) {
         try {
-            log.info("Starting CamelSinkTask connector task");
+            LOG.info("Starting CamelSinkTask connector task");
             Map<String, String> actualProps = TaskHelper.mergeProperties(getDefaultConfig(), props);
             config = getCamelSinkConnectorConfig(actualProps);
 
@@ -78,7 +76,7 @@ public class CamelSinkTask extends SinkTask {
             producer = cms.createProducerTemplate();
 
             cms.start();
-            log.info("CamelSinkTask connector task started");
+            LOG.info("CamelSinkTask connector task started");
         } catch (Exception e) {
             throw new ConnectException("Failed to create and start Camel context", e);
         }
@@ -116,20 +114,20 @@ public class CamelSinkTask extends SinkTask {
             }
             exchange.getMessage().setHeaders(headers);
             exchange.getMessage().setBody(record.value());
-            log.debug("Sending {} to {}", exchange, LOCAL_URL);
+            LOG.debug("Sending {} to {}", exchange, LOCAL_URL);
             producer.send(LOCAL_URL, exchange);
         }
     }
 
     @Override
     public void stop() {
+        LOG.info("Stopping CamelSinkTask connector task");
         try {
-            log.info("Stopping CamelSinkTask connector task");
             cms.stop();
         } catch (Exception e) {
             throw new ConnectException("Failed to stop Camel context", e);
         } finally {
-            log.info("CamelSinkTask connector task stopped");
+            LOG.info("CamelSinkTask connector task stopped");
         }
     }
 
@@ -157,7 +155,7 @@ public class CamelSinkTask extends SinkTask {
             map.put(singleHeader.key(), (Map<?, ?>)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
             map.put(singleHeader.key(), (List<?>)singleHeader.value());
-        } 
+        }
     }
 
     private void addProperty(Exchange exchange, Header singleHeader) {
@@ -184,7 +182,7 @@ public class CamelSinkTask extends SinkTask {
             exchange.getProperties().put(singleHeader.key(), (Map<?, ?>)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
             exchange.getProperties().put(singleHeader.key(), (List<?>)singleHeader.value());
-        } 
+        }
     }
 
     public CamelMainSupport getCms() {
