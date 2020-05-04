@@ -90,7 +90,7 @@ public class CamelSourceTask extends SourceTask {
             Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();
             consumer.start();
-            
+
             cms.start();
             LOG.info("CamelSourceTask connector task started");
         } catch (Exception e) {
@@ -142,7 +142,7 @@ public class CamelSourceTask extends SourceTask {
         }
 
         if (records.isEmpty()) {
-            return null;
+            return Collections.EMPTY_LIST;
         } else {
             return records;
         }
