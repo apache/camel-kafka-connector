@@ -489,7 +489,7 @@ public class CamelSinkTaskTest {
         props.put("topics", "mytopic");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "seda");
         props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "bridgeErrorHandler", "true");
-        props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "pathChunk", "test");
+        props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "name", "test");
 
         CamelSinkTask camelSinkTask = new CamelSinkTask();
         camelSinkTask.start(props);
@@ -518,7 +518,7 @@ public class CamelSinkTaskTest {
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "seda");
         props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "bridgeErrorHandler", "true");
         props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "size", "50");
-        props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "pathChunk", "test");
+        props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "name", "test");
 
         CamelSinkTask camelSinkTask = new CamelSinkTask();
         camelSinkTask.start(props);
