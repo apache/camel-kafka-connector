@@ -22,37 +22,37 @@ The camel-fhir sink connector supports 32 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.apiName* | What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate] | null | ConfigDef.Importance.HIGH
-| *camel.sink.path.methodName* | What sub operation to use for the selected operation | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.encoding* | Encoding to use for all request One of: [JSON] [XML] | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.fhirVersion* | The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5] | "R4" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.log* | Will log every requests and responses | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.prettyPrint* | Pretty print all request | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.serverUrl* | The FHIR server base URL | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.client* | To use the custom client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientFactory* | To use the custom client factory | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.compress* | Compresses outgoing (POST/PUT) contents to the GZIP format | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.connectionTimeout* | How long to try and establish the initial TCP connection (in ms) | "10000" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.deferModelScanning* | When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.fhirContext* | FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.forceConformanceCheck* | Force conformance check | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.sessionCookie* | HTTP session cookie to add to every request | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.socketTimeout* | How long to block for individual read/write operations (in ms) | "10000" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.summary* | Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE] | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.validationMode* | When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE] | "ONCE" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyHost* | The proxy host | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyPassword* | The proxy password | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyPort* | The proxy port | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyUser* | The proxy username | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.accessToken* | OAuth access token | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.password* | Username to use for basic authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.username* | Username to use for basic authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.component.fhir.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
-| *camel.component.fhir.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.fhir.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.apiName* | What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate] | null | HIGH
+| *camel.sink.path.methodName* | What sub operation to use for the selected operation | null | HIGH
+| *camel.sink.endpoint.encoding* | Encoding to use for all request One of: [JSON] [XML] | null | MEDIUM
+| *camel.sink.endpoint.fhirVersion* | The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5] | "R4" | MEDIUM
+| *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | MEDIUM
+| *camel.sink.endpoint.log* | Will log every requests and responses | false | MEDIUM
+| *camel.sink.endpoint.prettyPrint* | Pretty print all request | false | MEDIUM
+| *camel.sink.endpoint.serverUrl* | The FHIR server base URL | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.client* | To use the custom client | null | MEDIUM
+| *camel.sink.endpoint.clientFactory* | To use the custom client factory | null | MEDIUM
+| *camel.sink.endpoint.compress* | Compresses outgoing (POST/PUT) contents to the GZIP format | false | MEDIUM
+| *camel.sink.endpoint.connectionTimeout* | How long to try and establish the initial TCP connection (in ms) | "10000" | MEDIUM
+| *camel.sink.endpoint.deferModelScanning* | When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed. | false | MEDIUM
+| *camel.sink.endpoint.fhirContext* | FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly. | null | MEDIUM
+| *camel.sink.endpoint.forceConformanceCheck* | Force conformance check | false | MEDIUM
+| *camel.sink.endpoint.sessionCookie* | HTTP session cookie to add to every request | null | MEDIUM
+| *camel.sink.endpoint.socketTimeout* | How long to block for individual read/write operations (in ms) | "10000" | MEDIUM
+| *camel.sink.endpoint.summary* | Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE] | null | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.validationMode* | When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE] | "ONCE" | MEDIUM
+| *camel.sink.endpoint.proxyHost* | The proxy host | null | MEDIUM
+| *camel.sink.endpoint.proxyPassword* | The proxy password | null | MEDIUM
+| *camel.sink.endpoint.proxyPort* | The proxy port | null | MEDIUM
+| *camel.sink.endpoint.proxyUser* | The proxy username | null | MEDIUM
+| *camel.sink.endpoint.accessToken* | OAuth access token | null | MEDIUM
+| *camel.sink.endpoint.password* | Username to use for basic authentication | null | MEDIUM
+| *camel.sink.endpoint.username* | Username to use for basic authentication | null | MEDIUM
+| *camel.component.fhir.configuration* | To use the shared configuration | null | MEDIUM
+| *camel.component.fhir.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.fhir.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
 // kafka-connector options: END

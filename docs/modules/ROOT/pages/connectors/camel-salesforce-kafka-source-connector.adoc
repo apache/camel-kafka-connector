@@ -22,83 +22,83 @@ The camel-salesforce source connector supports 78 options, which are listed belo
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.topicName* | The name of the topic/channel to use | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.apexMethod* | APEX method name | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.apexQueryParams* | Query params for APEX method | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.apexUrl* | APEX method URL | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.apiVersion* | Salesforce API version, defaults to SalesforceEndpointConfig.DEFAULT_VERSION | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.batchId* | Bulk API Batch ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.contentType* | Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.defaultReplayId* | Default replayId setting if no value is found in initialReplayIdMap | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.format* | Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.httpClient* | Custom Jetty Http Client to use to connect to Salesforce. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.includeDetails* | Include details in Salesforce1 Analytics report, defaults to false. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.initialReplayIdMap* | Replay IDs to start from per channel name. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.instanceId* | Salesforce1 Analytics report execution instance ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.jobId* | Bulk API Job ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.limit* | Limit on number of returned records. Applicable to some of the API, check the Salesforce documentation. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.maxBackoff* | Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notFoundBehaviour* | Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyForFields* | Notify for fields, options are ALL, REFERENCED, SELECT, WHERE One of: [ALL] [REFERENCED] [SELECT] [WHERE] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyForOperationCreate* | Notify for create operation, defaults to false (API version = 29.0) | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyForOperationDelete* | Notify for delete operation, defaults to false (API version = 29.0) | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyForOperations* | Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API version 29.0) One of: [ALL] [CREATE] [EXTENDED] [UPDATE] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyForOperationUndelete* | Notify for un-delete operation, defaults to false (API version = 29.0) | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyForOperationUpdate* | Notify for update operation, defaults to false (API version = 29.0) | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.objectMapper* | Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.rawPayload* | Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.reportId* | Salesforce1 Analytics report Id | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.reportMetadata* | Salesforce1 Analytics report metadata for filtering | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.resultId* | Bulk API Result ID | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectBlobFieldName* | SObject blob field name | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectClass* | Fully qualified SObject class name, usually generated using camel-salesforce-maven-plugin | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectFields* | SObject fields to retrieve | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectId* | SObject ID if required by API | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectIdName* | SObject external ID field name | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectIdValue* | SObject external ID field value | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectName* | SObject name if required or supported by API | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectQuery* | Salesforce SOQL query string | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sObjectSearch* | Salesforce SOSL search string | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.updateTopic* | Whether to update an existing Push Topic when using the Streaming API, defaults to false | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.replayId* | The replayId value to use when subscribing | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpClientConnection Timeout* | Connection timeout used by the HttpClient when connecting to the Salesforce server. | 60000L | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpClientIdleTimeout* | Timeout used by the HttpClient when waiting for response from the Salesforce server. | 10000L | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpMaxContentLength* | Max content length of an HTTP response. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.packages* | In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.config* | Global endpoint configuration - use to set values that are common to all endpoints | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpClientProperties* | Used to set any properties that can be configured on the underlying HTTP client. Have a look at properties of SalesforceHttpClient and the Jetty HttpClient for all available options. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.longPollingTransport Properties* | Used to set any properties that can be configured on the LongPollingTransport used by the BayeuxClient (CometD) used by the streaming api | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyExcluded Addresses* | A list of addresses for which HTTP proxy server should not be used. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyHost* | Hostname of the HTTP proxy server to use. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyIncluded Addresses* | A list of addresses for which HTTP proxy server should be used. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyPort* | Port number of the HTTP proxy server to use. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.isHttpProxySocks4* | If set to true the configures the HTTP proxy to use as a SOCKS4 proxy. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.authenticationType* | Explicit authentication method to be used, one of USERNAME_PASSWORD, REFRESH_TOKEN or JWT. Salesforce component can auto-determine the authentication method to use from the properties set, set this property to eliminate any ambiguity. One of: [USERNAME_PASSWORD] [REFRESH_TOKEN] [JWT] | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.clientId* | OAuth Consumer Key of the connected app configured in the Salesforce instance setup. Typically a connected app needs to be configured but one can be provided by installing a package. | null | ConfigDef.Importance.HIGH
-| *camel.component.salesforce.clientSecret* | OAuth Consumer Secret of the connected app configured in the Salesforce instance setup. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyAuthUri* | Used in authentication against the HTTP proxy server, needs to match the URI of the proxy server in order for the httpProxyUsername and httpProxyPassword to be used for authentication. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyPassword* | Password to use to authenticate against the HTTP proxy server. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyRealm* | Realm of the proxy server, used in preemptive Basic/Digest authentication methods against the HTTP proxy server. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyUseDigestAuth* | If set to true Digest authentication will be used when authenticating to the HTTP proxy, otherwise Basic authorization method will be used | false | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.httpProxyUsername* | Username to use to authenticate against the HTTP proxy server. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.instanceUrl* | URL of the Salesforce instance used after authentication, by default received from Salesforce on successful authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.isHttpProxySecure* | If set to false disables the use of TLS when accessing the HTTP proxy. | true | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.keystore* | KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain only one entry with private key and certificate. Salesforce does not verify the certificate chain, so this can easily be a selfsigned certificate. Make sure that you upload the certificate to the corresponding connected app. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.lazyLogin* | If set to true prevents the component from authenticating to Salesforce with the start of the component. You would generally set this to the (default) false and authenticate early and be immediately aware of any authentication issues. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.loginConfig* | All authentication configuration in one nested bean, all properties set there can be set directly on the component as well | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.loginUrl* | URL of the Salesforce instance used for authentication, by default set to \https://login.salesforce.com | "https://login.salesforce.com" | ConfigDef.Importance.HIGH
-| *camel.component.salesforce.password* | Password used in OAuth flow to gain access to access token. It's easy to get started with password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows. Make sure that you append security token to the end of the password if using one. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.refreshToken* | Refresh token already obtained in the refresh token OAuth flow. One needs to setup a web application and configure a callback URL to receive the refresh token, or configure using the builtin callback at \https://login.salesforce.com/services/oauth2/success or \https://test.salesforce.com/services/oauth2/success and then retrive the refresh_token from the URL at the end of the flow. Note that in development organizations Salesforce allows hosting the callback web application at localhost. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.sslContextParameters* | SSL parameters to use, see SSLContextParameters class for all available options. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters | false | ConfigDef.Importance.MEDIUM
-| *camel.component.salesforce.userName* | Username used in OAuth flow to gain access to access token. It's easy to get started with password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.path.topicName* | The name of the topic/channel to use | null | MEDIUM
+| *camel.source.endpoint.apexMethod* | APEX method name | null | MEDIUM
+| *camel.source.endpoint.apexQueryParams* | Query params for APEX method | null | MEDIUM
+| *camel.source.endpoint.apexUrl* | APEX method URL | null | MEDIUM
+| *camel.source.endpoint.apiVersion* | Salesforce API version, defaults to SalesforceEndpointConfig.DEFAULT_VERSION | null | MEDIUM
+| *camel.source.endpoint.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | null | MEDIUM
+| *camel.source.endpoint.batchId* | Bulk API Batch ID | null | MEDIUM
+| *camel.source.endpoint.contentType* | Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON] | null | MEDIUM
+| *camel.source.endpoint.defaultReplayId* | Default replayId setting if no value is found in initialReplayIdMap | null | MEDIUM
+| *camel.source.endpoint.format* | Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML] | null | MEDIUM
+| *camel.source.endpoint.httpClient* | Custom Jetty Http Client to use to connect to Salesforce. | null | MEDIUM
+| *camel.source.endpoint.includeDetails* | Include details in Salesforce1 Analytics report, defaults to false. | null | MEDIUM
+| *camel.source.endpoint.initialReplayIdMap* | Replay IDs to start from per channel name. | null | MEDIUM
+| *camel.source.endpoint.instanceId* | Salesforce1 Analytics report execution instance ID | null | MEDIUM
+| *camel.source.endpoint.jobId* | Bulk API Job ID | null | MEDIUM
+| *camel.source.endpoint.limit* | Limit on number of returned records. Applicable to some of the API, check the Salesforce documentation. | null | MEDIUM
+| *camel.source.endpoint.maxBackoff* | Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | null | MEDIUM
+| *camel.source.endpoint.notFoundBehaviour* | Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL] | null | MEDIUM
+| *camel.source.endpoint.notifyForFields* | Notify for fields, options are ALL, REFERENCED, SELECT, WHERE One of: [ALL] [REFERENCED] [SELECT] [WHERE] | null | MEDIUM
+| *camel.source.endpoint.notifyForOperationCreate* | Notify for create operation, defaults to false (API version = 29.0) | null | MEDIUM
+| *camel.source.endpoint.notifyForOperationDelete* | Notify for delete operation, defaults to false (API version = 29.0) | null | MEDIUM
+| *camel.source.endpoint.notifyForOperations* | Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API version 29.0) One of: [ALL] [CREATE] [EXTENDED] [UPDATE] | null | MEDIUM
+| *camel.source.endpoint.notifyForOperationUndelete* | Notify for un-delete operation, defaults to false (API version = 29.0) | null | MEDIUM
+| *camel.source.endpoint.notifyForOperationUpdate* | Notify for update operation, defaults to false (API version = 29.0) | null | MEDIUM
+| *camel.source.endpoint.objectMapper* | Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects. | null | MEDIUM
+| *camel.source.endpoint.rawPayload* | Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default | false | MEDIUM
+| *camel.source.endpoint.reportId* | Salesforce1 Analytics report Id | null | MEDIUM
+| *camel.source.endpoint.reportMetadata* | Salesforce1 Analytics report metadata for filtering | null | MEDIUM
+| *camel.source.endpoint.resultId* | Bulk API Result ID | null | MEDIUM
+| *camel.source.endpoint.sObjectBlobFieldName* | SObject blob field name | null | MEDIUM
+| *camel.source.endpoint.sObjectClass* | Fully qualified SObject class name, usually generated using camel-salesforce-maven-plugin | null | MEDIUM
+| *camel.source.endpoint.sObjectFields* | SObject fields to retrieve | null | MEDIUM
+| *camel.source.endpoint.sObjectId* | SObject ID if required by API | null | MEDIUM
+| *camel.source.endpoint.sObjectIdName* | SObject external ID field name | null | MEDIUM
+| *camel.source.endpoint.sObjectIdValue* | SObject external ID field value | null | MEDIUM
+| *camel.source.endpoint.sObjectName* | SObject name if required or supported by API | null | MEDIUM
+| *camel.source.endpoint.sObjectQuery* | Salesforce SOQL query string | null | MEDIUM
+| *camel.source.endpoint.sObjectSearch* | Salesforce SOSL search string | null | MEDIUM
+| *camel.source.endpoint.updateTopic* | Whether to update an existing Push Topic when using the Streaming API, defaults to false | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.replayId* | The replayId value to use when subscribing | null | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.salesforce.httpClientConnection Timeout* | Connection timeout used by the HttpClient when connecting to the Salesforce server. | 60000L | MEDIUM
+| *camel.component.salesforce.httpClientIdleTimeout* | Timeout used by the HttpClient when waiting for response from the Salesforce server. | 10000L | MEDIUM
+| *camel.component.salesforce.httpMaxContentLength* | Max content length of an HTTP response. | null | MEDIUM
+| *camel.component.salesforce.packages* | In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. | null | MEDIUM
+| *camel.component.salesforce.config* | Global endpoint configuration - use to set values that are common to all endpoints | null | MEDIUM
+| *camel.component.salesforce.httpClientProperties* | Used to set any properties that can be configured on the underlying HTTP client. Have a look at properties of SalesforceHttpClient and the Jetty HttpClient for all available options. | null | MEDIUM
+| *camel.component.salesforce.longPollingTransport Properties* | Used to set any properties that can be configured on the LongPollingTransport used by the BayeuxClient (CometD) used by the streaming api | null | MEDIUM
+| *camel.component.salesforce.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.salesforce.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.salesforce.httpProxyExcluded Addresses* | A list of addresses for which HTTP proxy server should not be used. | null | MEDIUM
+| *camel.component.salesforce.httpProxyHost* | Hostname of the HTTP proxy server to use. | null | MEDIUM
+| *camel.component.salesforce.httpProxyIncluded Addresses* | A list of addresses for which HTTP proxy server should be used. | null | MEDIUM
+| *camel.component.salesforce.httpProxyPort* | Port number of the HTTP proxy server to use. | null | MEDIUM
+| *camel.component.salesforce.isHttpProxySocks4* | If set to true the configures the HTTP proxy to use as a SOCKS4 proxy. | false | MEDIUM
+| *camel.component.salesforce.authenticationType* | Explicit authentication method to be used, one of USERNAME_PASSWORD, REFRESH_TOKEN or JWT. Salesforce component can auto-determine the authentication method to use from the properties set, set this property to eliminate any ambiguity. One of: [USERNAME_PASSWORD] [REFRESH_TOKEN] [JWT] | null | MEDIUM
+| *camel.component.salesforce.clientId* | OAuth Consumer Key of the connected app configured in the Salesforce instance setup. Typically a connected app needs to be configured but one can be provided by installing a package. | null | HIGH
+| *camel.component.salesforce.clientSecret* | OAuth Consumer Secret of the connected app configured in the Salesforce instance setup. | null | MEDIUM
+| *camel.component.salesforce.httpProxyAuthUri* | Used in authentication against the HTTP proxy server, needs to match the URI of the proxy server in order for the httpProxyUsername and httpProxyPassword to be used for authentication. | null | MEDIUM
+| *camel.component.salesforce.httpProxyPassword* | Password to use to authenticate against the HTTP proxy server. | null | MEDIUM
+| *camel.component.salesforce.httpProxyRealm* | Realm of the proxy server, used in preemptive Basic/Digest authentication methods against the HTTP proxy server. | null | MEDIUM
+| *camel.component.salesforce.httpProxyUseDigestAuth* | If set to true Digest authentication will be used when authenticating to the HTTP proxy, otherwise Basic authorization method will be used | false | MEDIUM
+| *camel.component.salesforce.httpProxyUsername* | Username to use to authenticate against the HTTP proxy server. | null | MEDIUM
+| *camel.component.salesforce.instanceUrl* | URL of the Salesforce instance used after authentication, by default received from Salesforce on successful authentication | null | MEDIUM
+| *camel.component.salesforce.isHttpProxySecure* | If set to false disables the use of TLS when accessing the HTTP proxy. | true | MEDIUM
+| *camel.component.salesforce.keystore* | KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain only one entry with private key and certificate. Salesforce does not verify the certificate chain, so this can easily be a selfsigned certificate. Make sure that you upload the certificate to the corresponding connected app. | null | MEDIUM
+| *camel.component.salesforce.lazyLogin* | If set to true prevents the component from authenticating to Salesforce with the start of the component. You would generally set this to the (default) false and authenticate early and be immediately aware of any authentication issues. | false | MEDIUM
+| *camel.component.salesforce.loginConfig* | All authentication configuration in one nested bean, all properties set there can be set directly on the component as well | null | MEDIUM
+| *camel.component.salesforce.loginUrl* | URL of the Salesforce instance used for authentication, by default set to \https://login.salesforce.com | "https://login.salesforce.com" | HIGH
+| *camel.component.salesforce.password* | Password used in OAuth flow to gain access to access token. It's easy to get started with password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows. Make sure that you append security token to the end of the password if using one. | null | MEDIUM
+| *camel.component.salesforce.refreshToken* | Refresh token already obtained in the refresh token OAuth flow. One needs to setup a web application and configure a callback URL to receive the refresh token, or configure using the builtin callback at \https://login.salesforce.com/services/oauth2/success or \https://test.salesforce.com/services/oauth2/success and then retrive the refresh_token from the URL at the end of the flow. Note that in development organizations Salesforce allows hosting the callback web application at localhost. | null | MEDIUM
+| *camel.component.salesforce.sslContextParameters* | SSL parameters to use, see SSLContextParameters class for all available options. | null | MEDIUM
+| *camel.component.salesforce.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters | false | MEDIUM
+| *camel.component.salesforce.userName* | Username used in OAuth flow to gain access to access token. It's easy to get started with password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows. | null | MEDIUM
 |===
 // kafka-connector options: END

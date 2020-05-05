@@ -22,28 +22,28 @@ The camel-etcd-watch source connector supports 23 options, which are listed belo
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.path* | The path the endpoint refers to | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.recursive* | To apply an action recursively. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.servicePath* | The path to look for for service discovery | "/services/" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sendEmptyExchangeOnTimeout* | To send an empty message in case of timeout watching for a key. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.timeout* | To set the maximum time an action could take to complete. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.fromIndex* | The index to watch from | 0L | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.password* | The password to use for basic authentication. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.userName* | The user name to use for basic authentication. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.etcd-watch.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.etcd-watch.configuration* | Sets the common configuration shared among endpoints | null | ConfigDef.Importance.MEDIUM
-| *camel.component.etcd-watch.password* | The password to use for basic authentication. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.etcd-watch.sslContextParameters* | To configure security using SSLContextParameters. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.etcd-watch.uris* | To set the URIs the client connects. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.etcd-watch.userName* | The user name to use for basic authentication. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.etcd-watch.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.etcd-watch.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.path.path* | The path the endpoint refers to | null | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.recursive* | To apply an action recursively. | false | MEDIUM
+| *camel.source.endpoint.servicePath* | The path to look for for service discovery | "/services/" | MEDIUM
+| *camel.source.endpoint.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | MEDIUM
+| *camel.source.endpoint.sendEmptyExchangeOnTimeout* | To send an empty message in case of timeout watching for a key. | false | MEDIUM
+| *camel.source.endpoint.timeout* | To set the maximum time an action could take to complete. | null | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.fromIndex* | The index to watch from | 0L | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.source.endpoint.password* | The password to use for basic authentication. | null | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters. | null | MEDIUM
+| *camel.source.endpoint.userName* | The user name to use for basic authentication. | null | MEDIUM
+| *camel.component.etcd-watch.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.etcd-watch.configuration* | Sets the common configuration shared among endpoints | null | MEDIUM
+| *camel.component.etcd-watch.password* | The password to use for basic authentication. | null | MEDIUM
+| *camel.component.etcd-watch.sslContextParameters* | To configure security using SSLContextParameters. | null | MEDIUM
+| *camel.component.etcd-watch.uris* | To set the URIs the client connects. | null | MEDIUM
+| *camel.component.etcd-watch.userName* | The user name to use for basic authentication. | null | MEDIUM
+| *camel.component.etcd-watch.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.etcd-watch.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
 // kafka-connector options: END

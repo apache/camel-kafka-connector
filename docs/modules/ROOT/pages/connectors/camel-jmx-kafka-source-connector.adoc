@@ -22,39 +22,39 @@ The camel-jmx source connector supports 34 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.serverURL* | Server url comes from the remaining endpoint. Use platform to connect to local JVM. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.format* | Format for the message body. Either xml or raw. If xml, the notification is serialized to xml. If raw, then the raw java object is set as the body. One of: [xml] [raw] | "xml" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.granularityPeriod* | The frequency to poll the bean to check the monitor (monitor types only). | 10000L | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.monitorType* | The type of monitor to create. One of string, gauge, counter (monitor types only). One of: [counter] [gauge] [string] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.objectDomain* | The domain for the mbean you're connecting to | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.objectName* | The name key for the mbean you're connecting to. This value is mutually exclusive with the object properties that get passed. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.observedAttribute* | The attribute to observe for the monitor bean or consumer. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.executorService* | To use a custom shared thread pool for the consumers. By default each consume has their own thread-pool to process and route notifications. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.handback* | Value to handback to the listener when a notification is received. This value will be put in the message header with the key jmx.handback | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notificationFilter* | Reference to a bean that implements the NotificationFilter. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.objectProperties* | Properties for the object name. These values will be used if the objectName param is not set | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.reconnectDelay* | The number of seconds to wait before attempting to retry establishment of the initial connection or attempt to reconnect a lost connection | 10 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.reconnectOnConnectionFailure* | If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs. The consumer will attempt to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured reconnectionDelay | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.testConnectionOnStartup* | If true the consumer will throw an exception if unable to establish the JMX connection upon startup. If false, the consumer will attempt to establish the JMX connection every 'x' seconds until the connection is made -- where 'x' is the configured reconnectionDelay | true | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyDiffer* | If true, will fire a notification when the string attribute differs from the string to compare (string monitor or consumer). By default the consumer will notify match if observed attribute and string to compare has been configured. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyMatch* | If true, will fire a notification when the string attribute matches the string to compare (string monitor or consumer). By default the consumer will notify match if observed attribute and string to compare has been configured. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.stringToCompare* | Value for attribute to compare (string monitor or consumer). By default the consumer will notify match if observed attribute and string to compare has been configured. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.initThreshold* | Initial threshold for the monitor. The value must exceed this before notifications are fired (counter monitor only). | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.modulus* | The value at which the counter is reset to zero (counter monitor only). | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.offset* | The amount to increment the threshold after it's been exceeded (counter monitor only). | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.differenceMode* | If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself (counter and gauge monitor only). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyHigh* | If true, the gauge will fire a notification when the high threshold is exceeded (gauge monitor only). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.notifyLow* | If true, the gauge will fire a notification when the low threshold is exceeded (gauge monitor only). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.thresholdHigh* | Value for the gauge's high threshold (gauge monitor only). | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.thresholdLow* | Value for the gauge's low threshold (gauge monitor only). | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.password* | Credentials for making a remote connection | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.user* | Credentials for making a remote connection | null | ConfigDef.Importance.MEDIUM
-| *camel.component.jmx.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.jmx.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.path.serverURL* | Server url comes from the remaining endpoint. Use platform to connect to local JVM. | null | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.format* | Format for the message body. Either xml or raw. If xml, the notification is serialized to xml. If raw, then the raw java object is set as the body. One of: [xml] [raw] | "xml" | MEDIUM
+| *camel.source.endpoint.granularityPeriod* | The frequency to poll the bean to check the monitor (monitor types only). | 10000L | MEDIUM
+| *camel.source.endpoint.monitorType* | The type of monitor to create. One of string, gauge, counter (monitor types only). One of: [counter] [gauge] [string] | null | MEDIUM
+| *camel.source.endpoint.objectDomain* | The domain for the mbean you're connecting to | null | HIGH
+| *camel.source.endpoint.objectName* | The name key for the mbean you're connecting to. This value is mutually exclusive with the object properties that get passed. | null | MEDIUM
+| *camel.source.endpoint.observedAttribute* | The attribute to observe for the monitor bean or consumer. | null | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.executorService* | To use a custom shared thread pool for the consumers. By default each consume has their own thread-pool to process and route notifications. | null | MEDIUM
+| *camel.source.endpoint.handback* | Value to handback to the listener when a notification is received. This value will be put in the message header with the key jmx.handback | null | MEDIUM
+| *camel.source.endpoint.notificationFilter* | Reference to a bean that implements the NotificationFilter. | null | MEDIUM
+| *camel.source.endpoint.objectProperties* | Properties for the object name. These values will be used if the objectName param is not set | null | MEDIUM
+| *camel.source.endpoint.reconnectDelay* | The number of seconds to wait before attempting to retry establishment of the initial connection or attempt to reconnect a lost connection | 10 | MEDIUM
+| *camel.source.endpoint.reconnectOnConnectionFailure* | If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs. The consumer will attempt to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured reconnectionDelay | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.source.endpoint.testConnectionOnStartup* | If true the consumer will throw an exception if unable to establish the JMX connection upon startup. If false, the consumer will attempt to establish the JMX connection every 'x' seconds until the connection is made -- where 'x' is the configured reconnectionDelay | true | MEDIUM
+| *camel.source.endpoint.notifyDiffer* | If true, will fire a notification when the string attribute differs from the string to compare (string monitor or consumer). By default the consumer will notify match if observed attribute and string to compare has been configured. | false | MEDIUM
+| *camel.source.endpoint.notifyMatch* | If true, will fire a notification when the string attribute matches the string to compare (string monitor or consumer). By default the consumer will notify match if observed attribute and string to compare has been configured. | false | MEDIUM
+| *camel.source.endpoint.stringToCompare* | Value for attribute to compare (string monitor or consumer). By default the consumer will notify match if observed attribute and string to compare has been configured. | null | MEDIUM
+| *camel.source.endpoint.initThreshold* | Initial threshold for the monitor. The value must exceed this before notifications are fired (counter monitor only). | null | MEDIUM
+| *camel.source.endpoint.modulus* | The value at which the counter is reset to zero (counter monitor only). | null | MEDIUM
+| *camel.source.endpoint.offset* | The amount to increment the threshold after it's been exceeded (counter monitor only). | null | MEDIUM
+| *camel.source.endpoint.differenceMode* | If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself (counter and gauge monitor only). | false | MEDIUM
+| *camel.source.endpoint.notifyHigh* | If true, the gauge will fire a notification when the high threshold is exceeded (gauge monitor only). | false | MEDIUM
+| *camel.source.endpoint.notifyLow* | If true, the gauge will fire a notification when the low threshold is exceeded (gauge monitor only). | false | MEDIUM
+| *camel.source.endpoint.thresholdHigh* | Value for the gauge's high threshold (gauge monitor only). | null | MEDIUM
+| *camel.source.endpoint.thresholdLow* | Value for the gauge's low threshold (gauge monitor only). | null | MEDIUM
+| *camel.source.endpoint.password* | Credentials for making a remote connection | null | MEDIUM
+| *camel.source.endpoint.user* | Credentials for making a remote connection | null | MEDIUM
+| *camel.component.jmx.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.jmx.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
 // kafka-connector options: END

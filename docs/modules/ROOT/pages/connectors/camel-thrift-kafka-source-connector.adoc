@@ -22,23 +22,23 @@ The camel-thrift source connector supports 18 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.host* | The Thrift server host name. This is localhost or 0.0.0.0 (if not defined) when being a consumer or remote server host name when using producer. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.path.port* | The Thrift server port | null | ConfigDef.Importance.HIGH
-| *camel.source.path.service* | Fully qualified service name from the thrift descriptor file (package dot service definition name) | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.compressionType* | Protocol compression mechanism type One of: [NONE] [ZLIB] | "NONE" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangeProtocol* | Exchange protocol serialization type One of: [BINARY] [JSON] [SJSON] [COMPACT] | "BINARY" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.clientTimeout* | Client timeout for consumers | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.maxPoolSize* | The Thrift server consumer max thread pool size | 10 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.poolSize* | The Thrift server consumer initial thread pool size | 1 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.negotiationType* | Security negotiation type One of: [PLAINTEXT] [SSL] [SASL] | "PLAINTEXT" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sslParameters* | Configuration parameters for SSL/TLS security negotiation | null | ConfigDef.Importance.MEDIUM
-| *camel.component.thrift.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.thrift.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.thrift.useGlobalSslContext Parameters* | Determine if the thrift component is using global SSL context parameters | false | ConfigDef.Importance.MEDIUM
+| *camel.source.path.host* | The Thrift server host name. This is localhost or 0.0.0.0 (if not defined) when being a consumer or remote server host name when using producer. | null | MEDIUM
+| *camel.source.path.port* | The Thrift server port | null | HIGH
+| *camel.source.path.service* | Fully qualified service name from the thrift descriptor file (package dot service definition name) | null | HIGH
+| *camel.source.endpoint.compressionType* | Protocol compression mechanism type One of: [NONE] [ZLIB] | "NONE" | MEDIUM
+| *camel.source.endpoint.exchangeProtocol* | Exchange protocol serialization type One of: [BINARY] [JSON] [SJSON] [COMPACT] | "BINARY" | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.clientTimeout* | Client timeout for consumers | null | MEDIUM
+| *camel.source.endpoint.maxPoolSize* | The Thrift server consumer max thread pool size | 10 | MEDIUM
+| *camel.source.endpoint.poolSize* | The Thrift server consumer initial thread pool size | 1 | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.source.endpoint.negotiationType* | Security negotiation type One of: [PLAINTEXT] [SSL] [SASL] | "PLAINTEXT" | MEDIUM
+| *camel.source.endpoint.sslParameters* | Configuration parameters for SSL/TLS security negotiation | null | MEDIUM
+| *camel.component.thrift.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.thrift.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.thrift.useGlobalSslContext Parameters* | Determine if the thrift component is using global SSL context parameters | false | MEDIUM
 |===
 // kafka-connector options: END

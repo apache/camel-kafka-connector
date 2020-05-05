@@ -551,7 +551,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         CamelKafkaConnectorOptionModel optionModel = new CamelKafkaConnectorOptionModel();
         optionModel.setName(propertyValue);
         optionModel.setDescription(docLiteralInitializer);
-        optionModel.setPriority(confPriority);
+        optionModel.setPriority(StringUtils.removeStart(confPriority, "ConfigDef.Importance."));
         optionModel.setDefaultValue(defaultValueClassLiteralInitializer);
         listOptions.add(optionModel);
     }

@@ -22,21 +22,21 @@ The camel-dropbox source connector supports 16 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.operation* | The specific action (typically is a CRUD action) to perform on Dropbox remote folder. One of: [put] [del] [search] [get] [move] | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.accessToken* | The access token to make API requests for a specific Dropbox user | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.client* | To use an existing DbxClient instance as DropBox client. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.clientIdentifier* | Name of the app registered to make API requests | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.localPath* | Optional folder or file to upload on Dropbox from the local filesystem. If this option has not been configured then the message body is used as the content to upload. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.newRemotePath* | Destination file or folder | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.query* | A space-separated list of sub-strings to search for. A file matches only if it contains all the sub-strings. If this option is not set, all files will be matched. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.remotePath* | Original file or folder to move | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.uploadMode* | Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. One of: [add] [force] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.dropbox.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.dropbox.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.path.operation* | The specific action (typically is a CRUD action) to perform on Dropbox remote folder. One of: [put] [del] [search] [get] [move] | null | HIGH
+| *camel.source.endpoint.accessToken* | The access token to make API requests for a specific Dropbox user | null | HIGH
+| *camel.source.endpoint.client* | To use an existing DbxClient instance as DropBox client. | null | MEDIUM
+| *camel.source.endpoint.clientIdentifier* | Name of the app registered to make API requests | null | MEDIUM
+| *camel.source.endpoint.localPath* | Optional folder or file to upload on Dropbox from the local filesystem. If this option has not been configured then the message body is used as the content to upload. | null | MEDIUM
+| *camel.source.endpoint.newRemotePath* | Destination file or folder | null | MEDIUM
+| *camel.source.endpoint.query* | A space-separated list of sub-strings to search for. A file matches only if it contains all the sub-strings. If this option is not set, all files will be matched. | null | MEDIUM
+| *camel.source.endpoint.remotePath* | Original file or folder to move | null | MEDIUM
+| *camel.source.endpoint.uploadMode* | Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. One of: [add] [force] | null | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.dropbox.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.dropbox.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
 // kafka-connector options: END

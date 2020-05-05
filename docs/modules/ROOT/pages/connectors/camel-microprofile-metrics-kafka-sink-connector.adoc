@@ -22,24 +22,24 @@ The camel-microprofile-metrics sink connector supports 19 options, which are lis
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.metricType* | Metric type One of: [concurrent gauge] [counter] [gauge] [meter] [histogram] [timer] [simple timer] [invalid] | null | ConfigDef.Importance.HIGH
-| *camel.sink.path.metricName* | Metric name | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.action* | Action to use when using the timer type | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.counterIncrement* | Increment value when using the counter type | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.description* | Metric description | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.displayName* | Metric display name | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.gaugeDecrement* | Decrement metric value when using concurrent gauge type | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.gaugeIncrement* | Increment metric value when using the concurrent gauge type | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.gaugeValue* | Decrement metric value when using concurrent gauge type | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.mark* | Mark value to set when using the meter type | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.metricUnit* | Metric unit. See org.eclipse.microprofile.metrics.MetricUnits | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.tags* | Comma delimited list of tags associated with the metric in the format tagName=tagValue | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.value* | Value to set when using the histogram type | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.microprofile-metrics.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.microprofile-metrics.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.microprofile-metrics.metric Registry* | Use a custom MetricRegistry. | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.metricType* | Metric type One of: [concurrent gauge] [counter] [gauge] [meter] [histogram] [timer] [simple timer] [invalid] | null | HIGH
+| *camel.sink.path.metricName* | Metric name | null | HIGH
+| *camel.sink.endpoint.action* | Action to use when using the timer type | null | MEDIUM
+| *camel.sink.endpoint.counterIncrement* | Increment value when using the counter type | null | MEDIUM
+| *camel.sink.endpoint.description* | Metric description | null | MEDIUM
+| *camel.sink.endpoint.displayName* | Metric display name | null | MEDIUM
+| *camel.sink.endpoint.gaugeDecrement* | Decrement metric value when using concurrent gauge type | null | MEDIUM
+| *camel.sink.endpoint.gaugeIncrement* | Increment metric value when using the concurrent gauge type | null | MEDIUM
+| *camel.sink.endpoint.gaugeValue* | Decrement metric value when using concurrent gauge type | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.mark* | Mark value to set when using the meter type | null | MEDIUM
+| *camel.sink.endpoint.metricUnit* | Metric unit. See org.eclipse.microprofile.metrics.MetricUnits | null | MEDIUM
+| *camel.sink.endpoint.tags* | Comma delimited list of tags associated with the metric in the format tagName=tagValue | null | MEDIUM
+| *camel.sink.endpoint.value* | Value to set when using the histogram type | null | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.microprofile-metrics.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.microprofile-metrics.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.microprofile-metrics.metric Registry* | Use a custom MetricRegistry. | null | MEDIUM
 |===
 // kafka-connector options: END

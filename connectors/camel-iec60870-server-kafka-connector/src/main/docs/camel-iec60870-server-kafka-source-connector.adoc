@@ -22,31 +22,31 @@ The camel-iec60870-server source connector supports 26 options, which are listed
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.uriPath* | The object information address | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.dataModuleOptions* | Data module options | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.filterNonExecute* | Filter out all requests which don't have the execute bit set | true | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.protocolOptions* | Protocol options | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.acknowledgeWindow* | Parameter W - Acknowledgment window. | 10 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.adsuAddressType* | The common ASDU address size. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.causeOfTransmissionType* | The cause of transmission type. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.informationObjectAddressType* | The information address size. May be either SIZE_1, SIZE_2 or SIZE_3. One of: [SIZE_1] [SIZE_2] [SIZE_3] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.maxUnacknowledged* | Parameter K - Maximum number of un-acknowledged messages. | 15 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.timeout1* | Timeout T1 in milliseconds. | 15000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.timeout2* | Timeout T2 in milliseconds. | 10000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.timeout3* | Timeout T3 in milliseconds. | 20000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.causeSourceAddress* | Whether to include the source address | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.connectionTimeout* | Timeout in millis to wait for client to establish a connected connection. | 10000 | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.ignoreBackgroundScan* | Whether background scan transmissions should be ignored. | true | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.ignoreDaylightSavingTime* | Whether to ignore or respect DST | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.timeZone* | The timezone to use. May be any Java time zone string | "UTC" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.connectionId* | An identifier grouping connection instances | null | ConfigDef.Importance.MEDIUM
-| *camel.component.iec60870-server.defaultConnection Options* | Default connection options | null | ConfigDef.Importance.MEDIUM
-| *camel.component.iec60870-server.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.iec60870-server.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.source.path.uriPath* | The object information address | null | HIGH
+| *camel.source.endpoint.dataModuleOptions* | Data module options | null | MEDIUM
+| *camel.source.endpoint.filterNonExecute* | Filter out all requests which don't have the execute bit set | true | MEDIUM
+| *camel.source.endpoint.protocolOptions* | Protocol options | null | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.source.endpoint.acknowledgeWindow* | Parameter W - Acknowledgment window. | 10 | MEDIUM
+| *camel.source.endpoint.adsuAddressType* | The common ASDU address size. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2] | null | MEDIUM
+| *camel.source.endpoint.causeOfTransmissionType* | The cause of transmission type. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2] | null | MEDIUM
+| *camel.source.endpoint.informationObjectAddressType* | The information address size. May be either SIZE_1, SIZE_2 or SIZE_3. One of: [SIZE_1] [SIZE_2] [SIZE_3] | null | MEDIUM
+| *camel.source.endpoint.maxUnacknowledged* | Parameter K - Maximum number of un-acknowledged messages. | 15 | MEDIUM
+| *camel.source.endpoint.timeout1* | Timeout T1 in milliseconds. | 15000 | MEDIUM
+| *camel.source.endpoint.timeout2* | Timeout T2 in milliseconds. | 10000 | MEDIUM
+| *camel.source.endpoint.timeout3* | Timeout T3 in milliseconds. | 20000 | MEDIUM
+| *camel.source.endpoint.causeSourceAddress* | Whether to include the source address | null | MEDIUM
+| *camel.source.endpoint.connectionTimeout* | Timeout in millis to wait for client to establish a connected connection. | 10000 | MEDIUM
+| *camel.source.endpoint.ignoreBackgroundScan* | Whether background scan transmissions should be ignored. | true | MEDIUM
+| *camel.source.endpoint.ignoreDaylightSavingTime* | Whether to ignore or respect DST | false | MEDIUM
+| *camel.source.endpoint.timeZone* | The timezone to use. May be any Java time zone string | "UTC" | MEDIUM
+| *camel.source.endpoint.connectionId* | An identifier grouping connection instances | null | MEDIUM
+| *camel.component.iec60870-server.defaultConnection Options* | Default connection options | null | MEDIUM
+| *camel.component.iec60870-server.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.iec60870-server.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
 // kafka-connector options: END

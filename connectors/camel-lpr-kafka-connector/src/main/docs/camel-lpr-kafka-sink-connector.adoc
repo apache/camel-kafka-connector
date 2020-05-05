@@ -22,23 +22,23 @@ The camel-lpr sink connector supports 18 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.hostname* | Hostname of the printer | null | ConfigDef.Importance.HIGH
-| *camel.sink.path.port* | Port number of the printer | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.path.printername* | Name of the printer | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.copies* | Number of copies to print | 1 | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.docFlavor* | Sets DocFlavor to use. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.flavor* | Sets DocFlavor to use. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.mediaSize* | Sets the stationary as defined by enumeration names in the javax.print.attribute.standard.MediaSizeName API. The default setting is to use North American Letter sized stationary. The value's case is ignored, e.g. values of iso_a4 and ISO_A4 may be used. | "na-letter" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.mediaTray* | Sets MediaTray supported by the javax.print.DocFlavor API, for example upper,middle etc. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.mimeType* | Sets mimeTypes supported by the javax.print.DocFlavor API | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.orientation* | Sets the page orientation. One of: [portrait] [landscape] [reverse-portrait] [reverse-landscape] | "portrait" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.printerPrefix* | Sets the prefix name of the printer, it is useful when the printer name does not start with //hostname/printer | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.sendToPrinter* | etting this option to false prevents sending of the print data to the printer | true | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.sides* | Sets one sided or two sided printing based on the javax.print.attribute.standard.Sides API One of: [one-sided] [duplex] [tumble] [two-sided-short-edge] [two-sided-long-edge] | "one-sided" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.lpr.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.lpr.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.hostname* | Hostname of the printer | null | HIGH
+| *camel.sink.path.port* | Port number of the printer | null | MEDIUM
+| *camel.sink.path.printername* | Name of the printer | null | MEDIUM
+| *camel.sink.endpoint.copies* | Number of copies to print | 1 | MEDIUM
+| *camel.sink.endpoint.docFlavor* | Sets DocFlavor to use. | null | MEDIUM
+| *camel.sink.endpoint.flavor* | Sets DocFlavor to use. | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.mediaSize* | Sets the stationary as defined by enumeration names in the javax.print.attribute.standard.MediaSizeName API. The default setting is to use North American Letter sized stationary. The value's case is ignored, e.g. values of iso_a4 and ISO_A4 may be used. | "na-letter" | MEDIUM
+| *camel.sink.endpoint.mediaTray* | Sets MediaTray supported by the javax.print.DocFlavor API, for example upper,middle etc. | null | MEDIUM
+| *camel.sink.endpoint.mimeType* | Sets mimeTypes supported by the javax.print.DocFlavor API | null | MEDIUM
+| *camel.sink.endpoint.orientation* | Sets the page orientation. One of: [portrait] [landscape] [reverse-portrait] [reverse-landscape] | "portrait" | MEDIUM
+| *camel.sink.endpoint.printerPrefix* | Sets the prefix name of the printer, it is useful when the printer name does not start with //hostname/printer | null | MEDIUM
+| *camel.sink.endpoint.sendToPrinter* | etting this option to false prevents sending of the print data to the printer | true | MEDIUM
+| *camel.sink.endpoint.sides* | Sets one sided or two sided printing based on the javax.print.attribute.standard.Sides API One of: [one-sided] [duplex] [tumble] [two-sided-short-edge] [two-sided-long-edge] | "one-sided" | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.lpr.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.lpr.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
 // kafka-connector options: END
