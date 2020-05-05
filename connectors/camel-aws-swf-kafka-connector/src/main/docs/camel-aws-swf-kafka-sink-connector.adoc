@@ -22,35 +22,35 @@ The camel-aws-swf sink connector supports 30 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.type* | Activity or workflow One of: [activity] [workflow] | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.amazonSWClient* | To use the given AmazonSimpleWorkflowClient as client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.dataConverter* | An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter to use for serializing/deserializing the data. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.domainName* | The workflow domain to use. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.eventName* | The workflow or activity event name to use. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.region* | Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.version* | The workflow or activity event version to use. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientConfigurationParameters* | To configure the ClientConfiguration using the key/values from the Map. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.startWorkflowOptionsParameters* | To configure the StartWorkflowOptions using the key/values from the Map. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.sWClientParameters* | To configure the AmazonSimpleWorkflowClient using the key/values from the Map. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.activitySchedulingOptions* | Activity scheduling options | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.childPolicy* | The policy to use on child workflows when terminating a workflow. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.executionStartToCloseTimeout* | Set the execution start to close timeout. | "3600" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.operation* | Workflow operation One of: [SIGNAL] [CANCEL] [TERMINATE] [GET_STATE] [START] [DESCRIBE] [GET_HISTORY] | "START" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.signalName* | The name of the signal to send to the workflow. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.stateResultType* | The type of the result when a workflow state is queried. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.taskStartToCloseTimeout* | Set the task start to close timeout. | "600" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.terminationDetails* | Details for terminating a workflow. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.terminationReason* | The reason for terminating a workflow. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-swf.accessKey* | Amazon AWS Access Key. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-swf.region* | Amazon AWS Region. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-swf.secretKey* | Amazon AWS Secret Key. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-swf.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-swf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws-swf.configuration* | The AWS SWF default configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.type* | Activity or workflow One of: [activity] [workflow] | null | HIGH
+| *camel.sink.endpoint.amazonSWClient* | To use the given AmazonSimpleWorkflowClient as client | null | MEDIUM
+| *camel.sink.endpoint.dataConverter* | An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter to use for serializing/deserializing the data. | null | MEDIUM
+| *camel.sink.endpoint.domainName* | The workflow domain to use. | null | MEDIUM
+| *camel.sink.endpoint.eventName* | The workflow or activity event name to use. | null | MEDIUM
+| *camel.sink.endpoint.region* | Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM
+| *camel.sink.endpoint.version* | The workflow or activity event version to use. | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.clientConfigurationParameters* | To configure the ClientConfiguration using the key/values from the Map. | null | MEDIUM
+| *camel.sink.endpoint.startWorkflowOptionsParameters* | To configure the StartWorkflowOptions using the key/values from the Map. | null | MEDIUM
+| *camel.sink.endpoint.sWClientParameters* | To configure the AmazonSimpleWorkflowClient using the key/values from the Map. | null | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.activitySchedulingOptions* | Activity scheduling options | null | MEDIUM
+| *camel.sink.endpoint.childPolicy* | The policy to use on child workflows when terminating a workflow. | null | MEDIUM
+| *camel.sink.endpoint.executionStartToCloseTimeout* | Set the execution start to close timeout. | "3600" | MEDIUM
+| *camel.sink.endpoint.operation* | Workflow operation One of: [SIGNAL] [CANCEL] [TERMINATE] [GET_STATE] [START] [DESCRIBE] [GET_HISTORY] | "START" | MEDIUM
+| *camel.sink.endpoint.signalName* | The name of the signal to send to the workflow. | null | MEDIUM
+| *camel.sink.endpoint.stateResultType* | The type of the result when a workflow state is queried. | null | MEDIUM
+| *camel.sink.endpoint.taskStartToCloseTimeout* | Set the task start to close timeout. | "600" | MEDIUM
+| *camel.sink.endpoint.terminationDetails* | Details for terminating a workflow. | null | MEDIUM
+| *camel.sink.endpoint.terminationReason* | The reason for terminating a workflow. | null | MEDIUM
+| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key. | null | MEDIUM
+| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key. | null | MEDIUM
+| *camel.component.aws-swf.accessKey* | Amazon AWS Access Key. | null | MEDIUM
+| *camel.component.aws-swf.region* | Amazon AWS Region. | null | MEDIUM
+| *camel.component.aws-swf.secretKey* | Amazon AWS Secret Key. | null | MEDIUM
+| *camel.component.aws-swf.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.aws-swf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-swf.configuration* | The AWS SWF default configuration | null | MEDIUM
 |===
 // kafka-connector options: END

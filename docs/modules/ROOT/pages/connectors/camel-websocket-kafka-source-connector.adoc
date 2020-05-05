@@ -22,40 +22,40 @@ The camel-websocket source connector supports 35 options, which are listed below
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.host* | The hostname. The default value is 0.0.0.0. Setting this option on the component will use the component configured value as default. | "0.0.0.0" | ConfigDef.Importance.MEDIUM
-| *camel.source.path.port* | The port number. The default value is 9292. Setting this option on the component will use the component configured value as default. | "9292" | ConfigDef.Importance.MEDIUM
-| *camel.source.path.resourceUri* | Name of the websocket channel to use | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.maxBinaryMessageSize* | Can be used to set the size in bytes that the websocket created by the websocketServlet may be accept before closing. (Default is -1 - or unlimited) | "-1" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sessionSupport* | Whether to enable session support which enables HttpSession for each http request. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.staticResources* | Set a resource path for static resources (such as .html files etc). The resources can be loaded from classpath, if you prefix with classpath:, otherwise the resources is loaded from file system or from JAR files. For example to load from root classpath use classpath:., or classpath:WEB-INF/static If not configured (eg null) then no static resource is in use. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bufferSize* | Set the buffer size of the websocketServlet, which is also the max frame byte size (default 8192) | "8192" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.maxIdleTime* | Set the time in ms that the websocket created by the websocketServlet may be idle before closing. (default is 300000) | "300000" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.maxTextMessageSize* | Can be used to set the size in characters that the websocket created by the websocketServlet may be accept before closing. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.minVersion* | Can be used to set the minimum protocol version accepted for the websocketServlet. (Default 13 - the RFC6455 version) | "13" | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.allowedOrigins* | The CORS allowed origins. Use to allow all. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.crossOriginFilterOn* | Whether to enable CORS | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.filterPath* | Context path for filtering CORS | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.host* | The hostname. The default value is 0.0.0.0 | "0.0.0.0" | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.port* | The port number. The default value is 9292 | "9292" | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.socketFactory* | To configure a map which contains custom WebSocketFactory for sub protocols. The key in the map is the sub protocol. The default key is reserved for the default implementation. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.staticResources* | Set a resource path for static resources (such as .html files etc). The resources can be loaded from classpath, if you prefix with classpath:, otherwise the resources is loaded from file system or from JAR files. For example to load from root classpath use classpath:., or classpath:WEB-INF/static If not configured (eg null) then no static resource is in use. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.maxThreads* | To set a value for maximum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for maxThreads is 1 2 noCores. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.minThreads* | To set a value for minimum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for minThreads is 1. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.threadPool* | To use a custom thread pool for the server. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.sslContextParameters* | To configure security using SSLContextParameters | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.sslKeyPassword* | The password for the keystore when using SSL. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.sslKeystore* | The path to the keystore. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.sslPassword* | The password when using SSL. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.websocket.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+| *camel.source.path.host* | The hostname. The default value is 0.0.0.0. Setting this option on the component will use the component configured value as default. | "0.0.0.0" | MEDIUM
+| *camel.source.path.port* | The port number. The default value is 9292. Setting this option on the component will use the component configured value as default. | "9292" | MEDIUM
+| *camel.source.path.resourceUri* | Name of the websocket channel to use | null | HIGH
+| *camel.source.endpoint.maxBinaryMessageSize* | Can be used to set the size in bytes that the websocket created by the websocketServlet may be accept before closing. (Default is -1 - or unlimited) | "-1" | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.sessionSupport* | Whether to enable session support which enables HttpSession for each http request. | false | MEDIUM
+| *camel.source.endpoint.staticResources* | Set a resource path for static resources (such as .html files etc). The resources can be loaded from classpath, if you prefix with classpath:, otherwise the resources is loaded from file system or from JAR files. For example to load from root classpath use classpath:., or classpath:WEB-INF/static If not configured (eg null) then no static resource is in use. | null | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.bufferSize* | Set the buffer size of the websocketServlet, which is also the max frame byte size (default 8192) | "8192" | MEDIUM
+| *camel.source.endpoint.maxIdleTime* | Set the time in ms that the websocket created by the websocketServlet may be idle before closing. (default is 300000) | "300000" | MEDIUM
+| *camel.source.endpoint.maxTextMessageSize* | Can be used to set the size in characters that the websocket created by the websocketServlet may be accept before closing. | null | MEDIUM
+| *camel.source.endpoint.minVersion* | Can be used to set the minimum protocol version accepted for the websocketServlet. (Default 13 - the RFC6455 version) | "13" | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.source.endpoint.allowedOrigins* | The CORS allowed origins. Use to allow all. | null | MEDIUM
+| *camel.source.endpoint.crossOriginFilterOn* | Whether to enable CORS | false | MEDIUM
+| *camel.source.endpoint.filterPath* | Context path for filtering CORS | null | MEDIUM
+| *camel.source.endpoint.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details. | false | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
+| *camel.component.websocket.host* | The hostname. The default value is 0.0.0.0 | "0.0.0.0" | MEDIUM
+| *camel.component.websocket.port* | The port number. The default value is 9292 | "9292" | MEDIUM
+| *camel.component.websocket.socketFactory* | To configure a map which contains custom WebSocketFactory for sub protocols. The key in the map is the sub protocol. The default key is reserved for the default implementation. | null | MEDIUM
+| *camel.component.websocket.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.websocket.staticResources* | Set a resource path for static resources (such as .html files etc). The resources can be loaded from classpath, if you prefix with classpath:, otherwise the resources is loaded from file system or from JAR files. For example to load from root classpath use classpath:., or classpath:WEB-INF/static If not configured (eg null) then no static resource is in use. | null | MEDIUM
+| *camel.component.websocket.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.websocket.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details. | false | MEDIUM
+| *camel.component.websocket.maxThreads* | To set a value for maximum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for maxThreads is 1 2 noCores. | null | MEDIUM
+| *camel.component.websocket.minThreads* | To set a value for minimum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for minThreads is 1. | null | MEDIUM
+| *camel.component.websocket.threadPool* | To use a custom thread pool for the server. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. | null | MEDIUM
+| *camel.component.websocket.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
+| *camel.component.websocket.sslKeyPassword* | The password for the keystore when using SSL. | null | MEDIUM
+| *camel.component.websocket.sslKeystore* | The path to the keystore. | null | MEDIUM
+| *camel.component.websocket.sslPassword* | The password when using SSL. | null | MEDIUM
+| *camel.component.websocket.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
 // kafka-connector options: END

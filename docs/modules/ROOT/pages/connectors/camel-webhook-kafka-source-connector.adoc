@@ -22,19 +22,19 @@ The camel-webhook source connector supports 14 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.endpointUri* | The delegate uri. Must belong to a component that supports webhooks. | null | ConfigDef.Importance.HIGH
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.webhookAutoRegister* | Automatically register the webhook at startup and unregister it on shutdown. | true | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.webhookBasePath* | The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.webhookComponentName* | The Camel Rest component to use for the REST transport, such as netty-http. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.webhookExternalUrl* | The URL of the current service as seen by the webhook provider | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.webhookPath* | The path where the webhook endpoint will be exposed (relative to basePath, if any) | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.webhook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.webhook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.webhook.configuration* | Set the default configuration for the webhook meta-component. | null | ConfigDef.Importance.MEDIUM
+| *camel.source.path.endpointUri* | The delegate uri. Must belong to a component that supports webhooks. | null | HIGH
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.webhookAutoRegister* | Automatically register the webhook at startup and unregister it on shutdown. | true | MEDIUM
+| *camel.source.endpoint.webhookBasePath* | The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties. | null | MEDIUM
+| *camel.source.endpoint.webhookComponentName* | The Camel Rest component to use for the REST transport, such as netty-http. | null | MEDIUM
+| *camel.source.endpoint.webhookExternalUrl* | The URL of the current service as seen by the webhook provider | null | MEDIUM
+| *camel.source.endpoint.webhookPath* | The path where the webhook endpoint will be exposed (relative to basePath, if any) | null | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.webhook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.webhook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.webhook.configuration* | Set the default configuration for the webhook meta-component. | null | MEDIUM
 |===
 // kafka-connector options: END

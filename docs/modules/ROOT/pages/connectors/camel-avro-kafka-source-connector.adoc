@@ -22,23 +22,23 @@ The camel-avro source connector supports 18 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.transport* | Transport to use, can be either http or netty One of: [http] [netty] | null | ConfigDef.Importance.HIGH
-| *camel.source.path.port* | Port number to use | null | ConfigDef.Importance.HIGH
-| *camel.source.path.host* | Hostname to use | null | ConfigDef.Importance.HIGH
-| *camel.source.path.messageName* | The name of the message to send. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.protocol* | Avro protocol to use | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.protocolClassName* | Avro protocol to use defined by the FQN class name | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.protocolLocation* | Avro protocol location | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.reflectionProtocol* | If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.uriAuthority* | Authority to use (username and password) | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.avro.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.avro.configuration* | To use a shared AvroConfiguration to configure options once | null | ConfigDef.Importance.MEDIUM
+| *camel.source.path.transport* | Transport to use, can be either http or netty One of: [http] [netty] | null | HIGH
+| *camel.source.path.port* | Port number to use | null | HIGH
+| *camel.source.path.host* | Hostname to use | null | HIGH
+| *camel.source.path.messageName* | The name of the message to send. | null | MEDIUM
+| *camel.source.endpoint.protocol* | Avro protocol to use | null | MEDIUM
+| *camel.source.endpoint.protocolClassName* | Avro protocol to use defined by the FQN class name | null | MEDIUM
+| *camel.source.endpoint.protocolLocation* | Avro protocol location | null | MEDIUM
+| *camel.source.endpoint.reflectionProtocol* | If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected | false | MEDIUM
+| *camel.source.endpoint.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | MEDIUM
+| *camel.source.endpoint.uriAuthority* | Authority to use (username and password) | null | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.avro.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.avro.configuration* | To use a shared AvroConfiguration to configure options once | null | MEDIUM
 |===
 // kafka-connector options: END

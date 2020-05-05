@@ -22,23 +22,23 @@ The camel-aws2-ecs sink connector supports 18 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.label* | Logical name | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.ecsClient* | To use a existing configured AWS ECS as client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.operation* | The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster] | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the ECS client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the ECS client | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the ECS client One of: [HTTP] [HTTPS] | "HTTPS" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.region* | The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-ecs.accessKey* | Amazon AWS Access Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-ecs.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-ecs.region* | The region in which ECS client needs to work | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-ecs.secretKey* | Amazon AWS Secret Key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-ecs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.aws2-ecs.configuration* | The AWS ECS default configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.label* | Logical name | null | HIGH
+| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
+| *camel.sink.endpoint.ecsClient* | To use a existing configured AWS ECS as client | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster] | null | HIGH
+| *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the ECS client | null | MEDIUM
+| *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the ECS client | null | MEDIUM
+| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the ECS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
+| *camel.sink.endpoint.region* | The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
+| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.aws2-ecs.accessKey* | Amazon AWS Access Key | null | MEDIUM
+| *camel.component.aws2-ecs.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.aws2-ecs.region* | The region in which ECS client needs to work | null | MEDIUM
+| *camel.component.aws2-ecs.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+| *camel.component.aws2-ecs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-ecs.configuration* | The AWS ECS default configuration | null | MEDIUM
 |===
 // kafka-connector options: END

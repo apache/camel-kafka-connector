@@ -22,37 +22,37 @@ The camel-consul sink connector supports 32 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.apiEndpoint* | The API endpoint | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.connectTimeoutMillis* | Connect timeout for OkHttpClient | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.consulClient* | Reference to a com.orbitz.consul.Consul in the registry. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.key* | The default key. Can be overridden by CamelConsulKey | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.pingInstance* | Configure if the AgentClient should attempt a ping before returning the Consul instance | true | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.readTimeoutMillis* | Read timeout for OkHttpClient | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.tags* | Set tags. You can separate multiple tags by comma. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.url* | The Consul agent URL | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.writeTimeoutMillis* | Write timeout for OkHttpClient | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.action* | The default action. Can be overridden by CamelConsulAction | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.valueAsString* | Default to transform values retrieved from Consul i.e. on KV endpoint to string. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.consistencyMode* | The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT] | "DEFAULT" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.datacenter* | The data center | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.nearNode* | The near node to use for queries. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.nodeMeta* | The note meta-data to use for queries. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.aclToken* | Sets the ACL token to be used with Consul | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.password* | Sets the password to be used for basic authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.sslContextParameters* | SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.userName* | Sets the username to be used for basic authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.aclToken* | Sets the ACL token to be used with Consul | null | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.datacenter* | The data center | null | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.password* | Sets the password to be used for basic authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.sslContextParameters* | SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance. | null | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.url* | The Consul agent URL | null | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.userName* | Sets the username to be used for basic authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.configuration* | Sets the common configuration shared among endpoints | null | ConfigDef.Importance.MEDIUM
-| *camel.component.consul.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.apiEndpoint* | The API endpoint | null | HIGH
+| *camel.sink.endpoint.connectTimeoutMillis* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.consulClient* | Reference to a com.orbitz.consul.Consul in the registry. | null | MEDIUM
+| *camel.sink.endpoint.key* | The default key. Can be overridden by CamelConsulKey | null | MEDIUM
+| *camel.sink.endpoint.pingInstance* | Configure if the AgentClient should attempt a ping before returning the Consul instance | true | MEDIUM
+| *camel.sink.endpoint.readTimeoutMillis* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.tags* | Set tags. You can separate multiple tags by comma. | null | MEDIUM
+| *camel.sink.endpoint.url* | The Consul agent URL | null | MEDIUM
+| *camel.sink.endpoint.writeTimeoutMillis* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.action* | The default action. Can be overridden by CamelConsulAction | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.valueAsString* | Default to transform values retrieved from Consul i.e. on KV endpoint to string. | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.consistencyMode* | The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT] | "DEFAULT" | MEDIUM
+| *camel.sink.endpoint.datacenter* | The data center | null | MEDIUM
+| *camel.sink.endpoint.nearNode* | The near node to use for queries. | null | MEDIUM
+| *camel.sink.endpoint.nodeMeta* | The note meta-data to use for queries. | null | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.aclToken* | Sets the ACL token to be used with Consul | null | MEDIUM
+| *camel.sink.endpoint.password* | Sets the password to be used for basic authentication | null | MEDIUM
+| *camel.sink.endpoint.sslContextParameters* | SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance. | null | MEDIUM
+| *camel.sink.endpoint.userName* | Sets the username to be used for basic authentication | null | MEDIUM
+| *camel.component.consul.aclToken* | Sets the ACL token to be used with Consul | null | MEDIUM
+| *camel.component.consul.datacenter* | The data center | null | MEDIUM
+| *camel.component.consul.password* | Sets the password to be used for basic authentication | null | MEDIUM
+| *camel.component.consul.sslContextParameters* | SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance. | null | MEDIUM
+| *camel.component.consul.url* | The Consul agent URL | null | MEDIUM
+| *camel.component.consul.userName* | Sets the username to be used for basic authentication | null | MEDIUM
+| *camel.component.consul.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.consul.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.consul.configuration* | Sets the common configuration shared among endpoints | null | MEDIUM
+| *camel.component.consul.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
 // kafka-connector options: END

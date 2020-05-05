@@ -22,110 +22,110 @@ The camel-facebook sink connector supports 105 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.methodName* | What operation to perform | null | ConfigDef.Importance.HIGH
-| *camel.sink.endpoint.achievementURL* | The unique URL of the achievement | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.albumId* | The album ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.albumUpdate* | The facebook Album to be created or updated | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.appId* | The ID of the Facebook Application | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.center* | Location latitude and longitude | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.checkinId* | The checkin ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.checkinUpdate* | The checkin to be created. Deprecated, instead create a Post with an attached location | null | ConfigDef.Importance.LOW
-| *camel.sink.endpoint.clientURL* | Facebook4J API client URL | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientVersion* | Facebook4J client API version | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.commentId* | The comment ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.commentUpdate* | The facebook Comment to be created or updated | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.debugEnabled* | Enables deubg output. Effective only with the embedded logger | "false" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.description* | The description text | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.distance* | Distance in meters | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.domainId* | The domain ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.domainName* | The domain name | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.domainNames* | The domain names | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.eventId* | The event ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.eventUpdate* | The event to be created or updated | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.friendId* | The friend ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.friendlistId* | The friend list ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.friendlistName* | The friend list Name | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.friendUserId* | The friend user ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.groupId* | The group ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.gzipEnabled* | Use Facebook GZIP encoding | "true" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpConnectionTimeout* | Http connection timeout in milliseconds | "20000" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpDefaultMaxPerRoute* | HTTP maximum connections per route | "2" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpMaxTotalConnections* | HTTP maximum total connections | "20" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpReadTimeout* | Http read timeout in milliseconds | "120000" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpRetryCount* | Number of HTTP retries | "0" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpRetryIntervalSeconds* | HTTP retry interval in seconds | "5" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpStreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.ids* | The ids of users | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.includeRead* | Enables notifications that the user has already read in addition to unread ones | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.isHidden* | Whether hidden | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.jsonStoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.link* | Link URL | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.linkId* | Link ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.locale* | Desired FQL locale | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.mbeanEnabled* | If set to true, Facebook4J mbean will be registerd | "false" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.message* | The message text | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.messageId* | The message ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.metric* | The metric name | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.milestoneId* | The milestone id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.name* | Test user name, must be of the form 'first last' | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.noteId* | The note ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.notificationId* | The notification ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.objectId* | The insight object ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.offerId* | The offer id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.optionDescription* | The question's answer option description | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.pageId* | The page id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.permissionName* | The permission name | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.permissions* | Test user permissions in the format perm1,perm2,... | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.photoId* | The photo ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.pictureId* | The picture id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.pictureId2* | The picture2 id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.pictureSize* | The picture size One of: [square] [small] [normal] [large] [thumbnail] [album] | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.placeId* | The place ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.postId* | The post ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.postUpdate* | The post to create or update | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.prettyDebugEnabled* | Prettify JSON debug output if set to true | "false" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.queries* | FQL queries | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.query* | FQL query or search terms for search endpoints | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.questionId* | The question id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.reading* | Optional reading parameters. See Reading Options(#reading) | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.readingOptions* | To configure Reading using key/value pairs from the Map. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.restBaseURL* | API base URL | "https://graph.facebook.com/" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.scoreValue* | The numeric score with value | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.size* | The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album] | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.source* | The media content from either a java.io.File or java.io.Inputstream | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.subject* | The note of the subject | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.tabId* | The tab id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.tagUpdate* | Photo tag information | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.testUser1* | Test user 1 | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.testUser2* | Test user 2 | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.testUserId* | The ID of the test user | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.title* | The title text | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.toUserId* | The ID of the user to tag | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.toUserIds* | The IDs of the users to tag | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.userId* | The Facebook user ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.userId1* | The ID of a user 1 | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.userId2* | The ID of a user 2 | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.userIds* | The IDs of users to invite to event | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.userLocale* | The test user locale | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.useSSL* | Use SSL | "true" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.videoId* | The video ID | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpProxyHost* | HTTP proxy server host name | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpProxyPassword* | HTTP proxy server password | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpProxyPort* | HTTP proxy server port | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.httpProxyUser* | HTTP proxy server user name | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.oAuthAccessToken* | The user access token | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.oAuthAccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.oAuthAppId* | The application Id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.oAuthAppSecret* | The application Secret | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | ConfigDef.Importance.MEDIUM
-| *camel.component.facebook.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.facebook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.component.facebook.configuration* | To use the shared configuration | null | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.methodName* | What operation to perform | null | HIGH
+| *camel.sink.endpoint.achievementURL* | The unique URL of the achievement | null | MEDIUM
+| *camel.sink.endpoint.albumId* | The album ID | null | MEDIUM
+| *camel.sink.endpoint.albumUpdate* | The facebook Album to be created or updated | null | MEDIUM
+| *camel.sink.endpoint.appId* | The ID of the Facebook Application | null | MEDIUM
+| *camel.sink.endpoint.center* | Location latitude and longitude | null | MEDIUM
+| *camel.sink.endpoint.checkinId* | The checkin ID | null | MEDIUM
+| *camel.sink.endpoint.checkinUpdate* | The checkin to be created. Deprecated, instead create a Post with an attached location | null | LOW
+| *camel.sink.endpoint.clientURL* | Facebook4J API client URL | null | MEDIUM
+| *camel.sink.endpoint.clientVersion* | Facebook4J client API version | null | MEDIUM
+| *camel.sink.endpoint.commentId* | The comment ID | null | MEDIUM
+| *camel.sink.endpoint.commentUpdate* | The facebook Comment to be created or updated | null | MEDIUM
+| *camel.sink.endpoint.debugEnabled* | Enables deubg output. Effective only with the embedded logger | "false" | MEDIUM
+| *camel.sink.endpoint.description* | The description text | null | MEDIUM
+| *camel.sink.endpoint.distance* | Distance in meters | null | MEDIUM
+| *camel.sink.endpoint.domainId* | The domain ID | null | MEDIUM
+| *camel.sink.endpoint.domainName* | The domain name | null | MEDIUM
+| *camel.sink.endpoint.domainNames* | The domain names | null | MEDIUM
+| *camel.sink.endpoint.eventId* | The event ID | null | MEDIUM
+| *camel.sink.endpoint.eventUpdate* | The event to be created or updated | null | MEDIUM
+| *camel.sink.endpoint.friendId* | The friend ID | null | MEDIUM
+| *camel.sink.endpoint.friendlistId* | The friend list ID | null | MEDIUM
+| *camel.sink.endpoint.friendlistName* | The friend list Name | null | MEDIUM
+| *camel.sink.endpoint.friendUserId* | The friend user ID | null | MEDIUM
+| *camel.sink.endpoint.groupId* | The group ID | null | MEDIUM
+| *camel.sink.endpoint.gzipEnabled* | Use Facebook GZIP encoding | "true" | MEDIUM
+| *camel.sink.endpoint.httpConnectionTimeout* | Http connection timeout in milliseconds | "20000" | MEDIUM
+| *camel.sink.endpoint.httpDefaultMaxPerRoute* | HTTP maximum connections per route | "2" | MEDIUM
+| *camel.sink.endpoint.httpMaxTotalConnections* | HTTP maximum total connections | "20" | MEDIUM
+| *camel.sink.endpoint.httpReadTimeout* | Http read timeout in milliseconds | "120000" | MEDIUM
+| *camel.sink.endpoint.httpRetryCount* | Number of HTTP retries | "0" | MEDIUM
+| *camel.sink.endpoint.httpRetryIntervalSeconds* | HTTP retry interval in seconds | "5" | MEDIUM
+| *camel.sink.endpoint.httpStreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | MEDIUM
+| *camel.sink.endpoint.ids* | The ids of users | null | MEDIUM
+| *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | MEDIUM
+| *camel.sink.endpoint.includeRead* | Enables notifications that the user has already read in addition to unread ones | null | MEDIUM
+| *camel.sink.endpoint.isHidden* | Whether hidden | null | MEDIUM
+| *camel.sink.endpoint.jsonStoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | MEDIUM
+| *camel.sink.endpoint.link* | Link URL | null | MEDIUM
+| *camel.sink.endpoint.linkId* | Link ID | null | MEDIUM
+| *camel.sink.endpoint.locale* | Desired FQL locale | null | MEDIUM
+| *camel.sink.endpoint.mbeanEnabled* | If set to true, Facebook4J mbean will be registerd | "false" | MEDIUM
+| *camel.sink.endpoint.message* | The message text | null | MEDIUM
+| *camel.sink.endpoint.messageId* | The message ID | null | MEDIUM
+| *camel.sink.endpoint.metric* | The metric name | null | MEDIUM
+| *camel.sink.endpoint.milestoneId* | The milestone id | null | MEDIUM
+| *camel.sink.endpoint.name* | Test user name, must be of the form 'first last' | null | MEDIUM
+| *camel.sink.endpoint.noteId* | The note ID | null | MEDIUM
+| *camel.sink.endpoint.notificationId* | The notification ID | null | MEDIUM
+| *camel.sink.endpoint.objectId* | The insight object ID | null | MEDIUM
+| *camel.sink.endpoint.offerId* | The offer id | null | MEDIUM
+| *camel.sink.endpoint.optionDescription* | The question's answer option description | null | MEDIUM
+| *camel.sink.endpoint.pageId* | The page id | null | MEDIUM
+| *camel.sink.endpoint.permissionName* | The permission name | null | MEDIUM
+| *camel.sink.endpoint.permissions* | Test user permissions in the format perm1,perm2,... | null | MEDIUM
+| *camel.sink.endpoint.photoId* | The photo ID | null | MEDIUM
+| *camel.sink.endpoint.pictureId* | The picture id | null | MEDIUM
+| *camel.sink.endpoint.pictureId2* | The picture2 id | null | MEDIUM
+| *camel.sink.endpoint.pictureSize* | The picture size One of: [square] [small] [normal] [large] [thumbnail] [album] | null | MEDIUM
+| *camel.sink.endpoint.placeId* | The place ID | null | MEDIUM
+| *camel.sink.endpoint.postId* | The post ID | null | MEDIUM
+| *camel.sink.endpoint.postUpdate* | The post to create or update | null | MEDIUM
+| *camel.sink.endpoint.prettyDebugEnabled* | Prettify JSON debug output if set to true | "false" | MEDIUM
+| *camel.sink.endpoint.queries* | FQL queries | null | MEDIUM
+| *camel.sink.endpoint.query* | FQL query or search terms for search endpoints | null | MEDIUM
+| *camel.sink.endpoint.questionId* | The question id | null | MEDIUM
+| *camel.sink.endpoint.reading* | Optional reading parameters. See Reading Options(#reading) | null | MEDIUM
+| *camel.sink.endpoint.readingOptions* | To configure Reading using key/value pairs from the Map. | null | MEDIUM
+| *camel.sink.endpoint.restBaseURL* | API base URL | "https://graph.facebook.com/" | MEDIUM
+| *camel.sink.endpoint.scoreValue* | The numeric score with value | null | MEDIUM
+| *camel.sink.endpoint.size* | The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album] | null | MEDIUM
+| *camel.sink.endpoint.source* | The media content from either a java.io.File or java.io.Inputstream | null | MEDIUM
+| *camel.sink.endpoint.subject* | The note of the subject | null | MEDIUM
+| *camel.sink.endpoint.tabId* | The tab id | null | MEDIUM
+| *camel.sink.endpoint.tagUpdate* | Photo tag information | null | MEDIUM
+| *camel.sink.endpoint.testUser1* | Test user 1 | null | MEDIUM
+| *camel.sink.endpoint.testUser2* | Test user 2 | null | MEDIUM
+| *camel.sink.endpoint.testUserId* | The ID of the test user | null | MEDIUM
+| *camel.sink.endpoint.title* | The title text | null | MEDIUM
+| *camel.sink.endpoint.toUserId* | The ID of the user to tag | null | MEDIUM
+| *camel.sink.endpoint.toUserIds* | The IDs of the users to tag | null | MEDIUM
+| *camel.sink.endpoint.userId* | The Facebook user ID | null | MEDIUM
+| *camel.sink.endpoint.userId1* | The ID of a user 1 | null | MEDIUM
+| *camel.sink.endpoint.userId2* | The ID of a user 2 | null | MEDIUM
+| *camel.sink.endpoint.userIds* | The IDs of users to invite to event | null | MEDIUM
+| *camel.sink.endpoint.userLocale* | The test user locale | null | MEDIUM
+| *camel.sink.endpoint.useSSL* | Use SSL | "true" | MEDIUM
+| *camel.sink.endpoint.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | MEDIUM
+| *camel.sink.endpoint.videoId* | The video ID | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.httpProxyHost* | HTTP proxy server host name | null | MEDIUM
+| *camel.sink.endpoint.httpProxyPassword* | HTTP proxy server password | null | MEDIUM
+| *camel.sink.endpoint.httpProxyPort* | HTTP proxy server port | null | MEDIUM
+| *camel.sink.endpoint.httpProxyUser* | HTTP proxy server user name | null | MEDIUM
+| *camel.sink.endpoint.oAuthAccessToken* | The user access token | null | MEDIUM
+| *camel.sink.endpoint.oAuthAccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | MEDIUM
+| *camel.sink.endpoint.oAuthAppId* | The application Id | null | MEDIUM
+| *camel.sink.endpoint.oAuthAppSecret* | The application Secret | null | MEDIUM
+| *camel.sink.endpoint.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | MEDIUM
+| *camel.sink.endpoint.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | MEDIUM
+| *camel.component.facebook.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.facebook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.facebook.configuration* | To use the shared configuration | null | MEDIUM
 |===
 // kafka-connector options: END

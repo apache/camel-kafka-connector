@@ -22,24 +22,24 @@ The camel-geocoder sink connector supports 19 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.address* | The geo address which should be prefixed with address: | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.path.latlng* | The geo latitude and longitude which should be prefixed with latlng: | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.headersOnly* | Whether to only enrich the Exchange with headers, and leave the body as-is. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.language* | The language to use. | "en" | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyAuthDomain* | Domain for proxy NTML authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyAuthHost* | Optional host for proxy NTML authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyAuthMethod* | Authentication method for proxy, either as Basic, Digest or NTLM. | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyAuthPassword* | Password for proxy authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyAuthUsername* | Username for proxy authentication | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyHost* | The proxy host name | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.proxyPort* | The proxy port number | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.apiKey* | To use google apiKey | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientId* | To use google premium with this client id | null | ConfigDef.Importance.MEDIUM
-| *camel.sink.endpoint.clientKey* | To use google premium with this client key | null | ConfigDef.Importance.MEDIUM
-| *camel.component.geocoder.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | ConfigDef.Importance.MEDIUM
-| *camel.component.geocoder.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | ConfigDef.Importance.MEDIUM
+| *camel.sink.path.address* | The geo address which should be prefixed with address: | null | MEDIUM
+| *camel.sink.path.latlng* | The geo latitude and longitude which should be prefixed with latlng: | null | MEDIUM
+| *camel.sink.endpoint.headersOnly* | Whether to only enrich the Exchange with headers, and leave the body as-is. | false | MEDIUM
+| *camel.sink.endpoint.language* | The language to use. | "en" | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.proxyAuthDomain* | Domain for proxy NTML authentication | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthHost* | Optional host for proxy NTML authentication | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthMethod* | Authentication method for proxy, either as Basic, Digest or NTLM. | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthPassword* | Password for proxy authentication | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthUsername* | Username for proxy authentication | null | MEDIUM
+| *camel.sink.endpoint.proxyHost* | The proxy host name | null | MEDIUM
+| *camel.sink.endpoint.proxyPort* | The proxy port number | null | MEDIUM
+| *camel.sink.endpoint.apiKey* | To use google apiKey | null | MEDIUM
+| *camel.sink.endpoint.clientId* | To use google premium with this client id | null | MEDIUM
+| *camel.sink.endpoint.clientKey* | To use google premium with this client key | null | MEDIUM
+| *camel.component.geocoder.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.geocoder.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
 // kafka-connector options: END
