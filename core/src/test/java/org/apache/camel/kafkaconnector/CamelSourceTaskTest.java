@@ -273,7 +273,7 @@ public class CamelSourceTaskTest {
         props.put("camel.source.kafka.topic", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
         props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "period", "1000");
-        props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "pathChunk", "kafkaconnector");
+        props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "timerName", "kafkaconnector");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);
@@ -306,7 +306,7 @@ public class CamelSourceTaskTest {
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
         props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "period", "1000");
         props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "repeatCount", "0");
-        props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "pathChunk", "kafkaconnector");
+        props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "timerName", "kafkaconnector");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);

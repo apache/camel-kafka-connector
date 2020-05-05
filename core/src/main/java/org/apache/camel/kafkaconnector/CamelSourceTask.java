@@ -27,9 +27,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
+import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.PollingConsumer;
+import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.kafkaconnector.utils.SchemaHelper;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
@@ -81,11 +84,16 @@ public class CamelSourceTask extends SourceTask {
 
             String localUrl = getLocalUrlWithPollingOptions(config);
 
+            CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
-                remoteUrl = TaskHelper.buildUrl(actualProps, config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF), CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX, CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
+                remoteUrl = TaskHelper.buildUrl(camelContext.adapt(ExtendedCamelContext.class).getRuntimeCamelCatalog(),
+                                                actualProps,
+                                                config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF),
+                                                CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX,
+                                                CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
             }
 
-            cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, null, unmarshaller);
+            cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, null, unmarshaller, camelContext);
 
             Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();

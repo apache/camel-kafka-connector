@@ -16,10 +16,14 @@
  */
 package org.apache.camel.kafkaconnector.utils;
 
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.camel.ExtendedCamelContext;
+import org.apache.camel.catalog.RuntimeCamelCatalog;
+import org.apache.camel.impl.DefaultCamelContext;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -174,5 +178,29 @@ public class TaskHelperTest {
         String result = TaskHelper.buildUrl(props, "test", "prefix.", "anotherPrefix.");
 
         assertEquals("test:value2?key1=value1", result);
+    }
+
+    @Test
+    public void testBuildUrlWithRuntimeCatalog() throws URISyntaxException {
+        DefaultCamelContext dcc = new DefaultCamelContext();
+        RuntimeCamelCatalog rcc = dcc.adapt(ExtendedCamelContext.class).getRuntimeCamelCatalog();
+        Map<String, String> props = new HashMap<String, String>() {{
+                put("prefix.name", "test");
+                put("anotherPrefix.synchronous", "true");
+            }};
+
+        String result = TaskHelper.buildUrl(rcc, props, "direct", "prefix.", "anotherPrefix.");
+
+        assertEquals("direct:test?synchronous=true", result);
+
+        props = new HashMap<String, String>() {{
+                put("prefix.port", "8080");
+                put("anotherPrefix.keyspace", "test");
+                put("anotherPrefix.hosts", "localhost");
+            }};
+
+        result = TaskHelper.buildUrl(rcc, props, "cql", "prefix.", "anotherPrefix.");
+
+        assertEquals("cql:localhost:8080/test", result);
     }
 }

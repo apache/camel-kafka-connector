@@ -16,14 +16,25 @@
  */
 package org.apache.camel.kafkaconnector.utils;
 
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.camel.catalog.RuntimeCamelCatalog;
+
 public final class TaskHelper {
 
     private TaskHelper() {
+    }
+
+    public static String buildUrl(RuntimeCamelCatalog rcc, Map<String, String> props, String componentSchema, String endpointPropertiesPrefix, String pathPropertiesPrefix) throws URISyntaxException {
+        Map<String, String> filteredProps = new HashMap<>();
+        props.keySet().stream()
+                .filter(k -> k.startsWith(endpointPropertiesPrefix) || k.startsWith(pathPropertiesPrefix))
+                .forEach(k -> filteredProps.put(k.replace(endpointPropertiesPrefix, "").replace(pathPropertiesPrefix, ""), props.get(k)));
+        return rcc.asEndpointUri(componentSchema, filteredProps, false);
     }
 
     public static String buildUrl(Map<String, String> props, String componentSchema, String endpointPropertiesPrefix, String pathPropertiesPrefix) {

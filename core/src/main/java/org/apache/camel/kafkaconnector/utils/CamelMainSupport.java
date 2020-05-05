@@ -28,8 +28,10 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.CamelContextAware;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.Endpoint;
+import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.catalog.RuntimeCamelCatalog;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.main.BaseMainSupport;
 import org.apache.camel.main.Main;
@@ -146,6 +148,10 @@ public class CamelMainSupport {
 
     public ConsumerTemplate createConsumerTemplate() {
         return camel.createConsumerTemplate();
+    }
+
+    public RuntimeCamelCatalog getRuntimeCamelCatalog() {
+        return camel.adapt(ExtendedCamelContext.class).getRuntimeCamelCatalog();
     }
 
     private DataFormat lookupAndInstantiateDataformat(String dataformatName) {
