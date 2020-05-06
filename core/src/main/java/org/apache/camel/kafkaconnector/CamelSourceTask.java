@@ -87,10 +87,8 @@ public class CamelSourceTask extends SourceTask {
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
                 remoteUrl = TaskHelper.buildUrl(camelContext.adapt(ExtendedCamelContext.class).getRuntimeCamelCatalog(),
-                                                actualProps,
-                                                config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF),
-                                                CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX,
-                                                CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
+                        actualProps, config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF),
+                        CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX, CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
             }
 
             cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, null, unmarshaller, camelContext);
@@ -113,35 +111,41 @@ public class CamelSourceTask extends SourceTask {
 
         List<SourceRecord> records = new ArrayList<>();
 
-        while (collectedRecords < maxBatchPollSize && (Instant.now().toEpochMilli() - startPollEpochMilli) < maxPollDuration) {
+        while (collectedRecords < maxBatchPollSize
+                && (Instant.now().toEpochMilli() - startPollEpochMilli) < maxPollDuration) {
             Exchange exchange = consumer.receiveNoWait();
 
             if (exchange != null) {
-                LOG.debug("Received exchange with");
-                LOG.debug("\t from endpoint: {}", exchange.getFromEndpoint());
-                LOG.debug("\t exchange id: {}", exchange.getExchangeId());
-                LOG.debug("\t message id: {}", exchange.getMessage().getMessageId());
-                LOG.debug("\t message body: {}", exchange.getMessage().getBody());
-                LOG.debug("\t message headers: {}", exchange.getMessage().getHeaders());
-                LOG.debug("\t message properties: {}", exchange.getProperties());
+                LOG.debug("Received Exchange {} with Message {} from Endpoint {}", exchange.getExchangeId(),
+                        exchange.getMessage().getMessageId(), exchange.getFromEndpoint());
 
                 // TODO: see if there is a better way to use sourcePartition an sourceOffset
-                Map<String, String> sourcePartition = Collections.singletonMap("filename", exchange.getFromEndpoint().toString());
+                Map<String, String> sourcePartition = Collections.singletonMap("filename",
+                        exchange.getFromEndpoint().toString());
                 Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
 
-                final Object messageHeaderKey = camelMessageHeaderKey != null ? exchange.getMessage().getHeader(camelMessageHeaderKey) : null;
+                final Object messageHeaderKey = camelMessageHeaderKey != null
+                        ? exchange.getMessage().getHeader(camelMessageHeaderKey)
+                        : null;
                 final Object messageBodyValue = exchange.getMessage().getBody();
 
-                final Schema messageKeySchema = messageHeaderKey != null ? SchemaHelper.buildSchemaBuilderForType(messageHeaderKey) : null;
-                final Schema messageBodySchema = messageBodyValue != null ? SchemaHelper.buildSchemaBuilderForType(messageBodyValue) : null;
+                final Schema messageKeySchema = messageHeaderKey != null
+                        ? SchemaHelper.buildSchemaBuilderForType(messageHeaderKey)
+                        : null;
+                final Schema messageBodySchema = messageBodyValue != null
+                        ? SchemaHelper.buildSchemaBuilderForType(messageBodyValue)
+                        : null;
 
-                SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, topic, messageKeySchema, messageHeaderKey, messageBodySchema, messageBodyValue);
+                SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, topic, messageKeySchema,
+                        messageHeaderKey, messageBodySchema, messageBodyValue);
                 if (exchange.getMessage().hasHeaders()) {
                     setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
                 }
                 if (exchange.hasProperties()) {
                     setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
                 }
+
+                TaskHelper.logRecordContent(LOG, record, config);
                 records.add(record);
                 collectedRecords++;
             } else {
