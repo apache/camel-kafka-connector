@@ -39,7 +39,7 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
     public static final String CAMEL_SOURCE_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the source";
 
     public static final String TOPIC_DEFAULT = "test";
-    public static final String TOPIC_CONF = "camel.source.kafka.topic";
+    public static final String TOPIC_CONF = "topics";
     public static final String TOPIC_DOC = "The topic to publish data to";
 
     public static final Long CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DEFAULT = 1000L;

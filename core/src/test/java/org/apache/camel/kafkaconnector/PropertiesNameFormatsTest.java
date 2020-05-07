@@ -33,7 +33,7 @@ public class PropertiesNameFormatsTest {
     public void testCamelCaseFormat() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "seda://test");
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put("camel.component.seda.defaultQueueFactory", "#class:org.apache.camel.kafkaconnector.test.TestBlockingQueueFactory");
         props.put("camel.component.seda.defaultQueueFactory.counter", "1");
 
@@ -49,7 +49,7 @@ public class PropertiesNameFormatsTest {
     public void testDashSeparatedFormat() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "seda://test");
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put("camel.component.seda.default-queue-factory", "#class:org.apache.camel.kafkaconnector.test.TestBlockingQueueFactory");
         props.put("camel.component.seda.default-queue-factory.counter", "1");
 

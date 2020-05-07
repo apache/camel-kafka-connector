@@ -92,7 +92,7 @@ value.converter=org.apache.camel.kafkaconnector.awss3.converters.S3ObjectConvert
 
 camel.source.maxPollDuration=10000
 
-camel.source.kafka.topic=mytopic
+topics=mytopic
 
 camel.source.url=aws-s3://camel-kafka-connector?autocloseBody=false
 

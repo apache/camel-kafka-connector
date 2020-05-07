@@ -41,7 +41,7 @@ public class CamelSourceTaskTest {
     public void testSourcePolling() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", TIMER_URI);
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);
@@ -68,7 +68,7 @@ public class CamelSourceTaskTest {
     public void testSourcePollingWithKey() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct:start");
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF, "CamelSpecialTestKey");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
@@ -113,7 +113,7 @@ public class CamelSourceTaskTest {
     public void testSourcePollingWithBody() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct:start");
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
         camelSourceTask.start(props);
@@ -173,7 +173,7 @@ public class CamelSourceTaskTest {
     public void testSourcePollingTimeout() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", TIMER_URI);
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put("camel.source.maxPollDuration", "1");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
@@ -203,7 +203,7 @@ public class CamelSourceTaskTest {
     public void testSourcePollingMaxRecordNumber() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", TIMER_URI);
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put("camel.source.maxBatchPollSize", "1");
 
         CamelSourceTask camelSourceTask = new CamelSourceTask();
@@ -220,7 +220,7 @@ public class CamelSourceTaskTest {
     public void testSourcePollingConsumerOptions() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "timer:kafkaconnector");
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put("camel.source.pollingConsumerQueueSize", "10");
         props.put("camel.source.pollingConsumerBlockTimeout", "1000");
         props.put("camel.source.pollingConsumerBlockWhenFull", "false");
@@ -241,7 +241,7 @@ public class CamelSourceTaskTest {
     public void testUrlPrecedenceOnComponentProperty() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", TIMER_URI);
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "shouldNotBeUsed");
         props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "endpointProperty", "shouldNotBeUsed");
         props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "pathChunk", "shouldNotBeUsed");
@@ -270,7 +270,7 @@ public class CamelSourceTaskTest {
     @Test
     public void testSourcePollingUsingComponentProperty() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
         props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "period", "1000");
         props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "timerName", "kafkaconnector");
@@ -302,7 +302,7 @@ public class CamelSourceTaskTest {
     @Test
     public void testSourcePollingUsingMultipleComponentProperties() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "timer");
         props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "period", "1000");
         props.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "repeatCount", "0");
