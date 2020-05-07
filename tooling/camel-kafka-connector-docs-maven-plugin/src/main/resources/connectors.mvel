@@ -1,0 +1,11 @@
+@if{!options.isEmpty()}
+
+Number of Camel Kafka connectors: @{options.size} 
+
+[width="100%",cols="4,1,5",options="header"]
+|===
+| name | sink | source | sink docs | source docs
+@foreach{row : options}| *@{row.getName()}* | @{row.isSink()} | @{row.isSource()} | @{row.getDocsSink()} | @{row.getDocsSource()}
+@end{}|===
+
+@end{}

@@ -34,6 +34,7 @@
 
     <modules>
         <module>camel-kafka-connector-generator-maven-plugin</module>
+        <module>camel-kafka-connector-docs-maven-plugin</module>
     </modules>
 
     <properties>
