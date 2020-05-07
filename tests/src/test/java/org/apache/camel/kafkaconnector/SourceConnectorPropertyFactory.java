@@ -20,7 +20,7 @@ package org.apache.camel.kafkaconnector;
 public abstract class SourceConnectorPropertyFactory<T extends SourceConnectorPropertyFactory<T>>  extends BasicConnectorPropertyFactory<T> {
 
     public T withKafkaTopic(String topic) {
-        getProperties().put("camel.source.kafka.topic", topic);
+        getProperties().put("topics", topic);
 
         return (T) this;
     }

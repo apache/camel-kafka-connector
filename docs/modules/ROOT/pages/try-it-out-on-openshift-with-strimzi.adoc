@@ -98,7 +98,7 @@ oc exec -i -c kafka my-cluster-kafka-0 -- curl -X POST \
     "tasks.max": "1",
     "key.converter": "org.apache.kafka.connect.storage.StringConverter",
     "value.converter": "org.apache.camel.kafkaconnector.converters.S3ObjectConverter",
-    "camel.source.kafka.topic": "s3-topic",
+    "topics": "s3-topic",
     "camel.source.url": "aws-s3://camel-connector-test?autocloseBody=false",
     "camel.source.maxPollDuration": 10000,
     "camel.component.aws-s3.configuration.access-key": "xxx",

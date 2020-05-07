@@ -27,7 +27,7 @@ public class PropertiesOrderTest {
     public void testOneOrder() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "seda://test");
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put("camel.component.seda.defaultQueueFactory", "#class:org.apache.camel.kafkaconnector.test.TestBlockingQueueFactory");
         props.put("camel.component.seda.defaultQueueFactory.counter", "1");
 
@@ -40,7 +40,7 @@ public class PropertiesOrderTest {
     public void testOppositeOrder() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "seda://test");
-        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("topics", "mytopic");
         props.put("camel.component.seda.defaultQueueFactory.counter", "1");
         props.put("camel.component.seda.defaultQueueFactory", "#class:org.apache.camel.kafkaconnector.test.TestBlockingQueueFactory");
 
