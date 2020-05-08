@@ -185,21 +185,21 @@ public class TaskHelperTest {
         DefaultCamelContext dcc = new DefaultCamelContext();
         RuntimeCamelCatalog rcc = dcc.adapt(ExtendedCamelContext.class).getRuntimeCamelCatalog();
         Map<String, String> props = new HashMap<String, String>() {{
-                put("prefix.name", "test");
-                put("anotherPrefix.synchronous", "true");
+                put("camel.source.path.name", "test");
+                put("camel.source.endpoint.synchronous", "true");
             }};
 
-        String result = TaskHelper.buildUrl(rcc, props, "direct", "prefix.", "anotherPrefix.");
+        String result = TaskHelper.buildUrl(rcc, props, "direct", "camel.source.endpoint.", "camel.source.path.");
 
         assertEquals("direct:test?synchronous=true", result);
 
         props = new HashMap<String, String>() {{
-                put("prefix.port", "8080");
-                put("anotherPrefix.keyspace", "test");
-                put("anotherPrefix.hosts", "localhost");
+                put("camel.source.path.port", "8080");
+                put("camel.source.path.keyspace", "test");
+                put("camel.source.path.hosts", "localhost");
             }};
 
-        result = TaskHelper.buildUrl(rcc, props, "cql", "prefix.", "anotherPrefix.");
+        result = TaskHelper.buildUrl(rcc, props, "cql", "camel.source.endpoint.", "camel.source.path.");
 
         assertEquals("cql:localhost:8080/test", result);
     }
