@@ -1,0 +1,18 @@
+[[BasicConcepts-BasicConcepts]]
+= Basic Concepts
+
+In this section we'll explain the basic concepts of Kafka Connect and Camel and how we can create a relation between the two frameworks
+
+As reported on the Apache Kafka website: _Kafka Connect is a tool for scalably and reliably streaming data between Apache Kafka and other systems. It makes it simple to quickly define connectors that move large collections of data into and out of Kafka. Kafka Connect can ingest entire databases or collect metrics from all your application servers into Kafka topics, making the data available for stream processing with low latency. An export job can deliver data from Kafka topics into secondary storage and query systems or into batch systems for offline analysis._
+
+Connectors exist in two flavors: SourceConnectors import data from another system to Kafka and SinkConnectors export data from Kafka.
+
+Connectors do not perform the hard work: their configuration set the data to be copied, and the job will be splitted into a set of Tasks that can be distributed to workers (from the Connector itself). The tasks exist in two flavors too: SourceTask and SinkTask.
+
+An experienced Apache Camel developer will recognize for sure the similarities with the between SourceConnector and consumer and SinkConnector and producer.
+
+Basically a Camel-Kafka Source Connector is a pre-configured Camel consumer which will perform the same action on a fixed rate (every 5s, 10s) and send the exchanges to Kafka, while a Camel-Kafka Sink Connector is a pre-configured Camel producer which will perform the same operation on each message exported from Kafka.
+
+We have some examples in place on an ad-hoc https://github.com/apache/camel-kafka-connector-examples[Repository] 
+
+
