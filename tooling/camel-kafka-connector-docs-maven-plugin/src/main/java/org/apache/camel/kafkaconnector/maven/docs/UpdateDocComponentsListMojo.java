@@ -21,7 +21,6 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import org.apache.camel.kafkaconnector.maven.docs.dto.CamelKafkaConnectorTableModel;
 import org.apache.camel.kafkaconnector.maven.docs.dto.CamelKafkaConnectorTableOptionModel;
@@ -49,6 +48,9 @@ import static org.apache.camel.tooling.util.PackageHelper.writeText;
  */
 @Mojo(name = "update-doc-connectors-list", threadSafe = true)
 public class UpdateDocComponentsListMojo extends AbstractMojo {
+    private static final String SINK_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-sink-connector.adoc[Sink Docs]";
+    private static final String SOURCE_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-source-connector.adoc[Source Docs]";
+    private static final String XREF_CONNECTOR_LINK_PREFIX = "xref:connectors/";
 
     /**
      * The maven project.
@@ -73,10 +75,6 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Component
     private MavenProjectHelper projectHelper;
-    
-    private final String SINK_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-sink-connector.adoc[Sink Docs]";
-    private final String SOURCE_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-source-connector.adoc[Source Docs]";
-    private final String XREF_CONNECTOR_LINK_PREFIX = "xref:connectors/";
 
     /**
      * Execute goal.
@@ -92,7 +90,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
 
     protected void executeComponentsReadme() throws MojoExecutionException, MojoFailureException {
         CamelKafkaConnectorTableModel tableModel = new CamelKafkaConnectorTableModel();
-        List<CamelKafkaConnectorTableOptionModel> options = new ArrayList<CamelKafkaConnectorTableOptionModel>();
+        ArrayList<CamelKafkaConnectorTableOptionModel> options = new ArrayList<CamelKafkaConnectorTableOptionModel>();
 
         if (connectorsDir != null && connectorsDir.isDirectory()) {
             File[] files = connectorsDir.listFiles();
@@ -110,8 +108,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
                                 if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
                                     singleConnector.setDocsSink("xref:connectors/camel-coap+tcp-kafka-sink-connector.adoc[Sink Docs]");
-                                }
-                                else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
+                                } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
                                     singleConnector.setDocsSink("xref:connectors/camel-coaps+tcp-kafka-sink-connector.adoc[Sink Docs]");
                                 } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
                                     singleConnector.setDocsSink("xref:connectors/camel-solrCloud-kafka-sink-connector.adoc[Sink Docs]");
@@ -124,8 +121,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
                                 if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
                                     singleConnector.setDocsSource("xref:connectors/camel-coap+tcp-kafka-source-connector.adoc[Source Docs]");
-                                }
-                                else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
+                                } else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
                                     singleConnector.setDocsSource("xref:connectors/camel-coaps+tcp-kafka-source-connector.adoc[Source Docs]");
                                 } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
                                     singleConnector.setDocsSource("xref:connectors/camel-solrCloud-kafka-source-connector.adoc[Source Docs]");
@@ -137,6 +133,12 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                         }
                     }
                 }
+                options.sort((model1, model2) -> {
+                    String name1 = model1.getName();
+                    String name2 = model2.getName();
+                    int res = String.CASE_INSENSITIVE_ORDER.compare(name1, name2);
+                    return (res != 0) ? res : name1.compareTo(name2);
+                });
                 tableModel.setOptions(options);
             }
         }
