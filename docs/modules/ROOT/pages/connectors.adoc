@@ -32,8 +32,8 @@ Number of Camel Kafka connectors: 344
 | *camel-aws-ecs-kafka-connector* | true | false | xref:connectors/camel-aws-ecs-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws-eks-kafka-connector* | true | false | xref:connectors/camel-aws-eks-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws-iam-kafka-connector* | true | false | xref:connectors/camel-aws-iam-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-aws-kinesis-kafka-connector* | true | true | xref:connectors/camel-aws-kinesis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-aws-kinesis-kafka-source-connector.adoc[Source Docs]
 | *camel-aws-kinesis-firehose-kafka-connector* | true | false | xref:connectors/camel-aws-kinesis-firehose-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-aws-kinesis-kafka-connector* | true | true | xref:connectors/camel-aws-kinesis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-aws-kinesis-kafka-source-connector.adoc[Source Docs]
 | *camel-aws-kms-kafka-connector* | true | false | xref:connectors/camel-aws-kms-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws-lambda-kafka-connector* | true | false | xref:connectors/camel-aws-lambda-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws-mq-kafka-connector* | true | false | xref:connectors/camel-aws-mq-kafka-sink-connector.adoc[Sink Docs] | 
@@ -88,8 +88,8 @@ Number of Camel Kafka connectors: 344
 | *camel-couchdb-kafka-connector* | true | true | xref:connectors/camel-couchdb-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-couchdb-kafka-source-connector.adoc[Source Docs]
 | *camel-cql-kafka-connector* | true | true | xref:connectors/camel-cql-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cql-kafka-source-connector.adoc[Source Docs]
 | *camel-cron-kafka-connector* | false | true |  | xref:connectors/camel-cron-kafka-source-connector.adoc[Source Docs]
-| *camel-crypto-kafka-connector* | true | false | xref:connectors/camel-crypto-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-crypto-cms-kafka-connector* | true | false | xref:connectors/camel-crypto-cms-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-crypto-kafka-connector* | true | false | xref:connectors/camel-crypto-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-cxf-kafka-connector* | true | true | xref:connectors/camel-cxf-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cxf-kafka-source-connector.adoc[Source Docs]
 | *camel-cxfrs-kafka-connector* | true | true | xref:connectors/camel-cxfrs-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cxfrs-kafka-source-connector.adoc[Source Docs]
 | *camel-dataformat-kafka-connector* | true | false | xref:connectors/camel-dataformat-kafka-sink-connector.adoc[Sink Docs] | 
@@ -171,8 +171,8 @@ Number of Camel Kafka connectors: 344
 | *camel-ignite-idgen-kafka-connector* | true | false | xref:connectors/camel-ignite-idgen-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-ignite-messaging-kafka-connector* | true | true | xref:connectors/camel-ignite-messaging-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-ignite-messaging-kafka-source-connector.adoc[Source Docs]
 | *camel-ignite-queue-kafka-connector* | true | false | xref:connectors/camel-ignite-queue-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-imap-kafka-connector* | true | true | xref:connectors/camel-imap-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-imap-kafka-source-connector.adoc[Source Docs]
 | *camel-ignite-set-kafka-connector* | true | false | xref:connectors/camel-ignite-set-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-imap-kafka-connector* | true | true | xref:connectors/camel-imap-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-imap-kafka-source-connector.adoc[Source Docs]
 | *camel-imaps-kafka-connector* | true | true | xref:connectors/camel-imaps-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-imaps-kafka-source-connector.adoc[Source Docs]
 | *camel-infinispan-kafka-connector* | true | true | xref:connectors/camel-infinispan-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-infinispan-kafka-source-connector.adoc[Source Docs]
 | *camel-influxdb-kafka-connector* | true | false | xref:connectors/camel-influxdb-kafka-sink-connector.adoc[Sink Docs] | 
@@ -205,8 +205,8 @@ Number of Camel Kafka connectors: 344
 | *camel-kubernetes-job-kafka-connector* | true | true | xref:connectors/camel-kubernetes-job-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kubernetes-job-kafka-source-connector.adoc[Source Docs]
 | *camel-kubernetes-namespaces-kafka-connector* | true | true | xref:connectors/camel-kubernetes-namespaces-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kubernetes-namespaces-kafka-source-connector.adoc[Source Docs]
 | *camel-kubernetes-nodes-kafka-connector* | true | true | xref:connectors/camel-kubernetes-nodes-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kubernetes-nodes-kafka-source-connector.adoc[Source Docs]
-| *camel-kubernetes-persistent-volumes-kafka-connector* | true | false | xref:connectors/camel-kubernetes-persistent-volumes-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-kubernetes-persistent-volumes-claims-kafka-connector* | true | false | xref:connectors/camel-kubernetes-persistent-volumes-claims-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-kubernetes-persistent-volumes-kafka-connector* | true | false | xref:connectors/camel-kubernetes-persistent-volumes-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-kubernetes-pods-kafka-connector* | true | true | xref:connectors/camel-kubernetes-pods-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kubernetes-pods-kafka-source-connector.adoc[Source Docs]
 | *camel-kubernetes-replication-controllers-kafka-connector* | true | true | xref:connectors/camel-kubernetes-replication-controllers-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-kubernetes-replication-controllers-kafka-source-connector.adoc[Source Docs]
 | *camel-kubernetes-resources-quota-kafka-connector* | true | false | xref:connectors/camel-kubernetes-resources-quota-kafka-sink-connector.adoc[Sink Docs] | 
@@ -230,17 +230,17 @@ Number of Camel Kafka connectors: 344
 | *camel-mina-kafka-connector* | true | true | xref:connectors/camel-mina-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-mina-kafka-source-connector.adoc[Source Docs]
 | *camel-mllp-kafka-connector* | true | true | xref:connectors/camel-mllp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-mllp-kafka-source-connector.adoc[Source Docs]
 | *camel-mock-kafka-connector* | true | false | xref:connectors/camel-mock-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-mongodb-kafka-connector* | true | true | xref:connectors/camel-mongodb-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-mongodb-kafka-source-connector.adoc[Source Docs]
 | *camel-mongodb-gridfs-kafka-connector* | true | true | xref:connectors/camel-mongodb-gridfs-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-mongodb-gridfs-kafka-source-connector.adoc[Source Docs]
+| *camel-mongodb-kafka-connector* | true | true | xref:connectors/camel-mongodb-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-mongodb-kafka-source-connector.adoc[Source Docs]
 | *camel-msv-kafka-connector* | true | false | xref:connectors/camel-msv-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-mustache-kafka-connector* | true | false | xref:connectors/camel-mustache-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-mvel-kafka-connector* | true | false | xref:connectors/camel-mvel-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-mybatis-kafka-connector* | true | true | xref:connectors/camel-mybatis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-mybatis-kafka-source-connector.adoc[Source Docs]
 | *camel-mybatis-bean-kafka-connector* | true | false | xref:connectors/camel-mybatis-bean-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-mybatis-kafka-connector* | true | true | xref:connectors/camel-mybatis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-mybatis-kafka-source-connector.adoc[Source Docs]
 | *camel-nagios-kafka-connector* | true | false | xref:connectors/camel-nagios-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-nats-kafka-connector* | true | true | xref:connectors/camel-nats-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-nats-kafka-source-connector.adoc[Source Docs]
-| *camel-netty-kafka-connector* | true | true | xref:connectors/camel-netty-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-netty-kafka-source-connector.adoc[Source Docs]
 | *camel-netty-http-kafka-connector* | true | true | xref:connectors/camel-netty-http-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-netty-http-kafka-source-connector.adoc[Source Docs]
+| *camel-netty-kafka-connector* | true | true | xref:connectors/camel-netty-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-netty-kafka-source-connector.adoc[Source Docs]
 | *camel-nitrite-kafka-connector* | true | true | xref:connectors/camel-nitrite-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-nitrite-kafka-source-connector.adoc[Source Docs]
 | *camel-nsq-kafka-connector* | true | true | xref:connectors/camel-nsq-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-nsq-kafka-source-connector.adoc[Source Docs]
 | *camel-olingo2-kafka-connector* | true | true | xref:connectors/camel-olingo2-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-olingo2-kafka-source-connector.adoc[Source Docs]
@@ -257,37 +257,6 @@ Number of Camel Kafka connectors: 344
 | *camel-paho-kafka-connector* | true | true | xref:connectors/camel-paho-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-paho-kafka-source-connector.adoc[Source Docs]
 | *camel-paxlogging-kafka-connector* | false | true |  | xref:connectors/camel-paxlogging-kafka-source-connector.adoc[Source Docs]
 | *camel-pdf-kafka-connector* | true | false | xref:connectors/camel-pdf-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-xquery-kafka-connector* | true | true | xref:connectors/camel-xquery-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-xquery-kafka-source-connector.adoc[Source Docs]
-| *camel-xslt-kafka-connector* | true | false | xref:connectors/camel-xslt-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-xslt-saxon-kafka-connector* | true | false | xref:connectors/camel-xslt-saxon-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-yammer-kafka-connector* | true | true | xref:connectors/camel-yammer-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-yammer-kafka-source-connector.adoc[Source Docs]
-| *camel-zendesk-kafka-connector* | true | true | xref:connectors/camel-zendesk-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-zendesk-kafka-source-connector.adoc[Source Docs]
-| *camel-zookeeper-kafka-connector* | true | true | xref:connectors/camel-zookeeper-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-zookeeper-kafka-source-connector.adoc[Source Docs]
-| *camel-zookeeper-master-kafka-connector* | false | true |  | xref:connectors/camel-zookeeper-master-kafka-source-connector.adoc[Source Docs]
-| *camel-smtp-kafka-connector* | true | true | xref:connectors/camel-smtp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-smtp-kafka-source-connector.adoc[Source Docs]
-| *camel-snmp-kafka-connector* | true | true | xref:connectors/camel-snmp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-snmp-kafka-source-connector.adoc[Source Docs]
-| *camel-solrcloud-kafka-connector* | true | false | xref:connectors/camel-solrCloud-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-soroush-kafka-connector* | true | true | xref:connectors/camel-soroush-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-soroush-kafka-source-connector.adoc[Source Docs]
-| *camel-spark-rest-kafka-connector* | false | true |  | xref:connectors/camel-spark-rest-kafka-source-connector.adoc[Source Docs]
-| *camel-spring-batch-kafka-connector* | true | false | xref:connectors/camel-spring-batch-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-spring-integration-kafka-connector* | true | true | xref:connectors/camel-spring-integration-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-integration-kafka-source-connector.adoc[Source Docs]
-| *camel-spring-redis-kafka-connector* | true | true | xref:connectors/camel-spring-redis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-redis-kafka-source-connector.adoc[Source Docs]
-| *camel-sql-kafka-connector* | true | true | xref:connectors/camel-sql-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-sql-kafka-source-connector.adoc[Source Docs]
-| *camel-ssh-kafka-connector* | true | true | xref:connectors/camel-ssh-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-ssh-kafka-source-connector.adoc[Source Docs]
-| *camel-stomp-kafka-connector* | true | true | xref:connectors/camel-stomp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-stomp-kafka-source-connector.adoc[Source Docs]
-| *camel-string-template-kafka-connector* | true | false | xref:connectors/camel-string-template-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-thrift-kafka-connector* | true | true | xref:connectors/camel-thrift-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-thrift-kafka-source-connector.adoc[Source Docs]
-| *camel-timer-kafka-connector* | false | true |  | xref:connectors/camel-timer-kafka-source-connector.adoc[Source Docs]
-| *camel-twitter-directmessage-kafka-connector* | true | true | xref:connectors/camel-twitter-directmessage-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-twitter-directmessage-kafka-source-connector.adoc[Source Docs]
-| *camel-twitter-timeline-kafka-connector* | true | true | xref:connectors/camel-twitter-timeline-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-twitter-timeline-kafka-source-connector.adoc[Source Docs]
-| *camel-validator-kafka-connector* | true | false | xref:connectors/camel-validator-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-vertx-kafka-connector* | true | true | xref:connectors/camel-vertx-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-vertx-kafka-source-connector.adoc[Source Docs]
-| *camel-weather-kafka-connector* | true | true | xref:connectors/camel-weather-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-weather-kafka-source-connector.adoc[Source Docs]
-| *camel-webhook-kafka-connector* | false | true |  | xref:connectors/camel-webhook-kafka-source-connector.adoc[Source Docs]
-| *camel-websocket-jsr356-kafka-connector* | true | true | xref:connectors/camel-websocket-jsr356-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-websocket-jsr356-kafka-source-connector.adoc[Source Docs]
-| *camel-wordpress-kafka-connector* | true | true | xref:connectors/camel-wordpress-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-wordpress-kafka-source-connector.adoc[Source Docs]
-| *camel-xchange-kafka-connector* | true | false | xref:connectors/camel-xchange-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-xmlsecurity-verify-kafka-connector* | true | false | xref:connectors/camel-xmlsecurity-verify-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-pg-replication-slot-kafka-connector* | false | true |  | xref:connectors/camel-pg-replication-slot-kafka-source-connector.adoc[Source Docs]
 | *camel-pgevent-kafka-connector* | true | true | xref:connectors/camel-pgevent-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-pgevent-kafka-source-connector.adoc[Source Docs]
 | *camel-platform-http-kafka-connector* | false | true |  | xref:connectors/camel-platform-http-kafka-source-connector.adoc[Source Docs]
@@ -300,8 +269,8 @@ Number of Camel Kafka connectors: 344
 | *camel-rabbitmq-kafka-connector* | true | true | xref:connectors/camel-rabbitmq-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-rabbitmq-kafka-source-connector.adoc[Source Docs]
 | *camel-reactive-streams-kafka-connector* | true | true | xref:connectors/camel-reactive-streams-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-reactive-streams-kafka-source-connector.adoc[Source Docs]
 | *camel-ref-kafka-connector* | true | true | xref:connectors/camel-ref-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-ref-kafka-source-connector.adoc[Source Docs]
-| *camel-rest-kafka-connector* | true | true | xref:connectors/camel-rest-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-rest-kafka-source-connector.adoc[Source Docs]
 | *camel-rest-api-kafka-connector* | false | true |  | xref:connectors/camel-rest-api-kafka-source-connector.adoc[Source Docs]
+| *camel-rest-kafka-connector* | true | true | xref:connectors/camel-rest-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-rest-kafka-source-connector.adoc[Source Docs]
 | *camel-rest-openapi-kafka-connector* | true | false | xref:connectors/camel-rest-openapi-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-rest-swagger-kafka-connector* | true | false | xref:connectors/camel-rest-swagger-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-robotframework-kafka-connector* | true | true | xref:connectors/camel-robotframework-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-robotframework-kafka-source-connector.adoc[Source Docs]
@@ -319,37 +288,68 @@ Number of Camel Kafka connectors: 344
 | *camel-sftp-kafka-connector* | true | true | xref:connectors/camel-sftp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-sftp-kafka-source-connector.adoc[Source Docs]
 | *camel-sip-kafka-connector* | true | true | xref:connectors/camel-sip-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-sip-kafka-source-connector.adoc[Source Docs]
 | *camel-sips-kafka-connector* | true | true | xref:connectors/camel-sips-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-sips-kafka-source-connector.adoc[Source Docs]
-| *camel-sjms-kafka-connector* | true | true | xref:connectors/camel-sjms-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-sjms-kafka-source-connector.adoc[Source Docs]
 | *camel-sjms-batch-kafka-connector* | false | true |  | xref:connectors/camel-sjms-batch-kafka-source-connector.adoc[Source Docs]
+| *camel-sjms-kafka-connector* | true | true | xref:connectors/camel-sjms-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-sjms-kafka-source-connector.adoc[Source Docs]
 | *camel-sjms2-kafka-connector* | true | true | xref:connectors/camel-sjms2-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-sjms2-kafka-source-connector.adoc[Source Docs]
 | *camel-slack-kafka-connector* | true | true | xref:connectors/camel-slack-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-slack-kafka-source-connector.adoc[Source Docs]
 | *camel-smpp-kafka-connector* | true | true | xref:connectors/camel-smpp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-smpp-kafka-source-connector.adoc[Source Docs]
 | *camel-smpps-kafka-connector* | true | true | xref:connectors/camel-smpps-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-smpps-kafka-source-connector.adoc[Source Docs]
+| *camel-smtp-kafka-connector* | true | true | xref:connectors/camel-smtp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-smtp-kafka-source-connector.adoc[Source Docs]
 | *camel-smtps-kafka-connector* | true | true | xref:connectors/camel-smtps-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-smtps-kafka-source-connector.adoc[Source Docs]
+| *camel-snmp-kafka-connector* | true | true | xref:connectors/camel-snmp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-snmp-kafka-source-connector.adoc[Source Docs]
 | *camel-solr-kafka-connector* | true | false | xref:connectors/camel-solr-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-solrcloud-kafka-connector* | true | false | xref:connectors/camel-solrCloud-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-solrs-kafka-connector* | true | false | xref:connectors/camel-solrs-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-soroush-kafka-connector* | true | true | xref:connectors/camel-soroush-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-soroush-kafka-source-connector.adoc[Source Docs]
 | *camel-spark-kafka-connector* | true | false | xref:connectors/camel-spark-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-spark-rest-kafka-connector* | false | true |  | xref:connectors/camel-spark-rest-kafka-source-connector.adoc[Source Docs]
 | *camel-splunk-kafka-connector* | true | true | xref:connectors/camel-splunk-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-splunk-kafka-source-connector.adoc[Source Docs]
+| *camel-spring-batch-kafka-connector* | true | false | xref:connectors/camel-spring-batch-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-spring-event-kafka-connector* | true | true | xref:connectors/camel-spring-event-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-event-kafka-source-connector.adoc[Source Docs]
+| *camel-spring-integration-kafka-connector* | true | true | xref:connectors/camel-spring-integration-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-integration-kafka-source-connector.adoc[Source Docs]
 | *camel-spring-ldap-kafka-connector* | true | false | xref:connectors/camel-spring-ldap-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-spring-redis-kafka-connector* | true | true | xref:connectors/camel-spring-redis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-redis-kafka-source-connector.adoc[Source Docs]
 | *camel-spring-ws-kafka-connector* | true | true | xref:connectors/camel-spring-ws-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-ws-kafka-source-connector.adoc[Source Docs]
+| *camel-sql-kafka-connector* | true | true | xref:connectors/camel-sql-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-sql-kafka-source-connector.adoc[Source Docs]
 | *camel-sql-stored-kafka-connector* | true | false | xref:connectors/camel-sql-stored-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-ssh-kafka-connector* | true | true | xref:connectors/camel-ssh-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-ssh-kafka-source-connector.adoc[Source Docs]
 | *camel-stax-kafka-connector* | true | false | xref:connectors/camel-stax-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-stomp-kafka-connector* | true | true | xref:connectors/camel-stomp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-stomp-kafka-source-connector.adoc[Source Docs]
 | *camel-stream-kafka-connector* | true | true | xref:connectors/camel-stream-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-stream-kafka-source-connector.adoc[Source Docs]
+| *camel-string-template-kafka-connector* | true | false | xref:connectors/camel-string-template-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-stub-kafka-connector* | true | true | xref:connectors/camel-stub-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-stub-kafka-source-connector.adoc[Source Docs]
 | *camel-telegram-kafka-connector* | true | true | xref:connectors/camel-telegram-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-telegram-kafka-source-connector.adoc[Source Docs]
+| *camel-thrift-kafka-connector* | true | true | xref:connectors/camel-thrift-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-thrift-kafka-source-connector.adoc[Source Docs]
 | *camel-tika-kafka-connector* | true | false | xref:connectors/camel-tika-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-timer-kafka-connector* | false | true |  | xref:connectors/camel-timer-kafka-source-connector.adoc[Source Docs]
 | *camel-twilio-kafka-connector* | true | true | xref:connectors/camel-twilio-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-twilio-kafka-source-connector.adoc[Source Docs]
+| *camel-twitter-directmessage-kafka-connector* | true | true | xref:connectors/camel-twitter-directmessage-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-twitter-directmessage-kafka-source-connector.adoc[Source Docs]
 | *camel-twitter-search-kafka-connector* | true | true | xref:connectors/camel-twitter-search-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-twitter-search-kafka-source-connector.adoc[Source Docs]
+| *camel-twitter-timeline-kafka-connector* | true | true | xref:connectors/camel-twitter-timeline-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-twitter-timeline-kafka-source-connector.adoc[Source Docs]
 | *camel-undertow-kafka-connector* | true | true | xref:connectors/camel-undertow-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-undertow-kafka-source-connector.adoc[Source Docs]
+| *camel-validator-kafka-connector* | true | false | xref:connectors/camel-validator-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-velocity-kafka-connector* | true | false | xref:connectors/camel-velocity-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-vertx-kafka-connector* | true | true | xref:connectors/camel-vertx-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-vertx-kafka-source-connector.adoc[Source Docs]
 | *camel-vm-kafka-connector* | true | true | xref:connectors/camel-vm-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-vm-kafka-source-connector.adoc[Source Docs]
+| *camel-weather-kafka-connector* | true | true | xref:connectors/camel-weather-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-weather-kafka-source-connector.adoc[Source Docs]
 | *camel-web3j-kafka-connector* | true | true | xref:connectors/camel-web3j-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-web3j-kafka-source-connector.adoc[Source Docs]
+| *camel-webhook-kafka-connector* | false | true |  | xref:connectors/camel-webhook-kafka-source-connector.adoc[Source Docs]
+| *camel-websocket-jsr356-kafka-connector* | true | true | xref:connectors/camel-websocket-jsr356-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-websocket-jsr356-kafka-source-connector.adoc[Source Docs]
 | *camel-websocket-kafka-connector* | true | true | xref:connectors/camel-websocket-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-websocket-kafka-source-connector.adoc[Source Docs]
 | *camel-weka-kafka-connector* | true | false | xref:connectors/camel-weka-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-wordpress-kafka-connector* | true | true | xref:connectors/camel-wordpress-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-wordpress-kafka-source-connector.adoc[Source Docs]
 | *camel-workday-kafka-connector* | true | false | xref:connectors/camel-workday-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-xchange-kafka-connector* | true | false | xref:connectors/camel-xchange-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-xj-kafka-connector* | true | false | xref:connectors/camel-xj-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-xmlsecurity-sign-kafka-connector* | true | false | xref:connectors/camel-xmlsecurity-sign-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-xmlsecurity-verify-kafka-connector* | true | false | xref:connectors/camel-xmlsecurity-verify-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-xmpp-kafka-connector* | true | true | xref:connectors/camel-xmpp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-xmpp-kafka-source-connector.adoc[Source Docs]
+| *camel-xquery-kafka-connector* | true | true | xref:connectors/camel-xquery-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-xquery-kafka-source-connector.adoc[Source Docs]
+| *camel-xslt-kafka-connector* | true | false | xref:connectors/camel-xslt-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-xslt-saxon-kafka-connector* | true | false | xref:connectors/camel-xslt-saxon-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-yammer-kafka-connector* | true | true | xref:connectors/camel-yammer-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-yammer-kafka-source-connector.adoc[Source Docs]
+| *camel-zendesk-kafka-connector* | true | true | xref:connectors/camel-zendesk-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-zendesk-kafka-source-connector.adoc[Source Docs]
+| *camel-zookeeper-kafka-connector* | true | true | xref:connectors/camel-zookeeper-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-zookeeper-kafka-source-connector.adoc[Source Docs]
+| *camel-zookeeper-master-kafka-connector* | false | true |  | xref:connectors/camel-zookeeper-master-kafka-source-connector.adoc[Source Docs]
 |===
 // kafka-connectors list: END
