@@ -4,7 +4,7 @@ Number of Camel Kafka connectors: @{options.size}
 
 [width="100%",cols="6,1,1,1,1",options="header"]
 |===
-| name | sink | source | sink docs | source docs
+| Name | Sink Support | Source Suppport | Sink Docs | Source Docs
 @foreach{row : options}| *@{row.getName()}* | @{row.isSink()} | @{row.isSource()} | @{row.getDocsSink()} | @{row.getDocsSource()}
 @end{}|===
 
