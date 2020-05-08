@@ -16,17 +16,17 @@
  */
 package org.apache.camel.kafkaconnector.maven.docs.dto;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class CamelKafkaConnectorTableModel {
 
-    private List<CamelKafkaConnectorTableOptionModel> options;
+    private ArrayList<CamelKafkaConnectorTableOptionModel> options;
 
-    public List<CamelKafkaConnectorTableOptionModel> getOptions() {
+    public ArrayList<CamelKafkaConnectorTableOptionModel> getOptions() {
         return options;
     }
 
-    public void setOptions(List<CamelKafkaConnectorTableOptionModel> options) {
+    public void setOptions(ArrayList<CamelKafkaConnectorTableOptionModel> options) {
         this.options = options;
     }
 
