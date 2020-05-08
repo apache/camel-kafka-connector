@@ -104,14 +104,30 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                             if (sinkConnector.size() > 0) {
                                 singleConnector.setSink(true);
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
-                                String finalLink = "xref:connectors/" + connectorFinal + "kafka-sink-connector.adoc[Sink Docs]";
-                                singleConnector.setDocsSink(finalLink);
+                                if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
+                                    singleConnector.setDocsSink("xref:connectors/camel-coap+tcp-kafka-sink-connector.adoc[Sink Docs]");
+                                }
+                                else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
+                                    singleConnector.setDocsSink("xref:connectors/camel-coaps+tcp-kafka-sink-connector.adoc[Sink Docs]");
+                                } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
+                                    singleConnector.setDocsSink("xref:connectors/camel-solrCloud-kafka-sink-connector.adoc[Sink Docs]");
+                                } else {
+                                    singleConnector.setDocsSink("xref:connectors/" + connectorFinal + "kafka-sink-connector.adoc[Sink Docs]");
+                                }
                             }
                             if (sourceConnector.size() > 0) {
                                 singleConnector.setSource(true);
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
-                                String finalLink = "xref:connectors/" + connectorFinal + "kafka-source-connector.adoc[Source Docs]";
-                                singleConnector.setDocsSource(finalLink);
+                                if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
+                                    singleConnector.setDocsSource("xref:connectors/camel-coap+tcp-kafka-source-connector.adoc[Source Docs]");
+                                }
+                                else if (connectorFinal.equalsIgnoreCase("camel-coaps-tcp-")) {
+                                    singleConnector.setDocsSource("xref:connectors/camel-coaps+tcp-kafka-source-connector.adoc[Source Docs]");
+                                } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
+                                    singleConnector.setDocsSource("xref:connectors/camel-solrCloud-kafka-source-connector.adoc[Source Docs]");
+                                } else {
+                                    singleConnector.setDocsSource("xref:connectors/" + connectorFinal + "kafka-source-connector.adoc[Source Docs]");
+                                }
                             }
                             options.add(singleConnector);
                         }

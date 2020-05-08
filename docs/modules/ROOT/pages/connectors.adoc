@@ -4,7 +4,7 @@
 // kafka-connectors list: START
 Number of Camel Kafka connectors: 344 
 
-[width="100%",cols="4,1,5",options="header"]
+[width="100%",cols="6,1,1,1,1",options="header"]
 |===
 | name | sink | source | sink docs | source docs
 | *camel-activemq-kafka-connector* | true | true | xref:connectors/camel-activemq-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-activemq-kafka-source-connector.adoc[Source Docs]
@@ -76,9 +76,9 @@ Number of Camel Kafka connectors: 344
 | *camel-cm-sms-kafka-connector* | true | false | xref:connectors/camel-cm-sms-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-cmis-kafka-connector* | true | true | xref:connectors/camel-cmis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cmis-kafka-source-connector.adoc[Source Docs]
 | *camel-coap-kafka-connector* | true | true | xref:connectors/camel-coap-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-coap-kafka-source-connector.adoc[Source Docs]
-| *camel-coap-tcp-kafka-connector* | true | true | xref:connectors/camel-coap-tcp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-coap-tcp-kafka-source-connector.adoc[Source Docs]
+| *camel-coap-tcp-kafka-connector* | true | true | xref:connectors/camel-coap+tcp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-coap+tcp-kafka-source-connector.adoc[Source Docs]
 | *camel-coaps-kafka-connector* | true | true | xref:connectors/camel-coaps-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-coaps-kafka-source-connector.adoc[Source Docs]
-| *camel-coaps-tcp-kafka-connector* | true | true | xref:connectors/camel-coaps-tcp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-coaps-tcp-kafka-source-connector.adoc[Source Docs]
+| *camel-coaps-tcp-kafka-connector* | true | true | xref:connectors/camel-coaps+tcp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-coaps+tcp-kafka-source-connector.adoc[Source Docs]
 | *camel-cometd-kafka-connector* | true | true | xref:connectors/camel-cometd-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cometd-kafka-source-connector.adoc[Source Docs]
 | *camel-cometds-kafka-connector* | true | true | xref:connectors/camel-cometds-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-cometds-kafka-source-connector.adoc[Source Docs]
 | *camel-consul-kafka-connector* | true | true | xref:connectors/camel-consul-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-consul-kafka-source-connector.adoc[Source Docs]
@@ -266,7 +266,7 @@ Number of Camel Kafka connectors: 344
 | *camel-zookeeper-master-kafka-connector* | false | true |  | xref:connectors/camel-zookeeper-master-kafka-source-connector.adoc[Source Docs]
 | *camel-smtp-kafka-connector* | true | true | xref:connectors/camel-smtp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-smtp-kafka-source-connector.adoc[Source Docs]
 | *camel-snmp-kafka-connector* | true | true | xref:connectors/camel-snmp-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-snmp-kafka-source-connector.adoc[Source Docs]
-| *camel-solrcloud-kafka-connector* | true | false | xref:connectors/camel-solrcloud-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-solrcloud-kafka-connector* | true | false | xref:connectors/camel-solrCloud-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-soroush-kafka-connector* | true | true | xref:connectors/camel-soroush-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-soroush-kafka-source-connector.adoc[Source Docs]
 | *camel-spark-rest-kafka-connector* | false | true |  | xref:connectors/camel-spark-rest-kafka-source-connector.adoc[Source Docs]
 | *camel-spring-batch-kafka-connector* | true | false | xref:connectors/camel-spring-batch-kafka-sink-connector.adoc[Sink Docs] | 
