@@ -96,8 +96,8 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                 for (int i = 0; i < files.length; i++) {
                     File file = files[i];
                     if (file.isDirectory()) {
-                        Collection sinkConnector = FileUtils.listFiles(file, new RegexFileFilter((".*SinkTask.*")), DirectoryFileFilter.DIRECTORY);
-                        Collection sourceConnector = FileUtils.listFiles(file, new RegexFileFilter((".*SourceTask.*")), DirectoryFileFilter.DIRECTORY);
+                        Collection sinkConnector = FileUtils.listFiles(file, new RegexFileFilter(".*SinkTask.*"), DirectoryFileFilter.DIRECTORY);
+                        Collection sourceConnector = FileUtils.listFiles(file, new RegexFileFilter(".*SourceTask.*"), DirectoryFileFilter.DIRECTORY);
                         if (sinkConnector.size() > 0 || sourceConnector.size() > 0) {
                             CamelKafkaConnectorTableOptionModel singleConnector = new CamelKafkaConnectorTableOptionModel();
                             singleConnector.setName(file.getName());

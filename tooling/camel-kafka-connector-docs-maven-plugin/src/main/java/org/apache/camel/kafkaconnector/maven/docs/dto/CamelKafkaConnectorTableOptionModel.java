@@ -32,43 +32,41 @@ public class CamelKafkaConnectorTableOptionModel {
         this.name = name;
     }
 
-	public boolean isSink() {
-		return sink;
-	}
+    public boolean isSink() {
+        return sink;
+    }
 
-	public void setSink(boolean sink) {
-		this.sink = sink;
-	}
+    public void setSink(boolean sink) {
+        this.sink = sink;
+    }
 
-	public boolean isSource() {
-		return source;
-	}
+    public boolean isSource() {
+        return source;
+    }
 
-	public void setSource(boolean source) {
-		this.source = source;
-	}
+    public void setSource(boolean source) {
+        this.source = source;
+    }
 
-	public String getDocsSink() {
-		return docsSink;
-	}
+    public String getDocsSink() {
+        return docsSink;
+    }
 
-	public void setDocsSink(String docsSink) {
-		this.docsSink = docsSink;
-	}
+    public void setDocsSink(String docsSink) {
+        this.docsSink = docsSink;
+    }
 
-	public String getDocsSource() {
-		return docsSource;
-	}
+    public String getDocsSource() {
+        return docsSource;
+    }
 
-	public void setDocsSource(String docsSource) {
-		this.docsSource = docsSource;
-	}
+    public void setDocsSource(String docsSource) {
+        this.docsSource = docsSource;
+    }
 
-	@Override
-	public String toString() {
-		return "CamelKafkaConnectorTableOptionModel [name=" + name + ", sink=" + sink + ", source=" + source
-				+ ", docsSink=" + docsSink + ", docsSource=" + docsSource + "]";
-	}
-	
-	
+    @Override
+    public String toString() {
+        return "CamelKafkaConnectorTableOptionModel [name=" + name + ", sink=" + sink + ", source=" + source + ", docsSink=" + docsSink + ", docsSource=" + docsSource + "]";
+    }
+
 }

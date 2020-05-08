@@ -19,7 +19,7 @@ package org.apache.camel.kafkaconnector.maven.docs.dto;
 import java.util.List;
 
 public class CamelKafkaConnectorTableModel {
-	
+
     private List<CamelKafkaConnectorTableOptionModel> options;
 
     public List<CamelKafkaConnectorTableOptionModel> getOptions() {
@@ -30,9 +30,9 @@ public class CamelKafkaConnectorTableModel {
         this.options = options;
     }
 
-	@Override
-	public String toString() {
-		return "CamelKafkaConnectorTableModel [options=" + options + "]";
-	}
-    
+    @Override
+    public String toString() {
+        return "CamelKafkaConnectorTableModel [options=" + options + "]";
+    }
+
 }
