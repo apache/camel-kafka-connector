@@ -73,6 +73,10 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Component
     private MavenProjectHelper projectHelper;
+    
+    private final String SINK_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-sink-connector.adoc[Sink Docs]";
+    private final String SOURCE_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-source-connector.adoc[Source Docs]";
+    private final String XREF_CONNECTOR_LINK_PREFIX = "xref:connectors/";
 
     /**
      * Execute goal.
@@ -112,7 +116,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                 } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
                                     singleConnector.setDocsSink("xref:connectors/camel-solrCloud-kafka-sink-connector.adoc[Sink Docs]");
                                 } else {
-                                    singleConnector.setDocsSink("xref:connectors/" + connectorFinal + "kafka-sink-connector.adoc[Sink Docs]");
+                                    singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
                                 }
                             }
                             if (sourceConnector.size() > 0) {
@@ -126,7 +130,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                 } else if (connectorFinal.equalsIgnoreCase("camel-solrcloud-")) {
                                     singleConnector.setDocsSource("xref:connectors/camel-solrCloud-kafka-source-connector.adoc[Source Docs]");
                                 } else {
-                                    singleConnector.setDocsSource("xref:connectors/" + connectorFinal + "kafka-source-connector.adoc[Source Docs]");
+                                    singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
                                 }
                             }
                             options.add(singleConnector);
