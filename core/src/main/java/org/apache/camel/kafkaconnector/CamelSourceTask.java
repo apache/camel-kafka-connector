@@ -154,6 +154,8 @@ public class CamelSourceTask extends SourceTask {
         } else {
             return records;
         }
+
+
     }
 
     @Override

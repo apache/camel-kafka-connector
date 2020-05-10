@@ -74,7 +74,7 @@ public class CamelMainSupport {
         camelMain.addMainListener(new CamelMainFinishedListener());
 
         // reordering properties to place the one starting with "#class:" first
-        Map<String, String> orderedProps = new LinkedHashMap<>();
+        LinkedHashMap<String, String> orderedProps = new LinkedHashMap<>();
         props.keySet().stream()
                 .filter(k -> props.get(k).startsWith("#class:"))
                 .forEach(k -> orderedProps.put(k, props.get(k)));
