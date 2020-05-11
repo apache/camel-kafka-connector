@@ -25,8 +25,8 @@ public abstract class SourceConnectorPropertyFactory<T extends SourceConnectorPr
         return (T) this;
     }
 
-    public T withSourceUrl(String sinkUrl) {
-        getProperties().put("camel.source.url", sinkUrl);
+    public T withSourceUrl(String sourceUrl) {
+        getProperties().put("camel.source.url", sourceUrl);
 
         return (T) this;
     }
