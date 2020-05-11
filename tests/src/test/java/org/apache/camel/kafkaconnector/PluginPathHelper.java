@@ -37,7 +37,8 @@ public final class PluginPathHelper {
         "connectors/camel-aws-s3-kafka-connector", "connectors/camel-aws-kinesis-kafka-connector",
         "connectors/camel-elasticsearch-rest-kafka-connector", "connectors/camel-http-kafka-connector",
         "connectors/camel-timer-kafka-connector", "connectors/camel-file-kafka-connector",
-        "connectors/camel-slack-kafka-connector", "connectors/camel-syslog-kafka-connector"
+        "connectors/camel-salesforce-kafka-connector", "connectors/camel-slack-kafka-connector",
+        "connectors/camel-syslog-kafka-connector",
     };
 
     private static class PluginWalker extends DirectoryWalker<String> {
