@@ -32,9 +32,6 @@ public class CamelGoogledriveSinkConnectorConfig
     public static final String CAMEL_SINK_GOOGLEDRIVE_PATH_METHOD_NAME_CONF = "camel.sink.path.methodName";
     public static final String CAMEL_SINK_GOOGLEDRIVE_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation One of: [copy] [delete] [get] [getIdForEmail] [insert] [list] [patch] [stop] [touch] [trash] [untrash] [update] [watch]";
     public static final String CAMEL_SINK_GOOGLEDRIVE_PATH_METHOD_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_CONF = "camel.sink.endpoint.accessToken";
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_DOC = "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.";
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_APPLICATION_NAME_CONF = "camel.sink.endpoint.applicationName";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_APPLICATION_NAME_DOC = "Google drive application name. Example would be camel-google-drive/1.0";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_APPLICATION_NAME_DEFAULT = null;
@@ -44,15 +41,9 @@ public class CamelGoogledriveSinkConnectorConfig
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_ID_CONF = "camel.sink.endpoint.clientId";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_ID_DOC = "Client ID of the drive application";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_ID_DEFAULT = null;
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_CONF = "camel.sink.endpoint.clientSecret";
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_DOC = "Client secret of the drive application";
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_IN_BODY_CONF = "camel.sink.endpoint.inBody";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_IN_BODY_DOC = "Sets the name of a parameter to be passed in the exchange In Body";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_IN_BODY_DEFAULT = null;
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_CONF = "camel.sink.endpoint.refreshToken";
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_DOC = "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
-    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SCOPES_CONF = "camel.sink.endpoint.scopes";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SCOPES_DOC = "Specifies the level of permissions you want a drive application to have to a user account. See https://developers.google.com/drive/web/scopes for more info.";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SCOPES_DEFAULT = null;
@@ -65,9 +56,27 @@ public class CamelGoogledriveSinkConnectorConfig
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_CONF = "camel.sink.endpoint.accessToken";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_DOC = "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_CONF = "camel.sink.endpoint.clientSecret";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_DOC = "Client secret of the drive application";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_CONF = "camel.sink.endpoint.refreshToken";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_DOC = "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_APPLICATION_NAME_CONF = "camel.component.google-drive.applicationName";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_APPLICATION_NAME_DOC = "Google drive application name. Example would be camel-google-drive/1.0";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_APPLICATION_NAME_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_ID_CONF = "camel.component.google-drive.clientId";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_ID_DOC = "Client ID of the drive application";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_ID_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CONFIGURATION_CONF = "camel.component.google-drive.configuration";
     public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CONFIGURATION_DOC = "To use the shared configuration";
     public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_SCOPES_CONF = "camel.component.google-drive.scopes";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_SCOPES_DOC = "Specifies the level of permissions you want a drive application to have to a user account. See https://developers.google.com/drive/web/scopes for more info.";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_SCOPES_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.google-drive.lazyStartProducer";
     public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_GOOGLEDRIVE_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -77,6 +86,15 @@ public class CamelGoogledriveSinkConnectorConfig
     public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_FACTORY_CONF = "camel.component.google-drive.clientFactory";
     public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_FACTORY_DOC = "To use the GoogleCalendarClientFactory as factory for creating the client. Will by default use BatchGoogleDriveClientFactory";
     public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_FACTORY_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_ACCESS_TOKEN_CONF = "camel.component.google-drive.accessToken";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_ACCESS_TOKEN_DOC = "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_ACCESS_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_SECRET_CONF = "camel.component.google-drive.clientSecret";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_SECRET_DOC = "Client secret of the drive application";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_SECRET_DEFAULT = null;
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_REFRESH_TOKEN_CONF = "camel.component.google-drive.refreshToken";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_REFRESH_TOKEN_DOC = "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
+    public static final String CAMEL_SINK_GOOGLEDRIVE_COMPONENT_REFRESH_TOKEN_DEFAULT = null;
 
     public CamelGoogledriveSinkConnectorConfig(
             ConfigDef config,
@@ -92,21 +110,27 @@ public class CamelGoogledriveSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_GOOGLEDRIVE_PATH_API_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_PATH_API_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEDRIVE_PATH_API_NAME_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_PATH_METHOD_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_PATH_METHOD_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GOOGLEDRIVE_PATH_METHOD_NAME_DOC);
-        conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_APPLICATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_APPLICATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_APPLICATION_NAME_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_FACTORY_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_ID_DOC);
-        conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_IN_BODY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_IN_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_IN_BODY_DOC);
-        conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SCOPES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SCOPES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SCOPES_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_SYNCHRONOUS_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_ACCESS_TOKEN_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_CLIENT_SECRET_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_ENDPOINT_REFRESH_TOKEN_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_APPLICATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_APPLICATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_APPLICATION_NAME_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_ID_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CONFIGURATION_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_SCOPES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_SCOPES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_SCOPES_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_FACTORY_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_ACCESS_TOKEN_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_CLIENT_SECRET_DOC);
+        conf.define(CAMEL_SINK_GOOGLEDRIVE_COMPONENT_REFRESH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_REFRESH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEDRIVE_COMPONENT_REFRESH_TOKEN_DOC);
         return conf;
     }
 }

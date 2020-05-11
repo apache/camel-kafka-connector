@@ -15,7 +15,7 @@ When using camel-weather-kafka-connector as sink make sure to use the following 
 ----
 
 
-The camel-weather sink connector supports 34 options, which are listed below.
+The camel-weather sink connector supports 25 options, which are listed below.
 
 
 
@@ -32,7 +32,6 @@ The camel-weather sink connector supports 34 options, which are listed below.
 | *camel.sink.endpoint.weatherApi* | The API to be use (current, forecast/3 hour, forecast daily, station) One of: [Current] [Station] [Hourly] [Daily] | null | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.httpConnectionManager* | To use a custom HttpConnectionManager to manage connections | null | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.cnt* | Number of results to be found | null | MEDIUM
 | *camel.sink.endpoint.ids* | List of id's of city/stations. You can separate multiple ids by comma. | null | MEDIUM
@@ -43,18 +42,10 @@ The camel-weather sink connector supports 34 options, which are listed below.
 | *camel.sink.endpoint.topLat* | For boxed queries this is the top latitude. Needs to be used in combination with rightLon and zoom. | null | MEDIUM
 | *camel.sink.endpoint.zip* | Zip-code, e.g. 94040,us | null | MEDIUM
 | *camel.sink.endpoint.zoom* | For boxed queries this is the zoom. Needs to be used in combination with rightLon and topLat. | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthDomain* | Domain for proxy NTLM authentication | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthHost* | Optional host for proxy NTLM authentication | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthMethod* | Authentication method for proxy, either as Basic, Digest or NTLM. | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthPassword* | Password for proxy authentication | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthUsername* | Username for proxy authentication | null | MEDIUM
-| *camel.sink.endpoint.proxyHost* | The proxy host name | null | MEDIUM
-| *camel.sink.endpoint.proxyPort* | The proxy port number | null | MEDIUM
 | *camel.sink.endpoint.geolocationAccessKey* | The geolocation service now needs an accessKey to be used | null | HIGH
 | *camel.sink.endpoint.geolocationRequestHostIP* | The geolocation service now needs to specify the IP associated to the accessKey you're using | null | HIGH
-| *camel.component.weather.geolocationAccessKey* | The geolocation service now needs an accessKey to be used | null | MEDIUM
-| *camel.component.weather.geolocationRequestHostIP* | The geolocation service now needs to specify the IP associated to the accessKey you're using | null | MEDIUM
 | *camel.component.weather.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.weather.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.weather.httpClient* | To use an existing configured http client (for example with http proxy) | null | MEDIUM
 |===
 // kafka-connector options: END

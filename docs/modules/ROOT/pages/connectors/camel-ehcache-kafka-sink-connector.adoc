@@ -15,7 +15,7 @@ When using camel-ehcache-kafka-connector as sink make sure to use the following 
 ----
 
 
-The camel-ehcache sink connector supports 22 options, which are listed below.
+The camel-ehcache sink connector supports 26 options, which are listed below.
 
 
 
@@ -36,13 +36,17 @@ The camel-ehcache sink connector supports 22 options, which are listed below.
 | *camel.sink.endpoint.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
-| *camel.component.ehcache.cacheConfiguration* | The default cache configuration to be used to create caches. | null | MEDIUM
-| *camel.component.ehcache.cacheConfigurationUri* | URI pointing to the Ehcache XML configuration file's location | null | MEDIUM
 | *camel.component.ehcache.cacheManager* | The cache manager | null | MEDIUM
 | *camel.component.ehcache.cacheManagerConfiguration* | The cache manager configuration | null | MEDIUM
-| *camel.component.ehcache.cachesConfigurations* | A map of caches configurations to be used to create caches. | null | MEDIUM
+| *camel.component.ehcache.configurationUri* | URI pointing to the Ehcache XML configuration file's location | null | MEDIUM
+| *camel.component.ehcache.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | MEDIUM
+| *camel.component.ehcache.action* | To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence. | null | MEDIUM
+| *camel.component.ehcache.key* | To configure the default action key. If a key is set in the message header, then the key from the header takes precedence. | null | MEDIUM
 | *camel.component.ehcache.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.ehcache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.component.ehcache.configuration* | Sets the global component configuration | null | MEDIUM
+| *camel.component.ehcache.configuration* | The default cache configuration to be used to create caches. | null | MEDIUM
+| *camel.component.ehcache.configurations* | A map of cache configuration to be used to create caches. | null | MEDIUM
+| *camel.component.ehcache.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
+| *camel.component.ehcache.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
 |===
 // kafka-connector options: END

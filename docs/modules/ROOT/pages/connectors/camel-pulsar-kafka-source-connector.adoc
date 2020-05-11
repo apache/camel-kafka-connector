@@ -15,7 +15,7 @@ When using camel-pulsar-kafka-connector as source make sure to use the following
 ----
 
 
-The camel-pulsar source connector supports 25 options, which are listed below.
+The camel-pulsar source connector supports 41 options, which are listed below.
 
 
 
@@ -28,21 +28,37 @@ The camel-pulsar source connector supports 25 options, which are listed below.
 | *camel.source.path.topic* | The topic | null | HIGH
 | *camel.source.endpoint.ackGroupTimeMillis* | Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100 | 100L | MEDIUM
 | *camel.source.endpoint.ackTimeoutMillis* | Timeout for unacknowledged messages in milliseconds - defaults to 10000 | 10000L | MEDIUM
-| *camel.source.endpoint.allowManualAcknowledgement* | Whether to allow manual message acknowledgements. If this option is enabled, then messages are not immediately acknowledged after being consumed. Instead, an instance of PulsarMessageReceipt is stored as a header on the org.apache.camel.Exchange. Messages can then be acknowledged using PulsarMessageReceipt at any time before the ackTimeout occurs. | false | MEDIUM
+| *camel.source.endpoint.allowManualAcknowledgement* | Whether to allow manual message acknowledgements. If this option is enabled, then messages are not acknowledged automatically after successful route completion. Instead, an instance of PulsarMessageReceipt is stored as a header on the org.apache.camel.Exchange. Messages can then be acknowledged using PulsarMessageReceipt at any time before the ackTimeout occurs. | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.consumerName* | Name of the consumer when subscription is EXCLUSIVE | "sole-consumer" | MEDIUM
 | *camel.source.endpoint.consumerNamePrefix* | Prefix to add to consumer names when a SHARED or FAILOVER subscription is used | "cons" | MEDIUM
 | *camel.source.endpoint.consumerQueueSize* | Size of the consumer queue - defaults to 10 | 10 | MEDIUM
+| *camel.source.endpoint.deadLetterTopic* | Name of the topic where the messages which fail maxRedeliverCount times will be sent. Note: if not set, default topic name will be topicName-subscriptionName-DLQ | null | MEDIUM
+| *camel.source.endpoint.maxRedeliverCount* | Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created | null | MEDIUM
+| *camel.source.endpoint.negativeAckRedeliveryDelay Micros* | Set the negative acknowledgement delay | 60000000L | MEDIUM
 | *camel.source.endpoint.numberOfConsumers* | Number of consumers - defaults to 1 | 1 | MEDIUM
 | *camel.source.endpoint.subscriptionInitialPosition* | Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST] | "LATEST" | MEDIUM
 | *camel.source.endpoint.subscriptionName* | Name of the subscription to use | "subs" | MEDIUM
-| *camel.source.endpoint.subscriptionType* | Type of the subscription EXCLUSIVESHAREDFAILOVER, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] | "EXCLUSIVE" | MEDIUM
+| *camel.source.endpoint.subscriptionType* | Type of the subscription EXCLUSIVESHAREDFAILOVERKEY_SHARED, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] [KEY_SHARED] | "EXCLUSIVE" | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.pulsar.allowManualAcknowledgement* | Whether to allow manual message acknowledgements. If this option is enabled, then messages are not immediately acknowledged after being consumed. Instead, an instance of PulsarMessageReceipt is stored as a header on the org.apache.camel.Exchange. Messages can then be acknowledged using PulsarMessageReceipt at any time before the ackTimeout occurs. | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | true | MEDIUM
+| *camel.component.pulsar.configuration* | Allows to pre-configure the Pulsar component with common options that the endpoints will reuse. | null | MEDIUM
+| *camel.component.pulsar.ackGroupTimeMillis* | Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100 | 100L | MEDIUM
+| *camel.component.pulsar.ackTimeoutMillis* | Timeout for unacknowledged messages in milliseconds - defaults to 10000 | 10000L | MEDIUM
+| *camel.component.pulsar.allowManualAcknowledgement* | Whether to allow manual message acknowledgements. If this option is enabled, then messages are not acknowledged automatically after successful route completion. Instead, an instance of PulsarMessageReceipt is stored as a header on the org.apache.camel.Exchange. Messages can then be acknowledged using PulsarMessageReceipt at any time before the ackTimeout occurs. | false | MEDIUM
 | *camel.component.pulsar.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.pulsar.consumerName* | Name of the consumer when subscription is EXCLUSIVE | "sole-consumer" | MEDIUM
+| *camel.component.pulsar.consumerNamePrefix* | Prefix to add to consumer names when a SHARED or FAILOVER subscription is used | "cons" | MEDIUM
+| *camel.component.pulsar.consumerQueueSize* | Size of the consumer queue - defaults to 10 | 10 | MEDIUM
+| *camel.component.pulsar.deadLetterTopic* | Name of the topic where the messages which fail maxRedeliverCount times will be sent. Note: if not set, default topic name will be topicName-subscriptionName-DLQ | null | MEDIUM
+| *camel.component.pulsar.maxRedeliverCount* | Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created | null | MEDIUM
+| *camel.component.pulsar.negativeAckRedeliveryDelay Micros* | Set the negative acknowledgement delay | 60000000L | MEDIUM
+| *camel.component.pulsar.numberOfConsumers* | Number of consumers - defaults to 1 | 1 | MEDIUM
+| *camel.component.pulsar.subscriptionInitialPosition* | Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST] | "LATEST" | MEDIUM
+| *camel.component.pulsar.subscriptionName* | Name of the subscription to use | "subs" | MEDIUM
+| *camel.component.pulsar.subscriptionType* | Type of the subscription EXCLUSIVESHAREDFAILOVERKEY_SHARED, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] [KEY_SHARED] | "EXCLUSIVE" | MEDIUM
 | *camel.component.pulsar.pulsarMessageReceiptFactory* | Provide a factory to create an alternate implementation of PulsarMessageReceipt. | null | MEDIUM
 | *camel.component.pulsar.autoConfiguration* | The pulsar auto configuration | null | MEDIUM
 | *camel.component.pulsar.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM

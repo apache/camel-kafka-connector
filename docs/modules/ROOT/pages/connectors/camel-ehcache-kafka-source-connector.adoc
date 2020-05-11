@@ -15,7 +15,7 @@ When using camel-ehcache-kafka-connector as source make sure to use the followin
 ----
 
 
-The camel-ehcache source connector supports 25 options, which are listed below.
+The camel-ehcache source connector supports 30 options, which are listed below.
 
 
 
@@ -39,13 +39,18 @@ The camel-ehcache source connector supports 25 options, which are listed below.
 | *camel.source.endpoint.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.source.endpoint.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
-| *camel.component.ehcache.cacheConfiguration* | The default cache configuration to be used to create caches. | null | MEDIUM
-| *camel.component.ehcache.cacheConfigurationUri* | URI pointing to the Ehcache XML configuration file's location | null | MEDIUM
 | *camel.component.ehcache.cacheManager* | The cache manager | null | MEDIUM
 | *camel.component.ehcache.cacheManagerConfiguration* | The cache manager configuration | null | MEDIUM
-| *camel.component.ehcache.cachesConfigurations* | A map of caches configurations to be used to create caches. | null | MEDIUM
+| *camel.component.ehcache.configurationUri* | URI pointing to the Ehcache XML configuration file's location | null | MEDIUM
+| *camel.component.ehcache.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | MEDIUM
 | *camel.component.ehcache.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.ehcache.eventFiring* | Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS] | "ASYNCHRONOUS" | MEDIUM
+| *camel.component.ehcache.eventOrdering* | Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED] | "ORDERED" | MEDIUM
+| *camel.component.ehcache.eventTypes* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | MEDIUM
 | *camel.component.ehcache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.component.ehcache.configuration* | Sets the global component configuration | null | MEDIUM
+| *camel.component.ehcache.configuration* | The default cache configuration to be used to create caches. | null | MEDIUM
+| *camel.component.ehcache.configurations* | A map of cache configuration to be used to create caches. | null | MEDIUM
+| *camel.component.ehcache.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
+| *camel.component.ehcache.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
 |===
 // kafka-connector options: END

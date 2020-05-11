@@ -63,11 +63,29 @@ public class CamelAwsmskSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws-msk.accessKey";
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_ACCESS_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-msk.configuration";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_DOC = "The component configuration";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.aws-msk.lazyStartProducer";
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWSMSK_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_MSK_CLIENT_CONF = "camel.component.aws-msk.mskClient";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_MSK_CLIENT_DOC = "To use a existing configured AWS MSK as client";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_MSK_CLIENT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_OPERATION_CONF = "camel.component.aws-msk.operation";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_OPERATION_DOC = "The operation to perform One of: [listClusters] [createCluster] [deleteCluster] [describeCluster]";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_OPERATION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_HOST_CONF = "camel.component.aws-msk.proxyHost";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the MSK client";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_HOST_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PORT_CONF = "camel.component.aws-msk.proxyPort";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PORT_DOC = "To define a proxy port when instantiating the MSK client";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PORT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PROTOCOL_CONF = "camel.component.aws-msk.proxyProtocol";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PROTOCOL_DOC = "To define a proxy protocol when instantiating the MSK client One of: [HTTP] [HTTPS]";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PROTOCOL_DEFAULT = "HTTPS";
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_REGION_CONF = "camel.component.aws-msk.region";
-    public static final String CAMEL_SINK_AWSMSK_COMPONENT_REGION_DOC = "The region in which MSK client needs to work";
+    public static final String CAMEL_SINK_AWSMSK_COMPONENT_REGION_DOC = "The region in which MSK client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()";
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_SECRET_KEY_CONF = "camel.component.aws-msk.secretKey";
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
@@ -75,9 +93,6 @@ public class CamelAwsmskSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-msk.basicPropertyBinding";
     public static final String CAMEL_SINK_AWSMSK_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_AWSMSK_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
-    public static final String CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-msk.configuration";
-    public static final String CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_DOC = "The AWS MSK default configuration";
-    public static final String CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_DEFAULT = null;
 
     public CamelAwsmskSinkConnectorConfig(
             ConfigDef config,
@@ -104,11 +119,16 @@ public class CamelAwsmskSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSMSK_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSMSK_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSMSK_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSMSK_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSMSK_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_ACCESS_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWSMSK_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSMSK_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_AWSMSK_COMPONENT_MSK_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_MSK_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_MSK_CLIENT_DOC);
+        conf.define(CAMEL_SINK_AWSMSK_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSMSK_COMPONENT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWSMSK_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_PROXY_HOST_DOC);
+        conf.define(CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PORT_DOC);
+        conf.define(CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWSMSK_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_REGION_DOC);
         conf.define(CAMEL_SINK_AWSMSK_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSMSK_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSMSK_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
-        conf.define(CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSMSK_COMPONENT_CONFIGURATION_DOC);
         return conf;
     }
 }

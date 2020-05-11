@@ -15,7 +15,7 @@ When using camel-atomix-map-kafka-connector as source make sure to use the follo
 ----
 
 
-The camel-atomix-map source connector supports 26 options, which are listed below.
+The camel-atomix-map source connector supports 37 options, which are listed below.
 
 
 
@@ -42,11 +42,22 @@ The camel-atomix-map source connector supports 26 options, which are listed belo
 | *camel.source.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
 | *camel.source.endpoint.resourceOptions* | Local resources configurations | null | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.atomix-map.atomix* | The shared AtomixClient instance | null | MEDIUM
+| *camel.component.atomix-map.atomix* | The Atomix instance to use | null | MEDIUM
 | *camel.component.atomix-map.configuration* | The shared component configuration | null | MEDIUM
 | *camel.component.atomix-map.configurationUri* | The path to the AtomixClient configuration | null | MEDIUM
+| *camel.component.atomix-map.defaultAction* | The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES] | "PUT" | MEDIUM
+| *camel.component.atomix-map.key* | The key to use if none is set in the header or to listen for events for a specific key. | null | MEDIUM
 | *camel.component.atomix-map.nodes* | The nodes the AtomixClient should connect to | null | MEDIUM
+| *camel.component.atomix-map.resultHeader* | The header that wil carry the result. | null | MEDIUM
+| *camel.component.atomix-map.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | MEDIUM
+| *camel.component.atomix-map.ttl* | The resource ttl. | null | MEDIUM
 | *camel.component.atomix-map.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.atomix-map.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.atomix-map.defaultResourceConfig* | The cluster wide default resource configuration. | null | MEDIUM
+| *camel.component.atomix-map.defaultResourceOptions* | The local default resource options. | null | MEDIUM
+| *camel.component.atomix-map.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | MEDIUM
+| *camel.component.atomix-map.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | MEDIUM
+| *camel.component.atomix-map.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
+| *camel.component.atomix-map.resourceOptions* | Local resources configurations | null | MEDIUM
 |===
 // kafka-connector options: END

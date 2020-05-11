@@ -75,26 +75,41 @@ public class CamelEtcdwatchSourceConnectorConfig
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_ETCDWATCH_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_CONFIGURATION_CONF = "camel.component.etcd-watch.configuration";
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_CONFIGURATION_DOC = "Sets the common configuration shared among endpoints";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_CONFIGURATION_DOC = "Component configuration.";
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_CONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_RECURSIVE_CONF = "camel.component.etcd-watch.recursive";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_RECURSIVE_DOC = "To apply an action recursively.";
+    public static final Boolean CAMEL_SOURCE_ETCDWATCH_COMPONENT_RECURSIVE_DEFAULT = false;
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_SERVICE_PATH_CONF = "camel.component.etcd-watch.servicePath";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_SERVICE_PATH_DOC = "The path to look for for service discovery";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_SERVICE_PATH_DEFAULT = "/services/";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_TIMEOUT_CONF = "camel.component.etcd-watch.timeout";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_TIMEOUT_DOC = "To set the maximum time an action could take to complete.";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_TIMEOUT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_CONF = "camel.component.etcd-watch.uris";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_DOC = "To set the URIs the client connects.";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_DEFAULT = "http://localhost:2379,http://localhost:4001";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_SEND_EMPTY_EXCHANGE_ON_TIMEOUT_CONF = "camel.component.etcd-watch.sendEmptyExchangeOnTimeout";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_SEND_EMPTY_EXCHANGE_ON_TIMEOUT_DOC = "To send an empty message in case of timeout watching for a key.";
+    public static final Boolean CAMEL_SOURCE_ETCDWATCH_COMPONENT_SEND_EMPTY_EXCHANGE_ON_TIMEOUT_DEFAULT = false;
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_FROM_INDEX_CONF = "camel.component.etcd-watch.fromIndex";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_FROM_INDEX_DOC = "The index to watch from";
+    public static final Long CAMEL_SOURCE_ETCDWATCH_COMPONENT_FROM_INDEX_DEFAULT = 0L;
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.etcd-watch.basicPropertyBinding";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    public static final Boolean CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_PASSWORD_CONF = "camel.component.etcd-watch.password";
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_PASSWORD_DOC = "The password to use for basic authentication.";
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF = "camel.component.etcd-watch.sslContextParameters";
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC = "To configure security using SSLContextParameters.";
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_CONF = "camel.component.etcd-watch.uris";
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_DOC = "To set the URIs the client connects.";
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_CONF = "camel.component.etcd-watch.userName";
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_DOC = "The user name to use for basic authentication.";
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_DEFAULT = null;
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.etcd-watch.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF = "camel.component.etcd-watch.useGlobalSslContextParameters";
     public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC = "Enable usage of global SSL context parameters.";
     public static final Boolean CAMEL_SOURCE_ETCDWATCH_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT = false;
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_CONF = "camel.component.etcd-watch.userName";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_DOC = "The user name to use for basic authentication.";
+    public static final String CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_DEFAULT = null;
 
     public CamelEtcdwatchSourceConnectorConfig(
             ConfigDef config,
@@ -125,12 +140,17 @@ public class CamelEtcdwatchSourceConnectorConfig
         conf.define(CAMEL_SOURCE_ETCDWATCH_ENDPOINT_USER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_ENDPOINT_USER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_ENDPOINT_USER_NAME_DOC);
         conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ETCDWATCH_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_CONFIGURATION_DOC);
+        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_RECURSIVE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ETCDWATCH_COMPONENT_RECURSIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_RECURSIVE_DOC);
+        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_SERVICE_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_SERVICE_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_SERVICE_PATH_DOC);
+        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_TIMEOUT_DOC);
+        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_DOC);
+        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_SEND_EMPTY_EXCHANGE_ON_TIMEOUT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ETCDWATCH_COMPONENT_SEND_EMPTY_EXCHANGE_ON_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_SEND_EMPTY_EXCHANGE_ON_TIMEOUT_DOC);
+        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_FROM_INDEX_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_ETCDWATCH_COMPONENT_FROM_INDEX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_FROM_INDEX_DOC);
+        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
-        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_URIS_DOC);
-        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_DOC);
-        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ETCDWATCH_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
+        conf.define(CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ETCDWATCH_COMPONENT_USER_NAME_DOC);
         return conf;
     }
 }

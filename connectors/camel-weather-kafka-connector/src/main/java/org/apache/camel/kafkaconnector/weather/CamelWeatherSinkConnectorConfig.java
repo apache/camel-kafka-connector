@@ -54,9 +54,6 @@ public class CamelWeatherSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_HTTP_CONNECTION_MANAGER_CONF = "camel.sink.endpoint.httpConnectionManager";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_HTTP_CONNECTION_MANAGER_DOC = "To use a custom HttpConnectionManager to manage connections";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_HTTP_CONNECTION_MANAGER_DEFAULT = null;
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_WEATHER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -87,45 +84,21 @@ public class CamelWeatherSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_ZOOM_CONF = "camel.sink.endpoint.zoom";
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_ZOOM_DOC = "For boxed queries this is the zoom. Needs to be used in combination with rightLon and topLat.";
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_ZOOM_DEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_DOMAIN_CONF = "camel.sink.endpoint.proxyAuthDomain";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_DOMAIN_DOC = "Domain for proxy NTLM authentication";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_DOMAIN_DEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_HOST_CONF = "camel.sink.endpoint.proxyAuthHost";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_HOST_DOC = "Optional host for proxy NTLM authentication";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_HOST_DEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_METHOD_CONF = "camel.sink.endpoint.proxyAuthMethod";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_METHOD_DOC = "Authentication method for proxy, either as Basic, Digest or NTLM.";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_METHOD_DEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_PASSWORD_CONF = "camel.sink.endpoint.proxyAuthPassword";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_PASSWORD_DOC = "Password for proxy authentication";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_PASSWORD_DEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_USERNAME_CONF = "camel.sink.endpoint.proxyAuthUsername";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_USERNAME_DOC = "Username for proxy authentication";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_USERNAME_DEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_HOST_CONF = "camel.sink.endpoint.proxyHost";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_HOST_DOC = "The proxy host name";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_HOST_DEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_PORT_CONF = "camel.sink.endpoint.proxyPort";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_PORT_DOC = "The proxy port number";
-    public static final String CAMEL_SINK_WEATHER_ENDPOINT_PROXY_PORT_DEFAULT = null;
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_ACCESS_KEY_CONF = "camel.sink.endpoint.geolocationAccessKey";
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_ACCESS_KEY_DOC = "The geolocation service now needs an accessKey to be used";
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_ACCESS_KEY_DEFAULT = null;
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPCONF = "camel.sink.endpoint.geolocationRequestHostIP";
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPDOC = "The geolocation service now needs to specify the IP associated to the accessKey you're using";
     public static final String CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPDEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_ACCESS_KEY_CONF = "camel.component.weather.geolocationAccessKey";
-    public static final String CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_ACCESS_KEY_DOC = "The geolocation service now needs an accessKey to be used";
-    public static final String CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_ACCESS_KEY_DEFAULT = null;
-    public static final String CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_REQUEST_HOST_IPCONF = "camel.component.weather.geolocationRequestHostIP";
-    public static final String CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_REQUEST_HOST_IPDOC = "The geolocation service now needs to specify the IP associated to the accessKey you're using";
-    public static final String CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_REQUEST_HOST_IPDEFAULT = null;
     public static final String CAMEL_SINK_WEATHER_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.weather.lazyStartProducer";
     public static final String CAMEL_SINK_WEATHER_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_WEATHER_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.weather.basicPropertyBinding";
     public static final String CAMEL_SINK_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_WEATHER_COMPONENT_HTTP_CLIENT_CONF = "camel.component.weather.httpClient";
+    public static final String CAMEL_SINK_WEATHER_COMPONENT_HTTP_CLIENT_DOC = "To use an existing configured http client (for example with http proxy)";
+    public static final String CAMEL_SINK_WEATHER_COMPONENT_HTTP_CLIENT_DEFAULT = null;
 
     public CamelWeatherSinkConnectorConfig(
             ConfigDef config,
@@ -149,7 +122,6 @@ public class CamelWeatherSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_WEATHER_API_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_WEATHER_API_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_WEATHER_API_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEATHER_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
-        conf.define(CAMEL_SINK_WEATHER_ENDPOINT_HTTP_CONNECTION_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_HTTP_CONNECTION_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_HTTP_CONNECTION_MANAGER_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEATHER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_CNT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_CNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_CNT_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_IDS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_IDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_IDS_DOC);
@@ -160,19 +132,11 @@ public class CamelWeatherSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_TOP_LAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_TOP_LAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_TOP_LAT_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_ZIP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_ZIP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_ZIP_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_ZOOM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_ZOOM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_ZOOM_DOC);
-        conf.define(CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_DOMAIN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_DOMAIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_DOMAIN_DOC);
-        conf.define(CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_HOST_DOC);
-        conf.define(CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_METHOD_DOC);
-        conf.define(CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_PASSWORD_DOC);
-        conf.define(CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_AUTH_USERNAME_DOC);
-        conf.define(CAMEL_SINK_WEATHER_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_HOST_DOC);
-        conf.define(CAMEL_SINK_WEATHER_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_ACCESS_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPCONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPDEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPDOC);
-        conf.define(CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_ACCESS_KEY_DOC);
-        conf.define(CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_REQUEST_HOST_IPCONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_REQUEST_HOST_IPDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_COMPONENT_GEOLOCATION_REQUEST_HOST_IPDOC);
         conf.define(CAMEL_SINK_WEATHER_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEATHER_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_WEATHER_COMPONENT_HTTP_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEATHER_COMPONENT_HTTP_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEATHER_COMPONENT_HTTP_CLIENT_DOC);
         return conf;
     }
 }

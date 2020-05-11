@@ -49,7 +49,7 @@ public class CamelNatsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NATS_ENDPOINT_NO_RANDOMIZE_SERVERS_DOC = "Whether or not randomizing the order of servers for the connection attempts";
     public static final Boolean CAMEL_SINK_NATS_ENDPOINT_NO_RANDOMIZE_SERVERS_DEFAULT = false;
     public static final String CAMEL_SINK_NATS_ENDPOINT_PEDANTIC_CONF = "camel.sink.endpoint.pedantic";
-    public static final String CAMEL_SINK_NATS_ENDPOINT_PEDANTIC_DOC = "Whether or not running in pedantic mode (this affects performace)";
+    public static final String CAMEL_SINK_NATS_ENDPOINT_PEDANTIC_DOC = "Whether or not running in pedantic mode (this affects performance)";
     public static final Boolean CAMEL_SINK_NATS_ENDPOINT_PEDANTIC_DEFAULT = false;
     public static final String CAMEL_SINK_NATS_ENDPOINT_PING_INTERVAL_CONF = "camel.sink.endpoint.pingInterval";
     public static final String CAMEL_SINK_NATS_ENDPOINT_PING_INTERVAL_DOC = "Ping interval to be aware if connection is still alive (in milliseconds)";
@@ -93,6 +93,9 @@ public class CamelNatsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NATS_COMPONENT_SERVERS_CONF = "camel.component.nats.servers";
     public static final String CAMEL_SINK_NATS_COMPONENT_SERVERS_DOC = "URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.";
     public static final String CAMEL_SINK_NATS_COMPONENT_SERVERS_DEFAULT = null;
+    public static final String CAMEL_SINK_NATS_COMPONENT_VERBOSE_CONF = "camel.component.nats.verbose";
+    public static final String CAMEL_SINK_NATS_COMPONENT_VERBOSE_DOC = "Whether or not running in verbose mode";
+    public static final Boolean CAMEL_SINK_NATS_COMPONENT_VERBOSE_DEFAULT = false;
     public static final String CAMEL_SINK_NATS_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.nats.lazyStartProducer";
     public static final String CAMEL_SINK_NATS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_NATS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -138,6 +141,7 @@ public class CamelNatsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NATS_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SINK_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_NATS_COMPONENT_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATS_COMPONENT_SERVERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_COMPONENT_SERVERS_DOC);
+        conf.define(CAMEL_SINK_NATS_COMPONENT_VERBOSE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_COMPONENT_VERBOSE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_COMPONENT_VERBOSE_DOC);
         conf.define(CAMEL_SINK_NATS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_NATS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_NATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);

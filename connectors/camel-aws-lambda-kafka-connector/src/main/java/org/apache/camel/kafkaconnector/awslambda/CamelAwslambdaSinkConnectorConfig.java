@@ -62,24 +62,39 @@ public class CamelAwslambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_CONF = "camel.sink.endpoint.secretKey";
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws-lambda.accessKey";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.aws-lambda.lazyStartProducer";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_CONF = "camel.component.aws-lambda.region";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DOC = "Amazon AWS Region";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_CONF = "camel.component.aws-lambda.secretKey";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-lambda.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-lambda.configuration";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_DOC = "The AWS Lambda default configuration";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.aws-lambda.lazyStartProducer";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    public static final Boolean CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_CONF = "camel.component.aws-lambda.operation";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_DOC = "The operation to perform. It can be listFunctions, getFunction, createFunction, deleteFunction or invokeFunction One of: [listFunctions] [getFunction] [createAlias] [deleteAlias] [getAlias] [listAliases] [createFunction] [deleteFunction] [invokeFunction] [updateFunction] [createEventSourceMapping] [deleteEventSourceMapping] [listEventSourceMapping] [listTags] [tagResource] [untagResource] [publishVersion] [listVersions]";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_DEFAULT = "invokeFunction";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_CONF = "camel.component.aws-lambda.region";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DOC = "Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_CONF = "camel.component.aws-lambda.awsLambdaClient";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DOC = "To use a existing configured AwsLambdaClient as client";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-lambda.basicPropertyBinding";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    public static final Boolean CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_CONF = "camel.component.aws-lambda.proxyHost";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the Lambda client";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_CONF = "camel.component.aws-lambda.proxyPort";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_DOC = "To define a proxy port when instantiating the Lambda client";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_CONF = "camel.component.aws-lambda.proxyProtocol";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_DOC = "To define a proxy protocol when instantiating the Lambda client One of: [HTTP] [HTTPS]";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_DEFAULT = "HTTPS";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws-lambda.accessKey";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_CONF = "camel.component.aws-lambda.secretKey";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_DEFAULT = null;
 
     public CamelAwslambdaSinkConnectorConfig(
             ConfigDef config,
@@ -105,12 +120,17 @@ public class CamelAwslambdaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_ACCESS_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_SECRET_KEY_DOC);
         return conf;
     }
 }

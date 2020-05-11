@@ -84,13 +84,13 @@ public class CamelAtomSourceConnectorConfig
     public static final String CAMEL_SOURCE_ATOM_ENDPOINT_BACKOFF_MULTIPLIER_DOC = "To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured.";
     public static final Integer CAMEL_SOURCE_ATOM_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT = null;
     public static final String CAMEL_SOURCE_ATOM_ENDPOINT_DELAY_CONF = "camel.source.endpoint.delay";
-    public static final String CAMEL_SOURCE_ATOM_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_ATOM_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll.";
     public static final Long CAMEL_SOURCE_ATOM_ENDPOINT_DELAY_DEFAULT = 500L;
     public static final String CAMEL_SOURCE_ATOM_ENDPOINT_GREEDY_CONF = "camel.source.endpoint.greedy";
     public static final String CAMEL_SOURCE_ATOM_ENDPOINT_GREEDY_DOC = "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.";
     public static final Boolean CAMEL_SOURCE_ATOM_ENDPOINT_GREEDY_DEFAULT = false;
     public static final String CAMEL_SOURCE_ATOM_ENDPOINT_INITIAL_DELAY_CONF = "camel.source.endpoint.initialDelay";
-    public static final String CAMEL_SOURCE_ATOM_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_ATOM_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts.";
     public static final Long CAMEL_SOURCE_ATOM_ENDPOINT_INITIAL_DELAY_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_ATOM_ENDPOINT_REPEAT_COUNT_CONF = "camel.source.endpoint.repeatCount";
     public static final String CAMEL_SOURCE_ATOM_ENDPOINT_REPEAT_COUNT_DOC = "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.";

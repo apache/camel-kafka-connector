@@ -15,7 +15,7 @@ When using camel-webhook-kafka-connector as source make sure to use the followin
 ----
 
 
-The camel-webhook source connector supports 14 options, which are listed below.
+The camel-webhook source connector supports 19 options, which are listed below.
 
 
 
@@ -34,6 +34,11 @@ The camel-webhook source connector supports 14 options, which are listed below.
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.component.webhook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.webhook.webhookAutoRegister* | Automatically register the webhook at startup and unregister it on shutdown. | true | MEDIUM
+| *camel.component.webhook.webhookBasePath* | The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties. | null | MEDIUM
+| *camel.component.webhook.webhookComponentName* | The Camel Rest component to use for the REST transport, such as netty-http. | null | MEDIUM
+| *camel.component.webhook.webhookExternalUrl* | The URL of the current service as seen by the webhook provider | null | MEDIUM
+| *camel.component.webhook.webhookPath* | The path where the webhook endpoint will be exposed (relative to basePath, if any) | null | MEDIUM
 | *camel.component.webhook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.webhook.configuration* | Set the default configuration for the webhook meta-component. | null | MEDIUM
 |===

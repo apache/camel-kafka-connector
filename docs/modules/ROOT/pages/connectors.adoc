@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 344 
+Number of Camel Kafka connectors: 345 
 
 [width="100%",cols="6,1,1,1,1",options="header"]
 |===
@@ -52,9 +52,13 @@ Number of Camel Kafka connectors: 344
 | *camel-aws2-ecs-kafka-connector* | true | false | xref:connectors/camel-aws2-ecs-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws2-eks-kafka-connector* | true | false | xref:connectors/camel-aws2-eks-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws2-iam-kafka-connector* | true | false | xref:connectors/camel-aws2-iam-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-aws2-kinesis-firehose-kafka-connector* | true | false | xref:connectors/camel-aws2-kinesis-firehose-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-aws2-kinesis-kafka-connector* | true | true | xref:connectors/camel-aws2-kinesis-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-aws2-kinesis-kafka-source-connector.adoc[Source Docs]
 | *camel-aws2-kms-kafka-connector* | true | false | xref:connectors/camel-aws2-kms-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-aws2-lambda-kafka-connector* | true | false | xref:connectors/camel-aws2-lambda-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws2-mq-kafka-connector* | true | false | xref:connectors/camel-aws2-mq-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws2-msk-kafka-connector* | true | false | xref:connectors/camel-aws2-msk-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-aws2-s3-kafka-connector* | true | true | xref:connectors/camel-aws2-s3-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-aws2-s3-kafka-source-connector.adoc[Source Docs]
 | *camel-aws2-ses-kafka-connector* | true | false | xref:connectors/camel-aws2-ses-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws2-sns-kafka-connector* | true | false | xref:connectors/camel-aws2-sns-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-aws2-sqs-kafka-connector* | true | true | xref:connectors/camel-aws2-sqs-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-aws2-sqs-kafka-source-connector.adoc[Source Docs]
@@ -116,7 +120,6 @@ Number of Camel Kafka connectors: 344
 | *camel-etcd-keys-kafka-connector* | true | false | xref:connectors/camel-etcd-keys-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-etcd-stats-kafka-connector* | true | true | xref:connectors/camel-etcd-stats-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-etcd-stats-kafka-source-connector.adoc[Source Docs]
 | *camel-etcd-watch-kafka-connector* | false | true |  | xref:connectors/camel-etcd-watch-kafka-source-connector.adoc[Source Docs]
-| *camel-eventadmin-kafka-connector* | true | true | xref:connectors/camel-eventadmin-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-eventadmin-kafka-source-connector.adoc[Source Docs]
 | *camel-exec-kafka-connector* | true | false | xref:connectors/camel-exec-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-facebook-kafka-connector* | true | true | xref:connectors/camel-facebook-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-facebook-kafka-source-connector.adoc[Source Docs]
 | *camel-fhir-kafka-connector* | true | true | xref:connectors/camel-fhir-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-fhir-kafka-source-connector.adoc[Source Docs]
@@ -255,7 +258,6 @@ Number of Camel Kafka connectors: 344
 | *camel-openstack-swift-kafka-connector* | true | false | xref:connectors/camel-openstack-swift-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-optaplanner-kafka-connector* | true | true | xref:connectors/camel-optaplanner-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-optaplanner-kafka-source-connector.adoc[Source Docs]
 | *camel-paho-kafka-connector* | true | true | xref:connectors/camel-paho-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-paho-kafka-source-connector.adoc[Source Docs]
-| *camel-paxlogging-kafka-connector* | false | true |  | xref:connectors/camel-paxlogging-kafka-source-connector.adoc[Source Docs]
 | *camel-pdf-kafka-connector* | true | false | xref:connectors/camel-pdf-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-pg-replication-slot-kafka-connector* | false | true |  | xref:connectors/camel-pg-replication-slot-kafka-source-connector.adoc[Source Docs]
 | *camel-pgevent-kafka-connector* | true | true | xref:connectors/camel-pgevent-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-pgevent-kafka-source-connector.adoc[Source Docs]
@@ -302,7 +304,6 @@ Number of Camel Kafka connectors: 344
 | *camel-solrs-kafka-connector* | true | false | xref:connectors/camel-solrs-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-soroush-kafka-connector* | true | true | xref:connectors/camel-soroush-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-soroush-kafka-source-connector.adoc[Source Docs]
 | *camel-spark-kafka-connector* | true | false | xref:connectors/camel-spark-kafka-sink-connector.adoc[Sink Docs] | 
-| *camel-spark-rest-kafka-connector* | false | true |  | xref:connectors/camel-spark-rest-kafka-source-connector.adoc[Source Docs]
 | *camel-splunk-kafka-connector* | true | true | xref:connectors/camel-splunk-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-splunk-kafka-source-connector.adoc[Source Docs]
 | *camel-spring-batch-kafka-connector* | true | false | xref:connectors/camel-spring-batch-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-spring-event-kafka-connector* | true | true | xref:connectors/camel-spring-event-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-event-kafka-source-connector.adoc[Source Docs]

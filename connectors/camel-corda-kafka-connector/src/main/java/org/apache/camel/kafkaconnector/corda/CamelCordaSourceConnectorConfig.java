@@ -77,9 +77,36 @@ public class CamelCordaSourceConnectorConfig
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.corda.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_CORDA_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_PAGE_SPECIFICATION_CONF = "camel.component.corda.pageSpecification";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_PAGE_SPECIFICATION_DOC = "PageSpecification allows specification of a page number (starting from 1) and page size (defaulting to 200 with a maximum page size of (Integer.MAX_INT) Note: we default the page number to 200 to enable queries without requiring a page specification but enabling detection of large results sets that fall out of the 200 requirement. Max page size should be used with extreme caution as results may exceed your JVM memory footprint.";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_PAGE_SPECIFICATION_DEFAULT = "200";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_PROCESS_SNAPSHOT_CONF = "camel.component.corda.processSnapshot";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_PROCESS_SNAPSHOT_DOC = "Whether to process snapshots or not";
+    public static final Boolean CAMEL_SOURCE_CORDA_COMPONENT_PROCESS_SNAPSHOT_DEFAULT = true;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_SORT_CONF = "camel.component.corda.sort";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_SORT_DOC = "Sort allows specification of a set of entity attribute names and their associated directionality and null handling, to be applied upon processing a query specification. One of: [ASC] [DESC]";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_SORT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_CONTRACT_STATE_CLASS_CONF = "camel.component.corda.contractStateClass";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_CONTRACT_STATE_CLASS_DOC = "A contract state (or just state) contains opaque data used by a contract program. It can be thought of as a disk file that the program can use to persist data across transactions. States are immutable: once created they are never updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is responsible for ensuring there is no double spending by only signing a transaction if the input states are all free.";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_CONTRACT_STATE_CLASS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_CONF = "camel.component.corda.flowLogicArguments";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_DOC = "Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC.";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_CONF = "camel.component.corda.flowLogicClass";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_DOC = "Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC.";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_CONF = "camel.component.corda.queryCriteria";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_DOC = "QueryCriteria assumes underlying schema tables are correctly indexed for performance.";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_DEFAULT = null;
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.corda.basicPropertyBinding";
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_CONF = "camel.component.corda.password";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_DOC = "Password for login";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_CONF = "camel.component.corda.username";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_DOC = "Username for login";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_DEFAULT = null;
 
     public CamelCordaSourceConnectorConfig(
             ConfigDef config,
@@ -110,7 +137,16 @@ public class CamelCordaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CORDA_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_ENDPOINT_USERNAME_DOC);
         conf.define(CAMEL_SOURCE_CORDA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_CORDA_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CORDA_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_PAGE_SPECIFICATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_PAGE_SPECIFICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_PAGE_SPECIFICATION_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_PROCESS_SNAPSHOT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CORDA_COMPONENT_PROCESS_SNAPSHOT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_PROCESS_SNAPSHOT_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_SORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_SORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_SORT_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_CONTRACT_STATE_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_CONTRACT_STATE_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_CONTRACT_STATE_CLASS_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_DOC);
         conf.define(CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_DOC);
         return conf;
     }
 }

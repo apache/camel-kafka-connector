@@ -48,9 +48,18 @@ public class CamelJooqSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_CONF = "camel.component.jooq.configuration";
     public static final String CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_DOC = "Component configuration (database connection, database entity type, etc.)";
     public static final String CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_CONF = "camel.component.jooq.databaseConfiguration";
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DOC = "To use a specific database configuration";
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.jooq.lazyStartProducer";
     public static final String CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_OPERATION_CONF = "camel.component.jooq.operation";
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_OPERATION_DOC = "Type of operation to execute on query One of: [EXECUTE] [FETCH] [NONE]";
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_OPERATION_DEFAULT = "NONE";
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_QUERY_CONF = "camel.component.jooq.query";
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_QUERY_DOC = "To execute plain SQL query";
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_QUERY_DEFAULT = null;
     public static final String CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.jooq.basicPropertyBinding";
     public static final String CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
@@ -75,7 +84,10 @@ public class CamelJooqSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_DOC);
+        conf.define(CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_JOOQ_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_JOOQ_COMPONENT_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_COMPONENT_QUERY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_QUERY_DOC);
         conf.define(CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         return conf;
     }

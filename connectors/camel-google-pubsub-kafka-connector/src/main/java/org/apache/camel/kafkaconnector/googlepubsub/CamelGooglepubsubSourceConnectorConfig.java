@@ -38,15 +38,15 @@ public class CamelGooglepubsubSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_CONF = "camel.source.endpoint.concurrentConsumers";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_DOC = "The number of parallel streams consuming from the subscription";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_DEFAULT = "1";
-    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONNECTION_FACTORY_CONF = "camel.source.endpoint.connectionFactory";
-    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONNECTION_FACTORY_DOC = "ConnectionFactory to obtain connection to PubSub Service. If non provided the default one will be used";
-    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONNECTION_FACTORY_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_CONF = "camel.source.endpoint.loggerId";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_DOC = "Logger ID to use when a match to the parent route required";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_CONF = "camel.source.endpoint.maxMessagesPerPoll";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_DOC = "The max number of messages to receive from the server in a single API call";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_DEFAULT = "1";
+    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_CONF = "camel.source.endpoint.synchronousPull";
+    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_DOC = "Synchronously pull batches of messages";
+    public static final Boolean CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_DEFAULT = false;
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -62,15 +62,18 @@ public class CamelGooglepubsubSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
-    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_CONNECTION_FACTORY_CONF = "camel.component.google-pubsub.connectionFactory";
-    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_CONNECTION_FACTORY_DOC = "Sets the connection factory to use: provides the ability to explicitly manage connection credentials: - the path to the key file - the Service Account Key / Email pair";
-    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_CONNECTION_FACTORY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_ENDPOINT_CONF = "camel.component.google-pubsub.endpoint";
+    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DOC = "Endpoint to use with local Pub/Sub emulator.";
+    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.google-pubsub.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.google-pubsub.basicPropertyBinding";
     public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_PUBLISHER_TERMINATION_TIMEOUT_CONF = "camel.component.google-pubsub.publisherTerminationTimeout";
+    public static final String CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_PUBLISHER_TERMINATION_TIMEOUT_DOC = "How many milliseconds should a producer be allowed to terminate.";
+    public static final Integer CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_PUBLISHER_TERMINATION_TIMEOUT_DEFAULT = null;
 
     public CamelGooglepubsubSourceConnectorConfig(
             ConfigDef config,
@@ -89,17 +92,18 @@ public class CamelGooglepubsubSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_PATH_DESTINATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_PATH_DESTINATION_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GOOGLEPUBSUB_PATH_DESTINATION_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_ACK_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_ACK_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_ACK_MODE_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONCURRENT_CONSUMERS_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONNECTION_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONNECTION_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_CONNECTION_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_LOGGER_ID_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_CONNECTION_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_CONNECTION_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_CONNECTION_FACTORY_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_ENDPOINT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_PUBLISHER_TERMINATION_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_PUBLISHER_TERMINATION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEPUBSUB_COMPONENT_PUBLISHER_TERMINATION_TIMEOUT_DOC);
         return conf;
     }
 }

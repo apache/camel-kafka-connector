@@ -15,7 +15,7 @@ When using camel-mllp-kafka-connector as sink make sure to use the following Mav
 ----
 
 
-The camel-mllp sink connector supports 26 options, which are listed below.
+The camel-mllp sink connector supports 25 options, which are listed below.
 
 
 
@@ -33,16 +33,15 @@ The camel-mllp sink connector supports 26 options, which are listed below.
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used (this component only supports synchronous operations). | true | MEDIUM
+| *camel.sink.endpoint.charsetName* | Set the CamelCharsetName property on the exchange | null | MEDIUM
 | *camel.sink.endpoint.keepAlive* | Enable/disable the SO_KEEPALIVE socket option. | "true" | MEDIUM
+| *camel.sink.endpoint.receiveBufferSize* | Sets the SO_RCVBUF option to the specified value (in bytes) | "8192" | MEDIUM
 | *camel.sink.endpoint.sendBufferSize* | Sets the SO_SNDBUF option to the specified value (in bytes) | "8192" | MEDIUM
 | *camel.sink.endpoint.tcpNoDelay* | Enable/disable the TCP_NODELAY socket option. | "true" | MEDIUM
 | *camel.sink.endpoint.connectTimeout* | Timeout (in milliseconds) for establishing for a TCP connection TCP Client only | 30000 | MEDIUM
 | *camel.sink.endpoint.idleTimeout* | The approximate idle time allowed before the Client TCP Connection will be reset. A null value or a value less than or equal to zero will disable the idle timeout. | null | MEDIUM
-| *camel.sink.endpoint.receiveBufferSize* | Sets the SO_RCVBUF option to the specified value (in bytes) | "8192" | MEDIUM
 | *camel.sink.endpoint.readTimeout* | The SO_TIMEOUT value (in milliseconds) used after the start of an MLLP frame has been received | 5000 | MEDIUM
 | *camel.sink.endpoint.receiveTimeout* | The SO_TIMEOUT value (in milliseconds) used when waiting for the start of an MLLP frame | 15000 | MEDIUM
-| *camel.sink.endpoint.charsetName* | Set the CamelCharsetName property on the exchange | null | MEDIUM
-| *camel.component.mllp.configuration* | Sets the default configuration to use when creating MLLP endpoints. | null | MEDIUM
 | *camel.component.mllp.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.mllp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.mllp.defaultCharset* | Set the default character set to use for byte to/from String conversions. | "ISO-8859-1" | MEDIUM

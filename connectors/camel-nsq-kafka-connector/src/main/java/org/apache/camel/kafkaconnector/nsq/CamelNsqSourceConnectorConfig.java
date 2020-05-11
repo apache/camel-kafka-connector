@@ -28,7 +28,7 @@ public class CamelNsqSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_NSQ_PATH_TOPIC_DOC = "The NSQ topic";
     public static final String CAMEL_SOURCE_NSQ_PATH_TOPIC_DEFAULT = null;
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_SERVERS_CONF = "camel.source.endpoint.servers";
-    public static final String CAMEL_SOURCE_NSQ_ENDPOINT_SERVERS_DOC = "The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer).";
+    public static final String CAMEL_SOURCE_NSQ_ENDPOINT_SERVERS_DOC = "The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer)";
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_SERVERS_DEFAULT = null;
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_USER_AGENT_CONF = "camel.source.endpoint.userAgent";
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_USER_AGENT_DOC = "A String to identify the kind of client";

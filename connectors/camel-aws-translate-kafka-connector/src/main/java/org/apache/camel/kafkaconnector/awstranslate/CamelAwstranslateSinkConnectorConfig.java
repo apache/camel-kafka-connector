@@ -74,21 +74,45 @@ public class CamelAwstranslateSinkConnectorConfig
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws-translate.accessKey";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTODETECT_SOURCE_LANGUAGE_CONF = "camel.component.aws-translate.autodetectSourceLanguage";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTODETECT_SOURCE_LANGUAGE_DOC = "Being able to autodetect the source language";
+    public static final Boolean CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTODETECT_SOURCE_LANGUAGE_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-translate.configuration";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_DOC = "The component configuration";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.aws-translate.lazyStartProducer";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWSTRANSLATE_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_OPERATION_CONF = "camel.component.aws-translate.operation";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_OPERATION_DOC = "The operation to perform One of: [translateText]";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_OPERATION_DEFAULT = "translateText";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_HOST_CONF = "camel.component.aws-translate.proxyHost";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the Translate client";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_HOST_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PORT_CONF = "camel.component.aws-translate.proxyPort";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PORT_DOC = "To define a proxy port when instantiating the Translate client";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PORT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PROTOCOL_CONF = "camel.component.aws-translate.proxyProtocol";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PROTOCOL_DOC = "To define a proxy protocol when instantiating the Translate client One of: [HTTP] [HTTPS]";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PROTOCOL_DEFAULT = "HTTPS";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_REGION_CONF = "camel.component.aws-translate.region";
-    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_REGION_DOC = "The region in which Translate client needs to work";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_REGION_DOC = "The region in which Translate client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_SECRET_KEY_CONF = "camel.component.aws-translate.secretKey";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_SECRET_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_CONF = "camel.component.aws-translate.sourceLanguage";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_DOC = "Source language to use";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_CONF = "camel.component.aws-translate.targetLanguage";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_DOC = "Target language to use";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_CONF = "camel.component.aws-translate.translateClient";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_DOC = "To use a existing configured AWS Translate as client";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_DEFAULT = null;
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-translate.basicPropertyBinding";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
-    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-translate.configuration";
-    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_DOC = "The AWS Translate default configuration";
-    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_DEFAULT = null;
 
     public CamelAwstranslateSinkConnectorConfig(
             ConfigDef config,
@@ -118,11 +142,19 @@ public class CamelAwstranslateSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTODETECT_SOURCE_LANGUAGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTODETECT_SOURCE_LANGUAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTODETECT_SOURCE_LANGUAGE_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSTRANSLATE_COMPONENT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_HOST_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PORT_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_REGION_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_SECRET_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
-        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_CONFIGURATION_DOC);
         return conf;
     }
 }

@@ -15,7 +15,7 @@ When using camel-fhir-kafka-connector as source make sure to use the following M
 ----
 
 
-The camel-fhir source connector supports 50 options, which are listed below.
+The camel-fhir source connector supports 73 options, which are listed below.
 
 
 
@@ -48,12 +48,16 @@ The camel-fhir source connector supports 50 options, which are listed below.
 | *camel.source.endpoint.summary* | Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE] | null | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.source.endpoint.validationMode* | When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE] | "ONCE" | MEDIUM
+| *camel.source.endpoint.proxyHost* | The proxy host | null | MEDIUM
+| *camel.source.endpoint.proxyPassword* | The proxy password | null | MEDIUM
+| *camel.source.endpoint.proxyPort* | The proxy port | null | MEDIUM
+| *camel.source.endpoint.proxyUser* | The proxy username | null | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | MEDIUM
 | *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | MEDIUM
-| *camel.source.endpoint.delay* | Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 500L | MEDIUM
+| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 500L | MEDIUM
 | *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | MEDIUM
-| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 1000L | MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | MEDIUM
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
@@ -62,15 +66,34 @@ The camel-fhir source connector supports 50 options, which are listed below.
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
-| *camel.source.endpoint.proxyHost* | The proxy host | null | MEDIUM
-| *camel.source.endpoint.proxyPassword* | The proxy password | null | MEDIUM
-| *camel.source.endpoint.proxyPort* | The proxy port | null | MEDIUM
-| *camel.source.endpoint.proxyUser* | The proxy username | null | MEDIUM
 | *camel.source.endpoint.accessToken* | OAuth access token | null | MEDIUM
 | *camel.source.endpoint.password* | Username to use for basic authentication | null | MEDIUM
 | *camel.source.endpoint.username* | Username to use for basic authentication | null | MEDIUM
-| *camel.component.fhir.configuration* | To use the shared configuration | null | MEDIUM
+| *camel.component.fhir.encoding* | Encoding to use for all request One of: [JSON] [XML] | null | MEDIUM
+| *camel.component.fhir.fhirVersion* | The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5] | "R4" | MEDIUM
+| *camel.component.fhir.log* | Will log every requests and responses | false | MEDIUM
+| *camel.component.fhir.prettyPrint* | Pretty print all request | false | MEDIUM
+| *camel.component.fhir.serverUrl* | The FHIR server base URL | null | MEDIUM
 | *camel.component.fhir.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.fhir.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.fhir.client* | To use the custom client | null | MEDIUM
+| *camel.component.fhir.clientFactory* | To use the custom client factory | null | MEDIUM
+| *camel.component.fhir.compress* | Compresses outgoing (POST/PUT) contents to the GZIP format | false | MEDIUM
+| *camel.component.fhir.configuration* | To use the shared configuration | null | MEDIUM
+| *camel.component.fhir.connectionTimeout* | How long to try and establish the initial TCP connection (in ms) | "10000" | MEDIUM
+| *camel.component.fhir.deferModelScanning* | When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed. | false | MEDIUM
+| *camel.component.fhir.fhirContext* | FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly. | null | MEDIUM
+| *camel.component.fhir.forceConformanceCheck* | Force conformance check | false | MEDIUM
+| *camel.component.fhir.sessionCookie* | HTTP session cookie to add to every request | null | MEDIUM
+| *camel.component.fhir.socketTimeout* | How long to block for individual read/write operations (in ms) | "10000" | MEDIUM
+| *camel.component.fhir.summary* | Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE] | null | MEDIUM
+| *camel.component.fhir.validationMode* | When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE] | "ONCE" | MEDIUM
+| *camel.component.fhir.proxyHost* | The proxy host | null | MEDIUM
+| *camel.component.fhir.proxyPassword* | The proxy password | null | MEDIUM
+| *camel.component.fhir.proxyPort* | The proxy port | null | MEDIUM
+| *camel.component.fhir.proxyUser* | The proxy username | null | MEDIUM
+| *camel.component.fhir.accessToken* | OAuth access token | null | MEDIUM
+| *camel.component.fhir.password* | Username to use for basic authentication | null | MEDIUM
+| *camel.component.fhir.username* | Username to use for basic authentication | null | MEDIUM
 |===
 // kafka-connector options: END

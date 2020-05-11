@@ -77,18 +77,15 @@ public class CamelBraintreeSinkConnectorConfig
     public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_PUBLIC_KEY_CONF = "camel.sink.endpoint.publicKey";
     public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_PUBLIC_KEY_DOC = "The public key provided by Braintree.";
     public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_PUBLIC_KEY_DEFAULT = null;
-    public static final String CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_CONF = "camel.component.braintree.configuration";
-    public static final String CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_DOC = "To use the shared configuration";
-    public static final String CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_BRAINTREE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.braintree.lazyStartProducer";
     public static final String CAMEL_SINK_BRAINTREE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_BRAINTREE_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.braintree.basicPropertyBinding";
     public static final String CAMEL_SINK_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
-    public static final String CAMEL_SINK_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_CONF = "camel.component.braintree.logHandlerEnabled";
-    public static final String CAMEL_SINK_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_DOC = "Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to false where an existing JUL - SLF4J logger bridge is on the classpath.";
-    public static final Boolean CAMEL_SINK_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_CONF = "camel.component.braintree.configuration";
+    public static final String CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_DOC = "Component configuration";
+    public static final String CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_DEFAULT = null;
 
     public CamelBraintreeSinkConnectorConfig(
             ConfigDef config,
@@ -119,10 +116,9 @@ public class CamelBraintreeSinkConnectorConfig
         conf.define(CAMEL_SINK_BRAINTREE_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BRAINTREE_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BRAINTREE_ENDPOINT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SINK_BRAINTREE_ENDPOINT_PRIVATE_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BRAINTREE_ENDPOINT_PRIVATE_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BRAINTREE_ENDPOINT_PRIVATE_KEY_DOC);
         conf.define(CAMEL_SINK_BRAINTREE_ENDPOINT_PUBLIC_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BRAINTREE_ENDPOINT_PUBLIC_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BRAINTREE_ENDPOINT_PUBLIC_KEY_DOC);
-        conf.define(CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_BRAINTREE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BRAINTREE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BRAINTREE_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
-        conf.define(CAMEL_SINK_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_DOC);
+        conf.define(CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BRAINTREE_COMPONENT_CONFIGURATION_DOC);
         return conf;
     }
 }
