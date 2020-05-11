@@ -65,6 +65,21 @@ public class CamelBraintreeSourceConnectorConfig
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_BRAINTREE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_CONF = "camel.source.endpoint.httpLogLevel";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DOC = "Set logging level for http calls, see java.util.logging.Level";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DEFAULT = null;
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_CONF = "camel.source.endpoint.httpLogName";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DOC = "Set log category to use to log http calls.";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DEFAULT = "Braintree";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_CONF = "camel.source.endpoint.logHandlerEnabled";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_DOC = "Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to 'false' where an existing JUL - SLF4J logger bridge is on the classpath. This option can also be configured globally on the BraintreeComponent.";
+    public static final Boolean CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_CONF = "camel.source.endpoint.proxyHost";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_DOC = "The proxy host";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_DEFAULT = null;
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_CONF = "camel.source.endpoint.proxyPort";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_DOC = "The proxy port";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_DEFAULT = null;
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF = "camel.source.endpoint.backoffErrorThreshold";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC = "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.";
     public static final Integer CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT = null;
@@ -75,13 +90,13 @@ public class CamelBraintreeSourceConnectorConfig
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_MULTIPLIER_DOC = "To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured.";
     public static final Integer CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT = null;
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_DELAY_CONF = "camel.source.endpoint.delay";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll.";
     public static final Long CAMEL_SOURCE_BRAINTREE_ENDPOINT_DELAY_DEFAULT = 500L;
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_GREEDY_CONF = "camel.source.endpoint.greedy";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_GREEDY_DOC = "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.";
     public static final Boolean CAMEL_SOURCE_BRAINTREE_ENDPOINT_GREEDY_DEFAULT = false;
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_INITIAL_DELAY_CONF = "camel.source.endpoint.initialDelay";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts.";
     public static final Long CAMEL_SOURCE_BRAINTREE_ENDPOINT_INITIAL_DELAY_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_REPEAT_COUNT_CONF = "camel.source.endpoint.repeatCount";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_REPEAT_COUNT_DOC = "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.";
@@ -107,21 +122,6 @@ public class CamelBraintreeSourceConnectorConfig
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_USE_FIXED_DELAY_CONF = "camel.source.endpoint.useFixedDelay";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_USE_FIXED_DELAY_DOC = "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.";
     public static final Boolean CAMEL_SOURCE_BRAINTREE_ENDPOINT_USE_FIXED_DELAY_DEFAULT = true;
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_CONF = "camel.source.endpoint.httpLogLevel";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DOC = "Set logging level for http calls, see java.util.logging.Level";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DEFAULT = null;
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_CONF = "camel.source.endpoint.httpLogName";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DOC = "Set log category to use to log http calls.";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DEFAULT = "Braintree";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_CONF = "camel.source.endpoint.logHandlerEnabled";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_DOC = "Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to 'false' where an existing JUL - SLF4J logger bridge is on the classpath. This option can also be configured globally on the BraintreeComponent.";
-    public static final Boolean CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_DEFAULT = true;
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_CONF = "camel.source.endpoint.proxyHost";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_DOC = "The proxy host";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_DEFAULT = null;
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_CONF = "camel.source.endpoint.proxyPort";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_DOC = "The proxy port";
-    public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_DEFAULT = null;
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_ACCESS_TOKEN_CONF = "camel.source.endpoint.accessToken";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_ACCESS_TOKEN_DOC = "The access token granted by a merchant to another in order to process transactions on their behalf. Used in place of environment, merchant id, public key and private key fields.";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_ACCESS_TOKEN_DEFAULT = null;
@@ -131,18 +131,15 @@ public class CamelBraintreeSourceConnectorConfig
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PUBLIC_KEY_CONF = "camel.source.endpoint.publicKey";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PUBLIC_KEY_DOC = "The public key provided by Braintree.";
     public static final String CAMEL_SOURCE_BRAINTREE_ENDPOINT_PUBLIC_KEY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_CONF = "camel.component.braintree.configuration";
-    public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_DOC = "To use the shared configuration";
-    public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.braintree.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_BRAINTREE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.braintree.basicPropertyBinding";
     public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
-    public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_CONF = "camel.component.braintree.logHandlerEnabled";
-    public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_DOC = "Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to false where an existing JUL - SLF4J logger bridge is on the classpath.";
-    public static final Boolean CAMEL_SOURCE_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_CONF = "camel.component.braintree.configuration";
+    public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_DOC = "Component configuration";
+    public static final String CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_DEFAULT = null;
 
     public CamelBraintreeSourceConnectorConfig(
             ConfigDef config,
@@ -169,6 +166,11 @@ public class CamelBraintreeSourceConnectorConfig
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_READ_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_READ_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_READ_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_SYNCHRONOUS_DOC);
+        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DOC);
+        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DOC);
+        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_DOC);
+        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_MULTIPLIER_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_BACKOFF_MULTIPLIER_DOC);
@@ -183,18 +185,12 @@ public class CamelBraintreeSourceConnectorConfig
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_START_SCHEDULER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_ENDPOINT_START_SCHEDULER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_START_SCHEDULER_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_TIME_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_TIME_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_TIME_UNIT_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_USE_FIXED_DELAY_DOC);
-        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DOC);
-        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DOC);
-        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_LOG_HANDLER_ENABLED_DOC);
-        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_HOST_DOC);
-        conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_PRIVATE_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PRIVATE_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PRIVATE_KEY_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_ENDPOINT_PUBLIC_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PUBLIC_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_ENDPOINT_PUBLIC_KEY_DOC);
-        conf.define(CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
-        conf.define(CAMEL_SOURCE_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_COMPONENT_LOG_HANDLER_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BRAINTREE_COMPONENT_CONFIGURATION_DOC);
         return conf;
     }
 }

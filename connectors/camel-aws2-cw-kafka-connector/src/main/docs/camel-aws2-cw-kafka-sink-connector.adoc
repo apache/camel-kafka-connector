@@ -15,7 +15,7 @@ When using camel-aws2-cw-kafka-connector as sink make sure to use the following 
 ----
 
 
-The camel-aws2-cw sink connector supports 21 options, which are listed below.
+The camel-aws2-cw sink connector supports 29 options, which are listed below.
 
 
 
@@ -37,11 +37,19 @@ The camel-aws2-cw sink connector supports 21 options, which are listed below.
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
-| *camel.component.aws2-cw.accessKey* | Amazon AWS Access Key | null | MEDIUM
+| *camel.component.aws2-cw.amazonCwClient* | To use the AmazonCloudWatch as the client | null | MEDIUM
+| *camel.component.aws2-cw.configuration* | The component configuration | null | MEDIUM
 | *camel.component.aws2-cw.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.aws2-cw.region* | The region in which CW client needs to work | null | MEDIUM
-| *camel.component.aws2-cw.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+| *camel.component.aws2-cw.name* | The metric name | null | MEDIUM
+| *camel.component.aws2-cw.proxyHost* | To define a proxy host when instantiating the CW client | null | MEDIUM
+| *camel.component.aws2-cw.proxyPort* | To define a proxy port when instantiating the CW client | null | MEDIUM
+| *camel.component.aws2-cw.proxyProtocol* | To define a proxy protocol when instantiating the CW client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
+| *camel.component.aws2-cw.region* | The region in which EKS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
+| *camel.component.aws2-cw.timestamp* | The metric timestamp | null | MEDIUM
+| *camel.component.aws2-cw.unit* | The metric unit | null | MEDIUM
+| *camel.component.aws2-cw.value* | The metric value | null | MEDIUM
 | *camel.component.aws2-cw.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.component.aws2-cw.configuration* | The AWS CW default configuration | null | MEDIUM
+| *camel.component.aws2-cw.accessKey* | Amazon AWS Access Key | null | MEDIUM
+| *camel.component.aws2-cw.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
 // kafka-connector options: END

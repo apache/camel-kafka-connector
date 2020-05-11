@@ -56,6 +56,18 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
+        <!-- camel-ipfs and camel-weka -->
+        <repository>
+            <id>jboss.thirdparty</id>
+            <name>JBoss Thirdparty Repository</name>
+            <url>https://repository.jboss.org/nexus/service/local/repositories/thirdparty-releases/content/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
     </repositories>
 
     <build>
@@ -168,9 +180,13 @@
         <module>camel-aws2-ecs-kafka-connector</module>
         <module>camel-aws2-eks-kafka-connector</module>
         <module>camel-aws2-iam-kafka-connector</module>
+        <module>camel-aws2-kinesis-firehose-kafka-connector</module>
+        <module>camel-aws2-kinesis-kafka-connector</module>
         <module>camel-aws2-kms-kafka-connector</module>
+        <module>camel-aws2-lambda-kafka-connector</module>
         <module>camel-aws2-mq-kafka-connector</module>
         <module>camel-aws2-msk-kafka-connector</module>
+        <module>camel-aws2-s3-kafka-connector</module>
         <module>camel-aws2-ses-kafka-connector</module>
         <module>camel-aws2-sns-kafka-connector</module>
         <module>camel-aws2-sqs-kafka-connector</module>
@@ -232,7 +248,6 @@
         <module>camel-etcd-keys-kafka-connector</module>
         <module>camel-etcd-stats-kafka-connector</module>
         <module>camel-etcd-watch-kafka-connector</module>
-        <module>camel-eventadmin-kafka-connector</module>
         <module>camel-exec-kafka-connector</module>
         <module>camel-facebook-kafka-connector</module>
         <module>camel-fhir-kafka-connector</module>
@@ -371,7 +386,6 @@
         <module>camel-openstack-swift-kafka-connector</module>
         <module>camel-optaplanner-kafka-connector</module>
         <module>camel-paho-kafka-connector</module>
-        <module>camel-paxlogging-kafka-connector</module>
         <module>camel-pdf-kafka-connector</module>
         <module>camel-pg-replication-slot-kafka-connector</module>
         <module>camel-pgevent-kafka-connector</module>
@@ -418,7 +432,6 @@
         <module>camel-solrs-kafka-connector</module>
         <module>camel-soroush-kafka-connector</module>
         <module>camel-spark-kafka-connector</module>
-        <module>camel-spark-rest-kafka-connector</module>
         <module>camel-splunk-kafka-connector</module>
         <module>camel-spring-batch-kafka-connector</module>
         <module>camel-spring-event-kafka-connector</module>

@@ -23,7 +23,7 @@ The camel-nsq source connector supports 21 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.source.path.topic* | The NSQ topic | null | HIGH
-| *camel.source.endpoint.servers* | The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer). | null | MEDIUM
+| *camel.source.endpoint.servers* | The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer) | null | MEDIUM
 | *camel.source.endpoint.userAgent* | A String to identify the kind of client | null | MEDIUM
 | *camel.source.endpoint.autoFinish* | Automatically finish the NSQ Message when it is retrieved from the queue and before the Exchange is processed | "true" | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM

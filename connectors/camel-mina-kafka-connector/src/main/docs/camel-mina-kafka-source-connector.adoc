@@ -15,7 +15,7 @@ When using camel-mina-kafka-connector as source make sure to use the following M
 ----
 
 
-The camel-mina source connector supports 33 options, which are listed below.
+The camel-mina source connector supports 54 options, which are listed below.
 
 
 
@@ -51,9 +51,30 @@ The camel-mina source connector supports 33 options, which are listed below.
 | *camel.source.endpoint.textlineDelimiter* | Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC] | null | MEDIUM
 | *camel.source.endpoint.autoStartTls* | Whether to auto start SSL handshake. | true | MEDIUM
 | *camel.source.endpoint.sslContextParameters* | To configure SSL security. | null | MEDIUM
+| *camel.component.mina.disconnect* | Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer. | false | MEDIUM
+| *camel.component.mina.minaLogger* | You can enable the Apache MINA logging filter. Apache MINA uses slf4j logging at INFO level to log all input and output. | false | MEDIUM
+| *camel.component.mina.sync* | Setting to set endpoint as one-way or request-response. | true | MEDIUM
+| *camel.component.mina.timeout* | You can configure the timeout that specifies how long to wait for a response from a remote server. The timeout unit is in milliseconds, so 60000 is 60 seconds. | 30000L | MEDIUM
+| *camel.component.mina.writeTimeout* | Maximum amount of time it should take to send data to the MINA session. Default is 10000 milliseconds. | 10000L | MEDIUM
 | *camel.component.mina.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.mina.clientMode* | If the clientMode is true, mina consumer will connect the address as a TCP client. | false | MEDIUM
+| *camel.component.mina.disconnectOnNoReply* | If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back. | true | MEDIUM
+| *camel.component.mina.noReplyLogLevel* | If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "WARN" | MEDIUM
 | *camel.component.mina.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.mina.configuration* | To use the shared mina configuration. | null | MEDIUM
+| *camel.component.mina.maximumPoolSize* | Number of worker threads in the worker pool for TCP and UDP | 16 | MEDIUM
+| *camel.component.mina.orderedThreadPoolExecutor* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | MEDIUM
+| *camel.component.mina.transferExchange* | Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level. | false | MEDIUM
+| *camel.component.mina.allowDefaultCodec* | The mina component installs a default codec if both, codec is null and textline is false. Setting allowDefaultCodec to false prevents the mina component from installing a default codec as the first element in the filter chain. This is useful in scenarios where another filter must be the first in the filter chain, like the SSL filter. | true | MEDIUM
+| *camel.component.mina.codec* | To use a custom minda codec implementation. | null | MEDIUM
+| *camel.component.mina.decoderMaxLineLength* | To set the textline protocol decoder max line length. By default the default value of Mina itself is used which are 1024. | 1024 | MEDIUM
+| *camel.component.mina.encoderMaxLineLength* | To set the textline protocol encoder max line length. By default the default value of Mina itself is used which are Integer.MAX_VALUE. | -1 | MEDIUM
+| *camel.component.mina.encoding* | You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset | null | MEDIUM
+| *camel.component.mina.filters* | You can set a list of Mina IoFilters to use. | null | MEDIUM
+| *camel.component.mina.textline* | Only used for TCP. If no codec is specified, you can use this flag to indicate a text line based codec; if not specified or the value is false, then Object Serialization is assumed over TCP. | false | MEDIUM
+| *camel.component.mina.textlineDelimiter* | Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC] | null | MEDIUM
+| *camel.component.mina.autoStartTls* | Whether to auto start SSL handshake. | true | MEDIUM
+| *camel.component.mina.sslContextParameters* | To configure SSL security. | null | MEDIUM
 | *camel.component.mina.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
 // kafka-connector options: END

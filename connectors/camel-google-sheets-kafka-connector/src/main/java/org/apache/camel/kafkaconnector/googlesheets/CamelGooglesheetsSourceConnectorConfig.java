@@ -32,24 +32,15 @@ public class CamelGooglesheetsSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESHEETS_PATH_METHOD_NAME_CONF = "camel.source.path.methodName";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation One of: [create] [get] [update] [append] [batchUpdate] [clear]";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_PATH_METHOD_NAME_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_CONF = "camel.source.endpoint.accessToken";
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_DOC = "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.";
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_APPLICATION_NAME_CONF = "camel.source.endpoint.applicationName";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_APPLICATION_NAME_DOC = "Google Sheets application name. Example would be camel-google-sheets/1.0";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_APPLICATION_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_ID_CONF = "camel.source.endpoint.clientId";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_ID_DOC = "Client ID of the sheets application";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_ID_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_CONF = "camel.source.endpoint.clientSecret";
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_DOC = "Client secret of the sheets application";
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_IN_BODY_CONF = "camel.source.endpoint.inBody";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_IN_BODY_DOC = "Sets the name of a parameter to be passed in the exchange In Body";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_IN_BODY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_CONF = "camel.source.endpoint.refreshToken";
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_DOC = "OAuth 2 refresh token. Using this, the Google Sheets component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -81,13 +72,13 @@ public class CamelGooglesheetsSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_BACKOFF_MULTIPLIER_DOC = "To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured.";
     public static final Integer CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_DELAY_CONF = "camel.source.endpoint.delay";
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll.";
     public static final Long CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_DELAY_DEFAULT = 500L;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_GREEDY_CONF = "camel.source.endpoint.greedy";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_GREEDY_DOC = "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.";
     public static final Boolean CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_GREEDY_DEFAULT = false;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_INITIAL_DELAY_CONF = "camel.source.endpoint.initialDelay";
-    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts.";
     public static final Long CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_INITIAL_DELAY_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REPEAT_COUNT_CONF = "camel.source.endpoint.repeatCount";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REPEAT_COUNT_DOC = "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.";
@@ -113,6 +104,21 @@ public class CamelGooglesheetsSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_USE_FIXED_DELAY_CONF = "camel.source.endpoint.useFixedDelay";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_USE_FIXED_DELAY_DOC = "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.";
     public static final Boolean CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_USE_FIXED_DELAY_DEFAULT = true;
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_CONF = "camel.source.endpoint.accessToken";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_DOC = "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_CONF = "camel.source.endpoint.clientSecret";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_DOC = "Client secret of the sheets application";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_CONF = "camel.source.endpoint.refreshToken";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_DOC = "OAuth 2 refresh token. Using this, the Google Sheets component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_APPLICATION_NAME_CONF = "camel.component.google-sheets.applicationName";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_APPLICATION_NAME_DOC = "Google Sheets application name. Example would be camel-google-sheets/1.0";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_APPLICATION_NAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_ID_CONF = "camel.component.google-sheets.clientId";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_ID_DOC = "Client ID of the sheets application";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CONFIGURATION_CONF = "camel.component.google-sheets.configuration";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CONFIGURATION_DOC = "To use the shared configuration";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -125,6 +131,15 @@ public class CamelGooglesheetsSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_FACTORY_CONF = "camel.component.google-sheets.clientFactory";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_FACTORY_DOC = "To use the GoogleSheetsClientFactory as factory for creating the client. Will by default use BatchGoogleSheetsClientFactory";
     public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_FACTORY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_ACCESS_TOKEN_CONF = "camel.component.google-sheets.accessToken";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_ACCESS_TOKEN_DOC = "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_ACCESS_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_SECRET_CONF = "camel.component.google-sheets.clientSecret";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_SECRET_DOC = "Client secret of the sheets application";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_SECRET_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_REFRESH_TOKEN_CONF = "camel.component.google-sheets.refreshToken";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_REFRESH_TOKEN_DOC = "OAuth 2 refresh token. Using this, the Google Sheets component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
+    public static final String CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_REFRESH_TOKEN_DEFAULT = null;
 
     public CamelGooglesheetsSourceConnectorConfig(
             ConfigDef config,
@@ -141,12 +156,9 @@ public class CamelGooglesheetsSourceConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_PATH_API_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_PATH_API_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GOOGLESHEETS_PATH_API_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_PATH_METHOD_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_PATH_METHOD_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GOOGLESHEETS_PATH_METHOD_NAME_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_APPLICATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_APPLICATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_APPLICATION_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_ID_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_IN_BODY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_IN_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_IN_BODY_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_EXCEPTION_HANDLER_DOC);
@@ -168,10 +180,18 @@ public class CamelGooglesheetsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_START_SCHEDULER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_START_SCHEDULER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_START_SCHEDULER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_TIME_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_TIME_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_TIME_UNIT_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_USE_FIXED_DELAY_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_ACCESS_TOKEN_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_CLIENT_SECRET_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_ENDPOINT_REFRESH_TOKEN_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_APPLICATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_APPLICATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_APPLICATION_NAME_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_ID_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_FACTORY_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_ACCESS_TOKEN_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_CLIENT_SECRET_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_REFRESH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_REFRESH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETS_COMPONENT_REFRESH_TOKEN_DOC);
         return conf;
     }
 }

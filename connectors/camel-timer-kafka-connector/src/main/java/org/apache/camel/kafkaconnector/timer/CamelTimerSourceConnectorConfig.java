@@ -33,7 +33,7 @@ public class CamelTimerSourceConnectorConfig
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_TIMER_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_DELAY_CONF = "camel.source.endpoint.delay";
-    public static final String CAMEL_SOURCE_TIMER_ENDPOINT_DELAY_DOC = "Miliseconds before first event is triggered. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_TIMER_ENDPOINT_DELAY_DOC = "Milliseconds before first event is triggered.";
     public static final Long CAMEL_SOURCE_TIMER_ENDPOINT_DELAY_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_FIXED_RATE_CONF = "camel.source.endpoint.fixedRate";
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_FIXED_RATE_DOC = "Events take place at approximately regular intervals, separated by the specified period.";
@@ -42,7 +42,7 @@ public class CamelTimerSourceConnectorConfig
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_INCLUDE_METADATA_DOC = "Whether to include metadata in the exchange such as fired time, timer name, timer count etc. This information is default included.";
     public static final Boolean CAMEL_SOURCE_TIMER_ENDPOINT_INCLUDE_METADATA_DEFAULT = true;
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_PERIOD_CONF = "camel.source.endpoint.period";
-    public static final String CAMEL_SOURCE_TIMER_ENDPOINT_PERIOD_DOC = "If greater than 0, generate periodic events every period milliseconds. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_TIMER_ENDPOINT_PERIOD_DOC = "If greater than 0, generate periodic events every period milliseconds.";
     public static final Long CAMEL_SOURCE_TIMER_ENDPOINT_PERIOD_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_REPEAT_COUNT_CONF = "camel.source.endpoint.repeatCount";
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_REPEAT_COUNT_DOC = "Specifies a maximum limit of number of fires. So if you set it to 1, the timer will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.";

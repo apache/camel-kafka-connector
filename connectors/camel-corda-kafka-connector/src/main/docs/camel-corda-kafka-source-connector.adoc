@@ -15,7 +15,7 @@ When using camel-corda-kafka-connector as source make sure to use the following 
 ----
 
 
-The camel-corda source connector supports 18 options, which are listed below.
+The camel-corda source connector supports 27 options, which are listed below.
 
 
 
@@ -39,6 +39,15 @@ The camel-corda source connector supports 18 options, which are listed below.
 | *camel.source.endpoint.username* | Username for login | null | MEDIUM
 | *camel.component.corda.configuration* | To use a shared configuration. | null | MEDIUM
 | *camel.component.corda.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.corda.pageSpecification* | PageSpecification allows specification of a page number (starting from 1) and page size (defaulting to 200 with a maximum page size of (Integer.MAX_INT) Note: we default the page number to 200 to enable queries without requiring a page specification but enabling detection of large results sets that fall out of the 200 requirement. Max page size should be used with extreme caution as results may exceed your JVM memory footprint. | "200" | MEDIUM
+| *camel.component.corda.processSnapshot* | Whether to process snapshots or not | true | MEDIUM
+| *camel.component.corda.sort* | Sort allows specification of a set of entity attribute names and their associated directionality and null handling, to be applied upon processing a query specification. One of: [ASC] [DESC] | null | MEDIUM
+| *camel.component.corda.contractStateClass* | A contract state (or just state) contains opaque data used by a contract program. It can be thought of as a disk file that the program can use to persist data across transactions. States are immutable: once created they are never updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is responsible for ensuring there is no double spending by only signing a transaction if the input states are all free. | null | MEDIUM
+| *camel.component.corda.flowLogicArguments* | Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC. | null | MEDIUM
+| *camel.component.corda.flowLogicClass* | Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC. | null | MEDIUM
+| *camel.component.corda.queryCriteria* | QueryCriteria assumes underlying schema tables are correctly indexed for performance. | null | MEDIUM
 | *camel.component.corda.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.corda.password* | Password for login | null | MEDIUM
+| *camel.component.corda.username* | Username for login | null | MEDIUM
 |===
 // kafka-connector options: END

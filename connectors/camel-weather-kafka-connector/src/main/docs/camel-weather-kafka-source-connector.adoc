@@ -15,7 +15,7 @@ When using camel-weather-kafka-connector as source make sure to use the followin
 ----
 
 
-The camel-weather source connector supports 52 options, which are listed below.
+The camel-weather source connector supports 43 options, which are listed below.
 
 
 
@@ -36,22 +36,7 @@ The camel-weather source connector supports 52 options, which are listed below.
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | MEDIUM
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.httpConnectionManager* | To use a custom HttpConnectionManager to manage connections | null | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | MEDIUM
-| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | MEDIUM
-| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | MEDIUM
-| *camel.source.endpoint.delay* | Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 500L | MEDIUM
-| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | MEDIUM
-| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 1000L | MEDIUM
-| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
-| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
-| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
-| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
-| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
-| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
-| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
 | *camel.source.endpoint.cnt* | Number of results to be found | null | MEDIUM
 | *camel.source.endpoint.ids* | List of id's of city/stations. You can separate multiple ids by comma. | null | MEDIUM
 | *camel.source.endpoint.lat* | Latitude of location. You can use lat and lon options instead of location. For boxed queries this is the bottom latitude. | null | MEDIUM
@@ -61,18 +46,24 @@ The camel-weather source connector supports 52 options, which are listed below.
 | *camel.source.endpoint.topLat* | For boxed queries this is the top latitude. Needs to be used in combination with rightLon and zoom. | null | MEDIUM
 | *camel.source.endpoint.zip* | Zip-code, e.g. 94040,us | null | MEDIUM
 | *camel.source.endpoint.zoom* | For boxed queries this is the zoom. Needs to be used in combination with rightLon and topLat. | null | MEDIUM
-| *camel.source.endpoint.proxyAuthDomain* | Domain for proxy NTLM authentication | null | MEDIUM
-| *camel.source.endpoint.proxyAuthHost* | Optional host for proxy NTLM authentication | null | MEDIUM
-| *camel.source.endpoint.proxyAuthMethod* | Authentication method for proxy, either as Basic, Digest or NTLM. | null | MEDIUM
-| *camel.source.endpoint.proxyAuthPassword* | Password for proxy authentication | null | MEDIUM
-| *camel.source.endpoint.proxyAuthUsername* | Username for proxy authentication | null | MEDIUM
-| *camel.source.endpoint.proxyHost* | The proxy host name | null | MEDIUM
-| *camel.source.endpoint.proxyPort* | The proxy port number | null | MEDIUM
+| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | MEDIUM
+| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | MEDIUM
+| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | MEDIUM
+| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 500L | MEDIUM
+| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | MEDIUM
+| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
+| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
+| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
+| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
+| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
+| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
+| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
 | *camel.source.endpoint.geolocationAccessKey* | The geolocation service now needs an accessKey to be used | null | HIGH
 | *camel.source.endpoint.geolocationRequestHostIP* | The geolocation service now needs to specify the IP associated to the accessKey you're using | null | HIGH
-| *camel.component.weather.geolocationAccessKey* | The geolocation service now needs an accessKey to be used | null | MEDIUM
-| *camel.component.weather.geolocationRequestHostIP* | The geolocation service now needs to specify the IP associated to the accessKey you're using | null | MEDIUM
 | *camel.component.weather.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.weather.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.weather.httpClient* | To use an existing configured http client (for example with http proxy) | null | MEDIUM
 |===
 // kafka-connector options: END

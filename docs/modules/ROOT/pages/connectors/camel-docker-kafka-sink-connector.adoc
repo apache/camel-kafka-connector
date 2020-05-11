@@ -15,7 +15,7 @@ When using camel-docker-kafka-connector as sink make sure to use the following M
 ----
 
 
-The camel-docker sink connector supports 24 options, which are listed below.
+The camel-docker sink connector supports 41 options, which are listed below.
 
 
 
@@ -44,7 +44,24 @@ The camel-docker sink connector supports 24 options, which are listed below.
 | *camel.sink.endpoint.tlsVerify* | Check TLS | false | MEDIUM
 | *camel.sink.endpoint.username* | User name to authenticate with | null | MEDIUM
 | *camel.component.docker.configuration* | To use the shared docker configuration | null | MEDIUM
+| *camel.component.docker.email* | Email address associated with the user | null | MEDIUM
+| *camel.component.docker.host* | Docker host | "localhost" | HIGH
+| *camel.component.docker.port* | Docker port | "2375" | MEDIUM
+| *camel.component.docker.requestTimeout* | Request timeout for response (in seconds) | null | MEDIUM
 | *camel.component.docker.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.docker.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.docker.cmdExecFactory* | The fully qualified class name of the DockerCmdExecFactory implementation to use | "com.github.dockerjava.netty.NettyDockerCmdExecFactory" | MEDIUM
+| *camel.component.docker.followRedirectFilter* | Whether to follow redirect filter | false | MEDIUM
+| *camel.component.docker.loggingFilter* | Whether to use logging filter | false | MEDIUM
+| *camel.component.docker.maxPerRouteConnections* | Maximum route connections | "100" | MEDIUM
+| *camel.component.docker.maxTotalConnections* | Maximum total connections | "100" | MEDIUM
+| *camel.component.docker.parameters* | Additional configuration parameters as key/value pairs | null | MEDIUM
+| *camel.component.docker.serverAddress* | Server address for docker registry. | "https://index.docker.io/v1/" | MEDIUM
+| *camel.component.docker.socket* | Socket connection mode | true | MEDIUM
+| *camel.component.docker.certPath* | Location containing the SSL certificate chain | null | MEDIUM
+| *camel.component.docker.password* | Password to authenticate with | null | MEDIUM
+| *camel.component.docker.secure* | Use HTTPS communication | false | MEDIUM
+| *camel.component.docker.tlsVerify* | Check TLS | false | MEDIUM
+| *camel.component.docker.username* | User name to authenticate with | null | MEDIUM
 |===
 // kafka-connector options: END

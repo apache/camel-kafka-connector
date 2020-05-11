@@ -50,6 +50,18 @@ public class CamelAzurequeueSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_CONF = "camel.source.endpoint.credentialsAccountKey";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_DOC = "Set the storage account key used during authentication phase";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_CONF = "camel.source.endpoint.credentialsAccountName";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_DOC = "Set the storage account name used during authentication phase";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_AZURE_QUEUE_CLIENT_CONF = "camel.component.azure-queue.azureQueueClient";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_AZURE_QUEUE_CLIENT_DOC = "The queue service client";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_AZURE_QUEUE_CLIENT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_CONF = "camel.component.azure-queue.credentials";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_DOC = "Set the storage credentials, required in most cases";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.azure-queue.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -59,6 +71,12 @@ public class CamelAzurequeueSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CONFIGURATION_CONF = "camel.component.azure-queue.configuration";
     public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CONFIGURATION_DOC = "The Queue Service configuration";
     public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_KEY_CONF = "camel.component.azure-queue.credentialsAccountKey";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_KEY_DOC = "Set the storage account key used during authentication phase";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_NAME_CONF = "camel.component.azure-queue.credentialsAccountName";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_NAME_DOC = "Set the storage account name used during authentication phase";
+    public static final String CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_NAME_DEFAULT = null;
 
     public CamelAzurequeueSourceConnectorConfig(
             ConfigDef config,
@@ -80,9 +98,15 @@ public class CamelAzurequeueSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_SYNCHRONOUS_DOC);
+        conf.define(CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_DOC);
+        conf.define(CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_DOC);
+        conf.define(CAMEL_SOURCE_AZUREQUEUE_COMPONENT_AZURE_QUEUE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_AZURE_QUEUE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_AZURE_QUEUE_CLIENT_DOC);
+        conf.define(CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_DOC);
         conf.define(CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CONFIGURATION_DOC);
+        conf.define(CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_KEY_DOC);
+        conf.define(CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_COMPONENT_CREDENTIALS_ACCOUNT_NAME_DOC);
         return conf;
     }
 }

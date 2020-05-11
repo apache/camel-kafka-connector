@@ -62,10 +62,16 @@ public class CamelStompSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_STOMP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_STOMP_COMPONENT_BROKER_URLCONF = "camel.component.stomp.brokerURL";
     public static final String CAMEL_SINK_STOMP_COMPONENT_BROKER_URLDOC = "The URI of the Stomp broker to connect to";
-    public static final String CAMEL_SINK_STOMP_COMPONENT_BROKER_URLDEFAULT = null;
+    public static final String CAMEL_SINK_STOMP_COMPONENT_BROKER_URLDEFAULT = "tcp://localhost:61613";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_CUSTOM_HEADERS_CONF = "camel.component.stomp.customHeaders";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_CUSTOM_HEADERS_DOC = "To set custom headers";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_CUSTOM_HEADERS_DEFAULT = null;
     public static final String CAMEL_SINK_STOMP_COMPONENT_HOST_CONF = "camel.component.stomp.host";
-    public static final String CAMEL_SINK_STOMP_COMPONENT_HOST_DOC = "The virtual host";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_HOST_DOC = "The virtual host name";
     public static final String CAMEL_SINK_STOMP_COMPONENT_HOST_DEFAULT = null;
+    public static final String CAMEL_SINK_STOMP_COMPONENT_VERSION_CONF = "camel.component.stomp.version";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_VERSION_DOC = "The stomp version (1.1, or 1.2)";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_VERSION_DEFAULT = null;
     public static final String CAMEL_SINK_STOMP_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.stomp.lazyStartProducer";
     public static final String CAMEL_SINK_STOMP_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_STOMP_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -73,7 +79,7 @@ public class CamelStompSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_STOMP_COMPONENT_CONFIGURATION_CONF = "camel.component.stomp.configuration";
-    public static final String CAMEL_SINK_STOMP_COMPONENT_CONFIGURATION_DOC = "To use the shared stomp configuration";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_CONFIGURATION_DOC = "Component configuration.";
     public static final String CAMEL_SINK_STOMP_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_STOMP_COMPONENT_HEADER_FILTER_STRATEGY_CONF = "camel.component.stomp.headerFilterStrategy";
     public static final String CAMEL_SINK_STOMP_COMPONENT_HEADER_FILTER_STRATEGY_DOC = "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.";
@@ -84,6 +90,9 @@ public class CamelStompSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_STOMP_COMPONENT_PASSCODE_CONF = "camel.component.stomp.passcode";
     public static final String CAMEL_SINK_STOMP_COMPONENT_PASSCODE_DOC = "The password";
     public static final String CAMEL_SINK_STOMP_COMPONENT_PASSCODE_DEFAULT = null;
+    public static final String CAMEL_SINK_STOMP_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF = "camel.component.stomp.sslContextParameters";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC = "To configure security using SSLContextParameters";
+    public static final String CAMEL_SINK_STOMP_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_STOMP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF = "camel.component.stomp.useGlobalSslContextParameters";
     public static final String CAMEL_SINK_STOMP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC = "Enable usage of global SSL context parameters.";
     public static final Boolean CAMEL_SINK_STOMP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT = false;
@@ -112,14 +121,17 @@ public class CamelStompSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_STOMP_ENDPOINT_LOGIN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_ENDPOINT_LOGIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_ENDPOINT_LOGIN_DOC);
         conf.define(CAMEL_SINK_STOMP_ENDPOINT_PASSCODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_ENDPOINT_PASSCODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_ENDPOINT_PASSCODE_DOC);
         conf.define(CAMEL_SINK_STOMP_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
-        conf.define(CAMEL_SINK_STOMP_COMPONENT_BROKER_URLCONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_BROKER_URLDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_BROKER_URLDOC);
+        conf.define(CAMEL_SINK_STOMP_COMPONENT_BROKER_URLCONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_BROKER_URLDEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_STOMP_COMPONENT_BROKER_URLDOC);
+        conf.define(CAMEL_SINK_STOMP_COMPONENT_CUSTOM_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_CUSTOM_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_CUSTOM_HEADERS_DOC);
         conf.define(CAMEL_SINK_STOMP_COMPONENT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_HOST_DOC);
+        conf.define(CAMEL_SINK_STOMP_COMPONENT_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_VERSION_DOC);
         conf.define(CAMEL_SINK_STOMP_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STOMP_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_STOMP_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_STOMP_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_STOMP_COMPONENT_LOGIN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_LOGIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_LOGIN_DOC);
         conf.define(CAMEL_SINK_STOMP_COMPONENT_PASSCODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_PASSCODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_PASSCODE_DOC);
+        conf.define(CAMEL_SINK_STOMP_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STOMP_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_STOMP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STOMP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STOMP_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
         return conf;
     }

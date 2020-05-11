@@ -92,9 +92,6 @@ public class CamelWebsocketSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_CONF = "camel.component.websocket.port";
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_DOC = "The port number. The default value is 9292";
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_DEFAULT = "9292";
-    public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_SOCKET_FACTORY_CONF = "camel.component.websocket.socketFactory";
-    public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_SOCKET_FACTORY_DOC = "To configure a map which contains custom WebSocketFactory for sub protocols. The key in the map is the sub protocol. The default key is reserved for the default implementation.";
-    public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_SOCKET_FACTORY_DEFAULT = null;
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.websocket.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -166,7 +163,6 @@ public class CamelWebsocketSourceConnectorConfig
         conf.define(CAMEL_SOURCE_WEBSOCKET_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_COMPONENT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_HOST_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_DOC);
-        conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_SOCKET_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_COMPONENT_SOCKET_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_SOCKET_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DOC);

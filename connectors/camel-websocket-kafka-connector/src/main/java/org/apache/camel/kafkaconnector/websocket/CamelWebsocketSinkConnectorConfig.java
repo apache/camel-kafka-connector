@@ -86,9 +86,6 @@ public class CamelWebsocketSinkConnectorConfig
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_CONF = "camel.component.websocket.port";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_DOC = "The port number. The default value is 9292";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_DEFAULT = "9292";
-    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_SOCKET_FACTORY_CONF = "camel.component.websocket.socketFactory";
-    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_SOCKET_FACTORY_DOC = "To configure a map which contains custom WebSocketFactory for sub protocols. The key in the map is the sub protocol. The default key is reserved for the default implementation.";
-    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_SOCKET_FACTORY_DEFAULT = null;
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.websocket.lazyStartProducer";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -155,7 +152,6 @@ public class CamelWebsocketSinkConnectorConfig
         conf.define(CAMEL_SINK_WEBSOCKET_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_HOST_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_DOC);
-        conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_SOCKET_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_SOCKET_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_SOCKET_FACTORY_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_DOC);

@@ -63,29 +63,41 @@ public class CamelEtcdkeysSinkConnectorConfig
     public static final String CAMEL_SINK_ETCDKEYS_ENDPOINT_USER_NAME_DOC = "The user name to use for basic authentication.";
     public static final String CAMEL_SINK_ETCDKEYS_ENDPOINT_USER_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_CONFIGURATION_CONF = "camel.component.etcd-keys.configuration";
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_CONFIGURATION_DOC = "Sets the common configuration shared among endpoints";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_CONFIGURATION_DOC = "Component configuration.";
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.etcd-keys.lazyStartProducer";
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_ETCDKEYS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_RECURSIVE_CONF = "camel.component.etcd-keys.recursive";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_RECURSIVE_DOC = "To apply an action recursively.";
+    public static final Boolean CAMEL_SINK_ETCDKEYS_COMPONENT_RECURSIVE_DEFAULT = false;
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_SERVICE_PATH_CONF = "camel.component.etcd-keys.servicePath";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_SERVICE_PATH_DOC = "The path to look for for service discovery";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_SERVICE_PATH_DEFAULT = "/services/";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_TIMEOUT_CONF = "camel.component.etcd-keys.timeout";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_TIMEOUT_DOC = "To set the maximum time an action could take to complete.";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_TIMEOUT_DEFAULT = null;
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_CONF = "camel.component.etcd-keys.uris";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_DOC = "To set the URIs the client connects.";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_DEFAULT = "http://localhost:2379,http://localhost:4001";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_TIME_TO_LIVE_CONF = "camel.component.etcd-keys.timeToLive";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_TIME_TO_LIVE_DOC = "To set the lifespan of a key in milliseconds.";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_TIME_TO_LIVE_DEFAULT = null;
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.etcd-keys.basicPropertyBinding";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    public static final Boolean CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_PASSWORD_CONF = "camel.component.etcd-keys.password";
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_PASSWORD_DOC = "The password to use for basic authentication.";
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_PASSWORD_DEFAULT = null;
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF = "camel.component.etcd-keys.sslContextParameters";
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC = "To configure security using SSLContextParameters.";
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_CONF = "camel.component.etcd-keys.uris";
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_DOC = "To set the URIs the client connects.";
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_DEFAULT = null;
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_CONF = "camel.component.etcd-keys.userName";
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_DOC = "The user name to use for basic authentication.";
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.etcd-keys.basicPropertyBinding";
-    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF = "camel.component.etcd-keys.useGlobalSslContextParameters";
     public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC = "Enable usage of global SSL context parameters.";
     public static final Boolean CAMEL_SINK_ETCDKEYS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT = false;
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_CONF = "camel.component.etcd-keys.userName";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_DOC = "The user name to use for basic authentication.";
+    public static final String CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_DEFAULT = null;
 
     public CamelEtcdkeysSinkConnectorConfig(
             ConfigDef config,
@@ -113,12 +125,16 @@ public class CamelEtcdkeysSinkConnectorConfig
         conf.define(CAMEL_SINK_ETCDKEYS_ENDPOINT_USER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_ENDPOINT_USER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_ENDPOINT_USER_NAME_DOC);
         conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDKEYS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_RECURSIVE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDKEYS_COMPONENT_RECURSIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_RECURSIVE_DOC);
+        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_SERVICE_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_SERVICE_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_SERVICE_PATH_DOC);
+        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_TIMEOUT_DOC);
+        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_DOC);
+        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_TIME_TO_LIVE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_TIME_TO_LIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_TIME_TO_LIVE_DOC);
+        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
-        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_URIS_DOC);
-        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_DOC);
-        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDKEYS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
+        conf.define(CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDKEYS_COMPONENT_USER_NAME_DOC);
         return conf;
     }
 }

@@ -15,7 +15,7 @@ When using camel-olingo4-kafka-connector as source make sure to use the followin
 ----
 
 
-The camel-olingo4 source connector supports 39 options, which are listed below.
+The camel-olingo4 source connector supports 50 options, which are listed below.
 
 
 
@@ -27,14 +27,11 @@ The camel-olingo4 source connector supports 39 options, which are listed below.
 | *camel.source.endpoint.connectTimeout* | HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | MEDIUM
 | *camel.source.endpoint.contentType* | Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8 | "application/json;charset=utf-8" | MEDIUM
 | *camel.source.endpoint.filterAlreadySeen* | Set this to true to filter out results that have already been communicated by this component. | false | MEDIUM
-| *camel.source.endpoint.httpAsyncClientBuilder* | Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | MEDIUM
-| *camel.source.endpoint.httpClientBuilder* | Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | MEDIUM
 | *camel.source.endpoint.httpHeaders* | Custom HTTP headers to inject into every request, this could include OAuth tokens, etc. | null | MEDIUM
 | *camel.source.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | MEDIUM
 | *camel.source.endpoint.proxy* | HTTP proxy server configuration | null | MEDIUM
 | *camel.source.endpoint.serviceUri* | Target OData service base URI, e.g. \http://services.odata.org/OData/OData.svc | null | MEDIUM
 | *camel.source.endpoint.socketTimeout* | HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | MEDIUM
-| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | MEDIUM
 | *camel.source.endpoint.splitResult* | For endpoints that return an array or collection, a consumer endpoint will map every element to distinct messages, unless splitResult is set to false. | true | MEDIUM
@@ -42,13 +39,15 @@ The camel-olingo4 source connector supports 39 options, which are listed below.
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | MEDIUM
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.httpAsyncClientBuilder* | Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | MEDIUM
+| *camel.source.endpoint.httpClientBuilder* | Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | MEDIUM
 | *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | MEDIUM
-| *camel.source.endpoint.delay* | Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 500L | MEDIUM
+| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 500L | MEDIUM
 | *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | MEDIUM
-| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 1000L | MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | MEDIUM
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
@@ -57,9 +56,21 @@ The camel-olingo4 source connector supports 39 options, which are listed below.
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
 | *camel.component.olingo4.configuration* | To use the shared configuration | null | MEDIUM
+| *camel.component.olingo4.connectTimeout* | HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | MEDIUM
+| *camel.component.olingo4.contentType* | Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8 | "application/json;charset=utf-8" | MEDIUM
+| *camel.component.olingo4.filterAlreadySeen* | Set this to true to filter out results that have already been communicated by this component. | false | MEDIUM
+| *camel.component.olingo4.httpHeaders* | Custom HTTP headers to inject into every request, this could include OAuth tokens, etc. | null | MEDIUM
+| *camel.component.olingo4.proxy* | HTTP proxy server configuration | null | MEDIUM
+| *camel.component.olingo4.serviceUri* | Target OData service base URI, e.g. \http://services.odata.org/OData/OData.svc | null | MEDIUM
+| *camel.component.olingo4.socketTimeout* | HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | MEDIUM
 | *camel.component.olingo4.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.olingo4.splitResult* | For endpoints that return an array or collection, a consumer endpoint will map every element to distinct messages, unless splitResult is set to false. | true | MEDIUM
 | *camel.component.olingo4.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.olingo4.httpAsyncClientBuilder* | Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | MEDIUM
+| *camel.component.olingo4.httpClientBuilder* | Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely | null | MEDIUM
+| *camel.component.olingo4.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
 | *camel.component.olingo4.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
 // kafka-connector options: END

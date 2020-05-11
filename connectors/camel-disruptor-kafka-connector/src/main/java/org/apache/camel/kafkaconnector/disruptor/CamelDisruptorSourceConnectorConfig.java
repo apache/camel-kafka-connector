@@ -59,9 +59,6 @@ public class CamelDisruptorSourceConnectorConfig
     public static final String CAMEL_SOURCE_DISRUPTOR_COMPONENT_BUFFER_SIZE_CONF = "camel.component.disruptor.bufferSize";
     public static final String CAMEL_SOURCE_DISRUPTOR_COMPONENT_BUFFER_SIZE_DOC = "To configure the ring buffer size";
     public static final Integer CAMEL_SOURCE_DISRUPTOR_COMPONENT_BUFFER_SIZE_DEFAULT = 1024;
-    public static final String CAMEL_SOURCE_DISRUPTOR_COMPONENT_QUEUE_SIZE_CONF = "camel.component.disruptor.queueSize";
-    public static final String CAMEL_SOURCE_DISRUPTOR_COMPONENT_QUEUE_SIZE_DOC = "To configure the ring buffer size";
-    public static final Integer CAMEL_SOURCE_DISRUPTOR_COMPONENT_QUEUE_SIZE_DEFAULT = null;
     public static final String CAMEL_SOURCE_DISRUPTOR_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.disruptor.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_DISRUPTOR_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_DISRUPTOR_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -101,7 +98,6 @@ public class CamelDisruptorSourceConnectorConfig
         conf.define(CAMEL_SOURCE_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_DISRUPTOR_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_DISRUPTOR_COMPONENT_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_DISRUPTOR_COMPONENT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DISRUPTOR_COMPONENT_BUFFER_SIZE_DOC);
-        conf.define(CAMEL_SOURCE_DISRUPTOR_COMPONENT_QUEUE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_DISRUPTOR_COMPONENT_QUEUE_SIZE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_DISRUPTOR_COMPONENT_QUEUE_SIZE_DOC);
         conf.define(CAMEL_SOURCE_DISRUPTOR_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_DISRUPTOR_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DISRUPTOR_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_DISRUPTOR_COMPONENT_DEFAULT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_DISRUPTOR_COMPONENT_DEFAULT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DISRUPTOR_COMPONENT_DEFAULT_CONCURRENT_CONSUMERS_DOC);
         conf.define(CAMEL_SOURCE_DISRUPTOR_COMPONENT_DEFAULT_MULTIPLE_CONSUMERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_DISRUPTOR_COMPONENT_DEFAULT_MULTIPLE_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DISRUPTOR_COMPONENT_DEFAULT_MULTIPLE_CONSUMERS_DOC);

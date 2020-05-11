@@ -15,7 +15,7 @@ When using camel-wordpress-kafka-connector as sink make sure to use the followin
 ----
 
 
-The camel-wordpress sink connector supports 16 options, which are listed below.
+The camel-wordpress sink connector supports 24 options, which are listed below.
 
 
 
@@ -35,6 +35,14 @@ The camel-wordpress sink connector supports 16 options, which are listed below.
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.wordpress.apiVersion* | The Wordpress REST API version | "2" | MEDIUM
+| *camel.component.wordpress.criteria* | The criteria to use with complex searches. | null | MEDIUM
+| *camel.component.wordpress.force* | Whether to bypass trash and force deletion. | false | MEDIUM
+| *camel.component.wordpress.id* | The entity ID. Should be passed when the operation performed requires a specific entity, e.g. deleting a post | null | MEDIUM
+| *camel.component.wordpress.password* | Password from authorized user | null | MEDIUM
+| *camel.component.wordpress.searchCriteria* | Search criteria | null | MEDIUM
+| *camel.component.wordpress.url* | The Wordpress API URL from your site, e.g. \http://myblog.com/wp-json/ | null | HIGH
+| *camel.component.wordpress.user* | Authorized user to perform writing operations | null | MEDIUM
 | *camel.component.wordpress.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.wordpress.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.wordpress.configuration* | Wordpress component configuration | null | MEDIUM

@@ -15,7 +15,7 @@ When using camel-pulsar-kafka-connector as sink make sure to use the following M
 ----
 
 
-The camel-pulsar sink connector supports 23 options, which are listed below.
+The camel-pulsar sink connector supports 38 options, which are listed below.
 
 
 
@@ -26,6 +26,7 @@ The camel-pulsar sink connector supports 23 options, which are listed below.
 | *camel.sink.path.tenant* | The tenant | null | HIGH
 | *camel.sink.path.namespace* | The namespace | null | HIGH
 | *camel.sink.path.topic* | The topic | null | HIGH
+| *camel.sink.endpoint.batcherBuilder* | Control batching method used by the producer. | "DEFAULT" | MEDIUM
 | *camel.sink.endpoint.batchingEnabled* | Control whether automatic batching of messages is enabled for the producer. | true | MEDIUM
 | *camel.sink.endpoint.batchingMaxMessages* | The maximum size to batch messages. | 1000 | MEDIUM
 | *camel.sink.endpoint.batchingMaxPublishDelayMicros* | The maximum time period within which the messages sent will be batched if batchingEnabled is true. | 1000L | MEDIUM
@@ -40,8 +41,22 @@ The camel-pulsar sink connector supports 23 options, which are listed below.
 | *camel.sink.endpoint.producerName* | Name of the producer. If unset, lets Pulsar select a unique identifier. | null | MEDIUM
 | *camel.sink.endpoint.sendTimeoutMs* | Send timeout in milliseconds | 30000 | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | true | MEDIUM
+| *camel.component.pulsar.configuration* | Allows to pre-configure the Pulsar component with common options that the endpoints will reuse. | null | MEDIUM
+| *camel.component.pulsar.batcherBuilder* | Control batching method used by the producer. | "DEFAULT" | MEDIUM
+| *camel.component.pulsar.batchingEnabled* | Control whether automatic batching of messages is enabled for the producer. | true | MEDIUM
+| *camel.component.pulsar.batchingMaxMessages* | The maximum size to batch messages. | 1000 | MEDIUM
+| *camel.component.pulsar.batchingMaxPublishDelay Micros* | The maximum time period within which the messages sent will be batched if batchingEnabled is true. | 1000L | MEDIUM
+| *camel.component.pulsar.blockIfQueueFull* | Whether to block the producing thread if pending messages queue is full or to throw a ProducerQueueIsFullError | false | MEDIUM
+| *camel.component.pulsar.compressionType* | Compression type to use One of: [NONE] [LZ4] [ZLIB] [ZSTD] [SNAPPY] | "NONE" | MEDIUM
+| *camel.component.pulsar.initialSequenceId* | The first message published will have a sequence Id of initialSequenceId 1. | -1L | MEDIUM
 | *camel.component.pulsar.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.pulsar.maxPendingMessages* | Size of the pending massages queue. When the queue is full, by default, any further sends will fail unless blockIfQueueFull=true | 1000 | MEDIUM
+| *camel.component.pulsar.maxPendingMessagesAcross Partitions* | The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition. | 50000 | MEDIUM
+| *camel.component.pulsar.messageRouter* | Custom Message Router to use | null | MEDIUM
+| *camel.component.pulsar.messageRoutingMode* | Message Routing Mode to use One of: [SinglePartition] [RoundRobinPartition] [CustomPartition] | "RoundRobinPartition" | MEDIUM
+| *camel.component.pulsar.producerName* | Name of the producer. If unset, lets Pulsar select a unique identifier. | null | MEDIUM
+| *camel.component.pulsar.sendTimeoutMs* | Send timeout in milliseconds | 30000 | MEDIUM
 | *camel.component.pulsar.autoConfiguration* | The pulsar auto configuration | null | MEDIUM
 | *camel.component.pulsar.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.pulsar.pulsarClient* | The pulsar client | null | MEDIUM

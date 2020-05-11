@@ -66,13 +66,13 @@ public class CamelJooqSourceConnectorConfig
     public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_BACKOFF_MULTIPLIER_DOC = "To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured.";
     public static final Integer CAMEL_SOURCE_JOOQ_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT = null;
     public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_DELAY_CONF = "camel.source.endpoint.delay";
-    public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_DELAY_DOC = "Milliseconds before the next poll.";
     public static final Long CAMEL_SOURCE_JOOQ_ENDPOINT_DELAY_DEFAULT = 500L;
     public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_GREEDY_CONF = "camel.source.endpoint.greedy";
     public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_GREEDY_DOC = "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.";
     public static final Boolean CAMEL_SOURCE_JOOQ_ENDPOINT_GREEDY_DEFAULT = false;
     public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_INITIAL_DELAY_CONF = "camel.source.endpoint.initialDelay";
-    public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).";
+    public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_INITIAL_DELAY_DOC = "Milliseconds before the first poll starts.";
     public static final Long CAMEL_SOURCE_JOOQ_ENDPOINT_INITIAL_DELAY_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_REPEAT_COUNT_CONF = "camel.source.endpoint.repeatCount";
     public static final String CAMEL_SOURCE_JOOQ_ENDPOINT_REPEAT_COUNT_DOC = "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.";
@@ -101,9 +101,15 @@ public class CamelJooqSourceConnectorConfig
     public static final String CAMEL_SOURCE_JOOQ_COMPONENT_CONFIGURATION_CONF = "camel.component.jooq.configuration";
     public static final String CAMEL_SOURCE_JOOQ_COMPONENT_CONFIGURATION_DOC = "Component configuration (database connection, database entity type, etc.)";
     public static final String CAMEL_SOURCE_JOOQ_COMPONENT_CONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_JOOQ_COMPONENT_DATABASE_CONFIGURATION_CONF = "camel.component.jooq.databaseConfiguration";
+    public static final String CAMEL_SOURCE_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DOC = "To use a specific database configuration";
+    public static final String CAMEL_SOURCE_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SOURCE_JOOQ_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.jooq.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_JOOQ_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_JOOQ_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    public static final String CAMEL_SOURCE_JOOQ_COMPONENT_CONSUME_DELETE_CONF = "camel.component.jooq.consumeDelete";
+    public static final String CAMEL_SOURCE_JOOQ_COMPONENT_CONSUME_DELETE_DOC = "Delete entity after it is consumed";
+    public static final Boolean CAMEL_SOURCE_JOOQ_COMPONENT_CONSUME_DELETE_DEFAULT = true;
     public static final String CAMEL_SOURCE_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.jooq.basicPropertyBinding";
     public static final String CAMEL_SOURCE_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
@@ -145,7 +151,9 @@ public class CamelJooqSourceConnectorConfig
         conf.define(CAMEL_SOURCE_JOOQ_ENDPOINT_TIME_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JOOQ_ENDPOINT_TIME_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JOOQ_ENDPOINT_TIME_UNIT_DOC);
         conf.define(CAMEL_SOURCE_JOOQ_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JOOQ_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JOOQ_ENDPOINT_USE_FIXED_DELAY_DOC);
         conf.define(CAMEL_SOURCE_JOOQ_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JOOQ_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JOOQ_COMPONENT_CONFIGURATION_DOC);
+        conf.define(CAMEL_SOURCE_JOOQ_COMPONENT_DATABASE_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_JOOQ_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JOOQ_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JOOQ_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
+        conf.define(CAMEL_SOURCE_JOOQ_COMPONENT_CONSUME_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JOOQ_COMPONENT_CONSUME_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JOOQ_COMPONENT_CONSUME_DELETE_DOC);
         conf.define(CAMEL_SOURCE_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         return conf;
     }

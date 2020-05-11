@@ -43,12 +43,16 @@ The camel-twitter-search source connector supports 54 options, which are listed 
 | *camel.source.endpoint.numberOfPages* | The number of pages result which you want camel-twitter to consume. | "1" | MEDIUM
 | *camel.source.endpoint.sinceId* | The last tweet id which will be used for pulling the tweets. It is useful when the camel route is restarted after a long running. | 1L | MEDIUM
 | *camel.source.endpoint.userIds* | To filter by user ids for filter. Multiple values can be separated by comma. | null | MEDIUM
+| *camel.source.endpoint.httpProxyHost* | The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
+| *camel.source.endpoint.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
+| *camel.source.endpoint.httpProxyPort* | The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
+| *camel.source.endpoint.httpProxyUser* | The http proxy user which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | MEDIUM
 | *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | MEDIUM
 | *camel.source.endpoint.delay* | Milliseconds before the next poll. | 30000L | MEDIUM
 | *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | MEDIUM
-| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour). | 1000L | MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | MEDIUM
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
@@ -57,15 +61,11 @@ The camel-twitter-search source connector supports 54 options, which are listed 
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
-| *camel.source.endpoint.sortById* | Sorts by id, so the oldest are first, and newest last. | true | MEDIUM
-| *camel.source.endpoint.httpProxyHost* | The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
-| *camel.source.endpoint.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
-| *camel.source.endpoint.httpProxyPort* | The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
-| *camel.source.endpoint.httpProxyUser* | The http proxy user which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
 | *camel.source.endpoint.accessToken* | The access token. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
 | *camel.source.endpoint.accessTokenSecret* | The access secret. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
 | *camel.source.endpoint.consumerKey* | The consumer key. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
 | *camel.source.endpoint.consumerSecret* | The consumer secret. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
+| *camel.source.endpoint.sortById* | Sorts by id, so the oldest are first, and newest last. | true | MEDIUM
 | *camel.component.twitter-search.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.twitter-search.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.twitter-search.httpProxyHost* | The http proxy host which can be used for the camel-twitter. | null | MEDIUM

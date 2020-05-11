@@ -53,6 +53,9 @@ public class CamelInfluxdbSinkConnectorConfig
     public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_INFLUXDB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_INFLUXDB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    public static final String CAMEL_SINK_INFLUXDB_COMPONENT_INFLUX_DBCONF = "camel.component.influxdb.influxDB";
+    public static final String CAMEL_SINK_INFLUXDB_COMPONENT_INFLUX_DBDOC = "The shared Influx DB to use for all endpoints";
+    public static final String CAMEL_SINK_INFLUXDB_COMPONENT_INFLUX_DBDEFAULT = null;
     public static final String CAMEL_SINK_INFLUXDB_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.influxdb.lazyStartProducer";
     public static final String CAMEL_SINK_INFLUXDB_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_INFLUXDB_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -81,6 +84,7 @@ public class CamelInfluxdbSinkConnectorConfig
         conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_RETENTION_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFLUXDB_ENDPOINT_RETENTION_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_RETENTION_POLICY_DOC);
         conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFLUXDB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_INFLUXDB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFLUXDB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_ENDPOINT_SYNCHRONOUS_DOC);
+        conf.define(CAMEL_SINK_INFLUXDB_COMPONENT_INFLUX_DBCONF, ConfigDef.Type.STRING, CAMEL_SINK_INFLUXDB_COMPONENT_INFLUX_DBDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_COMPONENT_INFLUX_DBDOC);
         conf.define(CAMEL_SINK_INFLUXDB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFLUXDB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_INFLUXDB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFLUXDB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFLUXDB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         return conf;

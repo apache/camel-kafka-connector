@@ -15,7 +15,7 @@ When using camel-rabbitmq-kafka-connector as source make sure to use the followi
 ----
 
 
-The camel-rabbitmq source connector supports 93 options, which are listed below.
+The camel-rabbitmq source connector supports 97 options, which are listed below.
 
 
 
@@ -47,6 +47,7 @@ The camel-rabbitmq source connector supports 93 options, which are listed below.
 | *camel.source.endpoint.autoAck* | If messages should be auto acknowledged | true | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.concurrentConsumers* | Number of concurrent consumers when consuming from broker. (eg similar as to the same option for the JMS component). | 1 | MEDIUM
+| *camel.source.endpoint.consumerTag* | Specify a client-generated consumer tag to establish context when invoking the consume operation | null | MEDIUM
 | *camel.source.endpoint.exclusiveConsumer* | Request exclusive access to the queue (meaning only this consumer can access the queue). This is useful when you want a long-lived shared queue to be temporarily accessible by just one consumer. | false | MEDIUM
 | *camel.source.endpoint.prefetchCount* | The maximum number of messages that the server will deliver, 0 if unlimited. You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time | null | MEDIUM
 | *camel.source.endpoint.prefetchEnabled* | Enables the quality of service on the RabbitMQConsumer side. You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time | false | MEDIUM
@@ -58,6 +59,7 @@ The camel-rabbitmq source connector supports 93 options, which are listed below.
 | *camel.source.endpoint.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. For example to declare a queue with message ttl argument: \http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000 | null | MEDIUM
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.source.endpoint.clientProperties* | Connection client properties (client info used in negotiating with the server) | null | MEDIUM
+| *camel.source.endpoint.connectionFactoryException Handler* | Custom rabbitmq ExceptionHandler for ConnectionFactory | null | MEDIUM
 | *camel.source.endpoint.connectionTimeout* | Connection timeout | 60000 | MEDIUM
 | *camel.source.endpoint.networkRecoveryInterval* | Network recovery interval in milliseconds (interval used when recovering from network failure) | "5000" | MEDIUM
 | *camel.source.endpoint.requestedChannelMax* | Connection requested channel max (max number of channels offered) | 2047 | MEDIUM
@@ -68,6 +70,7 @@ The camel-rabbitmq source connector supports 93 options, which are listed below.
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.source.endpoint.topologyRecoveryEnabled* | Enables connection topology recovery (should topology recovery be performed) | null | MEDIUM
 | *camel.source.endpoint.transferException* | When true and an inOut Exchange failed on the consumer side send the caused Exception back in the response | false | MEDIUM
+| *camel.source.endpoint.allowMessageBody Serialization* | Whether to allow Java serialization of the message body or not. If this value is true, the message body will be serialized on the producer side using Java serialization, if no type converter can handle the message body. On the consumer side, it will deserialize the message body if this value is true and the message contains a CamelSerialize header. Setting this value to true may introduce a security vulnerability as it allows an attacker to attempt to deserialize to a gadget object which could result in a RCE or other security vulnerability. | false | MEDIUM
 | *camel.source.endpoint.password* | Password for authenticated access | "guest" | MEDIUM
 | *camel.source.endpoint.sslProtocol* | Enables SSL on connection, accepted value are true, TLS and 'SSLv3 | null | MEDIUM
 | *camel.source.endpoint.trustManager* | Configure SSL trust manager, SSL should be enabled for this option to be effective | null | MEDIUM
@@ -102,6 +105,7 @@ The camel-rabbitmq source connector supports 93 options, which are listed below.
 | *camel.component.rabbitmq.automaticRecoveryEnabled* | Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application) | null | MEDIUM
 | *camel.component.rabbitmq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.rabbitmq.clientProperties* | Connection client properties (client info used in negotiating with the server) | null | MEDIUM
+| *camel.component.rabbitmq.connectionFactory ExceptionHandler* | Custom rabbitmq ExceptionHandler for ConnectionFactory | null | MEDIUM
 | *camel.component.rabbitmq.connectionTimeout* | Connection timeout | 60000 | MEDIUM
 | *camel.component.rabbitmq.networkRecoveryInterval* | Network recovery interval in milliseconds (interval used when recovering from network failure) | "5000" | MEDIUM
 | *camel.component.rabbitmq.requestedChannelMax* | Connection requested channel max (max number of channels offered) | 2047 | MEDIUM

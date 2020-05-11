@@ -51,7 +51,7 @@ public class CamelNatsSourceConnectorConfig
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_NO_RANDOMIZE_SERVERS_DOC = "Whether or not randomizing the order of servers for the connection attempts";
     public static final Boolean CAMEL_SOURCE_NATS_ENDPOINT_NO_RANDOMIZE_SERVERS_DEFAULT = false;
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_PEDANTIC_CONF = "camel.source.endpoint.pedantic";
-    public static final String CAMEL_SOURCE_NATS_ENDPOINT_PEDANTIC_DOC = "Whether or not running in pedantic mode (this affects performace)";
+    public static final String CAMEL_SOURCE_NATS_ENDPOINT_PEDANTIC_DOC = "Whether or not running in pedantic mode (this affects performance)";
     public static final Boolean CAMEL_SOURCE_NATS_ENDPOINT_PEDANTIC_DEFAULT = false;
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_PING_INTERVAL_CONF = "camel.source.endpoint.pingInterval";
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_PING_INTERVAL_DOC = "Ping interval to be aware if connection is still alive (in milliseconds)";
@@ -110,6 +110,9 @@ public class CamelNatsSourceConnectorConfig
     public static final String CAMEL_SOURCE_NATS_COMPONENT_SERVERS_CONF = "camel.component.nats.servers";
     public static final String CAMEL_SOURCE_NATS_COMPONENT_SERVERS_DOC = "URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.";
     public static final String CAMEL_SOURCE_NATS_COMPONENT_SERVERS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_NATS_COMPONENT_VERBOSE_CONF = "camel.component.nats.verbose";
+    public static final String CAMEL_SOURCE_NATS_COMPONENT_VERBOSE_DOC = "Whether or not running in verbose mode";
+    public static final Boolean CAMEL_SOURCE_NATS_COMPONENT_VERBOSE_DEFAULT = false;
     public static final String CAMEL_SOURCE_NATS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.nats.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_NATS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_NATS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -160,6 +163,7 @@ public class CamelNatsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NATS_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SOURCE_NATS_COMPONENT_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NATS_COMPONENT_SERVERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_COMPONENT_SERVERS_DOC);
+        conf.define(CAMEL_SOURCE_NATS_COMPONENT_VERBOSE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NATS_COMPONENT_VERBOSE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_COMPONENT_VERBOSE_DOC);
         conf.define(CAMEL_SOURCE_NATS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NATS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_NATS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NATS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_NATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);

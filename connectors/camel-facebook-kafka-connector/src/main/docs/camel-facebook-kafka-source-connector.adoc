@@ -15,7 +15,7 @@ When using camel-facebook-kafka-connector as source make sure to use the followi
 ----
 
 
-The camel-facebook source connector supports 107 options, which are listed below.
+The camel-facebook source connector supports 134 options, which are listed below.
 
 
 
@@ -126,8 +126,35 @@ The camel-facebook source connector supports 107 options, which are listed below
 | *camel.source.endpoint.oAuthAppSecret* | The application Secret | null | MEDIUM
 | *camel.source.endpoint.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | MEDIUM
 | *camel.source.endpoint.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | MEDIUM
+| *camel.component.facebook.clientURL* | Facebook4J API client URL | null | MEDIUM
+| *camel.component.facebook.clientVersion* | Facebook4J client API version | null | MEDIUM
+| *camel.component.facebook.debugEnabled* | Enables deubg output. Effective only with the embedded logger | "false" | MEDIUM
+| *camel.component.facebook.gzipEnabled* | Use Facebook GZIP encoding | "true" | MEDIUM
+| *camel.component.facebook.httpConnectionTimeout* | Http connection timeout in milliseconds | "20000" | MEDIUM
+| *camel.component.facebook.httpDefaultMaxPerRoute* | HTTP maximum connections per route | "2" | MEDIUM
+| *camel.component.facebook.httpMaxTotalConnections* | HTTP maximum total connections | "20" | MEDIUM
+| *camel.component.facebook.httpReadTimeout* | Http read timeout in milliseconds | "120000" | MEDIUM
+| *camel.component.facebook.httpRetryCount* | Number of HTTP retries | "0" | MEDIUM
+| *camel.component.facebook.httpRetryIntervalSeconds* | HTTP retry interval in seconds | "5" | MEDIUM
+| *camel.component.facebook.httpStreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | MEDIUM
+| *camel.component.facebook.jsonStoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | MEDIUM
+| *camel.component.facebook.mbeanEnabled* | If set to true, Facebook4J mbean will be registerd | "false" | MEDIUM
+| *camel.component.facebook.prettyDebugEnabled* | Prettify JSON debug output if set to true | "false" | MEDIUM
+| *camel.component.facebook.restBaseURL* | API base URL | "https://graph.facebook.com/" | MEDIUM
+| *camel.component.facebook.useSSL* | Use SSL | "true" | MEDIUM
+| *camel.component.facebook.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | MEDIUM
 | *camel.component.facebook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.facebook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.facebook.configuration* | To use the shared configuration | null | MEDIUM
+| *camel.component.facebook.httpProxyHost* | HTTP proxy server host name | null | MEDIUM
+| *camel.component.facebook.httpProxyPassword* | HTTP proxy server password | null | MEDIUM
+| *camel.component.facebook.httpProxyPort* | HTTP proxy server port | null | MEDIUM
+| *camel.component.facebook.httpProxyUser* | HTTP proxy server user name | null | MEDIUM
+| *camel.component.facebook.oAuthAccessToken* | The user access token | null | MEDIUM
+| *camel.component.facebook.oAuthAccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | MEDIUM
+| *camel.component.facebook.oAuthAppId* | The application Id | null | MEDIUM
+| *camel.component.facebook.oAuthAppSecret* | The application Secret | null | MEDIUM
+| *camel.component.facebook.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | MEDIUM
+| *camel.component.facebook.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | MEDIUM
 |===
 // kafka-connector options: END

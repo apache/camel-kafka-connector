@@ -51,9 +51,18 @@ public class CamelCordaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.corda.lazyStartProducer";
     public static final String CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_CORDA_COMPONENT_OPERATION_CONF = "camel.component.corda.operation";
+    public static final String CAMEL_SINK_CORDA_COMPONENT_OPERATION_DOC = "Operation to use";
+    public static final String CAMEL_SINK_CORDA_COMPONENT_OPERATION_DEFAULT = null;
     public static final String CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.corda.basicPropertyBinding";
     public static final String CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_CORDA_COMPONENT_PASSWORD_CONF = "camel.component.corda.password";
+    public static final String CAMEL_SINK_CORDA_COMPONENT_PASSWORD_DOC = "Password for login";
+    public static final String CAMEL_SINK_CORDA_COMPONENT_PASSWORD_DEFAULT = null;
+    public static final String CAMEL_SINK_CORDA_COMPONENT_USERNAME_CONF = "camel.component.corda.username";
+    public static final String CAMEL_SINK_CORDA_COMPONENT_USERNAME_DOC = "Username for login";
+    public static final String CAMEL_SINK_CORDA_COMPONENT_USERNAME_DEFAULT = null;
 
     public CamelCordaSinkConnectorConfig(
             ConfigDef config,
@@ -76,7 +85,10 @@ public class CamelCordaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CORDA_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_ENDPOINT_USERNAME_DOC);
         conf.define(CAMEL_SINK_CORDA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_CORDA_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_CORDA_COMPONENT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_COMPONENT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_PASSWORD_DOC);
+        conf.define(CAMEL_SINK_CORDA_COMPONENT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_COMPONENT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_USERNAME_DOC);
         return conf;
     }
 }

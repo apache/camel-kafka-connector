@@ -1,0 +1,75 @@
+// kafka-connector options: START
+[[camel-aws2-s3-kafka-connector-sink]]
+= camel-aws2-s3-kafka-connector sink configuration
+
+When using camel-aws2-s3-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws2-s3-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+The camel-aws2-s3 sink connector supports 47 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.bucketNameOrArn* | Bucket name or ARN | null | HIGH
+| *camel.sink.endpoint.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | MEDIUM
+| *camel.sink.endpoint.autoCreateBucket* | Setting the autocreation of the bucket | true | MEDIUM
+| *camel.sink.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | MEDIUM
+| *camel.sink.endpoint.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | MEDIUM
+| *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the SQS client | null | MEDIUM
+| *camel.sink.endpoint.proxyPort* | Specify a proxy port to be used inside the client definition. | null | MEDIUM
+| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
+| *camel.sink.endpoint.region* | The region in which S3 client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
+| *camel.sink.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | MEDIUM
+| *camel.sink.endpoint.useIAMCredentials* | Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in. | false | MEDIUM
+| *camel.sink.endpoint.deleteAfterWrite* | Delete file object after the S3 file has been uploaded | false | MEDIUM
+| *camel.sink.endpoint.keyName* | Setting the key name for an element in the bucket through endpoint parameter | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.multiPartUpload* | If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange] | null | MEDIUM
+| *camel.sink.endpoint.partSize* | Setup the partSize which is used in multi part upload, the default size is 25M. | 26214400L | MEDIUM
+| *camel.sink.endpoint.storageClass* | The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request. | null | MEDIUM
+| *camel.sink.endpoint.awsKMSKeyId* | Define the id of KMS key to use in case KMS is enabled | null | MEDIUM
+| *camel.sink.endpoint.useAwsKMS* | Define if KMS must be used or not | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
+| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+| *camel.component.aws2-s3.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | MEDIUM
+| *camel.component.aws2-s3.autoCreateBucket* | Setting the autocreation of the bucket | true | MEDIUM
+| *camel.component.aws2-s3.configuration* | The component configuration | null | MEDIUM
+| *camel.component.aws2-s3.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | MEDIUM
+| *camel.component.aws2-s3.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | MEDIUM
+| *camel.component.aws2-s3.proxyHost* | To define a proxy host when instantiating the SQS client | null | MEDIUM
+| *camel.component.aws2-s3.proxyPort* | Specify a proxy port to be used inside the client definition. | null | MEDIUM
+| *camel.component.aws2-s3.proxyProtocol* | To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
+| *camel.component.aws2-s3.region* | The region in which S3 client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
+| *camel.component.aws2-s3.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | MEDIUM
+| *camel.component.aws2-s3.useIAMCredentials* | Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in. | false | MEDIUM
+| *camel.component.aws2-s3.deleteAfterWrite* | Delete file object after the S3 file has been uploaded | false | MEDIUM
+| *camel.component.aws2-s3.keyName* | Setting the key name for an element in the bucket through endpoint parameter | null | MEDIUM
+| *camel.component.aws2-s3.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.aws2-s3.multiPartUpload* | If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize | false | MEDIUM
+| *camel.component.aws2-s3.operation* | The operation to do in case the user don't want to do only an upload One of: [copyObject] [listObjects] [deleteObject] [deleteBucket] [listBuckets] [getObject] [getObjectRange] | null | MEDIUM
+| *camel.component.aws2-s3.partSize* | Setup the partSize which is used in multi part upload, the default size is 25M. | 26214400L | MEDIUM
+| *camel.component.aws2-s3.storageClass* | The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request. | null | MEDIUM
+| *camel.component.aws2-s3.awsKMSKeyId* | Define the id of KMS key to use in case KMS is enabled | null | MEDIUM
+| *camel.component.aws2-s3.useAwsKMS* | Define if KMS must be used or not | false | MEDIUM
+| *camel.component.aws2-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-s3.accessKey* | Amazon AWS Access Key | null | MEDIUM
+| *camel.component.aws2-s3.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+|===
+
+
+// kafka-connector options: END
