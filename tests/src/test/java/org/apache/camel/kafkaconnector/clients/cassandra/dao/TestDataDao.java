@@ -78,6 +78,15 @@ public class TestDataDao {
         session.execute(statement);
     }
 
+    public void dropTable() {
+        String statement = SchemaBuilder.dropTable(TABLE_NAME)
+                .getQueryString();
+
+        LOG.info("Executing drop table {}", statement);
+
+        session.execute(statement);
+    }
+
     public boolean hasEnoughData(long expected) {
         ResultSet rs = session.execute("select count(*) from test_data");
 

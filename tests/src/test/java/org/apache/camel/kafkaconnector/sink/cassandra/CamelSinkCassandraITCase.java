@@ -31,8 +31,8 @@ import org.apache.camel.kafkaconnector.clients.cassandra.dao.TestDataDao;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.cassandra.CassandraService;
 import org.apache.camel.kafkaconnector.services.cassandra.CassandraServiceFactory;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
@@ -64,6 +64,15 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
         testDataDao.createKeySpace();
         testDataDao.useKeySpace();
         testDataDao.createTable();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        cassandraClient = cassandraService.getClient();
+
+        if (testDataDao != null) {
+            testDataDao.dropTable();
+        }
     }
 
     private void putRecords(CountDownLatch latch) {
@@ -110,7 +119,6 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
 
     }
 
-    @Disabled("Known issue")
     @Test
     public void testFetchFromCassandra() throws ExecutionException, InterruptedException {
         String topic = TestCommon.getDefaultTestTopic(this.getClass());
