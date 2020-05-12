@@ -9,7 +9,7 @@ Connectors exist in two flavors: SourceConnectors import data from another syste
 
 Connectors do not perform the hard work: their configuration set the data to be copied, and the job will be splitted into a set of Tasks that can be distributed to workers (from the Connector itself). The tasks exist in two flavors too: SourceTask and SinkTask.
 
-An experienced Apache Camel developer will recognize for sure the similarities with the between SourceConnector and consumer and SinkConnector and producer.
+An experienced Apache Camel developer will recognize for sure the similarities between SourceConnector and consumer and SinkConnector and producer.
 
 Basically a Camel-Kafka Source Connector is a pre-configured Camel consumer which will perform the same action on a fixed rate (every 5s, 10s) and send the exchanges to Kafka, while a Camel-Kafka Sink Connector is a pre-configured Camel producer which will perform the same operation on each message exported from Kafka.
 
