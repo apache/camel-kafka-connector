@@ -60,7 +60,7 @@ public class ElasticSearchLocalContainerService implements ElasticSearchService 
 
     @Override
     public ElasticSearchClient getClient() {
-        return new ElasticSearchClient("localhost", container.getMappedPort(ELASTIC_SEARCH_PORT),
+        return new ElasticSearchClient(container.getContainerIpAddress(), container.getMappedPort(ELASTIC_SEARCH_PORT),
                 TestCommon.DEFAULT_ELASTICSEARCH_INDEX);
     }
 }

@@ -39,7 +39,7 @@ public class StrimziService implements KafkaService {
 
     @Override
     public String getBootstrapServers() {
-        return "localhost:" + getKafkaPort();
+        return strimziContainer.getContainerIpAddress() + ":" + getKafkaPort();
     }
 
     @Override
