@@ -52,7 +52,7 @@ public class QpidDispatchRouterContainer extends JMSContainer {
      * @return the end point URL as a string
      */
     public String getAMQPEndpoint() {
-        return String.format("amqp://localhost:%d", getAMQPPort());
+        return String.format("amqp://%s:%d", getContainerIpAddress(), getAMQPPort());
     }
 
     @Override

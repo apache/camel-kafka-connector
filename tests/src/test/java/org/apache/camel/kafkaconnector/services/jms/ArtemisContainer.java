@@ -56,7 +56,7 @@ public class ArtemisContainer extends JMSContainer {
      * @return the end point URL as a string
      */
     public String getAMQPEndpoint() {
-        return String.format("tcp://localhost:%d", getAMQPPort());
+        return String.format("tcp://%s:%d", getContainerIpAddress(), getAMQPPort());
     }
 
 
@@ -74,7 +74,7 @@ public class ArtemisContainer extends JMSContainer {
      * @return the end point URL as a string
      */
     public String getMQTTEndpoint() {
-        return String.format("tcp://localhost:%d", getMQTTPort());
+        return String.format("tcp://%s:%d", getContainerIpAddress(), getMQTTPort());
     }
 
 
@@ -92,7 +92,7 @@ public class ArtemisContainer extends JMSContainer {
      * @return the admin URL as a string
      */
     public String getAdminURL() {
-        return String.format("http://localhost:%d", getAdminPort());
+        return String.format("http://%s:%d", getContainerIpAddress(), getAdminPort());
     }
 
 
@@ -110,7 +110,7 @@ public class ArtemisContainer extends JMSContainer {
      * @return the end point URL as a string
      */
     public String getDefaultEndpoint() {
-        return String.format("tcp://localhost:%d", getDefaultAcceptorPort());
+        return String.format("tcp://%s:%d", getContainerIpAddress(), getDefaultAcceptorPort());
     }
 
 
@@ -128,7 +128,7 @@ public class ArtemisContainer extends JMSContainer {
      * @return the end point URL as a string
      */
     public String getOpenwireEndpoint() {
-        return String.format("tcp://localhost:%d", getOpenwirePort());
+        return String.format("tcp://%s:%d", getContainerIpAddress(), getOpenwirePort());
     }
 
     @Override

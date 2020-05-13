@@ -39,7 +39,7 @@ public class AWSS3LocalContainerService extends AWSLocalContainerService<AmazonS
     public String getAmazonHost() {
         final int s3Port = 4572;
 
-        return "localhost:" + getContainer().getMappedPort(s3Port);
+        return getContainer().getContainerIpAddress() + ":" + getContainer().getMappedPort(s3Port);
     }
 
     @Override

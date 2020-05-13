@@ -93,7 +93,7 @@ abstract class AWSLocalContainerService<T> implements AWSService<T> {
     }
 
     protected String getAmazonHost(int port) {
-        return "localhost:" + container.getMappedPort(port);
+        return container.getContainerIpAddress() + ":" + container.getMappedPort(port);
     }
 
     protected String getServiceEndpoint(LocalStackContainer.Service service) {

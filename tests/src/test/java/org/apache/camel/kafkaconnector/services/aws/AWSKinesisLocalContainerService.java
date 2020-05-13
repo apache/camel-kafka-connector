@@ -38,7 +38,7 @@ public class AWSKinesisLocalContainerService extends AWSLocalContainerService<Am
     public String getAmazonHost() {
         final int kinesisPort = 4568;
 
-        return "localhost:" + getContainer().getMappedPort(kinesisPort);
+        return getContainer().getContainerIpAddress() + ":" + getContainer().getMappedPort(kinesisPort);
     }
 
 

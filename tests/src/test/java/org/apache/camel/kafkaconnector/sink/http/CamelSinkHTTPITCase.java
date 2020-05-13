@@ -114,7 +114,7 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
     @Timeout(90)
     public void testBasicSendReceive() {
         try {
-            String url = "localhost:" + HTTP_PORT + "/ckc";
+            String url = localServer.getInetAddress().getHostName() + ":" + HTTP_PORT + "/ckc";
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPPropertyFactory.basic()
                     .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
@@ -131,7 +131,7 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
     @Timeout(90)
     public void testBasicSendReceiveUsingUrl() {
         try {
-            String hostName = "localhost:" + HTTP_PORT + "/ckc";
+            String hostName = localServer.getInetAddress().getHostName() + ":" + HTTP_PORT + "/ckc";
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelHTTPPropertyFactory.basic()
                     .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
