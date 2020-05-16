@@ -52,6 +52,7 @@
         <module>itests-slack</module>
         <module>itests-salesforce</module>
         <module>itests-hdfs</module>
+        <module>itests-mongodb</module>
     </modules>
 
 
