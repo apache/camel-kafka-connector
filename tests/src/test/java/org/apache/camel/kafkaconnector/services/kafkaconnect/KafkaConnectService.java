@@ -27,7 +27,7 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 public interface KafkaConnectService extends BeforeTestExecutionCallback, AfterTestExecutionCallback {
 
     void initializeConnector(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException;
-    void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException;
+    void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory, Integer expectedTasksnumber) throws ExecutionException, InterruptedException;
 
     void stop();
     void start();

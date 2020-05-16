@@ -103,7 +103,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws Exception {
         connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory);
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
         LOG.debug("Creating the consumer ...");
         ExecutorService service = Executors.newCachedThreadPool();

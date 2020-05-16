@@ -23,8 +23,11 @@ import java.util.Map;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.services.kafka.EmbeddedKafkaService;
 import org.apache.camel.kafkaconnector.services.kafka.KafkaService;
+import org.apache.kafka.connect.runtime.AbstractStatus;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
+import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
 import org.apache.kafka.connect.util.clusters.EmbeddedConnectCluster;
+import org.apache.kafka.test.TestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,14 +63,18 @@ public class KafkaConnectEmbedded implements KafkaConnectService {
     }
 
     @Override
-    public void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory) throws InterruptedException {
-        /*
-        This is (likely) not necessary for this type of embedded runner because it
-        should be running on the same thread as the test code. So we just wrap the
-        other method
-        */
-
+    public void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory, Integer expectedTaskNumber) throws InterruptedException {
         initializeConnector(propertyFactory);
+        TestUtils.waitForCondition(() -> {
+            ConnectorStateInfo connectorStateInfo = null;
+            do {
+                connectorStateInfo = cluster.connectorStatus(connectorName);
+                Thread.sleep(20L);
+            } while (connectorStateInfo == null);
+            return  connectorStateInfo.tasks().size() >= expectedTaskNumber
+                    && connectorStateInfo.connector().state().equals(AbstractStatus.State.RUNNING.toString())
+                    && connectorStateInfo.tasks().stream().allMatch(s -> s.state().equals(AbstractStatus.State.RUNNING.toString()));
+        }, 30000L, "The connector " + connectorName + " did not start within a reasonable time");
     }
 
     @Override
