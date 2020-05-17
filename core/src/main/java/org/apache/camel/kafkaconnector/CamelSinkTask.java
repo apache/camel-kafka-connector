@@ -108,9 +108,9 @@ public class CamelSinkTask extends SinkTask {
 
     @Override
     public void put(Collection<SinkRecord> sinkRecords) {
-        Map<String, Object> headers = new HashMap<String, Object>();
-        Exchange exchange = new DefaultExchange(producer.getCamelContext());
         for (SinkRecord record : sinkRecords) {
+            Map<String, Object> headers = new HashMap<String, Object>();
+            Exchange exchange = new DefaultExchange(producer.getCamelContext());
             headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
             for (Iterator<Header> iterator = record.headers().iterator(); iterator.hasNext();) {
                 Header header = (Header)iterator.next();

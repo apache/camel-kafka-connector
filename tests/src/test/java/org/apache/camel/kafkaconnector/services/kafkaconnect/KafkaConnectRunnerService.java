@@ -84,7 +84,7 @@ public class KafkaConnectRunnerService implements KafkaConnectService {
     }
 
     @Override
-    public void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException {
+    public void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory, Integer expectedTaskNumber) throws ExecutionException, InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         kafkaConnectRunner.initializeConnector(propertyFactory, this::checkInitializationState, latch);
 

@@ -110,7 +110,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     public void runtTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory);
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
         putRecords();
         LOG.debug("Initialized the connector and put the data for the test execution");

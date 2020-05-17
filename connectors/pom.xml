@@ -446,6 +446,7 @@
         <module>camel-stomp-kafka-connector</module>
         <module>camel-stream-kafka-connector</module>
         <module>camel-string-template-kafka-connector</module>
+        <module>camel-syslog-kafka-connector</module>
         <module>camel-stub-kafka-connector</module>
         <module>camel-telegram-kafka-connector</module>
         <module>camel-thrift-kafka-connector</module>
