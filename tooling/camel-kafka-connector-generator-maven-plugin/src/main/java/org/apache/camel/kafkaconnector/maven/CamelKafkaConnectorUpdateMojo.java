@@ -387,8 +387,8 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         javaClassConnectorConfig.addMethod().setConstructor(true).setName(javaClassConnectorConfigName).addParameter("Map<String, String>", "parsedConfig").setPublic()
             .setBody("this(conf(), parsedConfig);");
 
-        Method confMethod = javaClassConnectorConfig.addMethod().setConstructor(false).setName("conf").addParameter("Map<String, String>", "parsedConfig")
-            .setReturnType("ConfigDef").setPublic().setStatic().setBody("ConfigDef conf = new ConfigDef(Camel" + ctCapitalizedName + "ConnectorConfig.conf());\n");
+        Method confMethod = javaClassConnectorConfig.addMethod().setConstructor(false).setName("conf").setReturnType("ConfigDef").setPublic().setStatic()
+            .setBody("ConfigDef conf = new ConfigDef(Camel" + ctCapitalizedName + "ConnectorConfig.conf());\n");
 
         Predicate<? super BaseOptionModel> filterEndpointOptions;
         switch (ct) {
