@@ -110,7 +110,7 @@ public class CamelIec60870serverSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_IEC60870SERVER_PATH_URI_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IEC60870SERVER_PATH_URI_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_IEC60870SERVER_PATH_URI_PATH_DOC);
         conf.define(CAMEL_SINK_IEC60870SERVER_ENDPOINT_DATA_MODULE_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IEC60870SERVER_ENDPOINT_DATA_MODULE_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IEC60870SERVER_ENDPOINT_DATA_MODULE_OPTIONS_DOC);

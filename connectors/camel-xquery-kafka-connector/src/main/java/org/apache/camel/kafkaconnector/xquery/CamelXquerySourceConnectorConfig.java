@@ -154,7 +154,7 @@ public class CamelXquerySourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_XQUERY_PATH_RESOURCE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_XQUERY_PATH_RESOURCE_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_XQUERY_PATH_RESOURCE_URI_DOC);
         conf.define(CAMEL_SOURCE_XQUERY_ENDPOINT_ALLOW_ST_AXCONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_XQUERY_ENDPOINT_ALLOW_ST_AXDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XQUERY_ENDPOINT_ALLOW_ST_AXDOC);

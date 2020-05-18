@@ -61,7 +61,7 @@ public class CamelSpringldapSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SPRINGLDAP_PATH_TEMPLATE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGLDAP_PATH_TEMPLATE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SPRINGLDAP_PATH_TEMPLATE_NAME_DOC);
         conf.define(CAMEL_SINK_SPRINGLDAP_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGLDAP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGLDAP_ENDPOINT_LAZY_START_PRODUCER_DOC);

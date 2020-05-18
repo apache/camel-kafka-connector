@@ -433,7 +433,7 @@ public class CamelFacebookSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_FACEBOOK_PATH_METHOD_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FACEBOOK_PATH_METHOD_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_FACEBOOK_PATH_METHOD_NAME_DOC);
         conf.define(CAMEL_SINK_FACEBOOK_ENDPOINT_ACHIEVEMENT_URLCONF, ConfigDef.Type.STRING, CAMEL_SINK_FACEBOOK_ENDPOINT_ACHIEVEMENT_URLDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FACEBOOK_ENDPOINT_ACHIEVEMENT_URLDOC);

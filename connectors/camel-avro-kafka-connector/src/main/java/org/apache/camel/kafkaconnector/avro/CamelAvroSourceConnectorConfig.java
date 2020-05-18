@@ -109,7 +109,7 @@ public class CamelAvroSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_AVRO_PATH_TRANSPORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AVRO_PATH_TRANSPORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AVRO_PATH_TRANSPORT_DOC);
         conf.define(CAMEL_SOURCE_AVRO_PATH_PORT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AVRO_PATH_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AVRO_PATH_PORT_DOC);

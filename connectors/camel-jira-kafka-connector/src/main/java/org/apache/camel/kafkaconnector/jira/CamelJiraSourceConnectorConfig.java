@@ -118,7 +118,7 @@ public class CamelJiraSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_JIRA_PATH_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRA_PATH_TYPE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JIRA_PATH_TYPE_DOC);
         conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_DELAY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRA_ENDPOINT_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_DELAY_DOC);

@@ -80,7 +80,7 @@ public class CamelGitSourceConnectorConfig extends CamelSourceConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_GIT_PATH_LOCAL_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GIT_PATH_LOCAL_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GIT_PATH_LOCAL_PATH_DOC);
         conf.define(CAMEL_SOURCE_GIT_ENDPOINT_BRANCH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GIT_ENDPOINT_BRANCH_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GIT_ENDPOINT_BRANCH_NAME_DOC);

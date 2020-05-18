@@ -134,7 +134,7 @@ public class CamelJbpmSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_JBPM_PATH_CONNECTION_URLCONF, ConfigDef.Type.STRING, CAMEL_SINK_JBPM_PATH_CONNECTION_URLDEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_JBPM_PATH_CONNECTION_URLDOC);
         conf.define(CAMEL_SINK_JBPM_PATH_EVENT_LISTENER_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JBPM_PATH_EVENT_LISTENER_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JBPM_PATH_EVENT_LISTENER_TYPE_DOC);

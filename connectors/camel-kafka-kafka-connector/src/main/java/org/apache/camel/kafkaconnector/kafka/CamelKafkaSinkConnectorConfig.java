@@ -431,7 +431,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_KAFKA_PATH_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_PATH_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_KAFKA_PATH_TOPIC_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_ADDITIONAL_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_ADDITIONAL_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_ADDITIONAL_PROPERTIES_DOC);

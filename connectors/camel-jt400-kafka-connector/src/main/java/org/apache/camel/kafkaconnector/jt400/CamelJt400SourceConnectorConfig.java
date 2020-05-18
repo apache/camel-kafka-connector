@@ -148,7 +148,7 @@ public class CamelJt400SourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_JT400_PATH_USER_IDCONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JT400_PATH_USER_IDDEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JT400_PATH_USER_IDDOC);
         conf.define(CAMEL_SOURCE_JT400_PATH_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JT400_PATH_PASSWORD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JT400_PATH_PASSWORD_DOC);

@@ -79,7 +79,7 @@ public class CamelQuickfixSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_QUICKFIX_PATH_CONFIGURATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_QUICKFIX_PATH_CONFIGURATION_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_QUICKFIX_PATH_CONFIGURATION_NAME_DOC);
         conf.define(CAMEL_SOURCE_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_DOC);

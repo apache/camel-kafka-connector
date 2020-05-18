@@ -36,6 +36,6 @@ public class CamelSyslogSourceConnectorConfig
     }
 
     public static ConfigDef conf() {
-        return CamelNettySourceConnectorConfig.conf(null);
+        return CamelNettySourceConnectorConfig.conf();
     }
 }

@@ -77,7 +77,7 @@ public class CamelGithubSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_GITHUB_PATH_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GITHUB_PATH_TYPE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GITHUB_PATH_TYPE_DOC);
         conf.define(CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_DOC);

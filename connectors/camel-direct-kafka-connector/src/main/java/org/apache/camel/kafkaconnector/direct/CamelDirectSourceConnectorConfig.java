@@ -61,7 +61,7 @@ public class CamelDirectSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_DIRECT_PATH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_DIRECT_PATH_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_DIRECT_PATH_NAME_DOC);
         conf.define(CAMEL_SOURCE_DIRECT_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_DIRECT_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DIRECT_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);

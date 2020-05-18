@@ -98,7 +98,7 @@ public class CamelXquerySinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_XQUERY_PATH_RESOURCE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XQUERY_PATH_RESOURCE_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_XQUERY_PATH_RESOURCE_URI_DOC);
         conf.define(CAMEL_SINK_XQUERY_ENDPOINT_ALLOW_ST_AXCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XQUERY_ENDPOINT_ALLOW_ST_AXDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XQUERY_ENDPOINT_ALLOW_ST_AXDOC);

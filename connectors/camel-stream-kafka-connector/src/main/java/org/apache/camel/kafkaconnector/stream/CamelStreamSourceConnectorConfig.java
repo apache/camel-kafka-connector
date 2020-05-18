@@ -97,7 +97,7 @@ public class CamelStreamSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_STREAM_PATH_KIND_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STREAM_PATH_KIND_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_STREAM_PATH_KIND_DOC);
         conf.define(CAMEL_SOURCE_STREAM_ENDPOINT_ENCODING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STREAM_ENDPOINT_ENCODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STREAM_ENDPOINT_ENCODING_DOC);

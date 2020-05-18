@@ -268,7 +268,7 @@ public class CamelAwss3SourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_AWSS3_PATH_BUCKET_NAME_OR_ARN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_PATH_BUCKET_NAME_OR_ARN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSS3_PATH_BUCKET_NAME_OR_ARN_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_ENDPOINT_AMAZON_S3CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_ENDPOINT_AMAZON_S3CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_ENDPOINT_AMAZON_S3CLIENT_DOC);

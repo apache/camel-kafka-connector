@@ -71,7 +71,7 @@ public class CamelMybatisSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_MYBATIS_PATH_STATEMENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_PATH_STATEMENT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MYBATIS_PATH_STATEMENT_DOC);
         conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_EXECUTOR_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_ENDPOINT_EXECUTOR_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_EXECUTOR_TYPE_DOC);

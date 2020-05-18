@@ -97,7 +97,7 @@ public class CamelDatasettestSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_DATASETTEST_PATH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DATASETTEST_PATH_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_DATASETTEST_PATH_NAME_DOC);
         conf.define(CAMEL_SINK_DATASETTEST_ENDPOINT_ANY_ORDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DATASETTEST_ENDPOINT_ANY_ORDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DATASETTEST_ENDPOINT_ANY_ORDER_DOC);

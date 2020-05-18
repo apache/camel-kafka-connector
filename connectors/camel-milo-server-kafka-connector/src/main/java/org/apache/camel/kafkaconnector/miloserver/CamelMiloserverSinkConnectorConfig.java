@@ -106,7 +106,7 @@ public class CamelMiloserverSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_MILOSERVER_PATH_ITEM_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MILOSERVER_PATH_ITEM_ID_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MILOSERVER_PATH_ITEM_ID_DOC);
         conf.define(CAMEL_SINK_MILOSERVER_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MILOSERVER_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MILOSERVER_ENDPOINT_LAZY_START_PRODUCER_DOC);

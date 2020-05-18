@@ -85,7 +85,7 @@ public class CamelZookeeperSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_ZOOKEEPER_PATH_SERVER_URLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ZOOKEEPER_PATH_SERVER_URLS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_ZOOKEEPER_PATH_SERVER_URLS_DOC);
         conf.define(CAMEL_SINK_ZOOKEEPER_PATH_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ZOOKEEPER_PATH_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_ZOOKEEPER_PATH_PATH_DOC);

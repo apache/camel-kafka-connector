@@ -82,7 +82,7 @@ public class CamelSpringwsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SPRINGWS_PATH_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_PATH_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_PATH_TYPE_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_PATH_LOOKUP_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_PATH_LOOKUP_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_PATH_LOOKUP_KEY_DOC);

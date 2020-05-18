@@ -133,7 +133,7 @@ public class CamelMybatisSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_MYBATIS_PATH_STATEMENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MYBATIS_PATH_STATEMENT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MYBATIS_PATH_STATEMENT_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MYBATIS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);

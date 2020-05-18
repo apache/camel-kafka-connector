@@ -53,7 +53,7 @@ public class CamelSagaSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SAGA_PATH_ACTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SAGA_PATH_ACTION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SAGA_PATH_ACTION_DOC);
         conf.define(CAMEL_SINK_SAGA_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SAGA_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SAGA_ENDPOINT_LAZY_START_PRODUCER_DOC);

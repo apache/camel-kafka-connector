@@ -62,7 +62,7 @@ public class CamelKuduSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_KUDU_PATH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KUDU_PATH_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KUDU_PATH_HOST_DOC);
         conf.define(CAMEL_SINK_KUDU_PATH_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KUDU_PATH_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KUDU_PATH_PORT_DOC);

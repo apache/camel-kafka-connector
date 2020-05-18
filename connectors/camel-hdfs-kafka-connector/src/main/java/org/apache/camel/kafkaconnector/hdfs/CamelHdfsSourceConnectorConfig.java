@@ -190,7 +190,7 @@ public class CamelHdfsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_HDFS_PATH_HOST_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_PATH_HOST_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_HDFS_PATH_HOST_NAME_DOC);
         conf.define(CAMEL_SOURCE_HDFS_PATH_PORT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_HDFS_PATH_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_PATH_PORT_DOC);

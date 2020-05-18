@@ -131,7 +131,7 @@ public class CamelKubernetesdeploymentsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_KUBERNETESDEPLOYMENTS_PATH_MASTER_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESDEPLOYMENTS_PATH_MASTER_URL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_KUBERNETESDEPLOYMENTS_PATH_MASTER_URL_DOC);
         conf.define(CAMEL_SOURCE_KUBERNETESDEPLOYMENTS_ENDPOINT_API_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESDEPLOYMENTS_ENDPOINT_API_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESDEPLOYMENTS_ENDPOINT_API_VERSION_DOC);

@@ -143,7 +143,7 @@ public class CamelAtomixmultimapSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_ATOMIXMULTIMAP_PATH_RESOURCE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ATOMIXMULTIMAP_PATH_RESOURCE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_ATOMIXMULTIMAP_PATH_RESOURCE_NAME_DOC);
         conf.define(CAMEL_SINK_ATOMIXMULTIMAP_ENDPOINT_ATOMIX_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ATOMIXMULTIMAP_ENDPOINT_ATOMIX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ATOMIXMULTIMAP_ENDPOINT_ATOMIX_DOC);

@@ -130,7 +130,7 @@ public class CamelUndertowSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_UNDERTOW_PATH_HTTP_URICONF, ConfigDef.Type.STRING, CAMEL_SINK_UNDERTOW_PATH_HTTP_URIDEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_UNDERTOW_PATH_HTTP_URIDOC);
         conf.define(CAMEL_SINK_UNDERTOW_ENDPOINT_USE_STREAMING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_UNDERTOW_ENDPOINT_USE_STREAMING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_UNDERTOW_ENDPOINT_USE_STREAMING_DOC);

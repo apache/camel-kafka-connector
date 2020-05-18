@@ -127,7 +127,7 @@ public class CamelJcacheSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_JCACHE_PATH_CACHE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JCACHE_PATH_CACHE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JCACHE_PATH_CACHE_NAME_DOC);
         conf.define(CAMEL_SOURCE_JCACHE_ENDPOINT_CACHE_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JCACHE_ENDPOINT_CACHE_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JCACHE_ENDPOINT_CACHE_CONFIGURATION_DOC);

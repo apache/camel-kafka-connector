@@ -91,7 +91,7 @@ public class CamelSedaSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SEDA_PATH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SEDA_PATH_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SEDA_PATH_NAME_DOC);
         conf.define(CAMEL_SOURCE_SEDA_ENDPOINT_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SEDA_ENDPOINT_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SEDA_ENDPOINT_SIZE_DOC);

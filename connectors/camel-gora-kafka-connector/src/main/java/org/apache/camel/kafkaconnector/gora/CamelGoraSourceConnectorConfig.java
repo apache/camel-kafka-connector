@@ -109,7 +109,7 @@ public class CamelGoraSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_GORA_PATH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GORA_PATH_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GORA_PATH_NAME_DOC);
         conf.define(CAMEL_SOURCE_GORA_ENDPOINT_DATA_STORE_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GORA_ENDPOINT_DATA_STORE_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GORA_ENDPOINT_DATA_STORE_CLASS_DOC);

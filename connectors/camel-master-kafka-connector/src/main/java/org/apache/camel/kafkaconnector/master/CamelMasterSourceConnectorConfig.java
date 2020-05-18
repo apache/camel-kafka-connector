@@ -70,7 +70,7 @@ public class CamelMasterSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_MASTER_PATH_NAMESPACE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MASTER_PATH_NAMESPACE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MASTER_PATH_NAMESPACE_DOC);
         conf.define(CAMEL_SOURCE_MASTER_PATH_DELEGATE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MASTER_PATH_DELEGATE_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MASTER_PATH_DELEGATE_URI_DOC);

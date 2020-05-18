@@ -103,7 +103,7 @@ public class CamelSpringwsSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SPRINGWS_PATH_WEB_SERVICE_ENDPOINT_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_PATH_WEB_SERVICE_ENDPOINT_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_PATH_WEB_SERVICE_ENDPOINT_URI_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DOC);

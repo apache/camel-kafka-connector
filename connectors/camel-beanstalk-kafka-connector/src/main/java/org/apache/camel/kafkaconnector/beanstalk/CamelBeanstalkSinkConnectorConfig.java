@@ -70,7 +70,7 @@ public class CamelBeanstalkSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_BEANSTALK_PATH_CONNECTION_SETTINGS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEANSTALK_PATH_CONNECTION_SETTINGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEANSTALK_PATH_CONNECTION_SETTINGS_DOC);
         conf.define(CAMEL_SINK_BEANSTALK_ENDPOINT_COMMAND_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEANSTALK_ENDPOINT_COMMAND_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEANSTALK_ENDPOINT_COMMAND_DOC);

@@ -146,7 +146,7 @@ public class CamelCqlSourceConnectorConfig extends CamelSourceConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_CQL_PATH_BEAN_REF_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CQL_PATH_BEAN_REF_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CQL_PATH_BEAN_REF_DOC);
         conf.define(CAMEL_SOURCE_CQL_PATH_HOSTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CQL_PATH_HOSTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CQL_PATH_HOSTS_DOC);

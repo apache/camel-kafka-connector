@@ -238,7 +238,7 @@ public class CamelJettySourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_JETTY_PATH_HTTP_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_PATH_HTTP_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JETTY_PATH_HTTP_URI_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_DOC);

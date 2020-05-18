@@ -113,7 +113,7 @@ public class CamelIec60870clientSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_IEC60870CLIENT_PATH_URI_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IEC60870CLIENT_PATH_URI_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_IEC60870CLIENT_PATH_URI_PATH_DOC);
         conf.define(CAMEL_SOURCE_IEC60870CLIENT_ENDPOINT_DATA_MODULE_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IEC60870CLIENT_ENDPOINT_DATA_MODULE_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IEC60870CLIENT_ENDPOINT_DATA_MODULE_OPTIONS_DOC);

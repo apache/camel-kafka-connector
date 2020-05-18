@@ -194,7 +194,7 @@ public class CamelGooglesheetsstreamSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_GOOGLESHEETSSTREAM_PATH_API_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETSSTREAM_PATH_API_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETSSTREAM_PATH_API_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLESHEETSSTREAM_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLESHEETSSTREAM_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLESHEETSSTREAM_ENDPOINT_ACCESS_TOKEN_DOC);

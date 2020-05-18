@@ -110,7 +110,7 @@ public class CamelJpaSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_JPA_PATH_ENTITY_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JPA_PATH_ENTITY_TYPE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_JPA_PATH_ENTITY_TYPE_DOC);
         conf.define(CAMEL_SINK_JPA_ENDPOINT_JOIN_TRANSACTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_JOIN_TRANSACTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_JOIN_TRANSACTION_DOC);

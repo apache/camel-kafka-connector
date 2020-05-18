@@ -130,7 +130,7 @@ public class CamelSjmsbatchSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SJMSBATCH_PATH_DESTINATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMSBATCH_PATH_DESTINATION_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SJMSBATCH_PATH_DESTINATION_NAME_DOC);
         conf.define(CAMEL_SOURCE_SJMSBATCH_ENDPOINT_AGGREGATION_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMSBATCH_ENDPOINT_AGGREGATION_STRATEGY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SJMSBATCH_ENDPOINT_AGGREGATION_STRATEGY_DOC);

@@ -95,7 +95,7 @@ public class CamelMongodbgridfsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_MONGODBGRIDFS_PATH_CONNECTION_BEAN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DOC);
         conf.define(CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_BUCKET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_BUCKET_DOC);

@@ -56,7 +56,7 @@ public class CamelGrapeSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_GRAPE_PATH_DEFAULT_COORDINATES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPE_PATH_DEFAULT_COORDINATES_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GRAPE_PATH_DEFAULT_COORDINATES_DOC);
         conf.define(CAMEL_SINK_GRAPE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GRAPE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPE_ENDPOINT_LAZY_START_PRODUCER_DOC);

@@ -68,7 +68,7 @@ public class CamelWebsocketjsr356SourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_WEBSOCKETJSR356_PATH_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKETJSR356_PATH_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKETJSR356_PATH_URI_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_DOC);

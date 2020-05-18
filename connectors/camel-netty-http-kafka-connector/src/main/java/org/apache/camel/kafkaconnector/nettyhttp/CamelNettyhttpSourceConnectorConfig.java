@@ -433,7 +433,7 @@ public class CamelNettyhttpSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_NETTYHTTP_PATH_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_PATH_PROTOCOL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_NETTYHTTP_PATH_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_NETTYHTTP_PATH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NETTYHTTP_PATH_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_NETTYHTTP_PATH_HOST_DOC);

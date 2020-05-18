@@ -298,7 +298,7 @@ public class CamelAwssqsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_AWSSQS_PATH_QUEUE_NAME_OR_ARN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_PATH_QUEUE_NAME_OR_ARN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSSQS_PATH_QUEUE_NAME_OR_ARN_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_AWSHOST_DOC);

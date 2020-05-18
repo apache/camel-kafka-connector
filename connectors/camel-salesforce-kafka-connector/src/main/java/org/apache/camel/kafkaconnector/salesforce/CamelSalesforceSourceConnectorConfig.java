@@ -385,7 +385,7 @@ public class CamelSalesforceSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SALESFORCE_PATH_TOPIC_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_PATH_TOPIC_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_PATH_TOPIC_NAME_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_APEX_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_APEX_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_APEX_METHOD_DOC);

@@ -160,7 +160,7 @@ public class CamelPulsarSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_PULSAR_PATH_PERSISTENCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PULSAR_PATH_PERSISTENCE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_PULSAR_PATH_PERSISTENCE_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_PATH_TENANT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PULSAR_PATH_TENANT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_PULSAR_PATH_TENANT_DOC);

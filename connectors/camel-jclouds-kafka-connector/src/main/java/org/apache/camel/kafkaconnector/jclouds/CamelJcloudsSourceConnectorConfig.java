@@ -76,7 +76,7 @@ public class CamelJcloudsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_JCLOUDS_PATH_COMMAND_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JCLOUDS_PATH_COMMAND_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JCLOUDS_PATH_COMMAND_DOC);
         conf.define(CAMEL_SOURCE_JCLOUDS_PATH_PROVIDER_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JCLOUDS_PATH_PROVIDER_ID_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JCLOUDS_PATH_PROVIDER_ID_DOC);

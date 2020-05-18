@@ -127,7 +127,7 @@ public class CamelEhcacheSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_EHCACHE_PATH_CACHE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_PATH_CACHE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_EHCACHE_PATH_CACHE_NAME_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_ENDPOINT_CACHE_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_ENDPOINT_CACHE_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_ENDPOINT_CACHE_MANAGER_DOC);

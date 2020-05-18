@@ -92,7 +92,7 @@ public class CamelCqlSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_CQL_PATH_BEAN_REF_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CQL_PATH_BEAN_REF_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CQL_PATH_BEAN_REF_DOC);
         conf.define(CAMEL_SINK_CQL_PATH_HOSTS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CQL_PATH_HOSTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CQL_PATH_HOSTS_DOC);
