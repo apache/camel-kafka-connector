@@ -38,6 +38,6 @@ jobs:
         # second one source check and install :camel-kafka-connector-generator-maven-plugin. This is needed to add maven plugin metadata to it,
         # third command source check everything else but :camel-kafka-connector-generator-maven-plugin
         run: |
-          ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:parent,org.apache.camel.kafkaconnector:camel-buildtools clean install
+          ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:parent,org.apache.camel.kafkaconnector:camel-kafka-connector-aggregator,org.apache.camel.kafkaconnector:camel-buildtools clean install
           ./mvnw -V --no-transfer-progress --projects org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean install
           ./mvnw -V --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
