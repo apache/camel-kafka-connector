@@ -322,7 +322,6 @@ Number of Camel Kafka connectors: 349
 | *camel-stream-kafka-connector* | true | true | xref:connectors/camel-stream-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-stream-kafka-source-connector.adoc[Source Docs]
 | *camel-string-template-kafka-connector* | true | false | xref:connectors/camel-string-template-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-stub-kafka-connector* | true | true | xref:connectors/camel-stub-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-stub-kafka-source-connector.adoc[Source Docs]
-| *camel-syslog-kafka-connector* | true | true | xref:connectors/camel-syslog-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-syslog-kafka-source-connector.adoc[Source Docs]
 | *camel-telegram-kafka-connector* | true | true | xref:connectors/camel-telegram-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-telegram-kafka-source-connector.adoc[Source Docs]
 | *camel-thrift-kafka-connector* | true | true | xref:connectors/camel-thrift-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-thrift-kafka-source-connector.adoc[Source Docs]
 | *camel-tika-kafka-connector* | true | false | xref:connectors/camel-tika-kafka-sink-connector.adoc[Sink Docs] | 
