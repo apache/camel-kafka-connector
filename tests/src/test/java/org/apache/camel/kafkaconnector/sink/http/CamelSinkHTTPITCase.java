@@ -18,6 +18,7 @@
 package org.apache.camel.kafkaconnector.sink.http;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -29,6 +30,7 @@ import org.apache.camel.kafkaconnector.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.TestCommon;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.utils.NetworkUtils;
 import org.apache.http.impl.bootstrap.HttpServer;
 import org.apache.http.impl.bootstrap.ServerBootstrap;
 import org.junit.jupiter.api.AfterEach;
@@ -45,7 +47,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Testcontainers
 public class CamelSinkHTTPITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkHTTPITCase.class);
-    private static final int HTTP_PORT = 18080;
+    private static final int HTTP_PORT = NetworkUtils.getFreePort("localhost");
 
     private HttpServer localServer;
 
@@ -56,7 +58,10 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() throws IOException {
         validationHandler = new HTTPTestValidationHandler(10);
+        byte[] ipAddr = new byte[]{127, 0, 0, 1};
+        InetAddress localhost = InetAddress.getByAddress(ipAddr);
         localServer = ServerBootstrap.bootstrap()
+                .setLocalAddress(localhost)
                 .setListenerPort(HTTP_PORT)
                 .registerHandler("/ckc", validationHandler)
                 .create();
@@ -122,8 +127,8 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
 
             runTest(connectorPropertyFactory);
         } catch (Exception e) {
-            LOG.error("HTTP test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
+            LOG.error("HTTP test failed: {} {}", e.getMessage(), e);
+            fail(e.getMessage(), e);
         }
     }
 
@@ -141,8 +146,8 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
 
             runTest(connectorPropertyFactory);
         } catch (Exception e) {
-            LOG.error("HTTP test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
+            LOG.error("HTTP test failed: {} {}", e.getMessage(), e);
+            fail(e.getMessage(), e);
         }
     }
 }
