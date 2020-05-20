@@ -69,18 +69,18 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Parameter(defaultValue = "${basedir}/../")
     protected File projectBaseDir;
-
-    /**
-     * Maven ProjectHelper.
-     */
-    @Component
-    private MavenProjectHelper projectHelper;
     
     /**
      * The maven project.
      */
     @Parameter(property = "connectors-project-name", defaultValue = "connectors", readonly = true)
     protected String connectorsProjectName;
+
+    /**
+     * Maven ProjectHelper.
+     */
+    @Component
+    private MavenProjectHelper projectHelper;
 
     /**
      * Execute goal.
