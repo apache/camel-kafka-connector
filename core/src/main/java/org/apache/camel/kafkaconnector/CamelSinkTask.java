@@ -141,7 +141,7 @@ public class CamelSinkTask extends SinkTask {
     }
 
     private void addHeader(Map<String, Object> map, Header singleHeader) {
-    	String camelHeaderKey = StringUtils.removeStart(singleHeader.key(), HEADER_CAMEL_PREFIX);
+        String camelHeaderKey = StringUtils.removeStart(singleHeader.key(), HEADER_CAMEL_PREFIX);
         Schema schema = singleHeader.schema();
         if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
             map.put(camelHeaderKey, (String)singleHeader.value());
