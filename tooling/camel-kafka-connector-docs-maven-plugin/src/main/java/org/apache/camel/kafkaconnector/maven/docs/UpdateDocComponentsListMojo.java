@@ -69,6 +69,12 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Parameter(defaultValue = "${basedir}/../")
     protected File projectBaseDir;
+    
+    /**
+     * The maven project.
+     */
+    @Parameter(property = "connectors-project-name", defaultValue = "connectors", readonly = true)
+    protected String connectorsProjectName;
 
     /**
      * Maven ProjectHelper.
@@ -85,6 +91,10 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
+        if (!project.getArtifactId().equals(connectorsProjectName)) {
+            getLog().debug("Skipping project " + project.getArtifactId() + " since it is not " + connectorsProjectName + " can be configured with <connectors-project-name> option.");
+            return;
+        }
         executeComponentsReadme();
     }
 
