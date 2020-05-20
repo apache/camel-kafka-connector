@@ -38,6 +38,12 @@ jobs:
         # second one source check and install :camel-kafka-connector-generator-maven-plugin. This is needed to add maven plugin metadata to it,
         # third command source check everything else but :camel-kafka-connector-generator-maven-plugin
         run: |
+          docker run -d -p 5000:5000 registry.hub.docker.com/spagno/valdar-registry:v1
+          LOCAL_IP_ADDRESS=`ip route get 1 | sed -n 's/^.*src \([0-9.]*\) .*$/\1/p'`
+          sudo echo "$LOCAL_IP_ADDRESS registry.nodisk.space" | sudo tee -a /etc/hosts
+          sudo echo "1.1.1.1 quay.io" | sudo tee -a /etc/hosts
+          docker login -u valdar -p c6UztUKk7r8Rn9 registry.nodisk.space:5000
+          echo "ryuk.container.image = registry.nodisk.space:5000/testcontainers/ryuk:0.2.3" > ~/.testcontainers.properties
           ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:parent,org.apache.camel.kafkaconnector:camel-kafka-connector-aggregator,org.apache.camel.kafkaconnector:camel-buildtools clean install
           ./mvnw -V --no-transfer-progress --projects org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean install
           ./mvnw -V --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
