@@ -1,0 +1,59 @@
+// kafka-connector options: START
+[[camel-azure-storage-blob-kafka-connector-source]]
+= camel-azure-storage-blob-kafka-connector source configuration
+
+When using camel-azure-storage-blob-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-storage-blob-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+The camel-azure-storage-blob source connector supports 31 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.source.path.accountName* | Azure account name to be used for authentication with azure blob services | null | MEDIUM
+| *camel.source.path.containerName* | The blob container name | null | MEDIUM
+| *camel.source.endpoint.blobName* | The blob name, required for consumer. However on producer, is only required for the operations on the blob level | null | MEDIUM
+| *camel.source.endpoint.blobOffset* | Set the blob offset for the upload or download operations, default is 0 | 0L | MEDIUM
+| *camel.source.endpoint.blobServiceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String). | null | MEDIUM
+| *camel.source.endpoint.blobType* | The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob] | "blockblob" | MEDIUM
+| *camel.source.endpoint.closeStreamAfterRead* | Close the stream after read or keep it open, default is true | true | MEDIUM
+| *camel.source.endpoint.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | MEDIUM
+| *camel.source.endpoint.dataCount* | How many bytes to include in the range. Must be greater than or equal to 0 if specified. | null | MEDIUM
+| *camel.source.endpoint.fileDir* | The file directory where the downloaded blobs will be saved to, this can be used in both, producer and consumer | null | MEDIUM
+| *camel.source.endpoint.maxRetryRequests* | Specifies the maximum number of additional HTTP Get requests that will be made while reading the data from a response body. | 0 | MEDIUM
+| *camel.source.endpoint.serviceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String). | null | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.source.endpoint.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | MEDIUM
+| *camel.component.azure-storage-blob.blobName* | The blob name, required for consumer. However on producer, is only required for the operations on the blob level | null | MEDIUM
+| *camel.component.azure-storage-blob.blobOffset* | Set the blob offset for the upload or download operations, default is 0 | 0L | MEDIUM
+| *camel.component.azure-storage-blob.blobType* | The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob] | "blockblob" | MEDIUM
+| *camel.component.azure-storage-blob.closeStream AfterRead* | Close the stream after read or keep it open, default is true | true | MEDIUM
+| *camel.component.azure-storage-blob.configuration* | The component configurations | null | MEDIUM
+| *camel.component.azure-storage-blob.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | MEDIUM
+| *camel.component.azure-storage-blob.dataCount* | How many bytes to include in the range. Must be greater than or equal to 0 if specified. | null | MEDIUM
+| *camel.component.azure-storage-blob.fileDir* | The file directory where the downloaded blobs will be saved to, this can be used in both, producer and consumer | null | MEDIUM
+| *camel.component.azure-storage-blob.maxRetry Requests* | Specifies the maximum number of additional HTTP Get requests that will be made while reading the data from a response body. | 0 | MEDIUM
+| *camel.component.azure-storage-blob.serviceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String). | null | MEDIUM
+| *camel.component.azure-storage-blob.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.azure-storage-blob.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.azure-storage-blob.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | MEDIUM
+|===
+
+
+// kafka-connector options: END

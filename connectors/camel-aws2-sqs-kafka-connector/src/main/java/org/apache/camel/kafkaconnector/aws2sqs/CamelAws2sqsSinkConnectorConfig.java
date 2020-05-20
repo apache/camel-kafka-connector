@@ -49,7 +49,7 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_DOC = "Specify the queue owner aws account id when you need to connect the queue with different account owner.";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_CONF = "camel.sink.endpoint.region";
-    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DOC = "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DOC = "The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_CONF = "camel.sink.endpoint.delaySeconds";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DOC = "Delay sending messages for a number of seconds.";
@@ -127,7 +127,7 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_DOC = "Specify the queue owner aws account id when you need to connect the queue with different account owner.";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_REGION_CONF = "camel.component.aws2-sqs.region";
-    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DOC = "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DOC = "The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_CONF = "camel.component.aws2-sqs.delaySeconds";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DOC = "Delay sending messages for a number of seconds.";

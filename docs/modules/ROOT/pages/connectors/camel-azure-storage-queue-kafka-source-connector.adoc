@@ -1,0 +1,52 @@
+// kafka-connector options: START
+[[camel-azure-storage-queue-kafka-connector-source]]
+= camel-azure-storage-queue-kafka-connector source configuration
+
+When using camel-azure-storage-queue-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-storage-queue-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+The camel-azure-storage-queue source connector supports 24 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.source.path.accountName* | Azure account name to be used for authentication with azure queue services | null | MEDIUM
+| *camel.source.path.queueName* | The queue resource name | null | MEDIUM
+| *camel.source.endpoint.serviceClient* | Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account. | null | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.source.endpoint.maxMessages* | Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. If left empty only 1 message will be retrieved, the allowed range is 1 to 32 messages. | "1" | MEDIUM
+| *camel.source.endpoint.timeout* | An optional timeout applied to the operation. If a response is not returned before the timeout concludes a RuntimeException will be thrown. | null | MEDIUM
+| *camel.source.endpoint.timeToLive* | How long the message will stay alive in the queue. If unset the value will default to 7 days, if -1 is passed the message will not expire. The time to live must be -1 or any positive number. The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S -- parses as 20.345 seconds, P2D -- parses as 2 days However, in case you are using EndpointDsl/ComponentDsl, you can do something like Duration.ofSeconds() since these Java APIs are typesafe. | null | MEDIUM
+| *camel.source.endpoint.visibilityTimeout* | The timeout period for how long the message is invisible in the queue. The timeout must be between 1 seconds and 7 days. The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S -- parses as 20.345 seconds, P2D -- parses as 2 days However, in case you are using EndpointDsl/ComponentDsl, you can do something like Duration.ofSeconds() since these Java APIs are typesafe. | null | MEDIUM
+| *camel.source.endpoint.accessKey* | Access key for the associated azure account name to be used for authentication with azure queue services | null | MEDIUM
+| *camel.source.endpoint.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | MEDIUM
+| *camel.component.azure-storage-queue.configuration* | The component configurations | null | MEDIUM
+| *camel.component.azure-storage-queue.serviceClient* | Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account. | null | MEDIUM
+| *camel.component.azure-storage-queue.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.azure-storage-queue.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.azure-storage-queue.maxMessages* | Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. If left empty only 1 message will be retrieved, the allowed range is 1 to 32 messages. | "1" | MEDIUM
+| *camel.component.azure-storage-queue.timeout* | An optional timeout applied to the operation. If a response is not returned before the timeout concludes a RuntimeException will be thrown. | null | MEDIUM
+| *camel.component.azure-storage-queue.timeToLive* | How long the message will stay alive in the queue. If unset the value will default to 7 days, if -1 is passed the message will not expire. The time to live must be -1 or any positive number. The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S -- parses as 20.345 seconds, P2D -- parses as 2 days However, in case you are using EndpointDsl/ComponentDsl, you can do something like Duration.ofSeconds() since these Java APIs are typesafe. | null | MEDIUM
+| *camel.component.azure-storage-queue.visibility Timeout* | The timeout period for how long the message is invisible in the queue. The timeout must be between 1 seconds and 7 days. The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S -- parses as 20.345 seconds, P2D -- parses as 2 days However, in case you are using EndpointDsl/ComponentDsl, you can do something like Duration.ofSeconds() since these Java APIs are typesafe. | null | MEDIUM
+| *camel.component.azure-storage-queue.accessKey* | Access key for the associated azure account name to be used for authentication with azure queue services | null | MEDIUM
+| *camel.component.azure-storage-queue.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | MEDIUM
+|===
+
+
+// kafka-connector options: END

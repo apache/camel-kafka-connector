@@ -31,7 +31,7 @@ The camel-rss source connector supports 32 options, which are listed below.
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | MEDIUM
 | *camel.source.endpoint.sortEntries* | Sets whether to sort entries by published date. Only works when splitEntries = true. | false | MEDIUM
 | *camel.source.endpoint.splitEntries* | Sets whether or not entries should be sent individually or whether the entire feed should be sent as a single message | true | MEDIUM
-| *camel.source.endpoint.throttleEntries* | Sets whether all entries identified in a single feed poll should be delivered immediately. If true, only one entry is processed per consumer.delay. Only applicable when splitEntries = true. | true | MEDIUM
+| *camel.source.endpoint.throttleEntries* | Sets whether all entries identified in a single feed poll should be delivered immediately. If true, only one entry is processed per delay. Only applicable when splitEntries = true. | true | MEDIUM
 | *camel.source.endpoint.username* | Sets the username to be used for basic authentication when polling from a HTTP feed. | null | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM

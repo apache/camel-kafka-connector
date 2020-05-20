@@ -56,6 +56,9 @@ public class CamelAzureblobSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZUREBLOB_ENDPOINT_STREAM_READ_SIZE_CONF = "camel.source.endpoint.streamReadSize";
     public static final String CAMEL_SOURCE_AZUREBLOB_ENDPOINT_STREAM_READ_SIZE_DOC = "Set the minimum read size in bytes when reading the blob content";
     public static final Integer CAMEL_SOURCE_AZUREBLOB_ENDPOINT_STREAM_READ_SIZE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZUREBLOB_ENDPOINT_VALIDATE_CLIENT_URICONF = "camel.source.endpoint.validateClientURI";
+    public static final String CAMEL_SOURCE_AZUREBLOB_ENDPOINT_VALIDATE_CLIENT_URIDOC = "Whether to validate the Azure client URI";
+    public static final Boolean CAMEL_SOURCE_AZUREBLOB_ENDPOINT_VALIDATE_CLIENT_URIDEFAULT = true;
     public static final String CAMEL_SOURCE_AZUREBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_AZUREBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_AZUREBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -104,6 +107,9 @@ public class CamelAzureblobSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZUREBLOB_COMPONENT_STREAM_READ_SIZE_CONF = "camel.component.azure-blob.streamReadSize";
     public static final String CAMEL_SOURCE_AZUREBLOB_COMPONENT_STREAM_READ_SIZE_DOC = "Set the minimum read size in bytes when reading the blob content";
     public static final Integer CAMEL_SOURCE_AZUREBLOB_COMPONENT_STREAM_READ_SIZE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZUREBLOB_COMPONENT_VALIDATE_CLIENT_URICONF = "camel.component.azure-blob.validateClientURI";
+    public static final String CAMEL_SOURCE_AZUREBLOB_COMPONENT_VALIDATE_CLIENT_URIDOC = "Whether to validate the Azure client URI";
+    public static final Boolean CAMEL_SOURCE_AZUREBLOB_COMPONENT_VALIDATE_CLIENT_URIDEFAULT = true;
     public static final String CAMEL_SOURCE_AZUREBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.azure-blob.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_AZUREBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_AZUREBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -142,6 +148,7 @@ public class CamelAzureblobSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AZUREBLOB_ENDPOINT_FILE_DIR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_FILE_DIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_FILE_DIR_DOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_ENDPOINT_PUBLIC_FOR_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_PUBLIC_FOR_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_PUBLIC_FOR_READ_DOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_ENDPOINT_STREAM_READ_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_STREAM_READ_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_STREAM_READ_SIZE_DOC);
+        conf.define(CAMEL_SOURCE_AZUREBLOB_ENDPOINT_VALIDATE_CLIENT_URICONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_VALIDATE_CLIENT_URIDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_VALIDATE_CLIENT_URIDOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_ENDPOINT_EXCHANGE_PATTERN_DOC);
@@ -158,6 +165,7 @@ public class CamelAzureblobSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AZUREBLOB_COMPONENT_FILE_DIR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREBLOB_COMPONENT_FILE_DIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_COMPONENT_FILE_DIR_DOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_COMPONENT_PUBLIC_FOR_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREBLOB_COMPONENT_PUBLIC_FOR_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_COMPONENT_PUBLIC_FOR_READ_DOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_COMPONENT_STREAM_READ_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZUREBLOB_COMPONENT_STREAM_READ_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_COMPONENT_STREAM_READ_SIZE_DOC);
+        conf.define(CAMEL_SOURCE_AZUREBLOB_COMPONENT_VALIDATE_CLIENT_URICONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREBLOB_COMPONENT_VALIDATE_CLIENT_URIDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_COMPONENT_VALIDATE_CLIENT_URIDOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_AZUREBLOB_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREBLOB_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREBLOB_COMPONENT_CONFIGURATION_DOC);

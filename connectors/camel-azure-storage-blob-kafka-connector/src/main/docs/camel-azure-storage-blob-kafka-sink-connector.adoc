@@ -1,0 +1,61 @@
+// kafka-connector options: START
+[[camel-azure-storage-blob-kafka-connector-sink]]
+= camel-azure-storage-blob-kafka-connector sink configuration
+
+When using camel-azure-storage-blob-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-azure-storage-blob-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+The camel-azure-storage-blob sink connector supports 33 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.accountName* | Azure account name to be used for authentication with azure blob services | null | MEDIUM
+| *camel.sink.path.containerName* | The blob container name | null | MEDIUM
+| *camel.sink.endpoint.blobName* | The blob name, required for consumer. However on producer, is only required for the operations on the blob level | null | MEDIUM
+| *camel.sink.endpoint.blobOffset* | Set the blob offset for the upload or download operations, default is 0 | 0L | MEDIUM
+| *camel.sink.endpoint.blobServiceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String). | null | MEDIUM
+| *camel.sink.endpoint.blobType* | The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob] | "blockblob" | MEDIUM
+| *camel.sink.endpoint.closeStreamAfterRead* | Close the stream after read or keep it open, default is true | true | MEDIUM
+| *camel.sink.endpoint.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | MEDIUM
+| *camel.sink.endpoint.dataCount* | How many bytes to include in the range. Must be greater than or equal to 0 if specified. | null | MEDIUM
+| *camel.sink.endpoint.fileDir* | The file directory where the downloaded blobs will be saved to, this can be used in both, producer and consumer | null | MEDIUM
+| *camel.sink.endpoint.maxRetryRequests* | Specifies the maximum number of additional HTTP Get requests that will be made while reading the data from a response body. | 0 | MEDIUM
+| *camel.sink.endpoint.serviceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String). | null | MEDIUM
+| *camel.sink.endpoint.closeStreamAfterWrite* | Close the stream after write or keep it open, default is true | true | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.operation* | The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobContainers" | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | MEDIUM
+| *camel.component.azure-storage-blob.blobName* | The blob name, required for consumer. However on producer, is only required for the operations on the blob level | null | MEDIUM
+| *camel.component.azure-storage-blob.blobOffset* | Set the blob offset for the upload or download operations, default is 0 | 0L | MEDIUM
+| *camel.component.azure-storage-blob.blobType* | The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob] | "blockblob" | MEDIUM
+| *camel.component.azure-storage-blob.closeStream AfterRead* | Close the stream after read or keep it open, default is true | true | MEDIUM
+| *camel.component.azure-storage-blob.configuration* | The component configurations | null | MEDIUM
+| *camel.component.azure-storage-blob.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | MEDIUM
+| *camel.component.azure-storage-blob.dataCount* | How many bytes to include in the range. Must be greater than or equal to 0 if specified. | null | MEDIUM
+| *camel.component.azure-storage-blob.fileDir* | The file directory where the downloaded blobs will be saved to, this can be used in both, producer and consumer | null | MEDIUM
+| *camel.component.azure-storage-blob.maxRetry Requests* | Specifies the maximum number of additional HTTP Get requests that will be made while reading the data from a response body. | 0 | MEDIUM
+| *camel.component.azure-storage-blob.serviceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String). | null | MEDIUM
+| *camel.component.azure-storage-blob.closeStream AfterWrite* | Close the stream after write or keep it open, default is true | true | MEDIUM
+| *camel.component.azure-storage-blob.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.azure-storage-blob.operation* | The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobContainers" | MEDIUM
+| *camel.component.azure-storage-blob.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.azure-storage-blob.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | MEDIUM
+|===
+
+
+// kafka-connector options: END

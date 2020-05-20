@@ -15,7 +15,7 @@ When using camel-aws2-eks-kafka-connector as sink make sure to use the following
 ----
 
 
-The camel-aws2-eks sink connector supports 23 options, which are listed below.
+The camel-aws2-eks sink connector supports 25 options, which are listed below.
 
 
 
@@ -26,6 +26,7 @@ The camel-aws2-eks sink connector supports 23 options, which are listed below.
 | *camel.sink.endpoint.eksClient* | To use a existing configured AWS EKS as client | null | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.operation* | The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster] | null | HIGH
+| *camel.sink.endpoint.pojoRequest* | If we want to use a POJO request as body or not | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the EKS client | null | MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the EKS client | null | MEDIUM
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the EKS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
@@ -38,6 +39,7 @@ The camel-aws2-eks sink connector supports 23 options, which are listed below.
 | *camel.component.aws2-eks.eksClient* | To use a existing configured AWS EKS as client | null | MEDIUM
 | *camel.component.aws2-eks.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.aws2-eks.operation* | The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster] | null | HIGH
+| *camel.component.aws2-eks.pojoRequest* | If we want to use a POJO request as body or not | false | MEDIUM
 | *camel.component.aws2-eks.proxyHost* | To define a proxy host when instantiating the EKS client | null | MEDIUM
 | *camel.component.aws2-eks.proxyPort* | To define a proxy port when instantiating the EKS client | null | MEDIUM
 | *camel.component.aws2-eks.proxyProtocol* | To define a proxy protocol when instantiating the EKS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM

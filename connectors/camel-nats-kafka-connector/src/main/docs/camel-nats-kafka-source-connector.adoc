@@ -24,7 +24,7 @@ The camel-nats source connector supports 32 options, which are listed below.
 | Name | Description | Default | Priority
 | *camel.source.path.topic* | The name of topic we want to use | null | HIGH
 | *camel.source.endpoint.connectionTimeout* | Timeout for connection attempts. (in milliseconds) | 2000 | MEDIUM
-| *camel.source.endpoint.flushConnection* | Define if we want to flush connection when stopping or not | false | MEDIUM
+| *camel.source.endpoint.flushConnection* | Define if we want to flush connection when stopping or not | true | MEDIUM
 | *camel.source.endpoint.flushTimeout* | Set the flush timeout (in milliseconds) | 1000 | MEDIUM
 | *camel.source.endpoint.maxPingsOut* | maximum number of pings have not received a response allowed by the client | 2 | MEDIUM
 | *camel.source.endpoint.maxReconnectAttempts* | Max reconnection attempts | 60 | MEDIUM

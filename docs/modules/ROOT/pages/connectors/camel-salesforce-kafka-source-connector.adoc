@@ -26,8 +26,8 @@ The camel-salesforce source connector supports 116 options, which are listed bel
 | *camel.source.endpoint.apexMethod* | APEX method name | null | MEDIUM
 | *camel.source.endpoint.apexQueryParams* | Query params for APEX method | null | MEDIUM
 | *camel.source.endpoint.apexUrl* | APEX method URL | null | MEDIUM
-| *camel.source.endpoint.apiVersion* | Salesforce API version, defaults to SalesforceEndpointConfig.DEFAULT_VERSION | null | MEDIUM
-| *camel.source.endpoint.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | null | MEDIUM
+| *camel.source.endpoint.apiVersion* | Salesforce API version. | "34.0" | MEDIUM
+| *camel.source.endpoint.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | MEDIUM
 | *camel.source.endpoint.batchId* | Bulk API Batch ID | null | MEDIUM
 | *camel.source.endpoint.contentType* | Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON] | null | MEDIUM
 | *camel.source.endpoint.defaultReplayId* | Default replayId setting if no value is found in initialReplayIdMap | null | MEDIUM
@@ -38,8 +38,8 @@ The camel-salesforce source connector supports 116 options, which are listed bel
 | *camel.source.endpoint.instanceId* | Salesforce1 Analytics report execution instance ID | null | MEDIUM
 | *camel.source.endpoint.jobId* | Bulk API Job ID | null | MEDIUM
 | *camel.source.endpoint.limit* | Limit on number of returned records. Applicable to some of the API, check the Salesforce documentation. | null | MEDIUM
-| *camel.source.endpoint.maxBackoff* | Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | null | MEDIUM
-| *camel.source.endpoint.notFoundBehaviour* | Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL] | null | MEDIUM
+| *camel.source.endpoint.maxBackoff* | Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 30000L | MEDIUM
+| *camel.source.endpoint.notFoundBehaviour* | Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL] | "EXCEPTION" | MEDIUM
 | *camel.source.endpoint.notifyForFields* | Notify for fields, options are ALL, REFERENCED, SELECT, WHERE One of: [ALL] [REFERENCED] [SELECT] [WHERE] | null | MEDIUM
 | *camel.source.endpoint.notifyForOperationCreate* | Notify for create operation, defaults to false (API version = 29.0) | null | MEDIUM
 | *camel.source.endpoint.notifyForOperationDelete* | Notify for delete operation, defaults to false (API version = 29.0) | null | MEDIUM
@@ -70,8 +70,8 @@ The camel-salesforce source connector supports 116 options, which are listed bel
 | *camel.component.salesforce.apexMethod* | APEX method name | null | MEDIUM
 | *camel.component.salesforce.apexQueryParams* | Query params for APEX method | null | MEDIUM
 | *camel.component.salesforce.apexUrl* | APEX method URL | null | MEDIUM
-| *camel.component.salesforce.apiVersion* | Salesforce API version, defaults to SalesforceEndpointConfig.DEFAULT_VERSION | null | MEDIUM
-| *camel.component.salesforce.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | null | MEDIUM
+| *camel.component.salesforce.apiVersion* | Salesforce API version. | "34.0" | MEDIUM
+| *camel.component.salesforce.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | MEDIUM
 | *camel.component.salesforce.batchId* | Bulk API Batch ID | null | MEDIUM
 | *camel.component.salesforce.contentType* | Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON] | null | MEDIUM
 | *camel.component.salesforce.defaultReplayId* | Default replayId setting if no value is found in initialReplayIdMap | null | MEDIUM
@@ -85,8 +85,8 @@ The camel-salesforce source connector supports 116 options, which are listed bel
 | *camel.component.salesforce.instanceId* | Salesforce1 Analytics report execution instance ID | null | MEDIUM
 | *camel.component.salesforce.jobId* | Bulk API Job ID | null | MEDIUM
 | *camel.component.salesforce.limit* | Limit on number of returned records. Applicable to some of the API, check the Salesforce documentation. | null | MEDIUM
-| *camel.component.salesforce.maxBackoff* | Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | null | MEDIUM
-| *camel.component.salesforce.notFoundBehaviour* | Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL] | null | MEDIUM
+| *camel.component.salesforce.maxBackoff* | Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 30000L | MEDIUM
+| *camel.component.salesforce.notFoundBehaviour* | Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL] | "EXCEPTION" | MEDIUM
 | *camel.component.salesforce.notifyForFields* | Notify for fields, options are ALL, REFERENCED, SELECT, WHERE One of: [ALL] [REFERENCED] [SELECT] [WHERE] | null | MEDIUM
 | *camel.component.salesforce.notifyForOperation Create* | Notify for create operation, defaults to false (API version = 29.0) | null | MEDIUM
 | *camel.component.salesforce.notifyForOperation Delete* | Notify for delete operation, defaults to false (API version = 29.0) | null | MEDIUM

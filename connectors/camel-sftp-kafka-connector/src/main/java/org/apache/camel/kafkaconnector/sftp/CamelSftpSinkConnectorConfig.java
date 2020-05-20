@@ -120,6 +120,9 @@ public class CamelSftpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SFTP_ENDPOINT_CONNECT_TIMEOUT_CONF = "camel.sink.endpoint.connectTimeout";
     public static final String CAMEL_SINK_SFTP_ENDPOINT_CONNECT_TIMEOUT_DOC = "Sets the connect timeout for waiting for a connection to be established Used by both FTPClient and JSCH";
     public static final Integer CAMEL_SINK_SFTP_ENDPOINT_CONNECT_TIMEOUT_DEFAULT = 10000;
+    public static final String CAMEL_SINK_SFTP_ENDPOINT_EXIST_DIR_CHECK_USING_LS_CONF = "camel.sink.endpoint.existDirCheckUsingLs";
+    public static final String CAMEL_SINK_SFTP_ENDPOINT_EXIST_DIR_CHECK_USING_LS_DOC = "Whether to check for existing directory using LS command or CD. By default LS is used which is safer as otherwise Camel needs to change the directory back after checking. However LS has been reported to cause a problem on windows system in some situations and therefore you can disable this option to use CD.";
+    public static final Boolean CAMEL_SINK_SFTP_ENDPOINT_EXIST_DIR_CHECK_USING_LS_DEFAULT = true;
     public static final String CAMEL_SINK_SFTP_ENDPOINT_MAXIMUM_RECONNECT_ATTEMPTS_CONF = "camel.sink.endpoint.maximumReconnectAttempts";
     public static final String CAMEL_SINK_SFTP_ENDPOINT_MAXIMUM_RECONNECT_ATTEMPTS_DOC = "Specifies the maximum reconnect attempts Camel performs when it tries to connect to the remote FTP server. Use 0 to disable this behavior.";
     public static final Integer CAMEL_SINK_SFTP_ENDPOINT_MAXIMUM_RECONNECT_ATTEMPTS_DEFAULT = null;
@@ -243,6 +246,7 @@ public class CamelSftpSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SFTP_ENDPOINT_BULK_REQUESTS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTP_ENDPOINT_BULK_REQUESTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTP_ENDPOINT_BULK_REQUESTS_DOC);
         conf.define(CAMEL_SINK_SFTP_ENDPOINT_COMPRESSION_CONF, ConfigDef.Type.INT, CAMEL_SINK_SFTP_ENDPOINT_COMPRESSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTP_ENDPOINT_COMPRESSION_DOC);
         conf.define(CAMEL_SINK_SFTP_ENDPOINT_CONNECT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_SFTP_ENDPOINT_CONNECT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTP_ENDPOINT_CONNECT_TIMEOUT_DOC);
+        conf.define(CAMEL_SINK_SFTP_ENDPOINT_EXIST_DIR_CHECK_USING_LS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SFTP_ENDPOINT_EXIST_DIR_CHECK_USING_LS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTP_ENDPOINT_EXIST_DIR_CHECK_USING_LS_DOC);
         conf.define(CAMEL_SINK_SFTP_ENDPOINT_MAXIMUM_RECONNECT_ATTEMPTS_CONF, ConfigDef.Type.INT, CAMEL_SINK_SFTP_ENDPOINT_MAXIMUM_RECONNECT_ATTEMPTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTP_ENDPOINT_MAXIMUM_RECONNECT_ATTEMPTS_DOC);
         conf.define(CAMEL_SINK_SFTP_ENDPOINT_PROXY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SFTP_ENDPOINT_PROXY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTP_ENDPOINT_PROXY_DOC);
         conf.define(CAMEL_SINK_SFTP_ENDPOINT_RECONNECT_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SFTP_ENDPOINT_RECONNECT_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SFTP_ENDPOINT_RECONNECT_DELAY_DOC);

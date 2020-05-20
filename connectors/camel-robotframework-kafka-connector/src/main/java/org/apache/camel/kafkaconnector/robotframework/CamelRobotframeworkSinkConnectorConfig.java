@@ -29,6 +29,9 @@ public class CamelRobotframeworkSinkConnectorConfig
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_PATH_RESOURCE_URI_CONF = "camel.sink.path.resourceUri";
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_PATH_RESOURCE_URI_DOC = "Path to the resource. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the resource using these protocols (classpath is default). ref will lookup the resource in the registry. bean will call a method on a bean to be used as the resource. For bean you can specify the method name after dot, eg bean:myBean.myMethod.";
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_PATH_RESOURCE_URI_DEFAULT = null;
+    public static final String CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_CONF = "camel.sink.endpoint.allowTemplateFromHeader";
+    public static final String CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_DOC = "Whether to allow to use resource template from header or not (default false). Enabling this allows to specify dynamic templates via message header. However this can be seen as a potential security vulnerability if the header is coming from a malicious user, so use this with care.";
+    public static final Boolean CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT = false;
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ARGUMENT_FILE_CONF = "camel.sink.endpoint.argumentFile";
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ARGUMENT_FILE_DOC = "A text file to read more arguments from.";
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ARGUMENT_FILE_DEFAULT = null;
@@ -176,6 +179,9 @@ public class CamelRobotframeworkSinkConnectorConfig
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    public static final String CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_CONF = "camel.component.robotframework.allowTemplateFromHeader";
+    public static final String CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DOC = "Whether to allow to use resource template from header or not (default false). Enabling this allows to specify dynamic templates via message header. However this can be seen as a potential security vulnerability if the header is coming from a malicious user, so use this with care.";
+    public static final Boolean CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT = false;
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ARGUMENT_FILE_CONF = "camel.component.robotframework.argumentFile";
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ARGUMENT_FILE_DOC = "A text file to read more arguments from.";
     public static final String CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ARGUMENT_FILE_DEFAULT = null;
@@ -335,6 +341,7 @@ public class CamelRobotframeworkSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_PATH_RESOURCE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ROBOTFRAMEWORK_PATH_RESOURCE_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_ROBOTFRAMEWORK_PATH_RESOURCE_URI_DOC);
+        conf.define(CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_DOC);
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ARGUMENT_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ARGUMENT_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_ARGUMENT_FILE_DOC);
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_COMBINED_TAG_STATS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_COMBINED_TAG_STATS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_COMBINED_TAG_STATS_DOC);
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_CONTENT_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_CONTENT_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_CONTENT_CACHE_DOC);
@@ -384,6 +391,7 @@ public class CamelRobotframeworkSinkConnectorConfig
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_ENDPOINT_SYNCHRONOUS_DOC);
+        conf.define(CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DOC);
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ARGUMENT_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ARGUMENT_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_ARGUMENT_FILE_DOC);
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_COMBINED_TAG_STATS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_COMBINED_TAG_STATS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_COMBINED_TAG_STATS_DOC);
         conf.define(CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_CRITICAL_TAGS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_CRITICAL_TAGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ROBOTFRAMEWORK_COMPONENT_CRITICAL_TAGS_DOC);

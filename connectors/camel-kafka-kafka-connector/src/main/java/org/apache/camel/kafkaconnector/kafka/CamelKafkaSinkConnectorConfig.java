@@ -42,6 +42,9 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_CONF = "camel.sink.endpoint.reconnectBackoffMaxMs";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_DOC = "The maximum amount of time in milliseconds to wait when reconnecting to a broker that has repeatedly failed to connect. If provided, the backoff per host will increase exponentially for each consecutive connection failure, up to this maximum. After calculating the backoff increase, 20% random jitter is added to avoid connection storms.";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_DEFAULT = "1000";
+    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_CONF = "camel.sink.endpoint.shutdownTimeout";
+    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_DOC = "Timeout in milli seconds to wait gracefully for the consumer or producer to shutdown and terminate its worker threads.";
+    public static final Integer CAMEL_SINK_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_DEFAULT = 30000;
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_CONF = "camel.sink.endpoint.bufferMemorySize";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_DOC = "The total bytes of memory the producer can use to buffer records waiting to be sent to the server. If records are sent faster than they can be delivered to the server the producer will either block or throw an exception based on the preference specified by block.on.buffer.full.This setting should correspond roughly to the total memory the producer will use, but is not a hard bound since not all memory the producer uses is used for buffering. Some additional memory will be used for compression (if compression is enabled) as well as for maintaining in-flight requests.";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_DEFAULT = "33554432";
@@ -185,7 +188,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_CONF = "camel.sink.endpoint.sslEnabledProtocols";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DOC = "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.";
-    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.1,TLSv1";
+    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_CONF = "camel.sink.endpoint.sslEndpointAlgorithm";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DOC = "The endpoint identification algorithm to validate server hostname using server certificate.";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DEFAULT = null;
@@ -206,7 +209,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_KEYSTORE_TYPE_DEFAULT = "JKS";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROTOCOL_CONF = "camel.sink.endpoint.sslProtocol";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROTOCOL_DOC = "The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs, but their usage is discouraged due to known security vulnerabilities.";
-    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROTOCOL_DEFAULT = "TLS";
+    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROTOCOL_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROVIDER_CONF = "camel.sink.endpoint.sslProvider";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROVIDER_DOC = "The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROVIDER_DEFAULT = null;
@@ -240,6 +243,9 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_CONF = "camel.component.kafka.reconnectBackoffMaxMs";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_DOC = "The maximum amount of time in milliseconds to wait when reconnecting to a broker that has repeatedly failed to connect. If provided, the backoff per host will increase exponentially for each consecutive connection failure, up to this maximum. After calculating the backoff increase, 20% random jitter is added to avoid connection storms.";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_DEFAULT = "1000";
+    public static final String CAMEL_SINK_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_CONF = "camel.component.kafka.shutdownTimeout";
+    public static final String CAMEL_SINK_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_DOC = "Timeout in milli seconds to wait gracefully for the consumer or producer to shutdown and terminate its worker threads.";
+    public static final Integer CAMEL_SINK_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_DEFAULT = 30000;
     public static final String CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_CONF = "camel.component.kafka.bufferMemorySize";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_DOC = "The total bytes of memory the producer can use to buffer records waiting to be sent to the server. If records are sent faster than they can be delivered to the server the producer will either block or throw an exception based on the preference specified by block.on.buffer.full.This setting should correspond roughly to the total memory the producer will use, but is not a hard bound since not all memory the producer uses is used for buffering. Some additional memory will be used for compression (if compression is enabled) as well as for maintaining in-flight requests.";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_DEFAULT = "33554432";
@@ -380,7 +386,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_CONF = "camel.component.kafka.sslEnabledProtocols";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DOC = "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.";
-    public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.1,TLSv1";
+    public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_CONF = "camel.component.kafka.sslEndpointAlgorithm";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DOC = "The endpoint identification algorithm to validate server hostname using server certificate.";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DEFAULT = null;
@@ -401,7 +407,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_KEYSTORE_TYPE_DEFAULT = "JKS";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROTOCOL_CONF = "camel.component.kafka.sslProtocol";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROTOCOL_DOC = "The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs, but their usage is discouraged due to known security vulnerabilities.";
-    public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROTOCOL_DEFAULT = "TLS";
+    public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROTOCOL_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROVIDER_CONF = "camel.component.kafka.sslProvider";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROVIDER_DOC = "The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROVIDER_DEFAULT = null;
@@ -439,6 +445,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_CLIENT_ID_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_DOC);
+        conf.define(CAMEL_SINK_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_BUFFER_MEMORY_SIZE_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_COMPRESSION_CODEC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_COMPRESSION_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_COMPRESSION_CODEC_DOC);
         conf.define(CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_ENDPOINT_CONNECTION_MAX_IDLE_MS_DOC);
@@ -505,6 +512,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_DOC);
+        conf.define(CAMEL_SINK_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_BUFFER_MEMORY_SIZE_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_COMPRESSION_CODEC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_COMPRESSION_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_COMPRESSION_CODEC_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_CONNECTION_MAX_IDLE_MS_DOC);
