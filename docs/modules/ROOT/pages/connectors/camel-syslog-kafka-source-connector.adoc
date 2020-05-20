@@ -1,0 +1,27 @@
+// kafka-connector options: START
+[[camel-syslog-kafka-connector-source]]
+= camel-syslog-kafka-connector source configuration
+
+When using camel-syslog-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-syslog-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+
+The camel-syslog source connector supports is based on camel-netty source connector and supports all its options (see: xref:connectors/camel-netty-kafka-source-connector.adoc[Netty Source Docs]);
+however has been already preconfigured and should be sufficient to provide the following properties:
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.source.path.protocol* | The protocol to use which can be tcp or udp. One of: [tcp] [udp] | null | HIGH
+| *camel.source.path.host* | The hostname. For the consumer the hostname is localhost or 0.0.0.0. For the producer the hostname is the remote host to connect to | null | HIGH
+| *camel.source.path.port* | The host port number | null | HIGH
+|===
+// kafka-connector options: END
