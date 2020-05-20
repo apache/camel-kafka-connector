@@ -103,7 +103,7 @@ public class CamelFilewatchSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_FILEWATCH_PATH_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILEWATCH_PATH_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_FILEWATCH_PATH_PATH_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCH_ENDPOINT_ANT_INCLUDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILEWATCH_ENDPOINT_ANT_INCLUDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_ENDPOINT_ANT_INCLUDE_DOC);

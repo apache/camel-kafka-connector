@@ -166,7 +166,7 @@ public class CamelDockerSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_DOCKER_PATH_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_DOCKER_PATH_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_DOCKER_PATH_OPERATION_DOC);
         conf.define(CAMEL_SOURCE_DOCKER_ENDPOINT_EMAIL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_DOCKER_ENDPOINT_EMAIL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DOCKER_ENDPOINT_EMAIL_DOC);

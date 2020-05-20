@@ -91,7 +91,7 @@ public class CamelCoaptcpSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_COAPTCP_PATH_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_COAPTCP_PATH_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_COAPTCP_PATH_URI_DOC);
         conf.define(CAMEL_SOURCE_COAPTCP_ENDPOINT_ALIAS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_COAPTCP_ENDPOINT_ALIAS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_COAPTCP_ENDPOINT_ALIAS_DOC);

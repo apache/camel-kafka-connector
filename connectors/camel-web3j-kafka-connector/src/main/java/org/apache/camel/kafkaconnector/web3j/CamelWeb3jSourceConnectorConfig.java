@@ -130,7 +130,7 @@ public class CamelWeb3jSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_WEB3J_PATH_NODE_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEB3J_PATH_NODE_ADDRESS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_WEB3J_PATH_NODE_ADDRESS_DOC);
         conf.define(CAMEL_SOURCE_WEB3J_ENDPOINT_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEB3J_ENDPOINT_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEB3J_ENDPOINT_ADDRESSES_DOC);

@@ -139,7 +139,7 @@ public class CamelWebsocketSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_WEBSOCKET_PATH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_PATH_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_PATH_HOST_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_PATH_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_PATH_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_PATH_PORT_DOC);

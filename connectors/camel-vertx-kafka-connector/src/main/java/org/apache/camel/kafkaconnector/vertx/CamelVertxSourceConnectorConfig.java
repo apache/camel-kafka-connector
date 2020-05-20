@@ -82,7 +82,7 @@ public class CamelVertxSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_VERTX_PATH_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_VERTX_PATH_ADDRESS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_VERTX_PATH_ADDRESS_DOC);
         conf.define(CAMEL_SOURCE_VERTX_ENDPOINT_PUB_SUB_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_VERTX_ENDPOINT_PUB_SUB_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VERTX_ENDPOINT_PUB_SUB_DOC);

@@ -98,7 +98,7 @@ public class CamelXmppSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_XMPP_PATH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_PATH_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_XMPP_PATH_HOST_DOC);
         conf.define(CAMEL_SINK_XMPP_PATH_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_XMPP_PATH_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_XMPP_PATH_PORT_DOC);

@@ -179,7 +179,7 @@ public class CamelSipSourceConnectorConfig extends CamelSourceConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SIP_PATH_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_PATH_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SIP_PATH_URI_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_CACHE_CONNECTIONS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SIP_ENDPOINT_CACHE_CONNECTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_CACHE_CONNECTIONS_DOC);

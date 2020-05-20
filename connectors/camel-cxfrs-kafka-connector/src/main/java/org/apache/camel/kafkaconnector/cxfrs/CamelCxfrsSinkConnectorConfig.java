@@ -131,7 +131,7 @@ public class CamelCxfrsSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_CXFRS_PATH_BEAN_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXFRS_PATH_BEAN_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_PATH_BEAN_ID_DOC);
         conf.define(CAMEL_SINK_CXFRS_PATH_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXFRS_PATH_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXFRS_PATH_ADDRESS_DOC);

@@ -86,7 +86,7 @@ public class CamelIgnitecomputeSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_IGNITECOMPUTE_PATH_ENDPOINT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IGNITECOMPUTE_PATH_ENDPOINT_ID_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_IGNITECOMPUTE_PATH_ENDPOINT_ID_DOC);
         conf.define(CAMEL_SINK_IGNITECOMPUTE_ENDPOINT_CLUSTER_GROUP_EXPRESSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IGNITECOMPUTE_ENDPOINT_CLUSTER_GROUP_EXPRESSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IGNITECOMPUTE_ENDPOINT_CLUSTER_GROUP_EXPRESSION_DOC);

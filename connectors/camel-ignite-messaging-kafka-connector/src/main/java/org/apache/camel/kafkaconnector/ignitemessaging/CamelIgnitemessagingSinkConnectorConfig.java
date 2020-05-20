@@ -80,7 +80,7 @@ public class CamelIgnitemessagingSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_IGNITEMESSAGING_PATH_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IGNITEMESSAGING_PATH_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_IGNITEMESSAGING_PATH_TOPIC_DOC);
         conf.define(CAMEL_SINK_IGNITEMESSAGING_ENDPOINT_PROPAGATE_INCOMING_BODY_IF_NO_RETURN_VALUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IGNITEMESSAGING_ENDPOINT_PROPAGATE_INCOMING_BODY_IF_NO_RETURN_VALUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IGNITEMESSAGING_ENDPOINT_PROPAGATE_INCOMING_BODY_IF_NO_RETURN_VALUE_DOC);

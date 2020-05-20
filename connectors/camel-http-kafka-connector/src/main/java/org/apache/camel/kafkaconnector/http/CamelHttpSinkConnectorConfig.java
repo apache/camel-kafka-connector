@@ -251,7 +251,7 @@ public class CamelHttpSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_HTTP_PATH_HTTP_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTP_PATH_HTTP_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_HTTP_PATH_HTTP_URI_DOC);
         conf.define(CAMEL_SINK_HTTP_ENDPOINT_DISABLE_STREAM_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTP_ENDPOINT_DISABLE_STREAM_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_DISABLE_STREAM_CACHE_DOC);

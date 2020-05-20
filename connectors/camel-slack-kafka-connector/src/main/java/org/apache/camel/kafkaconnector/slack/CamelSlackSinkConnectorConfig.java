@@ -68,7 +68,7 @@ public class CamelSlackSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SLACK_PATH_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACK_PATH_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SLACK_PATH_CHANNEL_DOC);
         conf.define(CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SLACK_ENDPOINT_ICON_EMOJI_DOC);

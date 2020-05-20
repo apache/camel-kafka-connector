@@ -74,7 +74,7 @@ public class CamelGuavaeventbusSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_PATH_EVENT_BUS_REF_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GUAVAEVENTBUS_PATH_EVENT_BUS_REF_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_PATH_EVENT_BUS_REF_DOC);
         conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EVENT_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EVENT_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EVENT_CLASS_DOC);

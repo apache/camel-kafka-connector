@@ -182,7 +182,7 @@ public class CamelSqlSourceConnectorConfig extends CamelSourceConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SQL_PATH_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_PATH_QUERY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SQL_PATH_QUERY_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_ALLOW_NAMED_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_ENDPOINT_ALLOW_NAMED_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_ALLOW_NAMED_PARAMETERS_DOC);

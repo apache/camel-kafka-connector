@@ -182,7 +182,7 @@ public class CamelGooglecalendarstreamSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_GOOGLECALENDARSTREAM_PATH_INDEX_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDARSTREAM_PATH_INDEX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDARSTREAM_PATH_INDEX_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDARSTREAM_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDARSTREAM_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDARSTREAM_ENDPOINT_ACCESS_TOKEN_DOC);

@@ -98,7 +98,7 @@ public class CamelIgnitecacheSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_IGNITECACHE_PATH_CACHE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IGNITECACHE_PATH_CACHE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_IGNITECACHE_PATH_CACHE_NAME_DOC);
         conf.define(CAMEL_SOURCE_IGNITECACHE_ENDPOINT_PROPAGATE_INCOMING_BODY_IF_NO_RETURN_VALUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IGNITECACHE_ENDPOINT_PROPAGATE_INCOMING_BODY_IF_NO_RETURN_VALUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITECACHE_ENDPOINT_PROPAGATE_INCOMING_BODY_IF_NO_RETURN_VALUE_DOC);

@@ -149,7 +149,7 @@ public class CamelAtmospherewebsocketSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_ATMOSPHEREWEBSOCKET_PATH_SERVICE_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ATMOSPHEREWEBSOCKET_PATH_SERVICE_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_ATMOSPHEREWEBSOCKET_PATH_SERVICE_PATH_DOC);
         conf.define(CAMEL_SOURCE_ATMOSPHEREWEBSOCKET_ENDPOINT_CHUNKED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ATMOSPHEREWEBSOCKET_ENDPOINT_CHUNKED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ATMOSPHEREWEBSOCKET_ENDPOINT_CHUNKED_DOC);

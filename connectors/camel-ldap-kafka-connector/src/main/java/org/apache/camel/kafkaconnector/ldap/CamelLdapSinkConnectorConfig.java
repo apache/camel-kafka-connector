@@ -65,7 +65,7 @@ public class CamelLdapSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_LDAP_PATH_DIR_CONTEXT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LDAP_PATH_DIR_CONTEXT_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_LDAP_PATH_DIR_CONTEXT_NAME_DOC);
         conf.define(CAMEL_SINK_LDAP_ENDPOINT_BASE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LDAP_ENDPOINT_BASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LDAP_ENDPOINT_BASE_DOC);

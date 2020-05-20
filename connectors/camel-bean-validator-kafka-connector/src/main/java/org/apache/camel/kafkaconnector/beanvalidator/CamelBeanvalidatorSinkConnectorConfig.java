@@ -92,7 +92,7 @@ public class CamelBeanvalidatorSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_BEANVALIDATOR_PATH_LABEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEANVALIDATOR_PATH_LABEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_BEANVALIDATOR_PATH_LABEL_DOC);
         conf.define(CAMEL_SINK_BEANVALIDATOR_ENDPOINT_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEANVALIDATOR_ENDPOINT_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEANVALIDATOR_ENDPOINT_GROUP_DOC);

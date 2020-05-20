@@ -71,7 +71,7 @@ public class CamelBeanSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_BEAN_PATH_BEAN_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_PATH_BEAN_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_BEAN_PATH_BEAN_NAME_DOC);
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_CACHE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_ENDPOINT_CACHE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_BEAN_ENDPOINT_CACHE_DOC);

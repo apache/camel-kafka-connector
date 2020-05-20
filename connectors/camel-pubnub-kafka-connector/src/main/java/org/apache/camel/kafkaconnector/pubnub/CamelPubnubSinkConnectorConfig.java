@@ -80,7 +80,7 @@ public class CamelPubnubSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_PUBNUB_PATH_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PUBNUB_PATH_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_PUBNUB_PATH_CHANNEL_DOC);
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_UUID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PUBNUB_ENDPOINT_UUID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_UUID_DOC);

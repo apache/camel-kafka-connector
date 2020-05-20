@@ -77,7 +77,7 @@ public class CamelExecSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_EXEC_PATH_EXECUTABLE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_EXEC_PATH_EXECUTABLE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_EXEC_PATH_EXECUTABLE_DOC);
         conf.define(CAMEL_SINK_EXEC_ENDPOINT_ARGS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_EXEC_ENDPOINT_ARGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_EXEC_ENDPOINT_ARGS_DOC);

@@ -77,7 +77,7 @@ public class CamelReactivestreamsSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_REACTIVESTREAMS_PATH_STREAM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REACTIVESTREAMS_PATH_STREAM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REACTIVESTREAMS_PATH_STREAM_DOC);
         conf.define(CAMEL_SINK_REACTIVESTREAMS_ENDPOINT_BACKPRESSURE_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REACTIVESTREAMS_ENDPOINT_BACKPRESSURE_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REACTIVESTREAMS_ENDPOINT_BACKPRESSURE_STRATEGY_DOC);

@@ -134,7 +134,7 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWS2DDB_PATH_TABLE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_PATH_TABLE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2DDB_PATH_TABLE_NAME_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_DOC);

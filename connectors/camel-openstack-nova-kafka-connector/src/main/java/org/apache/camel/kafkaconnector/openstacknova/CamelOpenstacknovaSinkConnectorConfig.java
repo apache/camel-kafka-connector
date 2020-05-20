@@ -80,7 +80,7 @@ public class CamelOpenstacknovaSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_OPENSTACKNOVA_PATH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OPENSTACKNOVA_PATH_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_OPENSTACKNOVA_PATH_HOST_DOC);
         conf.define(CAMEL_SINK_OPENSTACKNOVA_ENDPOINT_API_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OPENSTACKNOVA_ENDPOINT_API_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OPENSTACKNOVA_ENDPOINT_API_VERSION_DOC);

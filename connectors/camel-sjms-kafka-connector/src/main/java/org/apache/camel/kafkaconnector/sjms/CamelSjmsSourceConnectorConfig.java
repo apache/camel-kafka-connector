@@ -187,7 +187,7 @@ public class CamelSjmsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SJMS_PATH_DESTINATION_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS_PATH_DESTINATION_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SJMS_PATH_DESTINATION_TYPE_DOC);
         conf.define(CAMEL_SOURCE_SJMS_PATH_DESTINATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SJMS_PATH_DESTINATION_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SJMS_PATH_DESTINATION_NAME_DOC);

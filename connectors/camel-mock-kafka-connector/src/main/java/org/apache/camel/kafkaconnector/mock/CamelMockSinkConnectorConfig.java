@@ -83,7 +83,7 @@ public class CamelMockSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_MOCK_PATH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MOCK_PATH_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MOCK_PATH_NAME_DOC);
         conf.define(CAMEL_SINK_MOCK_ENDPOINT_ASSERT_PERIOD_CONF, ConfigDef.Type.LONG, CAMEL_SINK_MOCK_ENDPOINT_ASSERT_PERIOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MOCK_ENDPOINT_ASSERT_PERIOD_DOC);

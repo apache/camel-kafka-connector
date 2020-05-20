@@ -73,7 +73,7 @@ public class CamelQuickfixSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_QUICKFIX_PATH_CONFIGURATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_QUICKFIX_PATH_CONFIGURATION_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_QUICKFIX_PATH_CONFIGURATION_NAME_DOC);
         conf.define(CAMEL_SINK_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_DOC);

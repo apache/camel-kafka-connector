@@ -173,7 +173,7 @@ public class CamelJpaSourceConnectorConfig extends CamelSourceConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_JPA_PATH_ENTITY_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JPA_PATH_ENTITY_TYPE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JPA_PATH_ENTITY_TYPE_DOC);
         conf.define(CAMEL_SOURCE_JPA_ENDPOINT_JOIN_TRANSACTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JPA_ENDPOINT_JOIN_TRANSACTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JPA_ENDPOINT_JOIN_TRANSACTION_DOC);

@@ -181,7 +181,7 @@ public class CamelSipsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_SIPS_PATH_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIPS_PATH_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_SIPS_PATH_URI_DOC);
         conf.define(CAMEL_SOURCE_SIPS_ENDPOINT_CACHE_CONNECTIONS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SIPS_ENDPOINT_CACHE_CONNECTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIPS_ENDPOINT_CACHE_CONNECTIONS_DOC);

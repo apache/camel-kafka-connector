@@ -133,7 +133,7 @@ public class CamelNatsSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_NATS_PATH_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NATS_PATH_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_NATS_PATH_TOPIC_DOC);
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_TIMEOUT_DOC);

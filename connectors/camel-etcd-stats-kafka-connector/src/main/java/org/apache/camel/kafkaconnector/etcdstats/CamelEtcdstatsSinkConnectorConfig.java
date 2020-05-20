@@ -109,7 +109,7 @@ public class CamelEtcdstatsSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_ETCDSTATS_PATH_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_PATH_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_PATH_PATH_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_ENDPOINT_RECURSIVE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDSTATS_ENDPOINT_RECURSIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_ENDPOINT_RECURSIVE_DOC);

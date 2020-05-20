@@ -59,7 +59,7 @@ public class CamelFopSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_FOP_PATH_OUTPUT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FOP_PATH_OUTPUT_TYPE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_FOP_PATH_OUTPUT_TYPE_DOC);
         conf.define(CAMEL_SINK_FOP_ENDPOINT_FOP_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FOP_ENDPOINT_FOP_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FOP_ENDPOINT_FOP_FACTORY_DOC);

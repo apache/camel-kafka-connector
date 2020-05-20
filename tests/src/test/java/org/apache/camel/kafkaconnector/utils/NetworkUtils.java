@@ -19,7 +19,7 @@ package org.apache.camel.kafkaconnector.utils;
 import java.io.IOException;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
-import java.net.Socket;
+import java.net.ServerSocket;
 
 public final class NetworkUtils {
     public static final int  DEFAULT_STARTING_PORT = 49152;
@@ -61,8 +61,14 @@ public final class NetworkUtils {
         try {
             switch (protocol) {
                 case TCP:
-                    (new Socket(host, port)).close();
-                    return true;
+                    try (ServerSocket ss = new ServerSocket()) {
+                        ss.setReuseAddress(true);
+                        ss.bind(new InetSocketAddress(host, port), 1);
+                        ss.getLocalPort();
+                        return true;
+                    } catch (IOException e) {
+                        return false;
+                    }
                 case UDP:
                     (new DatagramSocket(new InetSocketAddress(host, port))).close();
                     return true;
@@ -70,9 +76,8 @@ public final class NetworkUtils {
                     return false;
             }
         } catch (IOException e) {
-            // Could not connect.
+            return false;
         }
-        return false;
     }
 
     public enum Protocol {

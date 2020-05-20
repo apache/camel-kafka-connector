@@ -83,7 +83,7 @@ public class CamelLuceneSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_LUCENE_PATH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_PATH_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_LUCENE_PATH_HOST_DOC);
         conf.define(CAMEL_SINK_LUCENE_PATH_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_PATH_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_LUCENE_PATH_OPERATION_DOC);

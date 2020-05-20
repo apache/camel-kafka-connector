@@ -71,7 +71,7 @@ public class CamelStreamSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_STREAM_PATH_KIND_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STREAM_PATH_KIND_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_STREAM_PATH_KIND_DOC);
         conf.define(CAMEL_SINK_STREAM_ENDPOINT_ENCODING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STREAM_ENDPOINT_ENCODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STREAM_ENDPOINT_ENCODING_DOC);

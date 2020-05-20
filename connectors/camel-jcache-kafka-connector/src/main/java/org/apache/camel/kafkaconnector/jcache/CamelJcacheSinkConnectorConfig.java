@@ -110,7 +110,7 @@ public class CamelJcacheSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_JCACHE_PATH_CACHE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JCACHE_PATH_CACHE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_JCACHE_PATH_CACHE_NAME_DOC);
         conf.define(CAMEL_SINK_JCACHE_ENDPOINT_CACHE_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JCACHE_ENDPOINT_CACHE_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_ENDPOINT_CACHE_CONFIGURATION_DOC);

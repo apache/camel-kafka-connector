@@ -88,7 +88,7 @@ public class CamelCmisSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_CMIS_PATH_CMS_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CMIS_PATH_CMS_URL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_CMIS_PATH_CMS_URL_DOC);
         conf.define(CAMEL_SOURCE_CMIS_ENDPOINT_PAGE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_CMIS_ENDPOINT_PAGE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CMIS_ENDPOINT_PAGE_SIZE_DOC);

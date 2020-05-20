@@ -62,7 +62,7 @@ public class CamelSpringintegrationSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SPRINGINTEGRATION_PATH_DEFAULT_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGINTEGRATION_PATH_DEFAULT_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_SPRINGINTEGRATION_PATH_DEFAULT_CHANNEL_DOC);
         conf.define(CAMEL_SINK_SPRINGINTEGRATION_ENDPOINT_IN_OUT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGINTEGRATION_ENDPOINT_IN_OUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGINTEGRATION_ENDPOINT_IN_OUT_DOC);

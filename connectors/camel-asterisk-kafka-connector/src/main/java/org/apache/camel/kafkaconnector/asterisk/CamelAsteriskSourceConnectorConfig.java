@@ -70,7 +70,7 @@ public class CamelAsteriskSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_ASTERISK_PATH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ASTERISK_PATH_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_ASTERISK_PATH_NAME_DOC);
         conf.define(CAMEL_SOURCE_ASTERISK_ENDPOINT_HOSTNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ASTERISK_ENDPOINT_HOSTNAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_ASTERISK_ENDPOINT_HOSTNAME_DOC);

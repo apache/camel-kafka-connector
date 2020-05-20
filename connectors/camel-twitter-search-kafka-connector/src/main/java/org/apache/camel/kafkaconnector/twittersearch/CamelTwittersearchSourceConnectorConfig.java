@@ -200,7 +200,7 @@ public class CamelTwittersearchSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_TWITTERSEARCH_PATH_KEYWORDS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TWITTERSEARCH_PATH_KEYWORDS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_TWITTERSEARCH_PATH_KEYWORDS_DOC);
         conf.define(CAMEL_SOURCE_TWITTERSEARCH_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TWITTERSEARCH_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERSEARCH_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);

@@ -62,7 +62,7 @@ public class CamelWebsocketjsr356SinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_WEBSOCKETJSR356_PATH_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKETJSR356_PATH_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKETJSR356_PATH_URI_DOC);
         conf.define(CAMEL_SINK_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SINK_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_DOC);

@@ -74,7 +74,7 @@ public class CamelJooqSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_JOOQ_PATH_ENTITY_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_PATH_ENTITY_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_PATH_ENTITY_TYPE_DOC);
         conf.define(CAMEL_SINK_JOOQ_ENDPOINT_DATABASE_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_ENDPOINT_DATABASE_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_ENDPOINT_DATABASE_CONFIGURATION_DOC);

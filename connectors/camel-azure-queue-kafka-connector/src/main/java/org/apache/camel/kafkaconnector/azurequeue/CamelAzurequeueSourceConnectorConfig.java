@@ -88,7 +88,7 @@ public class CamelAzurequeueSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_AZUREQUEUE_PATH_CONTAINER_AND_QUEUE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_PATH_CONTAINER_AND_QUEUE_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AZUREQUEUE_PATH_CONTAINER_AND_QUEUE_URI_DOC);
         conf.define(CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_AZURE_QUEUE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_AZURE_QUEUE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREQUEUE_ENDPOINT_AZURE_QUEUE_CLIENT_DOC);

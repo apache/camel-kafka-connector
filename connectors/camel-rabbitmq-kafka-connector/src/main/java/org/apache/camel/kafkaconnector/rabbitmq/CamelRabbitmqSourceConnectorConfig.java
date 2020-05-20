@@ -328,7 +328,7 @@ public class CamelRabbitmqSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_RABBITMQ_PATH_EXCHANGE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_PATH_EXCHANGE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_RABBITMQ_PATH_EXCHANGE_NAME_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_ENDPOINT_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_ENDPOINT_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_ENDPOINT_ADDRESSES_DOC);

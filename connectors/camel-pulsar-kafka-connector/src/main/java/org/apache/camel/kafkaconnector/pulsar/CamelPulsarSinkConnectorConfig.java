@@ -149,7 +149,7 @@ public class CamelPulsarSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_PULSAR_PATH_PERSISTENCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_PATH_PERSISTENCE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_PULSAR_PATH_PERSISTENCE_DOC);
         conf.define(CAMEL_SINK_PULSAR_PATH_TENANT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_PATH_TENANT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_PULSAR_PATH_TENANT_DOC);

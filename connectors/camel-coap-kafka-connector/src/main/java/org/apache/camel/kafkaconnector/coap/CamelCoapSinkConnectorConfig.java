@@ -80,7 +80,7 @@ public class CamelCoapSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_COAP_PATH_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_COAP_PATH_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COAP_PATH_URI_DOC);
         conf.define(CAMEL_SINK_COAP_ENDPOINT_ALIAS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_COAP_ENDPOINT_ALIAS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COAP_ENDPOINT_ALIAS_DOC);

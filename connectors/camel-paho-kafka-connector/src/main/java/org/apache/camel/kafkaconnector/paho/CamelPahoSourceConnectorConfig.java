@@ -226,7 +226,7 @@ public class CamelPahoSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_PAHO_PATH_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PAHO_PATH_TOPIC_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_PAHO_PATH_TOPIC_DOC);
         conf.define(CAMEL_SOURCE_PAHO_ENDPOINT_AUTOMATIC_RECONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PAHO_ENDPOINT_AUTOMATIC_RECONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_ENDPOINT_AUTOMATIC_RECONNECT_DOC);

@@ -131,7 +131,7 @@ public class CamelLogSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_LOG_PATH_LOGGER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LOG_PATH_LOGGER_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_LOG_PATH_LOGGER_NAME_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_GROUP_ACTIVE_ONLY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LOG_ENDPOINT_GROUP_ACTIVE_ONLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_GROUP_ACTIVE_ONLY_DOC);

@@ -34,6 +34,6 @@ public class CamelSyslogSinkConnectorConfig extends CamelNettySinkConnectorConfi
     }
 
     public static ConfigDef conf() {
-        return CamelNettySinkConnectorConfig.conf(null);
+        return CamelNettySinkConnectorConfig.conf();
     }
 }

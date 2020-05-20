@@ -68,7 +68,7 @@ public class CamelNitriteSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_NITRITE_PATH_DATABASE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NITRITE_PATH_DATABASE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_NITRITE_PATH_DATABASE_DOC);
         conf.define(CAMEL_SINK_NITRITE_ENDPOINT_COLLECTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NITRITE_ENDPOINT_COLLECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NITRITE_ENDPOINT_COLLECTION_DOC);

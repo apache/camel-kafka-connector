@@ -260,7 +260,7 @@ public class CamelWeb3jSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_WEB3J_PATH_NODE_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEB3J_PATH_NODE_ADDRESS_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_WEB3J_PATH_NODE_ADDRESS_DOC);
         conf.define(CAMEL_SINK_WEB3J_ENDPOINT_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEB3J_ENDPOINT_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEB3J_ENDPOINT_ADDRESSES_DOC);

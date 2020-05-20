@@ -376,7 +376,7 @@ public class CamelSalesforceSinkConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_METHOD_DOC);

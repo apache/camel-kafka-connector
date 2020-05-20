@@ -110,7 +110,7 @@ public class CamelAhcSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AHC_PATH_HTTP_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_PATH_HTTP_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AHC_PATH_HTTP_URI_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_BRIDGE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_ENDPOINT_BRIDGE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_BRIDGE_ENDPOINT_DOC);

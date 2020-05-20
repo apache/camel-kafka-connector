@@ -83,7 +83,7 @@ public class CamelAwssdbSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSSDB_PATH_DOMAIN_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSDB_PATH_DOMAIN_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSDB_PATH_DOMAIN_NAME_DOC);
         conf.define(CAMEL_SINK_AWSSDB_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSDB_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSDB_ENDPOINT_ACCESS_KEY_DOC);

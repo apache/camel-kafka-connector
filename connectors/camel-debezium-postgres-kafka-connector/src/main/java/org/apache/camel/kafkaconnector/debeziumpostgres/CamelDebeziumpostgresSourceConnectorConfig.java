@@ -449,7 +449,7 @@ public class CamelDebeziumpostgresSourceConnectorConfig
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_DEBEZIUMPOSTGRES_PATH_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_DEBEZIUMPOSTGRES_PATH_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_DEBEZIUMPOSTGRES_PATH_NAME_DOC);
         conf.define(CAMEL_SOURCE_DEBEZIUMPOSTGRES_ENDPOINT_ADDITIONAL_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_DEBEZIUMPOSTGRES_ENDPOINT_ADDITIONAL_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_DEBEZIUMPOSTGRES_ENDPOINT_ADDITIONAL_PROPERTIES_DOC);

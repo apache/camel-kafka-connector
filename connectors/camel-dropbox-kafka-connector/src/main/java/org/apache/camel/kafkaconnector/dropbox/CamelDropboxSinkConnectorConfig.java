@@ -77,7 +77,7 @@ public class CamelDropboxSinkConnectorConfig extends CamelSinkConnectorConfig {
         this(conf(), parsedConfig);
     }
 
-    public static ConfigDef conf(Map<String, String> parsedConfig) {
+    public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_DROPBOX_PATH_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DROPBOX_PATH_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_DROPBOX_PATH_OPERATION_DOC);
         conf.define(CAMEL_SINK_DROPBOX_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DROPBOX_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_DROPBOX_ENDPOINT_ACCESS_TOKEN_DOC);
