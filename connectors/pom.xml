@@ -206,6 +206,8 @@
         <module>camel-aws2-translate-kafka-connector</module>
         <module>camel-azure-blob-kafka-connector</module>
         <module>camel-azure-queue-kafka-connector</module>
+        <module>camel-azure-storage-blob-kafka-connector</module>
+        <module>camel-azure-storage-queue-kafka-connector</module>
         <module>camel-bean-kafka-connector</module>
         <module>camel-bean-validator-kafka-connector</module>
         <module>camel-beanstalk-kafka-connector</module>
@@ -249,6 +251,7 @@
         <module>camel-direct-vm-kafka-connector</module>
         <module>camel-disruptor-kafka-connector</module>
         <module>camel-disruptor-vm-kafka-connector</module>
+        <module>camel-djl-kafka-connector</module>
         <module>camel-dns-kafka-connector</module>
         <module>camel-docker-kafka-connector</module>
         <module>camel-dozer-kafka-connector</module>
@@ -445,6 +448,7 @@
         <module>camel-solrs-kafka-connector</module>
         <module>camel-soroush-kafka-connector</module>
         <module>camel-spark-kafka-connector</module>
+        <module>camel-splunk-hec-kafka-connector</module>
         <module>camel-splunk-kafka-connector</module>
         <module>camel-spring-batch-kafka-connector</module>
         <module>camel-spring-event-kafka-connector</module>
@@ -459,8 +463,8 @@
         <module>camel-stomp-kafka-connector</module>
         <module>camel-stream-kafka-connector</module>
         <module>camel-string-template-kafka-connector</module>
-        <module>camel-syslog-kafka-connector</module>
         <module>camel-stub-kafka-connector</module>
+        <module>camel-syslog-kafka-connector</module>
         <module>camel-telegram-kafka-connector</module>
         <module>camel-thrift-kafka-connector</module>
         <module>camel-tika-kafka-connector</module>

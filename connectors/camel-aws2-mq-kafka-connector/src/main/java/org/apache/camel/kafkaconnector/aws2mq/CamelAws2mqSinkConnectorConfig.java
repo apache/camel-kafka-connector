@@ -36,6 +36,9 @@ public class CamelAws2mqSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2MQ_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
     public static final String CAMEL_SINK_AWS2MQ_ENDPOINT_OPERATION_DOC = "The operation to perform. It can be listBrokers,createBroker,deleteBroker One of: [listBrokers] [createBroker] [deleteBroker] [rebootBroker] [updateBroker] [describeBroker]";
     public static final String CAMEL_SINK_AWS2MQ_ENDPOINT_OPERATION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2MQ_ENDPOINT_POJO_REQUEST_CONF = "camel.sink.endpoint.pojoRequest";
+    public static final String CAMEL_SINK_AWS2MQ_ENDPOINT_POJO_REQUEST_DOC = "If we want to use a POJO request as body or not";
+    public static final Boolean CAMEL_SINK_AWS2MQ_ENDPOINT_POJO_REQUEST_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_HOST_CONF = "camel.sink.endpoint.proxyHost";
     public static final String CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the MQ client";
     public static final String CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -72,6 +75,9 @@ public class CamelAws2mqSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2MQ_COMPONENT_OPERATION_CONF = "camel.component.aws2-mq.operation";
     public static final String CAMEL_SINK_AWS2MQ_COMPONENT_OPERATION_DOC = "The operation to perform. It can be listBrokers,createBroker,deleteBroker One of: [listBrokers] [createBroker] [deleteBroker] [rebootBroker] [updateBroker] [describeBroker]";
     public static final String CAMEL_SINK_AWS2MQ_COMPONENT_OPERATION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2MQ_COMPONENT_POJO_REQUEST_CONF = "camel.component.aws2-mq.pojoRequest";
+    public static final String CAMEL_SINK_AWS2MQ_COMPONENT_POJO_REQUEST_DOC = "If we want to use a POJO request as body or not";
+    public static final Boolean CAMEL_SINK_AWS2MQ_COMPONENT_POJO_REQUEST_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_HOST_CONF = "camel.component.aws2-mq.proxyHost";
     public static final String CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the MQ client";
     public static final String CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_HOST_DEFAULT = null;
@@ -110,6 +116,7 @@ public class CamelAws2mqSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2MQ_ENDPOINT_AMAZON_MQ_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_ENDPOINT_AMAZON_MQ_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_ENDPOINT_AMAZON_MQ_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2MQ_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2MQ_ENDPOINT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWS2MQ_ENDPOINT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2MQ_ENDPOINT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_ENDPOINT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_ENDPOINT_PROXY_PROTOCOL_DOC);
@@ -122,6 +129,7 @@ public class CamelAws2mqSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2MQ_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2MQ_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2MQ_COMPONENT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWS2MQ_COMPONENT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2MQ_COMPONENT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_COMPONENT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2MQ_COMPONENT_PROXY_PROTOCOL_DOC);

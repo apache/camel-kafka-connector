@@ -32,7 +32,7 @@ public class CamelNatsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final Integer CAMEL_SINK_NATS_ENDPOINT_CONNECTION_TIMEOUT_DEFAULT = 2000;
     public static final String CAMEL_SINK_NATS_ENDPOINT_FLUSH_CONNECTION_CONF = "camel.sink.endpoint.flushConnection";
     public static final String CAMEL_SINK_NATS_ENDPOINT_FLUSH_CONNECTION_DOC = "Define if we want to flush connection when stopping or not";
-    public static final Boolean CAMEL_SINK_NATS_ENDPOINT_FLUSH_CONNECTION_DEFAULT = false;
+    public static final Boolean CAMEL_SINK_NATS_ENDPOINT_FLUSH_CONNECTION_DEFAULT = true;
     public static final String CAMEL_SINK_NATS_ENDPOINT_FLUSH_TIMEOUT_CONF = "camel.sink.endpoint.flushTimeout";
     public static final String CAMEL_SINK_NATS_ENDPOINT_FLUSH_TIMEOUT_DOC = "Set the flush timeout (in milliseconds)";
     public static final Integer CAMEL_SINK_NATS_ENDPOINT_FLUSH_TIMEOUT_DEFAULT = 1000;

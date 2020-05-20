@@ -28,7 +28,7 @@ The camel-aws-s3 source connector supports 77 options, which are listed below.
 | *camel.source.endpoint.endpointConfiguration* | Amazon AWS Endpoint Configuration | null | MEDIUM
 | *camel.source.endpoint.pathStyleAccess* | Whether or not the S3 client should use path style access | false | MEDIUM
 | *camel.source.endpoint.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | MEDIUM
-| *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the SQS client | null | MEDIUM
+| *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the S3 client | null | MEDIUM
 | *camel.source.endpoint.proxyPort* | Specify a proxy port to be used inside the client definition. | null | MEDIUM
 | *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.source.endpoint.region* | The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM
@@ -77,7 +77,7 @@ The camel-aws-s3 source connector supports 77 options, which are listed below.
 | *camel.component.aws-s3.endpointConfiguration* | Amazon AWS Endpoint Configuration | null | MEDIUM
 | *camel.component.aws-s3.pathStyleAccess* | Whether or not the S3 client should use path style access | false | MEDIUM
 | *camel.component.aws-s3.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | MEDIUM
-| *camel.component.aws-s3.proxyHost* | To define a proxy host when instantiating the SQS client | null | MEDIUM
+| *camel.component.aws-s3.proxyHost* | To define a proxy host when instantiating the S3 client | null | MEDIUM
 | *camel.component.aws-s3.proxyPort* | Specify a proxy port to be used inside the client definition. | null | MEDIUM
 | *camel.component.aws-s3.proxyProtocol* | To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.component.aws-s3.region* | The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM

@@ -45,7 +45,7 @@ public class CamelAwss3SourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_POLICY_DOC = "The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_POLICY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_PROXY_HOST_CONF = "camel.source.endpoint.proxyHost";
-    public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SQS client";
+    public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the S3 client";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_PROXY_HOST_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_PROXY_PORT_CONF = "camel.source.endpoint.proxyPort";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_PROXY_PORT_DOC = "Specify a proxy port to be used inside the client definition.";
@@ -192,7 +192,7 @@ public class CamelAwss3SourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_POLICY_DOC = "The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.";
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_POLICY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_PROXY_HOST_CONF = "camel.component.aws-s3.proxyHost";
-    public static final String CAMEL_SOURCE_AWSS3_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SQS client";
+    public static final String CAMEL_SOURCE_AWSS3_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the S3 client";
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_PROXY_HOST_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_PROXY_PORT_CONF = "camel.component.aws-s3.proxyPort";
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_PROXY_PORT_DOC = "Specify a proxy port to be used inside the client definition.";

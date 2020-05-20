@@ -51,7 +51,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_DOC = "Specify the queue owner aws account id when you need to connect the queue with different account owner.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_CONF = "camel.source.endpoint.region";
-    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_DOC = "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
+    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_DOC = "The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_ATTRIBUTE_NAMES_CONF = "camel.source.endpoint.attributeNames";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_ATTRIBUTE_NAMES_DOC = "A list of attribute names to receive when consuming. Multiple names can be separated by comma.";
@@ -210,7 +210,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_DOC = "Specify the queue owner aws account id when you need to connect the queue with different account owner.";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_CONF = "camel.component.aws2-sqs.region";
-    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_DOC = "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
+    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_DOC = "The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_ATTRIBUTE_NAMES_CONF = "camel.component.aws2-sqs.attributeNames";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_ATTRIBUTE_NAMES_DOC = "A list of attribute names to receive when consuming. Multiple names can be separated by comma.";

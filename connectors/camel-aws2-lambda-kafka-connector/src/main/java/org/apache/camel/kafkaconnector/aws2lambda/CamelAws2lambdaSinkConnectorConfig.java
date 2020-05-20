@@ -35,6 +35,9 @@ public class CamelAws2lambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_OPERATION_DOC = "The operation to perform. It can be listFunctions, getFunction, createFunction, deleteFunction or invokeFunction One of: [listFunctions] [getFunction] [createAlias] [deleteAlias] [getAlias] [listAliases] [createFunction] [deleteFunction] [invokeFunction] [updateFunction] [createEventSourceMapping] [deleteEventSourceMapping] [listEventSourceMapping] [listTags] [tagResource] [untagResource] [publishVersion] [listVersions]";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_OPERATION_DEFAULT = "invokeFunction";
+    public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_POJO_REQUEST_CONF = "camel.sink.endpoint.pojoRequest";
+    public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_POJO_REQUEST_DOC = "If we want to use a POJO request as body or not";
+    public static final Boolean CAMEL_SINK_AWS2LAMBDA_ENDPOINT_POJO_REQUEST_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_CONF = "camel.sink.endpoint.region";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DOC = "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DEFAULT = null;
@@ -71,6 +74,9 @@ public class CamelAws2lambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_OPERATION_CONF = "camel.component.aws2-lambda.operation";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_OPERATION_DOC = "The operation to perform. It can be listFunctions, getFunction, createFunction, deleteFunction or invokeFunction One of: [listFunctions] [getFunction] [createAlias] [deleteAlias] [getAlias] [listAliases] [createFunction] [deleteFunction] [invokeFunction] [updateFunction] [createEventSourceMapping] [deleteEventSourceMapping] [listEventSourceMapping] [listTags] [tagResource] [untagResource] [publishVersion] [listVersions]";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_OPERATION_DEFAULT = "invokeFunction";
+    public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_POJO_REQUEST_CONF = "camel.component.aws2-lambda.pojoRequest";
+    public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_POJO_REQUEST_DOC = "If we want to use a POJO request as body or not";
+    public static final Boolean CAMEL_SINK_AWS2LAMBDA_COMPONENT_POJO_REQUEST_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_CONF = "camel.component.aws2-lambda.region";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DOC = "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DEFAULT = null;
@@ -111,6 +117,7 @@ public class CamelAws2lambdaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWS2LAMBDA_PATH_FUNCTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_PATH_FUNCTION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2LAMBDA_PATH_FUNCTION_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
@@ -123,6 +130,7 @@ public class CamelAws2lambdaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_OPERATION_DOC);
+        conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_COMPONENT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2LAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2LAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2LAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2LAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);

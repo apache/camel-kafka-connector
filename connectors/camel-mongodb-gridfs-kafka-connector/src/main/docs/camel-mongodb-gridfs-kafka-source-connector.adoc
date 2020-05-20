@@ -22,11 +22,11 @@ The camel-mongodb-gridfs source connector supports 19 options, which are listed 
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.connectionBean* | Name of com.mongodb.MongoClient to use. | null | HIGH
+| *camel.source.path.connectionBean* | Name of com.mongodb.client.MongoClient to use. | null | HIGH
 | *camel.source.endpoint.bucket* | Sets the name of the GridFS bucket within the database. Default is fs. | "fs" | MEDIUM
 | *camel.source.endpoint.database* | Sets the name of the MongoDB database to target | null | HIGH
 | *camel.source.endpoint.readPreference* | Sets a MongoDB ReadPreference on the Mongo connection. Read preferences set directly on the connection will be overridden by this setting. The com.mongodb.ReadPreference#valueOf(String) utility method is used to resolve the passed readPreference value. Some examples for the possible values are nearest, primary or secondary etc. | null | MEDIUM
-| *camel.source.endpoint.writeConcern* | Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY] [SAFE] | null | MEDIUM
+| *camel.source.endpoint.writeConcern* | Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY] | null | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.delay* | Sets the delay between polls within the Consumer. Default is 500ms | 500L | MEDIUM
 | *camel.source.endpoint.fileAttributeName* | If the QueryType uses a FileAttribute, this sets the name of the attribute that is used. Default is camel-processed. | "camel-processed" | MEDIUM

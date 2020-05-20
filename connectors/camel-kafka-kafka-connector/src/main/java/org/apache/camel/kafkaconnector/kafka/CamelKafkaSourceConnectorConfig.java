@@ -44,6 +44,9 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_CONF = "camel.source.endpoint.reconnectBackoffMaxMs";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_DOC = "The maximum amount of time in milliseconds to wait when reconnecting to a broker that has repeatedly failed to connect. If provided, the backoff per host will increase exponentially for each consecutive connection failure, up to this maximum. After calculating the backoff increase, 20% random jitter is added to avoid connection storms.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_DEFAULT = "1000";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_CONF = "camel.source.endpoint.shutdownTimeout";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_DOC = "Timeout in milli seconds to wait gracefully for the consumer or producer to shutdown and terminate its worker threads.";
+    public static final Integer CAMEL_SOURCE_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_DEFAULT = 30000;
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_ALLOW_MANUAL_COMMIT_CONF = "camel.source.endpoint.allowManualCommit";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_ALLOW_MANUAL_COMMIT_DOC = "Whether to allow doing manual commits via KafkaManualCommit. If this option is enabled then an instance of KafkaManualCommit is stored on the Exchange message header, which allows end users to access this API and perform manual offset commits via the Kafka consumer.";
     public static final Boolean CAMEL_SOURCE_KAFKA_ENDPOINT_ALLOW_MANUAL_COMMIT_DEFAULT = false;
@@ -184,7 +187,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_CONF = "camel.source.endpoint.sslEnabledProtocols";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DOC = "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.";
-    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.1,TLSv1";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_CONF = "camel.source.endpoint.sslEndpointAlgorithm";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DOC = "The endpoint identification algorithm to validate server hostname using server certificate.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DEFAULT = null;
@@ -196,7 +199,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_KEYSTORE_TYPE_DEFAULT = "JKS";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_PROTOCOL_CONF = "camel.source.endpoint.sslProtocol";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_PROTOCOL_DOC = "The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs, but their usage is discouraged due to known security vulnerabilities.";
-    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_PROTOCOL_DEFAULT = "TLS";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_PROTOCOL_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_PROVIDER_CONF = "camel.source.endpoint.sslProvider";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_PROVIDER_DOC = "The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_PROVIDER_DEFAULT = null;
@@ -224,6 +227,9 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_CONF = "camel.component.kafka.reconnectBackoffMaxMs";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_DOC = "The maximum amount of time in milliseconds to wait when reconnecting to a broker that has repeatedly failed to connect. If provided, the backoff per host will increase exponentially for each consecutive connection failure, up to this maximum. After calculating the backoff increase, 20% random jitter is added to avoid connection storms.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_DEFAULT = "1000";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_CONF = "camel.component.kafka.shutdownTimeout";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_DOC = "Timeout in milli seconds to wait gracefully for the consumer or producer to shutdown and terminate its worker threads.";
+    public static final Integer CAMEL_SOURCE_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_DEFAULT = 30000;
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_ALLOW_MANUAL_COMMIT_CONF = "camel.component.kafka.allowManualCommit";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_ALLOW_MANUAL_COMMIT_DOC = "Whether to allow doing manual commits via KafkaManualCommit. If this option is enabled then an instance of KafkaManualCommit is stored on the Exchange message header, which allows end users to access this API and perform manual offset commits via the Kafka consumer.";
     public static final Boolean CAMEL_SOURCE_KAFKA_COMPONENT_ALLOW_MANUAL_COMMIT_DEFAULT = false;
@@ -358,7 +364,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_CONF = "camel.component.kafka.sslEnabledProtocols";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DOC = "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.";
-    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2,TLSv1.1,TLSv1";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_CONF = "camel.component.kafka.sslEndpointAlgorithm";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DOC = "The endpoint identification algorithm to validate server hostname using server certificate.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DEFAULT = null;
@@ -370,7 +376,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_KEYSTORE_TYPE_DEFAULT = "JKS";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_PROTOCOL_CONF = "camel.component.kafka.sslProtocol";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_PROTOCOL_DOC = "The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs, but their usage is discouraged due to known security vulnerabilities.";
-    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_PROTOCOL_DEFAULT = "TLS";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_PROTOCOL_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_PROVIDER_CONF = "camel.component.kafka.sslProvider";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_PROVIDER_DOC = "The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_PROVIDER_DEFAULT = null;
@@ -402,6 +408,7 @@ public class CamelKafkaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_CLIENT_ID_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_RECONNECT_BACKOFF_MAX_MS_DOC);
+        conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_SHUTDOWN_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_ALLOW_MANUAL_COMMIT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKA_ENDPOINT_ALLOW_MANUAL_COMMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_ALLOW_MANUAL_COMMIT_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_AUTO_COMMIT_ENABLE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_AUTO_COMMIT_ENABLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_AUTO_COMMIT_ENABLE_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_ENDPOINT_AUTO_COMMIT_INTERVAL_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_ENDPOINT_AUTO_COMMIT_INTERVAL_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_ENDPOINT_AUTO_COMMIT_INTERVAL_MS_DOC);
@@ -462,6 +469,7 @@ public class CamelKafkaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_RECONNECT_BACKOFF_MAX_MS_DOC);
+        conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_SHUTDOWN_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_ALLOW_MANUAL_COMMIT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKA_COMPONENT_ALLOW_MANUAL_COMMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_ALLOW_MANUAL_COMMIT_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_AUTO_COMMIT_ENABLE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_AUTO_COMMIT_ENABLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_AUTO_COMMIT_ENABLE_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_AUTO_COMMIT_INTERVAL_MS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_AUTO_COMMIT_INTERVAL_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_AUTO_COMMIT_INTERVAL_MS_DOC);

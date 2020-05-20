@@ -27,7 +27,7 @@ public class CamelMongodbgridfsSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_PATH_CONNECTION_BEAN_CONF = "camel.source.path.connectionBean";
-    public static final String CAMEL_SOURCE_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DOC = "Name of com.mongodb.MongoClient to use.";
+    public static final String CAMEL_SOURCE_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DOC = "Name of com.mongodb.client.MongoClient to use.";
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DEFAULT = null;
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_BUCKET_CONF = "camel.source.endpoint.bucket";
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_BUCKET_DOC = "Sets the name of the GridFS bucket within the database. Default is fs.";
@@ -39,7 +39,7 @@ public class CamelMongodbgridfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_READ_PREFERENCE_DOC = "Sets a MongoDB ReadPreference on the Mongo connection. Read preferences set directly on the connection will be overridden by this setting. The com.mongodb.ReadPreference#valueOf(String) utility method is used to resolve the passed readPreference value. Some examples for the possible values are nearest, primary or secondary etc.";
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_READ_PREFERENCE_DEFAULT = null;
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_CONF = "camel.source.endpoint.writeConcern";
-    public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_DOC = "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY] [SAFE]";
+    public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_DOC = "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]";
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_MONGODBGRIDFS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";

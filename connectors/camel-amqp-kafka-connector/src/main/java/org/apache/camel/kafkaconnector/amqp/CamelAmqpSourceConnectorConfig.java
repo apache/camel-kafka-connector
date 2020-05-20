@@ -252,7 +252,7 @@ public class CamelAmqpSourceConnectorConfig
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_DURABLE_SUBSCRIPTION_NAME_DOC = "The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well.";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_DURABLE_SUBSCRIPTION_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_INCLUDE_AMQP_ANNOTATIONS_CONF = "camel.component.amqp.includeAmqpAnnotations";
-    public static final String CAMEL_SOURCE_AMQP_COMPONENT_INCLUDE_AMQP_ANNOTATIONS_DOC = "Whether to include AMQP annotations when mapping from AMQP to Camel Message. Setting this to true will map AMQP message annotations to message headers. Due to limitations in Apache Qpid JMS API, currently delivery annotations are ignored.";
+    public static final String CAMEL_SOURCE_AMQP_COMPONENT_INCLUDE_AMQP_ANNOTATIONS_DOC = "Whether to include AMQP annotations when mapping from AMQP to Camel Message. Setting this to true maps AMQP message annotations that contain a JMS_AMQP_MA_ prefix to message headers. Due to limitations in Apache Qpid JMS API, currently delivery annotations are ignored.";
     public static final Boolean CAMEL_SOURCE_AMQP_COMPONENT_INCLUDE_AMQP_ANNOTATIONS_DEFAULT = false;
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_JMS_MESSAGE_TYPE_CONF = "camel.component.amqp.jmsMessageType";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_JMS_MESSAGE_TYPE_DOC = "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]";
@@ -269,9 +269,6 @@ public class CamelAmqpSourceConnectorConfig
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_AUTO_STARTUP_CONF = "camel.component.amqp.autoStartup";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_AUTO_STARTUP_DOC = "Specifies whether the consumer container should auto-startup.";
     public static final Boolean CAMEL_SOURCE_AMQP_COMPONENT_AUTO_STARTUP_DEFAULT = true;
-    public static final String CAMEL_SOURCE_AMQP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.amqp.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_AMQP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_AMQP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_CONF = "camel.component.amqp.cacheLevel";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_DOC = "Sets the cache level by ID for the underlying JMS resources. See cacheLevelName option for more details.";
     public static final Integer CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_DEFAULT = null;
@@ -549,7 +546,6 @@ public class CamelAmqpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_CONSUMER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_CONSUMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_CONSUMER_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_AUTO_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_AUTO_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_AUTO_STARTUP_DOC);
-        conf.define(CAMEL_SOURCE_AMQP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_NAME_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AMQP_COMPONENT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_CONCURRENT_CONSUMERS_DOC);

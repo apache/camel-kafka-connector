@@ -264,9 +264,6 @@ public class CamelJmsSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_JMS_COMPONENT_AUTO_STARTUP_CONF = "camel.component.jms.autoStartup";
     public static final String CAMEL_SOURCE_JMS_COMPONENT_AUTO_STARTUP_DOC = "Specifies whether the consumer container should auto-startup.";
     public static final Boolean CAMEL_SOURCE_JMS_COMPONENT_AUTO_STARTUP_DEFAULT = true;
-    public static final String CAMEL_SOURCE_JMS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.jms.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_JMS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_JMS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_CONF = "camel.component.jms.cacheLevel";
     public static final String CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_DOC = "Sets the cache level by ID for the underlying JMS resources. See cacheLevelName option for more details.";
     public static final Integer CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_DEFAULT = null;
@@ -543,7 +540,6 @@ public class CamelJmsSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_JMS_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JMS_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMS_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_DOC);
         conf.define(CAMEL_SOURCE_JMS_COMPONENT_ASYNC_CONSUMER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JMS_COMPONENT_ASYNC_CONSUMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMS_COMPONENT_ASYNC_CONSUMER_DOC);
         conf.define(CAMEL_SOURCE_JMS_COMPONENT_AUTO_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JMS_COMPONENT_AUTO_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMS_COMPONENT_AUTO_STARTUP_DOC);
-        conf.define(CAMEL_SOURCE_JMS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JMS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_DOC);
         conf.define(CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMS_COMPONENT_CACHE_LEVEL_NAME_DOC);
         conf.define(CAMEL_SOURCE_JMS_COMPONENT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_JMS_COMPONENT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMS_COMPONENT_CONCURRENT_CONSUMERS_DOC);

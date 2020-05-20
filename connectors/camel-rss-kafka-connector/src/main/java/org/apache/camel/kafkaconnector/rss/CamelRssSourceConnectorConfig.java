@@ -52,7 +52,7 @@ public class CamelRssSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_RSS_ENDPOINT_SPLIT_ENTRIES_DOC = "Sets whether or not entries should be sent individually or whether the entire feed should be sent as a single message";
     public static final Boolean CAMEL_SOURCE_RSS_ENDPOINT_SPLIT_ENTRIES_DEFAULT = true;
     public static final String CAMEL_SOURCE_RSS_ENDPOINT_THROTTLE_ENTRIES_CONF = "camel.source.endpoint.throttleEntries";
-    public static final String CAMEL_SOURCE_RSS_ENDPOINT_THROTTLE_ENTRIES_DOC = "Sets whether all entries identified in a single feed poll should be delivered immediately. If true, only one entry is processed per consumer.delay. Only applicable when splitEntries = true.";
+    public static final String CAMEL_SOURCE_RSS_ENDPOINT_THROTTLE_ENTRIES_DOC = "Sets whether all entries identified in a single feed poll should be delivered immediately. If true, only one entry is processed per delay. Only applicable when splitEntries = true.";
     public static final Boolean CAMEL_SOURCE_RSS_ENDPOINT_THROTTLE_ENTRIES_DEFAULT = true;
     public static final String CAMEL_SOURCE_RSS_ENDPOINT_USERNAME_CONF = "camel.source.endpoint.username";
     public static final String CAMEL_SOURCE_RSS_ENDPOINT_USERNAME_DOC = "Sets the username to be used for basic authentication when polling from a HTTP feed.";

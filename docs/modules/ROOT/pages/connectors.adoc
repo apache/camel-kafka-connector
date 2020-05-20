@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 346 
+Number of Camel Kafka connectors: 350 
 
 [width="100%",cols="6,1,1,1,1",options="header"]
 |===
@@ -65,6 +65,8 @@ Number of Camel Kafka connectors: 346
 | *camel-aws2-translate-kafka-connector* | true | false | xref:connectors/camel-aws2-translate-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-azure-blob-kafka-connector* | true | true | xref:connectors/camel-azure-blob-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-azure-blob-kafka-source-connector.adoc[Source Docs]
 | *camel-azure-queue-kafka-connector* | true | true | xref:connectors/camel-azure-queue-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-azure-queue-kafka-source-connector.adoc[Source Docs]
+| *camel-azure-storage-blob-kafka-connector* | true | true | xref:connectors/camel-azure-storage-blob-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-azure-storage-blob-kafka-source-connector.adoc[Source Docs]
+| *camel-azure-storage-queue-kafka-connector* | true | true | xref:connectors/camel-azure-storage-queue-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-azure-storage-queue-kafka-source-connector.adoc[Source Docs]
 | *camel-bean-kafka-connector* | true | false | xref:connectors/camel-bean-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-bean-validator-kafka-connector* | true | false | xref:connectors/camel-bean-validator-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-beanstalk-kafka-connector* | true | true | xref:connectors/camel-beanstalk-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-beanstalk-kafka-source-connector.adoc[Source Docs]
@@ -108,6 +110,7 @@ Number of Camel Kafka connectors: 346
 | *camel-direct-vm-kafka-connector* | true | true | xref:connectors/camel-direct-vm-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-direct-vm-kafka-source-connector.adoc[Source Docs]
 | *camel-disruptor-kafka-connector* | true | true | xref:connectors/camel-disruptor-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-disruptor-kafka-source-connector.adoc[Source Docs]
 | *camel-disruptor-vm-kafka-connector* | true | true | xref:connectors/camel-disruptor-vm-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-disruptor-vm-kafka-source-connector.adoc[Source Docs]
+| *camel-djl-kafka-connector* | true | false | xref:connectors/camel-djl-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-dns-kafka-connector* | true | false | xref:connectors/camel-dns-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-docker-kafka-connector* | true | true | xref:connectors/camel-docker-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-docker-kafka-source-connector.adoc[Source Docs]
 | *camel-dozer-kafka-connector* | true | false | xref:connectors/camel-dozer-kafka-sink-connector.adoc[Sink Docs] | 
@@ -304,6 +307,7 @@ Number of Camel Kafka connectors: 346
 | *camel-solrs-kafka-connector* | true | false | xref:connectors/camel-solrs-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-soroush-kafka-connector* | true | true | xref:connectors/camel-soroush-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-soroush-kafka-source-connector.adoc[Source Docs]
 | *camel-spark-kafka-connector* | true | false | xref:connectors/camel-spark-kafka-sink-connector.adoc[Sink Docs] | 
+| *camel-splunk-hec-kafka-connector* | true | false | xref:connectors/camel-splunk-hec-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-splunk-kafka-connector* | true | true | xref:connectors/camel-splunk-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-splunk-kafka-source-connector.adoc[Source Docs]
 | *camel-spring-batch-kafka-connector* | true | false | xref:connectors/camel-spring-batch-kafka-sink-connector.adoc[Sink Docs] | 
 | *camel-spring-event-kafka-connector* | true | true | xref:connectors/camel-spring-event-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-spring-event-kafka-source-connector.adoc[Source Docs]
