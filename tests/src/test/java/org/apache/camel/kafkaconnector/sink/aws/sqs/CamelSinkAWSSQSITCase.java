@@ -34,7 +34,9 @@ import org.apache.camel.kafkaconnector.clients.aws.sqs.AWSSQSClient;
 import org.apache.camel.kafkaconnector.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.services.aws.AWSService;
 import org.apache.camel.kafkaconnector.services.aws.AWSServiceFactory;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -60,7 +62,18 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         awssqsClient = awsService.getClient();
+
+        String queueUrl = awssqsClient.getQueue(TestCommon.DEFAULT_SQS_QUEUE);
+        LOG.debug("Using queue {} for the test", queueUrl);
+
         received = 0;
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if (!awssqsClient.deleteQueue(TestCommon.DEFAULT_SQS_QUEUE)) {
+            fail("Failed to delete queue");
+        }
     }
 
     private boolean checkMessages(List<Message> messages) {
@@ -103,7 +116,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws Exception {
         connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
+        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
 
         LOG.debug("Creating the consumer ...");
         ExecutorService service = Executors.newCachedThreadPool();
@@ -127,6 +140,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @Test
     @Timeout(value = 120)
+    @RepeatedTest(3)
     public void testBasicSendReceive() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
@@ -148,6 +162,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @Test
     @Timeout(value = 120)
+    @RepeatedTest(3)
     public void testBasicSendReceiveUsingKafkaStyle() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
@@ -169,6 +184,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @Test
     @Timeout(value = 120)
+    @RepeatedTest(3)
     public void testBasicSendReceiveUsingUrl() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
