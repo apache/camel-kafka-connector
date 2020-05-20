@@ -20,15 +20,23 @@ import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.camel.ExtendedCamelContext;
+import org.apache.camel.LoggingLevel;
 import org.apache.camel.catalog.RuntimeCamelCatalog;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
+import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.ext.LoggerWrapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 
 public class TaskHelperTest {
 
@@ -41,13 +49,17 @@ public class TaskHelperTest {
 
     @Test
     public void testMergePropertiesDefaultAreAdded() {
-        Map<String, String> defaults = new HashMap<String, String>() {{
+        Map<String, String> defaults = new HashMap<String, String>() {
+            {
                 put("property", "defaultValue");
-            }};
+            }
+        };
 
-        Map<String, String> loaded = new HashMap<String, String>() {{
+        Map<String, String> loaded = new HashMap<String, String>() {
+            {
                 put("anotherProperty", "loadedValue");
-            }};
+            }
+        };
 
         Map result = TaskHelper.mergeProperties(defaults, loaded);
 
@@ -59,13 +71,17 @@ public class TaskHelperTest {
 
     @Test
     public void testMergePropertiesLoadedHavePrecedence() {
-        Map<String, String> defaults = new HashMap<String, String>() {{
+        Map<String, String> defaults = new HashMap<String, String>() {
+            {
                 put("property", "defaultValue");
-            }};
+            }
+        };
 
-        Map<String, String> loaded = new HashMap<String, String>() {{
+        Map<String, String> loaded = new HashMap<String, String>() {
+            {
                 put("property", "loadedValue");
-            }};
+            }
+        };
 
         Map result = TaskHelper.mergeProperties(defaults, loaded);
 
@@ -75,17 +91,21 @@ public class TaskHelperTest {
 
     @Test
     public void testMergePropertiesLoadedHavePrecedenceWithPrefixFiltering() {
-        Map<String, String> defaults = new HashMap<String, String>() {{
+        Map<String, String> defaults = new HashMap<String, String>() {
+            {
                 put("property", "defaultValue");
                 put("camel.component.x.objectProperty", "#class:my.package.MyClass");
                 put("camel.component.x.objectProperty.field", "defaultValue");
-            }};
+            }
+        };
 
-        Map<String, String> loaded = new HashMap<String, String>() {{
+        Map<String, String> loaded = new HashMap<String, String>() {
+            {
                 put("camel.component.x.objectProperty", "#class:my.package.MyOtherClass");
                 put("camel.component.x.objectProperty.anotherField", "loadedValue");
                 put("camel.component.x.normalProperty", "loadedValue");
-            }};
+            }
+        };
 
         Map result = TaskHelper.mergeProperties(defaults, loaded);
 
@@ -98,10 +118,12 @@ public class TaskHelperTest {
 
     @Test
     public void testCreateEndpointOptionsFromProperties() {
-        Map<String, String> props = new HashMap<String, String>() {{
+        Map<String, String> props = new HashMap<String, String>() {
+            {
                 put("prefix.key1", "value1");
                 put("notprefix.key2", "value2");
-            }};
+            }
+        };
 
         String result = TaskHelper.createEndpointOptionsFromProperties(props, "prefix.");
 
@@ -110,10 +132,12 @@ public class TaskHelperTest {
 
     @Test
     public void testCreateEndpointOptionsFromPropertiesConcatenation() {
-        Map<String, String> props = new HashMap<String, String>() {{
+        Map<String, String> props = new HashMap<String, String>() {
+            {
                 put("prefix.key1", "value1");
                 put("prefix.key2", "value2");
-            }};
+            }
+        };
 
         String result = TaskHelper.createEndpointOptionsFromProperties(props, "prefix.");
 
@@ -122,10 +146,12 @@ public class TaskHelperTest {
 
     @Test
     public void testCreateEndpointOptionsFromPropertiesEmpty() {
-        Map<String, String> props = new HashMap<String, String>() {{
+        Map<String, String> props = new HashMap<String, String>() {
+            {
                 put("prefix.key1", "value1");
                 put("notprefix.key2", "value2");
-            }};
+            }
+        };
 
         String result = TaskHelper.createEndpointOptionsFromProperties(props, "anotherprefix");
 
@@ -134,10 +160,12 @@ public class TaskHelperTest {
 
     @Test
     public void testCreateUrlPathFromProperties() {
-        Map<String, String> props = new HashMap<String, String>() {{
+        Map<String, String> props = new HashMap<String, String>() {
+            {
                 put("prefix.key1", "value1");
                 put("notprefix.key2", "value2");
-            }};
+            }
+        };
 
         String result = TaskHelper.createUrlPathFromProperties(props, "prefix.");
 
@@ -146,10 +174,12 @@ public class TaskHelperTest {
 
     @Test
     public void testCreateUrlPathFromPropertiesConcatenation() {
-        Map<String, String> props = new HashMap<String, String>() {{
+        Map<String, String> props = new HashMap<String, String>() {
+            {
                 put("prefix.key1", "value1");
                 put("prefix.key2", "value2");
-            }};
+            }
+        };
 
         String result = TaskHelper.createUrlPathFromProperties(props, "prefix.");
 
@@ -158,10 +188,12 @@ public class TaskHelperTest {
 
     @Test
     public void testCreateUrlPathFromPropertiesEmpty() {
-        Map<String, String> props = new HashMap<String, String>() {{
+        Map<String, String> props = new HashMap<String, String>() {
+            {
                 put("prefix.key1", "value1");
                 put("notprefix.key2", "value2");
-            }};
+            }
+        };
 
         String result = TaskHelper.createUrlPathFromProperties(props, "anotherprefix");
 
@@ -170,10 +202,12 @@ public class TaskHelperTest {
 
     @Test
     public void testBuildUrl() {
-        Map<String, String> props = new HashMap<String, String>() {{
+        Map<String, String> props = new HashMap<String, String>() {
+            {
                 put("prefix.key1", "value1");
                 put("anotherPrefix.key2", "value2");
-            }};
+            }
+        };
 
         String result = TaskHelper.buildUrl(props, "test", "prefix.", "anotherPrefix.");
 
@@ -184,23 +218,125 @@ public class TaskHelperTest {
     public void testBuildUrlWithRuntimeCatalog() throws URISyntaxException {
         DefaultCamelContext dcc = new DefaultCamelContext();
         RuntimeCamelCatalog rcc = dcc.adapt(ExtendedCamelContext.class).getRuntimeCamelCatalog();
-        Map<String, String> props = new HashMap<String, String>() {{
+        Map<String, String> props = new HashMap<String, String>() {
+            {
                 put("camel.source.path.name", "test");
                 put("camel.source.endpoint.synchronous", "true");
-            }};
+            }
+        };
 
         String result = TaskHelper.buildUrl(rcc, props, "direct", "camel.source.endpoint.", "camel.source.path.");
 
         assertEquals("direct:test?synchronous=true", result);
 
-        props = new HashMap<String, String>() {{
+        props = new HashMap<String, String>() {
+            {
                 put("camel.source.path.port", "8080");
                 put("camel.source.path.keyspace", "test");
                 put("camel.source.path.hosts", "localhost");
-            }};
+            }
+        };
 
         result = TaskHelper.buildUrl(rcc, props, "cql", "camel.source.endpoint.", "camel.source.path.");
 
         assertEquals("cql:localhost:8080/test", result);
     }
+
+    private CamelSourceConnectorConfig getSourceConnectorConfig(String logLevel) {
+        return new CamelSourceConnectorConfig(CamelSourceConnectorConfig.conf(),
+            Collections.singletonMap(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF, logLevel));
+    }
+
+    @Test
+    public void testlogRecordContent() {
+        String partName = "abc123";
+        Logger logger = new MyLogger(LoggerFactory.getLogger(TaskHelperTest.class), null);
+        SourceRecord record = new SourceRecord(Collections.singletonMap("partition", partName),
+            Collections.singletonMap("offset", "0"), null, null, null, null);
+        Queue<String> logEvents = ((MyLogger)logger).getEvents();
+
+        String offLevel = LoggingLevel.OFF.toString();
+        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(offLevel));
+        assertNull(logEvents.poll());
+
+        String traceLevel = LoggingLevel.TRACE.toString();
+        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(traceLevel));
+        assertTrue(logEvents.peek().contains(traceLevel) && logEvents.poll().contains(partName));
+
+        String debugLevel = LoggingLevel.DEBUG.toString();
+        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(debugLevel));
+        assertTrue(logEvents.peek().contains(debugLevel) && logEvents.poll().contains(partName));
+
+        String infoLevel = LoggingLevel.INFO.toString();
+        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(infoLevel));
+        assertTrue(logEvents.peek().contains(infoLevel) && logEvents.poll().contains(partName));
+
+        String warnLevel = LoggingLevel.WARN.toString();
+        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(warnLevel));
+        assertTrue(logEvents.peek().contains(warnLevel) && logEvents.poll().contains(partName));
+
+        String errorLevel = LoggingLevel.ERROR.toString();
+        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(errorLevel));
+        assertTrue(logEvents.peek().contains(errorLevel) && logEvents.poll().contains(partName));
+
+        TaskHelper.logRecordContent(null, record, getSourceConnectorConfig(debugLevel));
+        assertNull(logEvents.poll());
+
+        TaskHelper.logRecordContent(logger,  null, getSourceConnectorConfig(debugLevel));
+        assertNull(logEvents.poll());
+
+        TaskHelper.logRecordContent(logger,  record, null);
+        assertNull(logEvents.poll());
+
+        String invalidLevel = "NOLOG";
+        TaskHelper.logRecordContent(logger, record, getSourceConnectorConfig(invalidLevel));
+        assertTrue(logEvents.poll().contains(warnLevel));
+
+        TaskHelper.logRecordContent(logger, record, getSourceConnectorConfig(null));
+        assertTrue(logEvents.poll().contains(warnLevel));
+    }
+
+    class MyLogger extends LoggerWrapper {
+        private Queue<String> events = new ConcurrentLinkedQueue<String>();
+
+        public MyLogger(Logger logger, String fqcn) {
+            super(logger, fqcn);
+        }
+
+        public Queue<String> getEvents() {
+            return events;
+        }
+
+        private void log(LoggingLevel level, String msg) {
+            StringBuilder sb = new StringBuilder()
+                .append(level).append(" ").append(msg);
+            events.add(sb.toString());
+        }
+
+        @Override
+        public void trace(String msg) {
+            log(LoggingLevel.TRACE, msg);
+        }
+
+        @Override
+        public void debug(String msg) {
+            log(LoggingLevel.DEBUG, msg);
+        }
+
+        @Override
+        public void info(String msg) {
+            log(LoggingLevel.INFO, msg);
+        }
+
+        @Override
+        public void warn(String msg) {
+            log(LoggingLevel.WARN, msg);
+        }
+
+        @Override
+        public void error(String msg) {
+            log(LoggingLevel.ERROR, msg);
+        }
+    }
+
 }

@@ -110,6 +110,7 @@ public class CamelSinkTask extends SinkTask {
     @Override
     public void put(Collection<SinkRecord> sinkRecords) {
         for (SinkRecord record : sinkRecords) {
+            TaskHelper.logRecordContent(LOG, record, config);
             Map<String, Object> headers = new HashMap<String, Object>();
             Exchange exchange = new DefaultExchange(producer.getCamelContext());
             headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
@@ -123,7 +124,8 @@ public class CamelSinkTask extends SinkTask {
             }
             exchange.getMessage().setHeaders(headers);
             exchange.getMessage().setBody(record.value());
-            LOG.debug("Sending {} to {}", exchange, LOCAL_URL);
+
+            LOG.debug("Sending exchange {} to {}", exchange.getExchangeId(), LOCAL_URL);
             producer.send(LOCAL_URL, exchange);
         }
     }
