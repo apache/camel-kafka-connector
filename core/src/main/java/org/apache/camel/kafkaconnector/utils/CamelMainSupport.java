@@ -213,6 +213,16 @@ public class CamelMainSupport {
         @Override
         public void beforeConfigure(BaseMainSupport main) {
         }
+
+        @Override
+        public void afterConfigure(BaseMainSupport main) {
+
+        }
+
+        @Override
+        public void beforeInitialize(BaseMainSupport main) {
+
+        }
     }
 
     private class CamelContextStarter implements Runnable {
