@@ -40,7 +40,7 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
 
     public static final String TOPIC_DEFAULT = "test";
     public static final String TOPIC_CONF = "topics";
-    public static final String TOPIC_DOC = "The topic to publish data to";
+    public static final String TOPIC_DOC = "A list of topics to use as output for this connector";
 
     public static final Long CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF = "camel.source.maxBatchPollSize";
