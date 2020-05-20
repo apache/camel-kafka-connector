@@ -31,6 +31,7 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.DefaultExchange;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.errors.ConnectException;
@@ -140,29 +141,30 @@ public class CamelSinkTask extends SinkTask {
     }
 
     private void addHeader(Map<String, Object> map, Header singleHeader) {
+    	String camelHeaderKey = StringUtils.removeStart(singleHeader.key(), HEADER_CAMEL_PREFIX);
         Schema schema = singleHeader.schema();
         if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), (String)singleHeader.value());
+            map.put(camelHeaderKey, (String)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BOOLEAN_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), (Boolean)singleHeader.value());
+            map.put(camelHeaderKey, (Boolean)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), singleHeader.value());
+            map.put(camelHeaderKey, singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), (byte[])singleHeader.value());
+            map.put(camelHeaderKey, (byte[])singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), (float)singleHeader.value());
+            map.put(camelHeaderKey, (float)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), (double)singleHeader.value());
+            map.put(camelHeaderKey, (double)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT16_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), (short)singleHeader.value());
+            map.put(camelHeaderKey, (short)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), (long)singleHeader.value());
+            map.put(camelHeaderKey, (long)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
-            map.put(singleHeader.key(), (byte)singleHeader.value());
+            map.put(camelHeaderKey, (byte)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
-            map.put(singleHeader.key(), (Map<?, ?>)singleHeader.value());
+            map.put(camelHeaderKey, (Map<?, ?>)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
-            map.put(singleHeader.key(), (List<?>)singleHeader.value());
+            map.put(camelHeaderKey, (List<?>)singleHeader.value());
         }
     }
 

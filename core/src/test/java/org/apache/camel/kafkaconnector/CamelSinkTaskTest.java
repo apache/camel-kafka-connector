@@ -91,13 +91,13 @@ public class CamelSinkTaskTest {
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
-        assertTrue(exchange.getIn().getHeader("CamelHeaderMyBoolean", Boolean.class));
-        assertEquals(myByte, exchange.getIn().getHeader("CamelHeaderMyByte", Byte.class));
-        assertEquals(myFloat, exchange.getIn().getHeader("CamelHeaderMyFloat", Float.class));
-        assertEquals(myShort, exchange.getIn().getHeader("CamelHeaderMyShort", Short.class));
-        assertEquals(myDouble, exchange.getIn().getHeader("CamelHeaderMyDouble", Double.class));
-        assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
-        assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
+        assertTrue(exchange.getIn().getHeader("MyBoolean", Boolean.class));
+        assertEquals(myByte, exchange.getIn().getHeader("MyByte", Byte.class));
+        assertEquals(myFloat, exchange.getIn().getHeader("MyFloat", Float.class));
+        assertEquals(myShort, exchange.getIn().getHeader("MyShort", Short.class));
+        assertEquals(myDouble, exchange.getIn().getHeader("MyDouble", Double.class));
+        assertEquals(myInteger, exchange.getIn().getHeader("MyInteger"));
+        assertEquals(myLong, exchange.getIn().getHeader("MyLong", Long.class));
 
         camelSinkTask.stop();
     }
@@ -193,13 +193,13 @@ public class CamelSinkTaskTest {
         assertEquals(myDouble, (Double) exchange.getProperties().get("CamelPropertyMyDouble"));
         assertEquals(myInteger, exchange.getProperties().get("CamelPropertyMyInteger"));
         assertEquals(myLong, (Long) exchange.getProperties().get("CamelPropertyMyLong"));
-        assertTrue(exchange.getIn().getHeader("CamelHeaderMyBoolean", Boolean.class));
-        assertEquals(myByte, exchange.getIn().getHeader("CamelHeaderMyByte", Byte.class));
-        assertEquals(myFloat, exchange.getIn().getHeader("CamelHeaderMyFloat", Float.class));
-        assertEquals(myShort, exchange.getIn().getHeader("CamelHeaderMyShort", Short.class));
-        assertEquals(myDouble, exchange.getIn().getHeader("CamelHeaderMyDouble", Double.class));
-        assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
-        assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
+        assertTrue(exchange.getIn().getHeader("MyBoolean", Boolean.class));
+        assertEquals(myByte, exchange.getIn().getHeader("MyByte", Byte.class));
+        assertEquals(myFloat, exchange.getIn().getHeader("MyFloat", Float.class));
+        assertEquals(myShort, exchange.getIn().getHeader("MyShort", Short.class));
+        assertEquals(myDouble, exchange.getIn().getHeader("MyDouble", Double.class));
+        assertEquals(myInteger, exchange.getIn().getHeader("MyInteger"));
+        assertEquals(myLong, exchange.getIn().getHeader("MyLong", Long.class));
 
         camelSinkTask.stop();
     }
@@ -246,16 +246,16 @@ public class CamelSinkTaskTest {
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
-        assertTrue(exchange.getIn().getHeader("CamelHeaderMyBoolean", Boolean.class));
-        assertEquals(myByte, exchange.getIn().getHeader("CamelHeaderMyByte", Byte.class));
-        assertEquals(myFloat, exchange.getIn().getHeader("CamelHeaderMyFloat", Float.class));
-        assertEquals(myShort, exchange.getIn().getHeader("CamelHeaderMyShort", Short.class));
-        assertEquals(myDouble, exchange.getIn().getHeader("CamelHeaderMyDouble", Double.class));
-        assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
-        assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
-        assertEquals(map, exchange.getIn().getHeader("CamelHeaderMyMap", Map.class));
-        assertEquals(map1, exchange.getIn().getHeader("CamelHeaderMyMap1", Map.class));
-        assertEquals(map2, exchange.getIn().getHeader("CamelHeaderMyMap2", Map.class));
+        assertTrue(exchange.getIn().getHeader("MyBoolean", Boolean.class));
+        assertEquals(myByte, exchange.getIn().getHeader("MyByte", Byte.class));
+        assertEquals(myFloat, exchange.getIn().getHeader("MyFloat", Float.class));
+        assertEquals(myShort, exchange.getIn().getHeader("MyShort", Short.class));
+        assertEquals(myDouble, exchange.getIn().getHeader("MyDouble", Double.class));
+        assertEquals(myInteger, exchange.getIn().getHeader("MyInteger"));
+        assertEquals(myLong, exchange.getIn().getHeader("MyLong", Long.class));
+        assertEquals(map, exchange.getIn().getHeader("MyMap", Map.class));
+        assertEquals(map1, exchange.getIn().getHeader("MyMap1", Map.class));
+        assertEquals(map2, exchange.getIn().getHeader("MyMap2", Map.class));
         camelSinkTask.stop();
     }
     
@@ -321,16 +321,16 @@ public class CamelSinkTaskTest {
         assertEquals(map, exchange.getProperties().get("CamelPropertyMyMap"));
         assertEquals(map1, exchange.getProperties().get("CamelPropertyMyMap1"));
         assertEquals(map2, exchange.getProperties().get("CamelPropertyMyMap2"));
-        assertTrue(exchange.getIn().getHeader("CamelHeaderMyBoolean", Boolean.class));
-        assertEquals(myByte, exchange.getIn().getHeader("CamelHeaderMyByte", Byte.class));
-        assertEquals(myFloat, exchange.getIn().getHeader("CamelHeaderMyFloat", Float.class));
-        assertEquals(myShort, exchange.getIn().getHeader("CamelHeaderMyShort", Short.class));
-        assertEquals(myDouble, exchange.getIn().getHeader("CamelHeaderMyDouble", Double.class));
-        assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
-        assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
-        assertEquals(map, exchange.getIn().getHeader("CamelHeaderMyMap", Map.class));
-        assertEquals(map1, exchange.getIn().getHeader("CamelHeaderMyMap1", Map.class));
-        assertEquals(map2, exchange.getIn().getHeader("CamelHeaderMyMap2", Map.class));
+        assertTrue(exchange.getIn().getHeader("MyBoolean", Boolean.class));
+        assertEquals(myByte, exchange.getIn().getHeader("MyByte", Byte.class));
+        assertEquals(myFloat, exchange.getIn().getHeader("MyFloat", Float.class));
+        assertEquals(myShort, exchange.getIn().getHeader("MyShort", Short.class));
+        assertEquals(myDouble, exchange.getIn().getHeader("MyDouble", Double.class));
+        assertEquals(myInteger, exchange.getIn().getHeader("MyInteger"));
+        assertEquals(myLong, exchange.getIn().getHeader("MyLong", Long.class));
+        assertEquals(map, exchange.getIn().getHeader("MyMap", Map.class));
+        assertEquals(map1, exchange.getIn().getHeader("MyMap1", Map.class));
+        assertEquals(map2, exchange.getIn().getHeader("MyMap2", Map.class));
 
         camelSinkTask.stop();
     }
@@ -374,15 +374,15 @@ public class CamelSinkTaskTest {
         Exchange exchange = c.receive("seda:test", 1000L);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
-        assertTrue(exchange.getIn().getHeader("CamelHeaderMyBoolean", Boolean.class));
-        assertEquals(myByte, exchange.getIn().getHeader("CamelHeaderMyByte", Byte.class));
-        assertEquals(myFloat, exchange.getIn().getHeader("CamelHeaderMyFloat", Float.class));
-        assertEquals(myShort, exchange.getIn().getHeader("CamelHeaderMyShort", Short.class));
-        assertEquals(myDouble, exchange.getIn().getHeader("CamelHeaderMyDouble", Double.class));
-        assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
-        assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
-        assertEquals(list, exchange.getIn().getHeader("CamelHeaderMyList", List.class));
-        assertEquals(list1, exchange.getIn().getHeader("CamelHeaderMyList1", List.class));
+        assertTrue(exchange.getIn().getHeader("MyBoolean", Boolean.class));
+        assertEquals(myByte, exchange.getIn().getHeader("MyByte", Byte.class));
+        assertEquals(myFloat, exchange.getIn().getHeader("MyFloat", Float.class));
+        assertEquals(myShort, exchange.getIn().getHeader("MyShort", Short.class));
+        assertEquals(myDouble, exchange.getIn().getHeader("MyDouble", Double.class));
+        assertEquals(myInteger, exchange.getIn().getHeader("MyInteger"));
+        assertEquals(myLong, exchange.getIn().getHeader("MyLong", Long.class));
+        assertEquals(list, exchange.getIn().getHeader("MyList", List.class));
+        assertEquals(list1, exchange.getIn().getHeader("MyList1", List.class));
         camelSinkTask.stop();
     }
     
@@ -443,15 +443,15 @@ public class CamelSinkTaskTest {
         assertEquals(myLong, (Long) exchange.getProperties().get("CamelPropertyMyLong"));
         assertEquals(list, exchange.getProperties().get("CamelPropertyMyList"));
         assertEquals(list1, exchange.getProperties().get("CamelPropertyMyList1"));
-        assertTrue(exchange.getIn().getHeader("CamelHeaderMyBoolean", Boolean.class));
-        assertEquals(myByte, exchange.getIn().getHeader("CamelHeaderMyByte", Byte.class));
-        assertEquals(myFloat, exchange.getIn().getHeader("CamelHeaderMyFloat", Float.class));
-        assertEquals(myShort, exchange.getIn().getHeader("CamelHeaderMyShort", Short.class));
-        assertEquals(myDouble, exchange.getIn().getHeader("CamelHeaderMyDouble", Double.class));
-        assertEquals(myInteger, exchange.getIn().getHeader("CamelHeaderMyInteger"));
-        assertEquals(myLong, exchange.getIn().getHeader("CamelHeaderMyLong", Long.class));
-        assertEquals(list, exchange.getIn().getHeader("CamelHeaderMyList", List.class));
-        assertEquals(list1, exchange.getIn().getHeader("CamelHeaderMyList1", List.class));
+        assertTrue(exchange.getIn().getHeader("MyBoolean", Boolean.class));
+        assertEquals(myByte, exchange.getIn().getHeader("MyByte", Byte.class));
+        assertEquals(myFloat, exchange.getIn().getHeader("MyFloat", Float.class));
+        assertEquals(myShort, exchange.getIn().getHeader("MyShort", Short.class));
+        assertEquals(myDouble, exchange.getIn().getHeader("MyDouble", Double.class));
+        assertEquals(myInteger, exchange.getIn().getHeader("MyInteger"));
+        assertEquals(myLong, exchange.getIn().getHeader("MyLong", Long.class));
+        assertEquals(list, exchange.getIn().getHeader("MyList", List.class));
+        assertEquals(list1, exchange.getIn().getHeader("MyList1", List.class));
 
         camelSinkTask.stop();
     }
