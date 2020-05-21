@@ -171,29 +171,30 @@ public class CamelSinkTask extends SinkTask {
     }
 
     private void addProperty(Exchange exchange, Header singleHeader) {
+        String camelPropertyKey = StringUtils.removeStart(singleHeader.key(), PROPERTY_CAMEL_PREFIX);
         Schema schema = singleHeader.schema();
         if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (String)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (String)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BOOLEAN_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (Boolean)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (Boolean)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (byte[])singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (byte[])singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (float)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (float)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (double)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (double)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT16_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (short)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (short)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT64_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (long)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (long)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT8_SCHEMA.type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (byte)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (byte)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA).type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (Map<?, ?>)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (Map<?, ?>)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(SchemaBuilder.array(Schema.STRING_SCHEMA).type().getName())) {
-            exchange.getProperties().put(singleHeader.key(), (List<?>)singleHeader.value());
+            exchange.getProperties().put(camelPropertyKey, (List<?>)singleHeader.value());
         }
     }
 
