@@ -52,7 +52,7 @@
         <version.maven.surefire>3.0.0-M4</version.maven.surefire>
         <version.scala.library>2.12.4</version.scala.library>
         <version.testcontainers>1.14.2</version.testcontainers>
-        <version.qpid-jms-client>0.50.0</version.qpid-jms-client>
+        <version.qpid-jms-client>0.51.0</version.qpid-jms-client>
         <version.maven.maven-remote-resources-plugin>1.6.0</version.maven.maven-remote-resources-plugin>
 
         <version.maven.checkstyle>8.26</version.maven.checkstyle>
