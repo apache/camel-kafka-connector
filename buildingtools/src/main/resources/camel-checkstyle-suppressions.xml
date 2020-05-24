@@ -34,6 +34,9 @@
               files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SinkTask"
     />
     <suppress checks=".*"
+              files=".*/connectors/camel-.+-kafka-connector/src/main/docs/.+SinkConnector"
+    />
+    <suppress checks=".*"
               files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SourceConnector"
     />
     <suppress checks=".*"
@@ -41,6 +44,9 @@
     />
     <suppress checks=".*"
               files=".*/connectors/camel-.+-kafka-connector/src/main/java/org/apache/camel/kafkaconnector/.+SourceTask"
+    />
+    <suppress checks=".*"
+              files=".*/connectors/camel-.+-kafka-connector/src/main/docs/.+SourceConnector"
     />
     <suppress checks=".*"
               files=".+[\\\/]build[\\\/]src[\\\/].+\.java"

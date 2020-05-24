@@ -475,6 +475,38 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         String javaClassConnectorFileName = packageName.replaceAll("\\.", "\\/") + "/" + javaClassConnectorName + ".java";
         MavenUtils.writeSourceIfChanged(javaClassConnector, javaClassConnectorFileName, false, connectorDir, rm.getResourceAsFile(javaFilesHeader));
 
+        // docs/examples/Camel{sanitizedName}{Sink,Source}.properties
+        try {
+            String examplesPropertiestemplate = null;
+            switch (ct) {
+                case SOURCE:
+                    examplesPropertiestemplate = loadText(rm.getResourceAsFile(exampleSourcePropertiesFileTemplate));
+                    break;
+                case SINK:
+                    examplesPropertiestemplate = loadText(rm.getResourceAsFile(exampleSinkPropertiesFileTemplate));
+                    break;
+                default:
+                    break;
+            }
+            HashMap<String, Object> templateParams = new HashMap();
+            templateParams.put("connectorName", StringUtils.capitalize(sanitizedName));
+            templateParams.put("connectorClass", packageName + "." + javaClassConnectorName);
+            ArrayList<CamelKafkaConnectorOptionModel> mandatoryOptions = new ArrayList();
+            listOptions.stream().filter(o -> o.getPriority().toUpperCase().equals("HIGH")).forEach(o -> mandatoryOptions.add(o));
+            mandatoryOptions.sort((option1, option2) -> {
+                String name1 = option1.getName();
+                String name2 = option2.getName();
+                int res = String.CASE_INSENSITIVE_ORDER.compare(name1, name2);
+                return (res != 0) ? res : name1.compareTo(name2);
+            });
+            templateParams.put("options", mandatoryOptions);
+            String examplePropertiesFileContent = (String)TemplateRuntime.eval(examplesPropertiestemplate, templateParams);
+            writeFileIfChanged(examplePropertiesFileContent, new File(connectorDir, "src/main/docs/examples/" + javaClassConnectorName + ".properties"), getLog());
+        } catch (Exception e) {
+            throw new MojoExecutionException("Error processing mvel examples properties template. Reason: " + e, e);
+        }
+
+        // Generate documentation in src/main/docs and docs/modules/ROOT/pages/connectors
         File docFolder = new File(connectorDir, "src/main/docs/");
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
         File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/connectors/");
