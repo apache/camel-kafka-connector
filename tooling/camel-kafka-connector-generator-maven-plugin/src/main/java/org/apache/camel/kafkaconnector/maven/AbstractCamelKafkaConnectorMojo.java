@@ -80,13 +80,25 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
     /**
      * Package file template to be placed in src/main/assembly/package.xml.
      */
-    @Parameter(defaultValue = "camel-kafka-connecotr-template-package.template")
+    @Parameter(defaultValue = "camel-kafka-connector-template-package.template")
     protected String packageFileTemplate;
+
+    /**
+     * Example Connector Source file template.
+     */
+    @Parameter(defaultValue = "camel-kafka-connector-template-example-source-properties.template")
+    protected String exampleSourcePropertiesFileTemplate;
+
+    /**
+     * Example Connector Sink file template.
+     */
+    @Parameter(defaultValue = "camel-kafka-connector-template-example-sink-properties.template")
+    protected String exampleSinkPropertiesFileTemplate;
 
     /**
      * Java file header to be placed at the start of every generated .java file.
      */
-    @Parameter(defaultValue = "camel-kafka-connecotr-java-header.txt")
+    @Parameter(defaultValue = "camel-kafka-connector-java-header.txt")
     protected String javaFilesHeader;
 
     /**
