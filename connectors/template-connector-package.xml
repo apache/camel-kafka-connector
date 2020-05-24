@@ -38,10 +38,10 @@
       </includes>
     </fileSet>
     <fileSet>
-      <directory><#noparse>${project.basedir}/config</#noparse></directory>
-      <outputDirectory><#noparse>etc/${project.artifactId}</#noparse></outputDirectory>
+      <directory><#noparse>${project.basedir}/src/main/docs</#noparse></directory>
+      <outputDirectory><#noparse>docs/</#noparse></outputDirectory>
       <includes>
-        <include>*</include>
+        <include>**/*</include>
       </includes>
     </fileSet>
   </fileSets>
