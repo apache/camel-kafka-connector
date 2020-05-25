@@ -37,8 +37,8 @@
       </includes>
     </fileSet>
     <fileSet>
-      <directory><#noparse>${project.basedir}/src/main/docs</#noparse></directory>
-      <outputDirectory><#noparse>docs/</#noparse></outputDirectory>
+      <directory>${project.basedir}/src/main/docs</directory>
+      <outputDirectory>docs/</outputDirectory>
       <includes>
         <include>**/*</include>
       </includes>
