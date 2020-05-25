@@ -27,17 +27,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <activemq.version>5.15.12</activemq.version>
         <kafka.version>2.4.1</kafka.version>
-        <junit.version>5.6.2</junit.version>
         <camel.version>3.3.0</camel.version>
-        <jackson.version>2.10.4</jackson.version>
-        <slf4j.version>1.7.30</slf4j.version>
-        <log4j2.version>2.13.3</log4j2.version>
-        <version.commons-io>2.6</version.commons-io>
         <version.java>1.8</version.java>
         <version.guava>20.0</version.guava>
-
 
         <version.maven.compiler>3.8.1</version.maven.compiler>
         <version.maven.javadoc>3.1.1</version.maven.javadoc>
@@ -51,8 +44,6 @@
         <version.maven.failsafe>2.22.2</version.maven.failsafe>
         <version.maven.surefire>3.0.0-M4</version.maven.surefire>
         <version.scala.library>2.12.4</version.scala.library>
-        <version.testcontainers>1.14.2</version.testcontainers>
-        <version.qpid-jms-client>0.51.0</version.qpid-jms-client>
         <version.maven.maven-remote-resources-plugin>1.6.0</version.maven.maven-remote-resources-plugin>
 
         <version.maven.checkstyle>8.26</version.maven.checkstyle>
@@ -177,61 +168,61 @@
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
-                <version>${junit.version}</version>
+                <version>${junit-jupiter-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
-                <version>${junit.version}</version>
+                <version>${junit-jupiter-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-params</artifactId>
-                <version>${junit.version}</version>
+                <version>${junit-jupiter-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-ext</artifactId>
-                <version>${slf4j.version}</version>
+                <version>${slf4j-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${log4j2-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-1.2-api</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${log4j2-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${log4j2-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j-impl</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${log4j2-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-jcl</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${log4j2-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-jul</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${log4j2-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -243,48 +234,48 @@
             <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>testcontainers</artifactId>
-                <version>${version.testcontainers}</version>
+                <version>${testcontainers-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>junit-jupiter</artifactId>
-                <version>${version.testcontainers}</version>
+                <version>${testcontainers-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>kafka</artifactId>
-                <version>${version.testcontainers}</version>
+                <version>${testcontainers-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>localstack</artifactId>
-                <version>${version.testcontainers}</version>
+                <version>${testcontainers-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>elasticsearch</artifactId>
-                <version>${version.testcontainers}</version>
+                <version>${testcontainers-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.qpid</groupId>
                 <artifactId>qpid-jms-client</artifactId>
-                <version>${version.qpid-jms-client}</version>
+                <version>${qpid-jms-client-version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>${version.commons-io}</version>
+                <version>${commons-io-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>${activemq.version}</version>
+                <version>${activemq-version}</version>
                 <scope>test</scope>
             </dependency>
 
