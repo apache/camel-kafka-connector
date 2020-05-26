@@ -34,6 +34,7 @@ public class CamelSalesforceSinkTask extends CamelSinkTask {
     protected Map<String, String> getDefaultConfig() {
         return new HashMap<String, String>() {{
             put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "salesforce");
+            put("camel.beans.salesforce", "#class:org.apache.camel.component.salesforce.SalesforceComponentCKC");
         }};
     }
 }

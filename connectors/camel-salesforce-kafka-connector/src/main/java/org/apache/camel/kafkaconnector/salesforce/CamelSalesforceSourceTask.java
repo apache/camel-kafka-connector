@@ -34,6 +34,7 @@ public class CamelSalesforceSourceTask extends CamelSourceTask {
     protected Map<String, String> getDefaultConfig() {
         return new HashMap<String, String>() {{
             put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "salesforce");
+            put("camel.beans.salesforce", "#class:org.apache.camel.component.salesforce.SalesforceComponentCKC");
         }};
     }
 }
