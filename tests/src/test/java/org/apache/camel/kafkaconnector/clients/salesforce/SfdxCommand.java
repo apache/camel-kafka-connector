@@ -58,6 +58,12 @@ public final class SfdxCommand {
         return command.withArgument("force:data:record:update");
     }
 
+    public static SfdxCommand forceDataRecordGet() {
+        SfdxCommand command = new SfdxCommand();
+
+        return command.withArgument("force:data:record:get");
+    }
+
     public String[] commands() {
         return commands.toArray(new String[0]);
     }
