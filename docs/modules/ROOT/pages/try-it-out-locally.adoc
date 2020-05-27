@@ -34,19 +34,29 @@ $KAFKA_HOME/bin/kafka-topics.sh --create \
   --topic mytopic
 ----
 
-Next, run Camel kafka connectors source and/or syncs:
+For using the quickstart we'll use the plugin.path property, so you'll have to add a path for your connectors.
 
-[NOTE]
-====
-In order to run more than one instance of a standalone kafka connect on the same machine you neet to duplicate `$KAFKA_HOME/config/connect-standalone.properties` file changing the http port used for each instance:
+Open your configuration file located at `$KAFKA_HOME/config/connect-standalone.properties`
+
+and add a property at the end
 
 [source,bash]
 ----
-cp $KAFKA_HOME/config/connect-standalone.properties $KAFKA_HOME/config/connect-standalone2.properties
-
-echo rest.port=<your unused port number> >> $KAFKA_HOME/config/connect-standalone2.properties
+# Set to a list of filesystem paths separated by commas (,) to enable class loading isolation for plugins
+# (connectors, converters, transformations). The list should consist of top level directories that include 
+# any combination of: 
+# a) directories immediately containing jars with plugins and their dependencies
+# b) uber-jars with plugins and their dependencies
+# c) directories immediately containing the package directory structure of classes of plugins and their dependencies
+# Note: symlinks will be followed to discover dependencies or plugins.
+# Examples: 
+# plugin.path=/usr/local/share/java,/usr/local/share/kafka/plugins,/opt/connectors,
+plugin.path=/home/connectors
 ----
-====
+
+At this point you're able to run the connectors quickstart.
+
+Next, run Camel kafka connectors source and/or syncs:
 
 You can use these Kafka utilities to listen or produce from a Kafka topic:
 
@@ -67,17 +77,17 @@ $KAFKA_HOME/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic m
 
 For the following examples you need to fetch the `camel-kafka-connector` project and https://github.com/apache/camel-kafka-connector/blob/master/README.adoc#build-the-project[build] it locally by running `./mvnw package` from the root of the project. Look into the `config` and `examples` directories for the configuration files (`*.properties`) of the examples showcased here.
 
-First you need to set the `CLASSPATH` environment variable to include the `jar` files from the `core/target/camel-kafka-connector-[version]-package/share/java/` directory. On UNIX systems this can be done by running:
-
-[source,bash]
-----
-export CLASSPATH="$(find core/target/ -type f -name '*.jar'| grep '\-package' | tr '\n' ':')"
-----
-
 [[Tryitoutlocally-SimpleLogger]]
 === Simple logger (sink)
 
-This is an example of a _sink_ that logs messages consumed from `mytopic`.
+First thing to do, is unzip or untar the camel-log-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-log-kafka-connector/target/` a .zip file named `camel-log-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-log-kafka-connector/target/camel-log-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-log-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
 
 .Run the default sink, just a camel logger:
 [source,bash]
@@ -87,6 +97,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 
 [[Tryitoutlocally-Timer]]
 === Timer (source)
+
+First thing to do, is unzip or untar the camel-timer-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-timer-kafka-connector/target/` a .zip file named `camel-timer-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-timer-kafka-connector/target/camel-log-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-timer-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
 
 This is an example of a _source_ that produces a message every second to `mytopic`.
 
@@ -98,6 +117,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 
 [[Tryitoutlocally-AwsKinesis]]
 === AWS Kinesis (source)
+
+First thing to do, is unzip or untar the camel-aws-kinesis-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-kinesis-kafka-connector/target/` a .zip file named `camel-aws-kinesis-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-aws-kinesis-kafka-connector/target/camel-aws-kinesis-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-aws-kinesis-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
 
 This example consumes from AWS Kinesis data stream and transfers the payload to `mytopic` topic in Kafka.
 
@@ -112,6 +140,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-AWSSQSSink]]
 === AWS SQS (sink)
 
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sqs-kafka-connector/target/` a .zip file named `camel-aws-sqs-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-aws-sqs-kafka-connector/target/camel-aws-sqs-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-aws-sqs-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
+
 This example consumes from Kafka topic `mytopic` and transfers the payload to AWS SQS.
 
 Adjust properties in `examples/CamelAWSSQSSinkConnector.properties` for your environment, you need to configure access key, secret key and region by setting `camel.component.aws-sqs.configuration.access-key=youraccesskey`, `camel.component.aws-sqs.configuration.secret-key=yoursecretkey` and `camel.component.aws-sqs.configuration.region=yourregion`
@@ -124,6 +161,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 
 [[Tryitoutlocally-AWSSQSSource]]
 === AWS SQS (source)
+
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sqs-kafka-connector/target/` a .zip file named `camel-aws-sqs-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-aws-sqs-kafka-connector/target/camel-aws-sqs-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-aws-sqs-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
 
 This example consumes from AWS SQS queue `mysqs` and transfers the payload to `mytopic` topic in Kafka.
 
@@ -138,6 +184,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-AWSSNSSink]]
 === AWS SNS (sink)
 
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sns-kafka-connector/target/` a .zip file named `camel-aws-sns-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-aws-sns-kafka-connector/target/camel-aws-sns-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-aws-sns-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
+
 This example consumes from `mytopic` Kafka topic and transfers the payload to AWS SNS `topic` topic.
 
 Adjust properties in `examples/CamelAWSSNSSinkConnector.properties` for your environment, you need to configure access key, secret key and region by setting `camel.component.aws-sns.configuration.access-key=youraccesskey`, `camel.component.aws-sns.configuration.secret-key=yoursecretkey` and `camel.component.aws-sns.configuration.region=yourregion`
@@ -151,6 +206,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-AWSSNSSource]]
 === AWS S3 (source)
 
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-s3-kafka-connector/target/` a .zip file named `camel-aws-s3-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-aws-s3-kafka-connector/target/camel-aws-s3-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-aws-s3-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
+
 This example fetches objects from AWS S3 in the `camel-kafka-connector` bucket and transfers the payload to `mytopic` Kafka topic. This example shows how to implement a custom converter converting from bytes received from S3 to Kafka's `SchemaAndValue`.
 
 Adjust properties in `examples/CamelAWSS3SourceConnector.properties` for your environment, you need to configure access key, secret key and region by adding `camel.component.aws-s3.configuration.access-key=youraccesskey`, `camel.component.aws-s3.configuration.secret-key=yoursecretkey` and `camel.component.aws-s3.configuration.region=yourregion`
@@ -163,6 +227,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 
 [[Tryitoutlocally-CassandraQL]]
 === Apache Cassandra
+
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-cql-kafka-connector/target/` a .zip file named `camel-cql-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-cql-kafka-connector/target/camel-cql-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-cql-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
 
 This examples require a running Cassandra instance, for simplicity the steps below show how to start Cassandra using Docker. First you'll need to run a Cassandra instance:
 
@@ -223,6 +296,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-CassandraQLSink]]
 ==== Apache Cassandra (sink)
 
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-cql-kafka-connector/target/` a .zip file named `camel-cql-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-cql-kafka-connector/target/camel-cql-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-cql-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
+
 This example adds data to the `users` table in Cassandra from the data consumed from the `mytopic` Kafka topic. Notice how the `name` column is populated from the Kafka message using CQL comand `insert into users...`.
 
 .Run the Cassandra CQL sink:
@@ -233,6 +315,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 
 [[Tryitoutlocally-ElasticsearchSink]]
 === Elasticsearch (sink)
+
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-elasticsearch-rest-kafka-connector/target/` a .zip file named `camel-elasticsearch-rest-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-elasticsearch-rest-kafka-connector/target/camel-elasticsearch-rest-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-elasticsearch-rest-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
 
 This example passes data from `mytopic` Kafka topic to `sampleIndexName` index in Elasticsearch. Adjust properties in `examples/CamelElasticSearchSinkConnector.properties` to reflect your environment, for example change the `hostAddresses` to a valid Elasticsearch instance hostname and port.
 
@@ -268,6 +359,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-FileSink]]
 === File (sink)
 
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-file-kafka-connector/target/` a .zip file named `camel-file-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-file-kafka-connector/target/camel-file-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-file-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
+
 This example appends data from `mytopic` Kafka topic to a file in `/tmp/kafkaconnect.txt`.
 
 .Run the file sink:
@@ -279,6 +379,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-HttpSink]]
 === HTTP (sink)
 
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-http-kafka-connector/target/` a .zip file named `camel-http-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-http-kafka-connector/target/camel-http-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-http-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
+
 This example sends data from `mytopic` Kafka topic to a HTTP service. Adjust properties in `examples/CamelHttpSinkConnector.properties` for your environment, for example configuring the `camel.sink.url`. 
 
 .Run the http sink:
@@ -289,6 +398,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 
 [[Tryitoutlocally-JMSSource]]
 === JMS (source)
+
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-sjms2-kafka-connector/target/` a .zip file named `camel-sjsm2-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-sjsm2-kafka-connector/target/camel-sjms2-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-sjsm2-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
 
 This example receives messages from a JMS queue named `myqueue` and transfers them to `mytopic` Kafka topic. In this example ActiveMQ is used and it's configured to connect to the broker running on `localhost:61616`. Adjust properties in `examples/CamelJmsSourceConnector.properties` for your environment, for example configuring username and password by setting `camel.component.sjms2.connection-factory.userName=yourusername` and `camel.component.sjms2.connection-factory.password=yourpassword` or change the `camel.component.sjms2.connection-factory` and `camel.component.sjms2.connection-factory.brokerURL` to reflect your JMS implementation and URL.
 
@@ -311,6 +429,15 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 
 [[Tryitoutlocally-TelegramSource]]
 === Telegram (source)
+
+First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-telegram-kafka-connector/target/` a .zip file named `camel-telegram-kafka-connector-0.3.0-SNAPSHOT-package.zip`
+
+[source,bash]
+----
+> cd /home/connectors/
+> cp connectors/camel-telegram-kafka-connector/target/camel-telegram-kafka-connector-0.3.0-SNAPSHOT-package.zip .
+> unzip camel-telegram-kafka-connector-0.3.0-SNAPSHOT-package.zip
+----
 
 This example transfers messages sent to Telegram bot to the `mytopic` Kafka topic. Adjust to set telegram bot token in `examples/CamelTelegramSourceConnector.properties` to reflect your bot's token.
 
