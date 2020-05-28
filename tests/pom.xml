@@ -263,6 +263,7 @@
                     <failIfNoTests>false</failIfNoTests>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -286,5 +287,79 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>salesforce</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+
+            <dependencies>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.camel</groupId>
+                    <artifactId>camel-salesforce</artifactId>
+                </dependency>
+            </dependencies>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.camel.maven</groupId>
+                        <artifactId>camel-salesforce-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>generate</id>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <clientId>${it.test.salesforce.client.id}</clientId>
+                            <clientSecret>${it.test.salesforce.client.secret}</clientSecret>
+                            <userName>${it.test.salesforce.username}</userName>
+                            <password>${it.test.salesforce.password}</password>
+                            <loginUrl default-value="https://login.salesforce.com">${it.test.salesforce.login.url}</loginUrl>
+                            <includes>
+                                <include>Account</include>
+                                <include>Contacts</include>
+                            </includes>
+                            <httpProxyHost>${it.test.salesforce.httpProxyHost}</httpProxyHost>
+                            <httpProxyPort>${it.test.salesforce.httpProxyPort}</httpProxyPort>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>add-source</goal>
+                                </goals>
+                                <configuration>
+                                    <sources>
+                                        <source>${project.build.directory}/generated-sources/camel-salesforce</source>
+                                    </sources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+        </profile>
+    </profiles>
 
 </project>

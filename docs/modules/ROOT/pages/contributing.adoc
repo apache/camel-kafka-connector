@@ -97,4 +97,68 @@ mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote -DskipInte
 
 It's possible to use a properties file to set these properties. To do so use `-Dtest.properties=/path/to/file.properties`.
 
+==== Running Salesforce integration tests
 
+The first step is to create an account on Salesforce. The service allows developers to create a free account for testing.
+The account can be created on their https://login.salesforce.com/[login] website.
+
+The next step is to create a new connected application. This will provide you with the API keys that allow the
+automation to run. The https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm[Salesforce help]
+contains the documentation and steps related to this part of the process.
+
+After you create the API keys proceed to adjust a few more parameters necessary for the tests to run. Specifically, the
+https://help.salesforce.com/articleView?err=1&id=connected_app_overview.htm&type=5[IP Relaxation/range policy] parameter
+should be adjusted (usually to the value "Relax IP restrictions").
+
+You need setup change data capture to allow our tests to read from the Account table. The
+https://developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta/change_data_capture/cdc_intro.htm[Change Data Capture Developer Guide]
+on the Salesforce documentation is the recommended starting point for this.
+
+Lastly, you need to create the configuration files for the `sfdx` CLI client. The CLI client interacts with the account,
+creating, updating and deleting records as required for the test execution.
+
+To generate the configuration files, execute the following steps:
+
+1. Run the Salesforce CLI container:
+`docker run --rm --name salesforce-cli -it -v /path/to/sfdx:/root/.sfdx salesforce/salesforcedx`
+
+2. Within the container, use the following command to login:
+`sfdx force:auth:device:login -s -d -i <client ID>`
+
+3. Provide the client secret when request and execute the steps requested by the CLI.
+
+4. Verify that you are logged in correctly using the following command
+`sfdx force:auth:list`
+
+It should present an output like:
+
+----
+#### authenticated orgs
+ALIAS  USERNAME              ORG ID              INSTANCE URL                 OAUTH METHOD
+─────  ────────────────────  ──────────────────  ───────────────────────────  ────────────
+       your-user@email.com  SOME NUMERIC ID     https://eu31.salesforce.com  web
+----
+
+*Note*: after leaving the container you might need to adjust the permissions of the directory containing the `sfdx`
+configuration files (`/path/to/sfdx`).
+
+Using the IDs, credentials and configurations that you created, you need to set the following system properties to run
+the tests using maven:
+
+* `-Dit.test.salesforce.enable=true` to enable the test
+* `-Dit.test.salesforce.client.id=<client ID>` with the client ID obtained when you created the API keys
+* `-Dit.test.salesforce.client.secret=<client secret>` with the client secret obtained when you created the API keys
+* `-Dit.test.salesforce.password=<user password>` the password of your account
+* `-Dit.test.salesforce.username=<user name>` the username of your account.
+* `-Dit.test.salesforce.sfdx.path=/path/to/sfdx` the path to the sfdx configuration (explained further).
+
+*Note*: the `it.test.salesforce.sfdx.path` property should point to the directory containing the sfdx CLI client
+configuration.
+
+To run the tests, enable the `salesforce` profile so that DTOs are generated and set the aforementioned properties to
+the values setup previously.
+
+[source,bash]
+----
+mvn -U -Psalesforce -DskipIntegrationTests=false -Dit.test.salesforce.sfdx.path=/path/to/sfdx -Dit.test.salesforce.enable=true -Dit.test.salesforce.client.id=<client id> -Dit.test.salesforce.client.secret=<client secret> -Dit.test.salesforce.password=<password> -Dit.test.salesforce.username=<your account> compile test-compile test
+----
