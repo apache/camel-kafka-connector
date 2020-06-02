@@ -1,3 +1,5 @@
+:strimzi_version: 0.18.0
+
 [[Tryitoutcloud-Tryitoutcloud]]
 = Try it out on OpenShift with Strimzi
 
@@ -18,7 +20,7 @@ oc login -u system:admin
 ----
 
 We will use OpenShift project `myproject`.
-It it doesn't exist yet, you can create it using following command:
+If it doesn't exist yet, you can create it using following command:
 
 [source,bash,options="nowrap"]
 ----
@@ -34,36 +36,44 @@ oc project myproject
 
 We can now install the Strimzi operator into this project:
 
-[source,bash,options="nowrap"]
+[source,bash,options="nowrap",subs="attributes"]
 ----
-oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.13.0/strimzi-cluster-operator-0.13.0.yaml
+oc apply -f https://github.com/strimzi/strimzi-kafka-operator/releases/download/{strimzi_version}/strimzi-cluster-operator-{strimzi_version}.yaml
 ----
 
 Next we will deploy a Kafka broker cluster and a Kafka Connect cluster and then create a Kafka Connect image with the Debezium connectors installed:
 
-[source,bash,options="nowrap"]
+[source,bash,options="nowrap",subs="attributes"]
 ----
 # Deploy a single node Kafka broker
-oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/0.13.0/examples/kafka/kafka-persistent-single.yaml
+oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/{strimzi_version}/examples/kafka/kafka-persistent-single.yaml
 
 # Deploy a single instance of Kafka Connect with no plug-in installed
-oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/0.13.0/examples/kafka-connect/kafka-connect-s2i-single-node-kafka.yaml
+oc apply -f https://github.com/strimzi/strimzi-kafka-operator/raw/{strimzi_version}/examples/kafka-connect/kafka-connect-s2i-single-node-kafka.yaml
+----
+
+Optionally enable the possibility to instantiate Kafka Connectors through specific custom resource:
+[source,bash,options="nowrap"]
+----
+oc annotate kafkaconnects2is my-connect-cluster strimzi.io/use-connector-resources=true
 ----
 
 [[Tryitoutcloud-AddCamelKafkaConnectors]]
 == Add Camel Kafka connector binaries
 
 Strimzi uses `Source2Image` builds to allow users to add their own connectors to the existing Strimzi Docker images.
-We now need to build the connectors and add them to the image:
+We now need to build the connectors and add them to the image,
+if you have built the whole project (`mvn clean package`) decompress the connectors you need in a folder (i.e. like `my-connectors/`)
+so that each one is in its own subfolder
+(alternatively you can download the latest officially released and packaged connectors from maven):
 
 [source,bash,options="nowrap"]
 ----
-mvn clean package
-oc start-build my-connect-cluster-connect --from-dir=./core/target/camel-kafka-connector-0.0.1-SNAPSHOT-package/share/java --follow
+oc start-build my-connect-cluster-connect --from-dir=./my-connectors/ --follow
 ----
 
 We should now wait for the rollout of the new image to finish and the replica set with the new connector to become ready.
-Once it is done, we can check that the `CamelSinkConnector` and `CamelSourceConnector` are available in our Kafka Connect cluster.
+Once it is done, we can check that the connectors are available in our Kafka Connect cluster.
 Strimzi is running Kafka Connect in a distributed mode.
 We can use HTTP to interact with it.
 To check the available connector plugins, you can run the following command:
@@ -94,18 +104,47 @@ oc exec -i -c kafka my-cluster-kafka-0 -- curl -X POST \
 {
   "name": "s3-connector",
   "config": {
-    "connector.class": "org.apache.camel.kafkaconnector.CamelSourceConnector",
+    "connector.class": "org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector",
     "tasks.max": "1",
     "key.converter": "org.apache.kafka.connect.storage.StringConverter",
     "value.converter": "org.apache.camel.kafkaconnector.converters.S3ObjectConverter",
     "topics": "s3-topic",
-    "camel.source.url": "aws-s3://camel-connector-test?autocloseBody=false",
+    "camel.source.path.bucketNameOrArn": "camel-connector-test",
+    "camel.source.endpoint.autocloseBody": false,
     "camel.source.maxPollDuration": 10000,
     "camel.component.aws-s3.configuration.access-key": "xxx",
     "camel.component.aws-s3.configuration.secret-key": "xxx",
     "camel.component.aws-s3.configuration.region": "xxx"
   }
 }
+EOF
+----
+
+Alternatively, if you have enabled `use-connector-resources`, you can create the connector instance by creating a specific custom resource:
+
+[source,bash,options="nowrap"]
+----
+oc apply -f - << EOF
+apiVersion: kafka.strimzi.io/v1alpha1
+kind: KafkaConnector
+metadata:
+  name: s3-source-connector
+  namespace: atarocch-ckc
+  labels:
+    strimzi.io/cluster: my-connect-cluster
+spec:
+  class: org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector
+  tasksMax: 1
+  config:
+    key.converter: org.apache.kafka.connect.storage.StringConverter
+    value.converter: org.apache.camel.kafkaconnector.awss3.converters.S3ObjectConverter
+    topics: s3-topic
+    camel.source.path.bucketNameOrArn: camel-connector-test
+    camel.source.endpoint.autocloseBody: false
+    camel.source.maxPollDuration: 10000
+    camel.component.aws-s3.configuration.access-key: xxx
+    camel.component.aws-s3.configuration.secret-key: xxx
+    camel.component.aws-s3.configuration.region: xxx
 EOF
 ----
 
