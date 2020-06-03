@@ -119,7 +119,9 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
             fail("Timed out wait for data to be added to the Kafka cluster");
         }
 
-        TestUtils.waitFor(testDataDao::hasEnoughData, (long) expect);
+        if (!TestUtils.waitFor(testDataDao::hasEnoughData, (long) expect)) {
+            fail("Did not receive enough data");
+        }
         testDataDao.getData(this::checkRetrievedData);
         assertTrue(received >= expect,
                 String.format("Did not receive as much data as expected: %d < %d", received, expect));
