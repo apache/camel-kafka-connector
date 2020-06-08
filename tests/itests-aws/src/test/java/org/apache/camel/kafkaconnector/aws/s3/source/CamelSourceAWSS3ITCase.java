@@ -34,6 +34,7 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -158,6 +159,7 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     }
 
 
+    @Disabled("Disabled due to issue #260")
     @Test
     @Timeout(180)
     public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
@@ -167,10 +169,9 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
                 .basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withUrl(AWSCommon.DEFAULT_S3_BUCKET)
-                    .append("configuration", "#class:" + TestS3Configuration.class.getName())
+                    .append("configuration", CamelAWSS3PropertyFactory.classRef(TestS3Configuration.class.getName()))
                     .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                     .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                    .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
                     .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
                     .buildUrl();
 
