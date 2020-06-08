@@ -105,7 +105,7 @@ public class CamelMainSupport {
                 } else {
                     LOG.info("Creating Camel route from({}).to({})", fromUrl, toUrl);
                 }
-                rd.to(toUrl);
+                rd.toD(toUrl);
             }
         });
     }

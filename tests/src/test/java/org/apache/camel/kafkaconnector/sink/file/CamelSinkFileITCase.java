@@ -115,12 +115,13 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
                     .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
                     .withDirectoryName(SINK_DIR)
                     .withFileName(FILENAME)
-                    .withDoneFileName("${file:name}.done");
+                    .withDoneFileName("test.txt.done");
 
             runTest(connectorPropertyFactory);
 
         } catch (Exception e) {
             LOG.error("HTTP test failed: {}", e.getMessage(), e);
+            System.err.println(e.getMessage());
             fail(e.getMessage());
         }
     }
@@ -133,7 +134,7 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
                     .withTopics(TestCommon.getDefaultTestTopic(this.getClass()))
                     .withUrl(SINK_DIR)
                         .append("fileName", FILENAME)
-                        .append("doneFileName", "${file:name}.done")
+                        .append("doneFileName", "test.txt.done")
                         .buildUrl();
 
 
