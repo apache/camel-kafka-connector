@@ -23,6 +23,8 @@ public class CamelKafkaConnectorTableOptionModel {
     private boolean source;
     private String docsSink = "";
     private String docsSource = "";
+    private String downloadLinkZip = "";
+    private String downloadLinkTar = "";
 
     public String getName() {
         return name;
@@ -64,7 +66,23 @@ public class CamelKafkaConnectorTableOptionModel {
         this.docsSource = docsSource;
     }
 
-    @Override
+	public String getDownloadLinkZip() {
+		return downloadLinkZip;
+	}
+
+	public void setDownloadLinkZip(String downloadLinkZip) {
+		this.downloadLinkZip = downloadLinkZip;
+	}
+
+	public String getDownloadLinkTar() {
+		return downloadLinkTar;
+	}
+
+	public void setDownloadLinkTar(String downloadLinkTar) {
+		this.downloadLinkTar = downloadLinkTar;
+	}
+
+	@Override
     public String toString() {
         return "CamelKafkaConnectorTableOptionModel [name=" + name + ", sink=" + sink + ", source=" + source + ", docsSink=" + docsSink + ", docsSource=" + docsSource + "]";
     }

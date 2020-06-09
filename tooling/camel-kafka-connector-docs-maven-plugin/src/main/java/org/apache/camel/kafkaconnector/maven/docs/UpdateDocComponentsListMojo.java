@@ -71,6 +71,19 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
     protected File projectBaseDir;
     
     /**
+     * The Apache Repository
+     */
+    @Parameter(defaultValue = "https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/")
+    protected String repositoryPath;
+    
+    
+    /**
+     * The Last Released version
+     */
+    @Parameter
+    protected String lastReleasedVersion;
+    
+    /**
      * The maven project.
      */
     @Parameter(property = "connectors-project-name", defaultValue = "connectors", readonly = true)
@@ -139,6 +152,10 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                     singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
                                 }
                             }
+                            String downloadLinkZip = repositoryPath + singleConnector.getName() + "/" + lastReleasedVersion + "/" + singleConnector.getName() + "-" + lastReleasedVersion + "-package.zip[Download Zip]";
+                            String downloadLinkTar = repositoryPath + singleConnector.getName() + "/" + lastReleasedVersion + "/" + singleConnector.getName() + "-" + lastReleasedVersion + "-package.tar.gz[Download Tar.gz]";
+                            singleConnector.setDownloadLinkZip(downloadLinkZip);
+                            singleConnector.setDownloadLinkTar(downloadLinkTar);
                             options.add(singleConnector);
                         }
                     }
