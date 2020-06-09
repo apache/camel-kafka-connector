@@ -66,23 +66,23 @@ public class CamelKafkaConnectorTableOptionModel {
         this.docsSource = docsSource;
     }
 
-	public String getDownloadLinkZip() {
-		return downloadLinkZip;
-	}
+    public String getDownloadLinkZip() {
+        return downloadLinkZip;
+    }
 
-	public void setDownloadLinkZip(String downloadLinkZip) {
-		this.downloadLinkZip = downloadLinkZip;
-	}
+    public void setDownloadLinkZip(String downloadLinkZip) {
+        this.downloadLinkZip = downloadLinkZip;
+    }
 
-	public String getDownloadLinkTar() {
-		return downloadLinkTar;
-	}
+    public String getDownloadLinkTar() {
+        return downloadLinkTar;
+    }
 
-	public void setDownloadLinkTar(String downloadLinkTar) {
-		this.downloadLinkTar = downloadLinkTar;
-	}
+    public void setDownloadLinkTar(String downloadLinkTar) {
+        this.downloadLinkTar = downloadLinkTar;
+    }
 
-	@Override
+    @Override
     public String toString() {
         return "CamelKafkaConnectorTableOptionModel [name=" + name + ", sink=" + sink + ", source=" + source + ", docsSink=" + docsSink + ", docsSource=" + docsSource + "]";
     }
