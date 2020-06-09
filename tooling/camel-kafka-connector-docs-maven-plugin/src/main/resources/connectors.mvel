@@ -2,10 +2,10 @@
 
 Number of Camel Kafka connectors: @{options.size} 
 
-[width="100%",cols="6,1,1,1,1",options="header"]
+[width="100%",cols="4,1,1,1,1,1,1",options="header"]
 |===
-| Name | Sink Support | Source Suppport | Sink Docs | Source Docs
-@foreach{row : options}| *@{row.getName()}* | @{row.isSink()} | @{row.isSource()} | @{row.getDocsSink()} | @{row.getDocsSource()}
+| Name | Sink Support | Source Suppport | Sink Docs | Source Docs | Download Zip | Download Tar.gz
+@foreach{row : options}| *@{row.getName()}* | @{row.isSink()} | @{row.isSource()} | @{row.getDocsSink()} | @{row.getDocsSource()} | @{row.getDownloadLinkZip()} | @{row.getDownloadLinkTar()}
 @end{}|===
 
 @end{}
