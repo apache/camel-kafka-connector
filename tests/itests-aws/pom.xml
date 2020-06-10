@@ -64,5 +64,21 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <!-- Properties needed for the test:
+                    - com.amazonaws.sdk.disableCbor is used to ensure the AWS Kinesis reply is parseable
+                     -->
+                    <argLine>${common.failsafe.args} -Dcom.amazonaws.sdk.disableCbor=true</argLine>
+                    <skipTests>${skipIntegrationTests}</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
