@@ -28,6 +28,7 @@ public class CamelAws2s3SinkConnector extends CamelSinkConnector {
     public ConfigDef config() {
         return CamelAws2s3SinkConnectorConfig.conf();
     }
+
     @Override
     public Class<? extends Task> taskClass() {
         return CamelAws2s3SinkTask.class;
