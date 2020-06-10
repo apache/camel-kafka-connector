@@ -26,14 +26,16 @@ import org.apache.camel.kafkaconnector.CamelSourceTask;
 public class CamelAws2s3SourceTask extends CamelSourceTask {
 
     @Override
-    protected CamelSourceConnectorConfig getCamelSourceConnectorConfig(
-            Map<String, String> props) {
+    protected CamelSourceConnectorConfig getCamelSourceConnectorConfig(Map<String, String> props) {
         return new CamelAws2s3SourceConnectorConfig(props);
     }
+
     @Override
     protected Map<String, String> getDefaultConfig() {
-        return new HashMap<String, String>() {{
-            put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "aws2-s3");
-        }};
+        return new HashMap<String, String>() {
+            {
+                put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "aws2-s3");
+            }
+        };
     }
 }

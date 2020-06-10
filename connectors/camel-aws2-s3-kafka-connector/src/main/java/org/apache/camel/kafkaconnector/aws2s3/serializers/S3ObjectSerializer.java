@@ -18,14 +18,11 @@ package org.apache.camel.kafkaconnector.aws2s3.serializers;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
-
 
 import org.apache.kafka.common.serialization.Serializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import software.amazon.awssdk.core.ResponseInputStream;
 
 public class S3ObjectSerializer implements Serializer<ResponseInputStream> {

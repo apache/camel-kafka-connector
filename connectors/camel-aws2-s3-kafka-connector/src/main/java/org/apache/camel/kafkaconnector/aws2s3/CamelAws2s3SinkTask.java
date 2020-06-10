@@ -26,14 +26,16 @@ import org.apache.camel.kafkaconnector.CamelSinkTask;
 public class CamelAws2s3SinkTask extends CamelSinkTask {
 
     @Override
-    protected CamelSinkConnectorConfig getCamelSinkConnectorConfig(
-            Map<String, String> props) {
+    protected CamelSinkConnectorConfig getCamelSinkConnectorConfig(Map<String, String> props) {
         return new CamelAws2s3SinkConnectorConfig(props);
     }
+
     @Override
     protected Map<String, String> getDefaultConfig() {
-        return new HashMap<String, String>() {{
-            put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "aws2-s3");
-        }};
+        return new HashMap<String, String>() {
+            {
+                put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "aws2-s3");
+            }
+        };
     }
 }

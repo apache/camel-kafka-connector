@@ -22,7 +22,6 @@ import org.apache.camel.kafkaconnector.aws2s3.serializers.S3ObjectSerializer;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaAndValue;
 import org.apache.kafka.connect.storage.Converter;
-
 import software.amazon.awssdk.core.ResponseInputStream;
 
 public class S3ObjectConverter implements Converter {
@@ -35,7 +34,7 @@ public class S3ObjectConverter implements Converter {
 
     @Override
     public byte[] fromConnectData(String topic, Schema schema, Object value) {
-        return serializer.serialize(topic, (ResponseInputStream) value);
+        return serializer.serialize(topic, (ResponseInputStream)value);
     }
 
     @Override
