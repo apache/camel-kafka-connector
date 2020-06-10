@@ -51,6 +51,7 @@
         <version.maven.checkstyle.plugin>3.1.0</version.maven.checkstyle.plugin>
         <version.maven.surefire.plugin>3.0.0-M4</version.maven.surefire.plugin>
 
+
         <mycila-license-version>3.0</mycila-license-version>
         <gmavenplus-plugin-version>1.6.2</gmavenplus-plugin-version>
         <groovy-version>2.5.8</groovy-version>
@@ -334,6 +335,12 @@
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${version.maven.resources}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${version.maven.jar}</version>
                 </plugin>
 
                 <plugin>
