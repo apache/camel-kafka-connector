@@ -30,6 +30,7 @@ import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.camel.kafkaconnector.sjms2.services.JMSService;
 import org.apache.camel.kafkaconnector.sjms2.services.JMSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -64,6 +65,11 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         received = 0;
+    }
+
+    @AfterEach
+    public void tearDown() {
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private <T> boolean checkRecord(ConsumerRecord<String, T> record) {

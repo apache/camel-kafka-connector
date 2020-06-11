@@ -81,6 +81,8 @@ public class CamelSinkHTTPITCase extends AbstractKafkaTest {
         } finally {
             localServer.shutdown(2, TimeUnit.SECONDS);
         }
+
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
 

@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.timer.source;
 
+import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -24,6 +25,7 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -52,6 +54,11 @@ public class CamelSourceTimerITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         received = 0;
+    }
+
+    @AfterEach
+    public void tearDown() throws IOException, InterruptedException {
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {

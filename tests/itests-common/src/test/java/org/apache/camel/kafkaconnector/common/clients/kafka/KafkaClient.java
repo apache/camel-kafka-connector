@@ -19,10 +19,13 @@ package org.apache.camel.kafkaconnector.common.clients.kafka;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.function.Predicate;
 
+import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -37,6 +40,8 @@ import org.apache.kafka.clients.producer.RecordMetadata;
  * @param <V> Value type
  */
 public class KafkaClient<K, V> {
+    private final ConsumerPropertyFactory consumerPropertyFactory;
+    private final ProducerPropertyFactory producerPropertyFactory;
     private KafkaProducer<K, V> producer;
     private KafkaConsumer<K, V> consumer;
 
@@ -48,8 +53,8 @@ public class KafkaClient<K, V> {
      *                        PLAINTEXT://${address}:${port}
      */
     public KafkaClient(String bootstrapServer) {
-        ConsumerPropertyFactory consumerPropertyFactory = new DefaultConsumerPropertyFactory(bootstrapServer);
-        ProducerPropertyFactory producerPropertyFactory = new DefaultProducerPropertyFactory(bootstrapServer);
+        consumerPropertyFactory = new DefaultConsumerPropertyFactory(bootstrapServer);
+        producerPropertyFactory = new DefaultProducerPropertyFactory(bootstrapServer);
 
         producer = new KafkaProducer<>(producerPropertyFactory.getProperties());
         consumer = new KafkaConsumer<>(consumerPropertyFactory.getProperties());
@@ -93,5 +98,14 @@ public class KafkaClient<K, V> {
         future.get();
     }
 
-
+    /**
+     * Delete a topic
+     *
+     * @param topic the topic to be deleted
+     */
+    public void deleteTopic(String topic) {
+        Properties props = producerPropertyFactory.getProperties();
+        AdminClient admClient = AdminClient.create(props);
+        admClient.deleteTopics(Collections.singleton(topic));
+    }
 }

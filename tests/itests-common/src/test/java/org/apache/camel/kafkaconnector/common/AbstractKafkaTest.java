@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.common;
 
+import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.services.kafka.KafkaService;
 import org.apache.camel.kafkaconnector.common.services.kafka.KafkaServiceFactory;
 import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnectRunnerFactory;
@@ -54,8 +55,12 @@ public abstract class AbstractKafkaTest {
         return kafkaService;
     }
 
-
     public KafkaConnectService getKafkaConnectService() {
         return kafkaConnectService;
+    }
+
+    protected void deleteKafkaTopic(String topic) {
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        kafkaClient.deleteTopic(topic);
     }
 }
