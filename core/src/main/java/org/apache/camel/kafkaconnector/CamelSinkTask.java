@@ -127,6 +127,10 @@ public class CamelSinkTask extends SinkTask {
 
             LOG.debug("Sending exchange {} to {}", exchange.getExchangeId(), LOCAL_URL);
             producer.send(LOCAL_URL, exchange);
+
+            if (exchange.isFailed()) {
+                throw new ConnectException("Exchange delivery has failed!", exchange.getException());
+            }
         }
     }
 
