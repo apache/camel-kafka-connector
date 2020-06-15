@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.camel.kafkaconnector.common.PluginPathHelper;
 import org.apache.kafka.connect.runtime.WorkerConfig;
 import org.apache.kafka.connect.util.clusters.EmbeddedConnectCluster;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -70,8 +71,10 @@ public class EmbeddedKafkaService implements KafkaService {
 
     @Override
     public String getBootstrapServers() {
-
-        return cluster.kafka().bootstrapServers();
+        if (started) {
+            return cluster.kafka().bootstrapServers();
+        }
+        return null;
     }
 
     @Override
@@ -95,6 +98,15 @@ public class EmbeddedKafkaService implements KafkaService {
         }
     }
 
+    @Override
+    public void beforeTestExecution(ExtensionContext extensionContext) throws Exception {
+        initialize();
+    }
+
+    @Override
+    public void afterTestExecution(ExtensionContext context) throws Exception {
+        shutdown();
+    }
 
     // WARNING: this may come uninitialized
     public EmbeddedConnectCluster getCluster() {

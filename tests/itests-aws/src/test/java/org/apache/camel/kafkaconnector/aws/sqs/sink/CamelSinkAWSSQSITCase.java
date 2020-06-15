@@ -77,6 +77,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @AfterEach
     public void tearDown() {
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
         if (!awssqsClient.deleteQueue(AWSCommon.DEFAULT_SQS_QUEUE)) {
             fail("Failed to delete queue");
         }

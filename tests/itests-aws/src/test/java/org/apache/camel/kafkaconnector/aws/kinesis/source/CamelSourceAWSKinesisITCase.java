@@ -101,6 +101,8 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         }
 
         awsKinesisClient.shutdown();
+
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {

@@ -35,6 +35,7 @@ import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.camel.kafkaconnector.sjms2.services.JMSService;
 import org.apache.camel.kafkaconnector.sjms2.services.JMSServiceFactory;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -68,6 +69,11 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
     public void setUp() {
         LOG.info("JMS service running at {}", jmsService.getDefaultEndpoint());
         received = 0;
+    }
+
+    @AfterEach
+    public void tearDown() {
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private boolean checkRecord(Message jmsMessage) {

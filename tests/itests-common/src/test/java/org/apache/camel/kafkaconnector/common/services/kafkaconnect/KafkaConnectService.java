@@ -41,6 +41,4 @@ public interface KafkaConnectService extends BeforeTestExecutionCallback, AfterT
     default void beforeTestExecution(ExtensionContext extensionContext) throws Exception {
         start();
     }
-
-
 }

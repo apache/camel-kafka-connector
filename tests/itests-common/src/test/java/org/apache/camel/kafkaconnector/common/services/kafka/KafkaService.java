@@ -46,7 +46,6 @@ public interface KafkaService extends BeforeAllCallback, BeforeTestExecutionCall
      */
     void shutdown();
 
-
     @Override
     default void beforeAll(ExtensionContext extensionContext) throws Exception {
         initialize();
@@ -54,7 +53,7 @@ public interface KafkaService extends BeforeAllCallback, BeforeTestExecutionCall
 
     @Override
     default void beforeTestExecution(ExtensionContext extensionContext) throws Exception {
-        initialize();
+        //no op
     }
 
     @Override
@@ -63,7 +62,7 @@ public interface KafkaService extends BeforeAllCallback, BeforeTestExecutionCall
     }
 
     @Override
-    default void afterTestExecution(ExtensionContext extensionContext) throws Exception {
-        shutdown();
+    default void afterTestExecution(ExtensionContext context) throws Exception {
+        //no op
     }
 }

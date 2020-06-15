@@ -34,7 +34,6 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -47,9 +46,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @Testcontainers
 public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
+
     @RegisterExtension
     public static AWSService<AmazonS3> service = AWSServiceFactory.createS3Service();
-
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSS3ITCase.class);
 
     private AmazonS3 awsS3Client;
@@ -75,14 +74,15 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         }
     }
 
-
     @AfterEach
     public void tearDown() {
         try {
-            awsS3Client.deleteBucket(AWSCommon.DEFAULT_S3_BUCKET);
+            AWSCommon.deleteBucket(awsS3Client, AWSCommon.DEFAULT_S3_BUCKET);
         } catch (Exception e) {
             LOG.warn("Unable to delete bucked: {}", e.getMessage(), e);
         }
+
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
@@ -158,8 +158,6 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         runTest(connectorPropertyFactory);
     }
 
-
-    @Disabled("Disabled due to issue #260")
     @Test
     @Timeout(180)
     public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
@@ -168,13 +166,15 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
                 .basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withConfiguration(TestS3Configuration.class.getName())
                 .withUrl(AWSCommon.DEFAULT_S3_BUCKET)
-                    .append("configuration", CamelAWSS3PropertyFactory.classRef(TestS3Configuration.class.getName()))
                     .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                     .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
+                    .append("proxyProtocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
                     .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
-                    .buildUrl();
+                .buildUrl();
 
         runTest(connectorPropertyFactory);
     }
+
 }

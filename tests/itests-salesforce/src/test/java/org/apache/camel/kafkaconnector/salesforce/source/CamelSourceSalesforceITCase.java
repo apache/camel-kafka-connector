@@ -133,6 +133,8 @@ public class CamelSourceSalesforceITCase extends AbstractKafkaTest  {
             fail("Unable to delete the test account on Salesforce");
         }
         account = null;
+
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private <T> boolean checkRecord(ConsumerRecord<String, T> record) {

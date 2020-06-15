@@ -28,7 +28,6 @@ public class CamelAws2s3SourceConnector extends CamelSourceConnector {
     public ConfigDef config() {
         return CamelAws2s3SourceConnectorConfig.conf();
     }
-
     @Override
     public Class<? extends Task> taskClass() {
         return CamelAws2s3SourceTask.class;
