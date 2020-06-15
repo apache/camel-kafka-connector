@@ -18,13 +18,15 @@
 package org.apache.camel.kafkaconnector.common.services.kafka;
 
 import org.junit.jupiter.api.extension.AfterAllCallback;
+import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
+import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 /**
  * Provides an interface for any type of Kafka service: remote instances, local container, etc
  */
-public interface KafkaService extends BeforeAllCallback, AfterAllCallback {
+public interface KafkaService extends BeforeAllCallback, BeforeTestExecutionCallback, AfterAllCallback, AfterTestExecutionCallback {
 
 
     /**
@@ -44,14 +46,23 @@ public interface KafkaService extends BeforeAllCallback, AfterAllCallback {
      */
     void shutdown();
 
-
     @Override
     default void beforeAll(ExtensionContext extensionContext) throws Exception {
         initialize();
     }
 
     @Override
+    default void beforeTestExecution(ExtensionContext extensionContext) throws Exception {
+        //no op
+    }
+
+    @Override
     default void afterAll(ExtensionContext extensionContext) throws Exception {
         shutdown();
+    }
+
+    @Override
+    default void afterTestExecution(ExtensionContext context) throws Exception {
+        //no op
     }
 }

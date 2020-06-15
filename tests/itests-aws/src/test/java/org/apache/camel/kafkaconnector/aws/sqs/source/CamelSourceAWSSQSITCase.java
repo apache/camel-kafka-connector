@@ -70,6 +70,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @AfterEach
     public void tearDown() {
         deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
+
         if (!awssqsClient.deleteQueue(AWSCommon.DEFAULT_SQS_QUEUE)) {
             fail("Failed to delete queue");
         }
@@ -143,12 +144,12 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
                 .basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withUrl(AWSCommon.DEFAULT_SQS_QUEUE)
-                    .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
-                    .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                    .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
-                    .appendIfAvailable("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST))
-                    .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
-                    .buildUrl();
+                .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
+                .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
+                .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
+                .appendIfAvailable("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST))
+                .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
+                .buildUrl();
 
         runTest(connectorPropertyFactory);
     }
