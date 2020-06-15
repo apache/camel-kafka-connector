@@ -33,6 +33,15 @@
     <name>Camel-Kafka-Connector :: Tests :: Parent</name>
     <description>Camel Kafka Connector Integration Tests Parent</description>
 
+    <properties>
+        <!-- See the comment on the maven-failsafe-plugin configuration for a detailed explanation of these arguments -->
+        <failsafe.args.basedir>-Dproject.basedir=${project.basedir}/../..</failsafe.args.basedir>
+        <failsafe.args.jul>-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager</failsafe.args.jul>
+        <failsafe.args.strimzi>-Ditest.strimzi.container.image=${itest.strimzi.container.image} -Ditest.zookeeper.container.image=${itest.zookeeper.container.image}</failsafe.args.strimzi>
+
+        <common.failsafe.args>${failsafe.args.jul} ${failsafe.args.basedir} ${failsafe.args.strimzi}</common.failsafe.args>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.camel.kafkaconnector</groupId>
@@ -183,17 +192,13 @@
                     <!-- Properties needed for the test:
 
                     - project.basedir is used to find the connectors jars and build the plugin path
-                    - com.amazonaws.sdk.disableCbor is used to ensure the AWS Kinesis reply is parseable
                     - itest.strimzi.container.image and itest.zookeeper.container.image define the strimzi and zookeeper
                     images used when running the tests w/ those containers
                     - java.util.logging.manager sets the logging manager used in GlassFish to the log4j one. GlassFish
                     is used by the rest API of the Kafka Connect.
-                    - com.datastax.driver.FORCE_NIO=true prevents the ClassCastException from
-                    io.netty.channel.epoll.EpollEventLoopGroup cannot be cast to io.netty.channel.EventLoopGroup
-                    probably caused by a netty incompatibility somewhere
 
                      -->
-                    <argLine>-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager -Dcom.datastax.driver.FORCE_NIO=true -Dproject.basedir=${project.basedir}/../.. -Dcom.amazonaws.sdk.disableCbor=true -Ditest.strimzi.container.image=${itest.strimzi.container.image} -Ditest.zookeeper.container.image=${itest.zookeeper.container.image}</argLine>
+                    <argLine>${common.failsafe.args}</argLine>
                     <skipTests>${skipIntegrationTests}</skipTests>
                 </configuration>
             </plugin>
