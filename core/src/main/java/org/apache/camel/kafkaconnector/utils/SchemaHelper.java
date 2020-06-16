@@ -36,7 +36,7 @@ public final class SchemaHelper {
     /**
      * Try to build a {@link SchemaBuilder} for a value of type {@link Object}
      * However, this will only build the schema only for known types, in case it can not return the precise SchemaBuilder type
-     * it will return an optional {@link SchemaBuilder.BYTE}
+     * it will return an optional {@link SchemaBuilder.Type}
      * @param value to return the SchemaBuilder for
      *
      * @return {@link SchemaBuilder} instance
