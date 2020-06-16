@@ -27,10 +27,12 @@ import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
+import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.sink.SinkRecord;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CamelSinkTaskTest {
@@ -529,6 +531,26 @@ public class CamelSinkTaskTest {
 
         assertEquals(1, sinkTask.getCms().getEndpoints()
             .stream().filter(e -> e.getEndpointUri().equals("seda://test?bridgeErrorHandler=true&size=50")).count());
+
+        sinkTask.stop();
+    }
+
+    @Test
+    public void testIfExchangeFailsShouldThrowConnectException() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        // we use a dummy component sink in order fail the exchange delivery
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "direct");
+        props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "name", "test");
+
+        CamelSinkTask sinkTask = new CamelSinkTask();
+        sinkTask.start(props);
+
+        List<SinkRecord> records = new ArrayList<SinkRecord>();
+        SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
+        records.add(record);
+
+        assertThrows(ConnectException.class, () -> sinkTask.put(records));
 
         sinkTask.stop();
     }
