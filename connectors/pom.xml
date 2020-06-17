@@ -100,6 +100,9 @@
                     <packageFileTemplate>${project.basedir}/template-connector-package.xml</packageFileTemplate>
                     <exampleSourcePropertiesFileTemplate>${project.basedir}/camel-kafka-connector-template-example-source-properties.template</exampleSourcePropertiesFileTemplate>
                     <exampleSinkPropertiesFileTemplate>${project.basedir}/camel-kafka-connector-template-example-sink-properties.template</exampleSinkPropertiesFileTemplate>
+                    <excludedComponents>
+                        <param>bonita</param>
+                    </excludedComponents>
                 </configuration>
                 <executions>
                     <execution>
@@ -216,7 +219,6 @@
         <module>camel-bean-kafka-connector</module>
         <module>camel-bean-validator-kafka-connector</module>
         <module>camel-beanstalk-kafka-connector</module>
-        <module>camel-bonita-kafka-connector</module>
         <module>camel-box-kafka-connector</module>
         <module>camel-braintree-kafka-connector</module>
         <module>camel-browse-kafka-connector</module>
