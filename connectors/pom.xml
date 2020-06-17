@@ -219,6 +219,7 @@
         <module>camel-bean-kafka-connector</module>
         <module>camel-bean-validator-kafka-connector</module>
         <module>camel-beanstalk-kafka-connector</module>
+        <module>camel-bonita-kafka-connector</module>
         <module>camel-box-kafka-connector</module>
         <module>camel-braintree-kafka-connector</module>
         <module>camel-browse-kafka-connector</module>
