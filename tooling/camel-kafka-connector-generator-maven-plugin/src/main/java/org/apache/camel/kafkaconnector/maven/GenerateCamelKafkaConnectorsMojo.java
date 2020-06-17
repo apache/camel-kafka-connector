@@ -18,9 +18,12 @@ package org.apache.camel.kafkaconnector.maven;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.camel.catalog.CamelCatalog;
@@ -76,9 +79,15 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
 
     @Component
     private BuildPluginManager pluginManager;
-
+    
     /**
      * The Camel Component Filter to select for which components generate the corresponding camel kafka connector.
+     */
+    @Parameter(defaultValue = "", readonly = true)
+    private String filter;
+
+    /**
+     * The Camel Component Exclusion List to select for which components must be skipped while generating kafka connector.
      */
     @Parameter(defaultValue = "", readonly = true)
     private List excludedComponents = Collections.EMPTY_LIST;
@@ -98,23 +107,32 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
     protected void executeAll() throws MojoExecutionException, IOException, ResourceNotFoundException, FileResourceCreationException {
         CamelCatalog cc = new DefaultCamelCatalog();
         List<String> components;
-        //TODO: implement an exclusion mechanism
-        if (excludedComponents == null || excludedComponents.isEmpty()) {
+        List<String> filteredComponents;
+        if (filter == null || filter.isEmpty()) {
             components = cc.findComponentNames();
         } else {
-            components = cc.findComponentNames().stream().filter(componentName -> !excludedComponents.contains(componentName)).collect(Collectors.toList());
+            Set<String> filterComponentNames = new HashSet<>(Arrays.asList(filter.split(",")));
+            components = cc.findComponentNames().stream().filter(componentName -> filterComponentNames.contains(componentName)).collect(Collectors.toList());
         }
-        if (!excludedComponents.isEmpty()) {
+        if (excludedComponents == null || excludedComponents.isEmpty()) {
+            filteredComponents = components;
+        } else {
+            filteredComponents = components.stream().filter(component -> !excludedComponents.contains(component)).collect(Collectors.toList());
+        }
+        if (filter != null && !filter.isEmpty()) {
+            getLog().info("Filtered Components that will be generated: " + filter);
+        }
+        if (excludedComponents != null && !excludedComponents.isEmpty()) {
             getLog().info("Excluded Components that won't be generated: " + excludedComponents);
         }
-        getLog().info("Components found to be generated/updated: " + components);
+        getLog().info("Components found to be generated/updated: " + filteredComponents);
 
         //TODO: evaluate dataformats to include in each camel kafka connector generated placing them as a comma separated GAV in:
         String additionalDependencies = "";
 
         final Properties properties = new Properties();
         properties.load(new FileInputStream(rm.getResourceAsFile("project.properties")));
-        for (String component : components) {
+        for (String component : filteredComponents) {
             String cJson = cc.componentJSonSchema(component);
             ComponentModel cm = JsonMapper.generateComponentModel(cJson);
 
