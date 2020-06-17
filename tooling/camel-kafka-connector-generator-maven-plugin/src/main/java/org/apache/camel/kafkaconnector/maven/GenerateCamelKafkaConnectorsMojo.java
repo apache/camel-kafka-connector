@@ -19,6 +19,8 @@ package org.apache.camel.kafkaconnector.maven;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
@@ -83,7 +85,7 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
      * The Camel Component Filter to select for which components generate the corresponding camel kafka connector.
      */
     @Parameter(defaultValue = "", readonly = true)
-    private String filter;
+    private List excludedComponents = Collections.EMPTY_LIST;
 
     @Component
     private ProjectDependenciesResolver projectDependenciesResolver;
@@ -101,11 +103,13 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
         CamelCatalog cc = new DefaultCamelCatalog();
         List<String> components;
         //TODO: implement an exclusion mechanism
-        if (filter == null || filter.isEmpty()) {
+        if (excludedComponents == null || excludedComponents.isEmpty()) {
             components = cc.findComponentNames();
         } else {
-            Set<String> filterComponentNames = new HashSet<>(Arrays.asList(filter.split(",")));
-            components = cc.findComponentNames().stream().filter(componentName -> filterComponentNames.contains(componentName)).collect(Collectors.toList());
+            components = cc.findComponentNames().stream().filter(componentName -> !excludedComponents.contains(componentName)).collect(Collectors.toList());
+        }
+        if (!excludedComponents.isEmpty()) {
+        	getLog().info("Excluded Components that won't be generated: " + excludedComponents);
         }
         getLog().info("Components found to be generated/updated: " + components);
 
