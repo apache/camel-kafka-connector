@@ -50,8 +50,8 @@ public final class TestUtils {
      * @param payload
      * @param <T>
      */
-    public static <T> void waitFor(Predicate<T> resourceCheck, T payload) {
-        boolean state;
+    public static <T> boolean waitFor(Predicate<T> resourceCheck, T payload) {
+        boolean state = false;
         int retries = 30;
         int waitTime = 1000;
         do {
@@ -69,6 +69,8 @@ public final class TestUtils {
             }
 
         } while (!state && retries > 0);
+
+        return state;
     }
 
 
@@ -76,8 +78,8 @@ public final class TestUtils {
      * Wait for a given condition to be true or the retry amount (30) to expire
      * @param resourceCheck
      */
-    public static void waitFor(BooleanSupplier resourceCheck) {
-        boolean state;
+    public static boolean waitFor(BooleanSupplier resourceCheck) {
+        boolean state = false;
         int retries = 30;
         int waitTime = 1000;
         do {
@@ -93,8 +95,9 @@ public final class TestUtils {
             } catch (InterruptedException e) {
                 break;
             }
-
         } while (!state && retries > 0);
+
+        return state;
     }
 
     /**
