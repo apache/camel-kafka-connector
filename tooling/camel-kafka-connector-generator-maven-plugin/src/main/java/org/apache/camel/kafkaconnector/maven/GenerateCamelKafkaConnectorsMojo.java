@@ -18,13 +18,9 @@ package org.apache.camel.kafkaconnector.maven;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.camel.catalog.CamelCatalog;
@@ -109,7 +105,7 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
             components = cc.findComponentNames().stream().filter(componentName -> !excludedComponents.contains(componentName)).collect(Collectors.toList());
         }
         if (!excludedComponents.isEmpty()) {
-        	getLog().info("Excluded Components that won't be generated: " + excludedComponents);
+            getLog().info("Excluded Components that won't be generated: " + excludedComponents);
         }
         getLog().info("Components found to be generated/updated: " + components);
 
