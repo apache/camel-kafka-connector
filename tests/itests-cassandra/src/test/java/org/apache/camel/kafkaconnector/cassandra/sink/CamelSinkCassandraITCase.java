@@ -34,6 +34,7 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -128,6 +129,7 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
 
     }
 
+    @Timeout(90)
     @Test
     public void testFetchFromCassandra() throws ExecutionException, InterruptedException {
         String topic = TestUtils.getDefaultTestTopic(this.getClass());
@@ -143,7 +145,7 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
         runTest(connectorPropertyFactory);
     }
 
-
+    @Timeout(90)
     @Test
     public void testFetchFromCassandraWithUrl() throws ExecutionException, InterruptedException {
         String topic = TestUtils.getDefaultTestTopic(this.getClass());
