@@ -15,45 +15,41 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.cassandra.sink;
+package org.apache.camel.kafkaconnector.cassandra.source;
 
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
+import com.datastax.driver.core.Row;
 import org.apache.camel.kafkaconnector.cassandra.clients.CassandraClient;
 import org.apache.camel.kafkaconnector.cassandra.clients.dao.TestDataDao;
+import org.apache.camel.kafkaconnector.cassandra.clients.dao.TestResultSetConversionStrategy;
 import org.apache.camel.kafkaconnector.cassandra.services.CassandraService;
 import org.apache.camel.kafkaconnector.cassandra.services.CassandraServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
-import org.junit.jupiter.api.AfterEach;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Testcontainers
-public class CamelSinkCassandraITCase extends AbstractKafkaTest {
+public class CamelSourceCassandraITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static CassandraService cassandraService = CassandraServiceFactory.createService();
 
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCassandraITCase.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceCassandraITCase.class);
 
     private CassandraClient cassandraClient;
     private TestDataDao testDataDao;
 
-    private final int expect = 10;
+    private final int expect = 1;
     private int received;
 
     @Override
@@ -70,41 +66,18 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
         testDataDao.createKeySpace();
         testDataDao.useKeySpace();
         testDataDao.createTable();
-    }
 
-    @AfterEach
-    public void tearDown() {
-        cassandraClient = cassandraService.getClient();
-
-        if (testDataDao != null) {
-            testDataDao.dropTable();
-        }
-
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
-    }
-
-    private void putRecords(CountDownLatch latch) {
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-
-        try {
-            for (int i = 0; i < expect; i++) {
-                try {
-                    kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), "test " + i);
-                } catch (ExecutionException e) {
-                    LOG.error("Unable to produce messages: {}", e.getMessage(), e);
-                } catch (InterruptedException e) {
-                    break;
-                }
-            }
-        } finally {
-            latch.countDown();
+        for (int i = 0; i < expect; i++) {
+            testDataDao.insert("Test data " + i);
         }
     }
 
-    private void checkRetrievedData(String data) {
-        if (data != null) {
-            received++;
-        }
+    private <T> boolean checkRecord(ConsumerRecord<String, T> record) {
+
+        LOG.debug("Received: {}", record.value());
+        received++;
+
+        return false;
     }
 
     public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
@@ -112,52 +85,47 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
 
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
-        CountDownLatch latch = new CountDownLatch(1);
-        ExecutorService service = Executors.newCachedThreadPool();
-        service.submit(() -> putRecords(latch));
+        LOG.debug("Creating the consumer ...");
+        KafkaClient<String, Row> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        kafkaClient.consume(TestUtils.getDefaultTestTopic(this.getClass()), this::checkRecord);
+        LOG.debug("Created the consumer ...");
 
-        if (!latch.await(30, TimeUnit.SECONDS)) {
-            fail("Timed out wait for data to be added to the Kafka cluster");
-        }
-
-        if (!TestUtils.waitFor(testDataDao::hasEnoughData, (long) expect)) {
-            fail("Did not receive enough data");
-        }
-        testDataDao.getData(this::checkRetrievedData);
-        assertTrue(received >= expect,
-                String.format("Did not receive as much data as expected: %d < %d", received, expect));
-
+        assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
+
 
     @Timeout(90)
     @Test
-    public void testFetchFromCassandra() throws ExecutionException, InterruptedException {
+    public void testRetrieveFromCassandra() throws ExecutionException, InterruptedException {
         String topic = TestUtils.getDefaultTestTopic(this.getClass());
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelCassandraPropertyFactory
                 .basic()
-                .withTopics(topic)
+                .withKafkaTopic(topic)
                 .withHosts(cassandraService.getCassandraHost())
                 .withPort(cassandraService.getCQL3Port())
                 .withKeySpace(TestDataDao.KEY_SPACE)
-                .withCql(testDataDao.getInsertStatement());
+                .withResultSetConversionStrategy("ONE")
+                .withCql(testDataDao.getSelectStatement());
 
         runTest(connectorPropertyFactory);
     }
 
+    @Disabled("Disabled due to CAMEL-15219")
     @Timeout(90)
     @Test
-    public void testFetchFromCassandraWithUrl() throws ExecutionException, InterruptedException {
+    public void testRetrieveFromCassandraWithCustomStrategy() throws ExecutionException, InterruptedException {
         String topic = TestUtils.getDefaultTestTopic(this.getClass());
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelCassandraPropertyFactory
                 .basic()
-                    .withTopics(topic)
-                    .withUrl(cassandraService.getCQL3Endpoint(), TestDataDao.KEY_SPACE)
-                    .append("cql", testDataDao.getInsertStatement())
-                    .buildUrl();
+                .withKafkaTopic(topic)
+                .withHosts(cassandraService.getCassandraHost())
+                .withPort(cassandraService.getCQL3Port())
+                .withKeySpace(TestDataDao.KEY_SPACE)
+                .withResultSetConversionStrategy("#:" + TestResultSetConversionStrategy.class.getName())
+                .withCql(testDataDao.getSelectStatement());
 
         runTest(connectorPropertyFactory);
-
     }
 }

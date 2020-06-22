@@ -108,6 +108,10 @@ public class TestDataDao {
         return "insert into test_data(id, text) values (now(), ?)";
     }
 
+    public String getSelectStatement() {
+        return "select text from test_data";
+    }
+
 
     public void getData(Consumer<String> consumer) {
         ResultSet rs = session.execute("select * from test_data");
@@ -123,5 +127,9 @@ public class TestDataDao {
         } else {
             LOG.warn("No records were returned");
         }
+    }
+
+    public void insert(String text) {
+        session.execute(getInsertStatement(), text);
     }
 }
