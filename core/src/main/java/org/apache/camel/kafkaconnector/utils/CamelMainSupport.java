@@ -108,10 +108,10 @@ public class CamelMainSupport {
                     LOG.info("Creating Camel route from({}).to({})", fromUrl, toUrl);
                 }
                 if (camel.getRegistry().lookupByName("aggregate") != null) {
-                	AggregationStrategy s = (AggregationStrategy) camel.getRegistry().lookupByName("aggregate");
-                	rd.aggregate(s).constant(true).completionSize(aggregationSize).to(toUrl);
+                    AggregationStrategy s = (AggregationStrategy) camel.getRegistry().lookupByName("aggregate");
+                    rd.aggregate(s).constant(true).completionSize(aggregationSize).to(toUrl);
                 } else {
-                rd.to(toUrl);
+                    rd.to(toUrl);
                 }
             }
         });
