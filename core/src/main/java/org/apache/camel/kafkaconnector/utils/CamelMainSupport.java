@@ -24,6 +24,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.apache.camel.AggregationStrategy;
 import org.apache.camel.CamelContext;
 import org.apache.camel.CamelContextAware;
 import org.apache.camel.ConsumerTemplate;
@@ -53,11 +54,11 @@ public class CamelMainSupport {
     private final ExecutorService exService = Executors.newSingleThreadExecutor();
     private final CountDownLatch startFinishedSignal = new CountDownLatch(1);
 
-    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal) throws Exception {
-        this(props, fromUrl, toUrl, marshal, unmarshal, new DefaultCamelContext());
+    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, int aggregationSize) throws Exception {
+        this(props, fromUrl, toUrl, marshal, unmarshal, aggregationSize, new DefaultCamelContext());
     }
 
-    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, CamelContext camelContext) throws Exception {
+    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, int aggregationSize, CamelContext camelContext) throws Exception {
         camel = camelContext;
         camelMain = new Main() {
             @Override
@@ -88,6 +89,7 @@ public class CamelMainSupport {
         LOG.info("Setting initial properties in Camel context: [{}]", camelProperties);
         this.camel.getPropertiesComponent().setInitialProperties(camelProperties);
 
+        camelMain.init();
         //creating the actual route
         this.camel.addRoutes(new RouteBuilder() {
             public void configure() {
@@ -105,7 +107,12 @@ public class CamelMainSupport {
                 } else {
                     LOG.info("Creating Camel route from({}).to({})", fromUrl, toUrl);
                 }
-                rd.to(toUrl);
+                if (camel.getRegistry().lookupByName("aggregate") != null) {
+                    AggregationStrategy s = (AggregationStrategy) camel.getRegistry().lookupByName("aggregate");
+                    rd.aggregate(s).constant(true).completionSize(aggregationSize).to(toUrl);
+                } else {
+                    rd.to(toUrl);
+                }
             }
         });
     }

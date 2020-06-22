@@ -70,6 +70,7 @@ public class CamelSinkTask extends SinkTask {
 
             String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
             final String marshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF);
+            final int size = config.getInt(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_SIZE_CONF);
 
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
@@ -80,7 +81,7 @@ public class CamelSinkTask extends SinkTask {
                                                 CAMEL_SINK_PATH_PROPERTIES_PREFIX);
             }
 
-            cms = new CamelMainSupport(actualProps, LOCAL_URL, remoteUrl, marshaller, null, camelContext);
+            cms = new CamelMainSupport(actualProps, LOCAL_URL, remoteUrl, marshaller, null, size, camelContext);
 
             producer = cms.createProducerTemplate();
 
