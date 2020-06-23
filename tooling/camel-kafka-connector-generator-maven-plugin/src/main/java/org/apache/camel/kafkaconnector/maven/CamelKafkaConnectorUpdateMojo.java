@@ -565,44 +565,43 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         Class<?> defaultValueClass = PRIMITIVE_TYPES_TO_CLASS_MAP.getOrDefault(epo.getShortJavaType(), String.class);
         String type = epo.getType();
         String defaultValueClassLiteralInitializer = epo.getDefaultValue() == null ? "null" : epo.getDefaultValue().toString();
-        System.err.println(defaultValueClass.toString());
         if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(String.class)) {
             defaultValueClassLiteralInitializer = "\"" + defaultValueClassLiteralInitializer + "\"";
         } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Long.class)) {
             if (!type.equalsIgnoreCase("duration")) {
-        	defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "L";
+                defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "L";
             } else {
-            	if (defaultValueClassLiteralInitializer.endsWith("ms")) {
-            		defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer,"ms") + "L";
-            	} else {
-            		defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "L";
-            	}
+                if (defaultValueClassLiteralInitializer.endsWith("ms")) {
+                    defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer, "ms") + "L";
+                } else {
+                    defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "L";
+                }
             }
         } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Integer.class)) {
             if (!type.equalsIgnoreCase("duration")) {
-        	defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "";
+                defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "";
             } else {
-            	if (defaultValueClassLiteralInitializer.endsWith("ms")) {
-            		defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer,"ms") + "";
-            	} else {
-            		defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "";
-            	}
+                if (defaultValueClassLiteralInitializer.endsWith("ms")) {
+                    defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer, "ms") + "";
+                } else {
+                    defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "";
+                }
             }
         } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(int.class)) {
             if (!type.equalsIgnoreCase("duration")) {
-        	defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "";
+                defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "";
             } else {
-            	if (defaultValueClassLiteralInitializer.endsWith("ms")) {
-            		defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer,"ms") + "";
-            	} else {
-            		defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "";
-            	}
+                if (defaultValueClassLiteralInitializer.endsWith("ms")) {
+                    defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer, "ms") + "";
+                } else {
+                    defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "";
+                }
             }
         } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Float.class)) {
             defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "F";
         } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Double.class)) {
             defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "D";
-        } 
+        }
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(defaultFieldName).setType(defaultValueClass)
             .setLiteralInitializer(defaultValueClassLiteralInitializer);
 
