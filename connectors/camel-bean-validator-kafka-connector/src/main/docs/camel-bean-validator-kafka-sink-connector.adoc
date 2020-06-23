@@ -15,7 +15,7 @@ When using camel-bean-validator-kafka-connector as sink make sure to use the fol
 ----
 
 
-The camel-bean-validator sink connector supports 18 options, which are listed below.
+The camel-bean-validator sink connector supports 19 options, which are listed below.
 
 
 
@@ -40,5 +40,6 @@ The camel-bean-validator sink connector supports 18 options, which are listed be
 | *camel.component.bean-validator.messageInterpolator* | To use a custom MessageInterpolator | null | MEDIUM
 | *camel.component.bean-validator.traversableResolver* | To use a custom TraversableResolver | null | MEDIUM
 | *camel.component.bean-validator.validationProvider Resolver* | To use a a custom ValidationProviderResolver | null | MEDIUM
+| *camel.component.bean-validator.validatorFactory* | To use a custom ValidatorFactory | null | MEDIUM
 |===
 // kafka-connector options: END

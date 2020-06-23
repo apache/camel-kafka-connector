@@ -15,7 +15,7 @@ When using camel-consul-kafka-connector as source make sure to use the following
 ----
 
 
-The camel-consul source connector supports 48 options, which are listed below.
+The camel-consul source connector supports 54 options, which are listed below.
 
 
 
@@ -23,14 +23,17 @@ The camel-consul source connector supports 48 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.source.path.apiEndpoint* | The API endpoint | null | HIGH
-| *camel.source.endpoint.connectTimeoutMillis* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.source.endpoint.connectTimeout* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.source.endpoint.connectTimeoutMillis* | Connect timeout for OkHttpClient. Deprecation note: Use connectTimeout instead | null | LOW
 | *camel.source.endpoint.consulClient* | Reference to a com.orbitz.consul.Consul in the registry. | null | MEDIUM
 | *camel.source.endpoint.key* | The default key. Can be overridden by CamelConsulKey | null | MEDIUM
 | *camel.source.endpoint.pingInstance* | Configure if the AgentClient should attempt a ping before returning the Consul instance | true | MEDIUM
-| *camel.source.endpoint.readTimeoutMillis* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.source.endpoint.readTimeout* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.source.endpoint.readTimeoutMillis* | Read timeout for OkHttpClient. Deprecation note: Use readTimeout instead | null | LOW
 | *camel.source.endpoint.tags* | Set tags. You can separate multiple tags by comma. | null | MEDIUM
 | *camel.source.endpoint.url* | The Consul agent URL | null | MEDIUM
-| *camel.source.endpoint.writeTimeoutMillis* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.source.endpoint.writeTimeout* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.source.endpoint.writeTimeoutMillis* | Write timeout for OkHttpClient. Deprecation note: Use writeTimeout instead | null | LOW
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
@@ -47,14 +50,17 @@ The camel-consul source connector supports 48 options, which are listed below.
 | *camel.source.endpoint.blockSeconds* | The second to wait for a watch event, default 10 seconds | "10" | MEDIUM
 | *camel.source.endpoint.firstIndex* | The first index for watch for, default 0 | "0" | MEDIUM
 | *camel.source.endpoint.recursive* | Recursively watch, default false | false | MEDIUM
-| *camel.component.consul.connectTimeoutMillis* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.connectTimeout* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.connectTimeoutMillis* | Connect timeout for OkHttpClient. Deprecation note: Use connectTimeout instead | null | LOW
 | *camel.component.consul.consulClient* | Reference to a com.orbitz.consul.Consul in the registry. | null | MEDIUM
 | *camel.component.consul.key* | The default key. Can be overridden by CamelConsulKey | null | MEDIUM
 | *camel.component.consul.pingInstance* | Configure if the AgentClient should attempt a ping before returning the Consul instance | true | MEDIUM
-| *camel.component.consul.readTimeoutMillis* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.readTimeout* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.readTimeoutMillis* | Read timeout for OkHttpClient. Deprecation note: Use readTimeout instead | null | LOW
 | *camel.component.consul.tags* | Set tags. You can separate multiple tags by comma. | null | MEDIUM
 | *camel.component.consul.url* | The Consul agent URL | null | MEDIUM
-| *camel.component.consul.writeTimeoutMillis* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.writeTimeout* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.writeTimeoutMillis* | Write timeout for OkHttpClient. Deprecation note: Use writeTimeout instead | null | LOW
 | *camel.component.consul.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.consul.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.consul.configuration* | Consul configuration | null | MEDIUM

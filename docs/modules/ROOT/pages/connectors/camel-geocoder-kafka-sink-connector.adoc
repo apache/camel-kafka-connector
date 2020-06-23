@@ -15,7 +15,7 @@ When using camel-geocoder-kafka-connector as sink make sure to use the following
 ----
 
 
-The camel-geocoder sink connector supports 19 options, which are listed below.
+The camel-geocoder sink connector supports 21 options, which are listed below.
 
 
 
@@ -27,18 +27,20 @@ The camel-geocoder sink connector supports 19 options, which are listed below.
 | *camel.sink.endpoint.headersOnly* | Whether to only enrich the Exchange with headers, and leave the body as-is. | false | MEDIUM
 | *camel.sink.endpoint.language* | The language to use. | "en" | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.serverUrl* | URL to the geocoder server. Mandatory for Nominatim server. | null | MEDIUM
+| *camel.sink.endpoint.type* | Type of GeoCoding server. Supported Nominatim and Google. One of: [NOMINATIM] [GOOGLE] | null | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.proxyAuthDomain* | Domain for proxy NTML authentication | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthHost* | Optional host for proxy NTML authentication | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthMethod* | Authentication method for proxy, either as Basic, Digest or NTLM. | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthPassword* | Password for proxy authentication | null | MEDIUM
-| *camel.sink.endpoint.proxyAuthUsername* | Username for proxy authentication | null | MEDIUM
-| *camel.sink.endpoint.proxyHost* | The proxy host name | null | MEDIUM
-| *camel.sink.endpoint.proxyPort* | The proxy port number | null | MEDIUM
-| *camel.sink.endpoint.apiKey* | To use google apiKey | null | MEDIUM
-| *camel.sink.endpoint.clientId* | To use google premium with this client id | null | MEDIUM
-| *camel.sink.endpoint.clientKey* | To use google premium with this client key | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthDomain* | Proxy Authentication Domain to access Google GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthHost* | Proxy Authentication Host to access Google GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthMethod* | Authentication Method to Google GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthPassword* | Proxy Password to access GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthUsername* | Proxy Username to access GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.proxyHost* | Proxy Host to access GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.proxyPort* | Proxy Port to access GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.apiKey* | API Key to access Google. Mandatory for Google GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.clientId* | Client ID to access Google GeoCoding server. | null | MEDIUM
+| *camel.sink.endpoint.clientKey* | Client Key to access Google GeoCoding server. | null | MEDIUM
 | *camel.component.geocoder.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.geocoder.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===

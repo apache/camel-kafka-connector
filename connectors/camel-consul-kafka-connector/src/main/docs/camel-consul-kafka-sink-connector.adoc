@@ -15,7 +15,7 @@ When using camel-consul-kafka-connector as sink make sure to use the following M
 ----
 
 
-The camel-consul sink connector supports 44 options, which are listed below.
+The camel-consul sink connector supports 50 options, which are listed below.
 
 
 
@@ -23,14 +23,17 @@ The camel-consul sink connector supports 44 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.apiEndpoint* | The API endpoint | null | HIGH
-| *camel.sink.endpoint.connectTimeoutMillis* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.connectTimeout* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.connectTimeoutMillis* | Connect timeout for OkHttpClient. Deprecation note: Use connectTimeout instead | null | LOW
 | *camel.sink.endpoint.consulClient* | Reference to a com.orbitz.consul.Consul in the registry. | null | MEDIUM
 | *camel.sink.endpoint.key* | The default key. Can be overridden by CamelConsulKey | null | MEDIUM
 | *camel.sink.endpoint.pingInstance* | Configure if the AgentClient should attempt a ping before returning the Consul instance | true | MEDIUM
-| *camel.sink.endpoint.readTimeoutMillis* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.readTimeout* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.readTimeoutMillis* | Read timeout for OkHttpClient. Deprecation note: Use readTimeout instead | null | LOW
 | *camel.sink.endpoint.tags* | Set tags. You can separate multiple tags by comma. | null | MEDIUM
 | *camel.sink.endpoint.url* | The Consul agent URL | null | MEDIUM
-| *camel.sink.endpoint.writeTimeoutMillis* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.writeTimeout* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.sink.endpoint.writeTimeoutMillis* | Write timeout for OkHttpClient. Deprecation note: Use writeTimeout instead | null | LOW
 | *camel.sink.endpoint.action* | The default action. Can be overridden by CamelConsulAction | null | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.valueAsString* | Default to transform values retrieved from Consul i.e. on KV endpoint to string. | false | MEDIUM
@@ -44,14 +47,17 @@ The camel-consul sink connector supports 44 options, which are listed below.
 | *camel.sink.endpoint.password* | Sets the password to be used for basic authentication | null | MEDIUM
 | *camel.sink.endpoint.sslContextParameters* | SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance. | null | MEDIUM
 | *camel.sink.endpoint.userName* | Sets the username to be used for basic authentication | null | MEDIUM
-| *camel.component.consul.connectTimeoutMillis* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.connectTimeout* | Connect timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.connectTimeoutMillis* | Connect timeout for OkHttpClient. Deprecation note: Use connectTimeout instead | null | LOW
 | *camel.component.consul.consulClient* | Reference to a com.orbitz.consul.Consul in the registry. | null | MEDIUM
 | *camel.component.consul.key* | The default key. Can be overridden by CamelConsulKey | null | MEDIUM
 | *camel.component.consul.pingInstance* | Configure if the AgentClient should attempt a ping before returning the Consul instance | true | MEDIUM
-| *camel.component.consul.readTimeoutMillis* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.readTimeout* | Read timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.readTimeoutMillis* | Read timeout for OkHttpClient. Deprecation note: Use readTimeout instead | null | LOW
 | *camel.component.consul.tags* | Set tags. You can separate multiple tags by comma. | null | MEDIUM
 | *camel.component.consul.url* | The Consul agent URL | null | MEDIUM
-| *camel.component.consul.writeTimeoutMillis* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.writeTimeout* | Write timeout for OkHttpClient | null | MEDIUM
+| *camel.component.consul.writeTimeoutMillis* | Write timeout for OkHttpClient. Deprecation note: Use writeTimeout instead | null | LOW
 | *camel.component.consul.action* | The default action. Can be overridden by CamelConsulAction | null | MEDIUM
 | *camel.component.consul.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.consul.valueAsString* | Default to transform values retrieved from Consul i.e. on KV endpoint to string. | false | MEDIUM

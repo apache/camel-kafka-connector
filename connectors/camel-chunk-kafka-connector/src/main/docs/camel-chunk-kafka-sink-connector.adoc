@@ -15,7 +15,7 @@ When using camel-chunk-kafka-connector as sink make sure to use the following Ma
 ----
 
 
-The camel-chunk sink connector supports 14 options, which are listed below.
+The camel-chunk sink connector supports 16 options, which are listed below.
 
 
 
@@ -23,6 +23,7 @@ The camel-chunk sink connector supports 14 options, which are listed below.
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.resourceUri* | Path to the resource. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the resource using these protocols (classpath is default). ref will lookup the resource in the registry. bean will call a method on a bean to be used as the resource. For bean you can specify the method name after dot, eg bean:myBean.myMethod. | null | HIGH
+| *camel.sink.endpoint.allowContextMapAll* | Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API. | false | MEDIUM
 | *camel.sink.endpoint.allowTemplateFromHeader* | Whether to allow to use resource template from header or not (default false). Enabling this allows to specify dynamic templates via message header. However this can be seen as a potential security vulnerability if the header is coming from a malicious user, so use this with care. | false | MEDIUM
 | *camel.sink.endpoint.contentCache* | Sets whether to use resource content cache or not | false | MEDIUM
 | *camel.sink.endpoint.encoding* | Define the encoding of the body | null | MEDIUM
@@ -33,6 +34,7 @@ The camel-chunk sink connector supports 14 options, which are listed below.
 | *camel.sink.endpoint.themeSubfolder* | Define the themes subfolder to scan | null | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.component.chunk.allowContextMapAll* | Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API. | false | MEDIUM
 | *camel.component.chunk.allowTemplateFromHeader* | Whether to allow to use resource template from header or not (default false). Enabling this allows to specify dynamic templates via message header. However this can be seen as a potential security vulnerability if the header is coming from a malicious user, so use this with care. | false | MEDIUM
 | *camel.component.chunk.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.chunk.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM

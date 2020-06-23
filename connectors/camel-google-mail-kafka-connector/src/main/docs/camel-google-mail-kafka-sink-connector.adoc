@@ -23,7 +23,7 @@ The camel-google-mail sink connector supports 20 options, which are listed below
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.apiName* | What kind of operation to perform One of: [THREADS] [MESSAGES] [ATTACHMENTS] [LABELS] [HISTORY] [DRAFTS] [USERS] | null | HIGH
-| *camel.sink.path.methodName* | What sub operation to use for the selected operation One of: [attachments] [create] [delete] [get] [getProfile] [gmailImport] [insert] [list] [modify] [patch] [send] [trash] [untrash] [update] | null | HIGH
+| *camel.sink.path.methodName* | What sub operation to use for the selected operation One of: [attachments] [create] [delete] [get] [getProfile] [gmailImport] [insert] [list] [modify] [patch] [send] [stop] [trash] [untrash] [update] [watch] | null | HIGH
 | *camel.sink.endpoint.applicationName* | Google mail application name. Example would be camel-google-mail/1.0 | null | MEDIUM
 | *camel.sink.endpoint.clientId* | Client ID of the mail application | null | MEDIUM
 | *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | MEDIUM

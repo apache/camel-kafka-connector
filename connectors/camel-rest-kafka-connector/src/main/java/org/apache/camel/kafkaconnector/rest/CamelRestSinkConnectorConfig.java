@@ -49,7 +49,7 @@ public class CamelRestSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_REST_ENDPOINT_ROUTE_ID_DOC = "Name of the route this REST services creates";
     public static final String CAMEL_SINK_REST_ENDPOINT_ROUTE_ID_DEFAULT = null;
     public static final String CAMEL_SINK_REST_ENDPOINT_API_DOC_CONF = "camel.sink.endpoint.apiDoc";
-    public static final String CAMEL_SINK_REST_ENDPOINT_API_DOC_DOC = "The openapi api doc resource to use. The resource is loaded from classpath by default and must be in JSon format.";
+    public static final String CAMEL_SINK_REST_ENDPOINT_API_DOC_DOC = "The openapi api doc resource to use. The resource is loaded from classpath by default and must be in JSON format.";
     public static final String CAMEL_SINK_REST_ENDPOINT_API_DOC_DEFAULT = null;
     public static final String CAMEL_SINK_REST_ENDPOINT_BINDING_MODE_CONF = "camel.sink.endpoint.bindingMode";
     public static final String CAMEL_SINK_REST_ENDPOINT_BINDING_MODE_DOC = "Configures the binding mode for the producer. If set to anything other than 'off' the producer will try to convert the body of the incoming message from inType to the json or xml, and the response from json or xml to outType. One of: [auto] [off] [json] [xml] [json_xml]";
@@ -73,7 +73,7 @@ public class CamelRestSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_REST_COMPONENT_API_DOC_CONF = "camel.component.rest.apiDoc";
-    public static final String CAMEL_SINK_REST_COMPONENT_API_DOC_DOC = "The swagger api doc resource to use. The resource is loaded from classpath by default and must be in JSon format.";
+    public static final String CAMEL_SINK_REST_COMPONENT_API_DOC_DOC = "The swagger api doc resource to use. The resource is loaded from classpath by default and must be in JSON format.";
     public static final String CAMEL_SINK_REST_COMPONENT_API_DOC_DEFAULT = null;
     public static final String CAMEL_SINK_REST_COMPONENT_COMPONENT_NAME_CONF = "camel.component.rest.componentName";
     public static final String CAMEL_SINK_REST_COMPONENT_COMPONENT_NAME_DOC = "The Camel Rest component to use for (producer) the REST transport, such as http, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory is registered in the registry. If either one is found, then that is being used.";
