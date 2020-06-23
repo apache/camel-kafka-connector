@@ -27,6 +27,9 @@ public class CamelMvelSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MVEL_PATH_RESOURCE_URI_CONF = "camel.sink.path.resourceUri";
     public static final String CAMEL_SINK_MVEL_PATH_RESOURCE_URI_DOC = "Path to the resource. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the resource using these protocols (classpath is default). ref will lookup the resource in the registry. bean will call a method on a bean to be used as the resource. For bean you can specify the method name after dot, eg bean:myBean.myMethod.";
     public static final String CAMEL_SINK_MVEL_PATH_RESOURCE_URI_DEFAULT = null;
+    public static final String CAMEL_SINK_MVEL_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_CONF = "camel.sink.endpoint.allowContextMapAll";
+    public static final String CAMEL_SINK_MVEL_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_DOC = "Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API.";
+    public static final Boolean CAMEL_SINK_MVEL_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_DEFAULT = false;
     public static final String CAMEL_SINK_MVEL_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_CONF = "camel.sink.endpoint.allowTemplateFromHeader";
     public static final String CAMEL_SINK_MVEL_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_DOC = "Whether to allow to use resource template from header or not (default false). Enabling this allows to specify dynamic templates via message header. However this can be seen as a potential security vulnerability if the header is coming from a malicious user, so use this with care.";
     public static final Boolean CAMEL_SINK_MVEL_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT = false;
@@ -45,6 +48,9 @@ public class CamelMvelSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MVEL_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_MVEL_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_MVEL_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    public static final String CAMEL_SINK_MVEL_COMPONENT_ALLOW_CONTEXT_MAP_ALL_CONF = "camel.component.mvel.allowContextMapAll";
+    public static final String CAMEL_SINK_MVEL_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DOC = "Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API.";
+    public static final Boolean CAMEL_SINK_MVEL_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DEFAULT = false;
     public static final String CAMEL_SINK_MVEL_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_CONF = "camel.component.mvel.allowTemplateFromHeader";
     public static final String CAMEL_SINK_MVEL_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DOC = "Whether to allow to use resource template from header or not (default false). Enabling this allows to specify dynamic templates via message header. However this can be seen as a potential security vulnerability if the header is coming from a malicious user, so use this with care.";
     public static final Boolean CAMEL_SINK_MVEL_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT = false;
@@ -68,12 +74,14 @@ public class CamelMvelSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_MVEL_PATH_RESOURCE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MVEL_PATH_RESOURCE_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_MVEL_PATH_RESOURCE_URI_DOC);
+        conf.define(CAMEL_SINK_MVEL_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_DOC);
         conf.define(CAMEL_SINK_MVEL_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_ENDPOINT_ALLOW_TEMPLATE_FROM_HEADER_DOC);
         conf.define(CAMEL_SINK_MVEL_ENDPOINT_CONTENT_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_ENDPOINT_CONTENT_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_ENDPOINT_CONTENT_CACHE_DOC);
         conf.define(CAMEL_SINK_MVEL_ENDPOINT_ENCODING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MVEL_ENDPOINT_ENCODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_ENDPOINT_ENCODING_DOC);
         conf.define(CAMEL_SINK_MVEL_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_MVEL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_MVEL_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_ENDPOINT_SYNCHRONOUS_DOC);
+        conf.define(CAMEL_SINK_MVEL_COMPONENT_ALLOW_CONTEXT_MAP_ALL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DOC);
         conf.define(CAMEL_SINK_MVEL_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DOC);
         conf.define(CAMEL_SINK_MVEL_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_MVEL_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MVEL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MVEL_COMPONENT_BASIC_PROPERTY_BINDING_DOC);

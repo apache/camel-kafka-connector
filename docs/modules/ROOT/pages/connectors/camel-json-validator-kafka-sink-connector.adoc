@@ -15,7 +15,7 @@ When using camel-json-validator-kafka-connector as sink make sure to use the fol
 ----
 
 
-The camel-json-validator sink connector supports 12 options, which are listed below.
+The camel-json-validator sink connector supports 13 options, which are listed below.
 
 
 
@@ -23,6 +23,7 @@ The camel-json-validator sink connector supports 12 options, which are listed be
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.resourceUri* | Path to the resource. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the resource using these protocols (classpath is default). ref will lookup the resource in the registry. bean will call a method on a bean to be used as the resource. For bean you can specify the method name after dot, eg bean:myBean.myMethod. | null | HIGH
+| *camel.sink.endpoint.allowContextMapAll* | Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API. | false | MEDIUM
 | *camel.sink.endpoint.contentCache* | Sets whether to use resource content cache or not | false | MEDIUM
 | *camel.sink.endpoint.failOnNullBody* | Whether to fail if no body exists. | true | MEDIUM
 | *camel.sink.endpoint.failOnNullHeader* | Whether to fail if no header exists when validating against a header. | true | MEDIUM

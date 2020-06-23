@@ -32,6 +32,9 @@ public class CamelLanguageSinkConnectorConfig
     public static final String CAMEL_SINK_LANGUAGE_PATH_RESOURCE_URI_CONF = "camel.sink.path.resourceUri";
     public static final String CAMEL_SINK_LANGUAGE_PATH_RESOURCE_URI_DOC = "Path to the resource, or a reference to lookup a bean in the Registry to use as the resource";
     public static final String CAMEL_SINK_LANGUAGE_PATH_RESOURCE_URI_DEFAULT = null;
+    public static final String CAMEL_SINK_LANGUAGE_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_CONF = "camel.sink.endpoint.allowContextMapAll";
+    public static final String CAMEL_SINK_LANGUAGE_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_DOC = "Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API.";
+    public static final Boolean CAMEL_SINK_LANGUAGE_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_DEFAULT = false;
     public static final String CAMEL_SINK_LANGUAGE_ENDPOINT_BINARY_CONF = "camel.sink.endpoint.binary";
     public static final String CAMEL_SINK_LANGUAGE_ENDPOINT_BINARY_DOC = "Whether the script is binary content or text content. By default the script is read as text content (eg java.lang.String)";
     public static final Boolean CAMEL_SINK_LANGUAGE_ENDPOINT_BINARY_DEFAULT = false;
@@ -77,6 +80,7 @@ public class CamelLanguageSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_LANGUAGE_PATH_LANGUAGE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LANGUAGE_PATH_LANGUAGE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_LANGUAGE_PATH_LANGUAGE_NAME_DOC);
         conf.define(CAMEL_SINK_LANGUAGE_PATH_RESOURCE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LANGUAGE_PATH_RESOURCE_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LANGUAGE_PATH_RESOURCE_URI_DOC);
+        conf.define(CAMEL_SINK_LANGUAGE_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LANGUAGE_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LANGUAGE_ENDPOINT_ALLOW_CONTEXT_MAP_ALL_DOC);
         conf.define(CAMEL_SINK_LANGUAGE_ENDPOINT_BINARY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LANGUAGE_ENDPOINT_BINARY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LANGUAGE_ENDPOINT_BINARY_DOC);
         conf.define(CAMEL_SINK_LANGUAGE_ENDPOINT_CACHE_SCRIPT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LANGUAGE_ENDPOINT_CACHE_SCRIPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LANGUAGE_ENDPOINT_CACHE_SCRIPT_DOC);
         conf.define(CAMEL_SINK_LANGUAGE_ENDPOINT_CONTENT_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LANGUAGE_ENDPOINT_CONTENT_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LANGUAGE_ENDPOINT_CONTENT_CACHE_DOC);

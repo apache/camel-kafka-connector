@@ -27,7 +27,7 @@ public class CamelRabbitmqSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_RABBITMQ_PATH_EXCHANGE_NAME_CONF = "camel.sink.path.exchangeName";
-    public static final String CAMEL_SINK_RABBITMQ_PATH_EXCHANGE_NAME_DOC = "The exchange name determines which exchange produced messages will sent to. In the case of consumers, the exchange name determines which exchange the queue will bind to.";
+    public static final String CAMEL_SINK_RABBITMQ_PATH_EXCHANGE_NAME_DOC = "The exchange name determines the exchange to which the produced messages will be sent to. In the case of consumers, the exchange name determines the exchange the queue will be bound to.";
     public static final String CAMEL_SINK_RABBITMQ_PATH_EXCHANGE_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ADDRESSES_CONF = "camel.sink.endpoint.addresses";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ADDRESSES_DOC = "If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses. The addresses value is a string which looks like server1:12345, server2:12345";

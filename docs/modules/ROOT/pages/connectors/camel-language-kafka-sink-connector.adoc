@@ -15,7 +15,7 @@ When using camel-language-kafka-connector as sink make sure to use the following
 ----
 
 
-The camel-language sink connector supports 12 options, which are listed below.
+The camel-language sink connector supports 13 options, which are listed below.
 
 
 
@@ -24,6 +24,7 @@ The camel-language sink connector supports 12 options, which are listed below.
 | Name | Description | Default | Priority
 | *camel.sink.path.languageName* | Sets the name of the language to use One of: [bean] [constant] [exchangeProperty] [file] [groovy] [header] [javascript] [jsonpath] [mvel] [ognl] [] [ref] [simple] [spel] [sql] [terser] [tokenize] [xpath] [xquery] [xtokenize] | null | HIGH
 | *camel.sink.path.resourceUri* | Path to the resource, or a reference to lookup a bean in the Registry to use as the resource | null | MEDIUM
+| *camel.sink.endpoint.allowContextMapAll* | Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API. | false | MEDIUM
 | *camel.sink.endpoint.binary* | Whether the script is binary content or text content. By default the script is read as text content (eg java.lang.String) | false | MEDIUM
 | *camel.sink.endpoint.cacheScript* | Whether to cache the compiled script and reuse Notice reusing the script can cause side effects from processing one Camel org.apache.camel.Exchange to the next org.apache.camel.Exchange. | false | MEDIUM
 | *camel.sink.endpoint.contentCache* | Sets whether to use resource content cache or not | true | MEDIUM

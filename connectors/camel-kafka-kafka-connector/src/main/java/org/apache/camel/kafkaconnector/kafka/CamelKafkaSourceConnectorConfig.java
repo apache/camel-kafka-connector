@@ -183,7 +183,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_CIPHER_SUITES_DOC = "A list of cipher suites. This is a named combination of authentication, encryption, MAC and key exchange algorithm used to negotiate the security settings for a network connection using TLS or SSL network protocol.By default all the available cipher suites are supported.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_CIPHER_SUITES_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF = "camel.source.endpoint.sslContextParameters";
-    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC = "SSL configuration using a Camel SSLContextParameters object. If configured it's applied before the other SSL endpoint parameters.";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC = "SSL configuration using a Camel SSLContextParameters object. If configured it's applied before the other SSL endpoint parameters. NOTE: Kafka only supports loading keystore from file locations, so prefix the location with file: in the KeyStoreParameters.resource option.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_CONF = "camel.source.endpoint.sslEnabledProtocols";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DOC = "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.";
@@ -360,7 +360,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_CIPHER_SUITES_DOC = "A list of cipher suites. This is a named combination of authentication, encryption, MAC and key exchange algorithm used to negotiate the security settings for a network connection using TLS or SSL network protocol.By default all the available cipher suites are supported.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_CIPHER_SUITES_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF = "camel.component.kafka.sslContextParameters";
-    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC = "SSL configuration using a Camel SSLContextParameters object. If configured it's applied before the other SSL endpoint parameters.";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC = "SSL configuration using a Camel SSLContextParameters object. If configured it's applied before the other SSL endpoint parameters. NOTE: Kafka only supports loading keystore from file locations, so prefix the location with file: in the KeyStoreParameters.resource option.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_CONF = "camel.component.kafka.sslEnabledProtocols";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DOC = "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.";

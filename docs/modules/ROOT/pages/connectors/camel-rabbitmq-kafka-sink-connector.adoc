@@ -22,7 +22,7 @@ The camel-rabbitmq sink connector supports 97 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.exchangeName* | The exchange name determines which exchange produced messages will sent to. In the case of consumers, the exchange name determines which exchange the queue will bind to. | null | HIGH
+| *camel.sink.path.exchangeName* | The exchange name determines the exchange to which the produced messages will be sent to. In the case of consumers, the exchange name determines the exchange the queue will be bound to. | null | HIGH
 | *camel.sink.endpoint.addresses* | If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses. The addresses value is a string which looks like server1:12345, server2:12345 | null | MEDIUM
 | *camel.sink.endpoint.autoDelete* | If it is true, the exchange will be deleted when it is no longer in use | true | MEDIUM
 | *camel.sink.endpoint.automaticRecoveryEnabled* | Enables connection automatic recovery (uses connection implementation that performs automatic recovery when existing connection has failures) | "true" | MEDIUM
