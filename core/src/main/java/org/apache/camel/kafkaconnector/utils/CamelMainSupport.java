@@ -111,7 +111,7 @@ public class CamelMainSupport {
                     AggregationStrategy s = (AggregationStrategy) camel.getRegistry().lookupByName("aggregate");
                     rd.aggregate(s).constant(true).completionSize(aggregationSize).to(toUrl);
                 } else {
-                    rd.to(toUrl);
+                    rd.toD(toUrl);
                 }
             }
         });
