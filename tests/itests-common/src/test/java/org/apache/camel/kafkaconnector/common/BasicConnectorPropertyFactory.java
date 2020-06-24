@@ -51,6 +51,12 @@ public abstract class BasicConnectorPropertyFactory<T extends BasicConnectorProp
         return (T) this;
     }
 
+    public T withBeans(String name, String value) {
+        connectorProps.put("camel.beans." + name, value);
+
+        return (T) this;
+    }
+
     public T withValueConverterClass(String converterClass) {
         connectorProps.put(ConnectorConfig.VALUE_CONVERTER_CLASS_CONFIG, converterClass);
 
