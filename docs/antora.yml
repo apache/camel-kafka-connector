@@ -1,5 +1,5 @@
 name: camel-kafka-connector
 title: Camel Kafka Connector
-version: latest
+version: 0.3.x
 nav:
 - modules/ROOT/nav.adoc
