@@ -27,7 +27,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <kafka.version>2.4.1</kafka.version>
+        <kafka.version>2.5.0</kafka.version>
         <camel.version>3.4.0</camel.version>
         <version.java>1.8</version.java>
         <version.guava>20.0</version.guava>
@@ -44,7 +44,7 @@
         <version.maven.jar>3.1.0</version.maven.jar>
         <version.maven.failsafe>2.22.2</version.maven.failsafe>
         <version.maven.surefire>3.0.0-M4</version.maven.surefire>
-        <version.scala.library>2.12.4</version.scala.library>
+        <version.scala.library>2.12.10</version.scala.library>
         <version.maven.maven-remote-resources-plugin>1.6.0</version.maven.maven-remote-resources-plugin>
 
         <version.maven.checkstyle>8.26</version.maven.checkstyle>
@@ -56,8 +56,8 @@
         <gmavenplus-plugin-version>1.6.2</gmavenplus-plugin-version>
         <groovy-version>2.5.8</groovy-version>
 
-        <itest.zookeeper.container.image>strimzi/kafka:0.18.0-kafka-2.4.1</itest.zookeeper.container.image>
-        <itest.strimzi.container.image>strimzi/kafka:0.18.0-kafka-2.4.1</itest.strimzi.container.image>
+        <itest.zookeeper.container.image>strimzi/kafka:0.18.0-kafka-2.5.0</itest.zookeeper.container.image>
+        <itest.strimzi.container.image>strimzi/kafka:0.18.0-kafka-2.5.0</itest.strimzi.container.image>
 
         <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
     </properties>
