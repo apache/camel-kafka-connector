@@ -54,7 +54,7 @@ public abstract class CamelTypeConverterTransform<R extends ConnectRecord<R>> ex
         final Object convertedValue = typeConverter.tryConvertTo(fieldTargetType, originalValue);
 
         if (convertedValue == null) {
-            throw new DataException(String.format("CamelTypeConverter was not able to converter value `%s` to target type of `%s`", originalValue, fieldTargetType.getSimpleName()));
+            throw new DataException(String.format("CamelTypeConverter was not able to convert value `%s` to target type of `%s`", originalValue, fieldTargetType.getSimpleName()));
         }
 
         return convertedValue;
