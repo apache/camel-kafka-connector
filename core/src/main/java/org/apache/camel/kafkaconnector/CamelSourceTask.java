@@ -91,7 +91,7 @@ public class CamelSourceTask extends SourceTask {
                         CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX, CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
             }
 
-            cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, null, unmarshaller, 10, camelContext);
+            cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, null, unmarshaller, 10, 500, camelContext);
 
             Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();

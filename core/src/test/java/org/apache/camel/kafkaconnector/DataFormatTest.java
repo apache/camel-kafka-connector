@@ -74,7 +74,7 @@ public class DataFormatTest {
 
 
         assertThrows(UnsupportedOperationException.class, () -> new CamelMainSupport(props, "direct://start",
-                "log://test", "syslog", "syslog", 10));
+                "log://test", "syslog", "syslog", 10, 500));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class DataFormatTest {
         props.put("camel.source.marshal", "hl7");
 
         DefaultCamelContext dcc = new DefaultCamelContext();
-        CamelMainSupport cms = new CamelMainSupport(props, "direct://start", "log://test", null, "hl7", 10, dcc);
+        CamelMainSupport cms = new CamelMainSupport(props, "direct://start", "log://test", null, "hl7", 10, 500, dcc);
 
         HL7DataFormat hl7df = new HL7DataFormat();
         hl7df.setValidate(false);
@@ -106,7 +106,7 @@ public class DataFormatTest {
         props.put("camel.dataformat.hl7.validate", "false");
 
         DefaultCamelContext dcc = new DefaultCamelContext();
-        CamelMainSupport cms = new CamelMainSupport(props, "direct://start", "log://test", null, "hl7", 10, dcc);
+        CamelMainSupport cms = new CamelMainSupport(props, "direct://start", "log://test", null, "hl7", 10, 500, dcc);
 
         cms.start();
         HL7DataFormat hl7dfLoaded = dcc.getRegistry().lookupByNameAndType("hl7", HL7DataFormat.class);
