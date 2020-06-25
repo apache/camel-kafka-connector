@@ -54,11 +54,11 @@ public class CamelMainSupport {
     private final ExecutorService exService = Executors.newSingleThreadExecutor();
     private final CountDownLatch startFinishedSignal = new CountDownLatch(1);
 
-    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, int aggregationSize) throws Exception {
-        this(props, fromUrl, toUrl, marshal, unmarshal, aggregationSize, new DefaultCamelContext());
+    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, int aggregationSize, long aggregationTimeout) throws Exception {
+        this(props, fromUrl, toUrl, marshal, unmarshal, aggregationSize, aggregationTimeout, new DefaultCamelContext());
     }
 
-    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, int aggregationSize, CamelContext camelContext) throws Exception {
+    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, int aggregationSize, long aggregationTimeout, CamelContext camelContext) throws Exception {
         camel = camelContext;
         camelMain = new Main() {
             @Override
@@ -109,7 +109,7 @@ public class CamelMainSupport {
                 }
                 if (camel.getRegistry().lookupByName("aggregate") != null) {
                     AggregationStrategy s = (AggregationStrategy) camel.getRegistry().lookupByName("aggregate");
-                    rd.aggregate(s).constant(true).completionSize(aggregationSize).to(toUrl);
+                    rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(toUrl);
                 } else {
                     rd.toD(toUrl);
                 }
