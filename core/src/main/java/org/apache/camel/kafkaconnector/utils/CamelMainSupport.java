@@ -73,6 +73,7 @@ public class CamelMainSupport {
         };
 
         camelMain.addMainListener(new CamelMainFinishedListener());
+        camelMain.configure().setAutoConfigurationLogSummary(false);
 
         // reordering properties to place the one starting with "#class:" first
         LinkedHashMap<String, String> orderedProps = new LinkedHashMap<>();
