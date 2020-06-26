@@ -40,6 +40,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,6 +57,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
 
     private AWSSQSClient awssqsClient;
+    private String queueName;
 
     private volatile int received;
     private final int expect = 10;
@@ -69,7 +71,9 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     public void setUp() {
         awssqsClient = awsService.getClient();
 
-        String queueUrl = awssqsClient.getQueue(AWSCommon.DEFAULT_SQS_QUEUE);
+        queueName = AWSCommon.DEFAULT_SQS_QUEUE + "-" + TestUtils.randomWithRange(0, 1000);
+        String queueUrl = awssqsClient.getQueue(queueName);
+
         LOG.debug("Using queue {} for the test", queueUrl);
 
         received = 0;
@@ -78,7 +82,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     @AfterEach
     public void tearDown() {
         deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
-        if (!awssqsClient.deleteQueue(AWSCommon.DEFAULT_SQS_QUEUE)) {
+        if (!awssqsClient.deleteQueue(queueName)) {
             fail("Failed to delete queue");
         }
     }
@@ -100,7 +104,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     private void consumeMessages(CountDownLatch latch) {
         try {
-            awssqsClient.receive(AWSCommon.DEFAULT_SQS_QUEUE, this::checkMessages);
+            awssqsClient.receive(queueName, this::checkMessages);
         } catch (Throwable t) {
             LOG.error("Failed to consume messages: {}", t.getMessage(), t);
         } finally {
@@ -147,7 +151,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @Test
     @Timeout(value = 120)
-    @RepeatedTest(3)
     public void testBasicSendReceive() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
@@ -157,7 +160,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
                     .withName("CamelAwssqsSinkConnectorSpringBootStyle")
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withAmazonConfig(amazonProperties)
-                    .withQueueNameOrArn(AWSCommon.DEFAULT_SQS_QUEUE);
+                    .withQueueNameOrArn(queueName);
 
             runTest(testProperties);
 
@@ -167,6 +170,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         }
     }
 
+    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
     @Test
     @Timeout(value = 120)
     @RepeatedTest(3)
@@ -179,7 +183,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
                     .withName("CamelAwssqsSinkConnectorKafkaStyle")
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withAmazonConfig(amazonProperties, CamelAWSSQSPropertyFactory.KAFKA_STYLE)
-                    .withQueueNameOrArn(AWSCommon.DEFAULT_SQS_QUEUE);
+                    .withQueueNameOrArn(queueName);
 
             runTest(testProperties);
 
@@ -189,6 +193,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         }
     }
 
+    @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
     @Test
     @Timeout(value = 120)
     @RepeatedTest(3)
@@ -200,7 +205,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
                     .basic()
                     .withName("CamelAwssqsSinkConnectorUsingUrl")
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withUrl(AWSCommon.DEFAULT_SQS_QUEUE)
+                    .withUrl(queueName)
                         .append("autoCreateQueue", "true")
                         .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                         .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
