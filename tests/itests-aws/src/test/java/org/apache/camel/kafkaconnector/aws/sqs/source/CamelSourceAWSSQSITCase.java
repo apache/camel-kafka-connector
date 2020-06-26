@@ -52,6 +52,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSSQSITCase.class);
 
     private AWSSQSClient awssqsClient;
+    private String queueName;
 
     private volatile int received;
     private final int expect = 10;
@@ -64,6 +65,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         awssqsClient = service.getClient();
+        queueName = AWSCommon.DEFAULT_SQS_QUEUE + "-" + TestUtils.randomWithRange(0, 1000);
         received = 0;
     }
 
@@ -71,7 +73,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     public void tearDown() {
         deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
 
-        if (!awssqsClient.deleteQueue(AWSCommon.DEFAULT_SQS_QUEUE)) {
+        if (!awssqsClient.deleteQueue(queueName)) {
             fail("Failed to delete queue");
         }
     }
@@ -93,7 +95,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
 
         LOG.debug("Sending SQS messages");
         for (int i = 0; i < expect; i++) {
-            awssqsClient.send(AWSCommon.DEFAULT_SQS_QUEUE, "Source test message " + i);
+            awssqsClient.send(queueName, "Source test message " + i);
         }
         LOG.debug("Done sending SQS messages");
 
@@ -111,7 +113,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
                 .basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withQueueOrArn(AWSCommon.DEFAULT_SQS_QUEUE)
+                .withQueueOrArn(queueName)
                 .withAmazonConfig(service.getConnectionProperties());
 
         runTest(connectorPropertyFactory);
@@ -126,7 +128,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
                 .basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withQueueOrArn(AWSCommon.DEFAULT_SQS_QUEUE)
+                .withQueueOrArn(queueName)
                 .withAmazonConfig(service.getConnectionProperties(), CamelAWSSQSPropertyFactory.KAFKA_STYLE);
 
         runTest(connectorPropertyFactory);
@@ -143,7 +145,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
                 .basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withUrl(AWSCommon.DEFAULT_SQS_QUEUE)
+                .withUrl(queueName)
                 .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                 .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
                 .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))

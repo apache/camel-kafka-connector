@@ -170,7 +170,7 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
                 .withUrl(AWSCommon.DEFAULT_S3_BUCKET)
                     .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                     .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                    .append("proxyProtocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
+                    .appendIfAvailable("proxyProtocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
                     .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
                 .buildUrl();
 
