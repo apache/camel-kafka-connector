@@ -54,6 +54,17 @@
             </exclusions>
         </dependency>
 
+        <!--
+        Why it is declared here: we declare it here because, apparently, it conflicts with the one used in
+        cometd and ends up causing the build to fail during the salesforce component build.
+        -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>${jetty9-version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 
