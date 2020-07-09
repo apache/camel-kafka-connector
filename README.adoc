@@ -57,6 +57,8 @@ for remote testing:
 * cassandra.instance.type
 ** cassandra.host
 ** cassandra.cql3.port
+* jdbc.instance.type
+** jdbc.connection.url
 * jms-service.instance.type
 ** jms.broker.address
 * hdfs.instance.type
@@ -65,7 +67,6 @@ for remote testing:
 * mongodb.instance.type
 ** mongodb.host
 ** mongodb.port
-
 
 Additionally, a few manual tests can be enabled and executed with adequate configuration on the accounts and
 environments used by those services. This is very specific to the nature of each of those services, therefore

@@ -20,6 +20,7 @@ package org.apache.camel.kafkaconnector.common.clients.kafka;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -32,6 +33,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.common.header.Header;
 
 /**
  * A very simple test message consumer that can consume messages of different types
@@ -44,6 +46,26 @@ public class KafkaClient<K, V> {
     private final ProducerPropertyFactory producerPropertyFactory;
     private KafkaProducer<K, V> producer;
     private KafkaConsumer<K, V> consumer;
+
+    private static class TestHeader implements Header {
+        private final String key;
+        private final String value;
+
+        public TestHeader(String key, String value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        @Override
+        public String key() {
+            return this.key;
+        }
+
+        @Override
+        public byte[] value() {
+            return value.getBytes();
+        }
+    }
 
 
     /**
@@ -92,6 +114,27 @@ public class KafkaClient<K, V> {
      */
     public void produce(String topic, V message) throws ExecutionException, InterruptedException {
         ProducerRecord<K, V> record = new ProducerRecord<>(topic, message);
+
+        Future<RecordMetadata> future = producer.send(record);
+
+        future.get();
+    }
+
+
+    /**
+     * Sends data to a topic
+     *
+     * @param topic   the topic to send data to
+     * @param message the message to send
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    public void produce(String topic, V message, Map<String, String> headers) throws ExecutionException, InterruptedException {
+        ProducerRecord<K, V> record = new ProducerRecord<>(topic, message);
+
+        for (Map.Entry<String, String> entry : headers.entrySet()) {
+            record.headers().add(new TestHeader(entry.getKey(), entry.getValue()));
+        }
 
         Future<RecordMetadata> future = producer.send(record);
 
