@@ -43,14 +43,16 @@ import org.slf4j.LoggerFactory;
 
 public class CamelSinkTask extends SinkTask {
     public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
+    public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
+    public static final String PROPERTY_CAMEL_PREFIX = "CamelProperty.";
+
     private static final String CAMEL_SINK_ENDPOINT_PROPERTIES_PREFIX = "camel.sink.endpoint.";
     private static final String CAMEL_SINK_PATH_PROPERTIES_PREFIX = "camel.sink.path.";
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkTask.class);
 
     private static final String LOCAL_URL = "direct:start";
-    private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
-    private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
+
 
     private CamelMainSupport cms;
     private ProducerTemplate producer;

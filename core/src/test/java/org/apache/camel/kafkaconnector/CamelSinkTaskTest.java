@@ -83,13 +83,13 @@ public class CamelSinkTaskTest {
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
-        record.headers().addBoolean("CamelHeaderMyBoolean", true);
-        record.headers().addByte("CamelHeaderMyByte", myByte);
-        record.headers().addFloat("CamelHeaderMyFloat", myFloat);
-        record.headers().addShort("CamelHeaderMyShort", myShort);
-        record.headers().addDouble("CamelHeaderMyDouble", myDouble);
-        record.headers().addInt("CamelHeaderMyInteger", myInteger);
-        record.headers().addLong("CamelHeaderMyLong", myLong);
+        record.headers().addBoolean(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyLong", myLong);
         records.add(record);
         sinkTask.put(records);
 
@@ -126,13 +126,13 @@ public class CamelSinkTaskTest {
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
-        record.headers().addBoolean("CamelPropertyMyBoolean", true);
-        record.headers().addByte("CamelPropertyMyByte", myByte);
-        record.headers().addFloat("CamelPropertyMyFloat", myFloat);
-        record.headers().addShort("CamelPropertyMyShort", myShort);
-        record.headers().addDouble("CamelPropertyMyDouble", myDouble);
-        record.headers().addInt("CamelPropertyMyInteger", myInteger);
-        record.headers().addLong("CamelPropertyMyLong", myLong);
+        record.headers().addBoolean(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyLong", myLong);
         records.add(record);
         sinkTask.put(records);
 
@@ -169,20 +169,20 @@ public class CamelSinkTaskTest {
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
-        record.headers().addBoolean("CamelPropertyMyBoolean", true);
-        record.headers().addByte("CamelPropertyMyByte", myByte);
-        record.headers().addFloat("CamelPropertyMyFloat", myFloat);
-        record.headers().addShort("CamelPropertyMyShort", myShort);
-        record.headers().addDouble("CamelPropertyMyDouble", myDouble);
-        record.headers().addInt("CamelPropertyMyInteger", myInteger);
-        record.headers().addLong("CamelPropertyMyLong", myLong);
-        record.headers().addBoolean("CamelHeaderMyBoolean", true);
-        record.headers().addByte("CamelHeaderMyByte", myByte);
-        record.headers().addFloat("CamelHeaderMyFloat", myFloat);
-        record.headers().addShort("CamelHeaderMyShort", myShort);
-        record.headers().addDouble("CamelHeaderMyDouble", myDouble);
-        record.headers().addInt("CamelHeaderMyInteger", myInteger);
-        record.headers().addLong("CamelHeaderMyLong", myLong);
+        record.headers().addBoolean(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyLong", myLong);
+        record.headers().addBoolean(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyLong", myLong);
         records.add(record);
         sinkTask.put(records);
 
@@ -232,16 +232,16 @@ public class CamelSinkTaskTest {
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
-        record.headers().addBoolean("CamelHeaderMyBoolean", true);
-        record.headers().addByte("CamelHeaderMyByte", myByte);
-        record.headers().addFloat("CamelHeaderMyFloat", myFloat);
-        record.headers().addShort("CamelHeaderMyShort", myShort);
-        record.headers().addDouble("CamelHeaderMyDouble", myDouble);
-        record.headers().addInt("CamelHeaderMyInteger", myInteger);
-        record.headers().addLong("CamelHeaderMyLong", myLong);
-        record.headers().addMap("CamelHeaderMyMap", map, SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA));
-        record.headers().addMap("CamelHeaderMyMap1", map1, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.STRING_SCHEMA));
-        record.headers().addMap("CamelHeaderMyMap2", map2, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.INT64_SCHEMA));
+        record.headers().addBoolean(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyLong", myLong);
+        record.headers().addMap(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyMap", map, SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA));
+        record.headers().addMap(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyMap1", map1, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.STRING_SCHEMA));
+        record.headers().addMap(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyMap2", map2, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.INT64_SCHEMA));
         records.add(record);
         sinkTask.put(records);
 
@@ -286,26 +286,26 @@ public class CamelSinkTaskTest {
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
-        record.headers().addBoolean("CamelPropertyMyBoolean", true);
-        record.headers().addByte("CamelPropertyMyByte", myByte);
-        record.headers().addFloat("CamelPropertyMyFloat", myFloat);
-        record.headers().addShort("CamelPropertyMyShort", myShort);
-        record.headers().addDouble("CamelPropertyMyDouble", myDouble);
-        record.headers().addInt("CamelPropertyMyInteger", myInteger);
-        record.headers().addLong("CamelPropertyMyLong", myLong);
-        record.headers().addMap("CamelPropertyMyMap", map, SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA));
-        record.headers().addMap("CamelPropertyMyMap1", map1, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.STRING_SCHEMA));
-        record.headers().addMap("CamelPropertyMyMap2", map2, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.INT64_SCHEMA));
-        record.headers().addBoolean("CamelHeaderMyBoolean", true);
-        record.headers().addByte("CamelHeaderMyByte", myByte);
-        record.headers().addFloat("CamelHeaderMyFloat", myFloat);
-        record.headers().addShort("CamelHeaderMyShort", myShort);
-        record.headers().addDouble("CamelHeaderMyDouble", myDouble);
-        record.headers().addInt("CamelHeaderMyInteger", myInteger);
-        record.headers().addLong("CamelHeaderMyLong", myLong);
-        record.headers().addMap("CamelHeaderMyMap", map, SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA));
-        record.headers().addMap("CamelHeaderMyMap1", map1, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.STRING_SCHEMA));
-        record.headers().addMap("CamelHeaderMyMap2", map2, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.INT64_SCHEMA));
+        record.headers().addBoolean(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyLong", myLong);
+        record.headers().addMap(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyMap", map, SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA));
+        record.headers().addMap(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyMap1", map1, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.STRING_SCHEMA));
+        record.headers().addMap(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyMap2", map2, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.INT64_SCHEMA));
+        record.headers().addBoolean(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyLong", myLong);
+        record.headers().addMap(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyMap", map, SchemaBuilder.map(Schema.STRING_SCHEMA, Schema.STRING_SCHEMA));
+        record.headers().addMap(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyMap1", map1, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.STRING_SCHEMA));
+        record.headers().addMap(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyMap2", map2, SchemaBuilder.map(Schema.INT64_SCHEMA, Schema.INT64_SCHEMA));
         records.add(record);
         sinkTask.put(records);
 
@@ -359,15 +359,15 @@ public class CamelSinkTaskTest {
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
-        record.headers().addBoolean("CamelHeaderMyBoolean", true);
-        record.headers().addByte("CamelHeaderMyByte", myByte);
-        record.headers().addFloat("CamelHeaderMyFloat", myFloat);
-        record.headers().addShort("CamelHeaderMyShort", myShort);
-        record.headers().addDouble("CamelHeaderMyDouble", myDouble);
-        record.headers().addInt("CamelHeaderMyInteger", myInteger);
-        record.headers().addLong("CamelHeaderMyLong", myLong);
-        record.headers().addList("CamelHeaderMyList", list, SchemaBuilder.array(Schema.STRING_SCHEMA));
-        record.headers().addList("CamelHeaderMyList1", list1, SchemaBuilder.array(Schema.INT64_SCHEMA));
+        record.headers().addBoolean(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyLong", myLong);
+        record.headers().addList(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyList", list, SchemaBuilder.array(Schema.STRING_SCHEMA));
+        record.headers().addList(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyList1", list1, SchemaBuilder.array(Schema.INT64_SCHEMA));
         records.add(record);
         sinkTask.put(records);
 
@@ -409,24 +409,24 @@ public class CamelSinkTaskTest {
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
-        record.headers().addBoolean("CamelPropertyMyBoolean", true);
-        record.headers().addByte("CamelPropertyMyByte", myByte);
-        record.headers().addFloat("CamelPropertyMyFloat", myFloat);
-        record.headers().addShort("CamelPropertyMyShort", myShort);
-        record.headers().addDouble("CamelPropertyMyDouble", myDouble);
-        record.headers().addInt("CamelPropertyMyInteger", myInteger);
-        record.headers().addLong("CamelPropertyMyLong", myLong);
-        record.headers().addBoolean("CamelHeaderMyBoolean", true);
-        record.headers().addByte("CamelHeaderMyByte", myByte);
-        record.headers().addFloat("CamelHeaderMyFloat", myFloat);
-        record.headers().addShort("CamelHeaderMyShort", myShort);
-        record.headers().addDouble("CamelHeaderMyDouble", myDouble);
-        record.headers().addInt("CamelHeaderMyInteger", myInteger);
-        record.headers().addLong("CamelHeaderMyLong", myLong);
-        record.headers().addList("CamelHeaderMyList", list, SchemaBuilder.array(Schema.STRING_SCHEMA));
-        record.headers().addList("CamelHeaderMyList1", list1, SchemaBuilder.array(Schema.INT64_SCHEMA));
-        record.headers().addList("CamelPropertyMyList", list, SchemaBuilder.array(Schema.STRING_SCHEMA));
-        record.headers().addList("CamelPropertyMyList1", list1, SchemaBuilder.array(Schema.INT64_SCHEMA));
+        record.headers().addBoolean(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyLong", myLong);
+        record.headers().addBoolean(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBoolean", true);
+        record.headers().addByte(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyByte", myByte);
+        record.headers().addFloat(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyFloat", myFloat);
+        record.headers().addShort(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyShort", myShort);
+        record.headers().addDouble(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyDouble", myDouble);
+        record.headers().addInt(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyInteger", myInteger);
+        record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyLong", myLong);
+        record.headers().addList(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyList", list, SchemaBuilder.array(Schema.STRING_SCHEMA));
+        record.headers().addList(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyList1", list1, SchemaBuilder.array(Schema.INT64_SCHEMA));
+        record.headers().addList(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyList", list, SchemaBuilder.array(Schema.STRING_SCHEMA));
+        record.headers().addList(CamelSinkTask.PROPERTY_CAMEL_PREFIX + "MyList1", list1, SchemaBuilder.array(Schema.INT64_SCHEMA));
         records.add(record);
         sinkTask.put(records);
 

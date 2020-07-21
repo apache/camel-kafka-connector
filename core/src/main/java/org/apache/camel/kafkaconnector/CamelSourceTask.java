@@ -50,8 +50,8 @@ public class CamelSourceTask extends SourceTask {
     private static final String CAMEL_SOURCE_PATH_PROPERTIES_PREFIX = "camel.source.path.";
 
     private static final String LOCAL_URL = "direct:end";
-    private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
-    private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
+    private static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
+    private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty.";
 
     private CamelMainSupport cms;
     private CamelSourceConnectorConfig config;
