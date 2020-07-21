@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,7 @@ import java.util.Map;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;
+import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.errors.ConnectException;
@@ -80,6 +82,8 @@ public class CamelSinkTaskTest {
         Double myDouble = new Double("100");
         int myInteger = 100;
         Long myLong = new Long("100");
+        BigDecimal myBigDecimal = new BigDecimal(1234567890);
+        Schema schema = Decimal.schema(myBigDecimal.scale());
 
         List<SinkRecord> records = new ArrayList<SinkRecord>();
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, null, "test", null, "camel", 42);
@@ -90,6 +94,7 @@ public class CamelSinkTaskTest {
         record.headers().addDouble(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyDouble", myDouble);
         record.headers().addInt(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyInteger", myInteger);
         record.headers().addLong(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyLong", myLong);
+        record.headers().add(CamelSinkTask.HEADER_CAMEL_PREFIX + "MyBigDecimal", Decimal.fromLogical(schema, myBigDecimal), schema);
         records.add(record);
         sinkTask.put(records);
 
@@ -104,6 +109,7 @@ public class CamelSinkTaskTest {
         assertEquals(myDouble, exchange.getIn().getHeader("MyDouble", Double.class));
         assertEquals(myInteger, exchange.getIn().getHeader("MyInteger"));
         assertEquals(myLong, exchange.getIn().getHeader("MyLong", Long.class));
+        assertEquals(myBigDecimal, exchange.getIn().getHeader("MyBigDecimal", BigDecimal.class));
 
         sinkTask.stop();
     }

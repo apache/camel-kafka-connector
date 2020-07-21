@@ -32,6 +32,7 @@ import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.DefaultExchange;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.errors.ConnectException;
@@ -160,7 +161,11 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
             map.put(camelHeaderKey, singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
-            map.put(camelHeaderKey, (byte[])singleHeader.value());
+            if (Decimal.class.getCanonicalName().equals(schema.name())) {
+                map.put(camelHeaderKey, Decimal.toLogical(schema, (byte[])singleHeader.value()));
+            } else {
+                map.put(camelHeaderKey, (byte[])singleHeader.value());
+            }
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
             map.put(camelHeaderKey, (float)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {

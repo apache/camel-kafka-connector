@@ -16,13 +16,16 @@
  */
 package org.apache.camel.kafkaconnector;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.ProducerTemplate;
+import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 
@@ -263,6 +266,30 @@ public class CamelSourceTaskTest {
                 assertTrue(e.getEndpointUri().contains("period=10"));
                 assertTrue(e.getEndpointUri().contains("repeatCount=2"));
             });
+
+        sourceTask.stop();
+    }
+
+    @Test
+    public void testSourceBigDecimalHeader() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "direct");
+        props.put(CamelSourceTask.getCamelSourcePathConfigPrefix() + "name", "start");
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+
+
+        final ProducerTemplate template = sourceTask.getCms().createProducerTemplate();
+        template.sendBodyAndHeader(DIRECT_URI, "test", "bigdecimal", new BigDecimal(1234567890));
+
+        List<SourceRecord> results = sourceTask.poll();
+        assertEquals(1, results.size());
+        Header bigDecimalHeader = results.get(0).headers().allWithName(CamelSourceTask.HEADER_CAMEL_PREFIX + "bigdecimal").next();
+        assertEquals("[B", bigDecimalHeader.value().getClass().getName());
+        assertEquals(Decimal.class.getCanonicalName(), bigDecimalHeader.schema().name());
+        assertEquals(Schema.Type.BYTES, bigDecimalHeader.schema().type());
 
         sourceTask.stop();
     }

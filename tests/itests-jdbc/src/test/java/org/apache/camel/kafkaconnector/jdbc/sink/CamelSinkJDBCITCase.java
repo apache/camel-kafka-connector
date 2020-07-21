@@ -27,6 +27,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
@@ -69,8 +70,8 @@ public class CamelSinkJDBCITCase extends AbstractKafkaTest {
                 Map<String, String> jdbcParameters = new HashMap<>();
 
                 // The prefix 'CamelHeader' is removed by the SinkTask
-                jdbcParameters.put("CamelHeaderTestName", "SomeName" + TestUtils.randomWithRange(0, 100));
-                jdbcParameters.put("CamelHeaderTestData", "test data " + i);
+                jdbcParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestName", "SomeName" + TestUtils.randomWithRange(0, 100));
+                jdbcParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestData", "test data " + i);
 
                 try {
                     kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), body, jdbcParameters);
