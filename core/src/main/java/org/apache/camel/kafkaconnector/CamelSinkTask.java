@@ -32,6 +32,7 @@ import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.DefaultExchange;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
 import org.apache.kafka.connect.errors.ConnectException;
@@ -43,14 +44,16 @@ import org.slf4j.LoggerFactory;
 
 public class CamelSinkTask extends SinkTask {
     public static final String KAFKA_RECORD_KEY_HEADER = "camel.kafka.connector.record.key";
+    public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
+    public static final String PROPERTY_CAMEL_PREFIX = "CamelProperty.";
+
     private static final String CAMEL_SINK_ENDPOINT_PROPERTIES_PREFIX = "camel.sink.endpoint.";
     private static final String CAMEL_SINK_PATH_PROPERTIES_PREFIX = "camel.sink.path.";
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkTask.class);
 
     private static final String LOCAL_URL = "direct:start";
-    private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
-    private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
+
 
     private CamelMainSupport cms;
     private ProducerTemplate producer;
@@ -158,7 +161,11 @@ public class CamelSinkTask extends SinkTask {
         } else if (schema.type().getName().equalsIgnoreCase(Schema.INT32_SCHEMA.type().getName())) {
             map.put(camelHeaderKey, singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BYTES_SCHEMA.type().getName())) {
-            map.put(camelHeaderKey, (byte[])singleHeader.value());
+            if (Decimal.class.getCanonicalName().equals(schema.name())) {
+                map.put(camelHeaderKey, Decimal.toLogical(schema, (byte[])singleHeader.value()));
+            } else {
+                map.put(camelHeaderKey, (byte[])singleHeader.value());
+            }
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT32_SCHEMA.type().getName())) {
             map.put(camelHeaderKey, (float)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.FLOAT64_SCHEMA.type().getName())) {

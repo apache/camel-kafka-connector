@@ -36,6 +36,7 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.kafkaconnector.utils.SchemaHelper;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
+import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.source.SourceRecord;
@@ -44,14 +45,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CamelSourceTask extends SourceTask {
+    public static final String HEADER_CAMEL_PREFIX = "CamelHeader.";
+    public static final String PROPERTY_CAMEL_PREFIX = "CamelProperty.";
+
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceTask.class);
 
     private static final String CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX = "camel.source.endpoint.";
     private static final String CAMEL_SOURCE_PATH_PROPERTIES_PREFIX = "camel.source.path.";
 
     private static final String LOCAL_URL = "direct:end";
-    private static final String HEADER_CAMEL_PREFIX = "CamelHeader";
-    private static final String PROPERTY_CAMEL_PREFIX = "CamelProperty";
+
 
     private CamelMainSupport cms;
     private CamelSourceConnectorConfig config;
@@ -219,7 +222,8 @@ public class CamelSourceTask extends SourceTask {
                 String convertedDate = sdf.format(value);
                 record.headers().addString(keyCamelHeader, (String)convertedDate);
             } else if (value instanceof BigDecimal) {
-                record.headers().addDecimal(keyCamelHeader, (BigDecimal)value);
+                Schema schema = Decimal.schema(((BigDecimal)value).scale());
+                record.headers().add(keyCamelHeader, Decimal.fromLogical(schema, (BigDecimal)value), schema);
             } else if (value instanceof Double) {
                 record.headers().addDouble(keyCamelHeader, (double)value);
             } else if (value instanceof Float) {
