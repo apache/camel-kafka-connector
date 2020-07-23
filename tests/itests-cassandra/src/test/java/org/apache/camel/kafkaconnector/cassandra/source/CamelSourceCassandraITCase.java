@@ -31,7 +31,6 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -111,7 +110,6 @@ public class CamelSourceCassandraITCase extends AbstractKafkaTest {
         runTest(connectorPropertyFactory);
     }
 
-    @Disabled("Disabled due to CAMEL-15219")
     @Timeout(90)
     @Test
     public void testRetrieveFromCassandraWithCustomStrategy() throws ExecutionException, InterruptedException {
