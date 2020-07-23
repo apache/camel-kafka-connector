@@ -30,14 +30,15 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.apache.camel.kafkaconnector.common.BasicConnectorPropertyFactory.classRef;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CamelSourceCassandraITCase extends AbstractKafkaTest {
@@ -70,6 +71,17 @@ public class CamelSourceCassandraITCase extends AbstractKafkaTest {
         for (int i = 0; i < expect; i++) {
             testDataDao.insert("Test data " + i);
         }
+    }
+
+    @AfterEach
+    public void tearDown() {
+        cassandraClient = cassandraService.getClient();
+
+        if (testDataDao != null) {
+            testDataDao.dropTable();
+        }
+
+        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private <T> boolean checkRecord(ConsumerRecord<String, T> record) {
@@ -111,7 +123,6 @@ public class CamelSourceCassandraITCase extends AbstractKafkaTest {
         runTest(connectorPropertyFactory);
     }
 
-    @Disabled("Disabled due to CAMEL-15219")
     @Timeout(90)
     @Test
     public void testRetrieveFromCassandraWithCustomStrategy() throws ExecutionException, InterruptedException {
@@ -123,7 +134,7 @@ public class CamelSourceCassandraITCase extends AbstractKafkaTest {
                 .withHosts(cassandraService.getCassandraHost())
                 .withPort(cassandraService.getCQL3Port())
                 .withKeySpace(TestDataDao.KEY_SPACE)
-                .withResultSetConversionStrategy("#:" + TestResultSetConversionStrategy.class.getName())
+                .withResultSetConversionStrategy(classRef(TestResultSetConversionStrategy.class.getName()))
                 .withCql(testDataDao.getSelectStatement());
 
         runTest(connectorPropertyFactory);
