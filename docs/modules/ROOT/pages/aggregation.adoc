@@ -61,3 +61,8 @@ And you may think oldExchange and newExchange like records arriving to the Aggre
 So in this case each newExchange body will be concated with the oldExchange body and separated through the System line separator.
 
 This process will go ahead until the batch size has been completed or the timeout has been reached.
+
+[[ExtendingAConnector-ExtendingAConnector]]
+== How Can I extend an existing connector for adding an aggregator?
+
+Take a look at xref:archetypes.adoc[Archetype Documentation]
