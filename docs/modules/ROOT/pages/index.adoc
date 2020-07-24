@@ -3,7 +3,8 @@
 
 * xref:about.adoc[What is it?]
 ** xref:basic-concepts.adoc[Basic concepts]
-** xref:aggregation.adoc[Aggregations]
+** xref:aggregation.adoc[Aggregation]
+** xref:archetypes.adoc[Archetype]
 * xref:getting-started.adoc[Getting started]
 ** xref:try-it-out-locally.adoc[Try it locally]
 ** xref:try-it-out-on-openshift-with-strimzi.adoc[Try it on OpenShift cluster]
