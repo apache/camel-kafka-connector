@@ -33,6 +33,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.PollingConsumer;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectDataformat;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.kafkaconnector.utils.SchemaHelper;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
@@ -83,6 +84,10 @@ public class CamelSourceTask extends SourceTask {
 
             String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
             final String unmarshaller = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_UNMARSHAL_CONF);
+            List<CamelKafkaConnectDataformat> dataformats = Collections.emptyList();
+            if (unmarshaller != null) {
+                dataformats = Collections.singletonList(new CamelKafkaConnectDataformat(unmarshaller, CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.UNMARSHALL));
+            }
             topic = config.getString(CamelSourceConnectorConfig.TOPIC_CONF);
 
             String localUrl = getLocalUrlWithPollingOptions(config);
@@ -94,7 +99,7 @@ public class CamelSourceTask extends SourceTask {
                         CAMEL_SOURCE_ENDPOINT_PROPERTIES_PREFIX, CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
             }
 
-            cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, null, unmarshaller, 10, 500, camelContext);
+            cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, dataformats, 10, 500, camelContext);
 
             Endpoint endpoint = cms.getEndpoint(localUrl);
             consumer = endpoint.createPollingConsumer();

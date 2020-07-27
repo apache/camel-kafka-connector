@@ -18,6 +18,7 @@ package org.apache.camel.kafkaconnector.utils;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
@@ -54,11 +55,11 @@ public class CamelMainSupport {
     private final ExecutorService exService = Executors.newSingleThreadExecutor();
     private final CountDownLatch startFinishedSignal = new CountDownLatch(1);
 
-    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, int aggregationSize, long aggregationTimeout) throws Exception {
-        this(props, fromUrl, toUrl, marshal, unmarshal, aggregationSize, aggregationTimeout, new DefaultCamelContext());
+    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, List<CamelKafkaConnectDataformat> dataformats, int aggregationSize, long aggregationTimeout) throws Exception {
+        this(props, fromUrl, toUrl, dataformats, aggregationSize, aggregationTimeout, new DefaultCamelContext());
     }
 
-    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, String marshal, String unmarshal, int aggregationSize, long aggregationTimeout, CamelContext camelContext) throws Exception {
+    public CamelMainSupport(Map<String, String> props, String fromUrl, String toUrl, List<CamelKafkaConnectDataformat> dataformats, int aggregationSize, long aggregationTimeout, CamelContext camelContext) throws Exception {
         camel = camelContext;
         camelMain = new Main() {
             @Override
@@ -94,24 +95,39 @@ public class CamelMainSupport {
         //creating the actual route
         this.camel.addRoutes(new RouteBuilder() {
             public void configure() {
+                //from
                 RouteDefinition rd = from(fromUrl);
-                if (marshal != null && unmarshal != null) {
-                    throw new UnsupportedOperationException("Uses of both marshal (i.e. " + marshal + ") and unmarshal (i.e. " + unmarshal + ") is not supported");
-                } else if (marshal != null) {
-                    LOG.info("Creating Camel route from({}).marshal().custom({}).to({})", fromUrl, marshal, toUrl);
-                    camel.getRegistry().bind(marshal, lookupAndInstantiateDataformat(marshal));
-                    rd.marshal().custom(marshal);
-                } else if (unmarshal != null) {
-                    LOG.info("Creating Camel route from({}).unmarshal().custom({}).to({})", fromUrl, unmarshal, toUrl);
-                    camel.getRegistry().bind(unmarshal, lookupAndInstantiateDataformat(unmarshal));
-                    rd.unmarshal().custom(unmarshal);
-                } else {
-                    LOG.info("Creating Camel route from({}).to({})", fromUrl, toUrl);
+
+                //dataformats
+                LOG.info("Creating Camel route from({})");
+                for (CamelKafkaConnectDataformat dataformat : dataformats) {
+                    String dataformatId = dataformat.getDataformatId();
+                    switch (dataformat.getDataformatKind()) {
+                        case MARSHALL:
+                            LOG.info(".marshal().custom({})", dataformatId);
+                            camel.getRegistry().bind(dataformatId, lookupAndInstantiateDataformat(dataformatId));
+                            rd.marshal().custom(dataformatId);
+                            break;
+                        case UNMARSHALL:
+                            LOG.info(".unmarshal().custom({})", dataformatId);
+                            camel.getRegistry().bind(dataformatId, lookupAndInstantiateDataformat(dataformatId));
+                            rd.unmarshal().custom(dataformatId);
+                            break;
+                        default:
+                            throw new UnsupportedOperationException("Unsupported dataformat: " + dataformat);
+                    }
                 }
+
+
                 if (camel.getRegistry().lookupByName("aggregate") != null) {
+                    //aggregation
                     AggregationStrategy s = (AggregationStrategy) camel.getRegistry().lookupByName("aggregate");
+                    LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({})", s, aggregationSize, aggregationTimeout);
+                    LOG.info(".to({})", toUrl);
                     rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(toUrl);
                 } else {
+                    //to
+                    LOG.info(".to({})", toUrl);
                     rd.toD(toUrl);
                 }
             }

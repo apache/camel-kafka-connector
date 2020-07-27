@@ -28,6 +28,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectDataformat;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.DefaultExchange;
@@ -73,6 +74,10 @@ public class CamelSinkTask extends SinkTask {
 
             String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
             final String marshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF);
+            List<CamelKafkaConnectDataformat> dataformats = Collections.emptyList();
+            if (marshaller != null) {
+                dataformats = Collections.singletonList(new CamelKafkaConnectDataformat(marshaller, CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.MARSHALL));
+            }
             final int size = config.getInt(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_SIZE_CONF);
             final long timeout = config.getLong(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_TIMEOUT_CONF);
 
@@ -85,7 +90,7 @@ public class CamelSinkTask extends SinkTask {
                                                 CAMEL_SINK_PATH_PROPERTIES_PREFIX);
             }
 
-            cms = new CamelMainSupport(actualProps, LOCAL_URL, remoteUrl, marshaller, null, size, timeout, camelContext);
+            cms = new CamelMainSupport(actualProps, LOCAL_URL, remoteUrl, dataformats, size, timeout, camelContext);
 
             producer = cms.createProducerTemplate();
 
