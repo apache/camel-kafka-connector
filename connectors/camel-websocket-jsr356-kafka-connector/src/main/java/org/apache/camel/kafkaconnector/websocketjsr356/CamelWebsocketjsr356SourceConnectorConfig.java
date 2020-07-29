@@ -27,35 +27,35 @@ public class CamelWebsocketjsr356SourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_PATH_URI_CONF = "camel.source.path.uri";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_PATH_URI_DOC = "If a schemeless URI path is provided, a ServerEndpoint is deployed under that path. Else if the URI is prefixed with the 'ws://' scheme, then a connection is established to the corresponding server";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_PATH_URI_DEFAULT = null;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_PATH_URI_DOC = "If a schemeless URI path is provided, a ServerEndpoint is deployed under that path. Else if the URI is prefixed with the 'ws://' scheme, then a connection is established to the corresponding server";
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_PATH_URI_DEFAULT = null;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_CONF = "camel.source.endpoint.sessionCount";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_DOC = "Used when the endpoint is in client mode to populate a pool of sessions";
-    public static final Integer CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_DEFAULT = 1;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_DOC = "Used when the endpoint is in client mode to populate a pool of sessions";
+    private static final Integer CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SESSION_COUNT_DEFAULT = 1;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.websocket-jsr356.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.websocket-jsr356.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_SERVER_ENDPOINT_DEPLOYMENT_STRATEGY_CONF = "camel.component.websocket-jsr356.serverEndpointDeploymentStrategy";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_SERVER_ENDPOINT_DEPLOYMENT_STRATEGY_DOC = "To enable customization of how a WebSocket ServerEndpoint is configured and deployed. By default DefaultServerEndpointDeploymentStrategy is used.";
-    public static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_SERVER_ENDPOINT_DEPLOYMENT_STRATEGY_DEFAULT = null;
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_SERVER_ENDPOINT_DEPLOYMENT_STRATEGY_DOC = "To enable customization of how a WebSocket ServerEndpoint is configured and deployed. By default DefaultServerEndpointDeploymentStrategy is used.";
+    private static final String CAMEL_SOURCE_WEBSOCKETJSR356_COMPONENT_SERVER_ENDPOINT_DEPLOYMENT_STRATEGY_DEFAULT = null;
 
     public CamelWebsocketjsr356SourceConnectorConfig(
             ConfigDef config,

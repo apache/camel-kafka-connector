@@ -25,32 +25,32 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelIpfsSinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_IPFS_PATH_IPFS_CMD_CONF = "camel.sink.path.ipfsCmd";
-    public static final String CAMEL_SINK_IPFS_PATH_IPFS_CMD_DOC = "The ipfs command One of: [add] [cat] [get] [version]";
-    public static final String CAMEL_SINK_IPFS_PATH_IPFS_CMD_DEFAULT = null;
+    private static final String CAMEL_SINK_IPFS_PATH_IPFS_CMD_DOC = "The ipfs command One of: [add] [cat] [get] [version]";
+    private static final String CAMEL_SINK_IPFS_PATH_IPFS_CMD_DEFAULT = null;
     public static final String CAMEL_SINK_IPFS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
-    public static final String CAMEL_SINK_IPFS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_IPFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_IPFS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_IPFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_CONF = "camel.sink.endpoint.outdir";
-    public static final String CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_DOC = "The ipfs output directory";
-    public static final String CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_DEFAULT = null;
+    private static final String CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_DOC = "The ipfs output directory";
+    private static final String CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_DEFAULT = null;
     public static final String CAMEL_SINK_IPFS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_IPFS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_IPFS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_IPFS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_IPFS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_CONF = "camel.component.ipfs.ipfsHost";
-    public static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_DOC = "The ipfs host";
-    public static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_DEFAULT = "127.0.0.1";
+    private static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_DOC = "The ipfs host";
+    private static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_DEFAULT = "127.0.0.1";
     public static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_PORT_CONF = "camel.component.ipfs.ipfsPort";
-    public static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_PORT_DOC = "The ipfs port";
-    public static final Integer CAMEL_SINK_IPFS_COMPONENT_IPFS_PORT_DEFAULT = 5001;
+    private static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_PORT_DOC = "The ipfs port";
+    private static final Integer CAMEL_SINK_IPFS_COMPONENT_IPFS_PORT_DEFAULT = 5001;
     public static final String CAMEL_SINK_IPFS_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.ipfs.lazyStartProducer";
-    public static final String CAMEL_SINK_IPFS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_IPFS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_IPFS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_IPFS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_IPFS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.ipfs.basicPropertyBinding";
-    public static final String CAMEL_SINK_IPFS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_IPFS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_IPFS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_IPFS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelIpfsSinkConnectorConfig(
             ConfigDef config,

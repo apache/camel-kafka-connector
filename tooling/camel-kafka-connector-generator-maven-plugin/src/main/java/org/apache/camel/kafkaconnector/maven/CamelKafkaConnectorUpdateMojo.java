@@ -81,8 +81,8 @@ import static org.apache.camel.tooling.util.PackageHelper.writeText;
 /**
  * Generate Camel Kafka Connector for the component
  */
-@Mojo(name = "camel-kafka-connector-update", threadSafe = true, 
-requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, 
+@Mojo(name = "camel-kafka-connector-update", threadSafe = true,
+requiresDependencyCollection = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME,
 defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
 public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMojo {
 
@@ -559,7 +559,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
             String enumOptionListing = epo.getEnums().stream().reduce("", (s, s2) -> s + " [" + s2 + "]");
             docLiteralInitializer = docLiteralInitializer + enumOptionListing;
         }
-        javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(docFieldName).setType(String.class).setStringInitializer(docLiteralInitializer);
+        javaClass.addField().setFinal(true).setPrivate().setStatic(true).setName(docFieldName).setType(String.class).setStringInitializer(docLiteralInitializer);
 
         String defaultFieldName = propertyPrefix + "DEFAULT";
         Class<?> defaultValueClass = PRIMITIVE_TYPES_TO_CLASS_MAP.getOrDefault(epo.getShortJavaType(), String.class);
@@ -602,7 +602,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Double.class)) {
             defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "D";
         }
-        javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(defaultFieldName).setType(defaultValueClass)
+        javaClass.addField().setFinal(true).setPrivate().setStatic(true).setName(defaultFieldName).setType(defaultValueClass)
             .setLiteralInitializer(defaultValueClassLiteralInitializer);
 
         String confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(epo.getShortJavaType(), "ConfigDef.Type.STRING");

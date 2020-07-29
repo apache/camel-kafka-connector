@@ -25,56 +25,57 @@ import org.apache.kafka.common.config.ConfigDef.Importance;
 import org.apache.kafka.common.config.ConfigDef.Type;
 
 public class CamelSourceConnectorConfig extends AbstractConfig {
-    public static final String CAMEL_SOURCE_UNMARSHAL_DEFAULT = null;
+
     public static final String CAMEL_SOURCE_UNMARSHAL_CONF = "camel.source.unmarshal";
-    public static final String CAMEL_SOURCE_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the source";
+    private static final String CAMEL_SOURCE_UNMARSHAL_DEFAULT = null;
+    private static final String CAMEL_SOURCE_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the source";
 
-    public static final String CAMEL_SOURCE_MARSHAL_DEFAULT = null;
     public static final String CAMEL_SOURCE_MARSHAL_CONF = "camel.source.marshal";
-    public static final String CAMEL_SOURCE_MARSHAL_DOC = "The camel dataformat name to use to unmarshal data to the topic";
+    private static final String CAMEL_SOURCE_MARSHAL_DEFAULT = null;
+    private static final String CAMEL_SOURCE_MARSHAL_DOC = "The camel dataformat name to use to unmarshal data to the topic";
 
-    public static final String CAMEL_SOURCE_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_URL_CONF = "camel.source.url";
+    private static final String CAMEL_SOURCE_URL_DEFAULT = null;
 
-    public static final String CAMEL_SOURCE_COMPONENT_DEFAULT = null;
     public static final String CAMEL_SOURCE_COMPONENT_CONF = "camel.source.component";
+    private static final String CAMEL_SOURCE_COMPONENT_DEFAULT = null;
 
-    public static final String CAMEL_SOURCE_COMPONENT_DOC = "The camel component to use. This is normally set by default for you. It is ignored if " + CAMEL_SOURCE_URL_CONF + " is set.";
-    public static final String CAMEL_SOURCE_URL_DOC = "The camel url to configure the source. If this is set " + CAMEL_SOURCE_COMPONENT_CONF
+    private static final String CAMEL_SOURCE_COMPONENT_DOC = "The camel component to use. This is normally set by default for you. It is ignored if " + CAMEL_SOURCE_URL_CONF + " is set.";
+    private static final String CAMEL_SOURCE_URL_DOC = "The camel url to configure the source. If this is set " + CAMEL_SOURCE_COMPONENT_CONF
             + " and all the properties starting with " + CamelSourceTask.getCamelSourceEndpointConfigPrefix() + ".<" + CAMEL_SOURCE_COMPONENT_CONF + " value> are ignored.";
 
-    public static final String TOPIC_DEFAULT = "test";
     public static final String TOPIC_CONF = "topics";
-    public static final String TOPIC_DOC = "A list of topics to use as output for this connector";
+    private static final String TOPIC_DEFAULT = "test";
+    private static final String TOPIC_DOC = "A list of topics to use as output for this connector";
 
-    public static final Long CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF = "camel.source.maxBatchPollSize";
-    public static final String CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DOC = "The max number of messages retrieved in a single poll()";
+    private static final Long CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DEFAULT = 1000L;
+    private static final String CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DOC = "The max number of messages retrieved in a single poll()";
 
-    public static final Long CAMEL_SOURCE_MAX_POLL_DURATION_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_MAX_POLL_DURATION_CONF = "camel.source.maxPollDuration";
-    public static final String CAMEL_SOURCE_MAX_POLL_DURATION_DOC = "The maximum time in milliseconds spent in a single call to poll()";
+    private static final Long CAMEL_SOURCE_MAX_POLL_DURATION_DEFAULT = 1000L;
+    private static final String CAMEL_SOURCE_MAX_POLL_DURATION_DOC = "The maximum time in milliseconds spent in a single call to poll()";
 
-    public static final Long CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_DEFAULT = 1000L;
     public static final String CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_CONF = "camel.source.pollingConsumerQueueSize";
-    public static final String CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_DOC = "The queue size for the internal hand-off queue between the polling consumer, and producers sending data into the queue.";
+    private static final Long CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_DEFAULT = 1000L;
+    private static final String CAMEL_SOURCE_POLLING_CONSUMER_QUEUE_SIZE_DOC = "The queue size for the internal hand-off queue between the polling consumer, and producers sending data into the queue.";
 
-    public static final Long CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_DEFAULT = 0L;
     public static final String CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_CONF = "camel.source.pollingConsumerBlockTimeout";
-    public static final String CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_DOC = "To use a timeout (in milliseconds) when the producer is blocked if the internal queue is full. If the value is 0 or negative then no timeout is in use.";
+    private static final Long CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_DEFAULT = 0L;
+    private static final String CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_TIMEOUT_DOC = "To use a timeout (in milliseconds) when the producer is blocked if the internal queue is full. If the value is 0 or negative then no timeout is in use.";
 
-    public static final Boolean CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_DEFAULT = true;
     public static final String CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_CONF = "camel.source.pollingConsumerBlockWhenFull";
-    public static final String CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_DOC = "Whether to block any producer if the internal queue is full.";
+    private static final Boolean CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_DEFAULT = true;
+    private static final String CAMEL_SOURCE_POLLING_CONSUMER_BLOCK_WHEN_FULL_DOC = "Whether to block any producer if the internal queue is full.";
 
-    public static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_DEFAULT = null;
     public static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_CONF = "camel.source.camelMessageHeaderKey";
-    public static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_DOC = "The name of a camel message header containing an unique key that can be used as a Kafka message key."
+    private static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_DEFAULT = null;
+    private static final String CAMEL_SOURCE_MESSAGE_HEADER_KEY_DOC = "The name of a camel message header containing an unique key that can be used as a Kafka message key."
           +  " If this is not specified, then the Kafka message will not have a key.";
 
-    public static final String CAMEL_SOURCE_CONTENT_LOG_LEVEL_DEFAULT = LoggingLevel.OFF.toString();
     public static final String CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF = "camel.source.contentLogLevel";
-    public static final String CAMEL_SOURCE_CONTENT_LOG_LEVEL_DOC = "Log level for the record's content (default: " + CAMEL_SOURCE_CONTENT_LOG_LEVEL_DEFAULT + "). Valid values: TRACE, DEBUG, INFO, WARN, ERROR, OFF.";
+    private static final String CAMEL_SOURCE_CONTENT_LOG_LEVEL_DEFAULT = LoggingLevel.OFF.toString();
+    private static final String CAMEL_SOURCE_CONTENT_LOG_LEVEL_DOC = "Log level for the record's content (default: " + CAMEL_SOURCE_CONTENT_LOG_LEVEL_DEFAULT + "). Valid values: TRACE, DEBUG, INFO, WARN, ERROR, OFF.";
 
     private static final ConfigDef CONFIG_DEF = new ConfigDef()
         .define(CAMEL_SOURCE_URL_CONF, Type.STRING, CAMEL_SOURCE_URL_DEFAULT, Importance.HIGH, CAMEL_SOURCE_URL_DOC)

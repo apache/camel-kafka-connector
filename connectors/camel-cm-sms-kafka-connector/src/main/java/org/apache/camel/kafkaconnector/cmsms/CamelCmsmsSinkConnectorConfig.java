@@ -25,35 +25,35 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelCmsmsSinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_CMSMS_PATH_HOST_CONF = "camel.sink.path.host";
-    public static final String CAMEL_SINK_CMSMS_PATH_HOST_DOC = "SMS Provider HOST with scheme";
-    public static final String CAMEL_SINK_CMSMS_PATH_HOST_DEFAULT = null;
+    private static final String CAMEL_SINK_CMSMS_PATH_HOST_DOC = "SMS Provider HOST with scheme";
+    private static final String CAMEL_SINK_CMSMS_PATH_HOST_DEFAULT = null;
     public static final String CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_FROM_CONF = "camel.sink.endpoint.defaultFrom";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_FROM_DOC = "This is the sender name. The maximum length is 11 characters.";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_FROM_DEFAULT = null;
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_FROM_DOC = "This is the sender name. The maximum length is 11 characters.";
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_FROM_DEFAULT = null;
     public static final String CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_MAX_NUMBER_OF_PARTS_CONF = "camel.sink.endpoint.defaultMaxNumberOfParts";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_MAX_NUMBER_OF_PARTS_DOC = "If it is a multipart message forces the max number. Message can be truncated. Technically the gateway will first check if a message is larger than 160 characters, if so, the message will be cut into multiple 153 characters parts limited by these parameters.";
-    public static final Integer CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_MAX_NUMBER_OF_PARTS_DEFAULT = 8;
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_MAX_NUMBER_OF_PARTS_DOC = "If it is a multipart message forces the max number. Message can be truncated. Technically the gateway will first check if a message is larger than 160 characters, if so, the message will be cut into multiple 153 characters parts limited by these parameters.";
+    private static final Integer CAMEL_SINK_CMSMS_ENDPOINT_DEFAULT_MAX_NUMBER_OF_PARTS_DEFAULT = 8;
     public static final String CAMEL_SINK_CMSMS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_CMSMS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_CMSMS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_CMSMS_ENDPOINT_PRODUCT_TOKEN_CONF = "camel.sink.endpoint.productToken";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_PRODUCT_TOKEN_DOC = "The unique token to use";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_PRODUCT_TOKEN_DEFAULT = null;
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_PRODUCT_TOKEN_DOC = "The unique token to use";
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_PRODUCT_TOKEN_DEFAULT = null;
     public static final String CAMEL_SINK_CMSMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF = "camel.sink.endpoint.testConnectionOnStartup";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC = "Whether to test the connection to the SMS Gateway on startup";
-    public static final Boolean CAMEL_SINK_CMSMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT = false;
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC = "Whether to test the connection to the SMS Gateway on startup";
+    private static final Boolean CAMEL_SINK_CMSMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT = false;
     public static final String CAMEL_SINK_CMSMS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CMSMS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_CMSMS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_CMSMS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_CMSMS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_CMSMS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SINK_CMSMS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SINK_CMSMS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CMSMS_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.cm-sms.lazyStartProducer";
-    public static final String CAMEL_SINK_CMSMS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_CMSMS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_CMSMS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_CMSMS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_CMSMS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.cm-sms.basicPropertyBinding";
-    public static final String CAMEL_SINK_CMSMS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CMSMS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_CMSMS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_CMSMS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelCmsmsSinkConnectorConfig(
             ConfigDef config,

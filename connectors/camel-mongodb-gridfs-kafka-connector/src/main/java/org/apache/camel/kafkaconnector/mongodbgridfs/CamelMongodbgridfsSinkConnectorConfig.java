@@ -27,38 +27,38 @@ public class CamelMongodbgridfsSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_MONGODBGRIDFS_PATH_CONNECTION_BEAN_CONF = "camel.sink.path.connectionBean";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DOC = "Name of com.mongodb.client.MongoClient to use.";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DEFAULT = null;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DOC = "Name of com.mongodb.client.MongoClient to use.";
+    private static final String CAMEL_SINK_MONGODBGRIDFS_PATH_CONNECTION_BEAN_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BUCKET_CONF = "camel.sink.endpoint.bucket";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BUCKET_DOC = "Sets the name of the GridFS bucket within the database. Default is fs.";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BUCKET_DEFAULT = "fs";
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BUCKET_DOC = "Sets the name of the GridFS bucket within the database. Default is fs.";
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BUCKET_DEFAULT = "fs";
     public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_DATABASE_CONF = "camel.sink.endpoint.database";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_DATABASE_DOC = "Sets the name of the MongoDB database to target";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_DATABASE_DEFAULT = null;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_DATABASE_DOC = "Sets the name of the MongoDB database to target";
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_DATABASE_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_READ_PREFERENCE_CONF = "camel.sink.endpoint.readPreference";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_READ_PREFERENCE_DOC = "Sets a MongoDB ReadPreference on the Mongo connection. Read preferences set directly on the connection will be overridden by this setting. The com.mongodb.ReadPreference#valueOf(String) utility method is used to resolve the passed readPreference value. Some examples for the possible values are nearest, primary or secondary etc.";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_READ_PREFERENCE_DEFAULT = null;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_READ_PREFERENCE_DOC = "Sets a MongoDB ReadPreference on the Mongo connection. Read preferences set directly on the connection will be overridden by this setting. The com.mongodb.ReadPreference#valueOf(String) utility method is used to resolve the passed readPreference value. Some examples for the possible values are nearest, primary or secondary etc.";
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_READ_PREFERENCE_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_CONF = "camel.sink.endpoint.writeConcern";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_DOC = "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_DEFAULT = null;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_DOC = "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]";
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_WRITE_CONCERN_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_OPERATION_DOC = "Sets the operation this endpoint will execute against GridFs.";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_OPERATION_DEFAULT = null;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_OPERATION_DOC = "Sets the operation this endpoint will execute against GridFs.";
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_OPERATION_DEFAULT = null;
     public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SINK_MONGODBGRIDFS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_MONGODBGRIDFS_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.mongodb-gridfs.lazyStartProducer";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_MONGODBGRIDFS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_MONGODBGRIDFS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_MONGODBGRIDFS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mongodb-gridfs.basicPropertyBinding";
-    public static final String CAMEL_SINK_MONGODBGRIDFS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MONGODBGRIDFS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_MONGODBGRIDFS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_MONGODBGRIDFS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelMongodbgridfsSinkConnectorConfig(
             ConfigDef config,

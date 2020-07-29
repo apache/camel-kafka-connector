@@ -25,43 +25,44 @@ import org.apache.kafka.common.config.ConfigDef.Importance;
 import org.apache.kafka.common.config.ConfigDef.Type;
 
 public class CamelSinkConnectorConfig extends AbstractConfig {
-    public static final String CAMEL_SINK_MARSHAL_DEFAULT = null;
+
     public static final String CAMEL_SINK_MARSHAL_CONF = "camel.sink.marshal";
-    public static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
+    private static final String CAMEL_SINK_MARSHAL_DEFAULT = null;
+    private static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
 
-    public static final String CAMEL_SINK_UNMARSHAL_DEFAULT = null;
     public static final String CAMEL_SINK_UNMARSHAL_CONF = "camel.sink.unmarshal";
-    public static final String CAMEL_SINK_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the topic";
+    private static final String CAMEL_SINK_UNMARSHAL_DEFAULT = null;
+    private static final String CAMEL_SINK_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the topic";
 
-    public static final String CAMEL_SINK_COMPONENT_DEFAULT = null;
     public static final String CAMEL_SINK_COMPONENT_CONF = "camel.sink.component";
+    private static final String CAMEL_SINK_COMPONENT_DEFAULT = null;
 
-    public static final String CAMEL_SINK_URL_DEFAULT = null;
     public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
+    private static final String CAMEL_SINK_URL_DEFAULT = null;
 
-    public static final String CAMEL_SINK_COMPONENT_DOC = "The camel component to use. This is normally set by default for you. It is ignored if " + CAMEL_SINK_URL_CONF + " is set.";
-    public static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination. If this is set " + CAMEL_SINK_COMPONENT_CONF
+    private static final String CAMEL_SINK_COMPONENT_DOC = "The camel component to use. This is normally set by default for you. It is ignored if " + CAMEL_SINK_URL_CONF + " is set.";
+    private static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination. If this is set " + CAMEL_SINK_COMPONENT_CONF
             + " and all the properties starting with " + CamelSinkTask.getCamelSinkEndpointConfigPrefix() + ".<" + CAMEL_SINK_COMPONENT_CONF + " value> are ignored.";
 
-    public static final String TOPIC_DEFAULT = "test";
     public static final String TOPIC_CONF = "topics";
-    public static final String TOPIC_DOC = "A list of topics to use as input for this connector";
+    private static final String TOPIC_DEFAULT = "test";
+    private static final String TOPIC_DOC = "A list of topics to use as input for this connector";
 
-    public static final String CAMEL_SINK_CONTENT_LOG_LEVEL_DEFAULT = LoggingLevel.OFF.toString();
     public static final String CAMEL_SINK_CONTENT_LOG_LEVEL_CONF = "camel.sink.contentLogLevel";
-    public static final String CAMEL_SINK_CONTENT_LOG_LEVEL_DOC = "Log level for the record's content (default: " + CAMEL_SINK_CONTENT_LOG_LEVEL_DEFAULT + "). Valid values: TRACE, DEBUG, INFO, WARN, ERROR, OFF.";
+    private static final String CAMEL_SINK_CONTENT_LOG_LEVEL_DEFAULT = LoggingLevel.OFF.toString();
+    private static final String CAMEL_SINK_CONTENT_LOG_LEVEL_DOC = "Log level for the record's content (default: " + CAMEL_SINK_CONTENT_LOG_LEVEL_DEFAULT + "). Valid values: TRACE, DEBUG, INFO, WARN, ERROR, OFF.";
 
-    public static final String CAMEL_SINK_AGGREGATE_DEFAULT = null;
     public static final String CAMEL_SINK_AGGREGATE_CONF = "camel.beans.aggregate";
-    public static final String CAMEL_SINK_AGGREGATE_DOC = "A reference to an aggregate bean, in the form of #class:";    
+    private static final String CAMEL_SINK_AGGREGATE_DEFAULT = null;
+    private static final String CAMEL_SINK_AGGREGATE_DOC = "A reference to an aggregate bean, in the form of #class:";
 
-    public static final Integer CAMEL_SINK_AGGREGATE_SIZE_DEFAULT = 10;
     public static final String CAMEL_SINK_AGGREGATE_SIZE_CONF = "camel.beans.aggregation.size";
-    public static final String CAMEL_SINK_AGGREGATE_SIZE_DOC = "The size of the aggregation, to be used in combination with camel.beans.aggregate";
-    
-    public static final Long CAMEL_SINK_AGGREGATE_TIMEOUT_DEFAULT = 500L;
+    private static final Integer CAMEL_SINK_AGGREGATE_SIZE_DEFAULT = 10;
+    private static final String CAMEL_SINK_AGGREGATE_SIZE_DOC = "The size of the aggregation, to be used in combination with camel.beans.aggregate";
+
     public static final String CAMEL_SINK_AGGREGATE_TIMEOUT_CONF = "camel.beans.aggregation.timeout";
-    public static final String CAMEL_SINK_AGGREGATE_TIMEOUT_DOC = "The timeout of the aggregation, to be used in combination with camel.beans.aggregate";    
+    private static final Long CAMEL_SINK_AGGREGATE_TIMEOUT_DEFAULT = 500L;
+    private static final String CAMEL_SINK_AGGREGATE_TIMEOUT_DOC = "The timeout of the aggregation, to be used in combination with camel.beans.aggregate";
 
     private static final ConfigDef CONFIG_DEF = new ConfigDef()
         .define(CAMEL_SINK_URL_CONF, Type.STRING, CAMEL_SINK_URL_DEFAULT, Importance.HIGH, CAMEL_SINK_URL_DOC)

@@ -27,29 +27,29 @@ public class CamelBrowseSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_BROWSE_PATH_NAME_CONF = "camel.source.path.name";
-    public static final String CAMEL_SOURCE_BROWSE_PATH_NAME_DOC = "A name which can be any string to uniquely identify the endpoint";
-    public static final String CAMEL_SOURCE_BROWSE_PATH_NAME_DEFAULT = null;
+    private static final String CAMEL_SOURCE_BROWSE_PATH_NAME_DOC = "A name which can be any string to uniquely identify the endpoint";
+    private static final String CAMEL_SOURCE_BROWSE_PATH_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_BROWSE_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    private static final String CAMEL_SOURCE_BROWSE_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final Boolean CAMEL_SOURCE_BROWSE_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
-    public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
+    private static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
     public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
-    public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
-    public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
+    private static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
+    private static final String CAMEL_SOURCE_BROWSE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_BROWSE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SOURCE_BROWSE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SOURCE_BROWSE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_BROWSE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_BROWSE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SOURCE_BROWSE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SOURCE_BROWSE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_BROWSE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.browse.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_BROWSE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_BROWSE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    private static final String CAMEL_SOURCE_BROWSE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final Boolean CAMEL_SOURCE_BROWSE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_BROWSE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.browse.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_BROWSE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_BROWSE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SOURCE_BROWSE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SOURCE_BROWSE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelBrowseSourceConnectorConfig(
             ConfigDef config,

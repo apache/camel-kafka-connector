@@ -27,38 +27,38 @@ public class CamelRestapiSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_RESTAPI_PATH_PATH_CONF = "camel.source.path.path";
-    public static final String CAMEL_SOURCE_RESTAPI_PATH_PATH_DOC = "The base path";
-    public static final String CAMEL_SOURCE_RESTAPI_PATH_PATH_DEFAULT = null;
+    private static final String CAMEL_SOURCE_RESTAPI_PATH_PATH_DOC = "The base path";
+    private static final String CAMEL_SOURCE_RESTAPI_PATH_PATH_DEFAULT = null;
     public static final String CAMEL_SOURCE_RESTAPI_PATH_CONTEXT_ID_PATTERN_CONF = "camel.source.path.contextIdPattern";
-    public static final String CAMEL_SOURCE_RESTAPI_PATH_CONTEXT_ID_PATTERN_DOC = "Optional CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.";
-    public static final String CAMEL_SOURCE_RESTAPI_PATH_CONTEXT_ID_PATTERN_DEFAULT = null;
+    private static final String CAMEL_SOURCE_RESTAPI_PATH_CONTEXT_ID_PATTERN_DOC = "Optional CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.";
+    private static final String CAMEL_SOURCE_RESTAPI_PATH_CONTEXT_ID_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_API_COMPONENT_NAME_CONF = "camel.source.endpoint.apiComponentName";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_API_COMPONENT_NAME_DOC = "The Camel Rest API component to use for generating the API of the REST services, such as openapi.";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_API_COMPONENT_NAME_DEFAULT = null;
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_API_COMPONENT_NAME_DOC = "The Camel Rest API component to use for generating the API of the REST services, such as openapi.";
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_API_COMPONENT_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_RESTAPI_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final Boolean CAMEL_SOURCE_RESTAPI_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_CONSUMER_COMPONENT_NAME_CONF = "camel.source.endpoint.consumerComponentName";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_CONSUMER_COMPONENT_NAME_DOC = "The Camel Rest component to use for (consumer) the REST transport, such as jetty, servlet, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry. If either one is found, then that is being used.";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_CONSUMER_COMPONENT_NAME_DEFAULT = null;
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_CONSUMER_COMPONENT_NAME_DOC = "The Camel Rest component to use for (consumer) the REST transport, such as jetty, servlet, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry. If either one is found, then that is being used.";
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_CONSUMER_COMPONENT_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
     public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_RESTAPI_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SOURCE_RESTAPI_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_RESTAPI_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SOURCE_RESTAPI_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SOURCE_RESTAPI_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_RESTAPI_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.rest-api.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_RESTAPI_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_RESTAPI_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    private static final String CAMEL_SOURCE_RESTAPI_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final Boolean CAMEL_SOURCE_RESTAPI_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_RESTAPI_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.rest-api.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_RESTAPI_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_RESTAPI_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SOURCE_RESTAPI_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SOURCE_RESTAPI_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelRestapiSourceConnectorConfig(
             ConfigDef config,

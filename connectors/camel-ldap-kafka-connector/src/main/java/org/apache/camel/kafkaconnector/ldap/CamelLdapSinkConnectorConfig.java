@@ -25,35 +25,35 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelLdapSinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_LDAP_PATH_DIR_CONTEXT_NAME_CONF = "camel.sink.path.dirContextName";
-    public static final String CAMEL_SINK_LDAP_PATH_DIR_CONTEXT_NAME_DOC = "Name of either a javax.naming.directory.DirContext, or java.util.Hashtable, or Map bean to lookup in the registry. If the bean is either a Hashtable or Map then a new javax.naming.directory.DirContext instance is created for each use. If the bean is a javax.naming.directory.DirContext then the bean is used as given. The latter may not be possible in all situations where the javax.naming.directory.DirContext must not be shared, and in those situations it can be better to use java.util.Hashtable or Map instead.";
-    public static final String CAMEL_SINK_LDAP_PATH_DIR_CONTEXT_NAME_DEFAULT = null;
+    private static final String CAMEL_SINK_LDAP_PATH_DIR_CONTEXT_NAME_DOC = "Name of either a javax.naming.directory.DirContext, or java.util.Hashtable, or Map bean to lookup in the registry. If the bean is either a Hashtable or Map then a new javax.naming.directory.DirContext instance is created for each use. If the bean is a javax.naming.directory.DirContext then the bean is used as given. The latter may not be possible in all situations where the javax.naming.directory.DirContext must not be shared, and in those situations it can be better to use java.util.Hashtable or Map instead.";
+    private static final String CAMEL_SINK_LDAP_PATH_DIR_CONTEXT_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_LDAP_ENDPOINT_BASE_CONF = "camel.sink.endpoint.base";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_BASE_DOC = "The base DN for searches.";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_BASE_DEFAULT = "ou=system";
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_BASE_DOC = "The base DN for searches.";
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_BASE_DEFAULT = "ou=system";
     public static final String CAMEL_SINK_LDAP_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_LDAP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_LDAP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_LDAP_ENDPOINT_PAGE_SIZE_CONF = "camel.sink.endpoint.pageSize";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_PAGE_SIZE_DOC = "When specified the ldap module uses paging to retrieve all results (most LDAP Servers throw an exception when trying to retrieve more than 1000 entries in one query). To be able to use this a LdapContext (subclass of DirContext) has to be passed in as ldapServerBean (otherwise an exception is thrown)";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_PAGE_SIZE_DEFAULT = null;
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_PAGE_SIZE_DOC = "When specified the ldap module uses paging to retrieve all results (most LDAP Servers throw an exception when trying to retrieve more than 1000 entries in one query). To be able to use this a LdapContext (subclass of DirContext) has to be passed in as ldapServerBean (otherwise an exception is thrown)";
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_PAGE_SIZE_DEFAULT = null;
     public static final String CAMEL_SINK_LDAP_ENDPOINT_RETURNED_ATTRIBUTES_CONF = "camel.sink.endpoint.returnedAttributes";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_RETURNED_ATTRIBUTES_DOC = "Comma-separated list of attributes that should be set in each entry of the result";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_RETURNED_ATTRIBUTES_DEFAULT = null;
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_RETURNED_ATTRIBUTES_DOC = "Comma-separated list of attributes that should be set in each entry of the result";
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_RETURNED_ATTRIBUTES_DEFAULT = null;
     public static final String CAMEL_SINK_LDAP_ENDPOINT_SCOPE_CONF = "camel.sink.endpoint.scope";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_SCOPE_DOC = "Specifies how deeply to search the tree of entries, starting at the base DN. One of: [object] [onelevel] [subtree]";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_SCOPE_DEFAULT = "subtree";
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_SCOPE_DOC = "Specifies how deeply to search the tree of entries, starting at the base DN. One of: [object] [onelevel] [subtree]";
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_SCOPE_DEFAULT = "subtree";
     public static final String CAMEL_SINK_LDAP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_LDAP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_LDAP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_LDAP_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_LDAP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_LDAP_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SINK_LDAP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SINK_LDAP_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_LDAP_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.ldap.lazyStartProducer";
-    public static final String CAMEL_SINK_LDAP_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_LDAP_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_LDAP_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_LDAP_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_LDAP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.ldap.basicPropertyBinding";
-    public static final String CAMEL_SINK_LDAP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_LDAP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_LDAP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_LDAP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelLdapSinkConnectorConfig(
             ConfigDef config,

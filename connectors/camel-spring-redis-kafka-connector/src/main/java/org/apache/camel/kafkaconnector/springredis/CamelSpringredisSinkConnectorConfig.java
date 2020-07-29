@@ -27,41 +27,41 @@ public class CamelSpringredisSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_SPRINGREDIS_PATH_HOST_CONF = "camel.sink.path.host";
-    public static final String CAMEL_SINK_SPRINGREDIS_PATH_HOST_DOC = "The host where Redis server is running.";
-    public static final String CAMEL_SINK_SPRINGREDIS_PATH_HOST_DEFAULT = null;
+    private static final String CAMEL_SINK_SPRINGREDIS_PATH_HOST_DOC = "The host where Redis server is running.";
+    private static final String CAMEL_SINK_SPRINGREDIS_PATH_HOST_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGREDIS_PATH_PORT_CONF = "camel.sink.path.port";
-    public static final String CAMEL_SINK_SPRINGREDIS_PATH_PORT_DOC = "Redis server port number";
-    public static final String CAMEL_SINK_SPRINGREDIS_PATH_PORT_DEFAULT = null;
+    private static final String CAMEL_SINK_SPRINGREDIS_PATH_PORT_DOC = "Redis server port number";
+    private static final String CAMEL_SINK_SPRINGREDIS_PATH_PORT_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CHANNELS_CONF = "camel.sink.endpoint.channels";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CHANNELS_DOC = "List of topic names or name patterns to subscribe to. Multiple names can be separated by comma.";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CHANNELS_DEFAULT = null;
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CHANNELS_DOC = "List of topic names or name patterns to subscribe to. Multiple names can be separated by comma.";
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CHANNELS_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_COMMAND_CONF = "camel.sink.endpoint.command";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_COMMAND_DOC = "Default command, which can be overridden by message header. Notice the consumer only supports the following commands: PSUBSCRIBE and SUBSCRIBE One of: [PING] [SET] [GET] [QUIT] [EXISTS] [DEL] [TYPE] [FLUSHDB] [KEYS] [RANDOMKEY] [RENAME] [RENAMENX] [RENAMEX] [DBSIZE] [EXPIRE] [EXPIREAT] [TTL] [SELECT] [MOVE] [FLUSHALL] [GETSET] [MGET] [SETNX] [SETEX] [MSET] [MSETNX] [DECRBY] [DECR] [INCRBY] [INCR] [APPEND] [SUBSTR] [HSET] [HGET] [HSETNX] [HMSET] [HMGET] [HINCRBY] [HEXISTS] [HDEL] [HLEN] [HKEYS] [HVALS] [HGETALL] [RPUSH] [LPUSH] [LLEN] [LRANGE] [LTRIM] [LINDEX] [LSET] [LREM] [LPOP] [RPOP] [RPOPLPUSH] [SADD] [SMEMBERS] [SREM] [SPOP] [SMOVE] [SCARD] [SISMEMBER] [SINTER] [SINTERSTORE] [SUNION] [SUNIONSTORE] [SDIFF] [SDIFFSTORE] [SRANDMEMBER] [ZADD] [ZRANGE] [ZREM] [ZINCRBY] [ZRANK] [ZREVRANK] [ZREVRANGE] [ZCARD] [ZSCORE] [MULTI] [DISCARD] [EXEC] [WATCH] [UNWATCH] [SORT] [BLPOP] [BRPOP] [AUTH] [SUBSCRIBE] [PUBLISH] [UNSUBSCRIBE] [PSUBSCRIBE] [PUNSUBSCRIBE] [ZCOUNT] [ZRANGEBYSCORE] [ZREVRANGEBYSCORE] [ZREMRANGEBYRANK] [ZREMRANGEBYSCORE] [ZUNIONSTORE] [ZINTERSTORE] [SAVE] [BGSAVE] [BGREWRITEAOF] [LASTSAVE] [SHUTDOWN] [INFO] [MONITOR] [SLAVEOF] [CONFIG] [STRLEN] [SYNC] [LPUSHX] [PERSIST] [RPUSHX] [ECHO] [LINSERT] [DEBUG] [BRPOPLPUSH] [SETBIT] [GETBIT] [SETRANGE] [GETRANGE] [PEXPIRE] [PEXPIREAT] [GEOADD] [GEODIST] [GEOHASH] [GEOPOS] [GEORADIUS] [GEORADIUSBYMEMBER]";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_COMMAND_DEFAULT = "SET";
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_COMMAND_DOC = "Default command, which can be overridden by message header. Notice the consumer only supports the following commands: PSUBSCRIBE and SUBSCRIBE One of: [PING] [SET] [GET] [QUIT] [EXISTS] [DEL] [TYPE] [FLUSHDB] [KEYS] [RANDOMKEY] [RENAME] [RENAMENX] [RENAMEX] [DBSIZE] [EXPIRE] [EXPIREAT] [TTL] [SELECT] [MOVE] [FLUSHALL] [GETSET] [MGET] [SETNX] [SETEX] [MSET] [MSETNX] [DECRBY] [DECR] [INCRBY] [INCR] [APPEND] [SUBSTR] [HSET] [HGET] [HSETNX] [HMSET] [HMGET] [HINCRBY] [HEXISTS] [HDEL] [HLEN] [HKEYS] [HVALS] [HGETALL] [RPUSH] [LPUSH] [LLEN] [LRANGE] [LTRIM] [LINDEX] [LSET] [LREM] [LPOP] [RPOP] [RPOPLPUSH] [SADD] [SMEMBERS] [SREM] [SPOP] [SMOVE] [SCARD] [SISMEMBER] [SINTER] [SINTERSTORE] [SUNION] [SUNIONSTORE] [SDIFF] [SDIFFSTORE] [SRANDMEMBER] [ZADD] [ZRANGE] [ZREM] [ZINCRBY] [ZRANK] [ZREVRANK] [ZREVRANGE] [ZCARD] [ZSCORE] [MULTI] [DISCARD] [EXEC] [WATCH] [UNWATCH] [SORT] [BLPOP] [BRPOP] [AUTH] [SUBSCRIBE] [PUBLISH] [UNSUBSCRIBE] [PSUBSCRIBE] [PUNSUBSCRIBE] [ZCOUNT] [ZRANGEBYSCORE] [ZREVRANGEBYSCORE] [ZREMRANGEBYRANK] [ZREMRANGEBYSCORE] [ZUNIONSTORE] [ZINTERSTORE] [SAVE] [BGSAVE] [BGREWRITEAOF] [LASTSAVE] [SHUTDOWN] [INFO] [MONITOR] [SLAVEOF] [CONFIG] [STRLEN] [SYNC] [LPUSHX] [PERSIST] [RPUSHX] [ECHO] [LINSERT] [DEBUG] [BRPOPLPUSH] [SETBIT] [GETBIT] [SETRANGE] [GETRANGE] [PEXPIRE] [PEXPIREAT] [GEOADD] [GEODIST] [GEOHASH] [GEOPOS] [GEORADIUS] [GEORADIUSBYMEMBER]";
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_COMMAND_DEFAULT = "SET";
     public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CONNECTION_FACTORY_CONF = "camel.sink.endpoint.connectionFactory";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CONNECTION_FACTORY_DOC = "Reference to a pre-configured RedisConnectionFactory instance to use.";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CONNECTION_FACTORY_DEFAULT = null;
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CONNECTION_FACTORY_DOC = "Reference to a pre-configured RedisConnectionFactory instance to use.";
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_CONNECTION_FACTORY_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_REDIS_TEMPLATE_CONF = "camel.sink.endpoint.redisTemplate";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_REDIS_TEMPLATE_DOC = "Reference to a pre-configured RedisTemplate instance to use.";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_REDIS_TEMPLATE_DEFAULT = null;
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_REDIS_TEMPLATE_DOC = "Reference to a pre-configured RedisTemplate instance to use.";
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_REDIS_TEMPLATE_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_SERIALIZER_CONF = "camel.sink.endpoint.serializer";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_SERIALIZER_DOC = "Reference to a pre-configured RedisSerializer instance to use.";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_SERIALIZER_DEFAULT = null;
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_SERIALIZER_DOC = "Reference to a pre-configured RedisSerializer instance to use.";
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_SERIALIZER_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_SPRINGREDIS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_SPRINGREDIS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SPRINGREDIS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_SPRINGREDIS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SINK_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SINK_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_SPRINGREDIS_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.spring-redis.lazyStartProducer";
-    public static final String CAMEL_SINK_SPRINGREDIS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
-    public static final Boolean CAMEL_SINK_SPRINGREDIS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    private static final String CAMEL_SINK_SPRINGREDIS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
+    private static final Boolean CAMEL_SINK_SPRINGREDIS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_SPRINGREDIS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.spring-redis.basicPropertyBinding";
-    public static final String CAMEL_SINK_SPRINGREDIS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SPRINGREDIS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SINK_SPRINGREDIS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SINK_SPRINGREDIS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelSpringredisSinkConnectorConfig(
             ConfigDef config,

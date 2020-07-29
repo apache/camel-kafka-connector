@@ -27,41 +27,41 @@ public class CamelGuavaeventbusSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_PATH_EVENT_BUS_REF_CONF = "camel.source.path.eventBusRef";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_PATH_EVENT_BUS_REF_DOC = "To lookup the Guava EventBus from the registry with the given name";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_PATH_EVENT_BUS_REF_DEFAULT = null;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_PATH_EVENT_BUS_REF_DOC = "To lookup the Guava EventBus from the registry with the given name";
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_PATH_EVENT_BUS_REF_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EVENT_CLASS_CONF = "camel.source.endpoint.eventClass";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EVENT_CLASS_DOC = "If used on the consumer side of the route, will filter events received from the EventBus to the instances of the class and superclasses of eventClass. Null value of this option is equal to setting it to the java.lang.Object i.e. the consumer will capture all messages incoming to the event bus. This option cannot be used together with listenerInterface option.";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EVENT_CLASS_DEFAULT = null;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EVENT_CLASS_DOC = "If used on the consumer side of the route, will filter events received from the EventBus to the instances of the class and superclasses of eventClass. Null value of this option is equal to setting it to the java.lang.Object i.e. the consumer will capture all messages incoming to the event bus. This option cannot be used together with listenerInterface option.";
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EVENT_CLASS_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_LISTENER_INTERFACE_CONF = "camel.source.endpoint.listenerInterface";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_LISTENER_INTERFACE_DOC = "The interface with method(s) marked with the Subscribe annotation. Dynamic proxy will be created over the interface so it could be registered as the EventBus listener. Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_LISTENER_INTERFACE_DEFAULT = null;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_LISTENER_INTERFACE_DOC = "The interface with method(s) marked with the Subscribe annotation. Dynamic proxy will be created over the interface so it could be registered as the EventBus listener. Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.";
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_LISTENER_INTERFACE_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    private static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_CONF = "camel.component.guava-eventbus.eventBus";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_DOC = "To use the given Guava EventBus instance";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_DEFAULT = null;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_DOC = "To use the given Guava EventBus instance";
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_CONF = "camel.component.guava-eventbus.listenerInterface";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DOC = "The interface with method(s) marked with the Subscribe annotation. Dynamic proxy will be created over the interface so it could be registered as the EventBus listener. Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DEFAULT = null;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DOC = "The interface with method(s) marked with the Subscribe annotation. Dynamic proxy will be created over the interface so it could be registered as the EventBus listener. Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.";
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.guava-eventbus.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    private static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.guava-eventbus.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    private static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    private static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelGuavaeventbusSourceConnectorConfig(
             ConfigDef config,
