@@ -27,10 +27,12 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.kinesis.AmazonKinesis;
 import com.amazonaws.services.kinesis.model.CreateStreamResult;
 import com.amazonaws.services.kinesis.model.DeleteStreamResult;
+import com.amazonaws.services.kinesis.model.DescribeStreamResult;
 import com.amazonaws.services.kinesis.model.PutRecordsRequest;
 import com.amazonaws.services.kinesis.model.PutRecordsRequestEntry;
 import com.amazonaws.services.kinesis.model.PutRecordsResult;
-import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
+import com.amazonaws.services.kinesis.model.ResourceInUseException;
+import com.amazonaws.services.kinesis.model.ResourceNotFoundException;
 import org.apache.camel.kafkaconnector.aws.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -54,8 +56,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static AWSService<AmazonKinesis> service = AWSServiceFactory.createKinesisService();
-    
+
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
+
+    private static final String KINESIS_STREAM_BASE_NAME = "ckc-kin-stream";
+    private String streamName;
 
     private AmazonKinesis awsKinesisClient;
 
@@ -67,13 +72,8 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         return new String[] {"camel-aws-kinesis-kafka-connector"};
     }
 
-
-    @BeforeEach
-    public void setUp() {
-        awsKinesisClient = service.getClient();
-        received = 0;
-
-        CreateStreamResult result = awsKinesisClient.createStream(AWSCommon.DEFAULT_KINESIS_STREAM, 1);
+    private void doCreateStream() {
+        CreateStreamResult result = awsKinesisClient.createStream(streamName, 1);
         if (result.getSdkHttpMetadata().getHttpStatusCode() != 200) {
             fail("Failed to create the stream");
         } else {
@@ -81,29 +81,66 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         }
     }
 
-    @AfterEach
-    public void tearDown() {
-        DeleteStreamResult result = awsKinesisClient.deleteStream(AWSCommon.DEFAULT_KINESIS_STREAM);
+    private void createStream() {
+        try {
+            LOG.info("Checking whether the stream exists already");
+            DescribeStreamResult describeStreamResult = awsKinesisClient.describeStream(streamName);
+
+            int status = describeStreamResult.getSdkHttpMetadata().getHttpStatusCode();
+            LOG.info("Kinesis stream check result: {}", status);
+        } catch (ResourceNotFoundException e) {
+            LOG.info("The stream does not exist, auto creating it ...");
+            doCreateStream();
+        }
+    }
+
+    private void doDeleteStream() {
+        DeleteStreamResult result = awsKinesisClient.deleteStream(streamName);
 
         if (result.getSdkHttpMetadata().getHttpStatusCode() != 200) {
             fail("Failed to delete the stream");
         } else {
-            try {
-                // Because of the latency used to simulate the Kinesis API call (defined by the KINESIS_LATENCY) in
-                // the LocalStack configuration, the test needs to wait at least the same amount of time as set there
-                // in order to proceed. Otherwise the it fails to create the stream in the setUp phase.
-                // Ref.: https://github.com/localstack/localstack/issues/231#issuecomment-319959693
-                Thread.sleep(500);
-                LOG.info("Stream deleted successfully");
-            } catch (InterruptedException e) {
-                fail("Test interrupted while waiting for the stream to cool down");
-            }
+            LOG.info("Stream deleted successfully");
         }
+    }
+
+    private void deleteStream() {
+        try {
+            LOG.info("Checking whether the stream exists already");
+            DescribeStreamResult describeStreamResult = awsKinesisClient.describeStream(streamName);
+
+            int status = describeStreamResult.getSdkHttpMetadata().getHttpStatusCode();
+            LOG.info("Kinesis stream check result: {}", status);
+            doDeleteStream();
+        } catch (ResourceNotFoundException e) {
+            LOG.info("The stream does not exist, skipping deletion");
+        } catch (ResourceInUseException e) {
+            LOG.info("The stream exist but cannot be deleted because it's in use");
+            doDeleteStream();
+        }
+    }
+
+
+    @BeforeEach
+    public void setUp() {
+        streamName = KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
+
+        awsKinesisClient = service.getClient();
+        received = 0;
+
+        createStream();
+    }
+
+
+    @AfterEach
+    public void tearDown() {
+        deleteStream();
 
         awsKinesisClient.shutdown();
 
         deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
+
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
         LOG.debug("Received: {}", record.value());
@@ -139,10 +176,11 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withAmazonConfig(service.getConnectionProperties())
                 .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withStreamName(AWSCommon.DEFAULT_KINESIS_STREAM);
+                .withStreamName(streamName);
 
         runtTest(connectorPropertyFactory);
     }
+
 
     @Test
     @Timeout(120)
@@ -152,7 +190,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withAmazonConfig(service.getConnectionProperties(), CamelAWSKinesisPropertyFactory.KAFKA_STYLE)
                 .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withStreamName(AWSCommon.DEFAULT_KINESIS_STREAM);
+                .withStreamName(streamName);
 
         runtTest(connectorPropertyFactory);
     }
@@ -165,7 +203,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withAmazonConfig(service.getConnectionProperties())
                 .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withUrl(AWSCommon.DEFAULT_KINESIS_STREAM)
+                .withUrl(streamName)
                     .buildUrl();
 
         runtTest(connectorPropertyFactory);
@@ -173,7 +211,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     private void putRecords() {
         PutRecordsRequest putRecordsRequest = new PutRecordsRequest();
-        putRecordsRequest.setStreamName(AWSCommon.DEFAULT_KINESIS_STREAM);
+        putRecordsRequest.setStreamName(streamName);
 
         List<PutRecordsRequestEntry> putRecordsRequestEntryList = new ArrayList<>();
 
