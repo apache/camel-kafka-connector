@@ -18,6 +18,7 @@ package org.apache.camel.kafkaconnector;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,10 +26,12 @@ import org.apache.camel.component.hl7.HL7DataFormat;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectDataformat;
 import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
+import org.apache.camel.model.dataformat.SyslogDataFormat;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -40,6 +43,7 @@ public class DataFormatTest {
         props.put("camel.source.url", "direct://test");
         props.put("topics", "mytopic");
         props.put("camel.source.marshal", "syslog");
+        props.put("camel.source.unmarshal", "hl7");
 
         CamelSourceTask camelsourceTask = new CamelSourceTask();
         camelsourceTask.start(props);
@@ -52,12 +56,12 @@ public class DataFormatTest {
         props.put("camel.sink.url", "direct://test");
         props.put("camel.sink.kafka.topic", "mytopic");
         props.put("camel.sink.unmarshal", "syslog");
+        props.put("camel.source.marshal", "hl7");
 
         CamelSinkTask camelsinkTask = new CamelSinkTask();
         camelsinkTask.start(props);
         camelsinkTask.stop();
     }
-
 
     @Test
     public void testDataFormatNotFound() {
@@ -71,15 +75,34 @@ public class DataFormatTest {
         assertThrows(ConnectException.class, () -> camelsinkTask.stop());
     }
 
-//    @Test
-//    public void testBothDataFormatConfiguredError() throws Exception {
-//        Map<String, String> props = new HashMap<>();
-//
-//        dataformats = Collections.singletonList(new CamelKafkaConnectDataformat(marshaller, CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.MARSHALL));
-//
-//        assertThrows(UnsupportedOperationException.class, () -> new CamelMainSupport(props, "direct://start",
-//                "log://test", "syslog", "syslog", 10, 500));
-//    }
+    @Test
+    public void testMultipleDataFormatConfigured() throws Exception {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "direct://test");
+        props.put("topics", "mytopic");
+        props.put("camel.source.marshal", "hl7");
+        props.put("camel.source.unmarshal", "syslog");
+
+        List<CamelKafkaConnectDataformat> dataformats = new LinkedList<>();
+        dataformats.add(new CamelKafkaConnectDataformat("hl7", CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.MARSHALL));
+        dataformats.add(new CamelKafkaConnectDataformat("syslog", CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.UNMARSHALL));
+        DefaultCamelContext dcc = new DefaultCamelContext();
+        CamelMainSupport cms = new CamelMainSupport(props, "direct://start", "log://test", dataformats, 10, 500, dcc);
+
+        HL7DataFormat hl7Df = new HL7DataFormat();
+        hl7Df.setValidate(false);
+        dcc.getRegistry().bind("hl7", hl7Df);
+
+        SyslogDataFormat syslogDf = new SyslogDataFormat();
+        dcc.getRegistry().bind("syslog", syslogDf);
+
+        cms.start();
+        HL7DataFormat hl7dfLoaded = dcc.getRegistry().lookupByNameAndType("hl7", HL7DataFormat.class);
+        assertNotNull(hl7dfLoaded);
+        SyslogDataFormat syslogDfLoaded = dcc.getRegistry().lookupByNameAndType("syslog", SyslogDataFormat.class);
+        assertNotNull(syslogDfLoaded);
+        cms.stop();
+    }
 
     @Test
     public void testDataFormatLookUpInRegistry() throws Exception {

@@ -29,6 +29,10 @@ public class CamelSinkConnectorConfig extends AbstractConfig {
     public static final String CAMEL_SINK_MARSHAL_CONF = "camel.sink.marshal";
     public static final String CAMEL_SINK_MARSHAL_DOC = "The camel dataformat name to use to marshal data to the destination";
 
+    public static final String CAMEL_SINK_UNMARSHAL_DEFAULT = null;
+    public static final String CAMEL_SINK_UNMARSHAL_CONF = "camel.sink.unmarshal";
+    public static final String CAMEL_SINK_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the topic";
+
     public static final String CAMEL_SINK_COMPONENT_DEFAULT = null;
     public static final String CAMEL_SINK_COMPONENT_CONF = "camel.sink.component";
 
@@ -61,7 +65,9 @@ public class CamelSinkConnectorConfig extends AbstractConfig {
 
     private static final ConfigDef CONFIG_DEF = new ConfigDef()
         .define(CAMEL_SINK_URL_CONF, Type.STRING, CAMEL_SINK_URL_DEFAULT, Importance.HIGH, CAMEL_SINK_URL_DOC)
+        .define(TOPIC_CONF, Type.STRING, TOPIC_DEFAULT, Importance.HIGH, TOPIC_DOC)
         .define(CAMEL_SINK_MARSHAL_CONF, Type.STRING, CAMEL_SINK_MARSHAL_DEFAULT, Importance.HIGH, CAMEL_SINK_MARSHAL_DOC)
+        .define(CAMEL_SINK_UNMARSHAL_CONF, Type.STRING, CAMEL_SINK_UNMARSHAL_DEFAULT, Importance.HIGH, CAMEL_SINK_UNMARSHAL_DOC)
         .define(CAMEL_SINK_COMPONENT_CONF, Type.STRING, CAMEL_SINK_COMPONENT_DEFAULT, Importance.HIGH, CAMEL_SINK_COMPONENT_DOC)
         .define(CAMEL_SINK_CONTENT_LOG_LEVEL_CONF, Type.STRING, CAMEL_SINK_CONTENT_LOG_LEVEL_DEFAULT, Importance.HIGH, CAMEL_SINK_CONTENT_LOG_LEVEL_DOC)
         .define(CAMEL_SINK_AGGREGATE_CONF, Type.STRING, CAMEL_SINK_AGGREGATE_DEFAULT, Importance.MEDIUM, CAMEL_SINK_AGGREGATE_DOC)

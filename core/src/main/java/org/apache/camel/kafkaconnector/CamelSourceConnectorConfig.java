@@ -25,6 +25,14 @@ import org.apache.kafka.common.config.ConfigDef.Importance;
 import org.apache.kafka.common.config.ConfigDef.Type;
 
 public class CamelSourceConnectorConfig extends AbstractConfig {
+    public static final String CAMEL_SOURCE_UNMARSHAL_DEFAULT = null;
+    public static final String CAMEL_SOURCE_UNMARSHAL_CONF = "camel.source.unmarshal";
+    public static final String CAMEL_SOURCE_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the source";
+
+    public static final String CAMEL_SOURCE_MARSHAL_DEFAULT = null;
+    public static final String CAMEL_SOURCE_MARSHAL_CONF = "camel.source.marshal";
+    public static final String CAMEL_SOURCE_MARSHAL_DOC = "The camel dataformat name to use to unmarshal data to the topic";
+
     public static final String CAMEL_SOURCE_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_URL_CONF = "camel.source.url";
 
@@ -34,10 +42,6 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
     public static final String CAMEL_SOURCE_COMPONENT_DOC = "The camel component to use. This is normally set by default for you. It is ignored if " + CAMEL_SOURCE_URL_CONF + " is set.";
     public static final String CAMEL_SOURCE_URL_DOC = "The camel url to configure the source. If this is set " + CAMEL_SOURCE_COMPONENT_CONF
             + " and all the properties starting with " + CamelSourceTask.getCamelSourceEndpointConfigPrefix() + ".<" + CAMEL_SOURCE_COMPONENT_CONF + " value> are ignored.";
-
-    public static final String CAMEL_SOURCE_UNMARSHAL_DEFAULT = null;
-    public static final String CAMEL_SOURCE_UNMARSHAL_CONF = "camel.source.unmarshal";
-    public static final String CAMEL_SOURCE_UNMARSHAL_DOC = "The camel dataformat name to use to unmarshal data from the source";
 
     public static final String TOPIC_DEFAULT = "test";
     public static final String TOPIC_CONF = "topics";
@@ -75,6 +79,7 @@ public class CamelSourceConnectorConfig extends AbstractConfig {
     private static final ConfigDef CONFIG_DEF = new ConfigDef()
         .define(CAMEL_SOURCE_URL_CONF, Type.STRING, CAMEL_SOURCE_URL_DEFAULT, Importance.HIGH, CAMEL_SOURCE_URL_DOC)
         .define(CAMEL_SOURCE_UNMARSHAL_CONF, Type.STRING, CAMEL_SOURCE_UNMARSHAL_DEFAULT, Importance.HIGH, CAMEL_SOURCE_UNMARSHAL_DOC)
+        .define(CAMEL_SOURCE_MARSHAL_CONF, Type.STRING, CAMEL_SOURCE_MARSHAL_DEFAULT, Importance.HIGH, CAMEL_SOURCE_MARSHAL_DOC)
         .define(TOPIC_CONF, ConfigDef.Type.STRING, TOPIC_DEFAULT, ConfigDef.Importance.HIGH, TOPIC_DOC)
         .define(CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF, Type.LONG, CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_DOC)
         .define(CAMEL_SOURCE_MAX_POLL_DURATION_CONF, Type.LONG, CAMEL_SOURCE_MAX_POLL_DURATION_DEFAULT, Importance.MEDIUM, CAMEL_SOURCE_MAX_POLL_DURATION_DOC)
