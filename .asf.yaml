@@ -1,0 +1,8 @@
+github:
+  description: "Camel Kafka Connector allows you to use all Camel components as Kafka Connect connectors"
+  homepage: https://camel.apache.org
+  labels:
+    - camel
+    - integration
+    - kafka
+    - java
