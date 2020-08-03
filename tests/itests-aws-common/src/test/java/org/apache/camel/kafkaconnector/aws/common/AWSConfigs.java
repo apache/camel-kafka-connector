@@ -22,7 +22,6 @@ public final class AWSConfigs {
     public static final String SECRET_KEY = "secret.key";
     public static final String REGION = "aws.region";
     public static final String AMAZON_AWS_HOST = "aws.host";
-    public static final String AMAZON_AWS_SNS_2_SQS_QUEUE_URL = "aws.sns.2.sqs.queue.url";
     public static final String PROTOCOL = "aws.protocol";
 
     private AWSConfigs() {
