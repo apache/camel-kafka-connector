@@ -39,6 +39,14 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.camel.kafkaconnector</groupId>
+            <artifactId>itests-aws-common</artifactId>
+            <version>${project.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-aws-sqs</artifactId>
         </dependency>

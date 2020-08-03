@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.aws.services;
+package org.apache.camel.kafkaconnector.aws.common.services;
 
 import java.util.Properties;
 

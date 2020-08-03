@@ -41,6 +41,7 @@
     <modules>
         <module>itests-parent</module>
         <module>itests-common</module>
+        <module>itests-aws-common</module>
         <module>itests-aws</module>
         <module>itests-cassandra</module>
         <module>itests-elasticsearch</module>

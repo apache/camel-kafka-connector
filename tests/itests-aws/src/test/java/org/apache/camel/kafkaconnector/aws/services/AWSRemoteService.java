@@ -28,6 +28,7 @@ import org.apache.camel.kafkaconnector.aws.clients.AWSClientUtils;
 import org.apache.camel.kafkaconnector.aws.clients.AWSSQSClient;
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.aws.common.TestAWSCredentialsProvider;
+import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 
 public class AWSRemoteService<T> implements AWSService<T> {
     private static final AWSCredentialsProvider CREDENTIALS_PROVIDER = new TestAWSCredentialsProvider();

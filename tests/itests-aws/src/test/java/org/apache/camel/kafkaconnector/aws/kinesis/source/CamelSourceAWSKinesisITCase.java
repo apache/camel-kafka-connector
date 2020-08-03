@@ -33,7 +33,7 @@ import com.amazonaws.services.kinesis.model.PutRecordsRequestEntry;
 import com.amazonaws.services.kinesis.model.PutRecordsResult;
 import com.amazonaws.services.kinesis.model.ResourceInUseException;
 import com.amazonaws.services.kinesis.model.ResourceNotFoundException;
-import org.apache.camel.kafkaconnector.aws.services.AWSService;
+import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;

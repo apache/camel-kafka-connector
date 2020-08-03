@@ -22,6 +22,7 @@ import java.util.Properties;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.regions.Regions;
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
+import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.localstack.LocalStackContainer;

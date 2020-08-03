@@ -21,6 +21,7 @@ import com.amazonaws.services.kinesis.AmazonKinesis;
 import com.amazonaws.services.s3.AmazonS3;
 import org.apache.camel.kafkaconnector.aws.clients.AWSClientUtils;
 import org.apache.camel.kafkaconnector.aws.clients.AWSSQSClient;
+import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -30,7 +30,7 @@ import com.amazonaws.services.sqs.model.Message;
 import org.apache.camel.kafkaconnector.aws.clients.AWSSQSClient;
 import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
-import org.apache.camel.kafkaconnector.aws.services.AWSService;
+import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
