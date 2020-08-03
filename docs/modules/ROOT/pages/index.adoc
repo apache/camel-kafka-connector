@@ -11,4 +11,5 @@
 ** xref:try-it-out-on-openshift-with-strimzi.adoc[Try it on OpenShift]
 ** xref:getting-started-with-packages.adoc[Packages documentation]
 * xref:connectors.adoc[Connectors list]
+* xref:camel-compatibility-matrix.adoc[Apache Camel compatibility matrix]
 * xref:contributing.adoc[Contributing]
