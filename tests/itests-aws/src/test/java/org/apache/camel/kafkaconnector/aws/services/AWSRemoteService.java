@@ -43,8 +43,7 @@ public class AWSRemoteService<T> implements AWSService<T> {
         return remoteClientSupplier.get();
     }
 
-    @Override
-    public AWSCredentials getCredentials() {
+    private AWSCredentials getCredentials() {
         return CREDENTIALS_PROVIDER.getCredentials();
     }
 

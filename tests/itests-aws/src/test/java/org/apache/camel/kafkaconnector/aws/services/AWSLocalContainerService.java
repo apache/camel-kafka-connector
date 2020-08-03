@@ -52,8 +52,7 @@ abstract class AWSLocalContainerService<T> implements AWSService<T> {
         container.stop();
     }
 
-    @Override
-    public AWSCredentials getCredentials() {
+    private AWSCredentials getCredentials() {
         return container.getDefaultCredentialsProvider().getCredentials();
     }
 

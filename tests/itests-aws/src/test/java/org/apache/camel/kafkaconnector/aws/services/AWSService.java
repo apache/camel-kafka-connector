@@ -19,7 +19,6 @@ package org.apache.camel.kafkaconnector.aws.services;
 
 import java.util.Properties;
 
-import com.amazonaws.auth.AWSCredentials;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -27,8 +26,6 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 public interface AWSService<T> extends BeforeAllCallback, AfterAllCallback {
 
     T getClient();
-
-    AWSCredentials getCredentials();
 
     Properties getConnectionProperties();
 
