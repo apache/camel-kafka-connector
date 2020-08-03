@@ -194,6 +194,7 @@
         <module>camel-aws-sqs-kafka-connector</module>
         <module>camel-aws-swf-kafka-connector</module>
         <module>camel-aws-translate-kafka-connector</module>
+        <module>camel-aws2-athena-kafka-connector</module>
         <module>camel-aws2-cw-kafka-connector</module>
         <module>camel-aws2-ddb-kafka-connector</module>
         <module>camel-aws2-ddbstream-kafka-connector</module>
@@ -426,6 +427,7 @@
         <module>camel-rest-kafka-connector</module>
         <module>camel-rest-openapi-kafka-connector</module>
         <module>camel-rest-swagger-kafka-connector</module>
+        <module>camel-resteasy-kafka-connector</module>
         <module>camel-robotframework-kafka-connector</module>
         <module>camel-rss-kafka-connector</module>
         <module>camel-saga-kafka-connector</module>
