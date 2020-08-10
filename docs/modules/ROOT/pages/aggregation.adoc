@@ -10,7 +10,7 @@ We introduced then the following options in the Sink Connector Configuration:
 
 [source,bash]
 ----
-camel.beans.aggregate=#class:org.apache.camel.kafkaconnector.aggregator.StringAggregator"
+camel.beans.aggregate=#class:org.apache.camel.kafkaconnector.aggregator.StringAggregator
 camel.beans.aggregation.size=10
 camel.beans.aggregation.timeout=5000
 ----
