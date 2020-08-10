@@ -19,6 +19,7 @@ package org.apache.camel.kafkaconnector.aws.v2.services;
 
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSDKClientUtils;
+import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.SdkSystemSetting;
@@ -49,6 +50,24 @@ public final class AWSServiceFactory {
 
         if (awsInstanceType.equals("remote")) {
             return new AWSRemoteService<>(AWSSDKClientUtils::newKinesisClient);
+        }
+
+        LOG.error("Invalid AWS instance type: {}. Must be either 'remote' or 'local-aws-container'",
+                awsInstanceType);
+        throw new UnsupportedOperationException("Invalid AWS instance type");
+    }
+
+    public static AWSService<AWSSQSClient> createSQSService() {
+        String awsInstanceType = System.getProperty("aws-service.instance.type");
+        LOG.info("Creating a {} AWS SQS instance", getInstanceTypeName(awsInstanceType));
+
+
+        if (awsInstanceType == null || awsInstanceType.equals("local-aws-container")) {
+            return new AWSSQSLocalContainerService();
+        }
+
+        if (awsInstanceType.equals("remote")) {
+            return new AWSRemoteService<>(AWSSDKClientUtils::newSQSClient);
         }
 
         LOG.error("Invalid AWS instance type: {}. Must be either 'remote' or 'local-aws-container'",

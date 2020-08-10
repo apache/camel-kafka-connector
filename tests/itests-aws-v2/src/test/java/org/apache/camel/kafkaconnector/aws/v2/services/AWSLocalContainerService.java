@@ -35,6 +35,10 @@ abstract class AWSLocalContainerService<T> implements AWSService<T> {
         container = new AWSContainer(services);
     }
 
+    public AWSLocalContainerService(String containerName, Service...services) {
+        container = new AWSContainer(containerName, services);
+    }
+
     private String getAmazonHost() {
         return container.getAmazonHost();
     }
