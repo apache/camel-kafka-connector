@@ -18,7 +18,8 @@
 package org.apache.camel.kafkaconnector.aws.v2.services;
 
 public enum Service {
-    KINESIS("kinesis");
+    KINESIS("kinesis"),
+    SQS("sqs");
 
     private final String serviceName;
 

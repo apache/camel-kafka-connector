@@ -41,7 +41,11 @@ public class AWSContainer extends GenericContainer<AWSContainer> {
     private static final int SERVICE_PORT = 4566;
 
     public AWSContainer(Service...services) {
-        super(LOCALSTACK_CONTAINER);
+        this(LOCALSTACK_CONTAINER, services);
+    }
+
+    public AWSContainer(String container, Service...services) {
+        super(container);
 
         String serviceList = Arrays.stream(services)
                 .map(Service::serviceName)
@@ -50,7 +54,6 @@ public class AWSContainer extends GenericContainer<AWSContainer> {
         LOG.debug("Creating services {}", serviceList);
         withEnv("SERVICE", serviceList);
         withExposedPorts(SERVICE_PORT);
-        addFixedExposedPort(SERVICE_PORT, SERVICE_PORT);
         waitingFor(Wait.forLogMessage(".*Ready\\.\n", 1));
     }
 
