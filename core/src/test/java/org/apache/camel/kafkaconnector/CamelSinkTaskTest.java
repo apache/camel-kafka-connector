@@ -646,4 +646,19 @@ public class CamelSinkTaskTest {
         sinkTask.stop();
     }
 
+    @Test
+    public void testSecretRawReference() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put("camel.sink.endpoint.secretKey", "#bean:mySecretKey");
+        props.put("camel.sink.endpoint.accessKey", "#property:myAccessKey");
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "aws2-sqs");
+        props.put("myAccessKey", "MoreSe+ret$");
+
+        CamelSinkTask sinkTask = new CamelSinkTask();
+        sinkTask.start(props);
+
+        sinkTask.stop();
+    }
+
 }
