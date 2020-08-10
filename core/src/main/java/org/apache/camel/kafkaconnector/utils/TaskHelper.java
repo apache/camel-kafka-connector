@@ -58,7 +58,7 @@ public final class TaskHelper {
             for (String k : filteredProps.keySet()) {
                 if (isSecretOption(rcc, cm, k)) {
                     String value = filteredProps.get(k);
-                    if (value != null && !value.startsWith("RAW(")) {
+                    if (value != null && !value.startsWith("#") && !value.startsWith("RAW(")) {
                         value = "RAW(" + value + ")";
                         filteredProps.put(k, value);
                     }
