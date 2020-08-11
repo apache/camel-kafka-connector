@@ -33,6 +33,7 @@ import com.amazonaws.services.kinesis.model.PutRecordsRequestEntry;
 import com.amazonaws.services.kinesis.model.PutRecordsResult;
 import com.amazonaws.services.kinesis.model.ResourceInUseException;
 import com.amazonaws.services.kinesis.model.ResourceNotFoundException;
+import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -49,8 +50,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @Testcontainers
 public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
@@ -59,7 +60,6 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
 
-    private static final String KINESIS_STREAM_BASE_NAME = "ckc-kin-stream";
     private String streamName;
 
     private AmazonKinesis awsKinesisClient;
@@ -123,7 +123,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        streamName = KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
+        streamName = AWSCommon.KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
 
         awsKinesisClient = service.getClient();
         received = 0;

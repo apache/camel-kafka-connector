@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.aws.v1.common;
+package org.apache.camel.kafkaconnector.aws.common;
 
 public final class AWSCommon {
     /**
      * The default SQS queue name used during the tests
      */
-    public static final String DEFAULT_SQS_QUEUE = "ckc";
+    public static final String BASE_SQS_QUEUE_NAME = "ckc";
 
     /**
      * The default SQS queue name used during the tests
@@ -32,6 +32,11 @@ public final class AWSCommon {
      * The default S3 bucket name used during the tests
      */
     public static final String DEFAULT_S3_BUCKET = "ckc-s3";
+
+    /**
+     * Base name for the Kinesis stream
+     */
+    public static final String KINESIS_STREAM_BASE_NAME = "ckc-kin-stream";
 
     private AWSCommon() {
     }
