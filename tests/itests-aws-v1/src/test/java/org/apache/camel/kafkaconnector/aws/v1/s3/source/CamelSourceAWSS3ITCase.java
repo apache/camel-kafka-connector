@@ -25,6 +25,7 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
+import org.apache.camel.kafkaconnector.aws.v1.clients.AWSClientUtils;
 import org.apache.camel.kafkaconnector.aws.v1.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -77,7 +78,7 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     @AfterEach
     public void tearDown() {
         try {
-            AWSCommon.deleteBucket(awsS3Client, AWSCommon.DEFAULT_S3_BUCKET);
+            AWSClientUtils.deleteBucket(awsS3Client, AWSCommon.DEFAULT_S3_BUCKET);
         } catch (Exception e) {
             LOG.warn("Unable to delete bucked: {}", e.getMessage(), e);
         }
