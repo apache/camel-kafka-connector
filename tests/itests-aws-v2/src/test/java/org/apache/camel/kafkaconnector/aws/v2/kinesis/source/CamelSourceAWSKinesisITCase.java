@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v2.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -63,7 +64,6 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
 
-    private static final String KINESIS_STREAM_BASE_NAME = "ckc-kin-stream";
     private String streamName;
     private KinesisClient kinesisClient;
 
@@ -152,7 +152,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        streamName = KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
+        streamName = AWSCommon.KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
 
         kinesisClient = awsService.getClient();
         received = 0;

@@ -21,10 +21,10 @@ import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 import com.amazonaws.regions.Regions;
+import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v1.clients.AWSSQSClient;
-import org.apache.camel.kafkaconnector.aws.v1.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
@@ -65,7 +65,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         awssqsClient = service.getClient();
-        queueName = AWSCommon.DEFAULT_SQS_QUEUE + "-" + TestUtils.randomWithRange(0, 1000);
+        queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
         received = 0;
     }
 

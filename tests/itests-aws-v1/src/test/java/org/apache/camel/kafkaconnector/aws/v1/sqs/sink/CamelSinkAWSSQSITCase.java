@@ -26,10 +26,10 @@ import java.util.concurrent.TimeUnit;
 
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.sqs.model.Message;
+import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v1.clients.AWSSQSClient;
-import org.apache.camel.kafkaconnector.aws.v1.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
@@ -71,7 +71,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     public void setUp() {
         awssqsClient = awsService.getClient();
 
-        queueName = AWSCommon.DEFAULT_SQS_QUEUE + "-" + TestUtils.randomWithRange(0, 1000);
+        queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
         String queueUrl = awssqsClient.getQueue(queueName);
 
         LOG.debug("Using queue {} for the test", queueUrl);
@@ -164,6 +164,9 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
             runTest(testProperties);
 
+
+            double d = 2;
+            System.out.println("lalal" + d);
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
