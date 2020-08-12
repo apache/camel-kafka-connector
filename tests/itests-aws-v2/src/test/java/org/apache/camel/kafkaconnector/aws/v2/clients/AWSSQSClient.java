@@ -40,8 +40,7 @@ public class AWSSQSClient {
     private static final Logger LOG = LoggerFactory.getLogger(AWSSQSClient.class);
 
     private final SqsClient sqs;
-    private int maxWaitTime = 10;
-    private int maxNumberOfMessages = 1;
+    private final int maxNumberOfMessages = 1;
 
     public AWSSQSClient(SqsClient sqs) {
         this.sqs = sqs;
@@ -56,6 +55,7 @@ public class AWSSQSClient {
 
         return getQueueUrlResult.queueUrl();
     }
+
 
     public String createQueue(String queue) {
         final CreateQueueRequest createFifoQueueRequest = CreateQueueRequest.builder()
@@ -72,7 +72,6 @@ public class AWSSQSClient {
         return null;
     }
 
-
     public void receive(String queue, Predicate<List<Message>> predicate) {
         String queueUrl;
 
@@ -84,6 +83,7 @@ public class AWSSQSClient {
 
         LOG.debug("Consuming messages from {}", queueUrl);
 
+        int maxWaitTime = 10;
         final ReceiveMessageRequest request = ReceiveMessageRequest.builder()
                 .queueUrl(queueUrl)
                 .waitTimeSeconds(maxWaitTime)
@@ -146,5 +146,17 @@ public class AWSSQSClient {
         } catch (QueueDoesNotExistException e) {
             return true;
         }
+    }
+
+    public String getOrCreateQueue(String queue) {
+        String queueUrl;
+
+        try {
+            queueUrl = getQueue(queue);
+        } catch (QueueDoesNotExistException e) {
+            queueUrl = createQueue(queue);
+        }
+
+        return queueUrl;
     }
 }
