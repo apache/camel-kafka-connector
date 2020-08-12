@@ -17,21 +17,16 @@
 
 package org.apache.camel.kafkaconnector.common;
 
-import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.services.kafka.KafkaService;
 import org.apache.camel.kafkaconnector.common.services.kafka.KafkaServiceFactory;
 import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnectRunnerFactory;
 import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnectService;
 import org.apache.camel.kafkaconnector.common.utils.PropertyUtils;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
 public abstract class AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(AbstractKafkaTest.class);
-
     @RegisterExtension
     public final KafkaService kafkaService;
 
@@ -60,14 +55,5 @@ public abstract class AbstractKafkaTest {
 
     public KafkaConnectService getKafkaConnectService() {
         return kafkaConnectService;
-    }
-
-    protected void deleteKafkaTopic(String topic) {
-        try {
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-            kafkaClient.deleteTopic(topic);
-        } catch (Throwable t) {
-            LOG.warn("Topic not deleted (probably the Kafka test cluster was already shutting down?).", t);
-        }
     }
 }

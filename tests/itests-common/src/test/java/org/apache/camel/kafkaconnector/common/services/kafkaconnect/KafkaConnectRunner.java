@@ -27,6 +27,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;
 import org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy;
@@ -214,6 +215,13 @@ class KafkaConnectRunner {
      */
     public void stop() {
         if (connect != null) {
+            LOG.info("Removing topics used during the test");
+            KafkaClient kafkaClient = new KafkaClient(bootstrapServer);
+
+            for (String connector : herder.connectors()) {
+                herder.connectorActiveTopics(connector).topics().forEach(t -> kafkaClient.deleteTopic(t));
+            }
+
             connect.stop();
         } else {
             LOG.warn("Trying to stop an uninitialized Kafka Connect Runner");

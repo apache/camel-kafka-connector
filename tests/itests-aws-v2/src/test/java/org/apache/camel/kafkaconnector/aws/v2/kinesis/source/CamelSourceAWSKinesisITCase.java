@@ -164,8 +164,6 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     @AfterEach
     public void tearDown() {
         deleteStream();
-
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {

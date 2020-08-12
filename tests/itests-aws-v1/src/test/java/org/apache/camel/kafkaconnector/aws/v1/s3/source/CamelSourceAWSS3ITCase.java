@@ -82,8 +82,6 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         } catch (Exception e) {
             LOG.warn("Unable to delete bucked: {}", e.getMessage(), e);
         }
-
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {

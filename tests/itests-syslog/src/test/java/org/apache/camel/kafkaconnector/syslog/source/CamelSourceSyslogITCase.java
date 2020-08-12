@@ -17,8 +17,6 @@
 
 package org.apache.camel.kafkaconnector.syslog.source;
 
-import java.io.IOException;
-
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.syslog.SyslogDataFormat;
@@ -30,7 +28,6 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -63,11 +60,6 @@ public class CamelSourceSyslogITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         received = 0;
-    }
-
-    @AfterEach
-    public void tearDown() throws IOException, InterruptedException {
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private void produceLogMessages(String protocol, String host, String port, String message) throws Exception {

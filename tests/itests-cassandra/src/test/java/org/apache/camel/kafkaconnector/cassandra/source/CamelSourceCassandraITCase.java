@@ -80,8 +80,6 @@ public class CamelSourceCassandraITCase extends AbstractKafkaTest {
         if (testDataDao != null) {
             testDataDao.dropTable();
         }
-
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private <T> boolean checkRecord(ConsumerRecord<String, T> record) {

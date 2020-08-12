@@ -137,8 +137,6 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         deleteStream();
 
         awsKinesisClient.shutdown();
-
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
 
