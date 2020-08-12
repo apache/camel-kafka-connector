@@ -163,10 +163,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
                     .withQueueNameOrArn(queueName);
 
             runTest(testProperties);
-
-
-            double d = 2;
-            System.out.println("lalal" + d);
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
