@@ -26,6 +26,9 @@ import org.apache.camel.LoggingLevel;
 import org.apache.camel.catalog.RuntimeCamelCatalog;
 import org.apache.camel.kafkaconnector.CamelSinkConnectorConfig;
 import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
+import org.apache.camel.tooling.model.BaseOptionModel;
+import org.apache.camel.tooling.model.ComponentModel;
+import org.apache.camel.tooling.model.JsonMapper;
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.source.SourceRecord;
@@ -37,10 +40,32 @@ public final class TaskHelper {
     }
 
     public static String buildUrl(RuntimeCamelCatalog rcc, Map<String, String> props, String componentSchema, String endpointPropertiesPrefix, String pathPropertiesPrefix) throws URISyntaxException {
+        ComponentModel cm = null;
+        if (componentSchema != null) {
+            String json = rcc.componentJSonSchema(componentSchema);
+            if (json != null) {
+                cm = JsonMapper.generateComponentModel(json);
+            }
+        }
+
         Map<String, String> filteredProps = new HashMap<>();
         props.keySet().stream()
                 .filter(k -> k.startsWith(endpointPropertiesPrefix) || k.startsWith(pathPropertiesPrefix))
                 .forEach(k -> filteredProps.put(k.replace(endpointPropertiesPrefix, "").replace(pathPropertiesPrefix, ""), props.get(k)));
+
+        if (cm != null) {
+            // secret options should have their values in RAW mode so we can preseve credentials/passwords etc in uri encodings
+            for (String k : filteredProps.keySet()) {
+                if (isSecretOption(rcc, cm, k)) {
+                    String value = filteredProps.get(k);
+                    if (value != null && !value.startsWith("#") && !value.startsWith("RAW(")) {
+                        value = "RAW(" + value + ")";
+                        filteredProps.put(k, value);
+                    }
+                }
+            }
+        }
+
         return rcc.asEndpointUri(componentSchema, filteredProps, false);
     }
 
@@ -133,6 +158,13 @@ public final class TaskHelper {
                     break;
             }
         }
+    }
+
+    private static boolean isSecretOption(RuntimeCamelCatalog rcc, ComponentModel cm, String endpointName) {
+        return cm.getEndpointOptions().stream()
+                .filter(o -> o.getName().equals(endpointName))
+                .findFirst()
+                .map(BaseOptionModel::isSecret).orElse(false);
     }
 
 }
