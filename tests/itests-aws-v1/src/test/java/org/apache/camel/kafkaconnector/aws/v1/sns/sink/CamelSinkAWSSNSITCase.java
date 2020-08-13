@@ -194,7 +194,6 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
                         .append("subscribeSNStoSQS", "true")
                         .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                         .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                        .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
                         .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
                         .append("configuration", "#class:" + TestSNSConfiguration.class.getName())
                         .buildUrl();
