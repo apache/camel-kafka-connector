@@ -56,6 +56,8 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
 
     private AWSSQSClient awsSqsClient;
+    private String sqsQueueUrl;
+    private String queueName;
 
     private volatile int received;
     private final int expect = 10;
@@ -68,6 +70,12 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     @BeforeEach
     public void setUp() {
         awsSqsClient = service.getClient();
+
+        queueName = AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS + "-" + TestUtils.randomWithRange(0, 1000);
+        sqsQueueUrl = awsSqsClient.getQueue(queueName);
+
+        LOG.info("Created SQS queue {}", sqsQueueUrl);
+
         received = 0;
     }
 
@@ -103,9 +111,6 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     }
 
     public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
-        final String sqsQueue = awsSqsClient.getQueue(AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS);
-        LOG.info("Created SQS queue {}", sqsQueue);
-
         connectorPropertyFactory.log();
 
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
@@ -137,16 +142,13 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     @Timeout(value = 90)
     public void testBasicSendReceive() {
         try {
-            final String sqsQueue = awsSqsClient.getQueue(AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS);
-            LOG.info("Created SQS queue {}", sqsQueue);
-
             Properties amazonProperties = service.getConnectionProperties();
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSNSPropertyFactory.basic()
                     .withName("CamelAWSSNSSinkConnectorDefault")
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withTopicOrArn(AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS)
-                    .withSubscribeSNStoSQS(sqsQueue)
+                    .withTopicOrArn(queueName)
+                    .withSubscribeSNStoSQS(sqsQueueUrl)
                     .withConfiguration(TestSNSConfiguration.class.getName())
                     .withAmazonConfig(amazonProperties);
 
@@ -161,16 +163,13 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     @Timeout(value = 90)
     public void testBasicSendReceiveUsingKafkaStyle() {
         try {
-            final String sqsQueue = awsSqsClient.getQueue(AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS);
-            LOG.info("Created SQS queue {}", sqsQueue);
-
             Properties amazonProperties = service.getConnectionProperties();
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSNSPropertyFactory.basic()
                     .withName("CamelAWSSNSSinkKafkaStyleConnector")
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withTopicOrArn(AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS)
-                    .withSubscribeSNStoSQS(sqsQueue)
+                    .withTopicOrArn(queueName)
+                    .withSubscribeSNStoSQS(sqsQueueUrl)
                     .withConfiguration(TestSNSConfiguration.class.getName())
                     .withAmazonConfig(amazonProperties, CamelAWSSNSPropertyFactory.KAFKA_STYLE);
 
@@ -185,16 +184,13 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
     @Timeout(value = 90)
     public void testBasicSendReceiveUsingUrl() {
         try {
-            final String sqsQueue = awsSqsClient.getQueue(AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS);
-            LOG.info("Created SQS queue {}", sqsQueue);
-
             Properties amazonProperties = service.getConnectionProperties();
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSNSPropertyFactory.basic()
                     .withName("CamelAWSSNSSinkKafkaStyleConnector")
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withUrl(AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS)
-                        .append("queueUrl", sqsQueue)
+                    .withUrl(queueName)
+                        .append("queueUrl", sqsQueueUrl)
                         .append("subscribeSNStoSQS", "true")
                         .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                         .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
