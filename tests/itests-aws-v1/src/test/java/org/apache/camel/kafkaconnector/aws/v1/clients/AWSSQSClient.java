@@ -27,6 +27,7 @@ import com.amazonaws.services.sqs.model.CreateQueueRequest;
 import com.amazonaws.services.sqs.model.DeleteQueueResult;
 import com.amazonaws.services.sqs.model.GetQueueUrlResult;
 import com.amazonaws.services.sqs.model.Message;
+import com.amazonaws.services.sqs.model.QueueDoesNotExistException;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.amazonaws.services.sqs.model.ReceiveMessageResult;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
@@ -44,7 +45,7 @@ public class AWSSQSClient {
         this.sqs = sqs;
     }
 
-    public String getQueue(String queue) {
+    public String createQueue(String queue) {
         final Map<String, String> queueAttributes = new HashMap<>();
 
         final CreateQueueRequest createFifoQueueRequest = new CreateQueueRequest(queue)
@@ -54,10 +55,24 @@ public class AWSSQSClient {
                 .getQueueUrl();
     }
 
+    public synchronized String getQueue(String queue) {
+        try {
+            GetQueueUrlResult getQueueUrlResult = sqs.getQueueUrl(queue);
+
+            return getQueueUrlResult.getQueueUrl();
+        } catch (QueueDoesNotExistException e) {
+            return createQueue(queue);
+        }
+    }
+
 
     public void receive(String queue, Predicate<List<Message>> predicate) {
         final String queueUrl = getQueue(queue);
 
+        receiveFrom(queueUrl, predicate);
+    }
+
+    public void receiveFrom(String queueUrl, Predicate<List<Message>> predicate) {
         LOG.debug("Consuming messages from {}", queueUrl);
 
         final ReceiveMessageRequest request = new ReceiveMessageRequest(queueUrl)
@@ -79,6 +94,10 @@ public class AWSSQSClient {
     public void send(String queue, String body) {
         final String queueUrl = getQueue(queue);
 
+        sendTo(queueUrl, body);
+    }
+
+    public void sendTo(String queueUrl, String body) {
         LOG.debug("Sending messages to {}", queueUrl);
 
         SendMessageRequest request = new SendMessageRequest()

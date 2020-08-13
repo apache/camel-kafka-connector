@@ -17,20 +17,30 @@
 
 package org.apache.camel.kafkaconnector.common.services.kafka;
 
+import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.Network;
 
 public class StrimziService implements KafkaService {
     private static final Logger LOG = LoggerFactory.getLogger(StrimziService.class);
-    private final ZookeeperContainer zookeeperContainer;
-    private final StrimziContainer strimziContainer;
+    private static ZookeeperContainer zookeeperContainer;
+    private static StrimziContainer strimziContainer;
 
     public StrimziService() {
-        Network network = Network.newNetwork();
 
-        zookeeperContainer = new ZookeeperContainer(network, "zookeeper");
-        strimziContainer = new StrimziContainer(network, "strimzi");
+        if (zookeeperContainer == null && strimziContainer == null) {
+
+            Network network = Network.newNetwork();
+
+            if (zookeeperContainer == null) {
+                zookeeperContainer = new ZookeeperContainer(network, "zookeeper");
+            }
+
+            if (strimziContainer == null) {
+                strimziContainer = new StrimziContainer(network, "strimzi");
+            }
+        }
     }
 
     private Integer getKafkaPort() {
@@ -44,14 +54,22 @@ public class StrimziService implements KafkaService {
 
     @Override
     public void initialize() {
-        zookeeperContainer.start();
+        if (!zookeeperContainer.isRunning()) {
+            zookeeperContainer.start();
+        }
 
         String zookeeperConnect = "zookeeper:" + zookeeperContainer.getZookeeperPort();
         LOG.info("Apache Zookeeper running at address {}", zookeeperConnect);
 
-        strimziContainer.start();
+        if (!strimziContainer.isRunning()) {
+            strimziContainer.start();
+        }
 
         LOG.info("Kafka bootstrap server running at address {}", getBootstrapServers());
+    }
+
+    private boolean stopped() {
+        return !strimziContainer.isRunning() && !zookeeperContainer.isRunning();
     }
 
     @Override
@@ -59,6 +77,8 @@ public class StrimziService implements KafkaService {
         try {
             LOG.info("Stopping Kafka container");
             strimziContainer.stop();
+
+            TestUtils.waitFor(this::stopped);
         } finally {
             LOG.info("Stopping Zookeeper container");
             zookeeperContainer.stop();

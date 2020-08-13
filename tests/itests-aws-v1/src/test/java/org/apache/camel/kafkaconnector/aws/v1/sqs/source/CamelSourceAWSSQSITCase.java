@@ -53,6 +53,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
 
     private AWSSQSClient awssqsClient;
     private String queueName;
+    private String queueUrl;
 
     private volatile int received;
     private final int expect = 10;
@@ -66,6 +67,8 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     public void setUp() {
         awssqsClient = service.getClient();
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
+
+        queueUrl = awssqsClient.getQueue(queueName);
         received = 0;
     }
 
@@ -95,7 +98,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
 
         LOG.debug("Sending SQS messages");
         for (int i = 0; i < expect; i++) {
-            awssqsClient.send(queueName, "Source test message " + i);
+            awssqsClient.sendTo(queueUrl, "Source test message " + i);
         }
         LOG.debug("Done sending SQS messages");
 

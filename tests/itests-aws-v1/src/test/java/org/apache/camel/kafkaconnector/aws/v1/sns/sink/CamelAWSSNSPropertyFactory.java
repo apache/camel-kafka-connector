@@ -47,9 +47,9 @@ final class CamelAWSSNSPropertyFactory extends SinkConnectorPropertyFactory<Came
     }
 
     public EndpointUrlBuilder<CamelAWSSNSPropertyFactory> withUrl(String topicOrArn) {
-        String queueUrl = String.format("aws-sns://%s", topicOrArn);
+        String sinkUrl = String.format("aws-sns:%s", topicOrArn);
 
-        return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
+        return new EndpointUrlBuilder<>(this::withSinkUrl, sinkUrl);
     }
 
     public CamelAWSSNSPropertyFactory withTopicOrArn(String topicOrArn) {

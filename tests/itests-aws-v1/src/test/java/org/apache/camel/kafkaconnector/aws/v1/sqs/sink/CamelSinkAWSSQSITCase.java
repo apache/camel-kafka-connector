@@ -46,7 +46,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Testcontainers
@@ -58,6 +58,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     private AWSSQSClient awssqsClient;
     private String queueName;
+    private String queueUrl;
 
     private volatile int received;
     private final int expect = 10;
@@ -72,7 +73,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         awssqsClient = awsService.getClient();
 
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
-        String queueUrl = awssqsClient.getQueue(queueName);
+        queueUrl = awssqsClient.getQueue(queueName);
 
         LOG.debug("Using queue {} for the test", queueUrl);
 
@@ -104,7 +105,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     private void consumeMessages(CountDownLatch latch) {
         try {
-            awssqsClient.receive(queueName, this::checkMessages);
+            awssqsClient.receiveFrom(queueUrl, this::checkMessages);
         } catch (Throwable t) {
             LOG.error("Failed to consume messages: {}", t.getMessage(), t);
         } finally {
@@ -140,8 +141,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
         LOG.debug("Waiting for the test to complete");
         if (latch.await(110, TimeUnit.SECONDS)) {
-            assertTrue(received == expect,
-                    "Didn't process the expected amount of messages: " + received + " != " + expect);
+            assertEquals(expect, received, "Didn't process the expected amount of messages: " + received + " != " + expect);
         } else {
             fail(String.format("Failed to receive the messages within the specified time: received %d of %d",
                     received, expect));
@@ -170,7 +170,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     }
 
     @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
-    @Test
     @Timeout(value = 120)
     @RepeatedTest(3)
     public void testBasicSendReceiveUsingKafkaStyle() {
@@ -193,7 +192,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     }
 
     @DisabledIfSystemProperty(named = "aws-service.instance.type", matches = "remote")
-    @Test
     @Timeout(value = 120)
     @RepeatedTest(3)
     public void testBasicSendReceiveUsingUrl() {
