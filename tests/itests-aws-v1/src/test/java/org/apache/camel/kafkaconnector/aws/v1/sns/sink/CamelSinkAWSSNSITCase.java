@@ -45,7 +45,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Testcontainers
@@ -130,8 +130,7 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
         LOG.debug("Created the consumer ... About to receive messages");
 
         if (latch.await(120, TimeUnit.SECONDS)) {
-            assertTrue(received == expect,
-                    "Didn't process the expected amount of messages: " + received + " != " + expect);
+            assertEquals(expect, received, "Didn't process the expected amount of messages: " + received + " != " + expect);
         } else {
             fail("Failed to receive the messages within the specified time");
         }
