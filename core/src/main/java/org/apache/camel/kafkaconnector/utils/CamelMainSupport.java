@@ -99,7 +99,7 @@ public class CamelMainSupport {
                 RouteDefinition rd = from(fromUrl);
 
                 //dataformats
-                LOG.info("Creating Camel route from({})");
+                LOG.info("Creating Camel route from({})", fromUrl);
                 for (CamelKafkaConnectDataformat dataformat : dataformats) {
                     String dataformatId = dataformat.getDataformatId();
                     switch (dataformat.getDataformatKind()) {
