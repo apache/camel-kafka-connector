@@ -58,6 +58,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     private AWSSQSClient awssqsClient;
     private String queueName;
+    private String queueUrl;
 
     private volatile int received;
     private final int expect = 10;
@@ -72,7 +73,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         awssqsClient = awsService.getClient();
 
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
-        String queueUrl = awssqsClient.getQueue(queueName);
+        queueUrl = awssqsClient.getQueue(queueName);
 
         LOG.debug("Using queue {} for the test", queueUrl);
 
@@ -104,7 +105,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     private void consumeMessages(CountDownLatch latch) {
         try {
-            awssqsClient.receive(queueName, this::checkMessages);
+            awssqsClient.receiveFrom(queueUrl, this::checkMessages);
         } catch (Throwable t) {
             LOG.error("Failed to consume messages: {}", t.getMessage(), t);
         } finally {

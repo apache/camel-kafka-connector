@@ -101,7 +101,7 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
 
     private void consumeMessages(CountDownLatch latch) {
         try {
-            awsSqsClient.receive(AWSCommon.DEFAULT_SQS_QUEUE_FOR_SNS, this::checkMessages);
+            awsSqsClient.receiveFrom(sqsQueueUrl, this::checkMessages);
         } catch (Throwable t) {
             LOG.error("Failed to consume messages: {}", t.getMessage(), t);
             fail(t.getMessage());
