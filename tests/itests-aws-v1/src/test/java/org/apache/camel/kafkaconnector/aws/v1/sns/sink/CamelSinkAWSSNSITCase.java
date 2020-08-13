@@ -38,6 +38,7 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -179,6 +180,7 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
         }
     }
 
+    @Disabled("AWS SNS component is failing to parse the sink URL for this one")
     @Test
     @Timeout(value = 90)
     public void testBasicSendReceiveUsingUrl() {
