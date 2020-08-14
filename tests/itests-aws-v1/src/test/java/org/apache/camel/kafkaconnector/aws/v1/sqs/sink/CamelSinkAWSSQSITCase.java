@@ -82,7 +82,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @AfterEach
     public void tearDown() {
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
         if (!awssqsClient.deleteQueue(queueName)) {
             fail("Failed to delete queue");
         }

@@ -33,7 +33,6 @@ import org.apache.camel.kafkaconnector.elasticsearch.services.ElasticSearchServi
 import org.apache.camel.kafkaconnector.elasticsearch.services.ElasticSearchServiceFactory;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -70,11 +69,6 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     public void setUp() {
         client = elasticSearch.getClient();
         received = 0;
-    }
-
-    @AfterEach
-    public void tearDown() {
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private void putRecords(CountDownLatch latch) {

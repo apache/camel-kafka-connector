@@ -23,6 +23,7 @@ import java.util.Map;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.services.kafka.EmbeddedKafkaService;
 import org.apache.camel.kafkaconnector.common.services.kafka.KafkaService;
+import org.apache.kafka.clients.admin.Admin;
 import org.apache.kafka.connect.runtime.AbstractStatus;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
@@ -81,6 +82,11 @@ public class KafkaConnectEmbedded implements KafkaConnectService {
     public void stop() {
         if (connectorName != null) {
             try {
+                LOG.info("Removing topics used during the test");
+                Admin client = cluster.kafka().createAdminClient();
+
+                client.deleteTopics(cluster.connectorTopics(connectorName).topics());
+
                 LOG.info("Removing connector {}", connectorName);
                 cluster.deleteConnector(connectorName);
             } finally {

@@ -36,7 +36,6 @@ import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -78,11 +77,6 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
         LOG.info("Created SQS queue {}", sqsQueueUrl);
 
         received = 0;
-    }
-
-    @AfterEach
-    public void tearDown() {
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private boolean checkMessages(List<Message> messages) {

@@ -79,8 +79,6 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
         if (testDataDao != null) {
             testDataDao.dropTable();
         }
-
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private void putRecords(CountDownLatch latch) {

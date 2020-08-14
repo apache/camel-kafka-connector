@@ -119,8 +119,6 @@ public class CamelSinkSalesforceITCase extends AbstractKafkaTest {
         }
 
         accountName = null;
-
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
 

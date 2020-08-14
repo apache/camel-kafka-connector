@@ -69,7 +69,6 @@ public class CamelSinkFileITCase extends AbstractKafkaTest {
     @AfterEach
     public void tearDown() {
         cleanup();
-        deleteKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()));
     }
 
     private void cleanup() {
