@@ -153,7 +153,15 @@ public class CamelSinkTask extends SinkTask {
     public void stop() {
         LOG.info("Stopping CamelSinkTask connector task");
         try {
-            cms.stop();
+            if (cms != null) {
+                /*
+                  If the CamelMainSupport instance fails to be instantiated (ie.: due to missing classes or similar
+                  issues) then it won't be assigned and de-referencing it could cause an NPE.
+                 */
+                cms.stop();
+            } else {
+                LOG.warn("A fatal exception may have occurred and the Camel main was not created");
+            }
         } catch (Exception e) {
             throw new ConnectException("Failed to stop Camel context", e);
         } finally {
