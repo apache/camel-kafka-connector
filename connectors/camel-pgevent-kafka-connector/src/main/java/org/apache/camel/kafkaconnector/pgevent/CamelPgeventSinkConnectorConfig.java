@@ -31,7 +31,7 @@ public class CamelPgeventSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PGEVENT_PATH_PORT_DOC = "To connect using hostname and port to the database.";
     public static final String CAMEL_SINK_PGEVENT_PATH_PORT_DEFAULT = "5432";
     public static final String CAMEL_SINK_PGEVENT_PATH_DATABASE_CONF = "camel.sink.path.database";
-    public static final String CAMEL_SINK_PGEVENT_PATH_DATABASE_DOC = "The database name";
+    public static final String CAMEL_SINK_PGEVENT_PATH_DATABASE_DOC = "The database name. The database name can take any characters because it is sent as a quoted identifier. It is part of the endpoint URI, so diacritical marks and non-Latin letters have to be URL encoded.";
     public static final String CAMEL_SINK_PGEVENT_PATH_DATABASE_DEFAULT = null;
     public static final String CAMEL_SINK_PGEVENT_PATH_CHANNEL_CONF = "camel.sink.path.channel";
     public static final String CAMEL_SINK_PGEVENT_PATH_CHANNEL_DOC = "The channel name";
