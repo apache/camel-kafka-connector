@@ -24,7 +24,7 @@ The camel-pgevent source connector supports 14 options, which are listed below.
 | Name | Description | Default | Priority
 | *camel.source.path.host* | To connect using hostname and port to the database. | "localhost" | MEDIUM
 | *camel.source.path.port* | To connect using hostname and port to the database. | "5432" | MEDIUM
-| *camel.source.path.database* | The database name | null | HIGH
+| *camel.source.path.database* | The database name. The database name can take any characters because it is sent as a quoted identifier. It is part of the endpoint URI, so diacritical marks and non-Latin letters have to be URL encoded. | null | HIGH
 | *camel.source.path.channel* | The channel name | null | HIGH
 | *camel.source.endpoint.datasource* | To connect using the given javax.sql.DataSource instead of using hostname and port. | null | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
