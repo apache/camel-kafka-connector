@@ -179,12 +179,24 @@ public class CamelSourceTask extends SourceTask {
     public void stop() {
         LOG.info("Stopping CamelSourceTask connector task");
         try {
-            consumer.stop();
+            if (consumer != null) {
+                consumer.stop();
+            } else {
+                LOG.warn("A critical error may have occurred and there is no consumer to stop");
+            }
         } catch (Exception e) {
             LOG.error("Error stopping camel consumer: {}", e.getMessage());
         }
         try {
-            cms.stop();
+            /*
+              If the CamelMainSupport instance fails to be instantiated (ie.: due to missing classes or similar
+              issues) then it won't be assigned and de-referencing it could cause an NPE.
+             */
+            if (cms != null) {
+                cms.stop();
+            } else {
+                LOG.warn("A fatal exception may have occurred and the Camel main was not created");
+            }
         } catch (Exception e) {
             throw new ConnectException("Failed to stop Camel context", e);
         } finally {

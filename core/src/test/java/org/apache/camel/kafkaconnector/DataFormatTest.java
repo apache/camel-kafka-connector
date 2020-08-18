@@ -72,7 +72,7 @@ public class DataFormatTest {
 
         CamelSinkTask camelsinkTask = new CamelSinkTask();
         assertThrows(ConnectException.class, () -> camelsinkTask.start(props));
-        assertThrows(ConnectException.class, () -> camelsinkTask.stop());
+        // No need to check the stop method. The error is already thrown/caught during startup.
     }
 
     @Test
