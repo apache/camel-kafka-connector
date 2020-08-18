@@ -20,7 +20,7 @@ name: master pr build
 on:
   pull_request:
     branches:
-      - master
+      - camel-kafka-connector-0.4.x
 jobs:
   build:
     runs-on: ubuntu-latest
