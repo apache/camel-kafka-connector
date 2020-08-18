@@ -91,7 +91,7 @@ The camel-salesforce sink connector supports 113 options, which are listed below
 | *camel.component.salesforce.notifyForOperation Undelete* | Notify for un-delete operation, defaults to false (API version = 29.0) | null | MEDIUM
 | *camel.component.salesforce.notifyForOperation Update* | Notify for update operation, defaults to false (API version = 29.0) | null | MEDIUM
 | *camel.component.salesforce.objectMapper* | Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects. | null | MEDIUM
-| *camel.component.salesforce.packages* | In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. | null | MEDIUM
+| *camel.component.salesforce.packages* | In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma. | null | LOW
 | *camel.component.salesforce.rawPayload* | Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default | false | MEDIUM
 | *camel.component.salesforce.reportId* | Salesforce1 Analytics report Id | null | MEDIUM
 | *camel.component.salesforce.reportMetadata* | Salesforce1 Analytics report metadata for filtering | null | MEDIUM
