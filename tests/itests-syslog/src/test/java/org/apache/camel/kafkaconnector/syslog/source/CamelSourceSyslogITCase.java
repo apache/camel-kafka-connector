@@ -29,7 +29,7 @@ import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -99,6 +99,8 @@ public class CamelSourceSyslogITCase extends AbstractKafkaTest {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
 
+        // Add a small delay to let Camel finish netty initialization otherwise the port may be unreachable
+        Thread.sleep(1000);
         produceLogMessages(connectorPropertyFactory.getProperties().get("camel.source.path.protocol").toString(),
                 connectorPropertyFactory.getProperties().get("camel.source.path.host").toString(),
                 connectorPropertyFactory.getProperties().get("camel.source.path.port").toString(),
@@ -112,7 +114,7 @@ public class CamelSourceSyslogITCase extends AbstractKafkaTest {
         assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
 
-    @Test
+    @RepeatedTest(3)
     @Timeout(90)
     public void testBasicSend() {
         try {
