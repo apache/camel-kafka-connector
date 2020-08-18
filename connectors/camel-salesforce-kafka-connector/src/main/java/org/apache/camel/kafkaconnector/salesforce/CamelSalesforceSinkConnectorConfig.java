@@ -234,7 +234,7 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_DOC = "Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_CONF = "camel.component.salesforce.packages";
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF = "camel.component.salesforce.rawPayload";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default";
@@ -447,7 +447,7 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UNDELETE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UNDELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UNDELETE_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_DOC);
-        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_ID_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_METADATA_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_METADATA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_METADATA_DOC);
