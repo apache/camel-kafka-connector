@@ -15,12 +15,12 @@
 # limitations under the License.
 #
 
-name: master build
+name: camel-kafka-connector-0.4.x build
 
 on:
   push:
     branches:
-      - master
+      - camel-kafka-connector-0.4.x
 jobs:
   build:
     runs-on: ubuntu-latest
