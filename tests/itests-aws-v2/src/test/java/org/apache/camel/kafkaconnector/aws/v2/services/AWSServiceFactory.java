@@ -24,6 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.SdkSystemSetting;
 import software.amazon.awssdk.services.kinesis.KinesisClient;
+import software.amazon.awssdk.services.s3.S3Client;
 
 public final class AWSServiceFactory {
     private static final Logger LOG = LoggerFactory.getLogger(AWSServiceFactory.class);
@@ -68,6 +69,23 @@ public final class AWSServiceFactory {
 
         if (awsInstanceType.equals("remote")) {
             return new AWSRemoteService<>(AWSSDKClientUtils::newSQSClient);
+        }
+
+        LOG.error("Invalid AWS instance type: {}. Must be either 'remote' or 'local-aws-container'",
+                awsInstanceType);
+        throw new UnsupportedOperationException("Invalid AWS instance type");
+    }
+
+    public static AWSService<S3Client> createS3Service() {
+        String awsInstanceType = System.getProperty("aws-service.instance.type");
+        LOG.info("Creating a {} AWS S3 instance", awsInstanceType);
+
+        if (awsInstanceType == null || awsInstanceType.equals("local-aws-container")) {
+            return new AWSS3LocalContainerService();
+        }
+
+        if (awsInstanceType.equals("remote")) {
+            return new AWSRemoteService<>(AWSSDKClientUtils::newS3Client);
         }
 
         LOG.error("Invalid AWS instance type: {}. Must be either 'remote' or 'local-aws-container'",
