@@ -15,24 +15,25 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.aws.v2.services;
+package org.apache.camel.kafkaconnector.aws.v2.s3.source;
 
-public enum Service {
-    KINESIS("kinesis"),
-    SQS("sqs"),
-    S3("s3");
+import org.apache.camel.component.aws2.s3.AWS2S3Configuration;
+import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSDKClientUtils;
+import software.amazon.awssdk.services.s3.S3Client;
 
-    private final String serviceName;
+public class TestS3Configuration extends AWS2S3Configuration {
+    private S3Client s3Client;
 
-    Service(String serviceName) {
-        this.serviceName = serviceName;
+    private S3Client buildClient() {
+        return AWSSDKClientUtils.newS3Client();
     }
 
-    public String getServiceName() {
-        return serviceName;
-    }
+    @Override
+    public S3Client getAmazonS3Client() {
+        if (s3Client == null) {
+            s3Client = buildClient();
+        }
 
-    public static String serviceName(Service service) {
-        return service.serviceName;
+        return s3Client;
     }
 }
