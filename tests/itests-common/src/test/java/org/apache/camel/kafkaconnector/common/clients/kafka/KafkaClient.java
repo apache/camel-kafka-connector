@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import org.apache.kafka.clients.admin.AdminClient;
@@ -80,6 +81,21 @@ public class KafkaClient<K, V> {
 
         producer = new KafkaProducer<>(producerPropertyFactory.getProperties());
         consumer = new KafkaConsumer<>(consumerPropertyFactory.getProperties());
+    }
+
+    /**
+     * Consumes message from the given topic
+     *
+     * @param topic     the topic to consume the messages from
+     * @param recordConsumer the a function to consume the received messages
+     */
+    public void consumeAvailable(String topic, Consumer<ConsumerRecord<K, V>> recordConsumer) {
+        consumer.subscribe(Arrays.asList(topic));
+
+        ConsumerRecords<K, V> records = consumer.poll(Duration.ofMillis(100));
+        for (ConsumerRecord<K, V> record : records) {
+            recordConsumer.accept(record);
+        }
     }
 
 

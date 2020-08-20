@@ -34,6 +34,8 @@ import org.junit.jupiter.api.Assertions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * A basic multi-protocol JMS client
  */
@@ -233,6 +235,58 @@ public class JMSClient {
             producer.send(message);
         } finally {
             capturingClose(producer);
+        }
+    }
+
+
+    public static void produceMessages(JMSClient jmsProducer, String queue, int count, Function<Integer, String> supplier) {
+        try {
+            jmsProducer.start();
+            for (int i = 0; i < count; i++) {
+                jmsProducer.send(queue, supplier.apply(i));
+            }
+        } catch (JMSException e) {
+            LOG.error("JMS exception trying to send messages to the queue: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        } catch (Exception e) {
+            LOG.error("Failed to send messages to the queue: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        } finally {
+            jmsProducer.stop();
+        }
+    }
+
+    public static void produceMessages(JMSClient jmsProducer, String queue, int count, String baseText) {
+        try {
+            jmsProducer.start();
+            for (int i = 0; i < count; i++) {
+                jmsProducer.send(queue, baseText + " " + i);
+            }
+        } catch (JMSException e) {
+            LOG.error("JMS exception trying to send messages to the queue: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        } catch (Exception e) {
+            LOG.error("Failed to send messages to the queue: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        } finally {
+            jmsProducer.stop();
+        }
+    }
+
+    public static void produceMessages(JMSClient jmsProducer, String queue, int count) {
+        try {
+            jmsProducer.start();
+            for (int i = 0; i < count; i++) {
+                jmsProducer.send(queue, i);
+            }
+        } catch (JMSException e) {
+            LOG.error("JMS exception trying to send messages to the queue: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        } catch (Exception e) {
+            LOG.error("Failed to send messages to the queue: {}", e.getMessage(), e);
+            fail(e.getMessage());
+        } finally {
+            jmsProducer.stop();
         }
     }
 }

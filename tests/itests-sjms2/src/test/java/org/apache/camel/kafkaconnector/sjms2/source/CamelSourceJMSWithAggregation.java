@@ -34,26 +34,24 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-
-/**
- * A simple test case that checks whether the timer produces the expected number of
- * messages
- */
-@Testcontainers
-public class CamelSourceJMSITCase extends AbstractKafkaTest {
+public class CamelSourceJMSWithAggregation extends AbstractKafkaTest {
     @RegisterExtension
     public static JMSService jmsService = JMSServiceFactory.createService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
 
     private int received;
-    private final int expect = 10;
+    private final int sentSize = 10;
+    private final int expect = 1;
     private JMSClient jmsClient;
+    private String receivedMessage = "";
+    private String expectedMessage = "";
+    private String queueName;
+
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -64,33 +62,41 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
     public void setUp() {
         received = 0;
         jmsClient = jmsService.getClient();
-    }
 
-    private <T> boolean checkRecord(ConsumerRecord<String, T> record) {
-        LOG.debug("Received: {}", record.value());
-        received++;
-
-        if (received == expect) {
-            return false;
+        for (int i = 0; i < sentSize - 1; i++) {
+            expectedMessage += "hello;\n";
         }
 
-        return true;
+        expectedMessage += "hello;";
+        queueName = SJMS2Common.DEFAULT_JMS_QUEUE + "." + TestUtils.randomWithRange(1, 100);
     }
 
+    private void checkRecord(ConsumerRecord<String, String> record) {
+        receivedMessage += record.value();
+        LOG.debug("Received: {}", receivedMessage);
+
+        received++;
+    }
+
+    private static String textToSend(Integer i) {
+        return "hello;";
+    }
 
 
     public void runBasicStringTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
+        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
 
-        JMSClient.produceMessages(jmsClient, SJMS2Common.DEFAULT_JMS_QUEUE, expect, "Test string message");
+        JMSClient.produceMessages(jmsClient, queueName, sentSize,
+                CamelSourceJMSWithAggregation::textToSend);
 
         LOG.debug("Creating the consumer ...");
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-        kafkaClient.consume(TestUtils.getDefaultTestTopic(this.getClass()), this::checkRecord);
+        kafkaClient.consumeAvailable(TestUtils.getDefaultTestTopic(this.getClass()), this::checkRecord);
         LOG.debug("Created the consumer ...");
 
-        assertEquals(received, expect, "Didn't process the expected amount of messages");
+        assertEquals(expect, received, "Didn't process the expected amount of messages");
+        assertEquals(expectedMessage, receivedMessage, "The messages don't match");
     }
 
     @Test
@@ -100,26 +106,10 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withDestinationName(SJMS2Common.DEFAULT_JMS_QUEUE)
-                    .withConnectionProperties(jmsService.getConnectionProperties());
-
-            runBasicStringTest(connectorPropertyFactory);
-        } catch (Exception e) {
-            LOG.error("JMS test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
-        }
-    }
-
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceiveUsingUrl() {
-        try {
-            ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
-                    .basic()
+                    .withDestinationName(queueName)
                     .withConnectionProperties(jmsService.getConnectionProperties())
-                    .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withUrl(SJMS2Common.DEFAULT_JMS_QUEUE)
-                        .buildUrl();
+                    .withAggregate("org.apache.camel.kafkaconnector.aggregator.StringAggregator", sentSize,
+                            1000);
 
             runBasicStringTest(connectorPropertyFactory);
         } catch (Exception e) {
@@ -127,37 +117,4 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
             fail(e.getMessage());
         }
     }
-
-
-    @Test
-    @Timeout(90)
-    public void testIntSendReceive() {
-        try {
-            final String jmsQueueName = "testIntSendReceive";
-
-            ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
-                    .basic()
-                    .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()) + jmsQueueName)
-                    .withDestinationName(jmsQueueName)
-                    .withConnectionProperties(jmsService.getConnectionProperties());
-
-            connectorPropertyFactory.log();
-            getKafkaConnectService().initializeConnector(connectorPropertyFactory);
-
-            JMSClient.produceMessages(jmsClient, jmsQueueName, expect);
-
-            LOG.debug("Creating the consumer ...");
-            KafkaClient<String, Integer> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-            kafkaClient.consume(TestUtils.getDefaultTestTopic(this.getClass()) + "testIntSendReceive", this::checkRecord);
-            LOG.debug("Created the consumer ...");
-
-            assertEquals(received, expect, "Didn't process the expected amount of messages");
-        } catch (Exception e) {
-            LOG.error("JMS test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
-        }
-
-    }
-
-
 }
