@@ -1,0 +1,73 @@
+[[Troubleshooting-Troubleshooting]]
+= Troubleshooting the Camel Kafka Connector
+
+This page describes some common pitfalls when deploying the connectors.
+
+
+[[Troubleshooting-Contents]]
+== Table of Contents
+
+* <<connector-not-loaded,Kafka Connect does not load the Camel connector>>
+* <<missing-or-incorrect-converters,Missing or Incorrect Converters>>
+* <<missing-dependencies,Missing Dependencies>>
+* <<known-incompatibilities,Known Incompatibilities>>
+* <<known-limitations,Known Limitations>>
+
+[#connector-not-loaded]
+== Kafka Connect does not load the Camel connector
+
+If the Kafka Connect runtime is not loading the Camel connector, the cause could be an incorrect directory
+structure. There is a specific directory structure that needs to be followed when installing the connectors.
+They are meant to be installed in a subdirectory of the Kafka Connect https://kafka.apache.org/documentation/#plugin.path[plugin.path]
+and every connector should be within its own directory.
+
+For example, if you have set the value of `plugin.path` to `/camel-kafka-connectors/` then every connector should
+be within a directory inside it:
+
+* `/camel-kafka-connectors/camel-<component>-kafka-connector`
+
+It's possible to have multiple connectors in the `plugin.path`, therefore in a setup with both `amqp` and `hdfs`
+connectors, it would be possible to have a directory structure like this:
+
+* `/camel-kafka-connectors/camel-hdfs-kafka-connector`
+* `/camel-kafka-connectors/camel-amqp-kafka-connector`
+
+
+[#missing-or-incorrect-converters]
+== Missing or Incorrect Converters
+
+A common root cause for Kafka Connect failing to serialize or deserialize the data in transit is incorrect values
+for the https://kafka.apache.org/documentation/#key.converter[key.converter] or the
+https://kafka.apache.org/documentation/#value.converter[value.converter] (or both). There are usually verifiable
+in the logs by looking for `Caused by: org.apache.kafka.common.errors.SerializationException` or
+`Caused by: org.apache.kafka.connect.errors.DataException`.
+
+Here's one example with trying to exchange data using the AMQP connector without setting the `key.converter` and
+`value.converter` correctly:
+
+`Caused by: org.apache.kafka.connect.errors.DataException: JsonConverter with schemas.enable requires "schema" and "payload" fields and may not contain additional fields. If you are trying to deserialize plain JSON data, set schemas.enable=false in your converter configuration.`
+
+
+[#missing-dependencies]
+== Missing Dependencies
+
+When deploying the connector manually (ie.: without the assistance of tools such as Strimzi) you may need to
+make sure to provide the required runtime dependencies and their dependencies. Some notable examples are:
+
+* AMQP connector requires a JMS-compliant client (such as qpid-jms-client)
+* SJMS2 connector requires the client libraries for the protocol used to communicate with the broker (ie.:
+qpid-jms-client, activemq-client, artemis-jms-client, etc).
+* JDBC connector requires the JDBC client for the database
+
+
+[#known-incompatibilities]
+== Known Incompatibilities
+
+* Do not use activemq-all 5.16.0 or older with the SJMS2 connector: the activemq-all jar contains packages older
+versions of Camel that cause conflict when trying to run the connector. You may find very interesting errors such as
+`java.lang.NoSuchMethodError: org.apache.camel.main.Main.configure()Lorg/apache/camel/main/MainConfigurationProperties`
+when trying to do so.
+
+[#known-limitations]
+== Known Limitations
+
