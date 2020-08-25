@@ -77,7 +77,11 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
         cassandraClient = cassandraService.getClient();
 
         if (testDataDao != null) {
-            testDataDao.dropTable();
+            try {
+                testDataDao.dropTable();
+            } catch (Exception e) {
+                LOG.warn("Unable to drop the table: {}", e.getMessage(), e);
+            }
         }
     }
 
