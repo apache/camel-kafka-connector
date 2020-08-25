@@ -20,7 +20,7 @@ name: master pr build
 on:
   pull_request:
     branches:
-      - master
+      - camel-master
 jobs:
   build:
     runs-on: ubuntu-latest
