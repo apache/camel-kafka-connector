@@ -20,7 +20,7 @@ name: Daily Build Camel Master onto master
 on:
   schedule:
     # Run every day at midnight
-    - cron:  '0 0 * * *'
+    - cron:  '* * * * *'
 
 jobs:
   build:
@@ -46,14 +46,17 @@ jobs:
           git rebase origin/master
           git rev-parse origin/master > ~/build-data/master-sha.txt
       - name: Set up JDK ${{ matrix.java }}
+        if: ${{ success() }}
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
       - name: mvn sourcecheck + build and itests
+        if: ${{ success() }}
         run: |
           ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:parent,org.apache.camel.kafkaconnector:camel-kafka-connector-aggregator,org.apache.camel.kafkaconnector:camel-buildtools clean install
           ./mvnw -V --no-transfer-progress --projects org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean install
           ./mvnw -V --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
       - name: Sync branch Master to Camel Master
+        if: ${{ success() }}
         run: |
           git push --force-with-lease origin camel-master
