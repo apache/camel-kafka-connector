@@ -20,7 +20,7 @@ name: Sync Camel Kafka Connector camel-master Branch
 on:
   schedule:
     # Run at midnight every day
-    - cron:  '* * * * *'
+    - cron:  '0 0 * * *'
 jobs:
   build:
     name: Sync Camel Kafka Connector camel-master Branch
