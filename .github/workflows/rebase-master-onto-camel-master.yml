@@ -55,14 +55,5 @@ jobs:
           ./mvnw -V --no-transfer-progress --projects org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean install
           ./mvnw -V --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
       - name: Sync branch Master to Camel Master
-        if: steps.report.outputs.overall_build_status == 'success'
         run: |
           git push --force-with-lease origin camel-master
-      - name: Report Build Failure
-        if: failure()
-        run: |
-          # Abort rebase in case something went wrong as we may have broken pom.xml files
-          if [[ -e ".git/rebase" || -e ".git/rebase-apply" || -e ".git/rebase-merge" ]]; then
-            git rebase --abort
-          fi
-          ./mvnw verify -N -B -ntp -Pbuild-notification -Dstatus=${{ job.status }} -Dtoken=${{ secrets.GITHUB_TOKEN }} -DbuildId=$(cat ~/build-data/build-id.txt) -Drepo=${GITHUB_REPOSITORY} -Dbranch=camel-master -Dbranch-commit=$(cat ~/build-data/master-sha.txt)
