@@ -84,7 +84,6 @@ mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote -DskipInte
 
 It's possible to use a properties file to set these properties. To do so use `-Dtest.properties=/path/to/file.properties`.
 
-
 === Try it out locally
 
 You can use Camel Kafka connectors with local Apache Kafka installation.
