@@ -51,9 +51,6 @@ public class CamelFlinkSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_FLINK_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_FLINK_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_FLINK_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
-    public static final String CAMEL_SINK_FLINK_COMPONENT_DATA_SET_CONF = "camel.component.flink.dataSet";
-    public static final String CAMEL_SINK_FLINK_COMPONENT_DATA_SET_DOC = "DataSet to compute against.";
-    public static final String CAMEL_SINK_FLINK_COMPONENT_DATA_SET_DEFAULT = null;
     public static final String CAMEL_SINK_FLINK_COMPONENT_DATA_SET_CALLBACK_CONF = "camel.component.flink.dataSetCallback";
     public static final String CAMEL_SINK_FLINK_COMPONENT_DATA_SET_CALLBACK_DOC = "Function performing action against a DataSet.";
     public static final String CAMEL_SINK_FLINK_COMPONENT_DATA_SET_CALLBACK_DEFAULT = null;
@@ -91,7 +88,6 @@ public class CamelFlinkSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_FLINK_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FLINK_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FLINK_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_FLINK_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FLINK_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FLINK_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_FLINK_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FLINK_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FLINK_ENDPOINT_SYNCHRONOUS_DOC);
-        conf.define(CAMEL_SINK_FLINK_COMPONENT_DATA_SET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FLINK_COMPONENT_DATA_SET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FLINK_COMPONENT_DATA_SET_DOC);
         conf.define(CAMEL_SINK_FLINK_COMPONENT_DATA_SET_CALLBACK_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FLINK_COMPONENT_DATA_SET_CALLBACK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FLINK_COMPONENT_DATA_SET_CALLBACK_DOC);
         conf.define(CAMEL_SINK_FLINK_COMPONENT_DATA_STREAM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FLINK_COMPONENT_DATA_STREAM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FLINK_COMPONENT_DATA_STREAM_DOC);
         conf.define(CAMEL_SINK_FLINK_COMPONENT_DATA_STREAM_CALLBACK_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FLINK_COMPONENT_DATA_STREAM_CALLBACK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FLINK_COMPONENT_DATA_STREAM_CALLBACK_DOC);

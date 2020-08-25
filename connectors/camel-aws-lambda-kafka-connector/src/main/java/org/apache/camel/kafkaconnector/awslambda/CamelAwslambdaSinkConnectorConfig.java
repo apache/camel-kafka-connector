@@ -29,6 +29,9 @@ public class CamelAwslambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWSLAMBDA_PATH_FUNCTION_CONF = "camel.sink.path.function";
     public static final String CAMEL_SINK_AWSLAMBDA_PATH_FUNCTION_DOC = "Name of the Lambda function.";
     public static final String CAMEL_SINK_AWSLAMBDA_PATH_FUNCTION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_AWSLAMBDA_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWSLAMBDA_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -62,6 +65,9 @@ public class CamelAwslambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_CONF = "camel.sink.endpoint.secretKey";
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws-lambda.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-lambda.configuration";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_DOC = "The AWS Lambda default configuration";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -109,6 +115,7 @@ public class CamelAwslambdaSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSLAMBDA_PATH_FUNCTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_PATH_FUNCTION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSLAMBDA_PATH_FUNCTION_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_REGION_DOC);
@@ -120,6 +127,7 @@ public class CamelAwslambdaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_SECRET_KEY_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_DOC);

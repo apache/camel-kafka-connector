@@ -30,6 +30,9 @@ public class CamelAwsddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_AMAZON_DDBCLIENT_CONF = "camel.sink.endpoint.amazonDDBClient";
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_AMAZON_DDBCLIENT_DOC = "To use the AmazonDynamoDB as the client";
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_AMAZON_DDBCLIENT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSDDB_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWSDDB_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_AWSDDB_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_CONSISTENT_READ_CONF = "camel.sink.endpoint.consistentRead";
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_CONSISTENT_READ_DOC = "Determines whether or not strong consistency should be enforced when data is read.";
     public static final Boolean CAMEL_SINK_AWSDDB_ENDPOINT_CONSISTENT_READ_DEFAULT = false;
@@ -78,6 +81,9 @@ public class CamelAwsddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_CONF = "camel.component.aws-ddb.amazonDDBClient";
     public static final String CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_DOC = "To use the AmazonDynamoDB as the client";
     public static final String CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSDDB_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws-ddb.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWSDDB_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_AWSDDB_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWSDDB_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-ddb.configuration";
     public static final String CAMEL_SINK_AWSDDB_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SINK_AWSDDB_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -138,6 +144,7 @@ public class CamelAwsddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSDDB_PATH_TABLE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_PATH_TABLE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSDDB_PATH_TABLE_NAME_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_AMAZON_DDBCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_AMAZON_DDBCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_AMAZON_DDBCLIENT_DOC);
+        conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSDDB_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_CONSISTENT_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSDDB_ENDPOINT_CONSISTENT_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_CONSISTENT_READ_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_KEY_ATTRIBUTE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_KEY_ATTRIBUTE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_KEY_ATTRIBUTE_NAME_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_DOC);
@@ -154,6 +161,7 @@ public class CamelAwsddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_DOC);
+        conf.define(CAMEL_SINK_AWSDDB_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSDDB_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSDDB_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWSDDB_COMPONENT_CONSISTENT_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSDDB_COMPONENT_CONSISTENT_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_COMPONENT_CONSISTENT_READ_DOC);
         conf.define(CAMEL_SINK_AWSDDB_COMPONENT_KEY_ATTRIBUTE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_COMPONENT_KEY_ATTRIBUTE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_COMPONENT_KEY_ATTRIBUTE_NAME_DOC);

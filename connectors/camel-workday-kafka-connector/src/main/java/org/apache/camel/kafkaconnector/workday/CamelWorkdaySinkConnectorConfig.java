@@ -25,7 +25,7 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelWorkdaySinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_WORKDAY_PATH_ENTITY_CONF = "camel.sink.path.entity";
-    public static final String CAMEL_SINK_WORKDAY_PATH_ENTITY_DOC = "The entity to be requested or subscribed via API. One of: [report]";
+    public static final String CAMEL_SINK_WORKDAY_PATH_ENTITY_DOC = "The entity to be requested or subscribed via API. One of: [report] [commonAPI]";
     public static final String CAMEL_SINK_WORKDAY_PATH_ENTITY_DEFAULT = null;
     public static final String CAMEL_SINK_WORKDAY_PATH_PATH_CONF = "camel.sink.path.path";
     public static final String CAMEL_SINK_WORKDAY_PATH_PATH_DOC = "The API path to access an entity structure.";

@@ -60,7 +60,7 @@ public class CamelUndertowSinkConnectorConfig
     public static final String CAMEL_SINK_UNDERTOW_ENDPOINT_TRANSFER_EXCEPTION_DOC = "If enabled and an Exchange failed processing on the consumer side and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";
     public static final String CAMEL_SINK_UNDERTOW_ENDPOINT_TRANSFER_EXCEPTION_DEFAULT = "false";
     public static final String CAMEL_SINK_UNDERTOW_ENDPOINT_ACCESS_LOG_RECEIVER_CONF = "camel.sink.endpoint.accessLogReceiver";
-    public static final String CAMEL_SINK_UNDERTOW_ENDPOINT_ACCESS_LOG_RECEIVER_DOC = "Which Undertow AccessLogReciever should be used Will use JBossLoggingAccessLogReceiver if not specifid";
+    public static final String CAMEL_SINK_UNDERTOW_ENDPOINT_ACCESS_LOG_RECEIVER_DOC = "Which Undertow AccessLogReceiver should be used Will use JBossLoggingAccessLogReceiver if not specified";
     public static final String CAMEL_SINK_UNDERTOW_ENDPOINT_ACCESS_LOG_RECEIVER_DEFAULT = null;
     public static final String CAMEL_SINK_UNDERTOW_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
     public static final String CAMEL_SINK_UNDERTOW_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";

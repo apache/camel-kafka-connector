@@ -32,20 +32,20 @@ The camel-milo-server source connector supports 25 options, which are listed bel
 | *camel.component.milo-server.applicationUri* | The application URI | null | MEDIUM
 | *camel.component.milo-server.bindAddresses* | Set the addresses of the local addresses the server should bind to | null | MEDIUM
 | *camel.component.milo-server.buildInfo* | Server build info | null | MEDIUM
+| *camel.component.milo-server.namespaceUri* | The URI of the namespace, defaults to urn:org:apache:camel | "urn:org:apache:camel" | MEDIUM
+| *camel.component.milo-server.path* | The path to be appended to the end of the endpoint url. (doesn't need to start with '/') | null | MEDIUM
+| *camel.component.milo-server.port* | The TCP port the server binds to | null | MEDIUM
+| *camel.component.milo-server.productUri* | The product URI | null | MEDIUM
+| *camel.component.milo-server.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
+| *camel.component.milo-server.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.milo-server.certificate* | Server certificate | null | MEDIUM
 | *camel.component.milo-server.certificateManager* | Server certificate manager | null | MEDIUM
 | *camel.component.milo-server.certificateValidator* | Validator for client certificates | null | MEDIUM
 | *camel.component.milo-server.defaultCertificate Validator* | Validator for client certificates using default file based approach | null | MEDIUM
 | *camel.component.milo-server.enableAnonymous Authentication* | Enable anonymous authentication, disabled by default | false | MEDIUM
-| *camel.component.milo-server.namespaceUri* | The URI of the namespace, defaults to urn:org:apache:camel | null | MEDIUM
-| *camel.component.milo-server.path* | The path to be appended to the end of the endpoint url. (doesn't need to start with '/') | null | MEDIUM
-| *camel.component.milo-server.port* | The TCP port the server binds to | null | MEDIUM
-| *camel.component.milo-server.productUri* | The product URI | null | MEDIUM
 | *camel.component.milo-server.securityPolicies* | Security policies | null | MEDIUM
 | *camel.component.milo-server.securityPoliciesById* | Security policies by URI or name. Multiple policies can be separated by comma. | null | MEDIUM
 | *camel.component.milo-server.userAuthentication Credentials* | Set user password combinations in the form of user1:pwd1,user2:pwd2 Usernames and passwords will be URL decoded | null | MEDIUM
 | *camel.component.milo-server.usernameSecurityPolicy Uri* | Set the UserTokenPolicy used when One of: [None] [Basic128Rsa15] [Basic256] [Basic256Sha256] [Aes128_Sha256_RsaOaep] [Aes256_Sha256_RsaPss] | null | MEDIUM
-| *camel.component.milo-server.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.milo-server.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
 // kafka-connector options: END
