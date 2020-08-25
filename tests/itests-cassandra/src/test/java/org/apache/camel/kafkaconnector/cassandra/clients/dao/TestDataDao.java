@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import com.datastax.driver.core.DataType;
-import com.datastax.driver.core.ResultSet;
-import com.datastax.driver.core.Row;
-import com.datastax.driver.core.Session;
-import com.datastax.driver.core.schemabuilder.SchemaBuilder;
+import com.datastax.oss.driver.api.core.CqlSession;
+import com.datastax.oss.driver.api.core.cql.ResultSet;
+import com.datastax.oss.driver.api.core.cql.Row;
+import com.datastax.oss.driver.api.core.type.DataTypes;
+import com.datastax.oss.driver.api.querybuilder.SchemaBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,9 +38,9 @@ public class TestDataDao {
     private static final Logger LOG = LoggerFactory.getLogger(TestDataDao.class);
 
 
-    private final Session session;
+    private final CqlSession session;
 
-    public TestDataDao(Session session) {
+    public TestDataDao(CqlSession session) {
         this.session = session;
     }
 
@@ -52,12 +52,16 @@ public class TestDataDao {
 
         String statement = SchemaBuilder.createKeyspace(KEY_SPACE)
                 .ifNotExists()
-                .with()
-                .replication(replication).getQueryString();
+                .withReplicationOptions(replication)
+                .asCql();
 
         LOG.info("Executing {}", statement);
 
-        session.execute(statement);
+        ResultSet rs = session.execute(statement);
+
+        if (!rs.wasApplied()) {
+            LOG.warn("The create key space statement did not execute");
+        }
     }
 
     public void useKeySpace() {
@@ -69,22 +73,29 @@ public class TestDataDao {
 
     public void createTable() {
         String statement = SchemaBuilder.createTable(TABLE_NAME)
-                .addPartitionKey("id", DataType.timeuuid())
-                .addClusteringColumn("text", DataType.text())
-                .getQueryString();
+                .withPartitionKey("id", DataTypes.TIMEUUID)
+                .withClusteringColumn("text", DataTypes.TEXT)
+                .asCql();
+
 
         LOG.info("Executing create table {}", statement);
 
-        session.execute(statement);
+        ResultSet rs = session.execute(statement);
+        if (!rs.wasApplied()) {
+            LOG.warn("The create table statement did not execute");
+        }
     }
 
     public void dropTable() {
         String statement = SchemaBuilder.dropTable(TABLE_NAME)
-                .getQueryString();
+                .asCql();
 
         LOG.info("Executing drop table {}", statement);
 
-        session.execute(statement);
+        ResultSet rs = session.execute(statement);
+        if (!rs.wasApplied()) {
+            LOG.warn("The drop table statement did not execute");
+        }
     }
 
     public boolean hasEnoughData(long expected) {
