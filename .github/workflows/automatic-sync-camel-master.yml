@@ -19,15 +19,15 @@ name: Sync Camel Kafka Connector camel-master Branch
 
 on:
   schedule:
-    # Run at midnight every day
-    - cron:  '0 0 * * *'
+    # Run at 2 AM every day
+    - cron:  '0 2 * * *'
 jobs:
   build:
     name: Sync Camel Kafka Connector camel-master Branch
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '1.8' ]
+        java: [ '11' ]
     steps:
       - name: Checkout Camel project
         uses: actions/checkout@v2

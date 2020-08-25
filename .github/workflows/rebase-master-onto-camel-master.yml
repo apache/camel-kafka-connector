@@ -20,14 +20,14 @@ name: Daily Build Camel Master onto master
 on:
   schedule:
     # Run every day at midnight
-    - cron:  '* * * * *'
+    - cron:  '0 0 * * *'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '1.8', '11' ]
+        java: [ '11' ]
     steps:
       - name: Set Workflow Build ID
         run: |
