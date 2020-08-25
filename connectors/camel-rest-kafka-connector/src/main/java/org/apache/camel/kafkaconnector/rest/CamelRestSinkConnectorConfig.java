@@ -64,7 +64,7 @@ public class CamelRestSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_REST_ENDPOINT_PRODUCER_COMPONENT_NAME_DOC = "The Camel Rest component to use for (producer) the REST transport, such as http, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory is registered in the registry. If either one is found, then that is being used.";
     public static final String CAMEL_SINK_REST_ENDPOINT_PRODUCER_COMPONENT_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_CONF = "camel.sink.endpoint.queryParameters";
-    public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DOC = "Query parameters for the HTTP service to call";
+    public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DOC = "Query parameters for the HTTP service to call. The query parameters can contain multiple parameters separated by ampersand such such as foo=123&bar=456.";
     public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_REST_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
     public static final String CAMEL_SINK_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";

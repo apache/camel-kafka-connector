@@ -15,7 +15,7 @@ When using camel-aws2-sqs-kafka-connector as source make sure to use the followi
 ----
 
 
-The camel-aws2-sqs source connector supports 87 options, which are listed below.
+The camel-aws2-sqs source connector supports 91 options, which are listed below.
 
 
 
@@ -26,11 +26,13 @@ The camel-aws2-sqs source connector supports 87 options, which are listed below.
 | *camel.source.endpoint.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | MEDIUM
 | *camel.source.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | MEDIUM
 | *camel.source.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | MEDIUM
+| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | MEDIUM
 | *camel.source.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | MEDIUM
 | *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.source.endpoint.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | MEDIUM
 | *camel.source.endpoint.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
+| *camel.source.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.source.endpoint.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | MEDIUM
@@ -69,7 +71,7 @@ The camel-aws2-sqs source connector supports 87 options, which are listed below.
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
 | *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
@@ -79,11 +81,13 @@ The camel-aws2-sqs source connector supports 87 options, which are listed below.
 | *camel.component.aws2-sqs.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | MEDIUM
 | *camel.component.aws2-sqs.amazonSQSClient* | To use the AmazonSQS as client | null | MEDIUM
 | *camel.component.aws2-sqs.autoCreateQueue* | Setting the autocreation of the queue | true | MEDIUM
+| *camel.component.aws2-sqs.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.component.aws2-sqs.configuration* | The AWS SQS default configuration | null | MEDIUM
 | *camel.component.aws2-sqs.protocol* | The underlying protocol used to communicate with SQS | "https" | MEDIUM
 | *camel.component.aws2-sqs.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.component.aws2-sqs.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | MEDIUM
 | *camel.component.aws2-sqs.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
+| *camel.component.aws2-sqs.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.component.aws2-sqs.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | MEDIUM
 | *camel.component.aws2-sqs.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.aws2-sqs.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | MEDIUM

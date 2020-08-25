@@ -57,13 +57,13 @@ public class CamelIgnitequeueSinkConnectorConfig
     public static final String CAMEL_SINK_IGNITEQUEUE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_IGNITEQUEUE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_CONFIGURATION_RESOURCE_CONF = "camel.component.ignite-queue.configurationResource";
-    public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_CONFIGURATION_RESOURCE_DOC = "Resource from where to load configuration.";
+    public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_CONFIGURATION_RESOURCE_DOC = "The resource from where to load the configuration. It can be a: URL, String or InputStream type.";
     public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_CONFIGURATION_RESOURCE_DEFAULT = null;
     public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_IGNITE_CONF = "camel.component.ignite-queue.ignite";
-    public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_IGNITE_DOC = "Ignite instance.";
+    public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_IGNITE_DOC = "To use an existing Ignite instance.";
     public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_IGNITE_DEFAULT = null;
     public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_IGNITE_CONFIGURATION_CONF = "camel.component.ignite-queue.igniteConfiguration";
-    public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_IGNITE_CONFIGURATION_DOC = "Ignite configuration.";
+    public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_IGNITE_CONFIGURATION_DOC = "Allows the user to set a programmatic ignite configuration.";
     public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_IGNITE_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.ignite-queue.lazyStartProducer";
     public static final String CAMEL_SINK_IGNITEQUEUE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";

@@ -15,7 +15,7 @@ When using camel-rabbitmq-kafka-connector as sink make sure to use the following
 ----
 
 
-The camel-rabbitmq sink connector supports 97 options, which are listed below.
+The camel-rabbitmq sink connector supports 98 options, which are listed below.
 
 
 
@@ -40,6 +40,7 @@ The camel-rabbitmq sink connector supports 97 options, which are listed below.
 | *camel.sink.endpoint.portNumber* | Port number for the host with the running rabbitmq instance or cluster. Default value is 5672. | null | MEDIUM
 | *camel.sink.endpoint.queue* | The queue to receive messages from | null | MEDIUM
 | *camel.sink.endpoint.routingKey* | The routing key to use when binding a consumer queue to the exchange. For producer routing keys, you set the header rabbitmq.ROUTING_KEY. | null | MEDIUM
+| *camel.sink.endpoint.skipDlqDeclare* | If true the producer will not declare and bind a dead letter queue. This can be used if you have also DLQ rabbitmq consumer and you want to avoid argument clashing between Producer and Consumer. This option have no effect, if DLQ configured (deadLetterExchange option is not set). | false | MEDIUM
 | *camel.sink.endpoint.skipExchangeDeclare* | This can be used if we need to declare the queue but not the exchange | false | MEDIUM
 | *camel.sink.endpoint.skipQueueBind* | If true the queue will not be bound to the exchange after declaring it | false | MEDIUM
 | *camel.sink.endpoint.skipQueueDeclare* | If true the producer will not declare and bind a queue. This can be used for directing messages via an existing routing key. | false | MEDIUM
@@ -55,7 +56,7 @@ The camel-rabbitmq sink connector supports 97 options, which are listed below.
 | *camel.sink.endpoint.mandatory* | This flag tells the server how to react if the message cannot be routed to a queue. If this flag is set, the server will return an unroutable message with a Return method. If this flag is zero, the server silently drops the message. If the header is present rabbitmq.MANDATORY it will override this option. | false | MEDIUM
 | *camel.sink.endpoint.publisherAcknowledgements* | When true, the message will be published with publisher acknowledgements turned on | false | MEDIUM
 | *camel.sink.endpoint.publisherAcknowledgements Timeout* | The amount of time in milliseconds to wait for a basic.ack response from RabbitMQ server | null | MEDIUM
-| *camel.sink.endpoint.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. For example to declare a queue with message ttl argument: \http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000 | null | MEDIUM
+| *camel.sink.endpoint.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ binding: arg.dlq.binding. For example to declare a queue with message ttl argument: \http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000 | null | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.clientProperties* | Connection client properties (client info used in negotiating with the server) | null | MEDIUM
 | *camel.sink.endpoint.connectionFactoryException Handler* | Custom rabbitmq ExceptionHandler for ConnectionFactory | null | MEDIUM
@@ -100,7 +101,7 @@ The camel-rabbitmq sink connector supports 97 options, which are listed below.
 | *camel.component.rabbitmq.mandatory* | This flag tells the server how to react if the message cannot be routed to a queue. If this flag is set, the server will return an unroutable message with a Return method. If this flag is zero, the server silently drops the message. If the header is present rabbitmq.MANDATORY it will override this option. | false | MEDIUM
 | *camel.component.rabbitmq.publisherAcknowledgements* | When true, the message will be published with publisher acknowledgements turned on | false | MEDIUM
 | *camel.component.rabbitmq.publisherAcknowledgements Timeout* | The amount of time in milliseconds to wait for a basic.ack response from RabbitMQ server | null | MEDIUM
-| *camel.component.rabbitmq.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. For example to declare a queue with message ttl argument: \http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000 | null | MEDIUM
+| *camel.component.rabbitmq.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ Binding: arg.dlq.binding. For example to declare a queue with message ttl argument: \http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000 | null | MEDIUM
 | *camel.component.rabbitmq.autoDetectConnection Factory* | Whether to auto-detect looking up RabbitMQ connection factory from the registry. When enabled and a single instance of the connection factory is found then it will be used. An explicit connection factory can be configured on the component or endpoint level which takes precedence. | true | MEDIUM
 | *camel.component.rabbitmq.automaticRecoveryEnabled* | Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application) | null | MEDIUM
 | *camel.component.rabbitmq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM

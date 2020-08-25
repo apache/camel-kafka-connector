@@ -32,6 +32,9 @@ public class CamelAwskinesisSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_CONF = "camel.source.endpoint.amazonKinesisClient";
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_DOC = "Amazon Kinesis client to use for all requests for this endpoint";
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.source.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
+    public static final Boolean CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_HOST_CONF = "camel.source.endpoint.proxyHost";
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the Kinesis client";
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -108,7 +111,7 @@ public class CamelAwskinesisSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -131,6 +134,9 @@ public class CamelAwskinesisSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSKINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_CONF = "camel.component.aws-kinesis.amazonKinesisClient";
     public static final String CAMEL_SOURCE_AWSKINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_DOC = "Amazon Kinesis client to use for all requests for this endpoint";
     public static final String CAMEL_SOURCE_AWSKINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWSKINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws-kinesis.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWSKINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
+    public static final Boolean CAMEL_SOURCE_AWSKINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSKINESIS_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-kinesis.configuration";
     public static final String CAMEL_SOURCE_AWSKINESIS_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SOURCE_AWSKINESIS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -188,6 +194,7 @@ public class CamelAwskinesisSourceConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_AWSKINESIS_PATH_STREAM_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_PATH_STREAM_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSKINESIS_PATH_STREAM_NAME_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_DOC);
+        conf.define(CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_PROXY_PROTOCOL_DOC);
@@ -221,6 +228,7 @@ public class CamelAwskinesisSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSKINESIS_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_DOC);
+        conf.define(CAMEL_SOURCE_AWSKINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSKINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_COMPONENT_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_AWSKINESIS_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSKINESIS_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSKINESIS_COMPONENT_PROXY_PORT_DOC);

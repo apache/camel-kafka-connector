@@ -38,6 +38,9 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_CONF = "camel.source.endpoint.autoCreateQueue";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the queue";
     public static final Boolean CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.source.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.source.endpoint.headerFilterStrategy";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to map headers to/from Camel.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -53,6 +56,9 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_CONF = "camel.source.endpoint.region";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_DOC = "The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.source.endpoint.trustAllCertificates";
+    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
+    public static final Boolean CAMEL_SOURCE_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_ATTRIBUTE_NAMES_CONF = "camel.source.endpoint.attributeNames";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_ATTRIBUTE_NAMES_DOC = "A list of attribute names to receive when consuming. Multiple names can be separated by comma.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_ATTRIBUTE_NAMES_DEFAULT = null;
@@ -168,7 +174,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -197,6 +203,9 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_CONF = "camel.component.aws2-sqs.autoCreateQueue";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the queue";
     public static final Boolean CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws2-sqs.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-sqs.configuration";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_DOC = "The AWS SQS default configuration";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -212,6 +221,9 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_CONF = "camel.component.aws2-sqs.region";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_DOC = "The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-sqs.trustAllCertificates";
+    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
+    public static final Boolean CAMEL_SOURCE_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_ATTRIBUTE_NAMES_CONF = "camel.component.aws2-sqs.attributeNames";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_ATTRIBUTE_NAMES_DOC = "A list of attribute names to receive when consuming. Multiple names can be separated by comma.";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_ATTRIBUTE_NAMES_DEFAULT = null;
@@ -304,11 +316,13 @@ public class CamelAws2sqsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_AMAZON_AWSHOST_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_AMAZON_SQSCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_AMAZON_SQSCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_AMAZON_SQSCLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DOC);
+        conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_REGION_DOC);
+        conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_ATTRIBUTE_NAMES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_ATTRIBUTE_NAMES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_ATTRIBUTE_NAMES_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWS2SQS_ENDPOINT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_CONCURRENT_CONSUMERS_DOC);
@@ -357,11 +371,13 @@ public class CamelAws2sqsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_COMPONENT_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_AMAZON_AWSHOST_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_AMAZON_SQSCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_COMPONENT_AMAZON_SQSCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_AMAZON_SQSCLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DOC);
+        conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_COMPONENT_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_REGION_DOC);
+        conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_ATTRIBUTE_NAMES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_COMPONENT_ATTRIBUTE_NAMES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_ATTRIBUTE_NAMES_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_COMPONENT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWS2SQS_COMPONENT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_COMPONENT_CONCURRENT_CONSUMERS_DOC);

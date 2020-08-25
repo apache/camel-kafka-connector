@@ -15,7 +15,7 @@ When using camel-weather-kafka-connector as source make sure to use the followin
 ----
 
 
-The camel-weather source connector supports 43 options, which are listed below.
+The camel-weather source connector supports 44 options, which are listed below.
 
 
 
@@ -29,13 +29,15 @@ The camel-weather source connector supports 43 options, which are listed below.
 | *camel.source.endpoint.mode* | The output format of the weather data. One of: [HTML] [JSON] [XML] | "JSON" | MEDIUM
 | *camel.source.endpoint.period* | If null, the current weather will be returned, else use values of 5, 7, 14 days. Only the numeric value for the forecast period is actually parsed, so spelling, capitalisation of the time period is up to you (its ignored) | null | MEDIUM
 | *camel.source.endpoint.units* | The units for temperature measurement. One of: [IMPERIAL] [METRIC] | null | MEDIUM
-| *camel.source.endpoint.weatherApi* | The API to be use (current, forecast/3 hour, forecast daily, station) One of: [Current] [Station] [Hourly] [Daily] | null | MEDIUM
+| *camel.source.endpoint.weatherApi* | The API to use (current, forecast/3 hour, forecast daily, station) One of: [Current] [Station] [Hourly] [Daily] | null | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | MEDIUM
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.source.endpoint.geoLocationProvider* | A custum geolocation provider to determine the longitude and latitude to use when no location information is set. The default implementaion uses the ipstack API and requires geolocationAccessKey and geolocationRequestHostIP | null | MEDIUM
+| *camel.source.endpoint.httpClient* | To use an existing configured http client (for example with http proxy) | null | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.source.endpoint.cnt* | Number of results to be found | null | MEDIUM
 | *camel.source.endpoint.ids* | List of id's of city/stations. You can separate multiple ids by comma. | null | MEDIUM
@@ -55,7 +57,7 @@ The camel-weather source connector supports 43 options, which are listed below.
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
 | *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
@@ -64,6 +66,5 @@ The camel-weather source connector supports 43 options, which are listed below.
 | *camel.source.endpoint.geolocationRequestHostIP* | The geolocation service now needs to specify the IP associated to the accessKey you're using | null | HIGH
 | *camel.component.weather.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.weather.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.component.weather.httpClient* | To use an existing configured http client (for example with http proxy) | null | MEDIUM
 |===
 // kafka-connector options: END

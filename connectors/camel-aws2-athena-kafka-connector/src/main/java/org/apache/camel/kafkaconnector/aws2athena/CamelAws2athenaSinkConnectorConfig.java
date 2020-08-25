@@ -29,6 +29,9 @@ public class CamelAws2athenaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2ATHENA_PATH_LABEL_CONF = "camel.sink.path.label";
     public static final String CAMEL_SINK_AWS2ATHENA_PATH_LABEL_DOC = "Logical name";
     public static final String CAMEL_SINK_AWS2ATHENA_PATH_LABEL_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
+    public static final Boolean CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key.";
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -122,6 +125,9 @@ public class CamelAws2athenaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_CONF = "camel.component.aws2-athena.amazonAthenaClient";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_DOC = "The AmazonAthena instance to use as the client.";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws2-athena.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
+    public static final Boolean CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-athena.configuration";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_DOC = "The component configuration.";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -217,6 +223,7 @@ public class CamelAws2athenaSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWS2ATHENA_PATH_LABEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_PATH_LABEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2ATHENA_PATH_LABEL_DOC);
+        conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_AMAZON_ATHENA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_AMAZON_ATHENA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_AMAZON_ATHENA_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_DATABASE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_DATABASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_DATABASE_DOC);
@@ -248,6 +255,7 @@ public class CamelAws2athenaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_DOC);
+        conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_DATABASE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_DATABASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_DATABASE_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWS2ATHENA_COMPONENT_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_DELAY_DOC);

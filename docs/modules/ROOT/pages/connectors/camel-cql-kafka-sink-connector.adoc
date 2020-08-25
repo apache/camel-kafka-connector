@@ -26,11 +26,11 @@ The camel-cql sink connector supports 19 options, which are listed below.
 | *camel.sink.path.hosts* | Hostname(s) cassansdra server(s). Multiple hosts can be separated by comma. | null | MEDIUM
 | *camel.sink.path.port* | Port number of cassansdra server(s) | null | MEDIUM
 | *camel.sink.path.keyspace* | Keyspace to use | null | MEDIUM
-| *camel.sink.endpoint.cluster* | To use the Cluster instance (you would normally not use this option) | null | MEDIUM
 | *camel.sink.endpoint.clusterName* | Cluster name | null | MEDIUM
-| *camel.sink.endpoint.consistencyLevel* | Consistency level to use One of: [ANY] [ONE] [TWO] [THREE] [QUORUM] [ALL] [LOCAL_QUORUM] [EACH_QUORUM] [SERIAL] [LOCAL_SERIAL] [LOCAL_ONE] | null | MEDIUM
+| *camel.sink.endpoint.consistencyLevel* | Consistency level to use One of: [ANY] [ONE] [TWO] [THREE] [QUORUM] [ALL] [LOCAL_ONE] [LOCAL_QUORUM] [EACH_QUORUM] [SERIAL] [LOCAL_SERIAL] | null | MEDIUM
 | *camel.sink.endpoint.cql* | CQL query to perform. Can be overridden with the message header with key CamelCqlQuery. | null | MEDIUM
-| *camel.sink.endpoint.loadBalancingPolicy* | To use a specific LoadBalancingPolicy | null | MEDIUM
+| *camel.sink.endpoint.datacenter* | Datacenter to use | "datacenter1" | MEDIUM
+| *camel.sink.endpoint.loadBalancingPolicyClass* | To use a specific LoadBalancingPolicyClass | null | MEDIUM
 | *camel.sink.endpoint.password* | Password for session authentication | null | MEDIUM
 | *camel.sink.endpoint.prepareStatements* | Whether to use PreparedStatements or regular Statements | true | MEDIUM
 | *camel.sink.endpoint.resultSetConversionStrategy* | To use a custom class that implements logic for converting ResultSet into message body ALL, ONE, LIMIT_10, LIMIT_100... | null | MEDIUM

@@ -15,7 +15,7 @@ When using camel-telegram-kafka-connector as sink make sure to use the following
 ----
 
 
-The camel-telegram sink connector supports 17 options, which are listed below.
+The camel-telegram sink connector supports 18 options, which are listed below.
 
 
 
@@ -32,6 +32,7 @@ The camel-telegram sink connector supports 17 options, which are listed below.
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | HTTP proxy host which could be used when sending out the message. | null | MEDIUM
 | *camel.sink.endpoint.proxyPort* | HTTP proxy port which could be used when sending out the message. | null | MEDIUM
+| *camel.sink.endpoint.proxyType* | HTTP proxy type which could be used when sending out the message. One of: [HTTP] [SOCKS4] [SOCKS5] | "HTTP" | MEDIUM
 | *camel.sink.endpoint.authorizationToken* | The authorization token for using the bot (ask the BotFather) | null | HIGH
 | *camel.component.telegram.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.telegram.baseUri* | Can be used to set an alternative base URI, e.g. when you want to test the component against a mock Telegram API | "https://api.telegram.org" | MEDIUM

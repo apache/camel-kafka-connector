@@ -15,7 +15,7 @@ When using camel-aws-sqs-kafka-connector as sink make sure to use the following 
 ----
 
 
-The camel-aws-sqs sink connector supports 52 options, which are listed below.
+The camel-aws-sqs sink connector supports 54 options, which are listed below.
 
 
 
@@ -26,6 +26,7 @@ The camel-aws-sqs sink connector supports 52 options, which are listed below.
 | *camel.sink.endpoint.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | MEDIUM
 | *camel.sink.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | MEDIUM
 | *camel.sink.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | MEDIUM
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | MEDIUM
 | *camel.sink.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | MEDIUM
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
@@ -52,6 +53,7 @@ The camel-aws-sqs sink connector supports 52 options, which are listed below.
 | *camel.component.aws-sqs.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | MEDIUM
 | *camel.component.aws-sqs.amazonSQSClient* | To use the AmazonSQS as client | null | MEDIUM
 | *camel.component.aws-sqs.autoCreateQueue* | Setting the autocreation of the queue | true | MEDIUM
+| *camel.component.aws-sqs.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.component.aws-sqs.configuration* | The component configuration | null | MEDIUM
 | *camel.component.aws-sqs.protocol* | The underlying protocol used to communicate with SQS | "https" | MEDIUM
 | *camel.component.aws-sqs.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM

@@ -36,6 +36,9 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_CONF = "camel.sink.endpoint.autoCreateQueue";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the queue";
     public static final Boolean CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DEFAULT = true;
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.sink.endpoint.headerFilterStrategy";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to map headers to/from Camel.";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -51,6 +54,9 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_CONF = "camel.sink.endpoint.region";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DOC = "The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.sink.endpoint.trustAllCertificates";
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
+    public static final Boolean CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_CONF = "camel.sink.endpoint.delaySeconds";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DOC = "Delay sending messages for a number of seconds.";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DEFAULT = null;
@@ -64,7 +70,7 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_GROUP_ID_STRATEGY_DOC = "Only for FIFO queues. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue]";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_GROUP_ID_STRATEGY_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
-    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_OPERATION_DOC = "The operation to do in case the user don't want to send only a message One of: [sendBatchMessage] [deleteMessage] [listQueues]";
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_OPERATION_DOC = "The operation to do in case the user don't want to send only a message One of: [sendBatchMessage] [deleteMessage] [listQueues] [purgeQueue]";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_OPERATION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
@@ -114,6 +120,9 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_CONF = "camel.component.aws2-sqs.autoCreateQueue";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the queue";
     public static final Boolean CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DEFAULT = true;
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws2-sqs.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-sqs.configuration";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_CONFIGURATION_DOC = "The AWS SQS default configuration";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -129,6 +138,9 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_REGION_CONF = "camel.component.aws2-sqs.region";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DOC = "The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-sqs.trustAllCertificates";
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
+    public static final Boolean CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_CONF = "camel.component.aws2-sqs.delaySeconds";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DOC = "Delay sending messages for a number of seconds.";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DEFAULT = null;
@@ -142,7 +154,7 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_GROUP_ID_STRATEGY_DOC = "Only for FIFO queues. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue]";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_GROUP_ID_STRATEGY_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_OPERATION_CONF = "camel.component.aws2-sqs.operation";
-    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_OPERATION_DOC = "The operation to do in case the user don't want to send only a message One of: [sendBatchMessage] [deleteMessage] [listQueues]";
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_OPERATION_DOC = "The operation to do in case the user don't want to send only a message One of: [sendBatchMessage] [deleteMessage] [listQueues] [purgeQueue]";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_OPERATION_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws2-sqs.basicPropertyBinding";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
@@ -197,11 +209,13 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_AMAZON_AWSHOST_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_AMAZON_SQSCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_AMAZON_SQSCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_AMAZON_SQSCLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_CREATE_QUEUE_DOC);
+        conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_OWNER_AWSACCOUNT_ID_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DOC);
+        conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DOC);
@@ -223,11 +237,13 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_AMAZON_AWSHOST_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_AMAZON_SQSCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_AMAZON_SQSCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_AMAZON_SQSCLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_CREATE_QUEUE_DOC);
+        conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_QUEUE_OWNER_AWSACCOUNT_ID_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DOC);
+        conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DOC);

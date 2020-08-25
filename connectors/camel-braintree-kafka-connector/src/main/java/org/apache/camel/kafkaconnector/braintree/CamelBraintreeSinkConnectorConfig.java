@@ -54,7 +54,7 @@ public class CamelBraintreeSinkConnectorConfig
     public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_BRAINTREE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_CONF = "camel.sink.endpoint.httpLogLevel";
-    public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DOC = "Set logging level for http calls, see java.util.logging.Level";
+    public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DOC = "Set logging level for http calls, see java.util.logging.Level One of: [OFF] [SEVERE] [WARNING] [INFO] [CONFIG] [FINE] [FINER] [FINEST] [ALL]";
     public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_HTTP_LOG_LEVEL_DEFAULT = null;
     public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_CONF = "camel.sink.endpoint.httpLogName";
     public static final String CAMEL_SINK_BRAINTREE_ENDPOINT_HTTP_LOG_NAME_DOC = "Set log category to use to log http calls.";

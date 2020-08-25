@@ -26,11 +26,11 @@ The camel-cql source connector supports 37 options, which are listed below.
 | *camel.source.path.hosts* | Hostname(s) cassansdra server(s). Multiple hosts can be separated by comma. | null | MEDIUM
 | *camel.source.path.port* | Port number of cassansdra server(s) | null | MEDIUM
 | *camel.source.path.keyspace* | Keyspace to use | null | MEDIUM
-| *camel.source.endpoint.cluster* | To use the Cluster instance (you would normally not use this option) | null | MEDIUM
 | *camel.source.endpoint.clusterName* | Cluster name | null | MEDIUM
-| *camel.source.endpoint.consistencyLevel* | Consistency level to use One of: [ANY] [ONE] [TWO] [THREE] [QUORUM] [ALL] [LOCAL_QUORUM] [EACH_QUORUM] [SERIAL] [LOCAL_SERIAL] [LOCAL_ONE] | null | MEDIUM
+| *camel.source.endpoint.consistencyLevel* | Consistency level to use One of: [ANY] [ONE] [TWO] [THREE] [QUORUM] [ALL] [LOCAL_ONE] [LOCAL_QUORUM] [EACH_QUORUM] [SERIAL] [LOCAL_SERIAL] | null | MEDIUM
 | *camel.source.endpoint.cql* | CQL query to perform. Can be overridden with the message header with key CamelCqlQuery. | null | MEDIUM
-| *camel.source.endpoint.loadBalancingPolicy* | To use a specific LoadBalancingPolicy | null | MEDIUM
+| *camel.source.endpoint.datacenter* | Datacenter to use | "datacenter1" | MEDIUM
+| *camel.source.endpoint.loadBalancingPolicyClass* | To use a specific LoadBalancingPolicyClass | null | MEDIUM
 | *camel.source.endpoint.password* | Password for session authentication | null | MEDIUM
 | *camel.source.endpoint.prepareStatements* | Whether to use PreparedStatements or regular Statements | true | MEDIUM
 | *camel.source.endpoint.resultSetConversionStrategy* | To use a custom class that implements logic for converting ResultSet into message body ALL, ONE, LIMIT_10, LIMIT_100... | null | MEDIUM
@@ -52,7 +52,7 @@ The camel-cql source connector supports 37 options, which are listed below.
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
 | *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM

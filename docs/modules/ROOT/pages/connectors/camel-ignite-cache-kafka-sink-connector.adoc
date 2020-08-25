@@ -32,9 +32,9 @@ The camel-ignite-cache sink connector supports 15 options, which are listed belo
 | *camel.sink.endpoint.operation* | The cache operation to invoke. Possible values: GET, PUT, REMOVE, SIZE, REBALANCE, QUERY, CLEAR. One of: [GET] [PUT] [REMOVE] [SIZE] [REBALANCE] [QUERY] [CLEAR] | null | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.ignite-cache.configurationResource* | Resource from where to load configuration. | null | MEDIUM
-| *camel.component.ignite-cache.ignite* | Ignite instance. | null | MEDIUM
-| *camel.component.ignite-cache.igniteConfiguration* | Ignite configuration. | null | MEDIUM
+| *camel.component.ignite-cache.configurationResource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | MEDIUM
+| *camel.component.ignite-cache.ignite* | To use an existing Ignite instance. | null | MEDIUM
+| *camel.component.ignite-cache.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | MEDIUM
 | *camel.component.ignite-cache.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.ignite-cache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===

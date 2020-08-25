@@ -60,7 +60,7 @@ public class CamelUndertowSourceConnectorConfig
     public static final String CAMEL_SOURCE_UNDERTOW_ENDPOINT_HANDLERS_DOC = "Specifies a comma-delimited set of io.undertow.server.HttpHandler instances to lookup in your Registry. These handlers are added to the Undertow handler chain (for example, to add security). Important: You can not use different handlers with different Undertow endpoints using the same port number. The handlers is associated to the port number. If you need different handlers, then use different port numbers.";
     public static final String CAMEL_SOURCE_UNDERTOW_ENDPOINT_HANDLERS_DEFAULT = null;
     public static final String CAMEL_SOURCE_UNDERTOW_ENDPOINT_ACCESS_LOG_RECEIVER_CONF = "camel.source.endpoint.accessLogReceiver";
-    public static final String CAMEL_SOURCE_UNDERTOW_ENDPOINT_ACCESS_LOG_RECEIVER_DOC = "Which Undertow AccessLogReciever should be used Will use JBossLoggingAccessLogReceiver if not specifid";
+    public static final String CAMEL_SOURCE_UNDERTOW_ENDPOINT_ACCESS_LOG_RECEIVER_DOC = "Which Undertow AccessLogReceiver should be used Will use JBossLoggingAccessLogReceiver if not specified";
     public static final String CAMEL_SOURCE_UNDERTOW_ENDPOINT_ACCESS_LOG_RECEIVER_DEFAULT = null;
     public static final String CAMEL_SOURCE_UNDERTOW_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
     public static final String CAMEL_SOURCE_UNDERTOW_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";

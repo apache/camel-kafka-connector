@@ -32,6 +32,9 @@ public class CamelAws2kinesisSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_CONF = "camel.source.endpoint.amazonKinesisClient";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_DOC = "Amazon Kinesis client to use for all requests for this endpoint";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.source.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
+    public static final Boolean CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_HOST_CONF = "camel.source.endpoint.proxyHost";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the Kinesis client";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -44,6 +47,9 @@ public class CamelAws2kinesisSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_REGION_CONF = "camel.source.endpoint.region";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_REGION_DOC = "The region in which Kinesis Firehose client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_REGION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.source.endpoint.trustAllCertificates";
+    public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
+    public static final Boolean CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -108,7 +114,7 @@ public class CamelAws2kinesisSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -131,6 +137,9 @@ public class CamelAws2kinesisSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_CONF = "camel.component.aws2-kinesis.amazonKinesisClient";
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_DOC = "Amazon Kinesis client to use for all requests for this endpoint";
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws2-kinesis.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
+    public static final Boolean CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-kinesis.configuration";
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_CONFIGURATION_DOC = "Component configuration";
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -146,6 +155,9 @@ public class CamelAws2kinesisSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_REGION_CONF = "camel.component.aws2-kinesis.region";
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_REGION_DOC = "The region in which Kinesis Firehose client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()";
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_REGION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-kinesis.trustAllCertificates";
+    public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
+    public static final Boolean CAMEL_SOURCE_AWS2KINESIS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.aws2-kinesis.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_AWS2KINESIS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_AWS2KINESIS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -189,10 +201,12 @@ public class CamelAws2kinesisSourceConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_AWS2KINESIS_PATH_STREAM_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_PATH_STREAM_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWS2KINESIS_PATH_STREAM_NAME_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AMAZON_KINESIS_CLIENT_DOC);
+        conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_REGION_DOC);
+        conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_ITERATOR_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_ITERATOR_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_ITERATOR_TYPE_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_MAX_RESULTS_PER_REQUEST_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_MAX_RESULTS_PER_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_MAX_RESULTS_PER_REQUEST_DOC);
@@ -222,11 +236,13 @@ public class CamelAws2kinesisSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AMAZON_KINESIS_CLIENT_DOC);
+        conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_PORT_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_REGION_DOC);
+        conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_ITERATOR_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_ITERATOR_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_ITERATOR_TYPE_DOC);
         conf.define(CAMEL_SOURCE_AWS2KINESIS_COMPONENT_MAX_RESULTS_PER_REQUEST_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_MAX_RESULTS_PER_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2KINESIS_COMPONENT_MAX_RESULTS_PER_REQUEST_DOC);
