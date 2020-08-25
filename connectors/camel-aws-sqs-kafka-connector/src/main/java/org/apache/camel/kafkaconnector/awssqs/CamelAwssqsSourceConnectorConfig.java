@@ -38,6 +38,9 @@ public class CamelAwssqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_CREATE_QUEUE_CONF = "camel.source.endpoint.autoCreateQueue";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the queue";
     public static final Boolean CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_CREATE_QUEUE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.source.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.source.endpoint.headerFilterStrategy";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to map headers to/from Camel.";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -168,7 +171,7 @@ public class CamelAwssqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -197,6 +200,9 @@ public class CamelAwssqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_CREATE_QUEUE_CONF = "camel.component.aws-sqs.autoCreateQueue";
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_CREATE_QUEUE_DOC = "Setting the autocreation of the queue";
     public static final Boolean CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_CREATE_QUEUE_DEFAULT = true;
+    public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws-sqs.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-sqs.configuration";
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -304,6 +310,7 @@ public class CamelAwssqsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_AWSHOST_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_SQSCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_SQSCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_AMAZON_SQSCLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_CREATE_QUEUE_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_PROTOCOL_DOC);
@@ -357,6 +364,7 @@ public class CamelAwssqsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_AMAZON_AWSHOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_AMAZON_AWSHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_AMAZON_AWSHOST_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_AMAZON_SQSCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_AMAZON_SQSCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_AMAZON_SQSCLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_CREATE_QUEUE_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_PROTOCOL_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_PROXY_PROTOCOL_DOC);

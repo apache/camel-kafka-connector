@@ -30,6 +30,9 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_AMAZON_SESCLIENT_CONF = "camel.sink.endpoint.amazonSESClient";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_AMAZON_SESCLIENT_DOC = "To use the AmazonSimpleEmailService as the client";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_AMAZON_SESCLIENT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSSES_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWSSES_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_AWSSES_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_AWSSES_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -72,6 +75,9 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_CONF = "camel.component.aws-ses.amazonSESClient";
     public static final String CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_DOC = "To use the AmazonSimpleEmailService as the client";
     public static final String CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSSES_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws-ses.autoDiscoverClient";
+    public static final String CAMEL_SINK_AWSSES_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_AWSSES_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWSSES_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-ses.configuration";
     public static final String CAMEL_SINK_AWSSES_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SINK_AWSSES_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -126,6 +132,7 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWSSES_PATH_FROM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_PATH_FROM_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWSSES_PATH_FROM_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_AMAZON_SESCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_AMAZON_SESCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_AMAZON_SESCLIENT_DOC);
+        conf.define(CAMEL_SINK_AWSSES_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_PROXY_PORT_DOC);
@@ -140,6 +147,7 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_DOC);
+        conf.define(CAMEL_SINK_AWSSES_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_PROXY_HOST_DOC);

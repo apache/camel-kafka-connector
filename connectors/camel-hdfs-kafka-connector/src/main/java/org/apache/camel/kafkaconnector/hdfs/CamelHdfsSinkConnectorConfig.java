@@ -108,18 +108,18 @@ public class CamelHdfsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_CONF = "camel.sink.endpoint.kerberosUsername";
     public static final String CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_DOC = "The username used to authenticate with the kerberos nodes";
     public static final String CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_DEFAULT = null;
-    public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_CONF = "camel.component.hdfs.jAASConfiguration";
-    public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DOC = "To use the given configuration for security with JAAS.";
-    public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT = null;
-    public static final String CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF = "camel.component.hdfs.kerberosConfigFile";
-    public static final String CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC = "To use kerberos authentication, set the value of the 'java.security.krb5.conf' environment variable to an existing file. If the environment variable is already set, warn if different than the specified parameter";
-    public static final String CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT = null;
     public static final String CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.hdfs.lazyStartProducer";
     public static final String CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
     public static final String CAMEL_SINK_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.hdfs.basicPropertyBinding";
     public static final String CAMEL_SINK_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_CONF = "camel.component.hdfs.jAASConfiguration";
+    public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DOC = "To use the given configuration for security with JAAS.";
+    public static final String CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF = "camel.component.hdfs.kerberosConfigFile";
+    public static final String CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC = "To use kerberos authentication, set the value of the 'java.security.krb5.conf' environment variable to an existing file. If the environment variable is already set, warn if different than the specified parameter";
+    public static final String CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT = null;
 
     public CamelHdfsSinkConnectorConfig(
             ConfigDef config,
@@ -161,10 +161,10 @@ public class CamelHdfsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_CONFIG_FILE_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_CONFIG_FILE_LOCATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_CONFIG_FILE_LOCATION_DOC);
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_KEYTAB_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_KEYTAB_LOCATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_KEYTAB_LOCATION_DOC);
         conf.define(CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_ENDPOINT_KERBEROS_USERNAME_DOC);
-        conf.define(CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DOC);
-        conf.define(CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC);
         conf.define(CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_JAASCONFIGURATION_DOC);
+        conf.define(CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC);
         return conf;
     }
 }

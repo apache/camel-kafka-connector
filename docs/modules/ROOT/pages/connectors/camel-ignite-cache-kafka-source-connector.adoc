@@ -37,9 +37,9 @@ The camel-ignite-cache source connector supports 20 options, which are listed be
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.ignite-cache.configurationResource* | Resource from where to load configuration. | null | MEDIUM
-| *camel.component.ignite-cache.ignite* | Ignite instance. | null | MEDIUM
-| *camel.component.ignite-cache.igniteConfiguration* | Ignite configuration. | null | MEDIUM
+| *camel.component.ignite-cache.configurationResource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | MEDIUM
+| *camel.component.ignite-cache.ignite* | To use an existing Ignite instance. | null | MEDIUM
+| *camel.component.ignite-cache.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | MEDIUM
 | *camel.component.ignite-cache.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.ignite-cache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===

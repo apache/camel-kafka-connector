@@ -15,7 +15,7 @@ When using camel-guava-eventbus-kafka-connector as sink make sure to use the fol
 ----
 
 
-The camel-guava-eventbus sink connector supports 10 options, which are listed below.
+The camel-guava-eventbus sink connector supports 9 options, which are listed below.
 
 
 
@@ -29,7 +29,6 @@ The camel-guava-eventbus sink connector supports 10 options, which are listed be
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.component.guava-eventbus.eventBus* | To use the given Guava EventBus instance | null | MEDIUM
-| *camel.component.guava-eventbus.listenerInterface* | The interface with method(s) marked with the Subscribe annotation. Dynamic proxy will be created over the interface so it could be registered as the EventBus listener. Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option. | null | MEDIUM
 | *camel.component.guava-eventbus.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.guava-eventbus.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===

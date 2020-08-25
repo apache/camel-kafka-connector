@@ -53,12 +53,12 @@ public class CamelGuavaeventbusSourceConnectorConfig
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_CONF = "camel.component.guava-eventbus.eventBus";
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_DOC = "To use the given Guava EventBus instance";
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_CONF = "camel.component.guava-eventbus.listenerInterface";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DOC = "The interface with method(s) marked with the Subscribe annotation. Dynamic proxy will be created over the interface so it could be registered as the EventBus listener. Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.";
-    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.guava-eventbus.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_CONF = "camel.component.guava-eventbus.listenerInterface";
+    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DOC = "The interface with method(s) marked with the Subscribe annotation. Dynamic proxy will be created over the interface so it could be registered as the EventBus listener. Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.";
+    public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DEFAULT = null;
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.guava-eventbus.basicPropertyBinding";
     public static final String CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
@@ -85,8 +85,8 @@ public class CamelGuavaeventbusSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_EVENT_BUS_DOC);
-        conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DOC);
         conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
+        conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_LISTENER_INTERFACE_DOC);
         conf.define(CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GUAVAEVENTBUS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         return conf;
     }
