@@ -62,3 +62,7 @@ jobs:
             git rebase --abort
           fi
           ./mvnw verify -N -B -ntp -Pbuild-notification -Dstatus=${{ job.status }} -Dtoken=${{ secrets.GITHUB_TOKEN }} -DbuildId=$(cat ~/build-data/build-id.txt) -Drepo=${GITHUB_REPOSITORY} -Dbranch=camel-master -Dbranch-commit=$(cat ~/build-data/master-sha.txt)
+      - name: Sync branch Master to Camel Master
+        if: steps.report.outputs.overall_build_status == 'success'
+        run: |
+          git push --force-with-lease origin camel-master
