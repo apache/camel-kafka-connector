@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '1.8', '11' ]
+        java: [ '1.8' ]
     steps:
       - name: Checkout Camel project
         uses: actions/checkout@v2
