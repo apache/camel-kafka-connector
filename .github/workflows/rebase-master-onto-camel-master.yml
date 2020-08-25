@@ -20,7 +20,7 @@ name: Daily Build Camel Master onto master
 on:
   schedule:
     # Run every day at midnight
-    - cron:  '* * * * *'
+    - cron:  '0 0 * * *'
 
 jobs:
   build:
