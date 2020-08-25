@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.olingo2.CamelOlingo2SourceConnec
 ----
 
 
-The camel-olingo2 source connector supports 50 options, which are listed below.
+The camel-olingo2 source connector supports 54 options, which are listed below.
 
 
 
@@ -33,6 +33,8 @@ The camel-olingo2 source connector supports 50 options, which are listed below.
 | *camel.source.path.methodName* | What sub operation to use for the selected operation | null | HIGH
 | *camel.source.endpoint.connectTimeout* | HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | MEDIUM
 | *camel.source.endpoint.contentType* | Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8 | "application/json;charset=utf-8" | MEDIUM
+| *camel.source.endpoint.entityProviderReadProperties* | Custom entity provider read properties applied to all read operations. | null | MEDIUM
+| *camel.source.endpoint.entityProviderWrite Properties* | Custom entity provider write properties applied to create, update, patch, batch and merge operations. For instance users can skip the Json object wrapper or enable content only mode when sending request data. A service URI set in the properties will always be overwritten by the serviceUri configuration parameter. Please consider to using the serviceUri configuration parameter instead of setting the respective write property here. | null | MEDIUM
 | *camel.source.endpoint.filterAlreadySeen* | Set this to true to filter out results that have already been communicated by this component. | false | MEDIUM
 | *camel.source.endpoint.httpHeaders* | Custom HTTP headers to inject into every request, this could include OAuth tokens, etc. | null | MEDIUM
 | *camel.source.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | MEDIUM
@@ -58,7 +60,7 @@ The camel-olingo2 source connector supports 50 options, which are listed below.
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
 | *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
@@ -67,6 +69,8 @@ The camel-olingo2 source connector supports 50 options, which are listed below.
 | *camel.component.olingo2.configuration* | To use the shared configuration | null | MEDIUM
 | *camel.component.olingo2.connectTimeout* | HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | MEDIUM
 | *camel.component.olingo2.contentType* | Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8 | "application/json;charset=utf-8" | MEDIUM
+| *camel.component.olingo2.entityProviderRead Properties* | Custom entity provider read properties applied to all read operations. | null | MEDIUM
+| *camel.component.olingo2.entityProviderWrite Properties* | Custom entity provider write properties applied to create, update, patch, batch and merge operations. For instance users can skip the Json object wrapper or enable content only mode when sending request data. A service URI set in the properties will always be overwritten by the serviceUri configuration parameter. Please consider to using the serviceUri configuration parameter instead of setting the respective write property here. | null | MEDIUM
 | *camel.component.olingo2.filterAlreadySeen* | Set this to true to filter out results that have already been communicated by this component. | false | MEDIUM
 | *camel.component.olingo2.httpHeaders* | Custom HTTP headers to inject into every request, this could include OAuth tokens, etc. | null | MEDIUM
 | *camel.component.olingo2.proxy* | HTTP proxy server configuration | null | MEDIUM

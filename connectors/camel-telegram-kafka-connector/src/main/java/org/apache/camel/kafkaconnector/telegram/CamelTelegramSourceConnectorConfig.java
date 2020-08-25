@@ -71,6 +71,9 @@ public class CamelTelegramSourceConnectorConfig
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_PORT_CONF = "camel.source.endpoint.proxyPort";
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_PORT_DOC = "HTTP proxy port which could be used when sending out the message.";
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_PORT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_TYPE_CONF = "camel.source.endpoint.proxyType";
+    public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_TYPE_DOC = "HTTP proxy type which could be used when sending out the message. One of: [HTTP] [SOCKS4] [SOCKS5]";
+    public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_TYPE_DEFAULT = "HTTP";
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF = "camel.source.endpoint.backoffErrorThreshold";
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC = "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.";
     public static final Integer CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT = null;
@@ -99,7 +102,7 @@ public class CamelTelegramSourceConnectorConfig
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_TELEGRAM_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -162,6 +165,7 @@ public class CamelTelegramSourceConnectorConfig
         conf.define(CAMEL_SOURCE_TELEGRAM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TELEGRAM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TELEGRAM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_PORT_DOC);
+        conf.define(CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TELEGRAM_ENDPOINT_PROXY_TYPE_DOC);
         conf.define(CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_MULTIPLIER_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TELEGRAM_ENDPOINT_BACKOFF_MULTIPLIER_DOC);

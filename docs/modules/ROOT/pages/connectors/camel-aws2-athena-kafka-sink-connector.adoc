@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2athena.CamelAws2athenaSinkCo
 ----
 
 
-The camel-aws2-athena sink connector supports 59 options, which are listed below.
+The camel-aws2-athena sink connector supports 61 options, which are listed below.
 
 
 
@@ -30,6 +30,7 @@ The camel-aws2-athena sink connector supports 59 options, which are listed below
 |===
 | Name | Description | Default | Priority
 | *camel.sink.path.label* | Logical name | null | HIGH
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key. | null | MEDIUM
 | *camel.sink.endpoint.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | MEDIUM
 | *camel.sink.endpoint.database* | The Athena database to use. | null | MEDIUM
@@ -61,6 +62,7 @@ The camel-aws2-athena sink connector supports 59 options, which are listed below
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.component.aws2-athena.accessKey* | Amazon AWS Access Key. | null | MEDIUM
 | *camel.component.aws2-athena.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | MEDIUM
+| *camel.component.aws2-athena.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
 | *camel.component.aws2-athena.configuration* | The component configuration. | null | MEDIUM
 | *camel.component.aws2-athena.database* | The Athena database to use. | null | MEDIUM
 | *camel.component.aws2-athena.delay* | Milliseconds before the next poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 2000L | MEDIUM

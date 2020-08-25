@@ -190,7 +190,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_CONF = "camel.source.endpoint.sslEndpointAlgorithm";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DOC = "The endpoint identification algorithm to validate server hostname using server certificate.";
-    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DEFAULT = "https";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_KEYMANAGER_ALGORITHM_CONF = "camel.source.endpoint.sslKeymanagerAlgorithm";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_KEYMANAGER_ALGORITHM_DOC = "The algorithm used by key manager factory for SSL connections. Default value is the key manager factory algorithm configured for the Java Virtual Machine.";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SSL_KEYMANAGER_ALGORITHM_DEFAULT = "SunX509";
@@ -367,7 +367,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_CONF = "camel.component.kafka.sslEndpointAlgorithm";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DOC = "The endpoint identification algorithm to validate server hostname using server certificate.";
-    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DEFAULT = null;
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DEFAULT = "https";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_KEYMANAGER_ALGORITHM_CONF = "camel.component.kafka.sslKeymanagerAlgorithm";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_KEYMANAGER_ALGORITHM_DOC = "The algorithm used by key manager factory for SSL connections. Default value is the key manager factory algorithm configured for the Java Virtual Machine.";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SSL_KEYMANAGER_ALGORITHM_DEFAULT = "SunX509";

@@ -176,6 +176,7 @@
         <module>camel-ahc-wss-kafka-connector</module>
         <module>camel-amqp-kafka-connector</module>
         <module>camel-apns-kafka-connector</module>
+        <module>camel-arangodb-kafka-connector</module>
         <module>camel-as2-kafka-connector</module>
         <module>camel-asterisk-kafka-connector</module>
         <module>camel-atmos-kafka-connector</module>
@@ -212,8 +213,10 @@
         <module>camel-aws2-ses-kafka-connector</module>
         <module>camel-aws2-sns-kafka-connector</module>
         <module>camel-aws2-sqs-kafka-connector</module>
+        <module>camel-aws2-sts-kafka-connector</module>
         <module>camel-aws2-translate-kafka-connector</module>
         <module>camel-azure-blob-kafka-connector</module>
+        <module>camel-azure-eventhubs-kafka-connector</module>
         <module>camel-azure-queue-kafka-connector</module>
         <module>camel-azure-storage-blob-kafka-connector</module>
         <module>camel-azure-storage-queue-kafka-connector</module>
@@ -352,6 +355,7 @@
         <module>camel-jpa-kafka-connector</module>
         <module>camel-jslt-kafka-connector</module>
         <module>camel-json-validator-kafka-connector</module>
+        <module>camel-jsonata-kafka-connector</module>
         <module>camel-jt400-kafka-connector</module>
         <module>camel-kafka-kafka-connector</module>
         <module>camel-kubernetes-config-maps-kafka-connector</module>
@@ -383,6 +387,7 @@
         <module>camel-milo-client-kafka-connector</module>
         <module>camel-milo-server-kafka-connector</module>
         <module>camel-mina-kafka-connector</module>
+        <module>camel-minio-kafka-connector</module>
         <module>camel-mllp-kafka-connector</module>
         <module>camel-mock-kafka-connector</module>
         <module>camel-mongodb-gridfs-kafka-connector</module>
@@ -398,6 +403,7 @@
         <module>camel-netty-kafka-connector</module>
         <module>camel-nitrite-kafka-connector</module>
         <module>camel-nsq-kafka-connector</module>
+        <module>camel-oaipmh-kafka-connector</module>
         <module>camel-olingo2-kafka-connector</module>
         <module>camel-olingo4-kafka-connector</module>
         <module>camel-openshift-build-configs-kafka-connector</module>
@@ -485,7 +491,9 @@
         <module>camel-undertow-kafka-connector</module>
         <module>camel-validator-kafka-connector</module>
         <module>camel-velocity-kafka-connector</module>
+        <module>camel-vertx-http-kafka-connector</module>
         <module>camel-vertx-kafka-connector</module>
+        <module>camel-vertx-websocket-kafka-connector</module>
         <module>camel-vm-kafka-connector</module>
         <module>camel-weather-kafka-connector</module>
         <module>camel-web3j-kafka-connector</module>

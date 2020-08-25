@@ -29,6 +29,9 @@ public class CamelAwsddbstreamSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_PATH_TABLE_NAME_CONF = "camel.source.path.tableName";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_PATH_TABLE_NAME_DOC = "Name of the dynamodb table";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_PATH_TABLE_NAME_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.source.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
+    public static final Boolean CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_CONF = "camel.source.endpoint.amazonDynamoDbStreamsClient";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_DOC = "Amazon DynamoDB client to use for all requests for this endpoint";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_DEFAULT = null;
@@ -102,7 +105,7 @@ public class CamelAwsddbstreamSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -122,6 +125,9 @@ public class CamelAwsddbstreamSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SECRET_KEY_CONF = "camel.source.endpoint.secretKey";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SECRET_KEY_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws-ddbstream.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
+    public static final Boolean CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_CONF = "camel.component.aws-ddbstream.amazonDynamoDbStreamsClient";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_DOC = "Amazon DynamoDB client to use for all requests for this endpoint";
     public static final String CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_DEFAULT = null;
@@ -176,6 +182,7 @@ public class CamelAwsddbstreamSourceConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_PATH_TABLE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAM_PATH_TABLE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSDDBSTREAM_PATH_TABLE_NAME_DOC);
+        conf.define(CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_ITERATOR_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_ITERATOR_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_ITERATOR_TYPE_DOC);
@@ -207,6 +214,7 @@ public class CamelAwsddbstreamSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_USE_FIXED_DELAY_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_ENDPOINT_SECRET_KEY_DOC);
+        conf.define(CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_AMAZON_DYNAMO_DB_STREAMS_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSDDBSTREAM_COMPONENT_CONFIGURATION_DOC);

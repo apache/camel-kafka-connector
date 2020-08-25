@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2cw.CamelAws2cwSinkConnector
 ----
 
 
-The camel-aws2-cw sink connector supports 29 options, which are listed below.
+The camel-aws2-cw sink connector supports 33 options, which are listed below.
 
 
 
@@ -31,6 +31,7 @@ The camel-aws2-cw sink connector supports 29 options, which are listed below.
 | Name | Description | Default | Priority
 | *camel.sink.path.namespace* | The metric namespace | null | HIGH
 | *camel.sink.endpoint.amazonCwClient* | To use the AmazonCloudWatch as the client | null | MEDIUM
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.name* | The metric name | null | MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the CW client | null | MEDIUM
@@ -38,6 +39,7 @@ The camel-aws2-cw sink connector supports 29 options, which are listed below.
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the CW client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.sink.endpoint.region* | The region in which EKS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
 | *camel.sink.endpoint.timestamp* | The metric timestamp | null | MEDIUM
+| *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.sink.endpoint.unit* | The metric unit | null | MEDIUM
 | *camel.sink.endpoint.value* | The metric value | null | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
@@ -45,6 +47,7 @@ The camel-aws2-cw sink connector supports 29 options, which are listed below.
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 | *camel.component.aws2-cw.amazonCwClient* | To use the AmazonCloudWatch as the client | null | MEDIUM
+| *camel.component.aws2-cw.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.component.aws2-cw.configuration* | The component configuration | null | MEDIUM
 | *camel.component.aws2-cw.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.aws2-cw.name* | The metric name | null | MEDIUM
@@ -53,6 +56,7 @@ The camel-aws2-cw sink connector supports 29 options, which are listed below.
 | *camel.component.aws2-cw.proxyProtocol* | To define a proxy protocol when instantiating the CW client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.component.aws2-cw.region* | The region in which EKS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
 | *camel.component.aws2-cw.timestamp* | The metric timestamp | null | MEDIUM
+| *camel.component.aws2-cw.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.component.aws2-cw.unit* | The metric unit | null | MEDIUM
 | *camel.component.aws2-cw.value* | The metric value | null | MEDIUM
 | *camel.component.aws2-cw.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM

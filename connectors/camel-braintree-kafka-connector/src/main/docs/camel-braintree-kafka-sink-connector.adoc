@@ -38,7 +38,7 @@ The camel-braintree sink connector supports 20 options, which are listed below.
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.httpReadTimeout* | Set read timeout for http calls. | null | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.httpLogLevel* | Set logging level for http calls, see java.util.logging.Level | null | MEDIUM
+| *camel.sink.endpoint.httpLogLevel* | Set logging level for http calls, see java.util.logging.Level One of: [OFF] [SEVERE] [WARNING] [INFO] [CONFIG] [FINE] [FINER] [FINEST] [ALL] | null | MEDIUM
 | *camel.sink.endpoint.httpLogName* | Set log category to use to log http calls. | "Braintree" | MEDIUM
 | *camel.sink.endpoint.logHandlerEnabled* | Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to 'false' where an existing JUL - SLF4J logger bridge is on the classpath. This option can also be configured globally on the BraintreeComponent. | true | MEDIUM
 | *camel.sink.endpoint.proxyHost* | The proxy host | null | MEDIUM

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awss3.CamelAwss3SinkConnector
 ----
 
 
-The camel-aws-s3 sink connector supports 63 options, which are listed below.
+The camel-aws-s3 sink connector supports 65 options, which are listed below.
 
 
 
@@ -32,6 +32,7 @@ The camel-aws-s3 sink connector supports 63 options, which are listed below.
 | *camel.sink.path.bucketNameOrArn* | Bucket name or ARN | null | HIGH
 | *camel.sink.endpoint.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | MEDIUM
 | *camel.sink.endpoint.autoCreateBucket* | Setting the autocreation of the bucket | true | MEDIUM
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.sink.endpoint.endpointConfiguration* | Amazon AWS Endpoint Configuration | null | MEDIUM
 | *camel.sink.endpoint.pathStyleAccess* | Whether or not the S3 client should use path style access | false | MEDIUM
 | *camel.sink.endpoint.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | MEDIUM
@@ -63,6 +64,7 @@ The camel-aws-s3 sink connector supports 63 options, which are listed below.
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 | *camel.component.aws-s3.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | MEDIUM
 | *camel.component.aws-s3.autoCreateBucket* | Setting the autocreation of the bucket | true | MEDIUM
+| *camel.component.aws-s3.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.component.aws-s3.configuration* | The component configuration | null | MEDIUM
 | *camel.component.aws-s3.endpointConfiguration* | Amazon AWS Endpoint Configuration | null | MEDIUM
 | *camel.component.aws-s3.pathStyleAccess* | Whether or not the S3 client should use path style access | false | MEDIUM

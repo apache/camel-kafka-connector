@@ -56,6 +56,24 @@ public class CamelMiloserverSourceConnectorConfig
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BUILD_INFO_CONF = "camel.component.milo-server.buildInfo";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BUILD_INFO_DOC = "Server build info";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BUILD_INFO_DEFAULT = null;
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_CONF = "camel.component.milo-server.namespaceUri";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_DOC = "The URI of the namespace, defaults to urn:org:apache:camel";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_DEFAULT = "urn:org:apache:camel";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_CONF = "camel.component.milo-server.path";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_DOC = "The path to be appended to the end of the endpoint url. (doesn't need to start with '/')";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_DEFAULT = null;
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_CONF = "camel.component.milo-server.port";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_DOC = "The TCP port the server binds to";
+    public static final Integer CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_DEFAULT = null;
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_CONF = "camel.component.milo-server.productUri";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_DOC = "The product URI";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_DEFAULT = null;
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.milo-server.bridgeErrorHandler";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
+    public static final Boolean CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.milo-server.basicPropertyBinding";
+    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
+    public static final Boolean CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_CONF = "camel.component.milo-server.certificate";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_DOC = "Server certificate";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_DEFAULT = null;
@@ -71,18 +89,6 @@ public class CamelMiloserverSourceConnectorConfig
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_ENABLE_ANONYMOUS_AUTHENTICATION_CONF = "camel.component.milo-server.enableAnonymousAuthentication";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_ENABLE_ANONYMOUS_AUTHENTICATION_DOC = "Enable anonymous authentication, disabled by default";
     public static final Boolean CAMEL_SOURCE_MILOSERVER_COMPONENT_ENABLE_ANONYMOUS_AUTHENTICATION_DEFAULT = false;
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_CONF = "camel.component.milo-server.namespaceUri";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_DOC = "The URI of the namespace, defaults to urn:org:apache:camel";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_CONF = "camel.component.milo-server.path";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_DOC = "The path to be appended to the end of the endpoint url. (doesn't need to start with '/')";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_CONF = "camel.component.milo-server.port";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_DOC = "The TCP port the server binds to";
-    public static final Integer CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_CONF = "camel.component.milo-server.productUri";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_DOC = "The product URI";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_DEFAULT = null;
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_CONF = "camel.component.milo-server.securityPolicies";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_DOC = "Security policies";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_DEFAULT = null;
@@ -95,12 +101,6 @@ public class CamelMiloserverSourceConnectorConfig
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_USERNAME_SECURITY_POLICY_URI_CONF = "camel.component.milo-server.usernameSecurityPolicyUri";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_USERNAME_SECURITY_POLICY_URI_DOC = "Set the UserTokenPolicy used when One of: [None] [Basic128Rsa15] [Basic256] [Basic256Sha256] [Aes128_Sha256_RsaOaep] [Aes256_Sha256_RsaPss]";
     public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_USERNAME_SECURITY_POLICY_URI_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.milo-server.bridgeErrorHandler";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
-    public static final Boolean CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.milo-server.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
 
     public CamelMiloserverSourceConnectorConfig(
             ConfigDef config,
@@ -124,21 +124,21 @@ public class CamelMiloserverSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_APPLICATION_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_APPLICATION_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_APPLICATION_URI_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_BIND_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_BIND_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_BIND_ADDRESSES_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_BUILD_INFO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_BUILD_INFO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_BUILD_INFO_DOC);
+        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_DOC);
+        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_DOC);
+        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_DOC);
+        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_DOC);
+        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
+        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_MANAGER_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_VALIDATOR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_VALIDATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_CERTIFICATE_VALIDATOR_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_DEFAULT_CERTIFICATE_VALIDATOR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_DEFAULT_CERTIFICATE_VALIDATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_DEFAULT_CERTIFICATE_VALIDATOR_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_ENABLE_ANONYMOUS_AUTHENTICATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MILOSERVER_COMPONENT_ENABLE_ANONYMOUS_AUTHENTICATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_ENABLE_ANONYMOUS_AUTHENTICATION_DOC);
-        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_NAMESPACE_URI_DOC);
-        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_PATH_DOC);
-        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_PORT_DOC);
-        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_PRODUCT_URI_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_BY_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_BY_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_SECURITY_POLICIES_BY_ID_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_USER_AUTHENTICATION_CREDENTIALS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_USER_AUTHENTICATION_CREDENTIALS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_USER_AUTHENTICATION_CREDENTIALS_DOC);
         conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_USERNAME_SECURITY_POLICY_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MILOSERVER_COMPONENT_USERNAME_SECURITY_POLICY_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_USERNAME_SECURITY_POLICY_URI_DOC);
-        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MILOSERVER_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         return conf;
     }
 }

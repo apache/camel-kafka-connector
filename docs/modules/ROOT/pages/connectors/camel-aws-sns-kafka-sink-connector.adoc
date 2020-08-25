@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awssns.CamelAwssnsSinkConnector
 ----
 
 
-The camel-aws-sns sink connector supports 40 options, which are listed below.
+The camel-aws-sns sink connector supports 42 options, which are listed below.
 
 
 
@@ -33,6 +33,7 @@ The camel-aws-sns sink connector supports 40 options, which are listed below.
 | *camel.sink.endpoint.amazonSNSClient* | To use the AmazonSNS as the client | null | MEDIUM
 | *camel.sink.endpoint.amazonSQSClient* | An SQS Client to use as bridge between SNS and SQS | null | MEDIUM
 | *camel.sink.endpoint.autoCreateTopic* | Setting the autocreation of the topic | true | MEDIUM
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | MEDIUM
 | *camel.sink.endpoint.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. | null | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
@@ -53,6 +54,7 @@ The camel-aws-sns sink connector supports 40 options, which are listed below.
 | *camel.component.aws-sns.amazonSNSClient* | To use the AmazonSNS as the client | null | MEDIUM
 | *camel.component.aws-sns.amazonSQSClient* | An SQS Client to use as bridge between SNS and SQS | null | MEDIUM
 | *camel.component.aws-sns.autoCreateTopic* | Setting the autocreation of the topic | true | MEDIUM
+| *camel.component.aws-sns.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.component.aws-sns.configuration* | The component configuration | null | MEDIUM
 | *camel.component.aws-sns.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. | null | MEDIUM
 | *camel.component.aws-sns.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM

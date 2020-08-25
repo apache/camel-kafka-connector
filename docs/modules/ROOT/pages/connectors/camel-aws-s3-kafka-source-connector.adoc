@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector
 ----
 
 
-The camel-aws-s3 source connector supports 77 options, which are listed below.
+The camel-aws-s3 source connector supports 79 options, which are listed below.
 
 
 
@@ -32,6 +32,7 @@ The camel-aws-s3 source connector supports 77 options, which are listed below.
 | *camel.source.path.bucketNameOrArn* | Bucket name or ARN | null | HIGH
 | *camel.source.endpoint.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | MEDIUM
 | *camel.source.endpoint.autoCreateBucket* | Setting the autocreation of the bucket | true | MEDIUM
+| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.source.endpoint.endpointConfiguration* | Amazon AWS Endpoint Configuration | null | MEDIUM
 | *camel.source.endpoint.pathStyleAccess* | Whether or not the S3 client should use path style access | false | MEDIUM
 | *camel.source.endpoint.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | MEDIUM
@@ -71,7 +72,7 @@ The camel-aws-s3 source connector supports 77 options, which are listed below.
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
 | *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
@@ -80,6 +81,7 @@ The camel-aws-s3 source connector supports 77 options, which are listed below.
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 | *camel.component.aws-s3.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | MEDIUM
 | *camel.component.aws-s3.autoCreateBucket* | Setting the autocreation of the bucket | true | MEDIUM
+| *camel.component.aws-s3.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.component.aws-s3.configuration* | The component configuration | null | MEDIUM
 | *camel.component.aws-s3.endpointConfiguration* | Amazon AWS Endpoint Configuration | null | MEDIUM
 | *camel.component.aws-s3.pathStyleAccess* | Whether or not the S3 client should use path style access | false | MEDIUM

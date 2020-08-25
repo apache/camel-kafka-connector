@@ -68,15 +68,15 @@ public class CamelCmisSourceConnectorConfig
     public static final String CAMEL_SOURCE_CMIS_ENDPOINT_USERNAME_CONF = "camel.source.endpoint.username";
     public static final String CAMEL_SOURCE_CMIS_ENDPOINT_USERNAME_DOC = "Username for the cmis repository";
     public static final String CAMEL_SOURCE_CMIS_ENDPOINT_USERNAME_DEFAULT = null;
-    public static final String CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_CONF = "camel.component.cmis.sessionFacadeFactory";
-    public static final String CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_DOC = "To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade instances";
-    public static final String CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_DEFAULT = null;
     public static final String CAMEL_SOURCE_CMIS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.cmis.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_CMIS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_CMIS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_CMIS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.cmis.basicPropertyBinding";
     public static final String CAMEL_SOURCE_CMIS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_CMIS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_CONF = "camel.component.cmis.sessionFacadeFactory";
+    public static final String CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_DOC = "To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade instances";
+    public static final String CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_DEFAULT = null;
 
     public CamelCmisSourceConnectorConfig(
             ConfigDef config,
@@ -104,9 +104,9 @@ public class CamelCmisSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CMIS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CMIS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CMIS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_CMIS_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CMIS_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CMIS_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_CMIS_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CMIS_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CMIS_ENDPOINT_USERNAME_DOC);
-        conf.define(CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_CMIS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CMIS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CMIS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_CMIS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CMIS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CMIS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CMIS_COMPONENT_SESSION_FACADE_FACTORY_DOC);
         return conf;
     }
 }

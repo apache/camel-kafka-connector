@@ -87,7 +87,7 @@ public class CamelSlackSourceConnectorConfig
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -101,15 +101,15 @@ public class CamelSlackSourceConnectorConfig
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_CONF = "camel.source.endpoint.useFixedDelay";
     public static final String CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_DOC = "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.";
     public static final Boolean CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_DEFAULT = true;
-    public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_CONF = "camel.component.slack.webhookUrl";
-    public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DOC = "The incoming webhook URL";
-    public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.slack.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.slack.basicPropertyBinding";
     public static final String CAMEL_SOURCE_SLACK_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_SLACK_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_CONF = "camel.component.slack.webhookUrl";
+    public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DOC = "The incoming webhook URL";
+    public static final String CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DEFAULT = null;
 
     public CamelSlackSourceConnectorConfig(
             ConfigDef config,
@@ -148,9 +148,9 @@ public class CamelSlackSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_START_SCHEDULER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_ENDPOINT_START_SCHEDULER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_START_SCHEDULER_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_TIME_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_ENDPOINT_TIME_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_TIME_UNIT_DOC);
         conf.define(CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_ENDPOINT_USE_FIXED_DELAY_DOC);
-        conf.define(CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DOC);
         conf.define(CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SLACK_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SLACK_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SLACK_COMPONENT_WEBHOOK_URL_DOC);
         return conf;
     }
 }

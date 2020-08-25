@@ -35,6 +35,9 @@ public class CamelAwss3SourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_CREATE_BUCKET_CONF = "camel.source.endpoint.autoCreateBucket";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the bucket";
     public static final Boolean CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_CREATE_BUCKET_DEFAULT = true;
+    public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.source.endpoint.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_ENDPOINT_CONFIGURATION_CONF = "camel.source.endpoint.endpointConfiguration";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_ENDPOINT_CONFIGURATION_DOC = "Amazon AWS Endpoint Configuration";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_ENDPOINT_CONFIGURATION_DEFAULT = null;
@@ -153,7 +156,7 @@ public class CamelAwss3SourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_AWSS3_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -179,6 +182,9 @@ public class CamelAwss3SourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_CREATE_BUCKET_CONF = "camel.component.aws-s3.autoCreateBucket";
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the bucket";
     public static final Boolean CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_CREATE_BUCKET_DEFAULT = true;
+    public static final String CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws-s3.autoDiscoverClient";
+    public static final String CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_CONFIGURATION_CONF = "camel.component.aws-s3.configuration";
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SOURCE_AWSS3_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -273,6 +279,7 @@ public class CamelAwss3SourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSS3_PATH_BUCKET_NAME_OR_ARN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_PATH_BUCKET_NAME_OR_ARN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_AWSS3_PATH_BUCKET_NAME_OR_ARN_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_ENDPOINT_AMAZON_S3CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_ENDPOINT_AMAZON_S3CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_ENDPOINT_AMAZON_S3CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_CREATE_BUCKET_DOC);
+        conf.define(CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_ENDPOINT_ENDPOINT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_ENDPOINT_ENDPOINT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_ENDPOINT_ENDPOINT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_ENDPOINT_PATH_STYLE_ACCESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3_ENDPOINT_PATH_STYLE_ACCESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_ENDPOINT_PATH_STYLE_ACCESS_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_ENDPOINT_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_ENDPOINT_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_ENDPOINT_POLICY_DOC);
@@ -321,6 +328,7 @@ public class CamelAwss3SourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSS3_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_COMPONENT_AMAZON_S3CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_COMPONENT_AMAZON_S3CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_COMPONENT_AMAZON_S3CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_CREATE_BUCKET_DOC);
+        conf.define(CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_COMPONENT_ENDPOINT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSS3_COMPONENT_ENDPOINT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_COMPONENT_ENDPOINT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_AWSS3_COMPONENT_PATH_STYLE_ACCESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSS3_COMPONENT_PATH_STYLE_ACCESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSS3_COMPONENT_PATH_STYLE_ACCESS_DOC);
