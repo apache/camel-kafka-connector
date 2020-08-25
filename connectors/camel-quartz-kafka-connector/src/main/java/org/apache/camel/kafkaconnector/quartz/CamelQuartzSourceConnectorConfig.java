@@ -27,10 +27,10 @@ public class CamelQuartzSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_QUARTZ_PATH_GROUP_NAME_CONF = "camel.source.path.groupName";
-    public static final String CAMEL_SOURCE_QUARTZ_PATH_GROUP_NAME_DOC = "The quartz group name to use. The combination of group name and timer name should be unique.";
+    public static final String CAMEL_SOURCE_QUARTZ_PATH_GROUP_NAME_DOC = "The quartz group name to use. The combination of group name and trigger name should be unique.";
     public static final String CAMEL_SOURCE_QUARTZ_PATH_GROUP_NAME_DEFAULT = "Camel";
     public static final String CAMEL_SOURCE_QUARTZ_PATH_TRIGGER_NAME_CONF = "camel.source.path.triggerName";
-    public static final String CAMEL_SOURCE_QUARTZ_PATH_TRIGGER_NAME_DOC = "The quartz timer name to use. The combination of group name and timer name should be unique.";
+    public static final String CAMEL_SOURCE_QUARTZ_PATH_TRIGGER_NAME_DOC = "The quartz trigger name to use. The combination of group name and trigger name should be unique.";
     public static final String CAMEL_SOURCE_QUARTZ_PATH_TRIGGER_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_QUARTZ_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_QUARTZ_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";

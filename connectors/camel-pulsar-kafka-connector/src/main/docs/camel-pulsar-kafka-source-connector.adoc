@@ -15,7 +15,7 @@ When using camel-pulsar-kafka-connector as source make sure to use the following
 ----
 
 
-The camel-pulsar source connector supports 41 options, which are listed below.
+The camel-pulsar source connector supports 45 options, which are listed below.
 
 
 
@@ -39,7 +39,9 @@ The camel-pulsar source connector supports 41 options, which are listed below.
 | *camel.source.endpoint.numberOfConsumers* | Number of consumers - defaults to 1 | 1 | MEDIUM
 | *camel.source.endpoint.subscriptionInitialPosition* | Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST] | "LATEST" | MEDIUM
 | *camel.source.endpoint.subscriptionName* | Name of the subscription to use | "subs" | MEDIUM
+| *camel.source.endpoint.subscriptionTopicsMode* | Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions. One of: [PersistentOnly] [NonPersistentOnly] [AllTopics] | "PersistentOnly" | MEDIUM
 | *camel.source.endpoint.subscriptionType* | Type of the subscription EXCLUSIVESHAREDFAILOVERKEY_SHARED, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] [KEY_SHARED] | "EXCLUSIVE" | MEDIUM
+| *camel.source.endpoint.topicsPattern* | Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
@@ -58,7 +60,9 @@ The camel-pulsar source connector supports 41 options, which are listed below.
 | *camel.component.pulsar.numberOfConsumers* | Number of consumers - defaults to 1 | 1 | MEDIUM
 | *camel.component.pulsar.subscriptionInitialPosition* | Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST] | "LATEST" | MEDIUM
 | *camel.component.pulsar.subscriptionName* | Name of the subscription to use | "subs" | MEDIUM
+| *camel.component.pulsar.subscriptionTopicsMode* | Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions. One of: [PersistentOnly] [NonPersistentOnly] [AllTopics] | "PersistentOnly" | MEDIUM
 | *camel.component.pulsar.subscriptionType* | Type of the subscription EXCLUSIVESHAREDFAILOVERKEY_SHARED, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] [KEY_SHARED] | "EXCLUSIVE" | MEDIUM
+| *camel.component.pulsar.topicsPattern* | Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace | false | MEDIUM
 | *camel.component.pulsar.pulsarMessageReceiptFactory* | Provide a factory to create an alternate implementation of PulsarMessageReceipt. | null | MEDIUM
 | *camel.component.pulsar.autoConfiguration* | The pulsar auto configuration | null | MEDIUM
 | *camel.component.pulsar.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM

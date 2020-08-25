@@ -72,13 +72,13 @@ public class CamelIgnitecacheSourceConnectorConfig
     public static final String CAMEL_SOURCE_IGNITECACHE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_IGNITECACHE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_CONFIGURATION_RESOURCE_CONF = "camel.component.ignite-cache.configurationResource";
-    public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_CONFIGURATION_RESOURCE_DOC = "Resource from where to load configuration.";
+    public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_CONFIGURATION_RESOURCE_DOC = "The resource from where to load the configuration. It can be a: URL, String or InputStream type.";
     public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_CONFIGURATION_RESOURCE_DEFAULT = null;
     public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_IGNITE_CONF = "camel.component.ignite-cache.ignite";
-    public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_IGNITE_DOC = "Ignite instance.";
+    public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_IGNITE_DOC = "To use an existing Ignite instance.";
     public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_IGNITE_DEFAULT = null;
     public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_IGNITE_CONFIGURATION_CONF = "camel.component.ignite-cache.igniteConfiguration";
-    public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_IGNITE_CONFIGURATION_DOC = "Ignite configuration.";
+    public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_IGNITE_CONFIGURATION_DOC = "Allows the user to set a programmatic ignite configuration.";
     public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_IGNITE_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.ignite-cache.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_IGNITECACHE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";

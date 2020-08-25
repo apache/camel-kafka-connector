@@ -48,7 +48,7 @@ public class CamelWeatherSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_UNITS_DOC = "The units for temperature measurement. One of: [IMPERIAL] [METRIC]";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_UNITS_DEFAULT = null;
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_WEATHER_API_CONF = "camel.source.endpoint.weatherApi";
-    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_WEATHER_API_DOC = "The API to be use (current, forecast/3 hour, forecast daily, station) One of: [Current] [Station] [Hourly] [Daily]";
+    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_WEATHER_API_DOC = "The API to use (current, forecast/3 hour, forecast daily, station) One of: [Current] [Station] [Hourly] [Daily]";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_WEATHER_API_DEFAULT = null;
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
@@ -68,6 +68,12 @@ public class CamelWeatherSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_CONF = "camel.source.endpoint.geoLocationProvider";
+    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_DOC = "A custum geolocation provider to determine the longitude and latitude to use when no location information is set. The default implementaion uses the ipstack API and requires geolocationAccessKey and geolocationRequestHostIP";
+    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_DEFAULT = null;
+    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_CONF = "camel.source.endpoint.httpClient";
+    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_DOC = "To use an existing configured http client (for example with http proxy)";
+    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_DEFAULT = null;
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -126,7 +132,7 @@ public class CamelWeatherSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -152,9 +158,6 @@ public class CamelWeatherSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.weather.basicPropertyBinding";
     public static final String CAMEL_SOURCE_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
-    public static final String CAMEL_SOURCE_WEATHER_COMPONENT_HTTP_CLIENT_CONF = "camel.component.weather.httpClient";
-    public static final String CAMEL_SOURCE_WEATHER_COMPONENT_HTTP_CLIENT_DOC = "To use an existing configured http client (for example with http proxy)";
-    public static final String CAMEL_SOURCE_WEATHER_COMPONENT_HTTP_CLIENT_DEFAULT = null;
 
     public CamelWeatherSourceConnectorConfig(
             ConfigDef config,
@@ -182,6 +185,8 @@ public class CamelWeatherSourceConnectorConfig
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_DOC);
+        conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_IDS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_IDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_IDS_DOC);
@@ -210,7 +215,6 @@ public class CamelWeatherSourceConnectorConfig
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPCONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPDEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_WEATHER_ENDPOINT_GEOLOCATION_REQUEST_HOST_IPDOC);
         conf.define(CAMEL_SOURCE_WEATHER_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEATHER_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
-        conf.define(CAMEL_SOURCE_WEATHER_COMPONENT_HTTP_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_COMPONENT_HTTP_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_COMPONENT_HTTP_CLIENT_DOC);
         return conf;
     }
 }

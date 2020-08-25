@@ -15,7 +15,7 @@ When using camel-aws2-ddbstream-kafka-connector as source make sure to use the f
 ----
 
 
-The camel-aws2-ddbstream source connector supports 45 options, which are listed below.
+The camel-aws2-ddbstream source connector supports 49 options, which are listed below.
 
 
 
@@ -23,6 +23,7 @@ The camel-aws2-ddbstream source connector supports 45 options, which are listed 
 |===
 | Name | Description | Default | Priority
 | *camel.source.path.tableName* | Name of the dynamodb table | null | HIGH
+| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
 | *camel.source.endpoint.amazonDynamoDbStreamsClient* | Amazon DynamoDB client to use for all requests for this endpoint | null | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.iteratorType* | Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. One of: [TRIM_HORIZON] [LATEST] [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [null] | "LATEST" | MEDIUM
@@ -33,6 +34,7 @@ The camel-aws2-ddbstream source connector supports 45 options, which are listed 
 | *camel.source.endpoint.region* | The region in which DDBStreams client needs to work | null | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | MEDIUM
 | *camel.source.endpoint.sequenceNumberProvider* | Provider for the sequence number when using one of the two ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. | null | MEDIUM
+| *camel.source.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | MEDIUM
@@ -47,13 +49,14 @@ The camel-aws2-ddbstream source connector supports 45 options, which are listed 
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
 | *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
 | *camel.source.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+| *camel.component.aws2-ddbstream.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
 | *camel.component.aws2-ddbstream.amazonDynamoDb StreamsClient* | Amazon DynamoDB client to use for all requests for this endpoint | null | MEDIUM
 | *camel.component.aws2-ddbstream.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.aws2-ddbstream.configuration* | The component configuration | null | MEDIUM
@@ -64,6 +67,7 @@ The camel-aws2-ddbstream source connector supports 45 options, which are listed 
 | *camel.component.aws2-ddbstream.proxyProtocol* | To define a proxy protocol when instantiating the DDBStreams client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.component.aws2-ddbstream.region* | The region in which DDBStreams client needs to work | null | MEDIUM
 | *camel.component.aws2-ddbstream.sequenceNumber Provider* | Provider for the sequence number when using one of the two ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. | null | MEDIUM
+| *camel.component.aws2-ddbstream.trustAll Certificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.component.aws2-ddbstream.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.aws2-ddbstream.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-ddbstream.secretKey* | Amazon AWS Secret Key | null | MEDIUM

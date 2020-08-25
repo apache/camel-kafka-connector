@@ -144,7 +144,7 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DOC = "Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_SCHEDULED_EXECUTOR_SERVICE_DEFAULT = null;
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_SCHEDULER_CONF = "camel.source.endpoint.scheduler";
-    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz]";
+    public static final String CAMEL_SOURCE_HDFS_ENDPOINT_SCHEDULER_DOC = "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_SCHEDULER_DEFAULT = "none";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_SCHEDULER_PROPERTIES_CONF = "camel.source.endpoint.schedulerProperties";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_SCHEDULER_PROPERTIES_DOC = "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.";
@@ -167,18 +167,18 @@ public class CamelHdfsSourceConnectorConfig
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_CONF = "camel.source.endpoint.kerberosUsername";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_DOC = "The username used to authenticate with the kerberos nodes";
     public static final String CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_DEFAULT = null;
-    public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_CONF = "camel.component.hdfs.jAASConfiguration";
-    public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DOC = "To use the given configuration for security with JAAS.";
-    public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT = null;
-    public static final String CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF = "camel.component.hdfs.kerberosConfigFile";
-    public static final String CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC = "To use kerberos authentication, set the value of the 'java.security.krb5.conf' environment variable to an existing file. If the environment variable is already set, warn if different than the specified parameter";
-    public static final String CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT = null;
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.hdfs.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.hdfs.basicPropertyBinding";
     public static final String CAMEL_SOURCE_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SOURCE_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_CONF = "camel.component.hdfs.jAASConfiguration";
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DOC = "To use the given configuration for security with JAAS.";
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT = null;
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF = "camel.component.hdfs.kerberosConfigFile";
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC = "To use kerberos authentication, set the value of the 'java.security.krb5.conf' environment variable to an existing file. If the environment variable is already set, warn if different than the specified parameter";
+    public static final String CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT = null;
 
     public CamelHdfsSourceConnectorConfig(
             ConfigDef config,
@@ -239,10 +239,10 @@ public class CamelHdfsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_CONFIG_FILE_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_CONFIG_FILE_LOCATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_CONFIG_FILE_LOCATION_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_KEYTAB_LOCATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_KEYTAB_LOCATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_KEYTAB_LOCATION_DOC);
         conf.define(CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_ENDPOINT_KERBEROS_USERNAME_DOC);
-        conf.define(CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DOC);
-        conf.define(CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC);
         conf.define(CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_JAASCONFIGURATION_DOC);
+        conf.define(CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HDFS_COMPONENT_KERBEROS_CONFIG_FILE_DOC);
         return conf;
     }
 }

@@ -15,7 +15,7 @@ When using camel-aws2-sns-kafka-connector as sink make sure to use the following
 ----
 
 
-The camel-aws2-sns sink connector supports 38 options, which are listed below.
+The camel-aws2-sns sink connector supports 42 options, which are listed below.
 
 
 
@@ -25,6 +25,7 @@ The camel-aws2-sns sink connector supports 38 options, which are listed below.
 | *camel.sink.path.topicNameOrArn* | Topic name or ARN | null | HIGH
 | *camel.sink.endpoint.amazonSNSClient* | To use the AmazonSNS as the client | null | MEDIUM
 | *camel.sink.endpoint.autoCreateTopic* | Setting the autocreation of the topic | true | MEDIUM
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | MEDIUM
 | *camel.sink.endpoint.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. | null | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
@@ -38,12 +39,14 @@ The camel-aws2-sns sink connector supports 38 options, which are listed below.
 | *camel.sink.endpoint.serverSideEncryptionEnabled* | Define if Server Side Encryption is enabled or not on the topic | false | MEDIUM
 | *camel.sink.endpoint.subject* | The subject which is used if the message header 'CamelAwsSnsSubject' is not present. | null | MEDIUM
 | *camel.sink.endpoint.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | MEDIUM
+| *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 | *camel.component.aws2-sns.amazonSNSClient* | To use the AmazonSNS as the client | null | MEDIUM
 | *camel.component.aws2-sns.autoCreateTopic* | Setting the autocreation of the topic | true | MEDIUM
+| *camel.component.aws2-sns.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.component.aws2-sns.configuration* | Component configuration | null | MEDIUM
 | *camel.component.aws2-sns.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. | null | MEDIUM
 | *camel.component.aws2-sns.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
@@ -57,6 +60,7 @@ The camel-aws2-sns sink connector supports 38 options, which are listed below.
 | *camel.component.aws2-sns.serverSideEncryption Enabled* | Define if Server Side Encryption is enabled or not on the topic | false | MEDIUM
 | *camel.component.aws2-sns.subject* | The subject which is used if the message header 'CamelAwsSnsSubject' is not present. | null | MEDIUM
 | *camel.component.aws2-sns.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | MEDIUM
+| *camel.component.aws2-sns.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.component.aws2-sns.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.aws2-sns.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-sns.secretKey* | Amazon AWS Secret Key | null | MEDIUM

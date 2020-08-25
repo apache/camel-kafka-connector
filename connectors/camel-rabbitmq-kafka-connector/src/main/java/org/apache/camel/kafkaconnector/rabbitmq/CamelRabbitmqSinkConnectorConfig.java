@@ -80,6 +80,9 @@ public class CamelRabbitmqSinkConnectorConfig
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ROUTING_KEY_CONF = "camel.sink.endpoint.routingKey";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ROUTING_KEY_DOC = "The routing key to use when binding a consumer queue to the exchange. For producer routing keys, you set the header rabbitmq.ROUTING_KEY.";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ROUTING_KEY_DEFAULT = null;
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_DLQ_DECLARE_CONF = "camel.sink.endpoint.skipDlqDeclare";
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_DLQ_DECLARE_DOC = "If true the producer will not declare and bind a dead letter queue. This can be used if you have also DLQ rabbitmq consumer and you want to avoid argument clashing between Producer and Consumer. This option have no effect, if DLQ configured (deadLetterExchange option is not set).";
+    public static final Boolean CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_DLQ_DECLARE_DEFAULT = false;
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_EXCHANGE_DECLARE_CONF = "camel.sink.endpoint.skipExchangeDeclare";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_EXCHANGE_DECLARE_DOC = "This can be used if we need to declare the queue but not the exchange";
     public static final Boolean CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_EXCHANGE_DECLARE_DEFAULT = false;
@@ -126,7 +129,7 @@ public class CamelRabbitmqSinkConnectorConfig
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_PUBLISHER_ACKNOWLEDGEMENTS_TIMEOUT_DOC = "The amount of time in milliseconds to wait for a basic.ack response from RabbitMQ server";
     public static final Long CAMEL_SINK_RABBITMQ_ENDPOINT_PUBLISHER_ACKNOWLEDGEMENTS_TIMEOUT_DEFAULT = null;
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ARGS_CONF = "camel.sink.endpoint.args";
-    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ARGS_DOC = "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. For example to declare a queue with message ttl argument: http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000";
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ARGS_DOC = "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ binding: arg.dlq.binding. For example to declare a queue with message ttl argument: http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ARGS_DEFAULT = null;
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
@@ -261,7 +264,7 @@ public class CamelRabbitmqSinkConnectorConfig
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_PUBLISHER_ACKNOWLEDGEMENTS_TIMEOUT_DOC = "The amount of time in milliseconds to wait for a basic.ack response from RabbitMQ server";
     public static final Long CAMEL_SINK_RABBITMQ_COMPONENT_PUBLISHER_ACKNOWLEDGEMENTS_TIMEOUT_DEFAULT = null;
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ARGS_CONF = "camel.component.rabbitmq.args";
-    public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ARGS_DOC = "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. For example to declare a queue with message ttl argument: http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000";
+    public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ARGS_DOC = "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ Binding: arg.dlq.binding. For example to declare a queue with message ttl argument: http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000";
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ARGS_DEFAULT = null;
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_AUTO_DETECT_CONNECTION_FACTORY_CONF = "camel.component.rabbitmq.autoDetectConnectionFactory";
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_AUTO_DETECT_CONNECTION_FACTORY_DOC = "Whether to auto-detect looking up RabbitMQ connection factory from the registry. When enabled and a single instance of the connection factory is found then it will be used. An explicit connection factory can be configured on the component or endpoint level which takes precedence.";
@@ -348,6 +351,7 @@ public class CamelRabbitmqSinkConnectorConfig
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_PORT_NUMBER_CONF, ConfigDef.Type.INT, CAMEL_SINK_RABBITMQ_ENDPOINT_PORT_NUMBER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_PORT_NUMBER_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_QUEUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RABBITMQ_ENDPOINT_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_QUEUE_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_ROUTING_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RABBITMQ_ENDPOINT_ROUTING_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_ROUTING_KEY_DOC);
+        conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_DLQ_DECLARE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_DLQ_DECLARE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_DLQ_DECLARE_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_EXCHANGE_DECLARE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_EXCHANGE_DECLARE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_EXCHANGE_DECLARE_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_BIND_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_BIND_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_BIND_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_DECLARE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_DECLARE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_DECLARE_DOC);

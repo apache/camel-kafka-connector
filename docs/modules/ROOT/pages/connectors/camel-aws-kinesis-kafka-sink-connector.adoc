@@ -15,7 +15,7 @@ When using camel-aws-kinesis-kafka-connector as sink make sure to use the follow
 ----
 
 
-The camel-aws-kinesis sink connector supports 21 options, which are listed below.
+The camel-aws-kinesis sink connector supports 23 options, which are listed below.
 
 
 
@@ -24,6 +24,7 @@ The camel-aws-kinesis sink connector supports 21 options, which are listed below
 | Name | Description | Default | Priority
 | *camel.sink.path.streamName* | Name of the stream | null | HIGH
 | *camel.sink.endpoint.amazonKinesisClient* | Amazon Kinesis client to use for all requests for this endpoint | null | MEDIUM
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the Kinesis client | null | MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the Kinesis client | null | MEDIUM
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Kinesis client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
@@ -34,6 +35,7 @@ The camel-aws-kinesis sink connector supports 21 options, which are listed below
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 | *camel.component.aws-kinesis.amazonKinesisClient* | Amazon Kinesis client to use for all requests for this endpoint | null | MEDIUM
+| *camel.component.aws-kinesis.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
 | *camel.component.aws-kinesis.configuration* | The component configuration | null | MEDIUM
 | *camel.component.aws-kinesis.proxyHost* | To define a proxy host when instantiating the Kinesis client | null | MEDIUM
 | *camel.component.aws-kinesis.proxyPort* | To define a proxy port when instantiating the Kinesis client | null | MEDIUM

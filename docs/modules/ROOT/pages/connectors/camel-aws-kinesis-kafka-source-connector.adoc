@@ -15,7 +15,7 @@ When using camel-aws-kinesis-kafka-connector as source make sure to use the foll
 ----
 
 
-The camel-aws-kinesis source connector supports 49 options, which are listed below.
+The camel-aws-kinesis source connector supports 51 options, which are listed below.
 
 
 
@@ -24,6 +24,7 @@ The camel-aws-kinesis source connector supports 49 options, which are listed bel
 | Name | Description | Default | Priority
 | *camel.source.path.streamName* | Name of the stream | null | HIGH
 | *camel.source.endpoint.amazonKinesisClient* | Amazon Kinesis client to use for all requests for this endpoint | null | MEDIUM
+| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
 | *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the Kinesis client | null | MEDIUM
 | *camel.source.endpoint.proxyPort* | To define a proxy port when instantiating the Kinesis client | null | MEDIUM
 | *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Kinesis client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
@@ -49,7 +50,7 @@ The camel-aws-kinesis source connector supports 49 options, which are listed bel
 | *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
 | *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
 | *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component One of: [none] [spring] [quartz] | "none" | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
 | *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
@@ -57,6 +58,7 @@ The camel-aws-kinesis source connector supports 49 options, which are listed bel
 | *camel.source.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 | *camel.component.aws-kinesis.amazonKinesisClient* | Amazon Kinesis client to use for all requests for this endpoint | null | MEDIUM
+| *camel.component.aws-kinesis.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
 | *camel.component.aws-kinesis.configuration* | The component configuration | null | MEDIUM
 | *camel.component.aws-kinesis.proxyHost* | To define a proxy host when instantiating the Kinesis client | null | MEDIUM
 | *camel.component.aws-kinesis.proxyPort* | To define a proxy port when instantiating the Kinesis client | null | MEDIUM

@@ -15,7 +15,7 @@ When using camel-http-kafka-connector as sink make sure to use the following Mav
 ----
 
 
-The camel-http sink connector supports 72 options, which are listed below.
+The camel-http sink connector supports 80 options, which are listed below.
 
 
 
@@ -60,6 +60,7 @@ The camel-http sink connector supports 72 options, which are listed below.
 | *camel.sink.endpoint.proxyAuthDomain* | Proxy authentication domain to use with NTML | null | MEDIUM
 | *camel.sink.endpoint.proxyAuthHost* | Proxy authentication host | null | MEDIUM
 | *camel.sink.endpoint.proxyAuthMethod* | Proxy authentication method to use One of: [Basic] [Digest] [NTLM] | null | MEDIUM
+| *camel.sink.endpoint.proxyAuthNtHost* | Proxy authentication domain (workstation name) to use with NTML | null | MEDIUM
 | *camel.sink.endpoint.proxyAuthPassword* | Proxy authentication password | null | MEDIUM
 | *camel.sink.endpoint.proxyAuthPort* | Proxy authentication port | null | MEDIUM
 | *camel.sink.endpoint.proxyAuthScheme* | Proxy authentication scheme to use One of: [http] [https] | null | MEDIUM
@@ -88,6 +89,13 @@ The camel-http sink connector supports 72 options, which are listed below.
 | *camel.component.http.httpContext* | To use a custom org.apache.http.protocol.HttpContext when executing requests. | null | MEDIUM
 | *camel.component.http.maxTotalConnections* | The maximum number of connections. | 200 | MEDIUM
 | *camel.component.http.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
+| *camel.component.http.proxyAuthDomain* | Proxy authentication domain to use | null | MEDIUM
+| *camel.component.http.proxyAuthHost* | Proxy authentication host | null | MEDIUM
+| *camel.component.http.proxyAuthMethod* | Proxy authentication method to use One of: [Basic] [Digest] [NTLM] | null | MEDIUM
+| *camel.component.http.proxyAuthNtHost* | Proxy authentication domain (workstation name) to use with NTML | null | MEDIUM
+| *camel.component.http.proxyAuthPassword* | Proxy authentication password | null | MEDIUM
+| *camel.component.http.proxyAuthPort* | Proxy authentication port | null | MEDIUM
+| *camel.component.http.proxyAuthUsername* | Proxy authentication username | null | MEDIUM
 | *camel.component.http.sslContextParameters* | To configure security using SSLContextParameters. Important: Only one instance of org.apache.camel.support.jsse.SSLContextParameters is supported per HttpComponent. If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need. | null | MEDIUM
 | *camel.component.http.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 | *camel.component.http.x509HostnameVerifier* | To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier. | null | MEDIUM

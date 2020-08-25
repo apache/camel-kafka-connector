@@ -15,7 +15,7 @@ When using camel-weather-kafka-connector as sink make sure to use the following 
 ----
 
 
-The camel-weather sink connector supports 25 options, which are listed below.
+The camel-weather sink connector supports 26 options, which are listed below.
 
 
 
@@ -29,9 +29,11 @@ The camel-weather sink connector supports 25 options, which are listed below.
 | *camel.sink.endpoint.mode* | The output format of the weather data. One of: [HTML] [JSON] [XML] | "JSON" | MEDIUM
 | *camel.sink.endpoint.period* | If null, the current weather will be returned, else use values of 5, 7, 14 days. Only the numeric value for the forecast period is actually parsed, so spelling, capitalisation of the time period is up to you (its ignored) | null | MEDIUM
 | *camel.sink.endpoint.units* | The units for temperature measurement. One of: [IMPERIAL] [METRIC] | null | MEDIUM
-| *camel.sink.endpoint.weatherApi* | The API to be use (current, forecast/3 hour, forecast daily, station) One of: [Current] [Station] [Hourly] [Daily] | null | MEDIUM
+| *camel.sink.endpoint.weatherApi* | The API to use (current, forecast/3 hour, forecast daily, station) One of: [Current] [Station] [Hourly] [Daily] | null | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.geoLocationProvider* | A custum geolocation provider to determine the longitude and latitude to use when no location information is set. The default implementaion uses the ipstack API and requires geolocationAccessKey and geolocationRequestHostIP | null | MEDIUM
+| *camel.sink.endpoint.httpClient* | To use an existing configured http client (for example with http proxy) | null | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.cnt* | Number of results to be found | null | MEDIUM
 | *camel.sink.endpoint.ids* | List of id's of city/stations. You can separate multiple ids by comma. | null | MEDIUM
@@ -46,6 +48,5 @@ The camel-weather sink connector supports 25 options, which are listed below.
 | *camel.sink.endpoint.geolocationRequestHostIP* | The geolocation service now needs to specify the IP associated to the accessKey you're using | null | HIGH
 | *camel.component.weather.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.weather.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.component.weather.httpClient* | To use an existing configured http client (for example with http proxy) | null | MEDIUM
 |===
 // kafka-connector options: END

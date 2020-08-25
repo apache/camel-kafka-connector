@@ -36,6 +36,12 @@ public class CamelOlingo2SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_CONTENT_TYPE_CONF = "camel.sink.endpoint.contentType";
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_CONTENT_TYPE_DOC = "Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8";
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_CONTENT_TYPE_DEFAULT = "application/json;charset=utf-8";
+    public static final String CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_READ_PROPERTIES_CONF = "camel.sink.endpoint.entityProviderReadProperties";
+    public static final String CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_READ_PROPERTIES_DOC = "Custom entity provider read properties applied to all read operations.";
+    public static final String CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_READ_PROPERTIES_DEFAULT = null;
+    public static final String CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_WRITE_PROPERTIES_CONF = "camel.sink.endpoint.entityProviderWriteProperties";
+    public static final String CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_WRITE_PROPERTIES_DOC = "Custom entity provider write properties applied to create, update, patch, batch and merge operations. For instance users can skip the Json object wrapper or enable content only mode when sending request data. A service URI set in the properties will always be overwritten by the serviceUri configuration parameter. Please consider to using the serviceUri configuration parameter instead of setting the respective write property here.";
+    public static final String CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_WRITE_PROPERTIES_DEFAULT = null;
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_FILTER_ALREADY_SEEN_CONF = "camel.sink.endpoint.filterAlreadySeen";
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_FILTER_ALREADY_SEEN_DOC = "Set this to true to filter out results that have already been communicated by this component.";
     public static final Boolean CAMEL_SINK_OLINGO2_ENDPOINT_FILTER_ALREADY_SEEN_DEFAULT = false;
@@ -81,6 +87,12 @@ public class CamelOlingo2SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_OLINGO2_COMPONENT_CONTENT_TYPE_CONF = "camel.component.olingo2.contentType";
     public static final String CAMEL_SINK_OLINGO2_COMPONENT_CONTENT_TYPE_DOC = "Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8";
     public static final String CAMEL_SINK_OLINGO2_COMPONENT_CONTENT_TYPE_DEFAULT = "application/json;charset=utf-8";
+    public static final String CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_READ_PROPERTIES_CONF = "camel.component.olingo2.entityProviderReadProperties";
+    public static final String CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_READ_PROPERTIES_DOC = "Custom entity provider read properties applied to all read operations.";
+    public static final String CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_READ_PROPERTIES_DEFAULT = null;
+    public static final String CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_WRITE_PROPERTIES_CONF = "camel.component.olingo2.entityProviderWriteProperties";
+    public static final String CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_WRITE_PROPERTIES_DOC = "Custom entity provider write properties applied to create, update, patch, batch and merge operations. For instance users can skip the Json object wrapper or enable content only mode when sending request data. A service URI set in the properties will always be overwritten by the serviceUri configuration parameter. Please consider to using the serviceUri configuration parameter instead of setting the respective write property here.";
+    public static final String CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_WRITE_PROPERTIES_DEFAULT = null;
     public static final String CAMEL_SINK_OLINGO2_COMPONENT_FILTER_ALREADY_SEEN_CONF = "camel.component.olingo2.filterAlreadySeen";
     public static final String CAMEL_SINK_OLINGO2_COMPONENT_FILTER_ALREADY_SEEN_DOC = "Set this to true to filter out results that have already been communicated by this component.";
     public static final Boolean CAMEL_SINK_OLINGO2_COMPONENT_FILTER_ALREADY_SEEN_DEFAULT = false;
@@ -131,6 +143,8 @@ public class CamelOlingo2SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_OLINGO2_PATH_METHOD_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_PATH_METHOD_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_OLINGO2_PATH_METHOD_NAME_DOC);
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_CONNECT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_OLINGO2_ENDPOINT_CONNECT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_CONNECT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_CONTENT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_ENDPOINT_CONTENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_CONTENT_TYPE_DOC);
+        conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_READ_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_READ_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_READ_PROPERTIES_DOC);
+        conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_WRITE_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_WRITE_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_ENTITY_PROVIDER_WRITE_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_FILTER_ALREADY_SEEN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OLINGO2_ENDPOINT_FILTER_ALREADY_SEEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_FILTER_ALREADY_SEEN_DOC);
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_HEADERS_DOC);
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_IN_BODY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_ENDPOINT_IN_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_IN_BODY_DOC);
@@ -146,6 +160,8 @@ public class CamelOlingo2SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_OLINGO2_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_OLINGO2_COMPONENT_CONNECT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_OLINGO2_COMPONENT_CONNECT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_CONNECT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_OLINGO2_COMPONENT_CONTENT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_COMPONENT_CONTENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_CONTENT_TYPE_DOC);
+        conf.define(CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_READ_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_READ_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_READ_PROPERTIES_DOC);
+        conf.define(CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_WRITE_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_WRITE_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_ENTITY_PROVIDER_WRITE_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_OLINGO2_COMPONENT_FILTER_ALREADY_SEEN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OLINGO2_COMPONENT_FILTER_ALREADY_SEEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_FILTER_ALREADY_SEEN_DOC);
         conf.define(CAMEL_SINK_OLINGO2_COMPONENT_HTTP_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_COMPONENT_HTTP_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_HTTP_HEADERS_DOC);
         conf.define(CAMEL_SINK_OLINGO2_COMPONENT_PROXY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_COMPONENT_PROXY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_PROXY_DOC);
