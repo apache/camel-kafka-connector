@@ -1,0 +1,64 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: Daily Build Camel Master onto master
+
+on:
+  schedule:
+    # Run every day at midnight
+    - cron:  '* * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '1.8', '11' ]
+    steps:
+      - name: Set Workflow Build ID
+        run: |
+          [ ! -d ~/build-data ] && mkdir -p ~/build-data
+          echo "${{ github.run_id }}-${{ github.run_number }}-$(uuidgen)" > ~/build-data/build-id.txt
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: camel-master
+          fetch-depth: 0
+      - name: Rebase branch master onto camel-master
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git fetch origin master
+          git rebase origin/master
+          git rev-parse origin/master > ~/build-data/master-sha.txt
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: mvn sourcecheck + build and itests
+        run: |
+          ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:parent,org.apache.camel.kafkaconnector:camel-kafka-connector-aggregator,org.apache.camel.kafkaconnector:camel-buildtools clean install
+          ./mvnw -V --no-transfer-progress --projects org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean install
+          ./mvnw -V --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
+      - name: Report Build Failure
+        if: failure()
+        run: |
+          # Abort rebase in case something went wrong as we may have broken pom.xml files
+          if [[ -e ".git/rebase" || -e ".git/rebase-apply" || -e ".git/rebase-merge" ]]; then
+            git rebase --abort
+          fi
+          ./mvnw verify -N -B -ntp -Pbuild-notification -Dstatus=${{ job.status }} -Dtoken=${{ secrets.GITHUB_TOKEN }} -DbuildId=$(cat ~/build-data/build-id.txt) -Drepo=${GITHUB_REPOSITORY} -Dbranch=camel-master -Dbranch-commit=$(cat ~/build-data/master-sha.txt)
