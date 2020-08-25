@@ -17,24 +17,24 @@
 
 package org.apache.camel.kafkaconnector.cassandra.clients;
 
-import com.datastax.driver.core.Cluster;
-import com.datastax.driver.core.Session;
+import java.net.InetSocketAddress;
+
+import com.datastax.oss.driver.api.core.CqlSession;
 import org.apache.camel.kafkaconnector.cassandra.clients.dao.TestDataDao;
 
 /**
  * A simple client for Cassandra for testing purposes
  */
 public class CassandraClient {
-    private Cluster cluster;
-    private Session session;
+    private CqlSession session;
 
     public CassandraClient(String host, int port) {
-        cluster = Cluster.builder()
-                .addContactPoint(host)
-                .withPort(port)
-                .build();
+        InetSocketAddress socketAddress = new InetSocketAddress(host, port);
 
-        session = cluster.connect();
+        session = CqlSession.builder()
+                .addContactPoint(socketAddress)
+                .withLocalDatacenter("datacenter1")
+                .build();
     }
 
 

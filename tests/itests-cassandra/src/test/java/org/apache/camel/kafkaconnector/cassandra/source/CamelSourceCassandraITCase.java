@@ -19,7 +19,7 @@ package org.apache.camel.kafkaconnector.cassandra.source;
 
 import java.util.concurrent.ExecutionException;
 
-import com.datastax.driver.core.Row;
+import com.datastax.oss.driver.api.core.cql.Row;
 import org.apache.camel.kafkaconnector.cassandra.clients.CassandraClient;
 import org.apache.camel.kafkaconnector.cassandra.clients.dao.TestDataDao;
 import org.apache.camel.kafkaconnector.cassandra.clients.dao.TestResultSetConversionStrategy;
@@ -78,7 +78,11 @@ public class CamelSourceCassandraITCase extends AbstractKafkaTest {
         cassandraClient = cassandraService.getClient();
 
         if (testDataDao != null) {
-            testDataDao.dropTable();
+            try {
+                testDataDao.dropTable();
+            } catch (Exception e) {
+                LOG.warn("Unable to drop the table: {}", e.getMessage(), e);
+            }
         }
     }
 
