@@ -156,7 +156,6 @@
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka-clients</artifactId>
                 <version>${kafka.version}</version>
-<!--                <scope>test</scope>-->
             </dependency>
             <dependency>
                 <groupId>org.apache.kafka</groupId>
