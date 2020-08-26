@@ -11,7 +11,7 @@ You can do that through the following command.
 
 [source,bash]
 ----
-mvn arch': mvn archetype:generate  -DarchetypeGroupId=org.apache.camel.kafkaconnector.archetypes  -DarchetypeArtifactId=camel-kafka-connector-extensible-archetype  -DarchetypeVersion=0.5.0-SNAPSHOT
+> mvn archetype:generate  -DarchetypeGroupId=org.apache.camel.kafkaconnector.archetypes  -DarchetypeArtifactId=camel-kafka-connector-extensible-archetype  -DarchetypeVersion=0.5.0-SNAPSHOT
 sible-archetype-0.4.0-20200723.181654-5.jar (16 kB at 80 kB/s)
 Define value for property 'groupId': org.apache.camel.kafkaconnector.extended
 Define value for property 'artifactId': myconnector-extended
