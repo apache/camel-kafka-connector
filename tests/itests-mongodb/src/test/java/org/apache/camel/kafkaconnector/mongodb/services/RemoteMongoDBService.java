@@ -21,25 +21,9 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 
 public class RemoteMongoDBService implements MongoDBService {
-    private static final int MONGODB_PORT = 27017;
 
-    public int getPort() {
-        String strPort = System.getProperty("mongodb.port");
-
-        if (strPort != null) {
-            return Integer.parseInt(strPort);
-        }
-
-        return MONGODB_PORT;
-    }
-
-    public String getHost() {
-        return System.getProperty("mongodb.host");
-    }
-
-    @Override
     public String getReplicaSetUrl() {
-        return getHost() + ":" + getPort();
+        return System.getProperty("mongodb.url");
     }
 
     @Override

@@ -35,10 +35,6 @@ public interface MongoDBService extends BeforeAllCallback, AfterAllCallback {
 
     String getReplicaSetUrl();
 
-    String getHost();
-
-    int getPort();
-
     MongoClient getClient();
 
     @Override

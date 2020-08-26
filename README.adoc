@@ -65,8 +65,7 @@ for remote testing:
 ** hdfs.host
 ** hdfs.port
 * mongodb.instance.type
-** mongodb.host
-** mongodb.port
+** mongodb.url
 
 Additionally, a few manual tests can be enabled and executed with adequate configuration on the accounts and
 environments used by those services. This is very specific to the nature of each of those services, therefore
