@@ -118,9 +118,8 @@ public class CamelSourceMongoDBITCase extends AbstractKafkaTest {
     @Test
     @Timeout(90)
     public void testFindAll() throws ExecutionException, InterruptedException {
-        String connectionBeanRef = String.format("com.mongodb.client.MongoClients#create('mongodb://%s:%d')",
-                mongoDBService.getHost(),
-                mongoDBService.getPort());
+        String connectionBeanRef = String.format("com.mongodb.client.MongoClients#create('%s')",
+                mongoDBService.getReplicaSetUrl());
 
         ConnectorPropertyFactory factory = CamelMongoDBPropertyFactory.basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))

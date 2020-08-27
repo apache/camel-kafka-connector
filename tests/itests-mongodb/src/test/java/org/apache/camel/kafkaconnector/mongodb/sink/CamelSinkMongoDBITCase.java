@@ -105,9 +105,8 @@ public class CamelSinkMongoDBITCase extends AbstractKafkaTest {
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        String connectionBeanRef = String.format("com.mongodb.client.MongoClients#create('mongodb://%s:%d')",
-                mongoDBService.getHost(),
-                mongoDBService.getPort());
+        String connectionBeanRef = String.format("com.mongodb.client.MongoClients#create('%s')",
+                mongoDBService.getReplicaSetUrl());
 
         CamelMongoDBPropertyFactory factory = CamelMongoDBPropertyFactory.basic()
                 .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
