@@ -25,7 +25,7 @@ The camel-aws2-sts sink connector supports 29 options, which are listed below.
 | *camel.sink.path.label* | Logical name | null | HIGH
 | *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.operation* | The operation to perform One of: [assumeRole] [getSessionToken] | "assumeRole" | HIGH
+| *camel.sink.endpoint.operation* | The operation to perform One of: [assumeRole] [getSessionToken] [getFederationToken] | "assumeRole" | HIGH
 | *camel.sink.endpoint.pojoRequest* | If we want to use a POJO request as body or not | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the STS client | null | MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the STS client | null | MEDIUM
@@ -40,7 +40,7 @@ The camel-aws2-sts sink connector supports 29 options, which are listed below.
 | *camel.component.aws2-sts.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
 | *camel.component.aws2-sts.configuration* | Component configuration | null | MEDIUM
 | *camel.component.aws2-sts.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.aws2-sts.operation* | The operation to perform One of: [assumeRole] [getSessionToken] | "assumeRole" | HIGH
+| *camel.component.aws2-sts.operation* | The operation to perform One of: [assumeRole] [getSessionToken] [getFederationToken] | "assumeRole" | HIGH
 | *camel.component.aws2-sts.pojoRequest* | If we want to use a POJO request as body or not | false | MEDIUM
 | *camel.component.aws2-sts.proxyHost* | To define a proxy host when instantiating the STS client | null | MEDIUM
 | *camel.component.aws2-sts.proxyPort* | To define a proxy port when instantiating the STS client | null | MEDIUM
@@ -52,6 +52,4 @@ The camel-aws2-sts sink connector supports 29 options, which are listed below.
 | *camel.component.aws2-sts.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-sts.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
-
-
 // kafka-connector options: END
