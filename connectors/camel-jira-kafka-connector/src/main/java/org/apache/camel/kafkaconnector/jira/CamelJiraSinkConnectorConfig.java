@@ -25,7 +25,7 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelJiraSinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_JIRA_PATH_TYPE_CONF = "camel.sink.path.type";
-    public static final String CAMEL_SINK_JIRA_PATH_TYPE_DOC = "Operation to perform. Consumers: NewIssues, NewComments. Producers: AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue, Watchers. See this class javadoc description for more information. One of: [ADDCOMMENT] [ADDISSUE] [ATTACH] [DELETEISSUE] [NEWISSUES] [NEWCOMMENTS] [UPDATEISSUE] [TRANSITIONISSUE] [WATCHERS] [ADDISSUELINK] [ADDWORKLOG] [FETCHISSUE] [FETCHCOMMENTS]";
+    public static final String CAMEL_SINK_JIRA_PATH_TYPE_DOC = "Operation to perform. Consumers: NewIssues, NewComments. Producers: AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue, Watchers. See this class javadoc description for more information. One of: [ADDCOMMENT] [ADDISSUE] [ATTACH] [DELETEISSUE] [NEWISSUES] [NEWCOMMENTS] [WATCHUPDATES] [UPDATEISSUE] [TRANSITIONISSUE] [WATCHERS] [ADDISSUELINK] [ADDWORKLOG] [FETCHISSUE] [FETCHCOMMENTS]";
     public static final String CAMEL_SINK_JIRA_PATH_TYPE_DEFAULT = null;
     public static final String CAMEL_SINK_JIRA_ENDPOINT_DELAY_CONF = "camel.sink.endpoint.delay";
     public static final String CAMEL_SINK_JIRA_ENDPOINT_DELAY_DOC = "Time in milliseconds to elapse for the next poll.";

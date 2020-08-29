@@ -27,7 +27,7 @@ public class CamelJiraSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_JIRA_PATH_TYPE_CONF = "camel.source.path.type";
-    public static final String CAMEL_SOURCE_JIRA_PATH_TYPE_DOC = "Operation to perform. Consumers: NewIssues, NewComments. Producers: AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue, Watchers. See this class javadoc description for more information. One of: [ADDCOMMENT] [ADDISSUE] [ATTACH] [DELETEISSUE] [NEWISSUES] [NEWCOMMENTS] [UPDATEISSUE] [TRANSITIONISSUE] [WATCHERS] [ADDISSUELINK] [ADDWORKLOG] [FETCHISSUE] [FETCHCOMMENTS]";
+    public static final String CAMEL_SOURCE_JIRA_PATH_TYPE_DOC = "Operation to perform. Consumers: NewIssues, NewComments. Producers: AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue, Watchers. See this class javadoc description for more information. One of: [ADDCOMMENT] [ADDISSUE] [ATTACH] [DELETEISSUE] [NEWISSUES] [NEWCOMMENTS] [WATCHUPDATES] [UPDATEISSUE] [TRANSITIONISSUE] [WATCHERS] [ADDISSUELINK] [ADDWORKLOG] [FETCHISSUE] [FETCHCOMMENTS]";
     public static final String CAMEL_SOURCE_JIRA_PATH_TYPE_DEFAULT = null;
     public static final String CAMEL_SOURCE_JIRA_ENDPOINT_DELAY_CONF = "camel.source.endpoint.delay";
     public static final String CAMEL_SOURCE_JIRA_ENDPOINT_DELAY_DOC = "Time in milliseconds to elapse for the next poll.";
@@ -44,6 +44,12 @@ public class CamelJiraSourceConnectorConfig
     public static final String CAMEL_SOURCE_JIRA_ENDPOINT_MAX_RESULTS_CONF = "camel.source.endpoint.maxResults";
     public static final String CAMEL_SOURCE_JIRA_ENDPOINT_MAX_RESULTS_DOC = "Max number of issues to search for";
     public static final String CAMEL_SOURCE_JIRA_ENDPOINT_MAX_RESULTS_DEFAULT = "50";
+    public static final String CAMEL_SOURCE_JIRA_ENDPOINT_SEND_ONLY_UPDATED_FIELD_CONF = "camel.source.endpoint.sendOnlyUpdatedField";
+    public static final String CAMEL_SOURCE_JIRA_ENDPOINT_SEND_ONLY_UPDATED_FIELD_DOC = "Indicator for sending only changed fields in exchange body or issue object. By default consumer sends only changed fields.";
+    public static final Boolean CAMEL_SOURCE_JIRA_ENDPOINT_SEND_ONLY_UPDATED_FIELD_DEFAULT = true;
+    public static final String CAMEL_SOURCE_JIRA_ENDPOINT_WATCHED_FIELDS_CONF = "camel.source.endpoint.watchedFields";
+    public static final String CAMEL_SOURCE_JIRA_ENDPOINT_WATCHED_FIELDS_DOC = "Comma separated list of fields to watch for changes. Status,Priority are the defaults.";
+    public static final String CAMEL_SOURCE_JIRA_ENDPOINT_WATCHED_FIELDS_DEFAULT = "Status,Priority";
     public static final String CAMEL_SOURCE_JIRA_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_JIRA_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_JIRA_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
@@ -126,6 +132,8 @@ public class CamelJiraSourceConnectorConfig
         conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JIRA_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_JQL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRA_ENDPOINT_JQL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_JQL_DOC);
         conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_MAX_RESULTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRA_ENDPOINT_MAX_RESULTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_MAX_RESULTS_DOC);
+        conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_SEND_ONLY_UPDATED_FIELD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JIRA_ENDPOINT_SEND_ONLY_UPDATED_FIELD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_SEND_ONLY_UPDATED_FIELD_DOC);
+        conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_WATCHED_FIELDS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRA_ENDPOINT_WATCHED_FIELDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_WATCHED_FIELDS_DOC);
         conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRA_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JIRA_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_JIRA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JIRA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JIRA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
