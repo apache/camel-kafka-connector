@@ -24,7 +24,7 @@ curl -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/$STR
     | sed "s/namespace: .*/namespace: $NAMESPACE/g" | kubectl apply -f -
 
 # deploy Kafka cluster
-oc apply -f https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/release-${STRIMZI_VER/%.0/.x}/examples/kafka/kafka-persistent-single.yaml
+kubectl apply -f https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/release-${STRIMZI_VER/%.0/.x}/examples/kafka/kafka-persistent-single.yaml
 ----
 
 Next, we build a custom KafkaConnect image to include all needed connectors (use your own registry here):
