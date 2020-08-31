@@ -51,6 +51,11 @@ for remote testing:
 ** secret.key: AWS secret key (mandatory for remote testing)
 ** aws.region: AWS region (optional)
 ** aws.host: AWS host (optional)
+* azure.instance.type
+** azure.storage.queue.host
+** azure.storage.queue.port
+** azure.storage.queue.account.name
+** azure.storage.queue.account.key
 * elasticsearch.instance.type
 ** elasticsearch.host
 ** elasticsearch.port
