@@ -66,11 +66,11 @@ public class CamelKafkaConnectorModel {
         this.version = version;
     }
 
-	public String getConnectorClass() {
-		return connectorClass;
-	}
+    public String getConnectorClass() {
+        return connectorClass;
+    }
 
-	public void setConnectorClass(String connectorClass) {
-		this.connectorClass = connectorClass;
-	}
+    public void setConnectorClass(String connectorClass) {
+        this.connectorClass = connectorClass;
+    }
 }
