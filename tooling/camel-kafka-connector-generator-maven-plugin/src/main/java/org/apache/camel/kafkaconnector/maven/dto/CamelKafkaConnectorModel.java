@@ -23,6 +23,7 @@ public class CamelKafkaConnectorModel {
     private String artifactId;
     private String version;
     private String title;
+    private String connectorClass;
     private List<CamelKafkaConnectorOptionModel> options;
 
     public List<CamelKafkaConnectorOptionModel> getOptions() {
@@ -63,5 +64,13 @@ public class CamelKafkaConnectorModel {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getConnectorClass() {
+        return connectorClass;
+    }
+
+    public void setConnectorClass(String connectorClass) {
+        this.connectorClass = connectorClass;
     }
 }

@@ -14,6 +14,13 @@ When using camel-hazelcast-topic-kafka-connector as source make sure to use the 
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.hazelcasttopic.CamelHazelcasttopicSourceConnector
+----
+
 
 The camel-hazelcast-topic source connector supports 14 options, which are listed below.
 

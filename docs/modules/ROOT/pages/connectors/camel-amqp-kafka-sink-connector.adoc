@@ -14,6 +14,13 @@ When using camel-amqp-kafka-connector as sink make sure to use the following Mav
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.amqp.CamelAmqpSinkConnector
+----
+
 
 The camel-amqp sink connector supports 142 options, which are listed below.
 

@@ -14,6 +14,13 @@ When using camel-atomix-set-kafka-connector as source make sure to use the follo
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.atomixset.CamelAtomixsetSourceConnector
+----
+
 
 The camel-atomix-set source connector supports 35 options, which are listed below.
 

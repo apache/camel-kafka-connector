@@ -14,6 +14,13 @@ When using camel-cometds-kafka-connector as sink make sure to use the following 
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.cometds.CamelCometdsSinkConnector
+----
+
 
 The camel-cometds sink connector supports 26 options, which are listed below.
 

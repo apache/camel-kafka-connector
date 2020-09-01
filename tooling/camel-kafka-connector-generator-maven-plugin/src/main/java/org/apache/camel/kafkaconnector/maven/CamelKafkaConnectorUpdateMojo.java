@@ -512,7 +512,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
         File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/connectors/");
         File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-        String changed = templateAutoConfigurationOptions(listOptions, getMainDepArtifactId(), connectorDir, ct);
+        String changed = templateAutoConfigurationOptions(listOptions, getMainDepArtifactId(), connectorDir, ct, packageName + "." + javaClassConnectorName);
         boolean updated = updateAutoConfigureOptions(docFile, changed);
         if (updated) {
             getLog().info("Updated doc file: " + docFile);
@@ -618,7 +618,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         listOptions.add(optionModel);
     }
 
-    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct)
+    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct, String connectorClass)
         throws MojoExecutionException {
 
         CamelKafkaConnectorModel model = new CamelKafkaConnectorModel();
@@ -626,6 +626,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         model.setArtifactId(getMainDepArtifactId());
         model.setGroupId(getMainDepGroupId());
         model.setVersion(getMainDepVersion());
+        model.setConnectorClass(connectorClass);
         if (getMainDepArtifactId().equalsIgnoreCase("camel-coap+tcp")) {
             model.setTitle("camel-coap-tcp");
         } else if (getMainDepArtifactId().equalsIgnoreCase("camel-coaps+tcp")) {

@@ -14,6 +14,13 @@ When using camel-xmlsecurity-sign-kafka-connector as sink make sure to use the f
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.xmlsecuritysign.CamelXmlsecuritysignSinkConnector
+----
+
 
 The camel-xmlsecurity-sign sink connector supports 59 options, which are listed below.
 

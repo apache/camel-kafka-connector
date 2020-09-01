@@ -14,6 +14,13 @@ When using camel-pop3-kafka-connector as source make sure to use the following M
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.pop3.CamelPop3SourceConnector
+----
+
 
 The camel-pop3 source connector supports 95 options, which are listed below.
 

@@ -13,6 +13,13 @@ When using @{title}-kafka-connector as sink make sure to use the following Maven
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=@{connectorClass}
+----
+
 @if{options.isEmpty()}
 The @{title} sink connector has no options.
 @else{}

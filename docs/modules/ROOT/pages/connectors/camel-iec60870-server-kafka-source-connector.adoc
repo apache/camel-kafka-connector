@@ -14,6 +14,13 @@ When using camel-iec60870-server-kafka-connector as source make sure to use the 
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.iec60870server.CamelIec60870serverSourceConnector
+----
+
 
 The camel-iec60870-server source connector supports 26 options, which are listed below.
 

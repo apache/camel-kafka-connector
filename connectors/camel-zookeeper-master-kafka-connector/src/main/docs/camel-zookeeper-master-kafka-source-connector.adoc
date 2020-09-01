@@ -14,6 +14,13 @@ When using camel-zookeeper-master-kafka-connector as source make sure to use the
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.zookeepermaster.CamelZookeepermasterSourceConnector
+----
+
 
 The camel-zookeeper-master source connector supports 15 options, which are listed below.
 

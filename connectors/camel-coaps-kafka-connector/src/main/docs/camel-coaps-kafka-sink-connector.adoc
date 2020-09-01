@@ -14,6 +14,13 @@ When using camel-coaps-kafka-connector as sink make sure to use the following Ma
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.coaps.CamelCoapsSinkConnector
+----
+
 
 The camel-coaps sink connector supports 15 options, which are listed below.
 

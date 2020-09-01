@@ -14,6 +14,13 @@ When using camel-microprofile-metrics-kafka-connector as sink make sure to use t
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.microprofilemetrics.CamelMicroprofilemetricsSinkConnector
+----
+
 
 The camel-microprofile-metrics sink connector supports 19 options, which are listed below.
 

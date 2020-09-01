@@ -14,6 +14,13 @@ When using camel-spring-redis-kafka-connector as sink make sure to use the follo
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.springredis.CamelSpringredisSinkConnector
+----
+
 
 The camel-spring-redis sink connector supports 12 options, which are listed below.
 

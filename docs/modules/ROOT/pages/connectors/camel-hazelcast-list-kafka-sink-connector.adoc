@@ -14,6 +14,13 @@ When using camel-hazelcast-list-kafka-connector as sink make sure to use the fol
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.hazelcastlist.CamelHazelcastlistSinkConnector
+----
+
 
 The camel-hazelcast-list sink connector supports 11 options, which are listed below.
 

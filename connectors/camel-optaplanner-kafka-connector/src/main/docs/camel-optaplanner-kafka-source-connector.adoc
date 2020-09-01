@@ -14,6 +14,13 @@ When using camel-optaplanner-kafka-connector as source make sure to use the foll
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.optaplanner.CamelOptaplannerSourceConnector
+----
+
 
 The camel-optaplanner source connector supports 9 options, which are listed below.
 

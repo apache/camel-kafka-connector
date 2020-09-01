@@ -14,6 +14,13 @@ When using camel-splunk-kafka-connector as source make sure to use the following
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.splunk.CamelSplunkSourceConnector
+----
+
 
 The camel-splunk source connector supports 42 options, which are listed below.
 

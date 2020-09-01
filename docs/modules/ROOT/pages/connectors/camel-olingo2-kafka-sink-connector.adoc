@@ -14,6 +14,13 @@ When using camel-olingo2-kafka-connector as sink make sure to use the following 
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.olingo2.CamelOlingo2SinkConnector
+----
+
 
 The camel-olingo2 sink connector supports 30 options, which are listed below.
 

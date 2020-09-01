@@ -14,6 +14,13 @@ When using camel-google-calendar-stream-kafka-connector as source make sure to u
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.googlecalendarstream.CamelGooglecalendarstreamSourceConnector
+----
+
 
 The camel-google-calendar-stream source connector supports 48 options, which are listed below.
 

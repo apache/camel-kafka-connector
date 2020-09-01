@@ -14,6 +14,13 @@ When using camel-sips-kafka-connector as sink make sure to use the following Mav
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.sips.CamelSipsSinkConnector
+----
+
 
 The camel-sips sink connector supports 44 options, which are listed below.
 
