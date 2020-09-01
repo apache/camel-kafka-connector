@@ -14,6 +14,13 @@ When using camel-jpa-kafka-connector as sink make sure to use the following Mave
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.jpa.CamelJpaSinkConnector
+----
+
 
 The camel-jpa sink connector supports 25 options, which are listed below.
 

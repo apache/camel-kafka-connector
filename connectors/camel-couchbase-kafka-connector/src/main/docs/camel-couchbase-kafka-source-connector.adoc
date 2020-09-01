@@ -14,6 +14,13 @@ When using camel-couchbase-kafka-connector as source make sure to use the follow
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.couchbase.CamelCouchbaseSourceConnector
+----
+
 
 The camel-couchbase source connector supports 47 options, which are listed below.
 

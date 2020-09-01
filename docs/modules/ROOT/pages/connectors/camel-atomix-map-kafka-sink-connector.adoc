@@ -14,6 +14,13 @@ When using camel-atomix-map-kafka-connector as sink make sure to use the followi
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.atomixmap.CamelAtomixmapSinkConnector
+----
+
 
 The camel-atomix-map sink connector supports 35 options, which are listed below.
 

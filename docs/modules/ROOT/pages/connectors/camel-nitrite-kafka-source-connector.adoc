@@ -14,6 +14,13 @@ When using camel-nitrite-kafka-connector as source make sure to use the followin
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.nitrite.CamelNitriteSourceConnector
+----
+
 
 The camel-nitrite source connector supports 13 options, which are listed below.
 

@@ -14,6 +14,13 @@ When using camel-openstack-neutron-kafka-connector as sink make sure to use the 
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.openstackneutron.CamelOpenstackneutronSinkConnector
+----
+
 
 The camel-openstack-neutron sink connector supports 14 options, which are listed below.
 

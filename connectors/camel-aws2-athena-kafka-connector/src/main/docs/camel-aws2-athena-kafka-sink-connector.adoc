@@ -14,6 +14,13 @@ When using camel-aws2-athena-kafka-connector as sink make sure to use the follow
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.aws2athena.CamelAws2athenaSinkConnector
+----
+
 
 The camel-aws2-athena sink connector supports 59 options, which are listed below.
 
@@ -82,6 +89,4 @@ The camel-aws2-athena sink connector supports 59 options, which are listed below
 | *camel.component.aws2-athena.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.aws2-athena.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | MEDIUM
 |===
-
-
 // kafka-connector options: END

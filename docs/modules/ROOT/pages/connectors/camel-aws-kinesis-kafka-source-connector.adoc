@@ -14,6 +14,13 @@ When using camel-aws-kinesis-kafka-connector as source make sure to use the foll
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awskinesis.CamelAwskinesisSourceConnector
+----
+
 
 The camel-aws-kinesis source connector supports 49 options, which are listed below.
 

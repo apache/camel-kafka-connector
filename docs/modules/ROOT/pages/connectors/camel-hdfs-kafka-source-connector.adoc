@@ -14,6 +14,13 @@ When using camel-hdfs-kafka-connector as source make sure to use the following M
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.hdfs.CamelHdfsSourceConnector
+----
+
 
 The camel-hdfs source connector supports 51 options, which are listed below.
 

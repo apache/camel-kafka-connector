@@ -14,6 +14,13 @@ When using camel-azure-storage-queue-kafka-connector as source make sure to use 
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azurestoragequeue.CamelAzurestoragequeueSourceConnector
+----
+
 
 The camel-azure-storage-queue source connector supports 24 options, which are listed below.
 
@@ -47,6 +54,4 @@ The camel-azure-storage-queue source connector supports 24 options, which are li
 | *camel.component.azure-storage-queue.accessKey* | Access key for the associated azure account name to be used for authentication with azure queue services | null | MEDIUM
 | *camel.component.azure-storage-queue.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | MEDIUM
 |===
-
-
 // kafka-connector options: END

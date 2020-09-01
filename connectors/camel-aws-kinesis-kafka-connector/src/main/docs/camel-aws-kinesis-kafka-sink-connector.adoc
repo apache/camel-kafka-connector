@@ -14,6 +14,13 @@ When using camel-aws-kinesis-kafka-connector as sink make sure to use the follow
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awskinesis.CamelAwskinesisSinkConnector
+----
+
 
 The camel-aws-kinesis sink connector supports 21 options, which are listed below.
 

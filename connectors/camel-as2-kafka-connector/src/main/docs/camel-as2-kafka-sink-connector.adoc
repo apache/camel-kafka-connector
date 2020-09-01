@@ -14,6 +14,13 @@ When using camel-as2-kafka-connector as sink make sure to use the following Mave
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.as2.CamelAs2SinkConnector
+----
+
 
 The camel-as2 sink connector supports 35 options, which are listed below.
 

@@ -14,6 +14,13 @@ When using camel-kubernetes-replication-controllers-kafka-connector as sink make
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.kubernetesreplicationcontrollers.CamelKubernetesreplicationcontrollersSinkConnector
+----
+
 
 The camel-kubernetes-replication-controllers sink connector supports 25 options, which are listed below.
 

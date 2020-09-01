@@ -14,6 +14,13 @@ When using camel-grape-kafka-connector as sink make sure to use the following Ma
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.grape.CamelGrapeSinkConnector
+----
+
 
 The camel-grape sink connector supports 7 options, which are listed below.
 

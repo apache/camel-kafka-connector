@@ -14,6 +14,13 @@ When using camel-resteasy-kafka-connector as sink make sure to use the following
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.resteasy.CamelResteasySinkConnector
+----
+
 
 The camel-resteasy sink connector supports 84 options, which are listed below.
 
@@ -107,6 +114,4 @@ The camel-resteasy sink connector supports 84 options, which are listed below.
 | *camel.component.resteasy.connectTimeout* | Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default). | -1 | MEDIUM
 | *camel.component.resteasy.socketTimeout* | Defines the socket timeout in milliseconds, which is the timeout for waiting for data or, put differently, a maximum period inactivity between two consecutive data packets). A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default). | -1 | MEDIUM
 |===
-
-
 // kafka-connector options: END

@@ -14,6 +14,13 @@ When using camel-xslt-kafka-connector as sink make sure to use the following Mav
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.xslt.CamelXsltSinkConnector
+----
+
 
 The camel-xslt sink connector supports 23 options, which are listed below.
 

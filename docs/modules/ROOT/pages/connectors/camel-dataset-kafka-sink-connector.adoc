@@ -14,6 +14,13 @@ When using camel-dataset-kafka-connector as sink make sure to use the following 
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.dataset.CamelDatasetSinkConnector
+----
+
 
 The camel-dataset sink connector supports 18 options, which are listed below.
 

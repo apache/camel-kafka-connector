@@ -14,6 +14,13 @@ When using camel-disruptor-vm-kafka-connector as source make sure to use the fol
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.disruptorvm.CamelDisruptorvmSourceConnector
+----
+
 
 The camel-disruptor-vm source connector supports 16 options, which are listed below.
 

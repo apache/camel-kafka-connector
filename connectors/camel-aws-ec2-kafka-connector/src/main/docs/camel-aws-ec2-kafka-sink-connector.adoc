@@ -14,6 +14,13 @@ When using camel-aws-ec2-kafka-connector as sink make sure to use the following 
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.awsec2.CamelAwsec2SinkConnector
+----
+
 
 The camel-aws-ec2 sink connector supports 23 options, which are listed below.
 

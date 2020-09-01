@@ -14,6 +14,13 @@ When using camel-websocket-jsr356-kafka-connector as sink make sure to use the f
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.websocketjsr356.CamelWebsocketjsr356SinkConnector
+----
+
 
 The camel-websocket-jsr356 sink connector supports 8 options, which are listed below.
 

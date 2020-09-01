@@ -14,6 +14,13 @@ When using camel-aws2-kinesis-kafka-connector as sink make sure to use the follo
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.aws2kinesis.CamelAws2kinesisSinkConnector
+----
+
 
 The camel-aws2-kinesis sink connector supports 21 options, which are listed below.
 
@@ -44,6 +51,4 @@ The camel-aws2-kinesis sink connector supports 21 options, which are listed belo
 | *camel.component.aws2-kinesis.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-kinesis.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
-
-
 // kafka-connector options: END

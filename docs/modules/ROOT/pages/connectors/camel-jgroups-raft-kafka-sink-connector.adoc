@@ -14,6 +14,13 @@ When using camel-jgroups-raft-kafka-connector as sink make sure to use the follo
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.jgroupsraft.CamelJgroupsraftSinkConnector
+----
+
 
 The camel-jgroups-raft sink connector supports 10 options, which are listed below.
 
