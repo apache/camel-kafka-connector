@@ -14,6 +14,13 @@ When using camel-grpc-kafka-connector as source make sure to use the following M
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.grpc.CamelGrpcSourceConnector
+----
+
 
 The camel-grpc source connector supports 27 options, which are listed below.
 

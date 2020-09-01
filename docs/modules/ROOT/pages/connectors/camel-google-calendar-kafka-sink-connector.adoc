@@ -14,6 +14,13 @@ When using camel-google-calendar-kafka-connector as sink make sure to use the fo
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.googlecalendar.CamelGooglecalendarSinkConnector
+----
+
 
 The camel-google-calendar sink connector supports 28 options, which are listed below.
 

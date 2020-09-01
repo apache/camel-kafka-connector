@@ -14,6 +14,13 @@ When using camel-string-template-kafka-connector as sink make sure to use the fo
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.stringtemplate.CamelStringtemplateSinkConnector
+----
+
 
 The camel-string-template sink connector supports 13 options, which are listed below.
 

@@ -14,6 +14,13 @@ When using camel-ironmq-kafka-connector as sink make sure to use the following M
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.ironmq.CamelIronmqSinkConnector
+----
+
 
 The camel-ironmq sink connector supports 12 options, which are listed below.
 

@@ -14,6 +14,13 @@ When using camel-iec60870-server-kafka-connector as sink make sure to use the fo
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.iec60870server.CamelIec60870serverSinkConnector
+----
+
 
 The camel-iec60870-server sink connector supports 24 options, which are listed below.
 

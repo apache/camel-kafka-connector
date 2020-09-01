@@ -14,6 +14,13 @@ When using camel-elasticsearch-rest-kafka-connector as sink make sure to use the
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.elasticsearchrest.CamelElasticsearchrestSinkConnector
+----
+
 
 The camel-elasticsearch-rest sink connector supports 33 options, which are listed below.
 

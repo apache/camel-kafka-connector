@@ -14,6 +14,13 @@ When using camel-atomix-messaging-kafka-connector as source make sure to use the
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.atomixmessaging.CamelAtomixmessagingSourceConnector
+----
+
 
 The camel-atomix-messaging source connector supports 39 options, which are listed below.
 

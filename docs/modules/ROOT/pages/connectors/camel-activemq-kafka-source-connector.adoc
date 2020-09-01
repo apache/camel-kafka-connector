@@ -14,6 +14,13 @@ When using camel-activemq-kafka-connector as source make sure to use the followi
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.activemq.CamelActivemqSourceConnector
+----
+
 
 The camel-activemq source connector supports 145 options, which are listed below.
 

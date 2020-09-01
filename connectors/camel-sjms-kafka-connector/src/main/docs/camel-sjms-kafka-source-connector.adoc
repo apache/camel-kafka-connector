@@ -14,6 +14,13 @@ When using camel-sjms-kafka-connector as source make sure to use the following M
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.sjms.CamelSjmsSourceConnector
+----
+
 
 The camel-sjms source connector supports 50 options, which are listed below.
 
