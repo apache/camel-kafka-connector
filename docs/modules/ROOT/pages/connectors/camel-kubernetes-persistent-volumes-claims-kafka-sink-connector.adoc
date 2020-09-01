@@ -14,6 +14,13 @@ When using camel-kubernetes-persistent-volumes-claims-kafka-connector as sink ma
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.kubernetespersistentvolumesclaims.CamelKubernetespersistentvolumesclaimsSinkConnector
+----
+
 
 The camel-kubernetes-persistent-volumes-claims sink connector supports 25 options, which are listed below.
 

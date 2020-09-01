@@ -14,6 +14,13 @@ When using camel-azure-storage-blob-kafka-connector as sink make sure to use the
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azurestorageblob.CamelAzurestorageblobSinkConnector
+----
+
 
 The camel-azure-storage-blob sink connector supports 33 options, which are listed below.
 
@@ -56,6 +63,4 @@ The camel-azure-storage-blob sink connector supports 33 options, which are liste
 | *camel.component.azure-storage-blob.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.azure-storage-blob.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | MEDIUM
 |===
-
-
 // kafka-connector options: END

@@ -14,6 +14,13 @@ When using camel-azure-queue-kafka-connector as sink make sure to use the follow
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azurequeue.CamelAzurequeueSinkConnector
+----
+
 
 The camel-azure-queue sink connector supports 25 options, which are listed below.
 

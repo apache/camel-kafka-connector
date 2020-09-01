@@ -14,6 +14,13 @@ When using camel-undertow-kafka-connector as sink make sure to use the following
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.undertow.CamelUndertowSinkConnector
+----
+
 
 The camel-undertow sink connector supports 31 options, which are listed below.
 

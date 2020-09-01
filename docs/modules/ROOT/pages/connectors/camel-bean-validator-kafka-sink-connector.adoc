@@ -14,6 +14,13 @@ When using camel-bean-validator-kafka-connector as sink make sure to use the fol
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.beanvalidator.CamelBeanvalidatorSinkConnector
+----
+
 
 The camel-bean-validator sink connector supports 19 options, which are listed below.
 

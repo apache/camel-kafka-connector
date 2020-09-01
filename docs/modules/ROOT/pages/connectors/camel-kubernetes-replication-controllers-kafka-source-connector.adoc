@@ -14,6 +14,13 @@ When using camel-kubernetes-replication-controllers-kafka-connector as source ma
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.kubernetesreplicationcontrollers.CamelKubernetesreplicationcontrollersSourceConnector
+----
+
 
 The camel-kubernetes-replication-controllers source connector supports 31 options, which are listed below.
 

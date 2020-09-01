@@ -14,6 +14,13 @@ When using camel-mina-kafka-connector as sink make sure to use the following Mav
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.mina.CamelMinaSinkConnector
+----
+
 
 The camel-mina sink connector supports 50 options, which are listed below.
 

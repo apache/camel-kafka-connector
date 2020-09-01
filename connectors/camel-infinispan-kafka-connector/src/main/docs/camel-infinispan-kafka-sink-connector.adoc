@@ -14,6 +14,13 @@ When using camel-infinispan-kafka-connector as sink make sure to use the followi
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.infinispan.CamelInfinispanSinkConnector
+----
+
 
 The camel-infinispan sink connector supports 27 options, which are listed below.
 

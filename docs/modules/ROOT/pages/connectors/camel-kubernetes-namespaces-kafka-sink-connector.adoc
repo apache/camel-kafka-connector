@@ -14,6 +14,13 @@ When using camel-kubernetes-namespaces-kafka-connector as sink make sure to use 
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.kubernetesnamespaces.CamelKubernetesnamespacesSinkConnector
+----
+
 
 The camel-kubernetes-namespaces sink connector supports 25 options, which are listed below.
 
