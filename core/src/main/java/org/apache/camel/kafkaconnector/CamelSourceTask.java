@@ -153,8 +153,8 @@ public class CamelSourceTask extends SourceTask {
 
                     TaskHelper.logRecordContent(LOG, record, config);
                     records.add(record);
-                    collectedRecords++;
                 }
+                collectedRecords++;
             } else {
                 break;
             }
