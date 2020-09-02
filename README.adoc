@@ -34,59 +34,9 @@ To run the integration tests it is required to:
 mvn -DskipIntegrationTests=false clean verify package
 ----
 
-It is also possible to point the tests to use an external services. To do so, you must set
-properties for the services that you want to run. This causes the tests to not launch the local
-container and use existing remote instances. At the moment, the following properties can be set
-for remote testing:
+It is also possible to point the tests to use an external services. Please check the
+link:./docs/modules/ROOT/pages/testing.adoc[testing guide].
 
-* kafka.instance.type
-** kafka.bootstrap.servers
-* aws-service.instance.type
-** access.key: AWS access key (mandatory for remote testing)
-** secret.key: AWS secret key (mandatory for remote testing)
-** aws.region: AWS region (optional)
-** aws.host: AWS host (optional)
-* aws-service.kinesis.instance.type
-** access.key: AWS access key (mandatory for remote testing)
-** secret.key: AWS secret key (mandatory for remote testing)
-** aws.region: AWS region (optional)
-** aws.host: AWS host (optional)
-* azure.instance.type
-** azure.storage.queue.host
-** azure.storage.queue.port
-** azure.storage.queue.account.name
-** azure.storage.queue.account.key
-* elasticsearch.instance.type
-** elasticsearch.host
-** elasticsearch.port
-* cassandra.instance.type
-** cassandra.host
-** cassandra.cql3.port
-* jdbc.instance.type
-** jdbc.connection.url
-* jms-service.instance.type
-** jms.broker.address
-* hdfs.instance.type
-** hdfs.host
-** hdfs.port
-* mongodb.instance.type
-** mongodb.url
-
-Additionally, a few manual tests can be enabled and executed with adequate configuration on the accounts and
-environments used by those services. This is very specific to the nature of each of those services, therefore
-please consult the comments on each of those test cases for the details related to their setup.
-
-The following manual or semi-automated tests are available under these circumstances. They can be enabled with
-these flags along with others that are specific to that service:
-
-* it.test.salesforce.enable
-* it.test.slack.enable
-
-----
-mvn -Dkafka.bootstrap.servers=host1:port -Dkafka.instance.type=remote -DskipIntegrationTests=false clean verify package
-----
-
-It's possible to use a properties file to set these properties. To do so use `-Dtest.properties=/path/to/file.properties`.
 
 === Try it out locally
 
