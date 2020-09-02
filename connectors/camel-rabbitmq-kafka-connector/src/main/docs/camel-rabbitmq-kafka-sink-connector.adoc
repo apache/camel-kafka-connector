@@ -54,6 +54,8 @@ The camel-rabbitmq sink connector supports 98 options, which are listed below.
 | *camel.sink.endpoint.vhost* | The vhost for the channel | "/" | MEDIUM
 | *camel.sink.endpoint.allowCustomHeaders* | Allow pass custom values to header | false | MEDIUM
 | *camel.sink.endpoint.allowNullHeaders* | Allow pass null values to header | false | MEDIUM
+| *camel.sink.endpoint.additionalHeaders* | Bean reference to set the additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true | null | MEDIUM
+| *camel.sink.endpoint.additionalProperties* | Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties. The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored. | null | MEDIUM
 | *camel.sink.endpoint.bridgeEndpoint* | If the bridgeEndpoint is true, the producer will ignore the message header of rabbitmq.EXCHANGE_NAME and rabbitmq.ROUTING_KEY | false | MEDIUM
 | *camel.sink.endpoint.channelPoolMaxSize* | Get maximum number of opened channel in pool | 10 | MEDIUM
 | *camel.sink.endpoint.channelPoolMaxWait* | Set the maximum number of milliseconds to wait for a channel from the pool | 1000L | MEDIUM
@@ -100,6 +102,8 @@ The camel-rabbitmq sink connector supports 98 options, which are listed below.
 | *camel.component.rabbitmq.skipQueueDeclare* | If true the producer will not declare and bind a queue. This can be used for directing messages via an existing routing key. | false | MEDIUM
 | *camel.component.rabbitmq.vhost* | The vhost for the channel | "/" | MEDIUM
 | *camel.component.rabbitmq.allowNullHeaders* | Allow pass null values to header | false | MEDIUM
+| *camel.component.rabbitmq.additionalHeaders* | Bean reference to set the additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true | null | MEDIUM
+| *camel.component.rabbitmq.additionalProperties* | Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties. The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored. | null | MEDIUM
 | *camel.component.rabbitmq.channelPoolMaxSize* | Get maximum number of opened channel in pool | 10 | MEDIUM
 | *camel.component.rabbitmq.channelPoolMaxWait* | Set the maximum number of milliseconds to wait for a channel from the pool | 1000L | MEDIUM
 | *camel.component.rabbitmq.guaranteedDeliveries* | When true, an exception will be thrown when the message cannot be delivered (basic.return) and the message is marked as mandatory. PublisherAcknowledgement will also be activated in this case. See also publisher acknowledgements - When will messages be confirmed. | false | MEDIUM

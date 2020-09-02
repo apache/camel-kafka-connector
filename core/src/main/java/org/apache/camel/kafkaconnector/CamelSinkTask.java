@@ -140,7 +140,7 @@ public class CamelSinkTask extends SinkTask {
             exchange.getMessage().setHeaders(headers);
             exchange.getMessage().setBody(record.value());
 
-            LOG.debug("Sending exchange {} to {}", exchange.getExchangeId(), LOCAL_URL);
+            LOG.info("Sending exchange {} to {}", exchange.getExchangeId(), LOCAL_URL);
             producer.send(LOCAL_URL, exchange);
 
             if (exchange.isFailed()) {
