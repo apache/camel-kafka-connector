@@ -27,7 +27,6 @@ on:
   issues:
     types: [closed, edited]
 
-on:
   schedule:
     # Run every day at midnight
     - cron:  '* * * * *'
