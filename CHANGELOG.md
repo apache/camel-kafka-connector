@@ -18,6 +18,7 @@
 - aws2-S3-connector: \(gzip/zip\) compression with sink [\#387](https://github.com/apache/camel-kafka-connector/issues/387)
 - Discussion: troubleshooting documentation? [\#381](https://github.com/apache/camel-kafka-connector/issues/381)
 - Bump to Camel 3.4.3 [\#379](https://github.com/apache/camel-kafka-connector/issues/379)
+- Documentation: SJMS2 connector is incompatible with activemq-all [\#378](https://github.com/apache/camel-kafka-connector/issues/378)
 - Unclean startup causes an NPE on shutdown [\#376](https://github.com/apache/camel-kafka-connector/issues/376)
 - Make the camel-kafka-connector archetype use the parent POM [\#362](https://github.com/apache/camel-kafka-connector/issues/362)
 - Exception on endpoint being treated as a polling consumer before createPollingConsumer is called. [\#361](https://github.com/apache/camel-kafka-connector/issues/361)
@@ -31,6 +32,8 @@
 
 **Merged pull requests:**
 
+- Activemq-all note for SJMS2 connector [\#415](https://github.com/apache/camel-kafka-connector/pull/415) ([oscerd](https://github.com/oscerd))
+- Added new test for Azure Storage Queue sink [\#412](https://github.com/apache/camel-kafka-connector/pull/412) ([orpiske](https://github.com/orpiske))
 - Support Multiple topics on Source Connector [\#411](https://github.com/apache/camel-kafka-connector/pull/411) ([oscerd](https://github.com/oscerd))
 - Added connector class on each connector documentation page [\#405](https://github.com/apache/camel-kafka-connector/pull/405) ([oscerd](https://github.com/oscerd))
 - Added a pipeline for deploying on daily basis [\#404](https://github.com/apache/camel-kafka-connector/pull/404) ([oscerd](https://github.com/oscerd))
@@ -131,6 +134,7 @@
 - Bump to Camel 3.4.0 [\#293](https://github.com/apache/camel-kafka-connector/pull/293) ([oscerd](https://github.com/oscerd))
 - Updated the packages docs page [\#292](https://github.com/apache/camel-kafka-connector/pull/292) ([oscerd](https://github.com/oscerd))
 - Aggregate Support [\#289](https://github.com/apache/camel-kafka-connector/pull/289) ([oscerd](https://github.com/oscerd))
+- 0.3.x regen link [\#287](https://github.com/apache/camel-kafka-connector/pull/287) ([oscerd](https://github.com/oscerd))
 - Cassandra test improvements [\#286](https://github.com/apache/camel-kafka-connector/pull/286) ([orpiske](https://github.com/orpiske))
 - Backport [\#285](https://github.com/apache/camel-kafka-connector/pull/285) ([oscerd](https://github.com/oscerd))
 - Use release 0.3.0 as lastReleasedVersion [\#284](https://github.com/apache/camel-kafka-connector/pull/284) ([oscerd](https://github.com/oscerd))
