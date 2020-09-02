@@ -7,6 +7,7 @@
 **Implemented enhancements:**
 
 - Add the connector class to use in the documentation of each connector [\#321](https://github.com/apache/camel-kafka-connector/issues/321)
+- Support multiple topics for connector configuration [\#197](https://github.com/apache/camel-kafka-connector/issues/197)
 
 **Fixed bugs:**
 
@@ -30,6 +31,7 @@
 
 **Merged pull requests:**
 
+- Support Multiple topics on Source Connector [\#411](https://github.com/apache/camel-kafka-connector/pull/411) ([oscerd](https://github.com/oscerd))
 - Added connector class on each connector documentation page [\#405](https://github.com/apache/camel-kafka-connector/pull/405) ([oscerd](https://github.com/oscerd))
 - Added a pipeline for deploying on daily basis [\#404](https://github.com/apache/camel-kafka-connector/pull/404) ([oscerd](https://github.com/oscerd))
 - \#389 - Fix doc- Kubernetes command [\#401](https://github.com/apache/camel-kafka-connector/pull/401) ([rogeriob2br](https://github.com/rogeriob2br))
@@ -71,6 +73,7 @@
 - Being able to inject an aggregator in a sink connector [\#274](https://github.com/apache/camel-kafka-connector/issues/274)
 - In case of Sink we need to use toD instead of to [\#252](https://github.com/apache/camel-kafka-connector/issues/252)
 - Upgrade to Kafka 2.5.0 [\#249](https://github.com/apache/camel-kafka-connector/issues/249)
+- Improve integration test support when component dependencies are present [\#211](https://github.com/apache/camel-kafka-connector/issues/211)
 - Support both marshal and unmarshal in source and sinks [\#194](https://github.com/apache/camel-kafka-connector/issues/194)
 - camel-kafka-connector-generator-maven-plugin: implement a component exclusion mechanism [\#148](https://github.com/apache/camel-kafka-connector/issues/148)
 
@@ -143,7 +146,6 @@
 
 - Use camel-depencencies to import versions of common libraries like Jakson, qpid, log4j etc. [\#241](https://github.com/apache/camel-kafka-connector/issues/241)
 - Autogenerate and example config file for each connector [\#220](https://github.com/apache/camel-kafka-connector/issues/220)
-- Improve integration test support when component dependencies are present [\#211](https://github.com/apache/camel-kafka-connector/issues/211)
 - S3 source connector delete files from source bucket [\#97](https://github.com/apache/camel-kafka-connector/issues/97)
 -  Create example and itest for camel-syslog [\#77](https://github.com/apache/camel-kafka-connector/issues/77)
 
