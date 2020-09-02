@@ -73,3 +73,8 @@ The camel-sjms2 sink connector supports 42 options, which are listed below.
 | *camel.component.sjms2.transactionCommitStrategy* | To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch. | null | MEDIUM
 |===
 // kafka-connector options: END
+
+[NOTE]
+====
+The activemq-all jar contains packages older versions of Camel that cause conflict when trying to run the SJMS2 connector. You may find very interesting errors such as java.lang.NoSuchMethodError: org.apache.camel.main.Main.configure()Lorg/apache/camel/main/MainConfigurationProperties when trying to do so.
+====
