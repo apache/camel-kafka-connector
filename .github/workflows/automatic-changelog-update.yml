@@ -27,10 +27,6 @@ on:
   issues:
     types: [closed, edited]
 
-  schedule:
-    # Run every day at midnight
-    - cron:  '* * * * *'
-
 jobs:
   generate_changelog:
     runs-on: ubuntu-latest
