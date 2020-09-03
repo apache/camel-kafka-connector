@@ -24,6 +24,7 @@
 - Exception on endpoint being treated as a polling consumer before createPollingConsumer is called. [\#361](https://github.com/apache/camel-kafka-connector/issues/361)
 - Add a Nats connector examples in camel-kafka-connector-examples repo [\#359](https://github.com/apache/camel-kafka-connector/issues/359)
 - Add a compatibility matrix related to camel version in docs [\#344](https://github.com/apache/camel-kafka-connector/issues/344)
+- CamelAwssqsSinkConnector does not work when specifying AWS credentials in camel.sink.endpoint [\#319](https://github.com/apache/camel-kafka-connector/issues/319)
 - Create a Kinesis Firehose Connector example [\#318](https://github.com/apache/camel-kafka-connector/issues/318)
 - Nullpointer exception at org.apache.camel.component.aws2.s3.AWS2S3Producer.processSingleOp [\#299](https://github.com/apache/camel-kafka-connector/issues/299)
 - Add Aggregate integration test [\#291](https://github.com/apache/camel-kafka-connector/issues/291)
@@ -31,6 +32,9 @@
 
 **Merged pull requests:**
 
+- Removed deploy phase from jenkinsfile, we already have the daily snap… [\#418](https://github.com/apache/camel-kafka-connector/pull/418) ([oscerd](https://github.com/oscerd))
+- Remove deploy phase from Jenkinsfile, we have the daily snapshot depl… [\#417](https://github.com/apache/camel-kafka-connector/pull/417) ([oscerd](https://github.com/oscerd))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#416](https://github.com/apache/camel-kafka-connector/pull/416) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Activemq-all note for SJMS2 connector [\#415](https://github.com/apache/camel-kafka-connector/pull/415) ([oscerd](https://github.com/oscerd))
 - Added new test for Azure Storage Queue sink [\#412](https://github.com/apache/camel-kafka-connector/pull/412) ([orpiske](https://github.com/orpiske))
 - Support Multiple topics on Source Connector [\#411](https://github.com/apache/camel-kafka-connector/pull/411) ([oscerd](https://github.com/oscerd))
@@ -94,7 +98,6 @@
 - The committed block count cannot exceed the maximum limit of 50,000 blocks. [\#324](https://github.com/apache/camel-kafka-connector/issues/324)
 - Upgrade to Camel 3.4.2 once released [\#322](https://github.com/apache/camel-kafka-connector/issues/322)
 - CamelAwssqsSinkConnector is leaking AWS credentials into Kafka Connect log [\#320](https://github.com/apache/camel-kafka-connector/issues/320)
-- CamelAwssqsSinkConnector does not work when specifying AWS credentials in camel.sink.endpoint [\#319](https://github.com/apache/camel-kafka-connector/issues/319)
 - How install camel-jira-kafka-connector [\#315](https://github.com/apache/camel-kafka-connector/issues/315)
 - From S3 to kafka, when using Idempotent filter, Do we still fetch S3 file content ? [\#314](https://github.com/apache/camel-kafka-connector/issues/314)
 - How to break messages when ingesting into kafka [\#313](https://github.com/apache/camel-kafka-connector/issues/313)
