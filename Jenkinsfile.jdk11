@@ -47,7 +47,7 @@ pipeline {
 
         stage('Build & Deploy') {
             steps {
-                sh "./mvnw $MAVEN_PARAMS -Dmaven.test.skip.exec=true clean install deploy"
+                sh "./mvnw $MAVEN_PARAMS -Dmaven.test.skip.exec=true clean install"
             }
         }
 
