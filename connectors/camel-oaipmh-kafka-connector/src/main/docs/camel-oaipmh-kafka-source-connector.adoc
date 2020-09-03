@@ -14,6 +14,13 @@ When using camel-oaipmh-kafka-connector as source make sure to use the following
 </dependency>
 ----
 
+To use this Source connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.oaipmh.CamelOaipmhSourceConnector
+----
+
 
 The camel-oaipmh source connector supports 32 options, which are listed below.
 
@@ -55,6 +62,4 @@ The camel-oaipmh source connector supports 32 options, which are listed below.
 | *camel.component.oaipmh.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.oaipmh.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
-
-
 // kafka-connector options: END

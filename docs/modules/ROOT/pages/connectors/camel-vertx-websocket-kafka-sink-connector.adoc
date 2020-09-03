@@ -14,6 +14,13 @@ When using camel-vertx-websocket-kafka-connector as sink make sure to use the fo
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.vertxwebsocket.CamelVertxwebsocketSinkConnector
+----
+
 
 The camel-vertx-websocket sink connector supports 14 options, which are listed below.
 
@@ -37,6 +44,4 @@ The camel-vertx-websocket sink connector supports 14 options, which are listed b
 | *camel.component.vertx-websocket.vertxOptions* | To provide a custom set of vertx options for configuring vertx | null | MEDIUM
 | *camel.component.vertx-websocket.useGlobalSsl ContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
-
-
 // kafka-connector options: END

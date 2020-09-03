@@ -14,6 +14,13 @@ When using camel-vertx-http-kafka-connector as sink make sure to use the followi
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.vertxhttp.CamelVertxhttpSinkConnector
+----
+
 
 The camel-vertx-http sink connector supports 42 options, which are listed below.
 
@@ -65,6 +72,4 @@ The camel-vertx-http sink connector supports 42 options, which are listed below.
 | *camel.component.vertx-http.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
 | *camel.component.vertx-http.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters | false | MEDIUM
 |===
-
-
 // kafka-connector options: END
