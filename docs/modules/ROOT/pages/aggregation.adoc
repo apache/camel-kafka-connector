@@ -58,7 +58,7 @@ public class StringAggregator implements AggregationStrategy {
 
 And you may think oldExchange and newExchange like records arriving to the Aggregator.
 
-So in this case each newExchange body will be concated with the oldExchange body and separated through the System line separator.
+So in this case each newExchange body will be concatenated with the oldExchange body and separated through the System line separator.
 
 This process will go ahead until the batch size has been completed or the timeout has been reached.
 
