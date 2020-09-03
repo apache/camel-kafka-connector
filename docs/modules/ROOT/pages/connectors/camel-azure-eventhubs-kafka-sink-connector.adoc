@@ -14,6 +14,13 @@ When using camel-azure-eventhubs-kafka-connector as sink make sure to use the fo
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.azureeventhubs.CamelAzureeventhubsSinkConnector
+----
+
 
 The camel-azure-eventhubs sink connector supports 26 options, which are listed below.
 
@@ -49,6 +56,4 @@ The camel-azure-eventhubs sink connector supports 26 options, which are listed b
 | *camel.component.azure-eventhubs.sharedAccessKey* | The generated value for the SharedAccessName | null | MEDIUM
 | *camel.component.azure-eventhubs.sharedAccessName* | The name you chose for your EventHubs SAS keys | null | MEDIUM
 |===
-
-
 // kafka-connector options: END

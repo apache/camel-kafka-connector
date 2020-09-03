@@ -14,6 +14,13 @@ When using camel-minio-kafka-connector as sink make sure to use the following Ma
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.minio.CamelMinioSinkConnector
+----
+
 
 The camel-minio sink connector supports 43 options, which are listed below.
 
@@ -66,6 +73,4 @@ The camel-minio sink connector supports 43 options, which are listed below.
 | *camel.component.minio.accessKey* | Amazon AWS Secret Access Key or Minio Access Key. If not set camel will connect to service for anonymous access. | null | MEDIUM
 | *camel.component.minio.secretKey* | Amazon AWS Access Key Id or Minio Secret Key. If not set camel will connect to service for anonymous access. | null | MEDIUM
 |===
-
-
 // kafka-connector options: END

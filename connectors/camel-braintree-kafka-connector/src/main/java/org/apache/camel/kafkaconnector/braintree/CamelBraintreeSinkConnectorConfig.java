@@ -27,7 +27,7 @@ public class CamelBraintreeSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_BRAINTREE_PATH_API_NAME_CONF = "camel.sink.path.apiName";
-    public static final String CAMEL_SINK_BRAINTREE_PATH_API_NAME_DOC = "What kind of operation to perform One of: [ADDON] [ADDRESS] [CLIENTTOKEN] [CREDITCARDVERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENTUPLOAD] [MERCHANTACCOUNT] [PAYMENTMETHOD] [PAYMENTMETHODNONCE] [PLAN] [REPORT] [SETTLEMENTBATCHSUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOKNOTIFICATION]";
+    public static final String CAMEL_SINK_BRAINTREE_PATH_API_NAME_DOC = "What kind of operation to perform One of: [addOn] [address] [clientToken] [creditCardVerification] [customer] [discount] [dispute] [documentUpload] [merchantAccount] [paymentMethod] [paymentMethodNonce] [plan] [report] [settlementBatchSummary] [subscription] [transaction] [webhookNotification]";
     public static final String CAMEL_SINK_BRAINTREE_PATH_API_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_BRAINTREE_PATH_METHOD_NAME_CONF = "camel.sink.path.methodName";
     public static final String CAMEL_SINK_BRAINTREE_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation";

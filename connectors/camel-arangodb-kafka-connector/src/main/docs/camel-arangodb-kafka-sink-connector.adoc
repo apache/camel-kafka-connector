@@ -14,6 +14,13 @@ When using camel-arangodb-kafka-connector as sink make sure to use the following
 </dependency>
 ----
 
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.arangodb.CamelArangodbSinkConnector
+----
+
 
 The camel-arangodb sink connector supports 25 options, which are listed below.
 
@@ -48,6 +55,4 @@ The camel-arangodb sink connector supports 25 options, which are listed below.
 | *camel.component.arangodb.password* | ArangoDB password. If user and password are default, this field is Optional. | null | MEDIUM
 | *camel.component.arangodb.user* | ArangoDB user. If user and password are default, this field is Optional. | null | MEDIUM
 |===
-
-
 // kafka-connector options: END
