@@ -12,6 +12,7 @@
 **Fixed bugs:**
 
 - flaky syslog integration test  [\#367](https://github.com/apache/camel-kafka-connector/issues/367)
+- UnitOfWork.done\(\) needs to be called on Polled exchanges [\#202](https://github.com/apache/camel-kafka-connector/issues/202)
 
 **Closed issues:**
 
@@ -54,6 +55,7 @@
 - Defer topic deletion [\#374](https://github.com/apache/camel-kafka-connector/pull/374) ([orpiske](https://github.com/orpiske))
 - Fixes for edge cases [\#373](https://github.com/apache/camel-kafka-connector/pull/373) ([orpiske](https://github.com/orpiske))
 - Added missing fromUrl to the log message [\#372](https://github.com/apache/camel-kafka-connector/pull/372) ([orpiske](https://github.com/orpiske))
+- Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
 - Removes debugging message [\#370](https://github.com/apache/camel-kafka-connector/pull/370) ([orpiske](https://github.com/orpiske))
 - Removing backport gh action. It doesn't work. [\#369](https://github.com/apache/camel-kafka-connector/pull/369) ([oscerd](https://github.com/oscerd))
 - Minor AWS tests cleanups [\#368](https://github.com/apache/camel-kafka-connector/pull/368) ([orpiske](https://github.com/orpiske))
@@ -64,7 +66,6 @@
 - Use latest Strimzi's docker images [\#357](https://github.com/apache/camel-kafka-connector/pull/357) ([oscerd](https://github.com/oscerd))
 - Fixed camel compatibility matrix table [\#356](https://github.com/apache/camel-kafka-connector/pull/356) ([oscerd](https://github.com/oscerd))
 - Added a camel-compatibility matrix page [\#355](https://github.com/apache/camel-kafka-connector/pull/355) ([oscerd](https://github.com/oscerd))
-- Upgrade Archetype docs [\#354](https://github.com/apache/camel-kafka-connector/pull/354) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#352](https://github.com/apache/camel-kafka-connector/pull/352) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#350](https://github.com/apache/camel-kafka-connector/pull/350) ([oscerd](https://github.com/oscerd))
 - Release 0.4.0 [\#346](https://github.com/apache/camel-kafka-connector/pull/346) ([oscerd](https://github.com/oscerd))
@@ -278,6 +279,7 @@
 - Release0.1.0 [\#154](https://github.com/apache/camel-kafka-connector/pull/154) ([valdar](https://github.com/valdar))
 - Fixed github action issue with never released builts. [\#153](https://github.com/apache/camel-kafka-connector/pull/153) ([valdar](https://github.com/valdar))
 - Upgrade testcontainers to version 1.14.1 [\#152](https://github.com/apache/camel-kafka-connector/pull/152) ([oscerd](https://github.com/oscerd))
+- Added gpg key for valdar. [\#139](https://github.com/apache/camel-kafka-connector/pull/139) ([valdar](https://github.com/valdar))
 
 ## [camel-kafka-connector-0.1.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.1.0) (2020-04-25)
 
@@ -323,7 +325,6 @@
 **Merged pull requests:**
 
 - Moved from camel-core to camel-core-engine as a dependecnies. [\#140](https://github.com/apache/camel-kafka-connector/pull/140) ([valdar](https://github.com/valdar))
-- Added gpg key for valdar. [\#139](https://github.com/apache/camel-kafka-connector/pull/139) ([valdar](https://github.com/valdar))
 - Test code fixes for the auto-generated connectors [\#138](https://github.com/apache/camel-kafka-connector/pull/138) ([orpiske](https://github.com/orpiske))
 - Misc [\#133](https://github.com/apache/camel-kafka-connector/pull/133) ([valdar](https://github.com/valdar))
 - Packaging the connectors as zip and tar.gz [\#131](https://github.com/apache/camel-kafka-connector/pull/131) ([oscerd](https://github.com/oscerd))
