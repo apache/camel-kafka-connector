@@ -12,17 +12,32 @@ You can do that through the following command.
 [source,bash]
 ----
 > mvn archetype:generate  -DarchetypeGroupId=org.apache.camel.kafkaconnector.archetypes  -DarchetypeArtifactId=camel-kafka-connector-extensible-archetype  -DarchetypeVersion=0.5.0-SNAPSHOT
-sible-archetype-0.4.0-20200723.181654-5.jar (16 kB at 80 kB/s)
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] >>> maven-archetype-plugin:3.1.2:generate (default-cli) > generate-sources @ standalone-pom >>>
+[INFO] 
+[INFO] <<< maven-archetype-plugin:3.1.2:generate (default-cli) < generate-sources @ standalone-pom <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-archetype-plugin:3.1.2:generate (default-cli) @ standalone-pom ---
+[INFO] Generating project in Interactive mode
+[INFO] Archetype repository not defined. Using the one from [org.apache.camel.kafkaconnector.archetypes:camel-kafka-connector-extensible-archetype:0.4.0] found in catalog remote
 Define value for property 'groupId': org.apache.camel.kafkaconnector.extended
 Define value for property 'artifactId': myconnector-extended
 Define value for property 'version' 1.0-SNAPSHOT: : 
 Define value for property 'package' org.apache.camel.kafkaconnector.extended: : 
+Define value for property 'camel-kafka-connector-name': camel-aws2-s3-kafka-connector
 [INFO] Using property: camel-kafka-connector-version = 0.5.0-SNAPSHOT
 Confirm properties configuration:
 groupId: org.apache.camel.kafkaconnector.extended
 artifactId: myconnector-extended
 version: 1.0-SNAPSHOT
 package: org.apache.camel.kafkaconnector.extended
+camel-kafka-connector-name: camel-aws2-s3-kafka-connector
 camel-kafka-connector-version: 0.5.0-SNAPSHOT
  Y: : Y
 [INFO] ----------------------------------------------------------------------------
@@ -36,18 +51,21 @@ camel-kafka-connector-version: 0.5.0-SNAPSHOT
 [INFO] Parameter: package, Value: org.apache.camel.kafkaconnector.extended
 [INFO] Parameter: version, Value: 1.0-SNAPSHOT
 [INFO] Parameter: groupId, Value: org.apache.camel.kafkaconnector.extended
+[INFO] Parameter: camel-kafka-connector-name, Value: camel-aws2-s3-kafka-connector
 [INFO] Parameter: camel-kafka-connector-version, Value: 0.5.0-SNAPSHOT
 [INFO] Parameter: artifactId, Value: myconnector-extended
-[INFO] Project created from Archetype in dir: /home/workspace/apache-camel/camel-kafka-connector/docs/modules/ROOT/pages/myconnector-extended
+[INFO] Project created from Archetype in dir: /home/workspace/myconnector-extended
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  45.630 s
-[INFO] Finished at: 2020-07-24T14:31:43+02:00
+[INFO] Total time:  05:44 min
+[INFO] Finished at: 2020-09-04T08:55:00+02:00
 [INFO] ------------------------------------------------------------------------
 ----
 
-In the pom of the created project you have to add the camel-kafka-connector you want to extend (in the example we want to extend the aws2-s3 connector).
+In the pom of the created project you can add the dependencies you need.
+
+This is the resulting POM
 
 [source,xml]
 ----
@@ -56,6 +74,12 @@ In the pom of the created project you have to add the camel-kafka-connector you 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+     <groupId>org.apache.camel.kafkaconnector</groupId>
+     <artifactId>parent</artifactId>
+     <version>0.5.0-SNAPSHOT</version>
+  </parent>
 
   <groupId>org.apache.camel.kafkaconnector.extended</groupId>
   <artifactId>myconnector-extended</artifactId>
@@ -67,7 +91,6 @@ In the pom of the created project you have to add the camel-kafka-connector you 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <kafka-version>2.5.0</kafka-version>
     <camel-kafka-connector-version>${project.version}</camel-kafka-connector-version>
   </properties>
 
@@ -76,13 +99,13 @@ In the pom of the created project you have to add the camel-kafka-connector you 
       <groupId>org.apache.kafka</groupId>
       <artifactId>connect-api</artifactId>
       <scope>provided</scope>
-      <version>${kafka-version}</version>
+      <version>${kafka.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>connect-transforms</artifactId>
       <scope>provided</scope>
-      <version>${kafka-version}</version>
+      <version>${kafka.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
@@ -94,6 +117,7 @@ In the pom of the created project you have to add the camel-kafka-connector you 
       <artifactId>camel-aws2-s3-kafka-connector</artifactId>
       <version>0.5.0-SNAPSHOT</version>
     </dependency>
+    <!-- Add your optional dependencies here -->
   </dependencies>
   <build>
     <plugins>
