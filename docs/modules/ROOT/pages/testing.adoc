@@ -69,6 +69,8 @@ remote instances. At the moment, the following properties can be set for remote 
 
 It is possible to use a properties file to set these. To do so use `-Dtest.properties=/path/to/file.properties`.
 
+=== Manual Tests
+
 A few manual tests can be enabled and executed with adequate configuration on the accounts and environments
 used by those services. This is very specific to the nature of each of those services, therefore please consult
 the comments on each of those test cases for the details related to their setup.
@@ -78,6 +80,28 @@ these flags along with others that are specific to that service:
 
 * it.test.salesforce.enable
 * it.test.slack.enable
+
+=== Performance Tests
+
+There is also a reference test implementation for checking the performance and resource usage in some situations.
+The current implementation, in the perf-tests-rabbitmq, can be run using:
+
+[source,bash]
+----
+mvn -DskipIntegrationTests=false -Dit.test.perf.enabled=true clean verify
+----
+
+Additional JVM settings, such as those to allow usage of the https://github.com/jvm-profiling-tools/async-profiler[Async Profiler]
+can be passed using the `jvm.user.settings` property. For example:
+
+[source,bash]
+----
+mvn -DskipIntegrationTests=false -Dit.test.perf.enabled=true -Djvm.user.settings="-agentpath:/path/to/asyncProfiler.so=start,file=/path/to/profile.svg" clean verify
+----
+
+The duration of the test can be adjusted with the `rabbitmq.test.duration`. This option takes the number of minutes for
+the test duration.
+
 
 [#writing-new-tests]
 == Writing New Tests
