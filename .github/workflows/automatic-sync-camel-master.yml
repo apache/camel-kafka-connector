@@ -15,13 +15,13 @@
 # limitations under the License.
 #
 
--name: Sync Camel Kafka Connector camel-master Branch
+name: Sync Camel Kafka Connector camel-master Branch
 
--on:
+on:
   schedule:
     # Run at 2 AM every day
     - cron:  '* * * * *'
--jobs:
+jobs:
   build:
     name: Sync Camel Kafka Connector camel-master Branch
     runs-on: ubuntu-latest
