@@ -34,6 +34,7 @@
 
 **Merged pull requests:**
 
+- Docs: Updated archetypes docs [\#422](https://github.com/apache/camel-kafka-connector/pull/422) ([oscerd](https://github.com/oscerd))
 - Archetype: Add a parameter to the archetype generator to be able to s… [\#421](https://github.com/apache/camel-kafka-connector/pull/421) ([oscerd](https://github.com/oscerd))
 - Fix a minor typo [\#420](https://github.com/apache/camel-kafka-connector/pull/420) ([oscerd](https://github.com/oscerd))
 - Removed deploy phase from jenkinsfile, we already have the daily snap… [\#418](https://github.com/apache/camel-kafka-connector/pull/418) ([oscerd](https://github.com/oscerd))
