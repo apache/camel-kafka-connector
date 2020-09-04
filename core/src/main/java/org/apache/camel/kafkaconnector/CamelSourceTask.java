@@ -119,53 +119,59 @@ public class CamelSourceTask extends SourceTask {
         }
     }
 
+    private long remaining(long startPollEpochMilli, long maxPollDuration)  {
+        return maxPollDuration - (Instant.now().toEpochMilli() - startPollEpochMilli);
+    }
+
+
     @Override
     public synchronized List<SourceRecord> poll() {
-        long startPollEpochMilli = Instant.now().toEpochMilli();
+        final long startPollEpochMilli = Instant.now().toEpochMilli();
+
+        long remaining = remaining(startPollEpochMilli, maxPollDuration);
         long collectedRecords = 0L;
 
         List<SourceRecord> records = new ArrayList<>();
-        while (collectedRecords < maxBatchPollSize && (Instant.now().toEpochMilli() - startPollEpochMilli) < maxPollDuration) {
-            Exchange exchange = consumer.receiveNoWait();
-
-            if (exchange != null) {
-                LOG.debug("Received Exchange {} with Message {} from Endpoint {}", exchange.getExchangeId(), exchange.getMessage().getMessageId(), exchange.getFromEndpoint());
-
-                // TODO: see if there is a better way to use sourcePartition
-                // an sourceOffset
-                Map<String, String> sourcePartition = Collections.singletonMap("filename", exchange.getFromEndpoint().toString());
-                Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
-
-                final Object messageHeaderKey = camelMessageHeaderKey != null ? exchange.getMessage().getHeader(camelMessageHeaderKey) : null;
-                final Object messageBodyValue = exchange.getMessage().getBody();
-
-                final Schema messageKeySchema = messageHeaderKey != null ? SchemaHelper.buildSchemaBuilderForType(messageHeaderKey) : null;
-                final Schema messageBodySchema = messageBodyValue != null ? SchemaHelper.buildSchemaBuilderForType(messageBodyValue) : null;
-
-                for (String singleTopic : topics) {
-                    SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, singleTopic, messageKeySchema, messageHeaderKey, messageBodySchema, messageBodyValue);
-                    if (exchange.getMessage().hasHeaders()) {
-                        setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
-                    }
-                    if (exchange.hasProperties()) {
-                        setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
-                    }
-
-                    TaskHelper.logRecordContent(LOG, record, config);
-                    records.add(record);
-                }
-                collectedRecords++;
-            } else {
+        while (collectedRecords < maxBatchPollSize && remaining > 0) {
+            Exchange exchange = consumer.receive(remaining);
+            if (exchange == null) {
+                // Nothing received, abort and return what we received so far
                 break;
             }
+
+            LOG.debug("Received Exchange {} with Message {} from Endpoint {}", exchange.getExchangeId(),
+                    exchange.getMessage().getMessageId(), exchange.getFromEndpoint());
+
+            // TODO: see if there is a better way to use sourcePartition
+            // an sourceOffset
+            Map<String, String> sourcePartition = Collections.singletonMap("filename", exchange.getFromEndpoint().toString());
+            Map<String, String> sourceOffset = Collections.singletonMap("position", exchange.getExchangeId());
+
+            final Object messageHeaderKey = camelMessageHeaderKey != null ? exchange.getMessage().getHeader(camelMessageHeaderKey) : null;
+            final Object messageBodyValue = exchange.getMessage().getBody();
+
+            final Schema messageKeySchema = messageHeaderKey != null ? SchemaHelper.buildSchemaBuilderForType(messageHeaderKey) : null;
+            final Schema messageBodySchema = messageBodyValue != null ? SchemaHelper.buildSchemaBuilderForType(messageBodyValue) : null;
+
+            for (String singleTopic : topics) {
+                SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, singleTopic, messageKeySchema,
+                        messageHeaderKey, messageBodySchema, messageBodyValue);
+
+                if (exchange.getMessage().hasHeaders()) {
+                    setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
+                }
+                if (exchange.hasProperties()) {
+                    setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
+                }
+
+                TaskHelper.logRecordContent(LOG, record, config);
+                records.add(record);
+            }
+            collectedRecords++;
+            remaining = remaining(startPollEpochMilli, maxPollDuration);
         }
 
-        if (records.isEmpty()) {
-            return Collections.EMPTY_LIST;
-        } else {
-            return records;
-        }
-
+        return records.isEmpty() ? null : records;
     }
 
     @Override
