@@ -58,6 +58,7 @@
         <module>itests-jdbc</module>
         <module>itests-azure-common</module>
         <module>itests-azure-storage-queue</module>
+        <module>perf-tests-rabbitmq</module>
     </modules>
 
 
