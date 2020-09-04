@@ -57,13 +57,12 @@
       <artifactId>camel-kafka-connector</artifactId>
       <version>${camel-kafka-connector-version}</version>
     </dependency>
-    <!-- Add your base camel-connector and/or dependencies here like the example
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
-      <artifactId>camel-aws2-s3-kafka-connector</artifactId>
+      <artifactId>${camel-kafka-connector-name}</artifactId>
       <version>${camel-kafka-connector-version}</version>
     </dependency>
-    -->
+    <!-- Add your optional dependencies here -->
   </dependencies>
   <build>
     <plugins>

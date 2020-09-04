@@ -24,6 +24,8 @@
     <requiredProperty key="camel-kafka-connector-version">
       <defaultValue>${project.version}</defaultValue>
     </requiredProperty>
+    <requiredProperty key="camel-kafka-connector-name">
+    </requiredProperty>
   </requiredProperties>
   <fileSets>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
