@@ -27,7 +27,7 @@ public class CamelGooglecalendarSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_GOOGLECALENDAR_PATH_API_NAME_CONF = "camel.sink.path.apiName";
-    public static final String CAMEL_SINK_GOOGLECALENDAR_PATH_API_NAME_DOC = "What kind of operation to perform One of: [acl] [list] [calendars] [channels] [colors] [freebusy] [events] [settings]";
+    public static final String CAMEL_SINK_GOOGLECALENDAR_PATH_API_NAME_DOC = "What kind of operation to perform One of: [ACL] [LIST] [CALENDARS] [CHANNELS] [COLORS] [FREEBUSY] [EVENTS] [SETTINGS]";
     public static final String CAMEL_SINK_GOOGLECALENDAR_PATH_API_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLECALENDAR_PATH_METHOD_NAME_CONF = "camel.sink.path.methodName";
     public static final String CAMEL_SINK_GOOGLECALENDAR_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation One of: [calendarImport] [clear] [delete] [get] [insert] [instances] [list] [move] [patch] [query] [quickAdd] [stop] [update] [watch]";

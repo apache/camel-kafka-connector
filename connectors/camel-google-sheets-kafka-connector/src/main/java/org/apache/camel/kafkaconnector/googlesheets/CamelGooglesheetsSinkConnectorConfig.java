@@ -27,7 +27,7 @@ public class CamelGooglesheetsSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_GOOGLESHEETS_PATH_API_NAME_CONF = "camel.sink.path.apiName";
-    public static final String CAMEL_SINK_GOOGLESHEETS_PATH_API_NAME_DOC = "What kind of operation to perform One of: [spreadsheets] [data]";
+    public static final String CAMEL_SINK_GOOGLESHEETS_PATH_API_NAME_DOC = "What kind of operation to perform One of: [SPREADSHEETS] [DATA]";
     public static final String CAMEL_SINK_GOOGLESHEETS_PATH_API_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLESHEETS_PATH_METHOD_NAME_CONF = "camel.sink.path.methodName";
     public static final String CAMEL_SINK_GOOGLESHEETS_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation One of: [create] [get] [update] [append] [batchUpdate] [clear]";

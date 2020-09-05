@@ -29,7 +29,7 @@ The camel-olingo4 source connector supports 50 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.apiName* | What kind of operation to perform One of: [] | null | HIGH
+| *camel.source.path.apiName* | What kind of operation to perform One of: [DEFAULT] | null | HIGH
 | *camel.source.path.methodName* | What sub operation to use for the selected operation | null | HIGH
 | *camel.source.endpoint.connectTimeout* | HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds) | 30000 | MEDIUM
 | *camel.source.endpoint.contentType* | Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8 | "application/json;charset=utf-8" | MEDIUM

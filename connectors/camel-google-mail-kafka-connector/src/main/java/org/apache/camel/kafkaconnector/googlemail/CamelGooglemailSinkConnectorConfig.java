@@ -27,7 +27,7 @@ public class CamelGooglemailSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_GOOGLEMAIL_PATH_API_NAME_CONF = "camel.sink.path.apiName";
-    public static final String CAMEL_SINK_GOOGLEMAIL_PATH_API_NAME_DOC = "What kind of operation to perform One of: [threads] [messages] [attachments] [labels] [history] [drafts] [users]";
+    public static final String CAMEL_SINK_GOOGLEMAIL_PATH_API_NAME_DOC = "What kind of operation to perform One of: [THREADS] [MESSAGES] [ATTACHMENTS] [LABELS] [HISTORY] [DRAFTS] [USERS]";
     public static final String CAMEL_SINK_GOOGLEMAIL_PATH_API_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEMAIL_PATH_METHOD_NAME_CONF = "camel.sink.path.methodName";
     public static final String CAMEL_SINK_GOOGLEMAIL_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation One of: [attachments] [create] [delete] [get] [getProfile] [gmailImport] [insert] [list] [modify] [patch] [send] [stop] [trash] [untrash] [update] [watch]";

@@ -27,7 +27,7 @@ public class CamelOlingo4SourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_OLINGO4_PATH_API_NAME_CONF = "camel.source.path.apiName";
-    public static final String CAMEL_SOURCE_OLINGO4_PATH_API_NAME_DOC = "What kind of operation to perform One of: []";
+    public static final String CAMEL_SOURCE_OLINGO4_PATH_API_NAME_DOC = "What kind of operation to perform One of: [DEFAULT]";
     public static final String CAMEL_SOURCE_OLINGO4_PATH_API_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_OLINGO4_PATH_METHOD_NAME_CONF = "camel.source.path.methodName";
     public static final String CAMEL_SOURCE_OLINGO4_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation";
