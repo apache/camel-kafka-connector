@@ -29,7 +29,7 @@ The camel-as2 source connector supports 53 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.apiName* | What kind of operation to perform One of: [client] [server] | null | HIGH
+| *camel.source.path.apiName* | What kind of operation to perform One of: [CLIENT] [SERVER] | null | HIGH
 | *camel.source.path.methodName* | What sub operation to use for the selected operation | null | HIGH
 | *camel.source.endpoint.as2From* | The value of the AS2From header of AS2 message. | null | MEDIUM
 | *camel.source.endpoint.as2MessageStructure* | The structure of AS2 Message. One of: PLAIN - No encryption, no signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption, no signature, ENCRYPTED_SIGNED - Encryption, signature One of: [PLAIN] [SIGNED] [ENCRYPTED] [SIGNED_ENCRYPTED] [PLAIN_COMPRESSED] [SIGNED_COMPRESSED] [ENCRYPTED_COMPRESSED] [ENCRYPTED_COMPRESSED_SIGNED] | null | MEDIUM

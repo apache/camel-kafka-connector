@@ -29,7 +29,7 @@ The camel-box sink connector supports 39 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.apiName* | What kind of operation to perform One of: [collaborations] [comments] [event-logs] [files] [folders] [groups] [events] [search] [tasks] [users] | null | HIGH
+| *camel.sink.path.apiName* | What kind of operation to perform One of: [COLLABORATIONS] [COMMENTS] [EVENT_LOGS] [FILES] [FOLDERS] [GROUPS] [EVENTS] [SEARCH] [TASKS] [USERS] | null | HIGH
 | *camel.sink.path.methodName* | What sub operation to use for the selected operation | null | HIGH
 | *camel.sink.endpoint.clientId* | Box application client ID | null | MEDIUM
 | *camel.sink.endpoint.enterpriseId* | The enterprise ID to use for an App Enterprise. | null | MEDIUM

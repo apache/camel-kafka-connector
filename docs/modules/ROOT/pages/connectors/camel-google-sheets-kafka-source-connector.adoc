@@ -29,7 +29,7 @@ The camel-google-sheets source connector supports 38 options, which are listed b
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.apiName* | What kind of operation to perform One of: [spreadsheets] [data] | null | HIGH
+| *camel.source.path.apiName* | What kind of operation to perform One of: [SPREADSHEETS] [DATA] | null | HIGH
 | *camel.source.path.methodName* | What sub operation to use for the selected operation One of: [create] [get] [update] [append] [batchUpdate] [clear] | null | HIGH
 | *camel.source.endpoint.applicationName* | Google Sheets application name. Example would be camel-google-sheets/1.0 | null | MEDIUM
 | *camel.source.endpoint.clientId* | Client ID of the sheets application | null | MEDIUM

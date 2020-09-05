@@ -25,7 +25,7 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelBoxSourceConnectorConfig extends CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_BOX_PATH_API_NAME_CONF = "camel.source.path.apiName";
-    public static final String CAMEL_SOURCE_BOX_PATH_API_NAME_DOC = "What kind of operation to perform One of: [collaborations] [comments] [event-logs] [files] [folders] [groups] [events] [search] [tasks] [users]";
+    public static final String CAMEL_SOURCE_BOX_PATH_API_NAME_DOC = "What kind of operation to perform One of: [COLLABORATIONS] [COMMENTS] [EVENT_LOGS] [FILES] [FOLDERS] [GROUPS] [EVENTS] [SEARCH] [TASKS] [USERS]";
     public static final String CAMEL_SOURCE_BOX_PATH_API_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_BOX_PATH_METHOD_NAME_CONF = "camel.source.path.methodName";
     public static final String CAMEL_SOURCE_BOX_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation";

@@ -29,7 +29,7 @@ The camel-google-calendar sink connector supports 28 options, which are listed b
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.apiName* | What kind of operation to perform One of: [acl] [list] [calendars] [channels] [colors] [freebusy] [events] [settings] | null | HIGH
+| *camel.sink.path.apiName* | What kind of operation to perform One of: [ACL] [LIST] [CALENDARS] [CHANNELS] [COLORS] [FREEBUSY] [EVENTS] [SETTINGS] | null | HIGH
 | *camel.sink.path.methodName* | What sub operation to use for the selected operation One of: [calendarImport] [clear] [delete] [get] [insert] [instances] [list] [move] [patch] [query] [quickAdd] [stop] [update] [watch] | null | HIGH
 | *camel.sink.endpoint.applicationName* | Google calendar application name. Example would be camel-google-calendar/1.0 | null | MEDIUM
 | *camel.sink.endpoint.clientId* | Client ID of the calendar application | null | MEDIUM
