@@ -17,6 +17,7 @@
 
 **Closed issues:**
 
+- Create an NSQ example [\#429](https://github.com/apache/camel-kafka-connector/issues/429)
 - Archetype: Add a parameter to the archetype generator to be able to specify what connector we want to extend [\#419](https://github.com/apache/camel-kafka-connector/issues/419)
 - aws2-S3-connector: \(gzip/zip\) compression with sink [\#387](https://github.com/apache/camel-kafka-connector/issues/387)
 - Discussion: troubleshooting documentation? [\#381](https://github.com/apache/camel-kafka-connector/issues/381)
