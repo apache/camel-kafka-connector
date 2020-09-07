@@ -20,7 +20,7 @@ name: master build
 on:
   push:
     branches:
-      - camel-master
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
