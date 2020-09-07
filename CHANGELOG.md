@@ -58,7 +58,6 @@
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
 - Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
 - Added automatic-sync gh action for camel-kafka-connector on camel-mas… [\#392](https://github.com/apache/camel-kafka-connector/pull/392) ([oscerd](https://github.com/oscerd))
-- Adds basic aggregation test \(github issue \#291\) [\#388](https://github.com/apache/camel-kafka-connector/pull/388) ([orpiske](https://github.com/orpiske))
 - Fix flaky syslog test [\#386](https://github.com/apache/camel-kafka-connector/pull/386) ([orpiske](https://github.com/orpiske))
 - Added a simple troubleshooting guide [\#383](https://github.com/apache/camel-kafka-connector/pull/383) ([orpiske](https://github.com/orpiske))
 - Upgrade to camel 3.4.3 [\#380](https://github.com/apache/camel-kafka-connector/pull/380) ([oscerd](https://github.com/oscerd))
