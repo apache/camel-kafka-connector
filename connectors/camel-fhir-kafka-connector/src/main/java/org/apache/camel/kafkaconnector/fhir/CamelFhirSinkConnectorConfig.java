@@ -25,7 +25,7 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_FHIR_PATH_API_NAME_CONF = "camel.sink.path.apiName";
-    public static final String CAMEL_SINK_FHIR_PATH_API_NAME_DOC = "What kind of operation to perform One of: [CAPABILITIES] [CREATE] [DELETE] [HISTORY] [LOAD_PAGE] [META] [OPERATION] [PATCH] [READ] [SEARCH] [TRANSACTION] [UPDATE] [VALIDATE]";
+    public static final String CAMEL_SINK_FHIR_PATH_API_NAME_DOC = "What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate]";
     public static final String CAMEL_SINK_FHIR_PATH_API_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_FHIR_PATH_METHOD_NAME_CONF = "camel.sink.path.methodName";
     public static final String CAMEL_SINK_FHIR_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation";

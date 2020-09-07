@@ -29,7 +29,7 @@ The camel-google-drive source connector supports 41 options, which are listed be
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.apiName* | What kind of operation to perform One of: [DRIVE_ABOUT] [DRIVE_APPS] [DRIVE_CHANGES] [DRIVE_CHANNELS] [DRIVE_CHILDREN] [DRIVE_COMMENTS] [DRIVE_FILES] [DRIVE_PARENTS] [DRIVE_PERMISSIONS] [DRIVE_PROPERTIES] [DRIVE_REALTIME] [DRIVE_REPLIES] [DRIVE_REVISIONS] | null | HIGH
+| *camel.source.path.apiName* | What kind of operation to perform One of: [drive-about] [drive-apps] [drive-changes] [drive-channels] [drive-children] [drive-comments] [drive-files] [drive-parents] [drive-permissions] [drive-properties] [drive-realtime] [drive-replies] [drive-revisions] | null | HIGH
 | *camel.source.path.methodName* | What sub operation to use for the selected operation One of: [copy] [delete] [get] [getIdForEmail] [insert] [list] [patch] [stop] [touch] [trash] [untrash] [update] [watch] | null | HIGH
 | *camel.source.endpoint.applicationName* | Google drive application name. Example would be camel-google-drive/1.0 | null | MEDIUM
 | *camel.source.endpoint.clientFactory* | To use the GoogleCalendarClientFactory as factory for creating the client. Will by default use BatchGoogleDriveClientFactory | null | MEDIUM
