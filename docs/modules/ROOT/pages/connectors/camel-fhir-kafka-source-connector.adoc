@@ -29,7 +29,7 @@ The camel-fhir source connector supports 73 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.apiName* | What kind of operation to perform One of: [CAPABILITIES] [CREATE] [DELETE] [HISTORY] [LOAD_PAGE] [META] [OPERATION] [PATCH] [READ] [SEARCH] [TRANSACTION] [UPDATE] [VALIDATE] | null | HIGH
+| *camel.source.path.apiName* | What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate] | null | HIGH
 | *camel.source.path.methodName* | What sub operation to use for the selected operation | null | HIGH
 | *camel.source.endpoint.encoding* | Encoding to use for all request One of: [JSON] [XML] | null | MEDIUM
 | *camel.source.endpoint.fhirVersion* | The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5] | "R4" | MEDIUM

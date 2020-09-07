@@ -29,7 +29,7 @@ The camel-braintree sink connector supports 20 options, which are listed below.
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.apiName* | What kind of operation to perform One of: [ADD_ON] [ADDRESS] [CLIENT_TOKEN] [CREDIT_CARD_VERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENT_UPLOAD] [MERCHANT_ACCOUNT] [PAYMENT_METHOD] [PAYMENT_METHOD_NONCE] [PLAN] [REPORT] [SETTLEMENT_BATCH_SUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOK_NOTIFICATION] | null | HIGH
+| *camel.sink.path.apiName* | What kind of operation to perform One of: [ADDON] [ADDRESS] [CLIENTTOKEN] [CREDITCARDVERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENTUPLOAD] [MERCHANTACCOUNT] [PAYMENTMETHOD] [PAYMENTMETHODNONCE] [PLAN] [REPORT] [SETTLEMENTBATCHSUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOKNOTIFICATION] | null | HIGH
 | *camel.sink.path.methodName* | What sub operation to use for the selected operation | null | MEDIUM
 | *camel.sink.endpoint.environment* | The environment Either SANDBOX or PRODUCTION | null | MEDIUM
 | *camel.sink.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | MEDIUM
