@@ -34,6 +34,7 @@
 
 **Merged pull requests:**
 
+- Camel 3.5.0 [\#427](https://github.com/apache/camel-kafka-connector/pull/427) ([oscerd](https://github.com/oscerd))
 - Docs: Updated archetypes docs [\#422](https://github.com/apache/camel-kafka-connector/pull/422) ([oscerd](https://github.com/oscerd))
 - Archetype: Add a parameter to the archetype generator to be able to s… [\#421](https://github.com/apache/camel-kafka-connector/pull/421) ([oscerd](https://github.com/oscerd))
 - Fix a minor typo [\#420](https://github.com/apache/camel-kafka-connector/pull/420) ([oscerd](https://github.com/oscerd))
