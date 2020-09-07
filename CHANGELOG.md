@@ -8,6 +8,7 @@
 
 - Add the connector class to use in the documentation of each connector [\#321](https://github.com/apache/camel-kafka-connector/issues/321)
 - Support multiple topics for connector configuration [\#197](https://github.com/apache/camel-kafka-connector/issues/197)
+- Generate a catalog of supported connectors [\#141](https://github.com/apache/camel-kafka-connector/issues/141)
 
 **Fixed bugs:**
 
