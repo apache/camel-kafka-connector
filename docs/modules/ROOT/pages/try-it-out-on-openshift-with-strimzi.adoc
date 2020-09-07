@@ -112,9 +112,9 @@ oc exec -i -c kafka my-cluster-kafka-0 -- curl -X POST \
     "camel.source.path.bucketNameOrArn": "camel-connector-test",
     "camel.source.endpoint.autocloseBody": false,
     "camel.source.maxPollDuration": 10000,
-    "camel.component.aws-s3.configuration.access-key": "xxx",
-    "camel.component.aws-s3.configuration.secret-key": "xxx",
-    "camel.component.aws-s3.configuration.region": "xxx"
+    "camel.component.aws-s3.accessKey": "xxx",
+    "camel.component.aws-s3.secretKey": "xxx",
+    "camel.component.aws-s3.region": "xxx"
   }
 }
 EOF
@@ -142,9 +142,9 @@ spec:
     camel.source.path.bucketNameOrArn: camel-connector-test
     camel.source.endpoint.autocloseBody: false
     camel.source.maxPollDuration: 10000
-    camel.component.aws-s3.configuration.access-key: xxx
-    camel.component.aws-s3.configuration.secret-key: xxx
-    camel.component.aws-s3.configuration.region: xxx
+    camel.component.aws-s3.accessKey: xxx
+    camel.component.aws-s3.secretKey: xxx
+    camel.component.aws-s3.region: xxx
 EOF
 ----
 
