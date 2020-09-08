@@ -19,7 +19,7 @@ name: Changelog
 
 on:
   schedule:
-    # Run every hour
+    # Run at 3 during night
     - cron:  '0 3 * * *'
 
 jobs:
