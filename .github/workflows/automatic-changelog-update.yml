@@ -20,7 +20,7 @@ name: Changelog
 on:
   schedule:
     # Run every hour
-    - cron:  '0 * * * *'
+    - cron:  '0 3 * * *'
 
 jobs:
   generate_changelog:
