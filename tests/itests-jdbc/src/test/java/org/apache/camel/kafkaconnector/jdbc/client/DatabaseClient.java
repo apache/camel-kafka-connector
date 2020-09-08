@@ -42,20 +42,21 @@ public class DatabaseClient {
     }
 
     public void runQuery(String query, Consumer<ResultSet> consumer) throws SQLException {
-        ResultSet rs = connection.prepareStatement(query).executeQuery();
+        try (ResultSet rs = connection.prepareStatement(query).executeQuery()) {
 
-        while (rs.next()) {
-            consumer.accept(rs);
+            while (rs.next()) {
+                consumer.accept(rs);
+            }
         }
     }
 
     public int count(String table) throws SQLException {
         String query = String.format("select count(*) as count from %s", table);
 
-        ResultSet rs = connection.prepareStatement(query).executeQuery();
-
-        while (rs.next()) {
-            return rs.getInt("count");
+        try (ResultSet rs = connection.prepareStatement(query).executeQuery()) {
+            while (rs.next()) {
+                return rs.getInt("count");
+            }
         }
 
         return 0;
