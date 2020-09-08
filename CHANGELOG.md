@@ -79,6 +79,7 @@
 - Added a camel-compatibility matrix page [\#355](https://github.com/apache/camel-kafka-connector/pull/355) ([oscerd](https://github.com/oscerd))
 - Upgrade Archetype docs [\#354](https://github.com/apache/camel-kafka-connector/pull/354) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#352](https://github.com/apache/camel-kafka-connector/pull/352) ([oscerd](https://github.com/oscerd))
+- Added missing connector in connectors pom [\#350](https://github.com/apache/camel-kafka-connector/pull/350) ([oscerd](https://github.com/oscerd))
 - Release 0.4.0 [\#346](https://github.com/apache/camel-kafka-connector/pull/346) ([oscerd](https://github.com/oscerd))
 - AWS Kinesis test fixes when in remote mode [\#345](https://github.com/apache/camel-kafka-connector/pull/345) ([orpiske](https://github.com/orpiske))
 
