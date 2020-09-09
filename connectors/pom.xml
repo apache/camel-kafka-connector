@@ -428,7 +428,6 @@
         <module>camel-quickfix-kafka-connector</module>
         <module>camel-rabbitmq-kafka-connector</module>
         <module>camel-reactive-streams-kafka-connector</module>
-        <module>camel-ref-kafka-connector</module>
         <module>camel-rest-api-kafka-connector</module>
         <module>camel-rest-kafka-connector</module>
         <module>camel-rest-openapi-kafka-connector</module>
