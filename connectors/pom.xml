@@ -389,7 +389,6 @@
         <module>camel-mina-kafka-connector</module>
         <module>camel-minio-kafka-connector</module>
         <module>camel-mllp-kafka-connector</module>
-        <module>camel-mock-kafka-connector</module>
         <module>camel-mongodb-gridfs-kafka-connector</module>
         <module>camel-mongodb-kafka-connector</module>
         <module>camel-msv-kafka-connector</module>
