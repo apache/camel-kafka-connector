@@ -22,12 +22,13 @@ import java.net.URISyntaxException;
 
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.aws.v2.common.TestAWSCredentialsProvider;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.kinesis.KinesisClient;
 import software.amazon.awssdk.services.kinesis.KinesisClientBuilder;
+import software.amazon.awssdk.services.sqs.SqsClient;
+import software.amazon.awssdk.services.sqs.SqsClientBuilder;
 
 public final class AWSSDKClientUtils {
     private static final Logger LOG = LoggerFactory.getLogger(AWSSDKClientUtils.class);
@@ -36,7 +37,6 @@ public final class AWSSDKClientUtils {
 
     }
 
-    @NotNull
     private static URI getEndpoint() {
         String amazonHost = System.getProperty(AWSConfigs.AMAZON_AWS_HOST);
 
@@ -49,6 +49,10 @@ public final class AWSSDKClientUtils {
         } catch (URISyntaxException e) {
             throw new RuntimeException("Invalid endpoint");
         }
+    }
+
+    private static boolean isLocalContainer(String awsInstanceType) {
+        return awsInstanceType == null || awsInstanceType.equals("local-aws-container");
     }
 
     public static KinesisClient newKinesisClient() {
@@ -76,9 +80,31 @@ public final class AWSSDKClientUtils {
         return clientBuilder.build();
     }
 
-    private static boolean isLocalContainer(String awsInstanceType) {
-        return awsInstanceType == null || awsInstanceType.equals("local-aws-container");
+    public static AWSSQSClient newSQSClient() {
+        LOG.debug("Creating a new AWS v2 SQS client");
+
+        String awsInstanceType = System.getProperty("aws-service.instance.type");
+
+        SqsClientBuilder clientBuilder = SqsClient.builder();
+
+        clientBuilder.region(Region.US_EAST_1);
+
+        URI endpoint = getEndpoint();
+
+        if (isLocalContainer(awsInstanceType) || endpoint != null) {
+            clientBuilder.endpointOverride(endpoint);
+        }
+
+        if (isLocalContainer(awsInstanceType)) {
+            clientBuilder.credentialsProvider(TestAWSCredentialsProvider.CONTAINER_LOCAL_DEFAULT_PROVIDER);
+
+        } else {
+            clientBuilder.credentialsProvider(TestAWSCredentialsProvider.SYSTEM_PROPERTY_PROVIDER);
+        }
+
+        return new AWSSQSClient(clientBuilder.build());
     }
+
 
 
 }
