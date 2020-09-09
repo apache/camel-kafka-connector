@@ -433,7 +433,6 @@
         <module>camel-rest-openapi-kafka-connector</module>
         <module>camel-rest-swagger-kafka-connector</module>
         <module>camel-resteasy-kafka-connector</module>
-        <module>camel-robotframework-kafka-connector</module>
         <module>camel-rss-kafka-connector</module>
         <module>camel-saga-kafka-connector</module>
         <module>camel-salesforce-kafka-connector</module>
