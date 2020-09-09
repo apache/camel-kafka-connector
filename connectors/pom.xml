@@ -116,6 +116,9 @@
                         <param>aws2-kms</param>
                         <param>aws2-mq</param>
                         <param>aws2-msk</param>
+                        <param>mock</param>
+                        <param>ref</param>
+                        <param>robotframework</param>
                     </excludedComponents>
                 </configuration>
                 <executions>
