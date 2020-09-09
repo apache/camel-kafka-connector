@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+## [camel-kafka-connector-0.5.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0) (2020-09-08)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0...HEAD)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0...camel-kafka-connector-0.5.0)
 
 **Implemented enhancements:**
 
@@ -17,6 +17,7 @@
 
 **Closed issues:**
 
+- Unreleased Resource: Database [\#436](https://github.com/apache/camel-kafka-connector/issues/436)
 - Create an NSQ example [\#429](https://github.com/apache/camel-kafka-connector/issues/429)
 - Archetype: Add a parameter to the archetype generator to be able to specify what connector we want to extend [\#419](https://github.com/apache/camel-kafka-connector/issues/419)
 - aws2-S3-connector: \(gzip/zip\) compression with sink [\#387](https://github.com/apache/camel-kafka-connector/issues/387)
@@ -36,10 +37,13 @@
 
 **Merged pull requests:**
 
+- Fix potentially unreleased DB resources in test code [\#437](https://github.com/apache/camel-kafka-connector/pull/437) ([orpiske](https://github.com/orpiske))
+- Automatic changelog: Run it just one time during the night [\#435](https://github.com/apache/camel-kafka-connector/pull/435) ([oscerd](https://github.com/oscerd))
 - Run the changelog automatic updated every hour [\#434](https://github.com/apache/camel-kafka-connector/pull/434) ([oscerd](https://github.com/oscerd))
 - Update try-it-out-on-openshift-with-strimzi.adoc with latest AWS S3 connector config [\#433](https://github.com/apache/camel-kafka-connector/pull/433) ([smccarthy-ie](https://github.com/smccarthy-ie))
 - Pr Build and push build needs to point to master [\#432](https://github.com/apache/camel-kafka-connector/pull/432) ([oscerd](https://github.com/oscerd))
 - adding a key transformer to the AWS2-SQS connector so that the CamelH… [\#431](https://github.com/apache/camel-kafka-connector/pull/431) ([codexetreme](https://github.com/codexetreme))
+- Proposed fix for issue \#414 [\#428](https://github.com/apache/camel-kafka-connector/pull/428) ([orpiske](https://github.com/orpiske))
 - Camel 3.5.0 [\#427](https://github.com/apache/camel-kafka-connector/pull/427) ([oscerd](https://github.com/oscerd))
 - Docs: Updated archetypes docs [\#422](https://github.com/apache/camel-kafka-connector/pull/422) ([oscerd](https://github.com/oscerd))
 - Archetype: Add a parameter to the archetype generator to be able to s… [\#421](https://github.com/apache/camel-kafka-connector/pull/421) ([oscerd](https://github.com/oscerd))
@@ -427,6 +431,7 @@
 - Fix Sink File test [\#6](https://github.com/apache/camel-kafka-connector/pull/6) ([orpiske](https://github.com/orpiske))
 - chore: update maven to v3.6.3 [\#5](https://github.com/apache/camel-kafka-connector/pull/5) ([lburgazzoli](https://github.com/lburgazzoli))
 - chore\(build\): set up github actions [\#4](https://github.com/apache/camel-kafka-connector/pull/4) ([lburgazzoli](https://github.com/lburgazzoli))
+- Adding Keys, Notice and License files [\#3](https://github.com/apache/camel-kafka-connector/pull/3) ([oscerd](https://github.com/oscerd))
 
 
 
