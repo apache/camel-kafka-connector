@@ -62,4 +62,20 @@ The camel-azure-storage-queue sink connector supports 32 options, which are list
 | *camel.component.azure-storage-queue.accessKey* | Access key for the associated azure account name to be used for authentication with azure queue services | null | MEDIUM
 | *camel.component.azure-storage-queue.credentials* | StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information | null | MEDIUM
 |===
+
+
+
+The camel-azure-storage-queue sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-storage-queue sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-storage-queue sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

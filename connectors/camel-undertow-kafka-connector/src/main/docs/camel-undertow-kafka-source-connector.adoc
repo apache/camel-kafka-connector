@@ -61,4 +61,20 @@ The camel-undertow source connector supports 31 options, which are listed below.
 | *camel.component.undertow.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
 | *camel.component.undertow.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-undertow sink connector has no converters out of the box.
+
+
+
+
+
+The camel-undertow sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-undertow sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

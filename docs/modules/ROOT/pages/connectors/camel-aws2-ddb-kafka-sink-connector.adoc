@@ -67,4 +67,20 @@ The camel-aws2-ddb sink connector supports 37 options, which are listed below.
 | *camel.component.aws2-ddb.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-ddb.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws2-ddb sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws2-ddb sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws2-ddb sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

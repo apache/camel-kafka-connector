@@ -82,4 +82,20 @@ The camel-google-sheets-stream source connector supports 52 options, which are l
 | *camel.component.google-sheets-stream.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.google-sheets-stream.clientFactory* | To use the GoogleSheetsClientFactory as factory for creating the client. Will by default use BatchGoogleSheetsClientFactory | null | MEDIUM
 |===
+
+
+
+The camel-google-sheets-stream sink connector has no converters out of the box.
+
+
+
+
+
+The camel-google-sheets-stream sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-sheets-stream sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

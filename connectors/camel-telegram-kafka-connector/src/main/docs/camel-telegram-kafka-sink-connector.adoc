@@ -48,4 +48,20 @@ The camel-telegram sink connector supports 18 options, which are listed below.
 | *camel.component.telegram.clientConfig* | To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance. | null | MEDIUM
 | *camel.component.telegram.authorizationToken* | The default Telegram authorization token to be used when the information is not provided in the endpoints. | null | MEDIUM
 |===
+
+
+
+The camel-telegram sink connector has no converters out of the box.
+
+
+
+
+
+The camel-telegram sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-telegram sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

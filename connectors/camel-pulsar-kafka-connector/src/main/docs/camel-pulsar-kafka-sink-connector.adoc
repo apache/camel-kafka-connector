@@ -68,4 +68,20 @@ The camel-pulsar sink connector supports 38 options, which are listed below.
 | *camel.component.pulsar.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.pulsar.pulsarClient* | The pulsar client | null | MEDIUM
 |===
+
+
+
+The camel-pulsar sink connector has no converters out of the box.
+
+
+
+
+
+The camel-pulsar sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-pulsar sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

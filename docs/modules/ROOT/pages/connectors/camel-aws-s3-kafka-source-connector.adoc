@@ -109,6 +109,36 @@ The camel-aws-s3 source connector supports 79 options, which are listed below.
 | *camel.component.aws-s3.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-s3.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws-s3 sink connector supports 1 converters out of the box, which are listed below.
+
+
+
+[source,java]
+----
+
+org.apache.camel.kafkaconnector.awss3.converters.S3ObjectConverter
+
+----
+
+
+
+The camel-aws-s3 sink connector supports 1 transforms out of the box, which are listed below.
+
+
+
+[source,java]
+----
+
+org.apache.camel.kafkaconnector.awss3.transforms.S3ObjectTransforms
+
+----
+
+
+
+The camel-aws-s3 sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END
 
 == Examples

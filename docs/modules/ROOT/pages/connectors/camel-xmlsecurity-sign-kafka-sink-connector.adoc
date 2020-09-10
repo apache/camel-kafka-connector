@@ -89,4 +89,20 @@ The camel-xmlsecurity-sign sink connector supports 59 options, which are listed 
 | *camel.component.xmlsecurity-sign.signer Configuration* | To use a shared XmlSignerConfiguration configuration to use as base for configuring endpoints. | null | MEDIUM
 | *camel.component.xmlsecurity-sign.uriDereferencer* | If you want to restrict the remote access via reference URIs, you can set an own dereferencer. Optional parameter. If not set the provider default dereferencer is used which can resolve URI fragments, HTTP, file and XPpointer URIs. Attention: The implementation is provider dependent! | null | MEDIUM
 |===
+
+
+
+The camel-xmlsecurity-sign sink connector has no converters out of the box.
+
+
+
+
+
+The camel-xmlsecurity-sign sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-xmlsecurity-sign sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

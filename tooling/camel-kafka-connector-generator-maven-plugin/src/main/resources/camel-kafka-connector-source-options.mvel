@@ -33,3 +33,48 @@ The @{title} source connector supports @{options.size()} options, which are list
 @foreach{row : options}| *@{row.getShortName(50)}* | @{util.escape(row.description)} | @{row.defaultValue} | @{row.priority}
 @end{}|===
 @end{}
+
+@if{converters.isEmpty()}
+The @{title} sink connector has no converters out of the box.
+@else{}
+The @{title} sink connector supports @{converters.size()} converters out of the box, which are listed below.
+@end{}
+
+@if{!converters.isEmpty()}
+[source,java]
+----
+@foreach{row : converters}
+@{row}
+@end{}
+----
+@end{}
+
+@if{transforms.isEmpty()}
+The @{title} sink connector has no transforms out of the box.
+@else{}
+The @{title} sink connector supports @{converters.size()} transforms out of the box, which are listed below.
+@end{}
+
+@if{!transforms.isEmpty()}
+[source,java]
+----
+@foreach{row : transforms}
+@{row}
+@end{}
+----
+@end{}
+
+@if{aggregationStrategies.isEmpty()}
+The @{title} sink connector has no aggregation strategies out of the box.
+@else{}
+The @{title} sink connector supports @{aggregationStrategies.size()} aggregation strategies out of the box, which are listed below.
+@end{}
+
+@if{!aggregationStrategies.isEmpty()}
+[source,java]
+----
+@foreach{row : aggregationStrategies}
+@{row}
+@end{}
+----
+@end{}

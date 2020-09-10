@@ -69,4 +69,20 @@ The camel-box sink connector supports 39 options, which are listed below.
 | *camel.component.box.userName* | Box user name, MUST be provided | null | MEDIUM
 | *camel.component.box.userPassword* | Box user password, MUST be provided if authSecureStorage is not set, or returns null on first call | null | MEDIUM
 |===
+
+
+
+The camel-box sink connector has no converters out of the box.
+
+
+
+
+
+The camel-box sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-box sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

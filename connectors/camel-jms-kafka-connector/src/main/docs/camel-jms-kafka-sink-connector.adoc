@@ -173,4 +173,20 @@ The camel-jms sink connector supports 143 options, which are listed below.
 | *camel.component.jms.transactionName* | The name of the transaction to use. | null | MEDIUM
 | *camel.component.jms.transactionTimeout* | The timeout value of the transaction (in seconds), if using transacted mode. | -1 | MEDIUM
 |===
+
+
+
+The camel-jms sink connector has no converters out of the box.
+
+
+
+
+
+The camel-jms sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-jms sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

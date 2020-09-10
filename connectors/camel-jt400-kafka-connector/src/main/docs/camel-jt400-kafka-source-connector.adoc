@@ -68,4 +68,20 @@ The camel-jt400 source connector supports 38 options, which are listed below.
 | *camel.component.jt400.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.jt400.connectionPool* | Default connection pool used by the component. Note that this pool is lazily initialized. This is because in a scenario where the user always provides a pool, it would be wasteful for Camel to initialize and keep an idle pool. | null | MEDIUM
 |===
+
+
+
+The camel-jt400 sink connector has no converters out of the box.
+
+
+
+
+
+The camel-jt400 sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-jt400 sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -58,4 +58,20 @@ The camel-cometds source connector supports 28 options, which are listed below.
 | *camel.component.cometds.sslPassword* | The password when using SSL. | null | MEDIUM
 | *camel.component.cometds.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-cometds sink connector has no converters out of the box.
+
+
+
+
+
+The camel-cometds sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-cometds sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

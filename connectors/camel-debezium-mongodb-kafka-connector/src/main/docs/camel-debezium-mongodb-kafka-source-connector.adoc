@@ -131,4 +131,20 @@ The camel-debezium-mongodb source connector supports 101 options, which are list
 | *camel.component.debezium-mongodb.sourceStruct Version* | A version of the format of the publicly visible source part in the message | "v2" | MEDIUM
 | *camel.component.debezium-mongodb.tombstonesOn Delete* | Whether delete operations should be represented by a delete event and a subsquenttombstone event (true) or only by a delete event (false). Emitting the tombstone event (the default behavior) allows Kafka to completely delete all events pertaining to the given key once the source record got deleted. | false | MEDIUM
 |===
+
+
+
+The camel-debezium-mongodb sink connector has no converters out of the box.
+
+
+
+
+
+The camel-debezium-mongodb sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-debezium-mongodb sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -59,4 +59,20 @@ The camel-aws2-sts sink connector supports 29 options, which are listed below.
 | *camel.component.aws2-sts.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-sts.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws2-sts sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws2-sts sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws2-sts sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

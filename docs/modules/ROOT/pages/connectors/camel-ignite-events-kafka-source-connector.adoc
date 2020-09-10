@@ -45,4 +45,20 @@ The camel-ignite-events source connector supports 15 options, which are listed b
 | *camel.component.ignite-events.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | MEDIUM
 | *camel.component.ignite-events.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
+
+
+
+The camel-ignite-events sink connector has no converters out of the box.
+
+
+
+
+
+The camel-ignite-events sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-ignite-events sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -61,4 +61,20 @@ The camel-sjms-batch source connector supports 31 options, which are listed belo
 | *camel.component.sjms-batch.recoveryInterval* | Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds. | 5000 | MEDIUM
 | *camel.component.sjms-batch.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
 |===
+
+
+
+The camel-sjms-batch sink connector has no converters out of the box.
+
+
+
+
+
+The camel-sjms-batch sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-sjms-batch sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

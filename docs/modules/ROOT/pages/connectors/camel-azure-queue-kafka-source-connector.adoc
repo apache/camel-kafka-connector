@@ -49,4 +49,20 @@ The camel-azure-queue source connector supports 19 options, which are listed bel
 | *camel.component.azure-queue.credentialsAccountKey* | Set the storage account key used during authentication phase | null | MEDIUM
 | *camel.component.azure-queue.credentialsAccountName* | Set the storage account name used during authentication phase | null | MEDIUM
 |===
+
+
+
+The camel-azure-queue sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-queue sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-queue sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

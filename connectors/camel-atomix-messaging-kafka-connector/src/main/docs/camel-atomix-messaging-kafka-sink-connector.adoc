@@ -67,4 +67,20 @@ The camel-atomix-messaging sink connector supports 37 options, which are listed 
 | *camel.component.atomix-messaging.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
 | *camel.component.atomix-messaging.resourceOptions* | Local resources configurations | null | MEDIUM
 |===
+
+
+
+The camel-atomix-messaging sink connector has no converters out of the box.
+
+
+
+
+
+The camel-atomix-messaging sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-atomix-messaging sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

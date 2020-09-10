@@ -119,4 +119,20 @@ The camel-aws-sqs source connector supports 89 options, which are listed below.
 | *camel.component.aws-sqs.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-sqs.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws-sqs sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-sqs sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-sqs sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

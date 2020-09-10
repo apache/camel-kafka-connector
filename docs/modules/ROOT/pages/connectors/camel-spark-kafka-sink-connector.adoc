@@ -43,4 +43,20 @@ The camel-spark sink connector supports 13 options, which are listed below.
 | *camel.component.spark.rddCallback* | Function performing action against an RDD. | null | MEDIUM
 | *camel.component.spark.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
+
+
+
+The camel-spark sink connector has no converters out of the box.
+
+
+
+
+
+The camel-spark sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-spark sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

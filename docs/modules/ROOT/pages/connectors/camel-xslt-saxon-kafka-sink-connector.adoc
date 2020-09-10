@@ -59,4 +59,20 @@ The camel-xslt-saxon sink connector supports 29 options, which are listed below.
 | *camel.component.xslt-saxon.uriResolver* | To use a custom UriResolver. Should not be used together with the option 'uriResolverFactory'. | null | MEDIUM
 | *camel.component.xslt-saxon.uriResolverFactory* | To use a custom UriResolver which depends on a dynamic endpoint resource URI. Should not be used together with the option 'uriResolver'. | null | MEDIUM
 |===
+
+
+
+The camel-xslt-saxon sink connector has no converters out of the box.
+
+
+
+
+
+The camel-xslt-saxon sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-xslt-saxon sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

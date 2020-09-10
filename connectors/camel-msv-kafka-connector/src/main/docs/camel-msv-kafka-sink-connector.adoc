@@ -47,4 +47,20 @@ The camel-msv sink connector supports 17 options, which are listed below.
 | *camel.component.msv.resourceResolverFactory* | To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI | null | MEDIUM
 | *camel.component.msv.schemaFactory* | To use the javax.xml.validation.SchemaFactory. | null | MEDIUM
 |===
+
+
+
+The camel-msv sink connector has no converters out of the box.
+
+
+
+
+
+The camel-msv sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-msv sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

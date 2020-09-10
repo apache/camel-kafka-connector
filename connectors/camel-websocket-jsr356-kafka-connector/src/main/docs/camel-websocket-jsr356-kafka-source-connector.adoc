@@ -40,4 +40,20 @@ The camel-websocket-jsr356 source connector supports 10 options, which are liste
 | *camel.component.websocket-jsr356.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.websocket-jsr356.serverEndpoint DeploymentStrategy* | To enable customization of how a WebSocket ServerEndpoint is configured and deployed. By default DefaultServerEndpointDeploymentStrategy is used. | null | MEDIUM
 |===
+
+
+
+The camel-websocket-jsr356 sink connector has no converters out of the box.
+
+
+
+
+
+The camel-websocket-jsr356 sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-websocket-jsr356 sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

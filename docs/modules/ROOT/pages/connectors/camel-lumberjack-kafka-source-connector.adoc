@@ -42,4 +42,20 @@ The camel-lumberjack source connector supports 12 options, which are listed belo
 | *camel.component.lumberjack.sslContextParameters* | Sets the default SSL configuration to use for all the endpoints. You can also configure it directly at the endpoint level. | null | MEDIUM
 | *camel.component.lumberjack.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-lumberjack sink connector has no converters out of the box.
+
+
+
+
+
+The camel-lumberjack sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-lumberjack sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

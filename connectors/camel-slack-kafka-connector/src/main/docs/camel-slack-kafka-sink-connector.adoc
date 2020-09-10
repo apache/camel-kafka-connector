@@ -41,4 +41,20 @@ The camel-slack sink connector supports 11 options, which are listed below.
 | *camel.component.slack.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.slack.webhookUrl* | The incoming webhook URL | null | MEDIUM
 |===
+
+
+
+The camel-slack sink connector has no converters out of the box.
+
+
+
+
+
+The camel-slack sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-slack sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

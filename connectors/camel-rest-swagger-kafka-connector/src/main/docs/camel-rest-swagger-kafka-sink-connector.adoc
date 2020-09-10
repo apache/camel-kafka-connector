@@ -51,4 +51,20 @@ The camel-rest-swagger sink connector supports 21 options, which are listed belo
 | *camel.component.rest-swagger.sslContextParameters* | Customize TLS parameters used by the component. If not set defaults to the TLS parameters set in the Camel context | null | MEDIUM
 | *camel.component.rest-swagger.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-rest-swagger sink connector has no converters out of the box.
+
+
+
+
+
+The camel-rest-swagger sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-rest-swagger sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -23,9 +23,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -59,7 +61,10 @@ import org.apache.camel.tooling.util.Strings;
 import org.apache.camel.tooling.util.srcgen.JavaClass;
 import org.apache.camel.tooling.util.srcgen.Method;
 import org.apache.camel.util.TimeUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.apache.commons.io.filefilter.RegexFileFilter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -476,6 +481,52 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         String javaClassConnectorFileName = packageName.replaceAll("\\.", "\\/") + "/" + javaClassConnectorName + ".java";
         MavenUtils.writeSourceIfChanged(javaClassConnector, javaClassConnectorFileName, false, connectorDir, rm.getResourceAsFile(javaFilesHeader));
 
+        List<String> convertersList = new ArrayList<String>();
+        List<String> transformsList = new ArrayList<String>();
+        List<String> aggregationStrategiesList = new ArrayList<String>();
+        if (connectorDir != null && connectorDir.isDirectory()) {
+            File[] files = connectorDir.listFiles();
+            if (files != null) {
+                for (int i = 0; i < files.length; i++) {
+                    File file = files[i];
+                    if (file.isDirectory()) {
+                        Collection convertersElements = FileUtils.listFiles(file, new RegexFileFilter(".*Converter.java"), DirectoryFileFilter.DIRECTORY);
+                        Collection transformElements = FileUtils.listFiles(file, new RegexFileFilter(".*Transforms.java"), DirectoryFileFilter.DIRECTORY);
+                        Collection aggStrategiesElements = FileUtils.listFiles(file, new RegexFileFilter(".*AggregationStrategy.java"), DirectoryFileFilter.DIRECTORY);
+                        if (!convertersElements.isEmpty()) {
+                            for (Iterator iterator = convertersElements.iterator(); iterator.hasNext();) {
+                                File p = (File) iterator.next();
+                                String filePath = p.getCanonicalPath();
+                                String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                                String finalElement = StringUtils.replace(f, File.separator, ".");
+                                String finalPath = StringUtils.removeEnd(finalElement, ".java");
+                                convertersList.add(finalPath);                             
+                            }
+                        }
+                        if (!transformElements.isEmpty()) {
+                            for (Iterator iterator = transformElements.iterator(); iterator.hasNext();) {
+                                File p = (File) iterator.next();
+                                String filePath = p.getCanonicalPath();
+                                String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                                String finalElement = StringUtils.replace(f, File.separator, ".");
+                                String finalPath = StringUtils.removeEnd(finalElement, ".java");
+                                transformsList.add(finalPath);                             
+                            }
+                        }
+                        if (!aggStrategiesElements.isEmpty()) {
+                            for (Iterator iterator = aggStrategiesElements.iterator(); iterator.hasNext();) {
+                                File p = (File) iterator.next();
+                                String filePath = p.getCanonicalPath();
+                                String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                                String finalElement = StringUtils.replace(f, File.separator, ".");
+                                String finalPath = StringUtils.removeEnd(finalElement, ".java");
+                                aggregationStrategiesList.add(finalPath);                             
+                            }
+                        }
+                    }
+                }
+            }
+        }
         // docs/examples/Camel{sanitizedName}{Sink,Source}.properties
         try {
             String examplesPropertiestemplate = null;
@@ -512,7 +563,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
         File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/connectors/");
         File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-        String changed = templateAutoConfigurationOptions(listOptions, getMainDepArtifactId(), connectorDir, ct, packageName + "." + javaClassConnectorName);
+        String changed = templateAutoConfigurationOptions(listOptions, getMainDepArtifactId(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList, transformsList, aggregationStrategiesList);
         boolean updated = updateAutoConfigureOptions(docFile, changed);
         if (updated) {
             getLog().info("Updated doc file: " + docFile);
@@ -618,7 +669,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         listOptions.add(optionModel);
     }
 
-    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct, String connectorClass)
+    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct, String connectorClass, List<String> convertersList, List<String> transformsList, List<String> aggregationStrategiesList)
         throws MojoExecutionException {
 
         CamelKafkaConnectorModel model = new CamelKafkaConnectorModel();
@@ -627,6 +678,9 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         model.setGroupId(getMainDepGroupId());
         model.setVersion(getMainDepVersion());
         model.setConnectorClass(connectorClass);
+        model.setConverters(convertersList);
+        model.setTransforms(transformsList);
+        model.setAggregationStrategies(aggregationStrategiesList);
         if (getMainDepArtifactId().equalsIgnoreCase("camel-coap+tcp")) {
             model.setTitle("camel-coap-tcp");
         } else if (getMainDepArtifactId().equalsIgnoreCase("camel-coaps+tcp")) {

@@ -67,4 +67,20 @@ The camel-caffeine-loadcache sink connector supports 37 options, which are liste
 | *camel.component.caffeine-loadcache.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
 | *camel.component.caffeine-loadcache.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
 |===
+
+
+
+The camel-caffeine-loadcache sink connector has no converters out of the box.
+
+
+
+
+
+The camel-caffeine-loadcache sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-caffeine-loadcache sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END
