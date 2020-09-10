@@ -52,7 +52,7 @@ The camel-aws2-lambda sink connector supports 29 options, which are listed below
 | *camel.component.aws2-lambda.region* | The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
 | *camel.component.aws2-lambda.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
 | *camel.component.aws2-lambda.awsLambdaClient* | To use a existing configured AwsLambdaClient as client | null | MEDIUM
-| *camel.component.aws2-lambda.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-lambda.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws2-lambda.proxyHost* | To define a proxy host when instantiating the Lambda client | null | MEDIUM
 | *camel.component.aws2-lambda.proxyPort* | To define a proxy port when instantiating the Lambda client | null | MEDIUM
 | *camel.component.aws2-lambda.proxyProtocol* | To define a proxy protocol when instantiating the Lambda client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM

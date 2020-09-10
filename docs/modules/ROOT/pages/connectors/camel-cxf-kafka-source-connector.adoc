@@ -62,7 +62,7 @@ The camel-cxf source connector supports 36 options, which are listed below.
 | *camel.source.endpoint.wsdlURL* | The location of the WSDL. Can be on the classpath, file system, or be hosted remotely. | null | MEDIUM
 | *camel.component.cxf.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.cxf.allowStreaming* | This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases. | null | MEDIUM
-| *camel.component.cxf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.cxf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.cxf.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
 | *camel.component.cxf.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===

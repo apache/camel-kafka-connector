@@ -44,7 +44,7 @@ The camel-reactive-streams source connector supports 18 options, which are liste
 | *camel.component.reactive-streams.threadPoolMinSize* | The minimum number of threads used by the reactive streams internal engine. | null | MEDIUM
 | *camel.component.reactive-streams.threadPoolName* | The name of the thread pool used by the reactive streams internal engine. | "CamelReactiveStreamsWorker" | MEDIUM
 | *camel.component.reactive-streams.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.reactive-streams.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.reactive-streams.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.reactive-streams.reactiveStreams EngineConfiguration* | To use an existing reactive stream engine configuration. | null | MEDIUM
 | *camel.component.reactive-streams.serviceType* | Set the type of the underlying reactive streams implementation to use. The implementation is looked up from the registry or using a ServiceLoader, the default implementation is DefaultCamelReactiveStreamsService | null | MEDIUM
 |===

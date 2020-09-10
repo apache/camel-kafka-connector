@@ -40,7 +40,7 @@ The camel-zookeeper-master source connector supports 15 options, which are liste
 | *camel.component.zookeeper-master.maximumConnection Timeout* | Timeout in millis to use when connecting to the zookeeper ensemble | 10000 | MEDIUM
 | *camel.component.zookeeper-master.zkRoot* | The root path to use in zookeeper where information is stored which nodes are master/slave etc. Will by default use: /camel/zookeepermaster/clusters/master | "/camel/zookeepermaster/clusters/master" | MEDIUM
 | *camel.component.zookeeper-master.zooKeeperUrl* | The url for the zookeeper ensemble | "localhost:2181" | MEDIUM
-| *camel.component.zookeeper-master.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.zookeeper-master.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.zookeeper-master.containerId Factory* | To use a custom ContainerIdFactory for creating container ids. | null | MEDIUM
 | *camel.component.zookeeper-master.curator* | To use a custom configured CuratorFramework as connection to zookeeper ensemble. | null | MEDIUM
 | *camel.component.zookeeper-master.zooKeeperPassword* | The password to use when connecting to the zookeeper ensemble | null | MEDIUM

@@ -68,7 +68,7 @@ The camel-etcd-stats source connector supports 44 options, which are listed belo
 | *camel.component.etcd-stats.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.etcd-stats.sendEmptyExchangeOn Timeout* | To send an empty message in case of timeout watching for a key. | false | MEDIUM
 | *camel.component.etcd-stats.fromIndex* | The index to watch from | 0L | MEDIUM
-| *camel.component.etcd-stats.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.etcd-stats.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.etcd-stats.password* | The password to use for basic authentication. | null | MEDIUM
 | *camel.component.etcd-stats.sslContextParameters* | To configure security using SSLContextParameters. | null | MEDIUM
 | *camel.component.etcd-stats.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM

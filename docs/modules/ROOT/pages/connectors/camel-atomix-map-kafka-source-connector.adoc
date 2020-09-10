@@ -59,7 +59,7 @@ The camel-atomix-map source connector supports 37 options, which are listed belo
 | *camel.component.atomix-map.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | MEDIUM
 | *camel.component.atomix-map.ttl* | The resource ttl. | null | MEDIUM
 | *camel.component.atomix-map.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.atomix-map.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.atomix-map.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.atomix-map.defaultResourceConfig* | The cluster wide default resource configuration. | null | MEDIUM
 | *camel.component.atomix-map.defaultResourceOptions* | The local default resource options. | null | MEDIUM
 | *camel.component.atomix-map.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | MEDIUM

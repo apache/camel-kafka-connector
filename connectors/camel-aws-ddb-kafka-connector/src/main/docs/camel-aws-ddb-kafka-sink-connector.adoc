@@ -61,7 +61,7 @@ The camel-aws-ddb sink connector supports 35 options, which are listed below.
 | *camel.component.aws-ddb.readCapacity* | The provisioned throughput to reserve for reading resources from your table | null | MEDIUM
 | *camel.component.aws-ddb.region* | The region in which DDB client needs to work | null | MEDIUM
 | *camel.component.aws-ddb.writeCapacity* | The provisioned throughput to reserved for writing resources to your table | null | MEDIUM
-| *camel.component.aws-ddb.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-ddb.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-ddb.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-ddb.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

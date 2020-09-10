@@ -39,7 +39,7 @@ The camel-quickfix source connector supports 14 options, which are listed below.
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.component.quickfix.lazyCreateEngines* | If set to true, the engines will be created and started when needed (when first message is send) | false | MEDIUM
 | *camel.component.quickfix.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.quickfix.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.quickfix.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.quickfix.logFactory* | To use the given LogFactory | null | MEDIUM
 | *camel.component.quickfix.messageFactory* | To use the given MessageFactory | null | MEDIUM
 | *camel.component.quickfix.messageStoreFactory* | To use the given MessageStoreFactory | null | MEDIUM

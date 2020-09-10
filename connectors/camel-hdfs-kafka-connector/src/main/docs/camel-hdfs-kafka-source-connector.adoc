@@ -77,7 +77,7 @@ The camel-hdfs source connector supports 51 options, which are listed below.
 | *camel.source.endpoint.kerberosKeytabLocation* | The location of the keytab file used to authenticate with the kerberos nodes (contains pairs of kerberos principals and encrypted keys (which are derived from the Kerberos password)) | null | MEDIUM
 | *camel.source.endpoint.kerberosUsername* | The username used to authenticate with the kerberos nodes | null | MEDIUM
 | *camel.component.hdfs.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.hdfs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.hdfs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.hdfs.jAASConfiguration* | To use the given configuration for security with JAAS. | null | MEDIUM
 | *camel.component.hdfs.kerberosConfigFile* | To use kerberos authentication, set the value of the 'java.security.krb5.conf' environment variable to an existing file. If the environment variable is already set, warn if different than the specified parameter | null | MEDIUM
 |===
