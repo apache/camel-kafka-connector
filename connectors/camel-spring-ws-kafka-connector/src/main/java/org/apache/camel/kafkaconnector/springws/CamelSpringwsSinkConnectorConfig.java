@@ -39,10 +39,10 @@ public class CamelSpringwsSinkConnectorConfig
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_HEADER_OVERRIDE_DOC = "Option to override soap response header in in/out exchange with header info from the actual service layer. If the invoked service appends or rewrites the soap header this option when set to true, allows the modified soap header to be overwritten in in/out message headers";
     public static final Boolean CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_HEADER_OVERRIDE_DEFAULT = false;
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_ACTION_CONF = "camel.sink.endpoint.faultAction";
-    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_ACTION_DOC = "Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method.";
+    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_ACTION_DOC = "Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_ACTION_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_TO_CONF = "camel.sink.endpoint.faultTo";
-    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_TO_DOC = "Signifies the value for the faultAction response WS-Addressing FaultTo header that is provided by the method.";
+    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_TO_DOC = "Signifies the value for the faultAction response WS-Addressing FaultTo header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_TO_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
@@ -50,17 +50,14 @@ public class CamelSpringwsSinkConnectorConfig
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FACTORY_CONF = "camel.sink.endpoint.messageFactory";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FACTORY_DOC = "Option to provide a custom WebServiceMessageFactory. For example when you want Apache Axiom to handle web service messages instead of SAAJ.";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FACTORY_DEFAULT = null;
-    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_CONF = "camel.sink.endpoint.messageIdStrategy";
-    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DOC = "Option to provide a custom MessageIdStrategy to control generation of unique message ids.";
-    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_SENDER_CONF = "camel.sink.endpoint.messageSender";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_SENDER_DOC = "Option to provide a custom WebServiceMessageSender. For example to perform authentication or use alternative transports";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_SENDER_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_OUTPUT_ACTION_CONF = "camel.sink.endpoint.outputAction";
-    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_OUTPUT_ACTION_DOC = "Signifies the value for the response WS-Addressing Action header that is provided by the method.";
+    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_OUTPUT_ACTION_DOC = "Signifies the value for the response WS-Addressing Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_OUTPUT_ACTION_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_REPLY_TO_CONF = "camel.sink.endpoint.replyTo";
-    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_REPLY_TO_DOC = "Signifies the value for the replyTo response WS-Addressing ReplyTo header that is provided by the method.";
+    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_REPLY_TO_DOC = "Signifies the value for the replyTo response WS-Addressing ReplyTo header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_REPLY_TO_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_SOAP_ACTION_CONF = "camel.sink.endpoint.soapAction";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_SOAP_ACTION_DOC = "SOAP action to include inside a SOAP request when accessing remote web services";
@@ -113,7 +110,6 @@ public class CamelSpringwsSinkConnectorConfig
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_TO_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGWS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FACTORY_DOC);
-        conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_SENDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_SENDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_SENDER_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_OUTPUT_ACTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_OUTPUT_ACTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_OUTPUT_ACTION_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_REPLY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_REPLY_TO_DOC);
@@ -125,7 +121,7 @@ public class CamelSpringwsSinkConnectorConfig
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGWS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGWS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_SPRINGWS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGWS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_SPRINGWS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGWS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SPRINGWS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGWS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
         return conf;
     }

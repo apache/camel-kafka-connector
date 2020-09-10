@@ -59,7 +59,7 @@ The camel-aws2-ses sink connector supports 33 options, which are listed below.
 | *camel.component.aws2-ses.subject* | The subject which is used if the message header 'CamelAwsSesSubject' is not present. | null | MEDIUM
 | *camel.component.aws2-ses.to* | List of destination email address. Can be overriden with 'CamelAwsSesTo' header. | null | MEDIUM
 | *camel.component.aws2-ses.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
-| *camel.component.aws2-ses.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-ses.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws2-ses.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-ses.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

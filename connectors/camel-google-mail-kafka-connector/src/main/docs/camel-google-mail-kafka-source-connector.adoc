@@ -62,7 +62,7 @@ The camel-google-mail source connector supports 38 options, which are listed bel
 | *camel.component.google-mail.clientId* | Client ID of the mail application | null | MEDIUM
 | *camel.component.google-mail.configuration* | To use the shared configuration | null | MEDIUM
 | *camel.component.google-mail.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.google-mail.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.google-mail.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.google-mail.clientFactory* | To use the GoogleCalendarClientFactory as factory for creating the client. Will by default use BatchGoogleMailClientFactory | null | MEDIUM
 | *camel.component.google-mail.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
 | *camel.component.google-mail.clientSecret* | Client secret of the mail application | null | MEDIUM

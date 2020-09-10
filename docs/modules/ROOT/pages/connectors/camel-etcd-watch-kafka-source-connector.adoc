@@ -52,7 +52,7 @@ The camel-etcd-watch source connector supports 28 options, which are listed belo
 | *camel.component.etcd-watch.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | MEDIUM
 | *camel.component.etcd-watch.sendEmptyExchangeOn Timeout* | To send an empty message in case of timeout watching for a key. | false | MEDIUM
 | *camel.component.etcd-watch.fromIndex* | The index to watch from | 0L | MEDIUM
-| *camel.component.etcd-watch.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.etcd-watch.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.etcd-watch.password* | The password to use for basic authentication. | null | MEDIUM
 | *camel.component.etcd-watch.sslContextParameters* | To configure security using SSLContextParameters. | null | MEDIUM
 | *camel.component.etcd-watch.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM

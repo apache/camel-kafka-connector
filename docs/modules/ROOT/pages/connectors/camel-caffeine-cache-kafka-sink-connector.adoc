@@ -62,7 +62,7 @@ The camel-caffeine-cache sink connector supports 37 options, which are listed be
 | *camel.component.caffeine-cache.removalListener* | Set a specific removal Listener for the cache | null | MEDIUM
 | *camel.component.caffeine-cache.statsCounter* | Set a specific Stats Counter for the cache stats | null | MEDIUM
 | *camel.component.caffeine-cache.statsEnabled* | To enable stats on the cache | false | MEDIUM
-| *camel.component.caffeine-cache.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.caffeine-cache.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.caffeine-cache.configuration* | Sets the global component configuration | null | MEDIUM
 | *camel.component.caffeine-cache.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
 | *camel.component.caffeine-cache.valueType* | The cache value type, default java.lang.Object | null | MEDIUM

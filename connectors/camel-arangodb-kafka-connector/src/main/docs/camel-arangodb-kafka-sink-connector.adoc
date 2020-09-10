@@ -51,7 +51,7 @@ The camel-arangodb sink connector supports 25 options, which are listed below.
 | *camel.component.arangodb.operation* | Operations to perform on ArangoDb. For the operation AQL_QUERY, no need to specify a collection or graph. One of: [SAVE_DOCUMENT] [FIND_DOCUMENT_BY_KEY] [UPDATE_DOCUMENT] [DELETE_DOCUMENT] [AQL_QUERY] [SAVE_VERTEX] [FIND_VERTEX_BY_KEY] [UPDATE_VERTEX] [DELETE_VERTEX] [SAVE_EDGE] [FIND_EDGE_BY_KEY] [UPDATE_EDGE] [DELETE_EDGE] | null | MEDIUM
 | *camel.component.arangodb.port* | ArangoDB exposed port. If host and port are default, this field is Optional. | null | MEDIUM
 | *camel.component.arangodb.vertexCollection* | Collection name of vertices, when using ArangoDb as a Graph Database. Set the vertexCollection name to perform CRUD operation on vertices using these operations : SAVE_EDGE, FIND_EDGE_BY_KEY, UPDATE_EDGE, DELETE_EDGE. The graph attribute is mandatory. | null | MEDIUM
-| *camel.component.arangodb.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.arangodb.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.arangodb.password* | ArangoDB password. If user and password are default, this field is Optional. | null | MEDIUM
 | *camel.component.arangodb.user* | ArangoDB user. If user and password are default, this field is Optional. | null | MEDIUM
 |===

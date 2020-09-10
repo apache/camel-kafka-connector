@@ -50,7 +50,7 @@ The camel-ssh sink connector supports 32 options, which are listed below.
 | *camel.component.ssh.knownHostsResource* | Sets the resource path for a known_hosts file | null | MEDIUM
 | *camel.component.ssh.timeout* | Sets the timeout in milliseconds to wait in establishing the remote SSH server connection. Defaults to 30000 milliseconds. | 30000L | MEDIUM
 | *camel.component.ssh.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.ssh.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.ssh.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.ssh.channelType* | Sets the channel type to pass to the Channel as part of command execution. Defaults to exec. | "exec" | MEDIUM
 | *camel.component.ssh.configuration* | Component configuration | null | MEDIUM
 | *camel.component.ssh.shellPrompt* | Sets the shellPrompt to be dropped when response is read after command execution | null | MEDIUM

@@ -78,7 +78,7 @@ The camel-jetty source connector supports 67 options, which are listed below.
 | *camel.component.jetty.useXForwardedForHeader* | To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr. | false | MEDIUM
 | *camel.component.jetty.threadPool* | To use a custom thread pool for the server. This option should only be used in special circumstances. | null | MEDIUM
 | *camel.component.jetty.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | MEDIUM
-| *camel.component.jetty.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.jetty.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.jetty.errorHandler* | This option is used to set the ErrorHandler that Jetty server uses. | null | MEDIUM
 | *camel.component.jetty.httpBinding* | Not to be used - use JettyHttpBinding instead. | null | MEDIUM
 | *camel.component.jetty.httpConfiguration* | Jetty component does not use HttpConfiguration. | null | MEDIUM

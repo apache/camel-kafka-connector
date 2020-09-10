@@ -116,7 +116,7 @@ The camel-netty source connector supports 120 options, which are listed below.
 | *camel.component.netty.serverInitializerFactory* | To use a custom ServerInitializerFactory | null | MEDIUM
 | *camel.component.netty.usingExecutorService* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | MEDIUM
 | *camel.component.netty.allowSerializedHeaders* | Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level. | false | MEDIUM
-| *camel.component.netty.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.netty.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.netty.channelGroup* | To use a explicit ChannelGroup. | null | MEDIUM
 | *camel.component.netty.nativeTransport* | Whether to use native transport instead of NIO. Native transport takes advantage of the host operating system and is only supported on some platforms. You need to add the netty JAR for the host operating system you are using. See more details at: \http://netty.io/wiki/native-transports.html | false | MEDIUM
 | *camel.component.netty.options* | Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used. | null | MEDIUM

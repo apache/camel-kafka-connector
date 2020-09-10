@@ -50,7 +50,7 @@ The camel-azure-queue sink connector supports 25 options, which are listed below
 | *camel.component.azure-queue.messageVisibilityDelay* | Message Visibility Delay in seconds | null | MEDIUM
 | *camel.component.azure-queue.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | MEDIUM
 | *camel.component.azure-queue.queuePrefix* | Set a prefix which can be used for listing the queues | null | MEDIUM
-| *camel.component.azure-queue.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.azure-queue.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.azure-queue.configuration* | The Queue Service configuration | null | MEDIUM
 | *camel.component.azure-queue.credentialsAccountKey* | Set the storage account key used during authentication phase | null | MEDIUM
 | *camel.component.azure-queue.credentialsAccountName* | Set the storage account name used during authentication phase | null | MEDIUM

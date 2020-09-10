@@ -62,7 +62,7 @@ The camel-telegram source connector supports 37 options, which are listed below.
 | *camel.source.endpoint.authorizationToken* | The authorization token for using the bot (ask the BotFather) | null | HIGH
 | *camel.component.telegram.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.telegram.baseUri* | Can be used to set an alternative base URI, e.g. when you want to test the component against a mock Telegram API | "https://api.telegram.org" | MEDIUM
-| *camel.component.telegram.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.telegram.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.telegram.client* | To use a custom AsyncHttpClient | null | MEDIUM
 | *camel.component.telegram.clientConfig* | To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance. | null | MEDIUM
 | *camel.component.telegram.authorizationToken* | The default Telegram authorization token to be used when the information is not provided in the endpoints. | null | MEDIUM

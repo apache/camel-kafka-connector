@@ -111,7 +111,7 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.component.aws2-s3.moveAfterRead* | Move objects from S3 bucket to a different bucket after they have been retrieved. To accomplish the operation the destinationBucket option must be set. The copy bucket operation is only performed if the Exchange is committed. If a rollback occurs, the object is not moved. | false | MEDIUM
 | *camel.component.aws2-s3.prefix* | The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in. | null | MEDIUM
 | *camel.component.aws2-s3.autocloseBody* | If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion. This option is strongly related to includeBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically. | true | MEDIUM
-| *camel.component.aws2-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws2-s3.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-s3.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

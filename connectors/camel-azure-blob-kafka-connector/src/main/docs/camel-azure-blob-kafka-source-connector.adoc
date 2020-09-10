@@ -58,7 +58,7 @@ The camel-azure-blob source connector supports 33 options, which are listed belo
 | *camel.component.azure-blob.streamReadSize* | Set the minimum read size in bytes when reading the blob content | null | MEDIUM
 | *camel.component.azure-blob.validateClientURI* | Whether to validate the Azure client URI | true | MEDIUM
 | *camel.component.azure-blob.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.azure-blob.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.azure-blob.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.azure-blob.configuration* | The Blob Service configuration | null | MEDIUM
 | *camel.component.azure-blob.credentialsAccountKey* | Set the storage account key used during authentication phase | null | MEDIUM
 | *camel.component.azure-blob.credentialsAccountName* | Set the storage account name used during authentication phase | null | MEDIUM

@@ -100,7 +100,7 @@ The camel-debezium-sqlserver source connector supports 113 options, which are li
 | *camel.component.debezium-sqlserver.offsetStorage Partitions* | The number of partitions used when creating the offset storage topic. Required when offset.storage is set to the 'KafkaOffsetBackingStore'. | null | MEDIUM
 | *camel.component.debezium-sqlserver.offsetStorage ReplicationFactor* | Replication factor used when creating the offset storage topic. Required when offset.storage is set to the KafkaOffsetBackingStore | null | MEDIUM
 | *camel.component.debezium-sqlserver.offsetStorage Topic* | The name of the Kafka topic where offsets are to be stored. Required when offset.storage is set to the KafkaOffsetBackingStore. | null | MEDIUM
-| *camel.component.debezium-sqlserver.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.debezium-sqlserver.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.debezium-sqlserver.columnBlacklist* | Regular expressions matching columns to exclude from change events | null | MEDIUM
 | *camel.component.debezium-sqlserver.columnWhitelist* | Regular expressions matching columns to include in change events | null | MEDIUM
 | *camel.component.debezium-sqlserver.converters* | Optional list of custom converters that would be used instead of default ones. The converters are defined using '.type' config option and configured using options '.' | null | MEDIUM

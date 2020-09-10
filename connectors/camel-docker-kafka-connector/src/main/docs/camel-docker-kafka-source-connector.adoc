@@ -58,7 +58,7 @@ The camel-docker source connector supports 43 options, which are listed below.
 | *camel.component.docker.port* | Docker port | "2375" | MEDIUM
 | *camel.component.docker.requestTimeout* | Request timeout for response (in seconds) | null | MEDIUM
 | *camel.component.docker.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.docker.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.docker.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.docker.cmdExecFactory* | The fully qualified class name of the DockerCmdExecFactory implementation to use | "com.github.dockerjava.netty.NettyDockerCmdExecFactory" | MEDIUM
 | *camel.component.docker.followRedirectFilter* | Whether to follow redirect filter | false | MEDIUM
 | *camel.component.docker.loggingFilter* | Whether to use logging filter | false | MEDIUM

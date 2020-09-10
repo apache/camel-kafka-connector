@@ -68,7 +68,7 @@ The camel-aws2-sns sink connector supports 42 options, which are listed below.
 | *camel.component.aws2-sns.subject* | The subject which is used if the message header 'CamelAwsSnsSubject' is not present. | null | MEDIUM
 | *camel.component.aws2-sns.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | MEDIUM
 | *camel.component.aws2-sns.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
-| *camel.component.aws2-sns.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-sns.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws2-sns.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-sns.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

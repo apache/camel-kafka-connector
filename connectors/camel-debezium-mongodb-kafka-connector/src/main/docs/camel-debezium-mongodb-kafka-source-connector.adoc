@@ -94,7 +94,7 @@ The camel-debezium-mongodb source connector supports 101 options, which are list
 | *camel.component.debezium-mongodb.offsetStorage Partitions* | The number of partitions used when creating the offset storage topic. Required when offset.storage is set to the 'KafkaOffsetBackingStore'. | null | MEDIUM
 | *camel.component.debezium-mongodb.offsetStorage ReplicationFactor* | Replication factor used when creating the offset storage topic. Required when offset.storage is set to the KafkaOffsetBackingStore | null | MEDIUM
 | *camel.component.debezium-mongodb.offsetStorage Topic* | The name of the Kafka topic where offsets are to be stored. Required when offset.storage is set to the KafkaOffsetBackingStore. | null | MEDIUM
-| *camel.component.debezium-mongodb.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.debezium-mongodb.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.debezium-mongodb.collection Blacklist* | Description is not available here, please check Debezium website for corresponding key 'collection.blacklist' description. | null | MEDIUM
 | *camel.component.debezium-mongodb.collection Whitelist* | The collections for which changes are to be captured | null | MEDIUM
 | *camel.component.debezium-mongodb.connectBackoff InitialDelayMs* | The initial delay when trying to reconnect to a primary after a connection cannot be made or when no primary is available. Defaults to 1 second (1000 ms). | 1000L | MEDIUM

@@ -62,7 +62,7 @@ The camel-milo-client sink connector supports 51 options, which are listed below
 | *camel.component.milo-client.discoveryEndpoint Suffix* | A suffix for endpoint URI when discovering | null | MEDIUM
 | *camel.component.milo-client.discoveryEndpointUri* | An alternative discovery URI | null | MEDIUM
 | *camel.component.milo-client.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.milo-client.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.milo-client.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.milo-client.allowedSecurity Policies* | A set of allowed security policy URIs. Default is to accept all and use the highest. | null | MEDIUM
 | *camel.component.milo-client.applicationName* | The application name | "Apache Camel adapter for Eclipse Milo" | MEDIUM
 | *camel.component.milo-client.applicationUri* | The application URI | "http://camel.apache.org/EclipseMilo/Client" | MEDIUM
