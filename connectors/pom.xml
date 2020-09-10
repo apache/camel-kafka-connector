@@ -120,6 +120,7 @@
                         <param>dataset-test</param>
                         <param>debezium-mongodb</param>
                         <param>debezium-mysql</param>
+                        <param>debezium-postgres</param>
                         <param>mock</param>
                         <param>ref</param>
                         <param>robotframework</param>
@@ -258,7 +259,6 @@
         <module>camel-cxf-kafka-connector</module>
         <module>camel-cxfrs-kafka-connector</module>
         <module>camel-dataformat-kafka-connector</module>
-        <module>camel-debezium-postgres-kafka-connector</module>
         <module>camel-debezium-sqlserver-kafka-connector</module>
         <module>camel-digitalocean-kafka-connector</module>
         <module>camel-direct-kafka-connector</module>
