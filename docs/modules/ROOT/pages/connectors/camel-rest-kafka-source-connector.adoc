@@ -48,4 +48,20 @@ The camel-rest source connector supports 18 options, which are listed below.
 | *camel.component.rest.consumerComponentName* | The Camel Rest component to use for (consumer) the REST transport, such as jetty, servlet, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry. If either one is found, then that is being used. | null | MEDIUM
 | *camel.component.rest.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
+
+
+
+The camel-rest sink connector has no converters out of the box.
+
+
+
+
+
+The camel-rest sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-rest sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

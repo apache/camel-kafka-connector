@@ -53,4 +53,20 @@ The camel-milo-server sink connector supports 23 options, which are listed below
 | *camel.component.milo-server.userAuthentication Credentials* | Set user password combinations in the form of user1:pwd1,user2:pwd2 Usernames and passwords will be URL decoded | null | MEDIUM
 | *camel.component.milo-server.usernameSecurityPolicy Uri* | Set the UserTokenPolicy used when One of: [None] [Basic128Rsa15] [Basic256] [Basic256Sha256] [Aes128_Sha256_RsaOaep] [Aes256_Sha256_RsaPss] | null | MEDIUM
 |===
+
+
+
+The camel-milo-server sink connector has no converters out of the box.
+
+
+
+
+
+The camel-milo-server sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-milo-server sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

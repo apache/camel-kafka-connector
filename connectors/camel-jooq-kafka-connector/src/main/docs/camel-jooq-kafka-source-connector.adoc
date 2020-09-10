@@ -59,4 +59,20 @@ The camel-jooq source connector supports 29 options, which are listed below.
 | *camel.component.jooq.consumeDelete* | Delete entity after it is consumed | true | MEDIUM
 | *camel.component.jooq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
+
+
+
+The camel-jooq sink connector has no converters out of the box.
+
+
+
+
+
+The camel-jooq sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-jooq sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

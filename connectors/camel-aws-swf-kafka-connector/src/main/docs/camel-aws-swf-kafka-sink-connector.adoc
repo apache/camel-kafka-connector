@@ -77,4 +77,20 @@ The camel-aws-swf sink connector supports 47 options, which are listed below.
 | *camel.component.aws-swf.terminationDetails* | Details for terminating a workflow. | null | MEDIUM
 | *camel.component.aws-swf.terminationReason* | The reason for terminating a workflow. | null | MEDIUM
 |===
+
+
+
+The camel-aws-swf sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-swf sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-swf sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

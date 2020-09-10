@@ -81,4 +81,20 @@ The camel-aws-kinesis source connector supports 51 options, which are listed bel
 | *camel.component.aws-kinesis.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-kinesis.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws-kinesis sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-kinesis sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-kinesis sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

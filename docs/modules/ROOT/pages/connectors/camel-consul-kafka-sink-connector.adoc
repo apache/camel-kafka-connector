@@ -80,4 +80,20 @@ The camel-consul sink connector supports 50 options, which are listed below.
 | *camel.component.consul.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 | *camel.component.consul.userName* | Sets the username to be used for basic authentication | null | MEDIUM
 |===
+
+
+
+The camel-consul sink connector has no converters out of the box.
+
+
+
+
+
+The camel-consul sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-consul sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

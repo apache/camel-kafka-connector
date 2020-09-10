@@ -56,4 +56,20 @@ The camel-wordpress source connector supports 26 options, which are listed below
 | *camel.component.wordpress.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.wordpress.configuration* | Wordpress component configuration | null | MEDIUM
 |===
+
+
+
+The camel-wordpress sink connector has no converters out of the box.
+
+
+
+
+
+The camel-wordpress sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-wordpress sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

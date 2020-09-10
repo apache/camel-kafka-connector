@@ -56,4 +56,20 @@ The camel-ahc-wss source connector supports 26 options, which are listed below.
 | *camel.component.ahc-wss.sslContextParameters* | Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level. | null | MEDIUM
 | *camel.component.ahc-wss.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-ahc-wss sink connector has no converters out of the box.
+
+
+
+
+
+The camel-ahc-wss sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-ahc-wss sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

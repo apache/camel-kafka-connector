@@ -125,4 +125,20 @@ The camel-imap source connector supports 95 options, which are listed below.
 | *camel.component.imap.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 | *camel.component.imap.username* | The username for login. See also setAuthenticator(MailAuthenticator). | null | MEDIUM
 |===
+
+
+
+The camel-imap sink connector has no converters out of the box.
+
+
+
+
+
+The camel-imap sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-imap sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

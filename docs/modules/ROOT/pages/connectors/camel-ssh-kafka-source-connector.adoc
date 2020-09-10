@@ -82,4 +82,20 @@ The camel-ssh source connector supports 52 options, which are listed below.
 | *camel.component.ssh.password* | Sets the password to use in connecting to remote SSH server. Requires keyPairProvider to be set to null. | null | MEDIUM
 | *camel.component.ssh.username* | Sets the username to use in logging into the remote SSH server. | null | MEDIUM
 |===
+
+
+
+The camel-ssh sink connector has no converters out of the box.
+
+
+
+
+
+The camel-ssh sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-ssh sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -49,4 +49,20 @@ The camel-webhook source connector supports 19 options, which are listed below.
 | *camel.component.webhook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.webhook.configuration* | Set the default configuration for the webhook meta-component. | null | MEDIUM
 |===
+
+
+
+The camel-webhook sink connector has no converters out of the box.
+
+
+
+
+
+The camel-webhook sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-webhook sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

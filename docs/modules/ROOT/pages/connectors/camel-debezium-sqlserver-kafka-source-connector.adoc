@@ -143,4 +143,20 @@ The camel-debezium-sqlserver source connector supports 113 options, which are li
 | *camel.component.debezium-sqlserver.timePrecision Mode* | Time, date, and timestamps can be represented with different kinds of precisions, including:'adaptive' (the default) bases the precision of time, date, and timestamp values on the database column's precision; 'adaptive_time_microseconds' like 'adaptive' mode, but TIME fields always use microseconds precision;'connect' always represents time, date, and timestamp values using Kafka Connect's built-in representations for Time, Date, and Timestamp, which uses millisecond precision regardless of the database columns' precision . | "adaptive" | MEDIUM
 | *camel.component.debezium-sqlserver.tombstonesOn Delete* | Whether delete operations should be represented by a delete event and a subsquenttombstone event (true) or only by a delete event (false). Emitting the tombstone event (the default behavior) allows Kafka to completely delete all events pertaining to the given key once the source record got deleted. | false | MEDIUM
 |===
+
+
+
+The camel-debezium-sqlserver sink connector has no converters out of the box.
+
+
+
+
+
+The camel-debezium-sqlserver sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-debezium-sqlserver sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -44,4 +44,20 @@ The camel-ignite-messaging source connector supports 14 options, which are liste
 | *camel.component.ignite-messaging.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.ignite-messaging.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
+
+
+
+The camel-ignite-messaging sink connector has no converters out of the box.
+
+
+
+
+
+The camel-ignite-messaging sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-ignite-messaging sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

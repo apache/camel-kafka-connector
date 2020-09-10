@@ -76,4 +76,20 @@ The camel-yammer source connector supports 46 options, which are listed below.
 | *camel.component.yammer.consumerKey* | The consumer key | null | HIGH
 | *camel.component.yammer.consumerSecret* | The consumer secret | null | HIGH
 |===
+
+
+
+The camel-yammer sink connector has no converters out of the box.
+
+
+
+
+
+The camel-yammer sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-yammer sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

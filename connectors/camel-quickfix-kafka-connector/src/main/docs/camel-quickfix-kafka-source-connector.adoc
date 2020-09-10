@@ -44,4 +44,20 @@ The camel-quickfix source connector supports 14 options, which are listed below.
 | *camel.component.quickfix.messageFactory* | To use the given MessageFactory | null | MEDIUM
 | *camel.component.quickfix.messageStoreFactory* | To use the given MessageStoreFactory | null | MEDIUM
 |===
+
+
+
+The camel-quickfix sink connector has no converters out of the box.
+
+
+
+
+
+The camel-quickfix sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-quickfix sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

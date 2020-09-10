@@ -85,4 +85,20 @@ The camel-twitter-timeline source connector supports 55 options, which are liste
 | *camel.component.twitter-timeline.consumerKey* | The consumer key | null | MEDIUM
 | *camel.component.twitter-timeline.consumerSecret* | The consumer secret | null | MEDIUM
 |===
+
+
+
+The camel-twitter-timeline sink connector has no converters out of the box.
+
+
+
+
+
+The camel-twitter-timeline sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-twitter-timeline sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -79,4 +79,20 @@ The camel-sql source connector supports 49 options, which are listed below.
 | *camel.component.sql.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.sql.usePlaceholder* | Sets whether to use placeholder and replace all placeholder characters with sign in the SQL queries. This option is default true | true | MEDIUM
 |===
+
+
+
+The camel-sql sink connector has no converters out of the box.
+
+
+
+
+
+The camel-sql sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-sql sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

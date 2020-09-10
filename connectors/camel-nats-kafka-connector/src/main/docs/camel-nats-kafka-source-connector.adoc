@@ -62,4 +62,20 @@ The camel-nats source connector supports 32 options, which are listed below.
 | *camel.component.nats.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.nats.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-nats sink connector has no converters out of the box.
+
+
+
+
+
+The camel-nats sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-nats sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

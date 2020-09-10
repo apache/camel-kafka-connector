@@ -65,4 +65,20 @@ The camel-quartz source connector supports 35 options, which are listed below.
 | *camel.component.quartz.interruptJobsOnShutdown* | Whether to interrupt jobs on shutdown which forces the scheduler to shutdown quicker and attempt to interrupt any running jobs. If this is enabled then any running jobs can fail due to being interrupted. | false | MEDIUM
 | *camel.component.quartz.startDelayedSeconds* | Seconds to wait before starting the quartz scheduler. | null | MEDIUM
 |===
+
+
+
+The camel-quartz sink connector has no converters out of the box.
+
+
+
+
+
+The camel-quartz sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-quartz sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

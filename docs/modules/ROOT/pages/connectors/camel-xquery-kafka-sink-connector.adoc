@@ -51,4 +51,20 @@ The camel-xquery sink connector supports 21 options, which are listed below.
 | *camel.component.xquery.configurationProperties* | To set custom Saxon configuration properties | null | MEDIUM
 | *camel.component.xquery.moduleURIResolver* | To use the custom ModuleURIResolver | null | MEDIUM
 |===
+
+
+
+The camel-xquery sink connector has no converters out of the box.
+
+
+
+
+
+The camel-xquery sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-xquery sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

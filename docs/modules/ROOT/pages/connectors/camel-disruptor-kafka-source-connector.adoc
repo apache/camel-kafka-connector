@@ -46,4 +46,20 @@ The camel-disruptor source connector supports 16 options, which are listed below
 | *camel.component.disruptor.defaultWaitStrategy* | To configure the default value for DisruptorWaitStrategy The default value is Blocking. One of: [Blocking] [Sleeping] [BusySpin] [Yielding] | "Blocking" | MEDIUM
 | *camel.component.disruptor.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
+
+
+
+The camel-disruptor sink connector has no converters out of the box.
+
+
+
+
+
+The camel-disruptor sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-disruptor sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -146,4 +146,20 @@ The camel-salesforce source connector supports 116 options, which are listed bel
 | *camel.component.salesforce.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters | false | MEDIUM
 | *camel.component.salesforce.userName* | Username used in OAuth flow to gain access to access token. It's easy to get started with password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows. | null | MEDIUM
 |===
+
+
+
+The camel-salesforce sink connector has no converters out of the box.
+
+
+
+
+
+The camel-salesforce sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-salesforce sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

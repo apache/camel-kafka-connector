@@ -51,4 +51,20 @@ The camel-atmos source connector supports 21 options, which are listed below.
 | *camel.component.atmos.secretKey* | The secret key to pass to the Atmos client (should be base64 encoded) | null | MEDIUM
 | *camel.component.atmos.sslValidation* | Whether the Atmos client should perform SSL validation | false | MEDIUM
 |===
+
+
+
+The camel-atmos sink connector has no converters out of the box.
+
+
+
+
+
+The camel-atmos sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-atmos sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

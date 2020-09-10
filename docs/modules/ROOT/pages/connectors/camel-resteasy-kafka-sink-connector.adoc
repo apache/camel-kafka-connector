@@ -66,4 +66,20 @@ The camel-resteasy sink connector supports 36 options, which are listed below.
 | *camel.component.resteasy.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.resteasy.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
 |===
+
+
+
+The camel-resteasy sink connector has no converters out of the box.
+
+
+
+
+
+The camel-resteasy sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-resteasy sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

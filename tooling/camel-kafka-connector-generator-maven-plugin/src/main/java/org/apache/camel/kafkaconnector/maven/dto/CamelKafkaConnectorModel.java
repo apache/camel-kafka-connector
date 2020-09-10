@@ -24,6 +24,9 @@ public class CamelKafkaConnectorModel {
     private String version;
     private String title;
     private String connectorClass;
+    private List<String> converters;
+    private List<String> transforms;
+    private List<String> aggregationStrategies;
     private List<CamelKafkaConnectorOptionModel> options;
 
     public List<CamelKafkaConnectorOptionModel> getOptions() {
@@ -72,5 +75,29 @@ public class CamelKafkaConnectorModel {
 
     public void setConnectorClass(String connectorClass) {
         this.connectorClass = connectorClass;
+    }
+
+    public List<String> getConverters() {
+        return converters;
+    }
+
+    public void setConverters(List<String> converters) {
+        this.converters = converters;
+    }
+
+    public List<String> getTransforms() {
+        return transforms;
+    }
+
+    public void setTransforms(List<String> transforms) {
+        this.transforms = transforms;
+    }
+
+    public List<String> getAggregationStrategies() {
+        return aggregationStrategies;
+    }
+
+    public void setAggregationStrategies(List<String> aggregationStrategies) {
+        this.aggregationStrategies = aggregationStrategies;
     }
 }

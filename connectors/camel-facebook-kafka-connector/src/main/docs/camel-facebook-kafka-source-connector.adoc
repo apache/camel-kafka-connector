@@ -164,4 +164,20 @@ The camel-facebook source connector supports 134 options, which are listed below
 | *camel.component.facebook.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | MEDIUM
 | *camel.component.facebook.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | MEDIUM
 |===
+
+
+
+The camel-facebook sink connector has no converters out of the box.
+
+
+
+
+
+The camel-facebook sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-facebook sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

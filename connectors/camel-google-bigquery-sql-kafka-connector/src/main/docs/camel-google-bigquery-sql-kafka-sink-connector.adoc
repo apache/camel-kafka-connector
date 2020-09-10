@@ -40,4 +40,20 @@ The camel-google-bigquery-sql sink connector supports 10 options, which are list
 | *camel.component.google-bigquery-sql.projectId* | Google Cloud Project Id | null | MEDIUM
 | *camel.component.google-bigquery-sql.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
+
+
+
+The camel-google-bigquery-sql sink connector has no converters out of the box.
+
+
+
+
+
+The camel-google-bigquery-sql sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-bigquery-sql sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

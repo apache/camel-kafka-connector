@@ -63,4 +63,20 @@ The camel-elasticsearch-rest sink connector supports 33 options, which are liste
 | *camel.component.elasticsearch-rest.password* | Password for authenticate | null | MEDIUM
 | *camel.component.elasticsearch-rest.user* | Basic authenticate user | null | MEDIUM
 |===
+
+
+
+The camel-elasticsearch-rest sink connector has no converters out of the box.
+
+
+
+
+
+The camel-elasticsearch-rest sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-elasticsearch-rest sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

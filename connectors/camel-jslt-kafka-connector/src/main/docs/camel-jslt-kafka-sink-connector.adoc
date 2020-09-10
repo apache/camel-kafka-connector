@@ -43,4 +43,20 @@ The camel-jslt sink connector supports 13 options, which are listed below.
 | *camel.component.jslt.functions* | JSLT can be extended by plugging in functions written in Java. | null | MEDIUM
 | *camel.component.jslt.objectFilter* | JSLT can be extended by plugging in a custom jslt object filter | null | MEDIUM
 |===
+
+
+
+The camel-jslt sink connector has no converters out of the box.
+
+
+
+
+
+The camel-jslt sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-jslt sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

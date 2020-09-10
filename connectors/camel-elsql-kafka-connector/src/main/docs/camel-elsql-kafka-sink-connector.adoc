@@ -59,4 +59,20 @@ The camel-elsql sink connector supports 29 options, which are listed below.
 | *camel.component.elsql.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.elsql.elSqlConfig* | To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead. | null | MEDIUM
 |===
+
+
+
+The camel-elsql sink connector has no converters out of the box.
+
+
+
+
+
+The camel-elsql sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-elsql sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END
