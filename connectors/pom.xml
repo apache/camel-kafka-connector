@@ -122,6 +122,7 @@
                         <param>debezium-mysql</param>
                         <param>debezium-postgres</param>
                         <param>debezium-sqlserver</param>
+                        <param>kafka</param>
                         <param>mock</param>
                         <param>ref</param>
                         <param>robotframework</param>
@@ -360,7 +361,6 @@
         <module>camel-json-validator-kafka-connector</module>
         <module>camel-jsonata-kafka-connector</module>
         <module>camel-jt400-kafka-connector</module>
-        <module>camel-kafka-kafka-connector</module>
         <module>camel-kubernetes-config-maps-kafka-connector</module>
         <module>camel-kubernetes-deployments-kafka-connector</module>
         <module>camel-kubernetes-hpa-kafka-connector</module>
