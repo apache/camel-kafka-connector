@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.kafkaconnector.aws2sqs.transforms;
+package org.apache.camel.kafkaconnector.aws2sqs.transformers;
 
 import java.util.Map;
 
@@ -24,7 +24,7 @@ import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Headers;
 import org.apache.kafka.connect.transforms.Transformation;
 
-public class SQSKeySetterTransform<R extends ConnectRecord<R>> implements Transformation<R> {
+public class SQSKeySetterTransformers<R extends ConnectRecord<R>> implements Transformation<R> {
 
     public static final ConfigDef CONFIG_DEF = new ConfigDef()
             .define("test", ConfigDef.Type.STRING, "test", ConfigDef.Importance.MEDIUM, "Fetch the Camel.CamelAwsSqsMessageId header and set it as the key for the kafka record");
