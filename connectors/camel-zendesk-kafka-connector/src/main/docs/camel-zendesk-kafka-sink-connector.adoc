@@ -44,4 +44,20 @@ The camel-zendesk sink connector supports 14 options, which are listed below.
 | *camel.component.zendesk.configuration* | Component configuration | null | MEDIUM
 | *camel.component.zendesk.zendesk* | To use a shared Zendesk instance. | null | MEDIUM
 |===
+
+
+
+The camel-zendesk sink connector has no converters out of the box.
+
+
+
+
+
+The camel-zendesk sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-zendesk sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

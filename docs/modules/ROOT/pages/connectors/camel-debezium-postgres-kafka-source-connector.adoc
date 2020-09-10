@@ -181,4 +181,20 @@ The camel-debezium-postgres source connector supports 151 options, which are lis
 | *camel.component.debezium-postgres.tombstonesOn Delete* | Whether delete operations should be represented by a delete event and a subsquenttombstone event (true) or only by a delete event (false). Emitting the tombstone event (the default behavior) allows Kafka to completely delete all events pertaining to the given key once the source record got deleted. | false | MEDIUM
 | *camel.component.debezium-postgres.xminFetch IntervalMs* | Specify how often (in ms) the xmin will be fetched from the replication slot. This xmin value is exposed by the slot which gives a lower bound of where a new replication slot could start from. The lower the value, the more likely this value is to be the current 'true' value, but the bigger the performance cost. The bigger the value, the less likely this value is to be the current 'true' value, but the lower the performance penalty. The default is set to 0 ms, which disables tracking xmin. | 0L | MEDIUM
 |===
+
+
+
+The camel-debezium-postgres sink connector has no converters out of the box.
+
+
+
+
+
+The camel-debezium-postgres sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-debezium-postgres sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

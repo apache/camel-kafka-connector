@@ -61,4 +61,20 @@ The camel-websocket sink connector supports 31 options, which are listed below.
 | *camel.component.websocket.sslPassword* | The password when using SSL. | null | MEDIUM
 | *camel.component.websocket.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-websocket sink connector has no converters out of the box.
+
+
+
+
+
+The camel-websocket sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-websocket sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

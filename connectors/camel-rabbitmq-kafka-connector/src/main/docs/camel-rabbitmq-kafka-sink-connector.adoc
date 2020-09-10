@@ -128,4 +128,20 @@ The camel-rabbitmq sink connector supports 98 options, which are listed below.
 | *camel.component.rabbitmq.trustManager* | Configure SSL trust manager, SSL should be enabled for this option to be effective | null | MEDIUM
 | *camel.component.rabbitmq.username* | Username in case of authenticated access | "guest" | MEDIUM
 |===
+
+
+
+The camel-rabbitmq sink connector has no converters out of the box.
+
+
+
+
+
+The camel-rabbitmq sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-rabbitmq sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

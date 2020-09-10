@@ -151,4 +151,20 @@ The camel-kafka source connector supports 121 options, which are listed below.
 | *camel.component.kafka.sslTruststoreType* | The file format of the trust store file. Default value is JKS. | "JKS" | MEDIUM
 | *camel.component.kafka.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-kafka sink connector has no converters out of the box.
+
+
+
+
+
+The camel-kafka sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-kafka sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

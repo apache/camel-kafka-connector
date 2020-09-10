@@ -84,4 +84,20 @@ The camel-olingo2 source connector supports 54 options, which are listed below.
 | *camel.component.olingo2.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
 | *camel.component.olingo2.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-olingo2 sink connector has no converters out of the box.
+
+
+
+
+
+The camel-olingo2 sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-olingo2 sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

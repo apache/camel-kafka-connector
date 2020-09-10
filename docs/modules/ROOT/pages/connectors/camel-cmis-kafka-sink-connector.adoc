@@ -45,4 +45,20 @@ The camel-cmis sink connector supports 15 options, which are listed below.
 | *camel.component.cmis.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.cmis.sessionFacadeFactory* | To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade instances | null | MEDIUM
 |===
+
+
+
+The camel-cmis sink connector has no converters out of the box.
+
+
+
+
+
+The camel-cmis sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-cmis sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

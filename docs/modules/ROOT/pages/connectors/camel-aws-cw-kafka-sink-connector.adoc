@@ -61,4 +61,20 @@ The camel-aws-cw sink connector supports 31 options, which are listed below.
 | *camel.component.aws-cw.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-cw.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws-cw sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-cw sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-cw sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -125,4 +125,20 @@ The camel-smtps source connector supports 95 options, which are listed below.
 | *camel.component.smtps.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 | *camel.component.smtps.username* | The username for login. See also setAuthenticator(MailAuthenticator). | null | MEDIUM
 |===
+
+
+
+The camel-smtps sink connector has no converters out of the box.
+
+
+
+
+
+The camel-smtps sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-smtps sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

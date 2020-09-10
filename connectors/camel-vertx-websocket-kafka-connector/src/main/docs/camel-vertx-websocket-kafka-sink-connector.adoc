@@ -44,4 +44,20 @@ The camel-vertx-websocket sink connector supports 14 options, which are listed b
 | *camel.component.vertx-websocket.vertxOptions* | To provide a custom set of vertx options for configuring vertx | null | MEDIUM
 | *camel.component.vertx-websocket.useGlobalSsl ContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-vertx-websocket sink connector has no converters out of the box.
+
+
+
+
+
+The camel-vertx-websocket sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-vertx-websocket sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -80,4 +80,20 @@ The camel-sjms source connector supports 50 options, which are listed below.
 | *camel.component.sjms.connectionUsername* | The username to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource. | null | MEDIUM
 | *camel.component.sjms.transactionCommitStrategy* | To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch. | null | MEDIUM
 |===
+
+
+
+The camel-sjms sink connector has no converters out of the box.
+
+
+
+
+
+The camel-sjms sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-sjms sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

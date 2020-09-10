@@ -51,4 +51,20 @@ The camel-atmosphere-websocket sink connector supports 21 options, which are lis
 | *camel.component.atmosphere-websocket.http Configuration* | To use the shared HttpConfiguration as base configuration. | null | MEDIUM
 | *camel.component.atmosphere-websocket.headerFilter Strategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
 |===
+
+
+
+The camel-atmosphere-websocket sink connector has no converters out of the box.
+
+
+
+
+
+The camel-atmosphere-websocket sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-atmosphere-websocket sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

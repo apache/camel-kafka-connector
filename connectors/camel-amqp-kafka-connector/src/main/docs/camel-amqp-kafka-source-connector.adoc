@@ -174,4 +174,20 @@ The camel-amqp source connector supports 144 options, which are listed below.
 | *camel.component.amqp.transactionName* | The name of the transaction to use. | null | MEDIUM
 | *camel.component.amqp.transactionTimeout* | The timeout value of the transaction (in seconds), if using transacted mode. | -1 | MEDIUM
 |===
+
+
+
+The camel-amqp sink connector has no converters out of the box.
+
+
+
+
+
+The camel-amqp sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-amqp sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

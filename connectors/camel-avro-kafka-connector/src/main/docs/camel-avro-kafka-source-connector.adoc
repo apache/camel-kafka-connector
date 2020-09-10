@@ -54,4 +54,20 @@ The camel-avro source connector supports 24 options, which are listed below.
 | *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.avro.configuration* | To use a shared AvroConfiguration to configure options once | null | MEDIUM
 |===
+
+
+
+The camel-avro sink connector has no converters out of the box.
+
+
+
+
+
+The camel-avro sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-avro sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

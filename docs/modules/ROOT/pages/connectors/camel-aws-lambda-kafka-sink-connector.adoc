@@ -55,4 +55,20 @@ The camel-aws-lambda sink connector supports 25 options, which are listed below.
 | *camel.component.aws-lambda.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-lambda.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws-lambda sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-lambda sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-lambda sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

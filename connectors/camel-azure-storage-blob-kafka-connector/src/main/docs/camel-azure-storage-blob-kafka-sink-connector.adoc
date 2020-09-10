@@ -85,4 +85,20 @@ The camel-azure-storage-blob sink connector supports 55 options, which are liste
 | *camel.component.azure-storage-blob.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.azure-storage-blob.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | MEDIUM
 |===
+
+
+
+The camel-azure-storage-blob sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-storage-blob sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-storage-blob sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

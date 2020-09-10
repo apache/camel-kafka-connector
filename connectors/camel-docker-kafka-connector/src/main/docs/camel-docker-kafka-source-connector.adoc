@@ -73,4 +73,20 @@ The camel-docker source connector supports 43 options, which are listed below.
 | *camel.component.docker.tlsVerify* | Check TLS | false | MEDIUM
 | *camel.component.docker.username* | User name to authenticate with | null | MEDIUM
 |===
+
+
+
+The camel-docker sink connector has no converters out of the box.
+
+
+
+
+
+The camel-docker sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-docker sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -57,4 +57,20 @@ The camel-infinispan sink connector supports 27 options, which are listed below.
 | *camel.component.infinispan.remappingFunction* | Set a specific remappingFunction to use in a compute operation | null | MEDIUM
 | *camel.component.infinispan.resultHeader* | Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader | null | MEDIUM
 |===
+
+
+
+The camel-infinispan sink connector has no converters out of the box.
+
+
+
+
+
+The camel-infinispan sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-infinispan sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

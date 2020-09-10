@@ -44,4 +44,20 @@ The camel-thrift sink connector supports 14 options, which are listed below.
 | *camel.component.thrift.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.thrift.useGlobalSslContext Parameters* | Determine if the thrift component is using global SSL context parameters | false | MEDIUM
 |===
+
+
+
+The camel-thrift sink connector has no converters out of the box.
+
+
+
+
+
+The camel-thrift sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-thrift sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

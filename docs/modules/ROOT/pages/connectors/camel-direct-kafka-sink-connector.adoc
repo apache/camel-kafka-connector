@@ -41,4 +41,20 @@ The camel-direct sink connector supports 11 options, which are listed below.
 | *camel.component.direct.timeout* | The timeout value to use if block is enabled. | 30000L | MEDIUM
 | *camel.component.direct.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 |===
+
+
+
+The camel-direct sink connector has no converters out of the box.
+
+
+
+
+
+The camel-direct sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-direct sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

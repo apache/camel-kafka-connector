@@ -49,4 +49,20 @@ The camel-bean-validator sink connector supports 19 options, which are listed be
 | *camel.component.bean-validator.validationProvider Resolver* | To use a a custom ValidationProviderResolver | null | MEDIUM
 | *camel.component.bean-validator.validatorFactory* | To use a custom ValidatorFactory | null | MEDIUM
 |===
+
+
+
+The camel-bean-validator sink connector has no converters out of the box.
+
+
+
+
+
+The camel-bean-validator sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-bean-validator sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

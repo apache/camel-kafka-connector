@@ -50,4 +50,20 @@ The camel-zookeeper source connector supports 20 options, which are listed below
 | *camel.component.zookeeper.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.component.zookeeper.configuration* | To use a shared ZooKeeperConfiguration | null | MEDIUM
 |===
+
+
+
+The camel-zookeeper sink connector has no converters out of the box.
+
+
+
+
+
+The camel-zookeeper sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-zookeeper sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END
