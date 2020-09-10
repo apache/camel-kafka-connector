@@ -669,7 +669,8 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         listOptions.add(optionModel);
     }
 
-    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct, String connectorClass, List<String> convertersList, List<String> transformsList, List<String> aggregationStrategiesList)
+    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct, 
+                                                    String connectorClass, List<String> convertersList, List<String> transformsList, List<String> aggregationStrategiesList)
         throws MojoExecutionException {
 
         CamelKafkaConnectorModel model = new CamelKafkaConnectorModel();
