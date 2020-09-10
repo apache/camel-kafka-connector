@@ -1,6 +1,15 @@
 # Changelog
 
-## [camel-kafka-connector-0.5.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0) (2020-09-08)
+## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...HEAD)
+
+**Merged pull requests:**
+
+- Remove useless connector [\#441](https://github.com/apache/camel-kafka-connector/pull/441) ([oscerd](https://github.com/oscerd))
+- AWS SQS tests w/ SDK v2 [\#438](https://github.com/apache/camel-kafka-connector/pull/438) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.5.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0) (2020-09-09)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0...camel-kafka-connector-0.5.0)
 
@@ -20,6 +29,7 @@
 - Unreleased Resource: Database [\#436](https://github.com/apache/camel-kafka-connector/issues/436)
 - Create an NSQ example [\#429](https://github.com/apache/camel-kafka-connector/issues/429)
 - Archetype: Add a parameter to the archetype generator to be able to specify what connector we want to extend [\#419](https://github.com/apache/camel-kafka-connector/issues/419)
+- IMPROVEMENT REQUEST: Add a transformer mode to the connectors to make lightweight edits to the messages while they are being produced/consumed [\#410](https://github.com/apache/camel-kafka-connector/issues/410)
 - aws2-S3-connector: \(gzip/zip\) compression with sink [\#387](https://github.com/apache/camel-kafka-connector/issues/387)
 - Discussion: troubleshooting documentation? [\#381](https://github.com/apache/camel-kafka-connector/issues/381)
 - Bump to Camel 3.4.3 [\#379](https://github.com/apache/camel-kafka-connector/issues/379)
@@ -29,6 +39,7 @@
 - Exception on endpoint being treated as a polling consumer before createPollingConsumer is called. [\#361](https://github.com/apache/camel-kafka-connector/issues/361)
 - Add a Nats connector examples in camel-kafka-connector-examples repo [\#359](https://github.com/apache/camel-kafka-connector/issues/359)
 - Add a compatibility matrix related to camel version in docs [\#344](https://github.com/apache/camel-kafka-connector/issues/344)
+- aws2S3connector: moveAfterRead true bucket not created [\#339](https://github.com/apache/camel-kafka-connector/issues/339)
 - CamelAwssqsSinkConnector does not work when specifying AWS credentials in camel.sink.endpoint [\#319](https://github.com/apache/camel-kafka-connector/issues/319)
 - Create a Kinesis Firehose Connector example [\#318](https://github.com/apache/camel-kafka-connector/issues/318)
 - Nullpointer exception at org.apache.camel.component.aws2.s3.AWS2S3Producer.processSingleOp [\#299](https://github.com/apache/camel-kafka-connector/issues/299)
@@ -431,7 +442,6 @@
 - Fix Sink File test [\#6](https://github.com/apache/camel-kafka-connector/pull/6) ([orpiske](https://github.com/orpiske))
 - chore: update maven to v3.6.3 [\#5](https://github.com/apache/camel-kafka-connector/pull/5) ([lburgazzoli](https://github.com/lburgazzoli))
 - chore\(build\): set up github actions [\#4](https://github.com/apache/camel-kafka-connector/pull/4) ([lburgazzoli](https://github.com/lburgazzoli))
-- Adding Keys, Notice and License files [\#3](https://github.com/apache/camel-kafka-connector/pull/3) ([oscerd](https://github.com/oscerd))
 
 
 
