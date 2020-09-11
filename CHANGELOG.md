@@ -6,6 +6,9 @@
 
 **Merged pull requests:**
 
+- Cut down the connectors number [\#445](https://github.com/apache/camel-kafka-connector/pull/445) ([oscerd](https://github.com/oscerd))
+- Transformers package renaming [\#444](https://github.com/apache/camel-kafka-connector/pull/444) ([oscerd](https://github.com/oscerd))
+- Define a default naming for converters, transforms and aggregation packages [\#443](https://github.com/apache/camel-kafka-connector/pull/443) ([oscerd](https://github.com/oscerd))
 - Remove useless connector [\#441](https://github.com/apache/camel-kafka-connector/pull/441) ([oscerd](https://github.com/oscerd))
 - AWS SQS tests w/ SDK v2 [\#438](https://github.com/apache/camel-kafka-connector/pull/438) ([orpiske](https://github.com/orpiske))
 
@@ -82,6 +85,7 @@
 - Defer topic deletion [\#374](https://github.com/apache/camel-kafka-connector/pull/374) ([orpiske](https://github.com/orpiske))
 - Fixes for edge cases [\#373](https://github.com/apache/camel-kafka-connector/pull/373) ([orpiske](https://github.com/orpiske))
 - Added missing fromUrl to the log message [\#372](https://github.com/apache/camel-kafka-connector/pull/372) ([orpiske](https://github.com/orpiske))
+- Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
 - Removes debugging message [\#370](https://github.com/apache/camel-kafka-connector/pull/370) ([orpiske](https://github.com/orpiske))
 - Removing backport gh action. It doesn't work. [\#369](https://github.com/apache/camel-kafka-connector/pull/369) ([oscerd](https://github.com/oscerd))
 - Minor AWS tests cleanups [\#368](https://github.com/apache/camel-kafka-connector/pull/368) ([orpiske](https://github.com/orpiske))
@@ -95,6 +99,7 @@
 - Upgrade Archetype docs [\#354](https://github.com/apache/camel-kafka-connector/pull/354) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#352](https://github.com/apache/camel-kafka-connector/pull/352) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#350](https://github.com/apache/camel-kafka-connector/pull/350) ([oscerd](https://github.com/oscerd))
+- 0.4.1-SNAPSHOT [\#349](https://github.com/apache/camel-kafka-connector/pull/349) ([oscerd](https://github.com/oscerd))
 - Release 0.4.0 [\#346](https://github.com/apache/camel-kafka-connector/pull/346) ([oscerd](https://github.com/oscerd))
 - AWS Kinesis test fixes when in remote mode [\#345](https://github.com/apache/camel-kafka-connector/pull/345) ([orpiske](https://github.com/orpiske))
 
