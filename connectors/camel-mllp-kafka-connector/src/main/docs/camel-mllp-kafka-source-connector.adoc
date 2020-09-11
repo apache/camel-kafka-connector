@@ -62,4 +62,20 @@ The camel-mllp source connector supports 32 options, which are listed below.
 | *camel.component.mllp.logPhi* | Set the component to log PHI data. | "true" | MEDIUM
 | *camel.component.mllp.logPhiMaxBytes* | Set the maximum number of bytes of PHI that will be logged in a log entry. | "5120" | MEDIUM
 |===
+
+
+
+The camel-mllp sink connector has no converters out of the box.
+
+
+
+
+
+The camel-mllp sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-mllp sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

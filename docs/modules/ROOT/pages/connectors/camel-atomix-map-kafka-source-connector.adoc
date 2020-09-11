@@ -67,4 +67,20 @@ The camel-atomix-map source connector supports 37 options, which are listed belo
 | *camel.component.atomix-map.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
 | *camel.component.atomix-map.resourceOptions* | Local resources configurations | null | MEDIUM
 |===
+
+
+
+The camel-atomix-map sink connector has no converters out of the box.
+
+
+
+
+
+The camel-atomix-map sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-atomix-map sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

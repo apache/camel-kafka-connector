@@ -55,4 +55,20 @@ The camel-arangodb sink connector supports 25 options, which are listed below.
 | *camel.component.arangodb.password* | ArangoDB password. If user and password are default, this field is Optional. | null | MEDIUM
 | *camel.component.arangodb.user* | ArangoDB user. If user and password are default, this field is Optional. | null | MEDIUM
 |===
+
+
+
+The camel-arangodb sink connector has no converters out of the box.
+
+
+
+
+
+The camel-arangodb sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-arangodb sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

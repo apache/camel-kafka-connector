@@ -45,4 +45,20 @@ The camel-zookeeper-master source connector supports 15 options, which are liste
 | *camel.component.zookeeper-master.curator* | To use a custom configured CuratorFramework as connection to zookeeper ensemble. | null | MEDIUM
 | *camel.component.zookeeper-master.zooKeeperPassword* | The password to use when connecting to the zookeeper ensemble | null | MEDIUM
 |===
+
+
+
+The camel-zookeeper-master sink connector has no converters out of the box.
+
+
+
+
+
+The camel-zookeeper-master sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-zookeeper-master sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

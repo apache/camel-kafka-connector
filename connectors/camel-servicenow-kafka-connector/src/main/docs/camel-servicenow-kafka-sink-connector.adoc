@@ -125,4 +125,20 @@ The camel-servicenow sink connector supports 95 options, which are listed below.
 | *camel.component.servicenow.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 | *camel.component.servicenow.userName* | ServiceNow user account name, MUST be provided | null | HIGH
 |===
+
+
+
+The camel-servicenow sink connector has no converters out of the box.
+
+
+
+
+
+The camel-servicenow sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-servicenow sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

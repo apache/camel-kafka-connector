@@ -60,4 +60,20 @@ The camel-xj sink connector supports 30 options, which are listed below.
 | *camel.component.xj.uriResolver* | To use a custom UriResolver. Should not be used together with the option 'uriResolverFactory'. | null | MEDIUM
 | *camel.component.xj.uriResolverFactory* | To use a custom UriResolver which depends on a dynamic endpoint resource URI. Should not be used together with the option 'uriResolver'. | null | MEDIUM
 |===
+
+
+
+The camel-xj sink connector has no converters out of the box.
+
+
+
+
+
+The camel-xj sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-xj sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

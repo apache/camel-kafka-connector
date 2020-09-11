@@ -74,4 +74,20 @@ The camel-etcd-stats source connector supports 44 options, which are listed belo
 | *camel.component.etcd-stats.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 | *camel.component.etcd-stats.userName* | The user name to use for basic authentication. | null | MEDIUM
 |===
+
+
+
+The camel-etcd-stats sink connector has no converters out of the box.
+
+
+
+
+
+The camel-etcd-stats sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-etcd-stats sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

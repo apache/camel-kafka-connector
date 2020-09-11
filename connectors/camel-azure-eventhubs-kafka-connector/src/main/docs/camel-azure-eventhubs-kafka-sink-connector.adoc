@@ -56,4 +56,20 @@ The camel-azure-eventhubs sink connector supports 26 options, which are listed b
 | *camel.component.azure-eventhubs.sharedAccessKey* | The generated value for the SharedAccessName | null | MEDIUM
 | *camel.component.azure-eventhubs.sharedAccessName* | The name you chose for your EventHubs SAS keys | null | MEDIUM
 |===
+
+
+
+The camel-azure-eventhubs sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-eventhubs sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-eventhubs sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

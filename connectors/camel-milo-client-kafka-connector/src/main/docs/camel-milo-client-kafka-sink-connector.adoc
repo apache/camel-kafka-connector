@@ -81,4 +81,20 @@ The camel-milo-client sink connector supports 51 options, which are listed below
 | *camel.component.milo-client.sessionName* | Session name | null | MEDIUM
 | *camel.component.milo-client.sessionTimeout* | Session timeout in milliseconds | null | MEDIUM
 |===
+
+
+
+The camel-milo-client sink connector has no converters out of the box.
+
+
+
+
+
+The camel-milo-client sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-milo-client sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

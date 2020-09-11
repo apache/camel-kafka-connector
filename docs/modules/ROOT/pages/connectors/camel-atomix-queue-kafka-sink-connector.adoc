@@ -61,4 +61,20 @@ The camel-atomix-queue sink connector supports 31 options, which are listed belo
 | *camel.component.atomix-queue.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
 | *camel.component.atomix-queue.resourceOptions* | Local resources configurations | null | MEDIUM
 |===
+
+
+
+The camel-atomix-queue sink connector has no converters out of the box.
+
+
+
+
+
+The camel-atomix-queue sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-atomix-queue sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

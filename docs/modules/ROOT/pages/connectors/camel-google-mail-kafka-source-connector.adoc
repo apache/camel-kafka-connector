@@ -68,4 +68,20 @@ The camel-google-mail source connector supports 38 options, which are listed bel
 | *camel.component.google-mail.clientSecret* | Client secret of the mail application | null | MEDIUM
 | *camel.component.google-mail.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
 |===
+
+
+
+The camel-google-mail sink connector has no converters out of the box.
+
+
+
+
+
+The camel-google-mail sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-mail sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

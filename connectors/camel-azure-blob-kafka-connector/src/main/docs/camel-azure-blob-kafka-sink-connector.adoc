@@ -73,4 +73,20 @@ The camel-azure-blob sink connector supports 43 options, which are listed below.
 | *camel.component.azure-blob.credentialsAccountKey* | Set the storage account key used during authentication phase | null | MEDIUM
 | *camel.component.azure-blob.credentialsAccountName* | Set the storage account name used during authentication phase | null | MEDIUM
 |===
+
+
+
+The camel-azure-blob sink connector has no converters out of the box.
+
+
+
+
+
+The camel-azure-blob sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-azure-blob sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

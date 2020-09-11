@@ -78,4 +78,20 @@ The camel-google-calendar-stream source connector supports 48 options, which are
 | *camel.component.google-calendar-stream.client Factory* | The client Factory | null | MEDIUM
 | * camel.component.google-calendar-stream.configuration* | The configuration | null | MEDIUM
 |===
+
+
+
+The camel-google-calendar-stream sink connector has no converters out of the box.
+
+
+
+
+
+The camel-google-calendar-stream sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-calendar-stream sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

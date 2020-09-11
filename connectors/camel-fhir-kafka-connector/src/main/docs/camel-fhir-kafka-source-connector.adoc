@@ -103,4 +103,20 @@ The camel-fhir source connector supports 73 options, which are listed below.
 | *camel.component.fhir.password* | Username to use for basic authentication | null | MEDIUM
 | *camel.component.fhir.username* | Username to use for basic authentication | null | MEDIUM
 |===
+
+
+
+The camel-fhir sink connector has no converters out of the box.
+
+
+
+
+
+The camel-fhir sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-fhir sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

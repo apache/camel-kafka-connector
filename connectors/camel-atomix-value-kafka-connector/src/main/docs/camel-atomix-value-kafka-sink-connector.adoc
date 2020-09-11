@@ -63,4 +63,20 @@ The camel-atomix-value sink connector supports 33 options, which are listed belo
 | *camel.component.atomix-value.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
 | *camel.component.atomix-value.resourceOptions* | Local resources configurations | null | MEDIUM
 |===
+
+
+
+The camel-atomix-value sink connector has no converters out of the box.
+
+
+
+
+
+The camel-atomix-value sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-atomix-value sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

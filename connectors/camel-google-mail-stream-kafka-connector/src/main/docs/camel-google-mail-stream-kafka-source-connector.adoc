@@ -74,4 +74,20 @@ The camel-google-mail-stream source connector supports 44 options, which are lis
 | *camel.component.google-mail-stream.clientFactory* | The client Factory | null | MEDIUM
 | *camel.component.google-mail-stream.configuration* | The configuration | null | MEDIUM
 |===
+
+
+
+The camel-google-mail-stream sink connector has no converters out of the box.
+
+
+
+
+
+The camel-google-mail-stream sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-google-mail-stream sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -54,4 +54,20 @@ The camel-etcd-keys sink connector supports 24 options, which are listed below.
 | *camel.component.etcd-keys.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 | *camel.component.etcd-keys.userName* | The user name to use for basic authentication. | null | MEDIUM
 |===
+
+
+
+The camel-etcd-keys sink connector has no converters out of the box.
+
+
+
+
+
+The camel-etcd-keys sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-etcd-keys sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

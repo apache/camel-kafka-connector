@@ -45,4 +45,20 @@ The camel-direct-vm sink connector supports 15 options, which are listed below.
 | *camel.component.direct-vm.headerFilterStrategy* | Sets a HeaderFilterStrategy that will only be applied on producer endpoints (on both directions: request and response). Default value: none. | null | MEDIUM
 | *camel.component.direct-vm.propagateProperties* | Whether to propagate or not properties from the producer side to the consumer side, and vice versa. Default value: true. | true | MEDIUM
 |===
+
+
+
+The camel-direct-vm sink connector has no converters out of the box.
+
+
+
+
+
+The camel-direct-vm sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-direct-vm sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

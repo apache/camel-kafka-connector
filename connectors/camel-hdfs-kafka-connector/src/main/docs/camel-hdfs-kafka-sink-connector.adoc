@@ -62,4 +62,20 @@ The camel-hdfs sink connector supports 32 options, which are listed below.
 | *camel.component.hdfs.jAASConfiguration* | To use the given configuration for security with JAAS. | null | MEDIUM
 | *camel.component.hdfs.kerberosConfigFile* | To use kerberos authentication, set the value of the 'java.security.krb5.conf' environment variable to an existing file. If the environment variable is already set, warn if different than the specified parameter | null | MEDIUM
 |===
+
+
+
+The camel-hdfs sink connector has no converters out of the box.
+
+
+
+
+
+The camel-hdfs sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-hdfs sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -91,4 +91,20 @@ The camel-paho sink connector supports 61 options, which are listed below.
 | *camel.component.paho.sslHostnameVerifier* | Sets the HostnameVerifier for the SSL connection. Note that it will be used after handshake on a connection and you should do actions by yourself when hostname is verified error. There is no default HostnameVerifier | null | MEDIUM
 | *camel.component.paho.userName* | Username to be used for authentication against the MQTT broker | null | MEDIUM
 |===
+
+
+
+The camel-paho sink connector has no converters out of the box.
+
+
+
+
+
+The camel-paho sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-paho sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

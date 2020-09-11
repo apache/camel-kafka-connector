@@ -104,4 +104,20 @@ The camel-smpps sink connector supports 74 options, which are listed below.
 | *camel.component.smpps.systemId* | The system id (username) for connecting to SMSC server. | "smppclient" | MEDIUM
 | *camel.component.smpps.usingSSL* | Whether using SSL with the smpps protocol | false | MEDIUM
 |===
+
+
+
+The camel-smpps sink connector has no converters out of the box.
+
+
+
+
+
+The camel-smpps sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-smpps sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

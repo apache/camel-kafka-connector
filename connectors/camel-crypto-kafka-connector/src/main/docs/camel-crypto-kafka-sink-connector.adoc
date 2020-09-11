@@ -74,4 +74,20 @@ The camel-crypto sink connector supports 44 options, which are listed below.
 | *camel.component.crypto.secureRandom* | Set the SecureRandom used to initialize the Signature service | null | MEDIUM
 | *camel.component.crypto.password* | Sets the password used to access an aliased PrivateKey in the KeyStore. | null | MEDIUM
 |===
+
+
+
+The camel-crypto sink connector has no converters out of the box.
+
+
+
+
+
+The camel-crypto sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-crypto sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

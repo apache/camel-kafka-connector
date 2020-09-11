@@ -84,4 +84,20 @@ The camel-consul source connector supports 54 options, which are listed below.
 | *camel.component.consul.firstIndex* | The first index for watch for, default 0 | "0" | MEDIUM
 | *camel.component.consul.recursive* | Recursively watch, default false | false | MEDIUM
 |===
+
+
+
+The camel-consul sink connector has no converters out of the box.
+
+
+
+
+
+The camel-consul sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-consul sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

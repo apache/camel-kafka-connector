@@ -47,4 +47,20 @@ The camel-nagios sink connector supports 17 options, which are listed below.
 | *camel.component.nagios.encryption* | To specify an encryption method. One of: [NONE] [TRIPLE_DES] [XOR] [RIJNDAEL128] [RIJNDAEL192] [RIJNDAEL256] [BLOWFISH] | null | MEDIUM
 | *camel.component.nagios.password* | Password to be authenticated when sending checks to Nagios. | null | MEDIUM
 |===
+
+
+
+The camel-nagios sink connector has no converters out of the box.
+
+
+
+
+
+The camel-nagios sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-nagios sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

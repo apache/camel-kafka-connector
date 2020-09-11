@@ -40,4 +40,20 @@ The camel-service source connector supports 10 options, which are listed below.
 | *camel.component.service.service* | Inject the service to use. | null | MEDIUM
 | *camel.component.service.serviceSelector* | Inject the service selector used to lookup the ServiceRegistry to use. | null | MEDIUM
 |===
+
+
+
+The camel-service sink connector has no converters out of the box.
+
+
+
+
+
+The camel-service sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-service sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

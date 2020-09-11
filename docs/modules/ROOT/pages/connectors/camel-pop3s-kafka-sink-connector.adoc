@@ -88,4 +88,20 @@ The camel-pop3s sink connector supports 58 options, which are listed below.
 | *camel.component.pop3s.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 | *camel.component.pop3s.username* | The username for login. See also setAuthenticator(MailAuthenticator). | null | MEDIUM
 |===
+
+
+
+The camel-pop3s sink connector has no converters out of the box.
+
+
+
+
+
+The camel-pop3s sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-pop3s sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

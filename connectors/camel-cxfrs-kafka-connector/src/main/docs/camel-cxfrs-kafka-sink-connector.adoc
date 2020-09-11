@@ -62,4 +62,20 @@ The camel-cxfrs sink connector supports 32 options, which are listed below.
 | *camel.component.cxfrs.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
 | *camel.component.cxfrs.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
+
+
+
+The camel-cxfrs sink connector has no converters out of the box.
+
+
+
+
+
+The camel-cxfrs sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-cxfrs sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -116,6 +116,16 @@
                         <param>aws2-kms</param>
                         <param>aws2-mq</param>
                         <param>aws2-msk</param>
+                        <param>dataset</param>
+                        <param>dataset-test</param>
+                        <param>debezium-mongodb</param>
+                        <param>debezium-mysql</param>
+                        <param>debezium-postgres</param>
+                        <param>debezium-sqlserver</param>
+                        <param>kafka</param>
+                        <param>mock</param>
+                        <param>ref</param>
+                        <param>robotframework</param>
                     </excludedComponents>
                 </configuration>
                 <executions>
@@ -251,12 +261,6 @@
         <module>camel-cxf-kafka-connector</module>
         <module>camel-cxfrs-kafka-connector</module>
         <module>camel-dataformat-kafka-connector</module>
-        <module>camel-dataset-kafka-connector</module>
-        <module>camel-dataset-test-kafka-connector</module>
-        <module>camel-debezium-mongodb-kafka-connector</module>
-        <module>camel-debezium-mysql-kafka-connector</module>
-        <module>camel-debezium-postgres-kafka-connector</module>
-        <module>camel-debezium-sqlserver-kafka-connector</module>
         <module>camel-digitalocean-kafka-connector</module>
         <module>camel-direct-kafka-connector</module>
         <module>camel-direct-vm-kafka-connector</module>
@@ -357,7 +361,6 @@
         <module>camel-json-validator-kafka-connector</module>
         <module>camel-jsonata-kafka-connector</module>
         <module>camel-jt400-kafka-connector</module>
-        <module>camel-kafka-kafka-connector</module>
         <module>camel-kubernetes-config-maps-kafka-connector</module>
         <module>camel-kubernetes-deployments-kafka-connector</module>
         <module>camel-kubernetes-hpa-kafka-connector</module>
@@ -389,7 +392,6 @@
         <module>camel-mina-kafka-connector</module>
         <module>camel-minio-kafka-connector</module>
         <module>camel-mllp-kafka-connector</module>
-        <module>camel-mock-kafka-connector</module>
         <module>camel-mongodb-gridfs-kafka-connector</module>
         <module>camel-mongodb-kafka-connector</module>
         <module>camel-msv-kafka-connector</module>
@@ -428,13 +430,11 @@
         <module>camel-quickfix-kafka-connector</module>
         <module>camel-rabbitmq-kafka-connector</module>
         <module>camel-reactive-streams-kafka-connector</module>
-        <module>camel-ref-kafka-connector</module>
         <module>camel-rest-api-kafka-connector</module>
         <module>camel-rest-kafka-connector</module>
         <module>camel-rest-openapi-kafka-connector</module>
         <module>camel-rest-swagger-kafka-connector</module>
         <module>camel-resteasy-kafka-connector</module>
-        <module>camel-robotframework-kafka-connector</module>
         <module>camel-rss-kafka-connector</module>
         <module>camel-saga-kafka-connector</module>
         <module>camel-salesforce-kafka-connector</module>

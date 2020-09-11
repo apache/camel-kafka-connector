@@ -60,4 +60,20 @@ The camel-ehcache source connector supports 30 options, which are listed below.
 | *camel.component.ehcache.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
 | *camel.component.ehcache.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
 |===
+
+
+
+The camel-ehcache sink connector has no converters out of the box.
+
+
+
+
+
+The camel-ehcache sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-ehcache sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -77,4 +77,20 @@ The camel-aws-ddbstream source connector supports 47 options, which are listed b
 | *camel.component.aws-ddbstream.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-ddbstream.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws-ddbstream sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws-ddbstream sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws-ddbstream sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -41,4 +41,20 @@ The camel-master source connector supports 11 options, which are listed below.
 | *camel.component.master.service* | Inject the service to use. | null | MEDIUM
 | *camel.component.master.serviceSelector* | Inject the service selector used to lookup the CamelClusterService to use. | null | MEDIUM
 |===
+
+
+
+The camel-master sink connector has no converters out of the box.
+
+
+
+
+
+The camel-master sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-master sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

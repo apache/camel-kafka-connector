@@ -43,4 +43,20 @@ The camel-corda sink connector supports 13 options, which are listed below.
 | *camel.component.corda.password* | Password for login | null | MEDIUM
 | *camel.component.corda.username* | Username for login | null | MEDIUM
 |===
+
+
+
+The camel-corda sink connector has no converters out of the box.
+
+
+
+
+
+The camel-corda sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-corda sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

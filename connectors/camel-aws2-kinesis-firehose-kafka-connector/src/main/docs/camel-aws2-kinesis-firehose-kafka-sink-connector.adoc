@@ -57,4 +57,20 @@ The camel-aws2-kinesis-firehose sink connector supports 27 options, which are li
 | *camel.component.aws2-kinesis-firehose.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-kinesis-firehose.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
+
+
+
+The camel-aws2-kinesis-firehose sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws2-kinesis-firehose sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws2-kinesis-firehose sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -65,4 +65,20 @@ The camel-servlet source connector supports 35 options, which are listed below.
 | *camel.component.servlet.httpConfiguration* | To use the shared HttpConfiguration as base configuration. | null | MEDIUM
 | *camel.component.servlet.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
 |===
+
+
+
+The camel-servlet sink connector has no converters out of the box.
+
+
+
+
+
+The camel-servlet sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-servlet sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END

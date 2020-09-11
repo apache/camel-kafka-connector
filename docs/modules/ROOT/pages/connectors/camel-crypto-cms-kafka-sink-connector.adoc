@@ -53,4 +53,20 @@ The camel-crypto-cms sink connector supports 23 options, which are listed below.
 | *camel.component.crypto-cms.envelopedDataDecryptor Configuration* | To configure the shared EnvelopedDataDecryptorConfiguration, which determines the uri parameters for the decrypt operation. | null | MEDIUM
 | *camel.component.crypto-cms.signedDataVerifier Configuration* | To configure the shared SignedDataVerifierConfiguration, which determines the uri parameters for the verify operation. | null | MEDIUM
 |===
+
+
+
+The camel-crypto-cms sink connector has no converters out of the box.
+
+
+
+
+
+The camel-crypto-cms sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-crypto-cms sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END
