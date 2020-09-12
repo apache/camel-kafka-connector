@@ -4,8 +4,19 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...HEAD)
 
+**Closed issues:**
+
+- Define a default naming for converters, transforms and aggregation packages [\#439](https://github.com/apache/camel-kafka-connector/issues/439)
+
 **Merged pull requests:**
 
+- Added 0.5.0 to the compatibility matrix [\#453](https://github.com/apache/camel-kafka-connector/pull/453) ([oscerd](https://github.com/oscerd))
+- 0.5.0 docs [\#452](https://github.com/apache/camel-kafka-connector/pull/452) ([oscerd](https://github.com/oscerd))
+- Updated SQS example [\#450](https://github.com/apache/camel-kafka-connector/pull/450) ([oscerd](https://github.com/oscerd))
+- Updated SQS example [\#449](https://github.com/apache/camel-kafka-connector/pull/449) ([oscerd](https://github.com/oscerd))
+- Update AWS SNS example [\#448](https://github.com/apache/camel-kafka-connector/pull/448) ([oscerd](https://github.com/oscerd))
+- Updated the AWS S3 example [\#447](https://github.com/apache/camel-kafka-connector/pull/447) ([oscerd](https://github.com/oscerd))
+- Updated the Cassandra example [\#446](https://github.com/apache/camel-kafka-connector/pull/446) ([oscerd](https://github.com/oscerd))
 - Cut down the connectors number [\#445](https://github.com/apache/camel-kafka-connector/pull/445) ([oscerd](https://github.com/oscerd))
 - Transformers package renaming [\#444](https://github.com/apache/camel-kafka-connector/pull/444) ([oscerd](https://github.com/oscerd))
 - Define a default naming for converters, transforms and aggregation packages [\#443](https://github.com/apache/camel-kafka-connector/pull/443) ([oscerd](https://github.com/oscerd))
@@ -85,7 +96,6 @@
 - Defer topic deletion [\#374](https://github.com/apache/camel-kafka-connector/pull/374) ([orpiske](https://github.com/orpiske))
 - Fixes for edge cases [\#373](https://github.com/apache/camel-kafka-connector/pull/373) ([orpiske](https://github.com/orpiske))
 - Added missing fromUrl to the log message [\#372](https://github.com/apache/camel-kafka-connector/pull/372) ([orpiske](https://github.com/orpiske))
-- Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
 - Removes debugging message [\#370](https://github.com/apache/camel-kafka-connector/pull/370) ([orpiske](https://github.com/orpiske))
 - Removing backport gh action. It doesn't work. [\#369](https://github.com/apache/camel-kafka-connector/pull/369) ([oscerd](https://github.com/oscerd))
 - Minor AWS tests cleanups [\#368](https://github.com/apache/camel-kafka-connector/pull/368) ([orpiske](https://github.com/orpiske))
@@ -99,7 +109,6 @@
 - Upgrade Archetype docs [\#354](https://github.com/apache/camel-kafka-connector/pull/354) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#352](https://github.com/apache/camel-kafka-connector/pull/352) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#350](https://github.com/apache/camel-kafka-connector/pull/350) ([oscerd](https://github.com/oscerd))
-- 0.4.1-SNAPSHOT [\#349](https://github.com/apache/camel-kafka-connector/pull/349) ([oscerd](https://github.com/oscerd))
 - Release 0.4.0 [\#346](https://github.com/apache/camel-kafka-connector/pull/346) ([oscerd](https://github.com/oscerd))
 - AWS Kinesis test fixes when in remote mode [\#345](https://github.com/apache/camel-kafka-connector/pull/345) ([orpiske](https://github.com/orpiske))
 
@@ -114,7 +123,6 @@
 - Upgrade to Kafka 2.5.0 [\#249](https://github.com/apache/camel-kafka-connector/issues/249)
 - Improve integration test support when component dependencies are present [\#211](https://github.com/apache/camel-kafka-connector/issues/211)
 - Support both marshal and unmarshal in source and sinks [\#194](https://github.com/apache/camel-kafka-connector/issues/194)
-- camel-kafka-connector-generator-maven-plugin: implement a component exclusion mechanism [\#148](https://github.com/apache/camel-kafka-connector/issues/148)
 
 **Fixed bugs:**
 
@@ -253,6 +261,7 @@
 - Avoid Thread.sleep in test, use Awaitility FTW [\#186](https://github.com/apache/camel-kafka-connector/issues/186)
 - make the topics property consistent between source and sink connectors [\#175](https://github.com/apache/camel-kafka-connector/issues/175)
 - Produce an assembly artifact containing all the released artifacts [\#165](https://github.com/apache/camel-kafka-connector/issues/165)
+- camel-kafka-connector-generator-maven-plugin: implement a component exclusion mechanism [\#148](https://github.com/apache/camel-kafka-connector/issues/148)
 - Create and ad hoc connector for syslog [\#145](https://github.com/apache/camel-kafka-connector/issues/145)
 - Take in to account endpoint path options order into connector code generation [\#144](https://github.com/apache/camel-kafka-connector/issues/144)
 
