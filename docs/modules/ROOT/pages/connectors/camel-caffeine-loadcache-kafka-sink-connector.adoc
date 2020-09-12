@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.caffeineloadcache.CamelCaffeinel
 ----
 
 
-The camel-caffeine-loadcache sink connector supports 37 options, which are listed below.
+The camel-caffeine-loadcache sink connector supports 35 options, which are listed below.
 
 
 
@@ -31,7 +31,6 @@ The camel-caffeine-loadcache sink connector supports 37 options, which are liste
 | Name | Description | Default | Priority
 | *camel.sink.path.cacheName* | the cache name | null | HIGH
 | *camel.sink.endpoint.action* | To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence. | null | MEDIUM
-| *camel.sink.endpoint.cache* | To configure an already instantiated cache to be used | null | MEDIUM
 | *camel.sink.endpoint.cacheLoader* | To configure a CacheLoader in case of a LoadCache use | null | MEDIUM
 | *camel.sink.endpoint.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | MEDIUM
 | *camel.sink.endpoint.evictionType* | Set the eviction Type for this cache One of: [size_based] [time_based] | "SIZE_BASED" | MEDIUM
@@ -49,7 +48,6 @@ The camel-caffeine-loadcache sink connector supports 37 options, which are liste
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
 | *camel.component.caffeine-loadcache.action* | To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence. | null | MEDIUM
-| *camel.component.caffeine-loadcache.cache* | To configure an already instantiated cache to be used | null | MEDIUM
 | *camel.component.caffeine-loadcache.cacheLoader* | To configure a CacheLoader in case of a LoadCache use | null | MEDIUM
 | *camel.component.caffeine-loadcache.createCacheIf NotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | MEDIUM
 | *camel.component.caffeine-loadcache.evictionType* | Set the eviction Type for this cache One of: [size_based] [time_based] | "SIZE_BASED" | MEDIUM

@@ -27,7 +27,7 @@ public class CamelQuickfixSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_QUICKFIX_PATH_CONFIGURATION_NAME_CONF = "camel.source.path.configurationName";
-    public static final String CAMEL_SOURCE_QUICKFIX_PATH_CONFIGURATION_NAME_DOC = "The configFile is the name of the QuickFIX/J configuration to use for the FIX engine (located as a resource found in your classpath).";
+    public static final String CAMEL_SOURCE_QUICKFIX_PATH_CONFIGURATION_NAME_DOC = "Path to the quickfix configuration file. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the configuration file using these protocols (classpath is default). ref will lookup the configuration file in the registry. bean will call a method on a bean to be used as the configuration. For bean you can specify the method name after dot, eg bean:myBean.myMethod";
     public static final String CAMEL_SOURCE_QUICKFIX_PATH_CONFIGURATION_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_CONF = "camel.source.endpoint.lazyCreateEngine";
     public static final String CAMEL_SOURCE_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_DOC = "This option allows to create QuickFIX/J engine on demand. Value true means the engine is started when first message is send or there's consumer configured in route definition. When false value is used, the engine is started at the endpoint creation. When this parameter is missing, the value of component's property lazyCreateEngines is being used.";
