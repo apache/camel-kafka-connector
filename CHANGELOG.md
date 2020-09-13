@@ -123,6 +123,7 @@
 - Upgrade to Kafka 2.5.0 [\#249](https://github.com/apache/camel-kafka-connector/issues/249)
 - Improve integration test support when component dependencies are present [\#211](https://github.com/apache/camel-kafka-connector/issues/211)
 - Support both marshal and unmarshal in source and sinks [\#194](https://github.com/apache/camel-kafka-connector/issues/194)
+- camel-kafka-connector-generator-maven-plugin: implement a component exclusion mechanism [\#148](https://github.com/apache/camel-kafka-connector/issues/148)
 
 **Fixed bugs:**
 
@@ -261,7 +262,6 @@
 - Avoid Thread.sleep in test, use Awaitility FTW [\#186](https://github.com/apache/camel-kafka-connector/issues/186)
 - make the topics property consistent between source and sink connectors [\#175](https://github.com/apache/camel-kafka-connector/issues/175)
 - Produce an assembly artifact containing all the released artifacts [\#165](https://github.com/apache/camel-kafka-connector/issues/165)
-- camel-kafka-connector-generator-maven-plugin: implement a component exclusion mechanism [\#148](https://github.com/apache/camel-kafka-connector/issues/148)
 - Create and ad hoc connector for syslog [\#145](https://github.com/apache/camel-kafka-connector/issues/145)
 - Take in to account endpoint path options order into connector code generation [\#144](https://github.com/apache/camel-kafka-connector/issues/144)
 
