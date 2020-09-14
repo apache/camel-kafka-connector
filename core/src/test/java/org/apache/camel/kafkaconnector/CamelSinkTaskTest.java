@@ -42,11 +42,12 @@ public class CamelSinkTaskTest {
     private static final String SEDA_URI = "seda:test";
     private static final String TOPIC_NAME = "my-topic";
     private static final long RECEIVE_TIMEOUT = 1_000;
+    private static final String TOPIC_CONF = "topics";
 
     @Test
     public void testOnlyBody() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -66,11 +67,40 @@ public class CamelSinkTaskTest {
 
         sinkTask.stop();
     }
+    
+    @Test
+    public void testTopicsRegex() {
+        Map<String, String> props = new HashMap<>();
+        props.put("topics.regex", "topic1*");
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+
+        CamelSinkTask sinkTask = new CamelSinkTask();
+        sinkTask.start(props);
+
+        List<SinkRecord> records = new ArrayList<SinkRecord>();
+        SinkRecord record = new SinkRecord("topic1", 1, null, "test", null, "camel", 42);
+        SinkRecord record1 = new SinkRecord("topic12", 1, null, "test", null, "cameltopicregex", 42);
+        records.add(record);
+        records.add(record1);
+        sinkTask.put(records);
+
+        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
+        assertEquals("camel", exchange.getMessage().getBody());
+        assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
+        assertEquals(LoggingLevel.OFF.toString(), sinkTask.getCamelSinkConnectorConfig(props)
+            .getString(CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF));
+        Exchange exchange1 = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
+        assertEquals("cameltopicregex", exchange1.getMessage().getBody());
+        assertEquals("test", exchange1.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
+
+        sinkTask.stop();
+    }
 
     @Test
     public void testBodyAndHeaders() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -117,7 +147,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testBodyAndProperties() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -160,7 +190,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testBodyAndPropertiesHeadersMixed() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -217,7 +247,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testBodyAndHeadersMap() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -271,7 +301,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testBodyAndPropertiesHeadersMapMixed() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -346,7 +376,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testBodyAndHeadersList() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -396,7 +426,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testBodyAndPropertiesHeadersListMixed() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -465,7 +495,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testUrlPrecedenceOnComponentProperty() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "shouldNotBeUsed");
         props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "endpointProperty", "shouldNotBeUsed");
@@ -490,7 +520,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testOnlyBodyUsingComponentProperty() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "seda");
         props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "bridgeErrorHandler", "true");
         props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "name", "test");
@@ -516,7 +546,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testOnlyBodyUsingMultipleComponentProperties() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "seda");
         props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "bridgeErrorHandler", "true");
         props.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "size", "50");
@@ -544,7 +574,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testIfExchangeFailsShouldThrowConnectException() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         // we use a dummy component sink in order fail the exchange delivery
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "direct");
         props.put(CamelSinkTask.getCamelSinkPathConfigPrefix() + "name", "test");
@@ -564,7 +594,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testAggregationBody() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_CONF, "#class:org.apache.camel.kafkaconnector.utils.SampleAggregator");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_SIZE_CONF, "5");
@@ -599,7 +629,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testAggregationBodyAndTimeout() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_CONF, "#class:org.apache.camel.kafkaconnector.utils.SampleAggregator");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_SIZE_CONF, "5");
@@ -635,7 +665,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testSecretRaw() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put("camel.sink.endpoint.secretKey", "se+ret");
         props.put("camel.sink.endpoint.accessKey", "MoreSe+ret$");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "aws2-sqs");
@@ -649,7 +679,7 @@ public class CamelSinkTaskTest {
     @Test
     public void testSecretRawReference() {
         Map<String, String> props = new HashMap<>();
-        props.put(CamelSinkConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(TOPIC_CONF, TOPIC_NAME);
         props.put("camel.sink.endpoint.secretKey", "#bean:mySecretKey");
         props.put("camel.sink.endpoint.accessKey", "#property:myAccessKey");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "aws2-sqs");
