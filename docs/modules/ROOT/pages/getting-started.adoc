@@ -7,4 +7,4 @@ To get started try it out xref:try-it-out-locally.adoc[locally] or on xref:try-i
 
 For more information on how to install the connector packages, take a look at xref:getting-started-with-packages.adoc[Packages documentation].
 
-For more information join the community on the https://camel.apache.org/community/mailing-list/[Camel Users mailing list] or chat on https://gitter.im/apache/camel-kafka-connector[Gitter chat] and have a look at the https://github.com/apache/camel-kafka-connector/[Camel Kafka Connector GitHub repository].
+For more information join the community on the https://camel.apache.org/community/mailing-list/[Camel Users mailing list] or chat on https://camel.zulipchat.com[Zuliptter chat] and have a look at the https://github.com/apache/camel-kafka-connector/[Camel Kafka Connector GitHub repository].

@@ -27,7 +27,7 @@ All communication is subject to the https://www.apache.org/foundation/policies/c
 
 There are various ways of communicating with the Camel community.
 
-We can also be reached on the Gitter chat at https://gitter.im/apache/camel-kafka-connector/.
+We can also be reached on the Zulip chat at https://camel.zulipchat.com.
 
 We track issues using the https://github.com/apache/camel-kafka-connector/issues[issues tracker in Github]
 
