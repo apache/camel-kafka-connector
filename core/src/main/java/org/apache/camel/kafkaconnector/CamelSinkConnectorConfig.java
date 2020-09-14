@@ -43,7 +43,7 @@ public class CamelSinkConnectorConfig extends AbstractConfig {
     public static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination. If this is set " + CAMEL_SINK_COMPONENT_CONF
             + " and all the properties starting with " + CamelSinkTask.getCamelSinkEndpointConfigPrefix() + ".<" + CAMEL_SINK_COMPONENT_CONF + " value> are ignored.";
 
-    public static final String TOPIC_DEFAULT = "test";
+    public static final String TOPIC_DEFAULT = null;
     public static final String TOPIC_CONF = "topics";
     public static final String TOPIC_DOC = "A list of topics to use as input for this connector";
 
