@@ -70,7 +70,7 @@ The camel-google-mail-stream source connector supports 44 options, which are lis
 | *camel.component.google-mail-stream.maxResults* | Max results to be returned | 10L | MEDIUM
 | *camel.component.google-mail-stream.query* | The query to execute on gmail box | "is:unread" | MEDIUM
 | *camel.component.google-mail-stream.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
-| *camel.component.google-mail-stream.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.google-mail-stream.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.google-mail-stream.clientFactory* | The client Factory | null | MEDIUM
 | *camel.component.google-mail-stream.configuration* | The configuration | null | MEDIUM
 |===

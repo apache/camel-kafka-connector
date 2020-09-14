@@ -59,7 +59,7 @@ The camel-aws-translate sink connector supports 31 options, which are listed bel
 | *camel.component.aws-translate.sourceLanguage* | Source language to use | null | MEDIUM
 | *camel.component.aws-translate.targetLanguage* | Target language to use | null | MEDIUM
 | *camel.component.aws-translate.translateClient* | To use a existing configured AWS Translate as client | null | MEDIUM
-| *camel.component.aws-translate.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-translate.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 
