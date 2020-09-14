@@ -68,7 +68,7 @@ The camel-aws-sns sink connector supports 42 options, which are listed below.
 | *camel.component.aws-sns.serverSideEncryption Enabled* | Define if Server Side Encryption is enabled or not on the topic | false | MEDIUM
 | *camel.component.aws-sns.subject* | The subject which is used if the message header 'CamelAwsSnsSubject' is not present. | null | MEDIUM
 | *camel.component.aws-sns.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | MEDIUM
-| *camel.component.aws-sns.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-sns.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-sns.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-sns.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

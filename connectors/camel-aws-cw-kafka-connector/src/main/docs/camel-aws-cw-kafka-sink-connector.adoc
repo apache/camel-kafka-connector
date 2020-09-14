@@ -57,7 +57,7 @@ The camel-aws-cw sink connector supports 31 options, which are listed below.
 | *camel.component.aws-cw.timestamp* | The metric timestamp | null | MEDIUM
 | *camel.component.aws-cw.unit* | The metric unit | null | MEDIUM
 | *camel.component.aws-cw.value* | The metric value | null | MEDIUM
-| *camel.component.aws-cw.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-cw.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-cw.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-cw.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
