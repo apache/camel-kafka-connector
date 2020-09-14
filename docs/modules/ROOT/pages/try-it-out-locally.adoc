@@ -305,7 +305,7 @@ First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive i
 > unzip camel-cql-kafka-connector-0.3.0-SNAPSHOT-package.zip
 ----
 
-This example adds data to the `users` table in Cassandra from the data consumed from the `mytopic` Kafka topic. Notice how the `name` column is populated from the Kafka message using CQL comand `insert into users...`.
+This example adds data to the `users` table in Cassandra from the data consumed from the `mytopic` Kafka topic. Notice how the `name` column is populated from the Kafka message using CQL command `insert into users...`.
 
 .Run the Cassandra CQL sink:
 [source,bash]
