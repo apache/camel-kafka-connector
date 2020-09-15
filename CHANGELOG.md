@@ -6,10 +6,14 @@
 
 **Closed issues:**
 
+- Support topics.regex  [\#454](https://github.com/apache/camel-kafka-connector/issues/454)
 - Define a default naming for converters, transforms and aggregation packages [\#439](https://github.com/apache/camel-kafka-connector/issues/439)
 
 **Merged pull requests:**
 
+- Document Update [\#461](https://github.com/apache/camel-kafka-connector/pull/461) ([NiteshKoushik](https://github.com/NiteshKoushik))
+- Switch from Gitter to Zulip [\#459](https://github.com/apache/camel-kafka-connector/pull/459) ([lburgazzoli](https://github.com/lburgazzoli))
+- Support for topics.regex [\#458](https://github.com/apache/camel-kafka-connector/pull/458) ([oscerd](https://github.com/oscerd))
 - Added 0.5.0 to the compatibility matrix [\#453](https://github.com/apache/camel-kafka-connector/pull/453) ([oscerd](https://github.com/oscerd))
 - 0.5.0 docs [\#452](https://github.com/apache/camel-kafka-connector/pull/452) ([oscerd](https://github.com/oscerd))
 - Updated SQS example [\#450](https://github.com/apache/camel-kafka-connector/pull/450) ([oscerd](https://github.com/oscerd))
