@@ -143,7 +143,7 @@ For example, when handling credentials or different communication protocols that
 might make sense to abstract that logic from the test code.
 
 A specialized service factory class is responsible for creating the service according to runtime parameters and/or
-other test scenarios constraints. When a service allow different service types or locations to be selected, this
+other test scenarios constraints. When a service allows different service types or locations to be selected, this
 should be done via command line properties (`-D<property.name>=<value>`). For example, when allowing a service to choose
 between running as a local container or as remote instance, a property in the format `<name>.instance.type` should be
 handled. Additional runtime parameters used in different scenarios, should be handled as `<name>.<parameter>`.
