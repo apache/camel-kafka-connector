@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.common.services.kafka;
 
+import org.apache.camel.test.infra.kafka.services.KafkaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,25 +31,11 @@ public final class KafkaServiceFactory {
     public static KafkaService createService() {
         String kafkaInstanceType = System.getProperty("kafka.instance.type");
 
-
         if (kafkaInstanceType == null || kafkaInstanceType.equals("embedded")) {
             return new EmbeddedKafkaService();
         }
 
-        if (kafkaInstanceType.equals("local-strimzi-container")) {
-            return new StrimziService();
-        }
-
-        if (kafkaInstanceType.equals("local-kafka-container")) {
-            return new ContainerLocalKafkaService();
-        }
-
-        if (kafkaInstanceType.equals("remote")) {
-            return new RemoteKafkaService();
-        }
-
-        LOG.error("Kafka instance must be one of 'local-strimzi-container', 'local-kafka-container', 'embedded' or 'remote");
-        throw new UnsupportedOperationException("Invalid Kafka instance type");
+        return org.apache.camel.test.infra.kafka.services.KafkaServiceFactory.createService();
     }
 
 }
