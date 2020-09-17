@@ -18,7 +18,7 @@
 package org.apache.camel.kafkaconnector.common.services.kafkaconnect;
 
 import org.apache.camel.kafkaconnector.common.services.kafka.EmbeddedKafkaService;
-import org.apache.camel.kafkaconnector.common.services.kafka.KafkaService;
+import org.apache.camel.test.infra.kafka.services.KafkaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
