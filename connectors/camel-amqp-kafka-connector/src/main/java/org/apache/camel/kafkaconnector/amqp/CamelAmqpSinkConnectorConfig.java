@@ -55,7 +55,7 @@ public class CamelAmqpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AMQP_ENDPOINT_DELIVERY_DELAY_DOC = "Sets delivery delay to use for send calls for JMS. This option requires JMS 2.0 compliant broker.";
     public static final Long CAMEL_SINK_AMQP_ENDPOINT_DELIVERY_DELAY_DEFAULT = -1L;
     public static final String CAMEL_SINK_AMQP_ENDPOINT_DELIVERY_MODE_CONF = "camel.sink.endpoint.deliveryMode";
-    public static final String CAMEL_SINK_AMQP_ENDPOINT_DELIVERY_MODE_DOC = "Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]";
+    public static final String CAMEL_SINK_AMQP_ENDPOINT_DELIVERY_MODE_DOC = "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]";
     public static final String CAMEL_SINK_AMQP_ENDPOINT_DELIVERY_MODE_DEFAULT = null;
     public static final String CAMEL_SINK_AMQP_ENDPOINT_DELIVERY_PERSISTENT_CONF = "camel.sink.endpoint.deliveryPersistent";
     public static final String CAMEL_SINK_AMQP_ENDPOINT_DELIVERY_PERSISTENT_DOC = "Specifies whether persistent delivery is used by default.";
@@ -268,7 +268,7 @@ public class CamelAmqpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AMQP_COMPONENT_DELIVERY_DELAY_DOC = "Sets delivery delay to use for send calls for JMS. This option requires JMS 2.0 compliant broker.";
     public static final Long CAMEL_SINK_AMQP_COMPONENT_DELIVERY_DELAY_DEFAULT = -1L;
     public static final String CAMEL_SINK_AMQP_COMPONENT_DELIVERY_MODE_CONF = "camel.component.amqp.deliveryMode";
-    public static final String CAMEL_SINK_AMQP_COMPONENT_DELIVERY_MODE_DOC = "Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]";
+    public static final String CAMEL_SINK_AMQP_COMPONENT_DELIVERY_MODE_DOC = "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]";
     public static final String CAMEL_SINK_AMQP_COMPONENT_DELIVERY_MODE_DEFAULT = null;
     public static final String CAMEL_SINK_AMQP_COMPONENT_DELIVERY_PERSISTENT_CONF = "camel.component.amqp.deliveryPersistent";
     public static final String CAMEL_SINK_AMQP_COMPONENT_DELIVERY_PERSISTENT_DOC = "Specifies whether persistent delivery is used by default.";
