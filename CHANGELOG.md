@@ -12,6 +12,9 @@
 
 **Merged pull requests:**
 
+- Replaced the use of kubectl with oc command. [\#468](https://github.com/apache/camel-kafka-connector/pull/468) ([valdar](https://github.com/valdar))
+- Updated opesnhift documentation to strimzi 0.19.0 and compatible with… [\#467](https://github.com/apache/camel-kafka-connector/pull/467) ([valdar](https://github.com/valdar))
+- Document update [\#464](https://github.com/apache/camel-kafka-connector/pull/464) ([NiteshKoushik](https://github.com/NiteshKoushik))
 - Document Update [\#461](https://github.com/apache/camel-kafka-connector/pull/461) ([NiteshKoushik](https://github.com/NiteshKoushik))
 - Document Update [\#460](https://github.com/apache/camel-kafka-connector/pull/460) ([NiteshKoushik](https://github.com/NiteshKoushik))
 - Switch from Gitter to Zulip [\#459](https://github.com/apache/camel-kafka-connector/pull/459) ([lburgazzoli](https://github.com/lburgazzoli))
@@ -89,7 +92,6 @@
 - Added connector class on each connector documentation page [\#405](https://github.com/apache/camel-kafka-connector/pull/405) ([oscerd](https://github.com/oscerd))
 - Added a pipeline for deploying on daily basis [\#404](https://github.com/apache/camel-kafka-connector/pull/404) ([oscerd](https://github.com/oscerd))
 - \#389 - Fix doc- Kubernetes command [\#401](https://github.com/apache/camel-kafka-connector/pull/401) ([rogeriob2br](https://github.com/rogeriob2br))
-- Fix mongodb test [\#396](https://github.com/apache/camel-kafka-connector/pull/396) ([unsortedhashsets](https://github.com/unsortedhashsets))
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
 - Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
 - Added automatic-sync gh action for camel-kafka-connector on camel-mas… [\#392](https://github.com/apache/camel-kafka-connector/pull/392) ([oscerd](https://github.com/oscerd))
