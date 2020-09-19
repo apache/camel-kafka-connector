@@ -12,6 +12,7 @@
 
 **Merged pull requests:**
 
+- .asf.yaml: Enabled only rebase and squash button on PR [\#471](https://github.com/apache/camel-kafka-connector/pull/471) ([oscerd](https://github.com/oscerd))
 - Replaced the use of kubectl with oc command. [\#468](https://github.com/apache/camel-kafka-connector/pull/468) ([valdar](https://github.com/valdar))
 - Updated opesnhift documentation to strimzi 0.19.0 and compatible with… [\#467](https://github.com/apache/camel-kafka-connector/pull/467) ([valdar](https://github.com/valdar))
 - Document update [\#464](https://github.com/apache/camel-kafka-connector/pull/464) ([NiteshKoushik](https://github.com/NiteshKoushik))
