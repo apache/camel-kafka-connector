@@ -122,6 +122,7 @@
                         <param>debezium-mysql</param>
                         <param>debezium-postgres</param>
                         <param>debezium-sqlserver</param>
+                        <param>digitalocean</param>
                         <param>kafka</param>
                         <param>mock</param>
                         <param>ref</param>
@@ -261,7 +262,6 @@
         <module>camel-cxf-kafka-connector</module>
         <module>camel-cxfrs-kafka-connector</module>
         <module>camel-dataformat-kafka-connector</module>
-        <module>camel-digitalocean-kafka-connector</module>
         <module>camel-direct-kafka-connector</module>
         <module>camel-direct-vm-kafka-connector</module>
         <module>camel-disruptor-kafka-connector</module>
