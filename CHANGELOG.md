@@ -87,7 +87,6 @@
 - Remove deploy phase from Jenkinsfile, we have the daily snapshot depl… [\#417](https://github.com/apache/camel-kafka-connector/pull/417) ([oscerd](https://github.com/oscerd))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#416](https://github.com/apache/camel-kafka-connector/pull/416) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Activemq-all note for SJMS2 connector [\#415](https://github.com/apache/camel-kafka-connector/pull/415) ([oscerd](https://github.com/oscerd))
-- Rework the testing documentation and adds test writing details [\#413](https://github.com/apache/camel-kafka-connector/pull/413) ([orpiske](https://github.com/orpiske))
 - Added new test for Azure Storage Queue sink [\#412](https://github.com/apache/camel-kafka-connector/pull/412) ([orpiske](https://github.com/orpiske))
 - Support Multiple topics on Source Connector [\#411](https://github.com/apache/camel-kafka-connector/pull/411) ([oscerd](https://github.com/oscerd))
 - Added connector class on each connector documentation page [\#405](https://github.com/apache/camel-kafka-connector/pull/405) ([oscerd](https://github.com/oscerd))
