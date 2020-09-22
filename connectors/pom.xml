@@ -236,7 +236,6 @@
         <module>camel-beanstalk-kafka-connector</module>
         <module>camel-box-kafka-connector</module>
         <module>camel-braintree-kafka-connector</module>
-        <module>camel-browse-kafka-connector</module>
         <module>camel-caffeine-cache-kafka-connector</module>
         <module>camel-caffeine-loadcache-kafka-connector</module>
         <module>camel-chatscript-kafka-connector</module>
