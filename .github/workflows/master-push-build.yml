@@ -40,4 +40,4 @@ jobs:
         run: |
             ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:parent,org.apache.camel.kafkaconnector:camel-kafka-connector-aggregator,org.apache.camel.kafkaconnector:camel-buildtools clean install
             ./mvnw -V --no-transfer-progress --projects org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean install
-            ./mvnw -V --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
+            ./mvnw -Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 -V --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
