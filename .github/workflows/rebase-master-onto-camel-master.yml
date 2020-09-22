@@ -38,6 +38,13 @@ jobs:
         with:
           ref: camel-master
           fetch-depth: 0
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: Rebase branch master onto camel-master
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
