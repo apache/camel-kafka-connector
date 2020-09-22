@@ -33,6 +33,13 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: mvn sourcecheck + build and itests
         # first command builds the source check module,
         # second one source check and install :camel-kafka-connector-generator-maven-plugin. This is needed to add maven plugin metadata to it,
