@@ -39,7 +39,7 @@ public final class CassandraServiceFactory {
         }
 
         LOG.error("Cassandra instance must be one of 'local-cassandra-container' or 'remote");
-        throw new UnsupportedOperationException("Invalid Cassandra instance type:");
+        throw new UnsupportedOperationException("Invalid Cassandra instance type");
 
     }
 }

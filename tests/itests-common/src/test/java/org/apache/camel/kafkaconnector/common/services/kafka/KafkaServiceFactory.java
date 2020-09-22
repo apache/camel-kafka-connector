@@ -48,7 +48,7 @@ public final class KafkaServiceFactory {
         }
 
         LOG.error("Kafka instance must be one of 'local-strimzi-container', 'local-kafka-container', 'embedded' or 'remote");
-        throw new UnsupportedOperationException("Invalid Kafka instance type:");
+        throw new UnsupportedOperationException("Invalid Kafka instance type");
     }
 
 }
