@@ -43,6 +43,6 @@ public final class JMSServiceFactory {
 
         LOG.error("Invalid JMS instance type: {}. Must be one of 'remote', 'local-artemis-container' or 'local-dispatch-router-container",
                 jmsInstanceType);
-        throw new UnsupportedOperationException("Invalid JMS instance type:");
+        throw new UnsupportedOperationException("Invalid JMS instance type");
     }
 }
