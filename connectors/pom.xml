@@ -116,6 +116,8 @@
                         <param>aws2-kms</param>
                         <param>aws2-mq</param>
                         <param>aws2-msk</param>
+                        <param>browse</param>
+                        <param>class</param>                       
                         <param>dataset</param>
                         <param>dataset-test</param>
                         <param>debezium-mongodb</param>
@@ -236,12 +238,10 @@
         <module>camel-beanstalk-kafka-connector</module>
         <module>camel-box-kafka-connector</module>
         <module>camel-braintree-kafka-connector</module>
-        <module>camel-browse-kafka-connector</module>
         <module>camel-caffeine-cache-kafka-connector</module>
         <module>camel-caffeine-loadcache-kafka-connector</module>
         <module>camel-chatscript-kafka-connector</module>
         <module>camel-chunk-kafka-connector</module>
-        <module>camel-class-kafka-connector</module>
         <module>camel-cm-sms-kafka-connector</module>
         <module>camel-cmis-kafka-connector</module>
         <module>camel-coap-kafka-connector</module>
