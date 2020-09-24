@@ -116,7 +116,6 @@
                         <param>aws2-kms</param>
                         <param>aws2-mq</param>
                         <param>aws2-msk</param>
-                        <param>bean</param>
                         <param>browse</param>
                         <param>class</param>
                         <param>dataset</param>
@@ -234,6 +233,7 @@
         <module>camel-azure-queue-kafka-connector</module>
         <module>camel-azure-storage-blob-kafka-connector</module>
         <module>camel-azure-storage-queue-kafka-connector</module>
+        <module>camel-bean-kafka-connector</module>
         <module>camel-bean-validator-kafka-connector</module>
         <module>camel-beanstalk-kafka-connector</module>
         <module>camel-box-kafka-connector</module>
