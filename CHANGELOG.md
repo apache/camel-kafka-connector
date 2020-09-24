@@ -12,6 +12,8 @@
 
 **Merged pull requests:**
 
+- Bean connector removed [\#481](https://github.com/apache/camel-kafka-connector/pull/481) ([oscerd](https://github.com/oscerd))
+- Added AWS S3 test using AWS v2 [\#480](https://github.com/apache/camel-kafka-connector/pull/480) ([orpiske](https://github.com/orpiske))
 - Fix GH connection timeout issue [\#478](https://github.com/apache/camel-kafka-connector/pull/478) ([orpiske](https://github.com/orpiske))
 - Fixes typos when an invalid instance type is provided [\#477](https://github.com/apache/camel-kafka-connector/pull/477) ([orpiske](https://github.com/orpiske))
 - Implement the connection timeout work-around [\#476](https://github.com/apache/camel-kafka-connector/pull/476) ([orpiske](https://github.com/orpiske))
@@ -266,7 +268,6 @@
 - Fixed con cong autogen [\#222](https://github.com/apache/camel-kafka-connector/pull/222) ([valdar](https://github.com/valdar))
 - Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
 - Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
-- Produce an assembly artifact containing all the released artifacts [\#195](https://github.com/apache/camel-kafka-connector/pull/195) ([oscerd](https://github.com/oscerd))
 - Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
 
 ## [camel-kafka-connector-0.2.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0) (2020-05-17)
@@ -313,6 +314,7 @@
 - Flakey tests [\#200](https://github.com/apache/camel-kafka-connector/pull/200) ([valdar](https://github.com/valdar))
 - Generate a table with supported connectors [\#198](https://github.com/apache/camel-kafka-connector/pull/198) ([oscerd](https://github.com/oscerd))
 - Make the topics property consistent between source and sink connectors [\#196](https://github.com/apache/camel-kafka-connector/pull/196) ([oscerd](https://github.com/oscerd))
+- Produce an assembly artifact containing all the released artifacts [\#195](https://github.com/apache/camel-kafka-connector/pull/195) ([oscerd](https://github.com/oscerd))
 - Switched to use RuntimeCatalog.asEndpointUri method to construct the … [\#192](https://github.com/apache/camel-kafka-connector/pull/192) ([valdar](https://github.com/valdar))
 - Connectors doc: Show up only the priority in the table column [\#190](https://github.com/apache/camel-kafka-connector/pull/190) ([oscerd](https://github.com/oscerd))
 - Added test on different component properties formats fix \#132 [\#187](https://github.com/apache/camel-kafka-connector/pull/187) ([valdar](https://github.com/valdar))
