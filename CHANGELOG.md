@@ -12,6 +12,8 @@
 
 **Merged pull requests:**
 
+- Removed bean-validator kafka connector [\#483](https://github.com/apache/camel-kafka-connector/pull/483) ([oscerd](https://github.com/oscerd))
+- Re-introduce camel-bean-kafka-connector [\#482](https://github.com/apache/camel-kafka-connector/pull/482) ([oscerd](https://github.com/oscerd))
 - Bean connector removed [\#481](https://github.com/apache/camel-kafka-connector/pull/481) ([oscerd](https://github.com/oscerd))
 - Added AWS S3 test using AWS v2 [\#480](https://github.com/apache/camel-kafka-connector/pull/480) ([orpiske](https://github.com/orpiske))
 - Fix GH connection timeout issue [\#478](https://github.com/apache/camel-kafka-connector/pull/478) ([orpiske](https://github.com/orpiske))
