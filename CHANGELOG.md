@@ -106,7 +106,6 @@
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
 - Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
 - Added automatic-sync gh action for camel-kafka-connector on camel-mas… [\#392](https://github.com/apache/camel-kafka-connector/pull/392) ([oscerd](https://github.com/oscerd))
-- Fix cassandra for camel 3.5 [\#391](https://github.com/apache/camel-kafka-connector/pull/391) ([orpiske](https://github.com/orpiske))
 - Adds basic aggregation test \(github issue \#291\) [\#388](https://github.com/apache/camel-kafka-connector/pull/388) ([orpiske](https://github.com/orpiske))
 - Fix flaky syslog test [\#386](https://github.com/apache/camel-kafka-connector/pull/386) ([orpiske](https://github.com/orpiske))
 - Added a simple troubleshooting guide [\#383](https://github.com/apache/camel-kafka-connector/pull/383) ([orpiske](https://github.com/orpiske))
@@ -129,7 +128,6 @@
 - Upgrade Archetype docs [\#354](https://github.com/apache/camel-kafka-connector/pull/354) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#352](https://github.com/apache/camel-kafka-connector/pull/352) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#350](https://github.com/apache/camel-kafka-connector/pull/350) ([oscerd](https://github.com/oscerd))
-- Pointing to 0.4.x on this branch for antora [\#348](https://github.com/apache/camel-kafka-connector/pull/348) ([oscerd](https://github.com/oscerd))
 - Release 0.4.0 [\#346](https://github.com/apache/camel-kafka-connector/pull/346) ([oscerd](https://github.com/oscerd))
 - AWS Kinesis test fixes when in remote mode [\#345](https://github.com/apache/camel-kafka-connector/pull/345) ([orpiske](https://github.com/orpiske))
 
