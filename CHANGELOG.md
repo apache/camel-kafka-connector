@@ -12,6 +12,7 @@
 
 **Merged pull requests:**
 
+- Fixes changelog to run only on master [\#488](https://github.com/apache/camel-kafka-connector/pull/488) ([oscerd](https://github.com/oscerd))
 - Removed bean-validator kafka connector [\#483](https://github.com/apache/camel-kafka-connector/pull/483) ([oscerd](https://github.com/oscerd))
 - Re-introduce camel-bean-kafka-connector [\#482](https://github.com/apache/camel-kafka-connector/pull/482) ([oscerd](https://github.com/oscerd))
 - Bean connector removed [\#481](https://github.com/apache/camel-kafka-connector/pull/481) ([oscerd](https://github.com/oscerd))
@@ -124,7 +125,6 @@
 - AWS SDK v2 integration tests: Kinesis [\#358](https://github.com/apache/camel-kafka-connector/pull/358) ([orpiske](https://github.com/orpiske))
 - Use latest Strimzi's docker images [\#357](https://github.com/apache/camel-kafka-connector/pull/357) ([oscerd](https://github.com/oscerd))
 - Fixed camel compatibility matrix table [\#356](https://github.com/apache/camel-kafka-connector/pull/356) ([oscerd](https://github.com/oscerd))
-- Added a camel-compatibility matrix page [\#355](https://github.com/apache/camel-kafka-connector/pull/355) ([oscerd](https://github.com/oscerd))
 - Upgrade Archetype docs [\#354](https://github.com/apache/camel-kafka-connector/pull/354) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#352](https://github.com/apache/camel-kafka-connector/pull/352) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#350](https://github.com/apache/camel-kafka-connector/pull/350) ([oscerd](https://github.com/oscerd))
