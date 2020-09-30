@@ -52,11 +52,11 @@ public class CamelSinkConnectorConfig extends AbstractConfig {
     public static final String CAMEL_SINK_AGGREGATE_DOC = "A reference to an aggregate bean, in the form of #class:";    
 
     public static final Integer CAMEL_SINK_AGGREGATE_SIZE_DEFAULT = 10;
-    public static final String CAMEL_SINK_AGGREGATE_SIZE_CONF = "camel.beans.aggregation.size";
+    public static final String CAMEL_SINK_AGGREGATE_SIZE_CONF = "camel.aggregation.size";
     public static final String CAMEL_SINK_AGGREGATE_SIZE_DOC = "The size of the aggregation, to be used in combination with camel.beans.aggregate";
     
     public static final Long CAMEL_SINK_AGGREGATE_TIMEOUT_DEFAULT = 500L;
-    public static final String CAMEL_SINK_AGGREGATE_TIMEOUT_CONF = "camel.beans.aggregation.timeout";
+    public static final String CAMEL_SINK_AGGREGATE_TIMEOUT_CONF = "camel.aggregation.timeout";
     public static final String CAMEL_SINK_AGGREGATE_TIMEOUT_DOC = "The timeout of the aggregation, to be used in combination with camel.beans.aggregate";    
 
     private static final ConfigDef CONFIG_DEF = new ConfigDef()
