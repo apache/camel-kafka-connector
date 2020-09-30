@@ -105,7 +105,7 @@ The camel-aws-s3 source connector supports 79 options, which are listed below.
 | *camel.component.aws-s3.dualstackEnabled* | Define if Dualstack enabled is true or false | false | MEDIUM
 | *camel.component.aws-s3.forceGlobalBucketAccess Enabled* | Define if Force Global Bucket Access enabled is true or false | false | MEDIUM
 | *camel.component.aws-s3.payloadSigningEnabled* | Define if Payload Signing enabled is true or false | false | MEDIUM
-| *camel.component.aws-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-s3.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-s3.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
