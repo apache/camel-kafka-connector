@@ -67,7 +67,7 @@ The camel-mina source connector supports 54 options, which are listed below.
 | *camel.component.mina.clientMode* | If the clientMode is true, mina consumer will connect the address as a TCP client. | false | MEDIUM
 | *camel.component.mina.disconnectOnNoReply* | If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back. | true | MEDIUM
 | *camel.component.mina.noReplyLogLevel* | If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "WARN" | MEDIUM
-| *camel.component.mina.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.mina.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.mina.configuration* | To use the shared mina configuration. | null | MEDIUM
 | *camel.component.mina.maximumPoolSize* | Number of worker threads in the worker pool for TCP and UDP | 16 | MEDIUM
 | *camel.component.mina.orderedThreadPoolExecutor* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | MEDIUM

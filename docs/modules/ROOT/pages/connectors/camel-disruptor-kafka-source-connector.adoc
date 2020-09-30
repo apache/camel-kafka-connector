@@ -44,7 +44,7 @@ The camel-disruptor source connector supports 16 options, which are listed below
 | *camel.component.disruptor.defaultConcurrent Consumers* | To configure the default number of concurrent consumers | 1 | MEDIUM
 | *camel.component.disruptor.defaultMultipleConsumers* | To configure the default value for multiple consumers | false | MEDIUM
 | *camel.component.disruptor.defaultWaitStrategy* | To configure the default value for DisruptorWaitStrategy The default value is Blocking. One of: [Blocking] [Sleeping] [BusySpin] [Yielding] | "Blocking" | MEDIUM
-| *camel.component.disruptor.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.disruptor.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 

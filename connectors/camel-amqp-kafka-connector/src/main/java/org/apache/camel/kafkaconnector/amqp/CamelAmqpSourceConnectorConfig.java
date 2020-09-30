@@ -47,6 +47,9 @@ public class CamelAmqpSourceConnectorConfig
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_JMS_MESSAGE_TYPE_CONF = "camel.source.endpoint.jmsMessageType";
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_JMS_MESSAGE_TYPE_DOC = "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]";
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_JMS_MESSAGE_TYPE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_CONF = "camel.source.endpoint.replyTo";
+    public static final String CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DOC = "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).";
+    public static final String CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DEFAULT = null;
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF = "camel.source.endpoint.testConnectionOnStartup";
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC = "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.";
     public static final Boolean CAMEL_SOURCE_AMQP_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT = false;
@@ -71,9 +74,6 @@ public class CamelAmqpSourceConnectorConfig
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_MAX_CONCURRENT_CONSUMERS_CONF = "camel.source.endpoint.maxConcurrentConsumers";
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_MAX_CONCURRENT_CONSUMERS_DOC = "Specifies the maximum number of concurrent consumers when consuming from JMS (not for request/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up/down of threads. When doing request/reply over JMS then the option replyToMaxConcurrentConsumers is used to control number of concurrent consumers on the reply message listener.";
     public static final Integer CAMEL_SOURCE_AMQP_ENDPOINT_MAX_CONCURRENT_CONSUMERS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_CONF = "camel.source.endpoint.replyTo";
-    public static final String CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DOC = "Provides an explicit ReplyTo destination, which overrides any incoming value of Message.getJMSReplyTo().";
-    public static final String CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DEFAULT = null;
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_CONF = "camel.source.endpoint.replyToDeliveryPersistent";
     public static final String CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_DOC = "Specifies whether to use persistent delivery by default for replies.";
     public static final Boolean CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_DEFAULT = true;
@@ -260,6 +260,9 @@ public class CamelAmqpSourceConnectorConfig
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_JMS_MESSAGE_TYPE_CONF = "camel.component.amqp.jmsMessageType";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_JMS_MESSAGE_TYPE_DOC = "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_JMS_MESSAGE_TYPE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_CONF = "camel.component.amqp.replyTo";
+    public static final String CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DOC = "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).";
+    public static final String CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DEFAULT = null;
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_TEST_CONNECTION_ON_STARTUP_CONF = "camel.component.amqp.testConnectionOnStartup";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_TEST_CONNECTION_ON_STARTUP_DOC = "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.";
     public static final Boolean CAMEL_SOURCE_AMQP_COMPONENT_TEST_CONNECTION_ON_STARTUP_DEFAULT = false;
@@ -284,9 +287,6 @@ public class CamelAmqpSourceConnectorConfig
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_MAX_CONCURRENT_CONSUMERS_CONF = "camel.component.amqp.maxConcurrentConsumers";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_MAX_CONCURRENT_CONSUMERS_DOC = "Specifies the maximum number of concurrent consumers when consuming from JMS (not for request/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up/down of threads. When doing request/reply over JMS then the option replyToMaxConcurrentConsumers is used to control number of concurrent consumers on the reply message listener.";
     public static final Integer CAMEL_SOURCE_AMQP_COMPONENT_MAX_CONCURRENT_CONSUMERS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_CONF = "camel.component.amqp.replyTo";
-    public static final String CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DOC = "Provides an explicit ReplyTo destination, which overrides any incoming value of Message.getJMSReplyTo().";
-    public static final String CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DEFAULT = null;
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DELIVERY_PERSISTENT_CONF = "camel.component.amqp.replyToDeliveryPersistent";
     public static final String CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DELIVERY_PERSISTENT_DOC = "Specifies whether to use persistent delivery by default for replies.";
     public static final Boolean CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DELIVERY_PERSISTENT_DEFAULT = true;
@@ -478,6 +478,7 @@ public class CamelAmqpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_DISABLE_REPLY_TO_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_ENDPOINT_DISABLE_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_DISABLE_REPLY_TO_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_DURABLE_SUBSCRIPTION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_ENDPOINT_DURABLE_SUBSCRIPTION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_DURABLE_SUBSCRIPTION_NAME_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_JMS_MESSAGE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_ENDPOINT_JMS_MESSAGE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_JMS_MESSAGE_TYPE_DOC);
+        conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_ACKNOWLEDGEMENT_MODE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_ENDPOINT_ACKNOWLEDGEMENT_MODE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_ACKNOWLEDGEMENT_MODE_NAME_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_ASYNC_CONSUMER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_ENDPOINT_ASYNC_CONSUMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_ASYNC_CONSUMER_DOC);
@@ -486,7 +487,6 @@ public class CamelAmqpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_CACHE_LEVEL_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_ENDPOINT_CACHE_LEVEL_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_CACHE_LEVEL_NAME_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AMQP_ENDPOINT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_CONCURRENT_CONSUMERS_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_MAX_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AMQP_ENDPOINT_MAX_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_MAX_CONCURRENT_CONSUMERS_DOC);
-        conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_REPLY_TO_DELIVERY_PERSISTENT_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_SELECTOR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_ENDPOINT_SELECTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_SELECTOR_DOC);
         conf.define(CAMEL_SOURCE_AMQP_ENDPOINT_SUBSCRIPTION_DURABLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_ENDPOINT_SUBSCRIPTION_DURABLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_ENDPOINT_SUBSCRIPTION_DURABLE_DOC);
@@ -549,6 +549,7 @@ public class CamelAmqpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_DURABLE_SUBSCRIPTION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_DURABLE_SUBSCRIPTION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_DURABLE_SUBSCRIPTION_NAME_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_INCLUDE_AMQP_ANNOTATIONS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_INCLUDE_AMQP_ANNOTATIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_INCLUDE_AMQP_ANNOTATIONS_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_JMS_MESSAGE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_JMS_MESSAGE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_JMS_MESSAGE_TYPE_DOC);
+        conf.define(CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_TEST_CONNECTION_ON_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_TEST_CONNECTION_ON_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_TEST_CONNECTION_ON_STARTUP_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_ACKNOWLEDGEMENT_MODE_NAME_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_CONSUMER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_CONSUMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_CONSUMER_DOC);
@@ -557,7 +558,6 @@ public class CamelAmqpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_CACHE_LEVEL_NAME_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AMQP_COMPONENT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_CONCURRENT_CONSUMERS_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_MAX_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AMQP_COMPONENT_MAX_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_MAX_CONCURRENT_CONSUMERS_DOC);
-        conf.define(CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DELIVERY_PERSISTENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DELIVERY_PERSISTENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_REPLY_TO_DELIVERY_PERSISTENT_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_SELECTOR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_SELECTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_SELECTOR_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_SUBSCRIPTION_DURABLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_SUBSCRIPTION_DURABLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_SUBSCRIPTION_DURABLE_DOC);
@@ -578,7 +578,7 @@ public class CamelAmqpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_ARTEMIS_STREAMING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_ARTEMIS_STREAMING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_ARTEMIS_STREAMING_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_START_LISTENER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_START_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_START_LISTENER_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_STOP_LISTENER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_STOP_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_ASYNC_STOP_LISTENER_DOC);
-        conf.define(CAMEL_SOURCE_AMQP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_AMQP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AMQP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_AMQP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_DESTINATION_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_DESTINATION_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_DESTINATION_RESOLVER_DOC);
         conf.define(CAMEL_SOURCE_AMQP_COMPONENT_ERROR_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AMQP_COMPONENT_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AMQP_COMPONENT_ERROR_HANDLER_DOC);

@@ -59,7 +59,7 @@ The camel-ganglia sink connector supports 32 options, which are listed below.
 | *camel.component.ganglia.type* | The type of value One of: [STRING] [INT8] [UINT8] [INT16] [UINT16] [INT32] [UINT32] [FLOAT] [DOUBLE] | "STRING" | MEDIUM
 | *camel.component.ganglia.units* | Any unit of measurement that qualifies the metric, e.g. widgets, litres, bytes. Do not include a prefix such as k (kilo) or m (milli), other tools may scale the units later. The value should be unscaled. | null | MEDIUM
 | *camel.component.ganglia.wireFormat31x* | Use the wire format of Ganglia 3.1.0 and later versions. Set this to false to use Ganglia 3.0.x or earlier. | true | MEDIUM
-| *camel.component.ganglia.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.ganglia.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.ganglia.configuration* | To use the shared configuration | null | MEDIUM
 |===
 

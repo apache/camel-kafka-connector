@@ -29,18 +29,15 @@ The camel-google-calendar-stream source connector supports 48 options, which are
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.index* | Specifies an index for the endpoint | null | MEDIUM
-| *camel.source.endpoint.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
+| *camel.source.path.index* | Specifies an index for the endpoint | null | HIGH
 | *camel.source.endpoint.applicationName* | Google Calendar application name. Example would be camel-google-calendar/1.0 | null | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.calendarId* | The calendarId to be used | "primary" | MEDIUM
 | *camel.source.endpoint.clientId* | Client ID of the calendar application | null | MEDIUM
-| *camel.source.endpoint.clientSecret* | Client secret of the calendar application | null | MEDIUM
 | *camel.source.endpoint.considerLastUpdate* | Take into account the lastUpdate of the last event polled as start date for the next poll | false | MEDIUM
 | *camel.source.endpoint.consumeFromNow* | Consume events in the selected calendar from now on | true | MEDIUM
 | *camel.source.endpoint.maxResults* | Max results to be returned | 10 | MEDIUM
 | *camel.source.endpoint.query* | The query to execute on calendar | null | MEDIUM
-| *camel.source.endpoint.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
 | *camel.source.endpoint.scopes* | Specifies the level of permissions you want a calendar application to have to a user account. See \https://developers.google.com/calendar/auth for more info. | null | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
@@ -62,21 +59,24 @@ The camel-google-calendar-stream source connector supports 48 options, which are
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
-| *camel.component.google-calendar-stream.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
+| *camel.source.endpoint.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
+| *camel.source.endpoint.clientSecret* | Client secret of the calendar application | null | MEDIUM
+| *camel.source.endpoint.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
 | *camel.component.google-calendar-stream.application Name* | Google Calendar application name. Example would be camel-google-calendar/1.0 | null | MEDIUM
 | *camel.component.google-calendar-stream.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.google-calendar-stream.calendarId* | The calendarId to be used | "primary" | MEDIUM
 | *camel.component.google-calendar-stream.clientId* | Client ID of the calendar application | null | MEDIUM
-| *camel.component.google-calendar-stream.client Secret* | Client secret of the calendar application | null | MEDIUM
+| * camel.component.google-calendar-stream.configuration* | The configuration | null | MEDIUM
 | *camel.component.google-calendar-stream.consider LastUpdate* | Take into account the lastUpdate of the last event polled as start date for the next poll | false | MEDIUM
 | *camel.component.google-calendar-stream.consumeFrom Now* | Consume events in the selected calendar from now on | true | MEDIUM
 | *camel.component.google-calendar-stream.maxResults* | Max results to be returned | 10 | MEDIUM
 | *camel.component.google-calendar-stream.query* | The query to execute on calendar | null | MEDIUM
-| *camel.component.google-calendar-stream.refresh Token* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
 | *camel.component.google-calendar-stream.scopes* | Specifies the level of permissions you want a calendar application to have to a user account. See \https://developers.google.com/calendar/auth for more info. | null | MEDIUM
-| *camel.component.google-calendar-stream.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.google-calendar-stream.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.google-calendar-stream.client Factory* | The client Factory | null | MEDIUM
-| * camel.component.google-calendar-stream.configuration* | The configuration | null | MEDIUM
+| *camel.component.google-calendar-stream.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
+| *camel.component.google-calendar-stream.client Secret* | Client secret of the calendar application | null | MEDIUM
+| *camel.component.google-calendar-stream.refresh Token* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
 |===
 
 

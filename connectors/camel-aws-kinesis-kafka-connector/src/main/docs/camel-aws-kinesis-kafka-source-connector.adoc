@@ -77,7 +77,7 @@ The camel-aws-kinesis source connector supports 51 options, which are listed bel
 | *camel.component.aws-kinesis.sequenceNumber* | The sequence number to start polling from. Required if iteratorType is set to AFTER_SEQUENCE_NUMBER or AT_SEQUENCE_NUMBER | null | MEDIUM
 | *camel.component.aws-kinesis.shardClosed* | Define what will be the behavior in case of shard closed. Possible value are ignore, silent and fail. In case of ignore a message will be logged and the consumer will restart from the beginning,in case of silent there will be no logging and the consumer will start from the beginning,in case of fail a ReachedClosedStateException will be raised One of: [ignore] [fail] [silent] | "ignore" | MEDIUM
 | *camel.component.aws-kinesis.shardId* | Defines which shardId in the Kinesis stream to get records from | null | MEDIUM
-| *camel.component.aws-kinesis.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-kinesis.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-kinesis.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-kinesis.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===
