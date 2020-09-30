@@ -220,6 +220,7 @@
         <module>camel-aws2-cw-kafka-connector</module>
         <module>camel-aws2-ddb-kafka-connector</module>
         <module>camel-aws2-ddbstream-kafka-connector</module>
+        <module>camel-aws2-eventbridge-kafka-connector</module>
         <module>camel-aws2-kinesis-firehose-kafka-connector</module>
         <module>camel-aws2-kinesis-kafka-connector</module>
         <module>camel-aws2-lambda-kafka-connector</module>

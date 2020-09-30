@@ -71,7 +71,7 @@ The camel-pop3s sink connector supports 58 options, which are listed below.
 | *camel.component.pop3s.alternativeBodyHeader* | Specifies the key to an IN message header that contains an alternative email body. For example, if you send emails in text/html format and want to provide an alternative mail body for non-HTML email clients, set the alternative mail body with this key as a header. | "CamelMailAlternativeBody" | MEDIUM
 | *camel.component.pop3s.attachmentsContentTransfer EncodingResolver* | To use a custom AttachmentsContentTransferEncodingResolver to resolve what content-type-encoding to use for attachments. | null | MEDIUM
 | *camel.component.pop3s.authenticator* | The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically. | null | MEDIUM
-| *camel.component.pop3s.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.pop3s.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.pop3s.configuration* | Sets the Mail configuration | null | MEDIUM
 | *camel.component.pop3s.connectionTimeout* | The connection timeout in milliseconds. | 30000 | MEDIUM
 | *camel.component.pop3s.contentType* | The mail message content type. Use text/html for HTML mails. | "text/plain" | MEDIUM

@@ -51,7 +51,7 @@ The camel-avro source connector supports 24 options, which are listed below.
 | *camel.component.avro.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | MEDIUM
 | *camel.component.avro.uriAuthority* | Authority to use (username and password) | null | MEDIUM
 | *camel.component.avro.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.avro.configuration* | To use a shared AvroConfiguration to configure options once | null | MEDIUM
 |===
 

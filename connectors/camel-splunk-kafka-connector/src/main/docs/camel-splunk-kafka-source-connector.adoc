@@ -69,7 +69,7 @@ The camel-splunk source connector supports 42 options, which are listed below.
 | *camel.source.endpoint.username* | Username for Splunk | null | MEDIUM
 | *camel.source.endpoint.useSunHttpsHandler* | Use sun.net.www.protocol.https.Handler Https handler to establish the Splunk Connection. Can be useful when running in application servers to avoid app. server https handling. | false | MEDIUM
 | *camel.component.splunk.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.splunk.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.splunk.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.splunk.splunkConfigurationFactory* | To use the SplunkConfigurationFactory | null | MEDIUM
 |===
 

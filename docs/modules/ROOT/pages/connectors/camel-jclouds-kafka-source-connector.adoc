@@ -41,7 +41,7 @@ The camel-jclouds source connector supports 13 options, which are listed below.
 | *camel.component.jclouds.blobStores* | To use the given BlobStore which must be configured when using blobstore. | null | MEDIUM
 | *camel.component.jclouds.computeServices* | To use the given ComputeService which must be configured when use compute. | null | MEDIUM
 | *camel.component.jclouds.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.jclouds.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.jclouds.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 
