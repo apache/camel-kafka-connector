@@ -151,7 +151,7 @@ The camel-facebook source connector supports 134 options, which are listed below
 | *camel.component.facebook.useSSL* | Use SSL | "true" | MEDIUM
 | *camel.component.facebook.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | MEDIUM
 | *camel.component.facebook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.facebook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.facebook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.facebook.configuration* | To use the shared configuration | null | MEDIUM
 | *camel.component.facebook.httpProxyHost* | HTTP proxy server host name | null | MEDIUM
 | *camel.component.facebook.httpProxyPassword* | HTTP proxy server password | null | MEDIUM

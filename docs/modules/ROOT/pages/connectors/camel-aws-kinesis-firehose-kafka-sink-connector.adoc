@@ -49,7 +49,7 @@ The camel-aws-kinesis-firehose sink connector supports 23 options, which are lis
 | *camel.component.aws-kinesis-firehose.proxyPort* | To define a proxy port when instantiating the Kinesis Firehose client | null | MEDIUM
 | *camel.component.aws-kinesis-firehose.proxyProtocol* | To define a proxy protocol when instantiating the Kinesis Firehose client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.component.aws-kinesis-firehose.region* | The region in which Kinesis client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1)You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM
-| *camel.component.aws-kinesis-firehose.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-kinesis-firehose.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-kinesis-firehose.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-kinesis-firehose.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

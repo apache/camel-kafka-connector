@@ -60,7 +60,7 @@ The camel-servlet source connector supports 35 options, which are listed below.
 | *camel.component.servlet.fileNameExtWhitelist* | Whitelist of accepted filename extensions for accepting uploaded files. Multiple extensions can be separated by comma, such as txt,xml. | null | MEDIUM
 | *camel.component.servlet.httpRegistry* | To use a custom org.apache.camel.component.servlet.HttpRegistry. | null | MEDIUM
 | *camel.component.servlet.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | MEDIUM
-| *camel.component.servlet.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.servlet.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.servlet.httpBinding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. | null | MEDIUM
 | *camel.component.servlet.httpConfiguration* | To use the shared HttpConfiguration as base configuration. | null | MEDIUM
 | *camel.component.servlet.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM

@@ -27,7 +27,7 @@ public class CamelQuickfixSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_QUICKFIX_PATH_CONFIGURATION_NAME_CONF = "camel.sink.path.configurationName";
-    public static final String CAMEL_SINK_QUICKFIX_PATH_CONFIGURATION_NAME_DOC = "The configFile is the name of the QuickFIX/J configuration to use for the FIX engine (located as a resource found in your classpath).";
+    public static final String CAMEL_SINK_QUICKFIX_PATH_CONFIGURATION_NAME_DOC = "Path to the quickfix configuration file. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the configuration file using these protocols (classpath is default). ref will lookup the configuration file in the registry. bean will call a method on a bean to be used as the configuration. For bean you can specify the method name after dot, eg bean:myBean.myMethod";
     public static final String CAMEL_SINK_QUICKFIX_PATH_CONFIGURATION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_CONF = "camel.sink.endpoint.lazyCreateEngine";
     public static final String CAMEL_SINK_QUICKFIX_ENDPOINT_LAZY_CREATE_ENGINE_DOC = "This option allows to create QuickFIX/J engine on demand. Value true means the engine is started when first message is send or there's consumer configured in route definition. When false value is used, the engine is started at the endpoint creation. When this parameter is missing, the value of component's property lazyCreateEngines is being used.";
@@ -83,7 +83,7 @@ public class CamelQuickfixSinkConnectorConfig
         conf.define(CAMEL_SINK_QUICKFIX_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_QUICKFIX_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_QUICKFIX_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_QUICKFIX_COMPONENT_LAZY_CREATE_ENGINES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_QUICKFIX_COMPONENT_LAZY_CREATE_ENGINES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_QUICKFIX_COMPONENT_LAZY_CREATE_ENGINES_DOC);
         conf.define(CAMEL_SINK_QUICKFIX_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_QUICKFIX_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_QUICKFIX_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_QUICKFIX_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_QUICKFIX_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_QUICKFIX_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_QUICKFIX_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_QUICKFIX_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_QUICKFIX_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_QUICKFIX_COMPONENT_LOG_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_QUICKFIX_COMPONENT_LOG_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_QUICKFIX_COMPONENT_LOG_FACTORY_DOC);
         conf.define(CAMEL_SINK_QUICKFIX_COMPONENT_MESSAGE_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_QUICKFIX_COMPONENT_MESSAGE_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_QUICKFIX_COMPONENT_MESSAGE_FACTORY_DOC);
         conf.define(CAMEL_SINK_QUICKFIX_COMPONENT_MESSAGE_STORE_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_QUICKFIX_COMPONENT_MESSAGE_STORE_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_QUICKFIX_COMPONENT_MESSAGE_STORE_FACTORY_DOC);

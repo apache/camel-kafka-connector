@@ -75,7 +75,7 @@ The camel-twitter-timeline source connector supports 55 options, which are liste
 | *camel.source.endpoint.consumerSecret* | The consumer secret. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
 | *camel.source.endpoint.sortById* | Sorts by id, so the oldest are first, and newest last. | true | MEDIUM
 | *camel.component.twitter-timeline.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.twitter-timeline.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.twitter-timeline.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.twitter-timeline.httpProxyHost* | The http proxy host which can be used for the camel-twitter. | null | MEDIUM
 | *camel.component.twitter-timeline.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. | null | MEDIUM
 | *camel.component.twitter-timeline.httpProxyPort* | The http proxy port which can be used for the camel-twitter. | null | MEDIUM
