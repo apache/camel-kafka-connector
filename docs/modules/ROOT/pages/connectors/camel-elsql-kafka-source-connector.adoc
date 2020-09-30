@@ -81,7 +81,7 @@ The camel-elsql source connector supports 54 options, which are listed below.
 | *camel.component.elsql.dataSource* | Sets the DataSource to use to communicate with the database. | null | MEDIUM
 | *camel.component.elsql.resourceUri* | The resource file which contains the elsql SQL statements to use. You can specify multiple resources separated by comma. The resources are loaded on the classpath by default, you can prefix with file: to load from file system. Notice you can set this option on the component and then you do not have to configure this on the endpoint. | null | MEDIUM
 | *camel.component.elsql.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.elsql.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.elsql.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.elsql.elSqlConfig* | To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead. | null | MEDIUM
 |===
 

@@ -27,11 +27,17 @@ public class CamelOptaplannerSourceConnectorConfig
             CamelSourceConnectorConfig {
 
     public static final String CAMEL_SOURCE_OPTAPLANNER_PATH_CONFIG_FILE_CONF = "camel.source.path.configFile";
-    public static final String CAMEL_SOURCE_OPTAPLANNER_PATH_CONFIG_FILE_DOC = "Specifies the location to the solver file";
+    public static final String CAMEL_SOURCE_OPTAPLANNER_PATH_CONFIG_FILE_DOC = "Specifies the location to the solver file. If useSolverManager=FALSE, Camel uses this file and create the Solver. If useSolverManager=TRUE and SolverManager is set in the header {OptaPlannerConstants.SOLVER_MANAGER} : this file is ignored by Camel usage of SolverManager. SolverManager can be injected by DI in Quarkus or Spring.";
     public static final String CAMEL_SOURCE_OPTAPLANNER_PATH_CONFIG_FILE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_PROBLEM_ID_CONF = "camel.source.endpoint.problemId";
+    public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_PROBLEM_ID_DOC = "In case of using SolverManager : the problem id";
+    public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_PROBLEM_ID_DEFAULT = "1L";
     public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SOLVER_ID_CONF = "camel.source.endpoint.solverId";
     public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SOLVER_ID_DOC = "Specifies the solverId to user for the solver instance key";
     public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SOLVER_ID_DEFAULT = "DEFAULT_SOLVER";
+    public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_USE_SOLVER_MANAGER_CONF = "camel.source.endpoint.useSolverManager";
+    public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_USE_SOLVER_MANAGER_DOC = "use SolverManager instead of XML file config. Use this mode on Quarkus app.";
+    public static final Boolean CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_USE_SOLVER_MANAGER_DEFAULT = false;
     public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -68,14 +74,16 @@ public class CamelOptaplannerSourceConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_OPTAPLANNER_PATH_CONFIG_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OPTAPLANNER_PATH_CONFIG_FILE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_OPTAPLANNER_PATH_CONFIG_FILE_DOC);
+        conf.define(CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_PROBLEM_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_PROBLEM_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_PROBLEM_ID_DOC);
         conf.define(CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SOLVER_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SOLVER_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SOLVER_ID_DOC);
+        conf.define(CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_USE_SOLVER_MANAGER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_USE_SOLVER_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_USE_SOLVER_MANAGER_DOC);
         conf.define(CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_OPTAPLANNER_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         return conf;
     }
 }

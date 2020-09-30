@@ -74,7 +74,7 @@ The camel-twitter-directmessage source connector supports 54 options, which are 
 | *camel.source.endpoint.consumerSecret* | The consumer secret. Can also be configured on the TwitterComponent level instead. | null | MEDIUM
 | *camel.source.endpoint.sortById* | Sorts by id, so the oldest are first, and newest last. | true | MEDIUM
 | *camel.component.twitter-directmessage.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.twitter-directmessage.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.twitter-directmessage.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.twitter-directmessage.httpProxy Host* | The http proxy host which can be used for the camel-twitter. | null | MEDIUM
 | *camel.component.twitter-directmessage.httpProxy Password* | The http proxy password which can be used for the camel-twitter. | null | MEDIUM
 | *camel.component.twitter-directmessage.httpProxy Port* | The http proxy port which can be used for the camel-twitter. | null | MEDIUM
