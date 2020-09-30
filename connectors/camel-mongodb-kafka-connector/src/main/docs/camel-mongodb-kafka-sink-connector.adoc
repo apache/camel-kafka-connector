@@ -73,3 +73,10 @@ The camel-mongodb sink connector has no transforms out of the box.
 
 The camel-mongodb sink connector has no aggregation strategies out of the box.
 // kafka-connector options: END
+
+[NOTE]
+====
+This connector requires the usage of Json Converter for his value converter so you'll have to set the following:
+
+value.converter=org.apache.kafka.connect.json.JsonConverter
+====
