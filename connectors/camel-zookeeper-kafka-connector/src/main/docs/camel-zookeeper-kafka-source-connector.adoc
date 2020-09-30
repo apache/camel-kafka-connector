@@ -47,7 +47,7 @@ The camel-zookeeper source connector supports 20 options, which are listed below
 | *camel.component.zookeeper.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.zookeeper.repeat* | Should changes to the znode be 'watched' and repeatedly processed. | false | MEDIUM
 | *camel.component.zookeeper.sendEmptyMessageOnDelete* | Upon the delete of a znode, should an empty message be send to the consumer | true | MEDIUM
-| *camel.component.zookeeper.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.zookeeper.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.zookeeper.configuration* | To use a shared ZooKeeperConfiguration | null | MEDIUM
 |===
 

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.springws.CamelSpringwsSinkConnec
 ----
 
 
-The camel-spring-ws sink connector supports 22 options, which are listed below.
+The camel-spring-ws sink connector supports 21 options, which are listed below.
 
 
 
@@ -33,14 +33,13 @@ The camel-spring-ws sink connector supports 22 options, which are listed below.
 | *camel.sink.endpoint.messageFilter* | Option to provide a custom MessageFilter. For example when you want to process your headers or attachments by your own. | null | MEDIUM
 | *camel.sink.endpoint.allowResponseAttachment Override* | Option to override soap response attachments in in/out exchange with attachments from the actual service layer. If the invoked service appends or rewrites the soap attachments this option when set to true, allows the modified soap attachments to be overwritten in in/out message attachments | false | MEDIUM
 | *camel.sink.endpoint.allowResponseHeaderOverride* | Option to override soap response header in in/out exchange with header info from the actual service layer. If the invoked service appends or rewrites the soap header this option when set to true, allows the modified soap header to be overwritten in in/out message headers | false | MEDIUM
-| *camel.sink.endpoint.faultAction* | Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method. | null | MEDIUM
-| *camel.sink.endpoint.faultTo* | Signifies the value for the faultAction response WS-Addressing FaultTo header that is provided by the method. | null | MEDIUM
+| *camel.sink.endpoint.faultAction* | Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details. | null | MEDIUM
+| *camel.sink.endpoint.faultTo* | Signifies the value for the faultAction response WS-Addressing FaultTo header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details. | null | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.messageFactory* | Option to provide a custom WebServiceMessageFactory. For example when you want Apache Axiom to handle web service messages instead of SAAJ. | null | MEDIUM
-| *camel.sink.endpoint.messageIdStrategy* | Option to provide a custom MessageIdStrategy to control generation of unique message ids. | null | MEDIUM
 | *camel.sink.endpoint.messageSender* | Option to provide a custom WebServiceMessageSender. For example to perform authentication or use alternative transports | null | MEDIUM
-| *camel.sink.endpoint.outputAction* | Signifies the value for the response WS-Addressing Action header that is provided by the method. | null | MEDIUM
-| *camel.sink.endpoint.replyTo* | Signifies the value for the replyTo response WS-Addressing ReplyTo header that is provided by the method. | null | MEDIUM
+| *camel.sink.endpoint.outputAction* | Signifies the value for the response WS-Addressing Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details. | null | MEDIUM
+| *camel.sink.endpoint.replyTo* | Signifies the value for the replyTo response WS-Addressing ReplyTo header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details. | null | MEDIUM
 | *camel.sink.endpoint.soapAction* | SOAP action to include inside a SOAP request when accessing remote web services | null | MEDIUM
 | *camel.sink.endpoint.timeout* | Sets the socket read timeout (in milliseconds) while invoking a webservice using the producer, see URLConnection.setReadTimeout() and CommonsHttpMessageSender.setReadTimeout(). This option works when using the built-in message sender implementations: CommonsHttpMessageSender and HttpUrlConnectionMessageSender. One of these implementations will be used by default for HTTP based services unless you customize the Spring WS configuration options supplied to the component. If you are using a non-standard sender, it is assumed that you will handle your own timeout configuration. The built-in message sender HttpComponentsMessageSender is considered instead of CommonsHttpMessageSender which has been deprecated, see HttpComponentsMessageSender.setReadTimeout(). | null | MEDIUM
 | *camel.sink.endpoint.webServiceTemplate* | Option to provide a custom WebServiceTemplate. This allows for full control over client-side web services handling; like adding a custom interceptor or specifying a fault resolver, message sender or message factory. | null | MEDIUM
@@ -49,7 +48,7 @@ The camel-spring-ws sink connector supports 22 options, which are listed below.
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
 | *camel.component.spring-ws.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.spring-ws.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.spring-ws.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.spring-ws.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
 

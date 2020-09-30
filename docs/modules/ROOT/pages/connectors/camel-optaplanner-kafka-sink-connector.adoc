@@ -22,22 +22,24 @@ connector.class=org.apache.camel.kafkaconnector.optaplanner.CamelOptaplannerSink
 ----
 
 
-The camel-optaplanner sink connector supports 9 options, which are listed below.
+The camel-optaplanner sink connector supports 11 options, which are listed below.
 
 
 
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.sink.path.configFile* | Specifies the location to the solver file | null | HIGH
+| *camel.sink.path.configFile* | Specifies the location to the solver file. If useSolverManager=FALSE, Camel uses this file and create the Solver. If useSolverManager=TRUE and SolverManager is set in the header {OptaPlannerConstants.SOLVER_MANAGER} : this file is ignored by Camel usage of SolverManager. SolverManager can be injected by DI in Quarkus or Spring. | null | HIGH
+| *camel.sink.endpoint.problemId* | In case of using SolverManager : the problem id | "1L" | MEDIUM
 | *camel.sink.endpoint.solverId* | Specifies the solverId to user for the solver instance key | "DEFAULT_SOLVER" | MEDIUM
+| *camel.sink.endpoint.useSolverManager* | use SolverManager instead of XML file config. Use this mode on Quarkus app. | false | MEDIUM
 | *camel.sink.endpoint.async* | Specifies to perform operations in async mode | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.sink.endpoint.threadPoolSize* | Specifies the thread pool size to use when async is true | 10 | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.component.optaplanner.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.optaplanner.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.optaplanner.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 

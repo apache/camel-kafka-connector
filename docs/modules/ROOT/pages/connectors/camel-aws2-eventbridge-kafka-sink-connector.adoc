@@ -1,0 +1,84 @@
+// kafka-connector options: START
+[[camel-aws2-eventbridge-kafka-connector-sink]]
+= camel-aws2-eventbridge-kafka-connector sink configuration
+
+When using camel-aws2-eventbridge-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
+
+[source,xml]
+----
+<dependency>
+  <groupId>org.apache.camel.kafkaconnector</groupId>
+  <artifactId>camel-aws2-eventbridge-kafka-connector</artifactId>
+  <version>x.x.x</version>
+  <!-- use the same version as your Camel Kafka connector version -->
+</dependency>
+----
+
+To use this Sink connector in Kafka connect you'll need to set the following connector.class
+
+[source,java]
+----
+connector.class=org.apache.camel.kafkaconnector.aws2eventbridge.CamelAws2eventbridgeSinkConnector
+----
+
+
+The camel-aws2-eventbridge sink connector supports 31 options, which are listed below.
+
+
+
+[width="100%",cols="2,5,^1,2",options="header"]
+|===
+| Name | Description | Default | Priority
+| *camel.sink.path.eventbusNameOrArn* | Event bus name or ARN | null | HIGH
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
+| *camel.sink.endpoint.eventbridgeClient* | To use a existing configured AWS Eventbridge as client | null | MEDIUM
+| *camel.sink.endpoint.eventPatternFile* | EventPattern File | null | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to perform One of: [putRule] [putTargets] [removeTargets] [deleteRule] [enableRule] [disableRule] [describeRule] [listRules] [listTargetsByRule] [listRuleNamesByTarget] | "putRule" | HIGH
+| *camel.sink.endpoint.pojoRequest* | If we want to use a POJO request as body or not | false | MEDIUM
+| *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the Eventbridge client | null | MEDIUM
+| *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the Eventbridge client | null | MEDIUM
+| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Eventbridge client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
+| *camel.sink.endpoint.region* | The region in which Eventbridge client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
+| *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
+| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
+| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+| *camel.component.aws2-eventbridge.autoDiscover Client* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
+| *camel.component.aws2-eventbridge.configuration* | Component configuration | null | MEDIUM
+| *camel.component.aws2-eventbridge.eventbridgeClient* | To use a existing configured AWS Eventbridge as client | null | MEDIUM
+| *camel.component.aws2-eventbridge.eventPatternFile* | EventPattern File | null | MEDIUM
+| *camel.component.aws2-eventbridge.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.aws2-eventbridge.operation* | The operation to perform One of: [putRule] [putTargets] [removeTargets] [deleteRule] [enableRule] [disableRule] [describeRule] [listRules] [listTargetsByRule] [listRuleNamesByTarget] | "putRule" | HIGH
+| *camel.component.aws2-eventbridge.pojoRequest* | If we want to use a POJO request as body or not | false | MEDIUM
+| *camel.component.aws2-eventbridge.proxyHost* | To define a proxy host when instantiating the Eventbridge client | null | MEDIUM
+| *camel.component.aws2-eventbridge.proxyPort* | To define a proxy port when instantiating the Eventbridge client | null | MEDIUM
+| *camel.component.aws2-eventbridge.proxyProtocol* | To define a proxy protocol when instantiating the Eventbridge client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
+| *camel.component.aws2-eventbridge.region* | The region in which Eventbridge client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | MEDIUM
+| *camel.component.aws2-eventbridge.trustAll Certificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
+| *camel.component.aws2-eventbridge.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| *camel.component.aws2-eventbridge.accessKey* | Amazon AWS Access Key | null | MEDIUM
+| *camel.component.aws2-eventbridge.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+|===
+
+
+
+The camel-aws2-eventbridge sink connector has no converters out of the box.
+
+
+
+
+
+The camel-aws2-eventbridge sink connector has no transforms out of the box.
+
+
+
+
+
+The camel-aws2-eventbridge sink connector has no aggregation strategies out of the box.
+
+
+
+
+// kafka-connector options: END
