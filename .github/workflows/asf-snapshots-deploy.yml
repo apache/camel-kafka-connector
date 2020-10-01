@@ -18,8 +18,8 @@ name: Deploy Camel Kafka Connector Snapshot
 
 on:
   schedule:
-    # Run at 2 during night
-    - cron:  '0 2 * * *'
+    # Run at 1 during night
+    - cron:  '0 1 * * *'
 
 jobs:
   build:
