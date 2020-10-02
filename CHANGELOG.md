@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Add an ASF deploy GH Action like other camel projects [\#492](https://github.com/apache/camel-kafka-connector/issues/492)
 - MongoDB Kafka Connector: In the docs add Json as base value converter [\#490](https://github.com/apache/camel-kafka-connector/issues/490)
 - Create Minio connector examples [\#456](https://github.com/apache/camel-kafka-connector/issues/456)
 - Support topics.regex  [\#454](https://github.com/apache/camel-kafka-connector/issues/454)
@@ -13,6 +14,7 @@
 
 **Merged pull requests:**
 
+- Deploy on ASF Snapshot [\#493](https://github.com/apache/camel-kafka-connector/pull/493) ([oscerd](https://github.com/oscerd))
 - Issue 490 [\#491](https://github.com/apache/camel-kafka-connector/pull/491) ([oscerd](https://github.com/oscerd))
 - Fixes changelog to run only on master [\#488](https://github.com/apache/camel-kafka-connector/pull/488) ([oscerd](https://github.com/oscerd))
 - Removed bean-validator kafka connector [\#483](https://github.com/apache/camel-kafka-connector/pull/483) ([oscerd](https://github.com/oscerd))
@@ -124,6 +126,7 @@
 - Building endpoint uris should for secret options automatic use RAW\(\) … [\#366](https://github.com/apache/camel-kafka-connector/pull/366) ([davsclaus](https://github.com/davsclaus))
 - Cutting down connectors [\#365](https://github.com/apache/camel-kafka-connector/pull/365) ([oscerd](https://github.com/oscerd))
 - Make the camel-kafka-connector archetype use the parent POM [\#363](https://github.com/apache/camel-kafka-connector/pull/363) ([oscerd](https://github.com/oscerd))
+- AWS SDK v2 integration tests: Kinesis [\#358](https://github.com/apache/camel-kafka-connector/pull/358) ([orpiske](https://github.com/orpiske))
 - Use latest Strimzi's docker images [\#357](https://github.com/apache/camel-kafka-connector/pull/357) ([oscerd](https://github.com/oscerd))
 - Fixed camel compatibility matrix table [\#356](https://github.com/apache/camel-kafka-connector/pull/356) ([oscerd](https://github.com/oscerd))
 - Added a camel-compatibility matrix page [\#355](https://github.com/apache/camel-kafka-connector/pull/355) ([oscerd](https://github.com/oscerd))
