@@ -17,9 +17,6 @@
 
 package org.apache.camel.kafkaconnector.common.services.kafka;
 
-import java.util.function.Consumer;
-
-import com.github.dockerjava.api.command.CreateContainerCmd;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.containers.wait.strategy.Wait;
@@ -28,24 +25,21 @@ public class StrimziContainer extends GenericContainer<StrimziContainer> {
     private static final String STRIMZI_CONTAINER = System.getProperty("itest.strimzi.container.image");
     private static final int KAFKA_PORT = 9092;
 
-    public StrimziContainer(Network network, String name) {
+    public StrimziContainer(Network network, String name, String zookeeperInstanceName) {
         super(STRIMZI_CONTAINER);
 
         withEnv("LOG_DIR", "/tmp/logs");
         withExposedPorts(KAFKA_PORT);
         withEnv("KAFKA_ADVERTISED_LISTENERS", String.format("PLAINTEXT://%s:9092", getContainerIpAddress()));
         withEnv("KAFKA_LISTENERS", "PLAINTEXT://0.0.0.0:9092");
-        withEnv("KAFKA_ZOOKEEPER_CONNECT", "zookeeper:2181");
+        withEnv("KAFKA_ZOOKEEPER_CONNECT", zookeeperInstanceName + ":2181");
         withNetwork(network);
 
         withCreateContainerCmdModifier(
-                new Consumer<CreateContainerCmd>() {
-                    @Override
-                    public void accept(CreateContainerCmd createContainerCmd) {
-                        createContainerCmd.withHostName(name);
-                        createContainerCmd.withName(name);
-                    }
-                }
+            createContainerCmd -> {
+                createContainerCmd.withHostName(name);
+                createContainerCmd.withName(name);
+            }
         );
 
         withCommand("sh", "-c",
