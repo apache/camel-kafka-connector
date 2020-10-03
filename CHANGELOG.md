@@ -4,16 +4,26 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...HEAD)
 
+**Fixed bugs:**
+
+- Azure blob sink does not put file in azure [\#270](https://github.com/apache/camel-kafka-connector/issues/270)
+
 **Closed issues:**
 
 - Add an ASF deploy GH Action like other camel projects [\#492](https://github.com/apache/camel-kafka-connector/issues/492)
 - MongoDB Kafka Connector: In the docs add Json as base value converter [\#490](https://github.com/apache/camel-kafka-connector/issues/490)
+- Create an Infinispan example [\#486](https://github.com/apache/camel-kafka-connector/issues/486)
 - Create Minio connector examples [\#456](https://github.com/apache/camel-kafka-connector/issues/456)
 - Support topics.regex  [\#454](https://github.com/apache/camel-kafka-connector/issues/454)
 - Define a default naming for converters, transforms and aggregation packages [\#439](https://github.com/apache/camel-kafka-connector/issues/439)
+- High CPU Usage with RabbitMQ Connector \(polling interface implemented incorrectly?\) [\#414](https://github.com/apache/camel-kafka-connector/issues/414)
+- How to have connector output JSON String? [\#398](https://github.com/apache/camel-kafka-connector/issues/398)
+- Question: Does Camel looks for IAM roles from Env variables [\#282](https://github.com/apache/camel-kafka-connector/issues/282)
 
 **Merged pull requests:**
 
+- Removed the Jenkinsfile deploy pipeline, we are now using gh action [\#496](https://github.com/apache/camel-kafka-connector/pull/496) ([oscerd](https://github.com/oscerd))
+- Upgrade Maven Wrapper to 0.5.6 [\#495](https://github.com/apache/camel-kafka-connector/pull/495) ([oscerd](https://github.com/oscerd))
 - Deploy on ASF Snapshot [\#493](https://github.com/apache/camel-kafka-connector/pull/493) ([oscerd](https://github.com/oscerd))
 - Issue 490 [\#491](https://github.com/apache/camel-kafka-connector/pull/491) ([oscerd](https://github.com/oscerd))
 - Fixes changelog to run only on master [\#488](https://github.com/apache/camel-kafka-connector/pull/488) ([oscerd](https://github.com/oscerd))
