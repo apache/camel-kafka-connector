@@ -10,6 +10,7 @@
 
 **Closed issues:**
 
+- \[camel-main-support\] Reordering props should not be required anymore [\#498](https://github.com/apache/camel-kafka-connector/issues/498)
 - Add an ASF deploy GH Action like other camel projects [\#492](https://github.com/apache/camel-kafka-connector/issues/492)
 - MongoDB Kafka Connector: In the docs add Json as base value converter [\#490](https://github.com/apache/camel-kafka-connector/issues/490)
 - Create an Infinispan example [\#486](https://github.com/apache/camel-kafka-connector/issues/486)
@@ -22,7 +23,10 @@
 
 **Merged pull requests:**
 
+- Opted the project in for HAcktoberfest 2020. [\#511](https://github.com/apache/camel-kafka-connector/pull/511) ([valdar](https://github.com/valdar))
+- \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
 - Removed folder added for error and regen docs [\#504](https://github.com/apache/camel-kafka-connector/pull/504) ([oscerd](https://github.com/oscerd))
+- Throttles strimzi startup to prevent resource reuse errors [\#503](https://github.com/apache/camel-kafka-connector/pull/503) ([orpiske](https://github.com/orpiske))
 - Rabbitmq itest [\#501](https://github.com/apache/camel-kafka-connector/pull/501) ([valdar](https://github.com/valdar))
 - Removed the Jenkinsfile deploy pipeline, we are now using gh action [\#496](https://github.com/apache/camel-kafka-connector/pull/496) ([oscerd](https://github.com/oscerd))
 - Upgrade Maven Wrapper to 0.5.6 [\#495](https://github.com/apache/camel-kafka-connector/pull/495) ([oscerd](https://github.com/oscerd))
