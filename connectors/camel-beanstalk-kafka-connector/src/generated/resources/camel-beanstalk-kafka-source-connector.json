@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.beanstalk.CamelBeanstalkSourceConnector",
 		"artifactId": "camel-beanstalk-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-beanstalk",
+		"id": "camel-beanstalk-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

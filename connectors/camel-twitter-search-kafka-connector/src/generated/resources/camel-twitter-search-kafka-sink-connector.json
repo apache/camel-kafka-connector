@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.twittersearch.CamelTwittersearchSinkConnector",
 		"artifactId": "camel-twitter-search-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-twitter-search",
+		"id": "camel-twitter-search-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

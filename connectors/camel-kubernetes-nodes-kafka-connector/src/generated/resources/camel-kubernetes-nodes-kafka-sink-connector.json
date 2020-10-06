@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetesnodes.CamelKubernetesnodesSinkConnector",
 		"artifactId": "camel-kubernetes-nodes-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-nodes",
+		"id": "camel-kubernetes-nodes-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

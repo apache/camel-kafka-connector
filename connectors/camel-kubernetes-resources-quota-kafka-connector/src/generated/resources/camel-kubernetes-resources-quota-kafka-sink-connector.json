@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetesresourcesquota.CamelKubernetesresourcesquotaSinkConnector",
 		"artifactId": "camel-kubernetes-resources-quota-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-resources-quota",
+		"id": "camel-kubernetes-resources-quota-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

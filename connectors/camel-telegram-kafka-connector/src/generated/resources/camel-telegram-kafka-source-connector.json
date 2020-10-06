@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.telegram.CamelTelegramSourceConnector",
 		"artifactId": "camel-telegram-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-telegram",
+		"id": "camel-telegram-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

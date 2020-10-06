@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.thrift.CamelThriftSourceConnector",
 		"artifactId": "camel-thrift-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-thrift",
+		"id": "camel-thrift-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

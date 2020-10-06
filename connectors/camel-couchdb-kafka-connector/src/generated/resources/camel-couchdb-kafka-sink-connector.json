@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.couchdb.CamelCouchdbSinkConnector",
 		"artifactId": "camel-couchdb-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-couchdb",
+		"id": "camel-couchdb-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

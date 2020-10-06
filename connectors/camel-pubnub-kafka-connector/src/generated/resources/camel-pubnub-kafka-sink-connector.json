@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.pubnub.CamelPubnubSinkConnector",
 		"artifactId": "camel-pubnub-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-pubnub",
+		"id": "camel-pubnub-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

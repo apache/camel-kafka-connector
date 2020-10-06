@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.caffeinecache.CamelCaffeinecacheSinkConnector",
 		"artifactId": "camel-caffeine-cache-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-caffeine-cache",
+		"id": "camel-caffeine-cache-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

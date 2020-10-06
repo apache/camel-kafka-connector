@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jing.CamelJingSinkConnector",
 		"artifactId": "camel-jing-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jing",
+		"id": "camel-jing-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

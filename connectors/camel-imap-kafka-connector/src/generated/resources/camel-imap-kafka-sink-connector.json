@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.imap.CamelImapSinkConnector",
 		"artifactId": "camel-imap-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-imap",
+		"id": "camel-imap-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

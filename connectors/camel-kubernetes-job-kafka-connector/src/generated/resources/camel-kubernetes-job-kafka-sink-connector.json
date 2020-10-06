@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetesjob.CamelKubernetesjobSinkConnector",
 		"artifactId": "camel-kubernetes-job-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-job",
+		"id": "camel-kubernetes-job-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

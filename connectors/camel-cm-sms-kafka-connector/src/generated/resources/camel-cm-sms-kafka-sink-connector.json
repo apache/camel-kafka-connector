@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.cmsms.CamelCmsmsSinkConnector",
 		"artifactId": "camel-cm-sms-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-cm-sms",
+		"id": "camel-cm-sms-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

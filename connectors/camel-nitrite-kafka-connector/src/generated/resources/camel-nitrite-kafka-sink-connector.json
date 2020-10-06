@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.nitrite.CamelNitriteSinkConnector",
 		"artifactId": "camel-nitrite-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-nitrite",
+		"id": "camel-nitrite-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

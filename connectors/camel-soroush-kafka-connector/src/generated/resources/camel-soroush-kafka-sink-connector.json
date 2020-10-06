@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.soroush.CamelSoroushSinkConnector",
 		"artifactId": "camel-soroush-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-soroush",
+		"id": "camel-soroush-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

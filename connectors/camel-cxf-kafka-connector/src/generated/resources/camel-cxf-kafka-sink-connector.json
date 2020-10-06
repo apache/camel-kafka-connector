@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.cxf.CamelCxfSinkConnector",
 		"artifactId": "camel-cxf-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-cxf",
+		"id": "camel-cxf-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

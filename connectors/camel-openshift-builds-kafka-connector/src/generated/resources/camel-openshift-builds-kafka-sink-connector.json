@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.openshiftbuilds.CamelOpenshiftbuildsSinkConnector",
 		"artifactId": "camel-openshift-builds-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-openshift-builds",
+		"id": "camel-openshift-builds-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

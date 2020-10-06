@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.awsddbstream.CamelAwsddbstreamSourceConnector",
 		"artifactId": "camel-aws-ddbstream-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-aws-ddbstream",
+		"id": "camel-aws-ddbstream-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

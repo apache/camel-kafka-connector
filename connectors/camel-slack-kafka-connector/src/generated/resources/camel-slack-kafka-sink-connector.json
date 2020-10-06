@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.slack.CamelSlackSinkConnector",
 		"artifactId": "camel-slack-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-slack",
+		"id": "camel-slack-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

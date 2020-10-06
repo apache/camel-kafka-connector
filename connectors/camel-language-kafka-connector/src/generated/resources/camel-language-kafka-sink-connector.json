@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.language.CamelLanguageSinkConnector",
 		"artifactId": "camel-language-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-language",
+		"id": "camel-language-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

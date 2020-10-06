@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jcache.CamelJcacheSinkConnector",
 		"artifactId": "camel-jcache-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jcache",
+		"id": "camel-jcache-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

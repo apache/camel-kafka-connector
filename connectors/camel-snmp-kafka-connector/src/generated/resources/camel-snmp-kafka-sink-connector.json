@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.snmp.CamelSnmpSinkConnector",
 		"artifactId": "camel-snmp-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-snmp",
+		"id": "camel-snmp-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

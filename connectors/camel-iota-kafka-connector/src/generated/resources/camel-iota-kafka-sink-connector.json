@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.iota.CamelIotaSinkConnector",
 		"artifactId": "camel-iota-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-iota",
+		"id": "camel-iota-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

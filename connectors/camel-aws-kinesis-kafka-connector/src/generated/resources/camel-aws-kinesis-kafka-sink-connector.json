@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.awskinesis.CamelAwskinesisSinkConnector",
 		"artifactId": "camel-aws-kinesis-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-aws-kinesis",
+		"id": "camel-aws-kinesis-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

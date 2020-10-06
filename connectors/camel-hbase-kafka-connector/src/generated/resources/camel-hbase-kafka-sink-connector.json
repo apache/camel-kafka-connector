@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hbase.CamelHbaseSinkConnector",
 		"artifactId": "camel-hbase-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hbase",
+		"id": "camel-hbase-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

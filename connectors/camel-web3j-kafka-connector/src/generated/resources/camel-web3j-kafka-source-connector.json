@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.web3j.CamelWeb3jSourceConnector",
 		"artifactId": "camel-web3j-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-web3j",
+		"id": "camel-web3j-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

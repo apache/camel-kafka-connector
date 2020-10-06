@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.stream.CamelStreamSourceConnector",
 		"artifactId": "camel-stream-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-stream",
+		"id": "camel-stream-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

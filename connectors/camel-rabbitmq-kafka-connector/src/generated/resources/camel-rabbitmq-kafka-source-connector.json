@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.rabbitmq.CamelRabbitmqSourceConnector",
 		"artifactId": "camel-rabbitmq-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-rabbitmq",
+		"id": "camel-rabbitmq-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

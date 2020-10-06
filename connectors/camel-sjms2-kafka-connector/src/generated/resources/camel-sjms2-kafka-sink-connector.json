@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.sjms2.CamelSjms2SinkConnector",
 		"artifactId": "camel-sjms2-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-sjms2",
+		"id": "camel-sjms2-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

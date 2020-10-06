@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.googlecalendar.CamelGooglecalendarSinkConnector",
 		"artifactId": "camel-google-calendar-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-google-calendar",
+		"id": "camel-google-calendar-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

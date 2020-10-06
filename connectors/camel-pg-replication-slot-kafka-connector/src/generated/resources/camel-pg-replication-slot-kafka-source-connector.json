@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.pgreplicationslot.CamelPgreplicationslotSourceConnector",
 		"artifactId": "camel-pg-replication-slot-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-pg-replication-slot",
+		"id": "camel-pg-replication-slot-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

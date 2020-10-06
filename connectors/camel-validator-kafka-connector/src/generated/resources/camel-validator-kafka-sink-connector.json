@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.validator.CamelValidatorSinkConnector",
 		"artifactId": "camel-validator-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-validator",
+		"id": "camel-validator-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

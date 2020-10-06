@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.openstackkeystone.CamelOpenstackkeystoneSinkConnector",
 		"artifactId": "camel-openstack-keystone-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-openstack-keystone",
+		"id": "camel-openstack-keystone-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.vertx.CamelVertxSinkConnector",
 		"artifactId": "camel-vertx-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-vertx",
+		"id": "camel-vertx-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

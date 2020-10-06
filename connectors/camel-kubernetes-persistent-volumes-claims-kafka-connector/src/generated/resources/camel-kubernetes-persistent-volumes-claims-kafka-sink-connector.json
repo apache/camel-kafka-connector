@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetespersistentvolumesclaims.CamelKubernetespersistentvolumesclaimsSinkConnector",
 		"artifactId": "camel-kubernetes-persistent-volumes-claims-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-persistent-volumes-claims",
+		"id": "camel-kubernetes-persistent-volumes-claims-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

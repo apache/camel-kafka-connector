@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.restopenapi.CamelRestopenapiSinkConnector",
 		"artifactId": "camel-rest-openapi-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-rest-openapi",
+		"id": "camel-rest-openapi-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

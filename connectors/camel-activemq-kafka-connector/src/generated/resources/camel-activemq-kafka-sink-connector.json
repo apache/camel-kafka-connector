@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.activemq.CamelActivemqSinkConnector",
 		"artifactId": "camel-activemq-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-activemq",
+		"id": "camel-activemq-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.googlecalendarstream.CamelGooglecalendarstreamSourceConnector",
 		"artifactId": "camel-google-calendar-stream-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-google-calendar-stream",
+		"id": "camel-google-calendar-stream-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.atomixmultimap.CamelAtomixmultimapSinkConnector",
 		"artifactId": "camel-atomix-multimap-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-atomix-multimap",
+		"id": "camel-atomix-multimap-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

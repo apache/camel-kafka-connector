@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.pgevent.CamelPgeventSourceConnector",
 		"artifactId": "camel-pgevent-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-pgevent",
+		"id": "camel-pgevent-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

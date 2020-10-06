@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.vertx.CamelVertxSourceConnector",
 		"artifactId": "camel-vertx-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-vertx",
+		"id": "camel-vertx-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

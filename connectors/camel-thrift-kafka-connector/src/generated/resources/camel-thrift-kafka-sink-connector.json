@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.thrift.CamelThriftSinkConnector",
 		"artifactId": "camel-thrift-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-thrift",
+		"id": "camel-thrift-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

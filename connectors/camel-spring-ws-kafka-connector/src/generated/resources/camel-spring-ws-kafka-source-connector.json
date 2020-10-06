@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.springws.CamelSpringwsSourceConnector",
 		"artifactId": "camel-spring-ws-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-spring-ws",
+		"id": "camel-spring-ws-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

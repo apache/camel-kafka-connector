@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.lucene.CamelLuceneSinkConnector",
 		"artifactId": "camel-lucene-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-lucene",
+		"id": "camel-lucene-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

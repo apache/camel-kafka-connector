@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.awssns.CamelAwssnsSinkConnector",
 		"artifactId": "camel-aws-sns-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-aws-sns",
+		"id": "camel-aws-sns-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

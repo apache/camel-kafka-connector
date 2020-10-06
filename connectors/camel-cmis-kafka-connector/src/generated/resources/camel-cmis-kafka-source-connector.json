@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.cmis.CamelCmisSourceConnector",
 		"artifactId": "camel-cmis-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-cmis",
+		"id": "camel-cmis-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

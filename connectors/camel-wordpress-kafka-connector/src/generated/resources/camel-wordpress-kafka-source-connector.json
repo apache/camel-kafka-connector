@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.wordpress.CamelWordpressSourceConnector",
 		"artifactId": "camel-wordpress-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-wordpress",
+		"id": "camel-wordpress-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

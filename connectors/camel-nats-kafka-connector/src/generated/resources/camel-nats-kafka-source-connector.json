@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.nats.CamelNatsSourceConnector",
 		"artifactId": "camel-nats-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-nats",
+		"id": "camel-nats-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

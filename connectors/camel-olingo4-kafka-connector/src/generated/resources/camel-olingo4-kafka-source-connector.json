@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.olingo4.CamelOlingo4SourceConnector",
 		"artifactId": "camel-olingo4-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-olingo4",
+		"id": "camel-olingo4-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

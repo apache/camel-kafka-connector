@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.undertow.CamelUndertowSourceConnector",
 		"artifactId": "camel-undertow-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-undertow",
+		"id": "camel-undertow-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.azureeventhubs.CamelAzureeventhubsSinkConnector",
 		"artifactId": "camel-azure-eventhubs-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-azure-eventhubs",
+		"id": "camel-azure-eventhubs-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

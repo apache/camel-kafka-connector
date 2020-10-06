@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.nats.CamelNatsSinkConnector",
 		"artifactId": "camel-nats-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-nats",
+		"id": "camel-nats-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

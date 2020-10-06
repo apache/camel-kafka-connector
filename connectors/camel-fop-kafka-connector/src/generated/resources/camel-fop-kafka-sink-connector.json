@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.fop.CamelFopSinkConnector",
 		"artifactId": "camel-fop-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-fop",
+		"id": "camel-fop-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

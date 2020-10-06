@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.atomixqueue.CamelAtomixqueueSinkConnector",
 		"artifactId": "camel-atomix-queue-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-atomix-queue",
+		"id": "camel-atomix-queue-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

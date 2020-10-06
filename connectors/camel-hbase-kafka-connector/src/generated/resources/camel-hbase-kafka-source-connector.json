@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hbase.CamelHbaseSourceConnector",
 		"artifactId": "camel-hbase-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hbase",
+		"id": "camel-hbase-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

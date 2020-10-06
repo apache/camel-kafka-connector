@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.awskinesisfirehose.CamelAwskinesisfirehoseSinkConnector",
 		"artifactId": "camel-aws-kinesis-firehose-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-aws-kinesis-firehose",
+		"id": "camel-aws-kinesis-firehose-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

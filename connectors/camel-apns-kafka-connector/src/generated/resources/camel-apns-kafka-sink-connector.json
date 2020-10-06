@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.apns.CamelApnsSinkConnector",
 		"artifactId": "camel-apns-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-apns",
+		"id": "camel-apns-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

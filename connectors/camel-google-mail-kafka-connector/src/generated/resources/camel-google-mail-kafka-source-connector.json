@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.googlemail.CamelGooglemailSourceConnector",
 		"artifactId": "camel-google-mail-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-google-mail",
+		"id": "camel-google-mail-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

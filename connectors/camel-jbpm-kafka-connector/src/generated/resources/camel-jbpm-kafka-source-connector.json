@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jbpm.CamelJbpmSourceConnector",
 		"artifactId": "camel-jbpm-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jbpm",
+		"id": "camel-jbpm-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

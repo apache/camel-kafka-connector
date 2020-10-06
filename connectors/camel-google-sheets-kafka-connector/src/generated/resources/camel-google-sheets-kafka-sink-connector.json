@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.googlesheets.CamelGooglesheetsSinkConnector",
 		"artifactId": "camel-google-sheets-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-google-sheets",
+		"id": "camel-google-sheets-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

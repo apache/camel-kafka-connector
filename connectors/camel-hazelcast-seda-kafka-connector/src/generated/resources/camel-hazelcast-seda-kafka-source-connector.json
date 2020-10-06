@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hazelcastseda.CamelHazelcastsedaSourceConnector",
 		"artifactId": "camel-hazelcast-seda-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hazelcast-seda",
+		"id": "camel-hazelcast-seda-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

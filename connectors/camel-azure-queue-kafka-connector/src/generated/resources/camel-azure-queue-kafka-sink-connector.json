@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.azurequeue.CamelAzurequeueSinkConnector",
 		"artifactId": "camel-azure-queue-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-azure-queue",
+		"id": "camel-azure-queue-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

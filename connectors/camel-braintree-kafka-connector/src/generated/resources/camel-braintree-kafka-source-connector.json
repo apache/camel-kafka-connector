@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.braintree.CamelBraintreeSourceConnector",
 		"artifactId": "camel-braintree-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-braintree",
+		"id": "camel-braintree-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

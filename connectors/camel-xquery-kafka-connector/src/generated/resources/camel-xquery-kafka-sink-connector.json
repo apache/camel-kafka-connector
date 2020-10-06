@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.xquery.CamelXquerySinkConnector",
 		"artifactId": "camel-xquery-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-xquery",
+		"id": "camel-xquery-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

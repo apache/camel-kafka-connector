@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.cron.CamelCronSourceConnector",
 		"artifactId": "camel-cron-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-cron",
+		"id": "camel-cron-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.nettyhttp.CamelNettyhttpSinkConnector",
 		"artifactId": "camel-netty-http-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-netty-http",
+		"id": "camel-netty-http-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

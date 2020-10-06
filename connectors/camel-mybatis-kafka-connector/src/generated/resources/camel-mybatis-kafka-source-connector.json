@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.mybatis.CamelMybatisSourceConnector",
 		"artifactId": "camel-mybatis-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-mybatis",
+		"id": "camel-mybatis-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

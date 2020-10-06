@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.xmpp.CamelXmppSinkConnector",
 		"artifactId": "camel-xmpp-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-xmpp",
+		"id": "camel-xmpp-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

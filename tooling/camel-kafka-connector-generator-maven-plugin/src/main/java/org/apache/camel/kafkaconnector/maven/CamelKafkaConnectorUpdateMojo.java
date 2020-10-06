@@ -745,6 +745,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
 		model.setGroupId(getMainDepGroupId());
 		model.setVersion(getMainDepVersion());
 		model.setConnectorClass(connectorClass);
+		model.setType(ct.name().toLowerCase());
 		model.setConverters(convertersList);
 		model.setTransforms(transformsList);
 		model.setAggregationStrategies(aggregationStrategiesList);

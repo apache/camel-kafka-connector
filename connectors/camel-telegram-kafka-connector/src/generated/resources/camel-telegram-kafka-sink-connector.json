@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.telegram.CamelTelegramSinkConnector",
 		"artifactId": "camel-telegram-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-telegram",
+		"id": "camel-telegram-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

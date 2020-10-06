@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kuberneteshpa.CamelKuberneteshpaSinkConnector",
 		"artifactId": "camel-kubernetes-hpa-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-hpa",
+		"id": "camel-kubernetes-hpa-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

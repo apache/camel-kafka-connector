@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetespods.CamelKubernetespodsSourceConnector",
 		"artifactId": "camel-kubernetes-pods-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-pods",
+		"id": "camel-kubernetes-pods-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hazelcastreplicatedmap.CamelHazelcastreplicatedmapSourceConnector",
 		"artifactId": "camel-hazelcast-replicatedmap-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hazelcast-replicatedmap",
+		"id": "camel-hazelcast-replicatedmap-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

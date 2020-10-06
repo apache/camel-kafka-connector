@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hazelcastinstance.CamelHazelcastinstanceSourceConnector",
 		"artifactId": "camel-hazelcast-instance-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hazelcast-instance",
+		"id": "camel-hazelcast-instance-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

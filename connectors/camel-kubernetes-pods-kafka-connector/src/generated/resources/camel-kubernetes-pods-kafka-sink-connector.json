@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetespods.CamelKubernetespodsSinkConnector",
 		"artifactId": "camel-kubernetes-pods-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-pods",
+		"id": "camel-kubernetes-pods-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

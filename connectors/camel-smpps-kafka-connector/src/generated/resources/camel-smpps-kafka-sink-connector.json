@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.smpps.CamelSmppsSinkConnector",
 		"artifactId": "camel-smpps-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-smpps",
+		"id": "camel-smpps-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

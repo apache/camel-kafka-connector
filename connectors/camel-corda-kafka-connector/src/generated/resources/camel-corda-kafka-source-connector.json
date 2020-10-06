@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.corda.CamelCordaSourceConnector",
 		"artifactId": "camel-corda-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-corda",
+		"id": "camel-corda-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

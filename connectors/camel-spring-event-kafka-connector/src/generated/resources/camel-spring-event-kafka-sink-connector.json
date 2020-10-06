@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.springevent.CamelSpringeventSinkConnector",
 		"artifactId": "camel-spring-event-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-spring-event",
+		"id": "camel-spring-event-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

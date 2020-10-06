@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.irc.CamelIrcSinkConnector",
 		"artifactId": "camel-irc-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-irc",
+		"id": "camel-irc-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

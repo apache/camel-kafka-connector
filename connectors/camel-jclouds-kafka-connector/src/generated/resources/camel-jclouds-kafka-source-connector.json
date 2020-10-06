@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jclouds.CamelJcloudsSourceConnector",
 		"artifactId": "camel-jclouds-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jclouds",
+		"id": "camel-jclouds-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

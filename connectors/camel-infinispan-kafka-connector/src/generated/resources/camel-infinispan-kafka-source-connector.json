@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.infinispan.CamelInfinispanSourceConnector",
 		"artifactId": "camel-infinispan-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-infinispan",
+		"id": "camel-infinispan-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

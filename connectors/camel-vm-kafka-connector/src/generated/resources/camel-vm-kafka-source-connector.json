@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.vm.CamelVmSourceConnector",
 		"artifactId": "camel-vm-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-vm",
+		"id": "camel-vm-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

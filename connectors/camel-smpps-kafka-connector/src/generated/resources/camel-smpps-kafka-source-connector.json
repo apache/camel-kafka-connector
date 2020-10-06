@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.smpps.CamelSmppsSourceConnector",
 		"artifactId": "camel-smpps-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-smpps",
+		"id": "camel-smpps-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

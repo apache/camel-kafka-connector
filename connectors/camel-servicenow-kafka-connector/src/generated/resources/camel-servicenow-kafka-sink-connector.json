@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.servicenow.CamelServicenowSinkConnector",
 		"artifactId": "camel-servicenow-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-servicenow",
+		"id": "camel-servicenow-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.docker.CamelDockerSourceConnector",
 		"artifactId": "camel-docker-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-docker",
+		"id": "camel-docker-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

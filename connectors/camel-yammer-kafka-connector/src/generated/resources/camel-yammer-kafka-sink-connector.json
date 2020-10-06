@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.yammer.CamelYammerSinkConnector",
 		"artifactId": "camel-yammer-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-yammer",
+		"id": "camel-yammer-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

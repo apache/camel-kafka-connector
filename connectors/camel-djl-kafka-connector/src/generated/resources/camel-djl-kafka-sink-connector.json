@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.djl.CamelDjlSinkConnector",
 		"artifactId": "camel-djl-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-djl",
+		"id": "camel-djl-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

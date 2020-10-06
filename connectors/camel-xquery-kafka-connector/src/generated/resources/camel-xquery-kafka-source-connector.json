@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.xquery.CamelXquerySourceConnector",
 		"artifactId": "camel-xquery-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-xquery",
+		"id": "camel-xquery-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

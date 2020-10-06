@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.springldap.CamelSpringldapSinkConnector",
 		"artifactId": "camel-spring-ldap-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-spring-ldap",
+		"id": "camel-spring-ldap-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.cometds.CamelCometdsSinkConnector",
 		"artifactId": "camel-cometds-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-cometds",
+		"id": "camel-cometds-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.awssdb.CamelAwssdbSinkConnector",
 		"artifactId": "camel-aws-sdb-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-aws-sdb",
+		"id": "camel-aws-sdb-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

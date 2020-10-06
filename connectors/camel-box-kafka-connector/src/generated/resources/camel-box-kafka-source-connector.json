@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.box.CamelBoxSourceConnector",
 		"artifactId": "camel-box-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-box",
+		"id": "camel-box-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

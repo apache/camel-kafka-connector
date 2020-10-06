@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.springbatch.CamelSpringbatchSinkConnector",
 		"artifactId": "camel-spring-batch-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-spring-batch",
+		"id": "camel-spring-batch-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

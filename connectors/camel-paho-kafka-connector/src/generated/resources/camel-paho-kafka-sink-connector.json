@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.paho.CamelPahoSinkConnector",
 		"artifactId": "camel-paho-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-paho",
+		"id": "camel-paho-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

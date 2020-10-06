@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.igniteevents.CamelIgniteeventsSourceConnector",
 		"artifactId": "camel-ignite-events-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ignite-events",
+		"id": "camel-ignite-events-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

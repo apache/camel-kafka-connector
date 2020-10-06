@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ssh.CamelSshSourceConnector",
 		"artifactId": "camel-ssh-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ssh",
+		"id": "camel-ssh-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

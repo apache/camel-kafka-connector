@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetespersistentvolumes.CamelKubernetespersistentvolumesSinkConnector",
 		"artifactId": "camel-kubernetes-persistent-volumes-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-persistent-volumes",
+		"id": "camel-kubernetes-persistent-volumes-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

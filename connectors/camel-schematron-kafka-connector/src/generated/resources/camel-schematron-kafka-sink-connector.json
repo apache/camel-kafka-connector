@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.schematron.CamelSchematronSinkConnector",
 		"artifactId": "camel-schematron-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-schematron",
+		"id": "camel-schematron-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

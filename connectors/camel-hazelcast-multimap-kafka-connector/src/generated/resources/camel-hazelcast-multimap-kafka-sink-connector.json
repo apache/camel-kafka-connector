@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hazelcastmultimap.CamelHazelcastmultimapSinkConnector",
 		"artifactId": "camel-hazelcast-multimap-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hazelcast-multimap",
+		"id": "camel-hazelcast-multimap-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.grpc.CamelGrpcSinkConnector",
 		"artifactId": "camel-grpc-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-grpc",
+		"id": "camel-grpc-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

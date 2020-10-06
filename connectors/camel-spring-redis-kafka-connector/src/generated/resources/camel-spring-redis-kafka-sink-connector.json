@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.springredis.CamelSpringredisSinkConnector",
 		"artifactId": "camel-spring-redis-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-spring-redis",
+		"id": "camel-spring-redis-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.coap.CamelCoapSinkConnector",
 		"artifactId": "camel-coap-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-coap",
+		"id": "camel-coap-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

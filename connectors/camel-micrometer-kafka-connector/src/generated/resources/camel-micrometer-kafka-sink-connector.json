@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.micrometer.CamelMicrometerSinkConnector",
 		"artifactId": "camel-micrometer-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-micrometer",
+		"id": "camel-micrometer-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

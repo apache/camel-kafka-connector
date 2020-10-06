@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.stub.CamelStubSourceConnector",
 		"artifactId": "camel-stub-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-stub",
+		"id": "camel-stub-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

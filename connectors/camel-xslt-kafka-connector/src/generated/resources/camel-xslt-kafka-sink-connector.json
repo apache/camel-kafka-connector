@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.xslt.CamelXsltSinkConnector",
 		"artifactId": "camel-xslt-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-xslt",
+		"id": "camel-xslt-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

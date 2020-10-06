@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.solr.CamelSolrSinkConnector",
 		"artifactId": "camel-solr-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-solr",
+		"id": "camel-solr-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

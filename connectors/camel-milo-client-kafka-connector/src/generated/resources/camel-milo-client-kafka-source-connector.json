@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.miloclient.CamelMiloclientSourceConnector",
 		"artifactId": "camel-milo-client-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-milo-client",
+		"id": "camel-milo-client-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

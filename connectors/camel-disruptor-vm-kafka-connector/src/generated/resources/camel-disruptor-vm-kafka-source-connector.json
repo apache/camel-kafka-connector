@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.disruptorvm.CamelDisruptorvmSourceConnector",
 		"artifactId": "camel-disruptor-vm-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-disruptor-vm",
+		"id": "camel-disruptor-vm-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

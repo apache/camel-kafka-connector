@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.spark.CamelSparkSinkConnector",
 		"artifactId": "camel-spark-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-spark",
+		"id": "camel-spark-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

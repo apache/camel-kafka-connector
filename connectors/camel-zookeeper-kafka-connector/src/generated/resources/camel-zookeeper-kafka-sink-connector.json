@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.zookeeper.CamelZookeeperSinkConnector",
 		"artifactId": "camel-zookeeper-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-zookeeper",
+		"id": "camel-zookeeper-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

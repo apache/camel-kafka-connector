@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.atom.CamelAtomSourceConnector",
 		"artifactId": "camel-atom-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-atom",
+		"id": "camel-atom-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {
