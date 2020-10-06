@@ -161,6 +161,7 @@
                        <goal>copy-resources</goal>
                    </goals>
                    <configuration>
+                       <encoding>UTF-8</encoding>
                        <outputDirectory>${project.basedir}/../../camel-kafka-connector-catalog/src/generated/resources/connectors/</outputDirectory>
                        <resources>          
                            <resource>
