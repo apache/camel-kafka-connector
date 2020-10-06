@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.asterisk.CamelAsteriskSinkConnector",
-		"artifactId": "camel-asterisk",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-asterisk-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-asterisk",
 		"version": "0.6.0-SNAPSHOT"
 	},

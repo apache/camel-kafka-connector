@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.log.CamelLogSinkConnector",
-		"artifactId": "camel-log",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-log-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-log",
 		"version": "0.6.0-SNAPSHOT"
 	},

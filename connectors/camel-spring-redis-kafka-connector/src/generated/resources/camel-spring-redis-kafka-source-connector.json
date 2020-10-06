@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.springredis.CamelSpringredisSourceConnector",
-		"artifactId": "camel-spring-redis",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-spring-redis-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-spring-redis",
 		"version": "0.6.0-SNAPSHOT"
 	},

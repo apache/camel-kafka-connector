@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.splunk.CamelSplunkSinkConnector",
-		"artifactId": "camel-splunk",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-splunk-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-splunk",
 		"version": "0.6.0-SNAPSHOT"
 	},

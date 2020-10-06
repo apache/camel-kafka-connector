@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.mybatis.CamelMybatisSinkConnector",
-		"artifactId": "camel-mybatis",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-mybatis-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-mybatis",
 		"version": "0.6.0-SNAPSHOT"
 	},

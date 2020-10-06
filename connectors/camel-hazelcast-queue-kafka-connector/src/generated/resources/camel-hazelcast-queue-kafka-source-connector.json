@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.hazelcastqueue.CamelHazelcastqueueSourceConnector",
-		"artifactId": "camel-hazelcast-queue",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-hazelcast-queue-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-hazelcast-queue",
 		"version": "0.6.0-SNAPSHOT"
 	},

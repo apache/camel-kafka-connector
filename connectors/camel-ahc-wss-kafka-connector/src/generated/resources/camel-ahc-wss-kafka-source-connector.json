@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.ahcwss.CamelAhcwssSourceConnector",
-		"artifactId": "camel-ahc-wss",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-ahc-wss-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-ahc-wss",
 		"version": "0.6.0-SNAPSHOT"
 	},

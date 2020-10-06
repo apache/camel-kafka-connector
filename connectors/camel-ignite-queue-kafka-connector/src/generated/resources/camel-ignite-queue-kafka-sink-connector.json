@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.ignitequeue.CamelIgnitequeueSinkConnector",
-		"artifactId": "camel-ignite-queue",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-ignite-queue-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-ignite-queue",
 		"version": "0.6.0-SNAPSHOT"
 	},

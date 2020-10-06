@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.azurestoragequeue.CamelAzurestoragequeueSourceConnector",
-		"artifactId": "camel-azure-storage-queue",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-azure-storage-queue-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-azure-storage-queue",
 		"version": "0.6.0-SNAPSHOT"
 	},

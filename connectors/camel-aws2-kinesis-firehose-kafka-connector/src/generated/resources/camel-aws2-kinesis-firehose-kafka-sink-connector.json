@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.aws2kinesisfirehose.CamelAws2kinesisfirehoseSinkConnector",
-		"artifactId": "camel-aws2-kinesis-firehose",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-aws2-kinesis-firehose-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-aws2-kinesis-firehose",
 		"version": "0.6.0-SNAPSHOT"
 	},

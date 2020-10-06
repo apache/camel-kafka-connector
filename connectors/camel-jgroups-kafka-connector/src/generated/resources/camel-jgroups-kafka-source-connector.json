@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.jgroups.CamelJgroupsSourceConnector",
-		"artifactId": "camel-jgroups",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-jgroups-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-jgroups",
 		"version": "0.6.0-SNAPSHOT"
 	},

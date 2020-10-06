@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.lpr.CamelLprSinkConnector",
-		"artifactId": "camel-lpr",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-lpr-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-lpr",
 		"version": "0.6.0-SNAPSHOT"
 	},

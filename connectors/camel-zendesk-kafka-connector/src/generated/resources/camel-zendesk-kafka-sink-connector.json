@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.zendesk.CamelZendeskSinkConnector",
-		"artifactId": "camel-zendesk",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-zendesk-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-zendesk",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.splunkhec.CamelSplunkhecSinkConnector",
-		"artifactId": "camel-splunk-hec",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-splunk-hec-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-splunk-hec",
 		"version": "0.6.0-SNAPSHOT"
 	},

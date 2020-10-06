@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.validator.CamelValidatorSinkConnector",
-		"artifactId": "camel-validator",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-validator-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-validator",
 		"version": "0.6.0-SNAPSHOT"
 	},

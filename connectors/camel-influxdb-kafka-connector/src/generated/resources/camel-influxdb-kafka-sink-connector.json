@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.influxdb.CamelInfluxdbSinkConnector",
-		"artifactId": "camel-influxdb",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-influxdb-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-influxdb",
 		"version": "0.6.0-SNAPSHOT"
 	},

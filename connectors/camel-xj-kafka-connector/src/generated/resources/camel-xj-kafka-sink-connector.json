@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.xj.CamelXjSinkConnector",
-		"artifactId": "camel-xj",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-xj-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-xj",
 		"version": "0.6.0-SNAPSHOT"
 	},

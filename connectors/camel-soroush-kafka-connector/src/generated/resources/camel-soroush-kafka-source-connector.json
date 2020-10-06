@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.soroush.CamelSoroushSourceConnector",
-		"artifactId": "camel-soroush",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-soroush-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-soroush",
 		"version": "0.6.0-SNAPSHOT"
 	},

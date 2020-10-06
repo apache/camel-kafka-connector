@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.igniteset.CamelIgnitesetSinkConnector",
-		"artifactId": "camel-ignite-set",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-ignite-set-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-ignite-set",
 		"version": "0.6.0-SNAPSHOT"
 	},

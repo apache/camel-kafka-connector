@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.pubnub.CamelPubnubSinkConnector",
-		"artifactId": "camel-pubnub",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-pubnub-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-pubnub",
 		"version": "0.6.0-SNAPSHOT"
 	},

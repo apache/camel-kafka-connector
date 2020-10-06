@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.stub.CamelStubSourceConnector",
-		"artifactId": "camel-stub",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-stub-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-stub",
 		"version": "0.6.0-SNAPSHOT"
 	},

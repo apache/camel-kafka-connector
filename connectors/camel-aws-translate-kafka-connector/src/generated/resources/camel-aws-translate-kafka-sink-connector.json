@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.awstranslate.CamelAwstranslateSinkConnector",
-		"artifactId": "camel-aws-translate",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-aws-translate-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-aws-translate",
 		"version": "0.6.0-SNAPSHOT"
 	},

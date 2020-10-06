@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.mustache.CamelMustacheSinkConnector",
-		"artifactId": "camel-mustache",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-mustache-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-mustache",
 		"version": "0.6.0-SNAPSHOT"
 	},

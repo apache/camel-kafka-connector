@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.ftps.CamelFtpsSourceConnector",
-		"artifactId": "camel-ftps",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-ftps-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-ftps",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.azurequeue.CamelAzurequeueSinkConnector",
-		"artifactId": "camel-azure-queue",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-azure-queue-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-azure-queue",
 		"version": "0.6.0-SNAPSHOT"
 	},

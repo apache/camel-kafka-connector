@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.solrcloud.CamelSolrcloudSinkConnector",
-		"artifactId": "camel-solrCloud",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-solrCloud-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-solrCloud",
 		"version": "0.6.0-SNAPSHOT"
 	},

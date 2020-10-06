@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.freemarker.CamelFreemarkerSinkConnector",
-		"artifactId": "camel-freemarker",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-freemarker-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-freemarker",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.stringtemplate.CamelStringtemplateSinkConnector",
-		"artifactId": "camel-string-template",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-string-template-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-string-template",
 		"version": "0.6.0-SNAPSHOT"
 	},
