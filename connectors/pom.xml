@@ -150,6 +150,29 @@
                 </dependencies>
             </plugin>
             <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-resources-plugin</artifactId>
+               <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+           <phase>install</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.basedir}/../../camel-kafka-connector-catalog/src/generated/resources</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>src/generated/resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.camel.kafkaconnector</groupId>
                 <artifactId>camel-kafka-connector-docs-maven-plugin</artifactId>
                 <version>${project.version}</version>
