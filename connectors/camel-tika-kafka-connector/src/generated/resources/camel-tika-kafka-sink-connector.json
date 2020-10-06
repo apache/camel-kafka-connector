@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.tika.CamelTikaSinkConnector",
-		"artifactId": "camel-tika",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-tika-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-tika",
 		"version": "0.6.0-SNAPSHOT"
 	},

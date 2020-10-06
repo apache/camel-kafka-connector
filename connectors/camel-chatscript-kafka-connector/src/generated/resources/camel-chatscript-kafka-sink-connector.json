@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.chatscript.CamelChatscriptSinkConnector",
-		"artifactId": "camel-chatscript",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-chatscript-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-chatscript",
 		"version": "0.6.0-SNAPSHOT"
 	},

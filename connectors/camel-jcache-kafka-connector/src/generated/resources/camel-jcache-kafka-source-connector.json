@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.jcache.CamelJcacheSourceConnector",
-		"artifactId": "camel-jcache",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-jcache-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-jcache",
 		"version": "0.6.0-SNAPSHOT"
 	},

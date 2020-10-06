@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.hbase.CamelHbaseSourceConnector",
-		"artifactId": "camel-hbase",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-hbase-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-hbase",
 		"version": "0.6.0-SNAPSHOT"
 	},

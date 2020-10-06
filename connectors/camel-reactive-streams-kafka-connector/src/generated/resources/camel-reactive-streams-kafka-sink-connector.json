@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.reactivestreams.CamelReactivestreamsSinkConnector",
-		"artifactId": "camel-reactive-streams",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-reactive-streams-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-reactive-streams",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.jbpm.CamelJbpmSourceConnector",
-		"artifactId": "camel-jbpm",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-jbpm-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-jbpm",
 		"version": "0.6.0-SNAPSHOT"
 	},

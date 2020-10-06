@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.servicenow.CamelServicenowSinkConnector",
-		"artifactId": "camel-servicenow",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-servicenow-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-servicenow",
 		"version": "0.6.0-SNAPSHOT"
 	},

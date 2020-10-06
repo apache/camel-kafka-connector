@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.googlesheetsstream.CamelGooglesheetsstreamSourceConnector",
-		"artifactId": "camel-google-sheets-stream",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-google-sheets-stream-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-google-sheets-stream",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.ipfs.CamelIpfsSinkConnector",
-		"artifactId": "camel-ipfs",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-ipfs-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-ipfs",
 		"version": "0.6.0-SNAPSHOT"
 	},

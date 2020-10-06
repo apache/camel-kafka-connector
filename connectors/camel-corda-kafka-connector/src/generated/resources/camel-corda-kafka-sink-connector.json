@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.corda.CamelCordaSinkConnector",
-		"artifactId": "camel-corda",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-corda-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-corda",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.restswagger.CamelRestswaggerSinkConnector",
-		"artifactId": "camel-rest-swagger",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-rest-swagger-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-rest-swagger",
 		"version": "0.6.0-SNAPSHOT"
 	},

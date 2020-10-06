@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.pop3.CamelPop3SinkConnector",
-		"artifactId": "camel-pop3",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-pop3-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-pop3",
 		"version": "0.6.0-SNAPSHOT"
 	},

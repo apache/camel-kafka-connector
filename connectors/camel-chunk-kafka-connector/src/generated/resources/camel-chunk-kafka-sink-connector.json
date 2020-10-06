@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.chunk.CamelChunkSinkConnector",
-		"artifactId": "camel-chunk",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-chunk-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-chunk",
 		"version": "0.6.0-SNAPSHOT"
 	},

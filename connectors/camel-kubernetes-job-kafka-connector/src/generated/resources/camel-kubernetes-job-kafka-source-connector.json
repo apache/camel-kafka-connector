@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.kubernetesjob.CamelKubernetesjobSourceConnector",
-		"artifactId": "camel-kubernetes-job",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-kubernetes-job-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-kubernetes-job",
 		"version": "0.6.0-SNAPSHOT"
 	},

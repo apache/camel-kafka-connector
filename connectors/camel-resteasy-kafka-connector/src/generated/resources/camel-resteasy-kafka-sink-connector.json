@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.resteasy.CamelResteasySinkConnector",
-		"artifactId": "camel-resteasy",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-resteasy-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-resteasy",
 		"version": "0.6.0-SNAPSHOT"
 	},

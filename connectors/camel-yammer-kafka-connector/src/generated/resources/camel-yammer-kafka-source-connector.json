@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.yammer.CamelYammerSourceConnector",
-		"artifactId": "camel-yammer",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-yammer-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-yammer",
 		"version": "0.6.0-SNAPSHOT"
 	},

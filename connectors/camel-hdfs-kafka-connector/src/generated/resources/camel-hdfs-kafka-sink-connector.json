@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.hdfs.CamelHdfsSinkConnector",
-		"artifactId": "camel-hdfs",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-hdfs-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-hdfs",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.googlepubsub.CamelGooglepubsubSourceConnector",
-		"artifactId": "camel-google-pubsub",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-google-pubsub-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-google-pubsub",
 		"version": "0.6.0-SNAPSHOT"
 	},

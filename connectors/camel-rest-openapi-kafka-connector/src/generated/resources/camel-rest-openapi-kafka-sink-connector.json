@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.restopenapi.CamelRestopenapiSinkConnector",
-		"artifactId": "camel-rest-openapi",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-rest-openapi-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-rest-openapi",
 		"version": "0.6.0-SNAPSHOT"
 	},

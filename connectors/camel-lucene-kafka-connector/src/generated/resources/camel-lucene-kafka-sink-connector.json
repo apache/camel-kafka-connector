@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.lucene.CamelLuceneSinkConnector",
-		"artifactId": "camel-lucene",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-lucene-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-lucene",
 		"version": "0.6.0-SNAPSHOT"
 	},

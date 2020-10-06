@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.iec60870client.CamelIec60870clientSinkConnector",
-		"artifactId": "camel-iec60870-client",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-iec60870-client-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-iec60870-client",
 		"version": "0.6.0-SNAPSHOT"
 	},

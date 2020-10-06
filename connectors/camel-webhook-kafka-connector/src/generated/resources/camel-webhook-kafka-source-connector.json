@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.webhook.CamelWebhookSourceConnector",
-		"artifactId": "camel-webhook",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-webhook-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-webhook",
 		"version": "0.6.0-SNAPSHOT"
 	},

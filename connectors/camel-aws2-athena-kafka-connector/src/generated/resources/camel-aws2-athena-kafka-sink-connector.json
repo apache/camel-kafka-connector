@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.aws2athena.CamelAws2athenaSinkConnector",
-		"artifactId": "camel-aws2-athena",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-aws2-athena-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-aws2-athena",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.etcdkeys.CamelEtcdkeysSinkConnector",
-		"artifactId": "camel-etcd-keys",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-etcd-keys-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-etcd-keys",
 		"version": "0.6.0-SNAPSHOT"
 	},

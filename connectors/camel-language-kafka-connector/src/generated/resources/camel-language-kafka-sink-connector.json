@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.language.CamelLanguageSinkConnector",
-		"artifactId": "camel-language",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-language-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-language",
 		"version": "0.6.0-SNAPSHOT"
 	},

@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.file.CamelFileSourceConnector",
-		"artifactId": "camel-file",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-file-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-file",
 		"version": "0.6.0-SNAPSHOT"
 	},

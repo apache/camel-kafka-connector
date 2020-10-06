@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.weka.CamelWekaSinkConnector",
-		"artifactId": "camel-weka",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-weka-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-weka",
 		"version": "0.6.0-SNAPSHOT"
 	},

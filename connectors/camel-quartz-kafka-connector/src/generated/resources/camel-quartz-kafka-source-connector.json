@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.quartz.CamelQuartzSourceConnector",
-		"artifactId": "camel-quartz",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-quartz-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-quartz",
 		"version": "0.6.0-SNAPSHOT"
 	},

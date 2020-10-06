@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.jolt.CamelJoltSinkConnector",
-		"artifactId": "camel-jolt",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-jolt-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-jolt",
 		"version": "0.6.0-SNAPSHOT"
 	},

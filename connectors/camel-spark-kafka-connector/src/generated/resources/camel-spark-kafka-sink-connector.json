@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.spark.CamelSparkSinkConnector",
-		"artifactId": "camel-spark",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-spark-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-spark",
 		"version": "0.6.0-SNAPSHOT"
 	},

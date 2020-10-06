@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.awss3.CamelAwss3SinkConnector",
-		"artifactId": "camel-aws-s3",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-aws-s3-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-aws-s3",
 		"version": "0.6.0-SNAPSHOT"
 	},

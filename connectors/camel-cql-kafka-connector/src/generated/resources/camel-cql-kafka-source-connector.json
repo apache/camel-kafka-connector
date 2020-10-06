@@ -1,8 +1,8 @@
 {
 	"connector": {
 		"class": "org.apache.camel.kafkaconnector.cql.CamelCqlSourceConnector",
-		"artifactId": "camel-cql",
-		"groupId": "org.apache.camel",
+		"artifactId": "camel-cql-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
 		"title": "camel-cql",
 		"version": "0.6.0-SNAPSHOT"
 	},
