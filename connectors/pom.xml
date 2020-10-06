@@ -161,7 +161,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${project.basedir}/../../camel-kafka-connector-catalog/src/generated/resources</outputDirectory>
+              <outputDirectory>${project.basedir}/../../camel-kafka-connector-catalog/src/generated/resources/connectors/</outputDirectory>
               <resources>          
                 <resource>
                   <directory>src/generated/resources</directory>
