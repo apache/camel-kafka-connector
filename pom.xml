@@ -53,6 +53,7 @@
         <module>buildingtools</module>
         <module>tooling</module>
         <module>connectors</module>
+        <module>camel-kafka-connector-catalog</module>
         <module>tests</module>
     </modules>
 
