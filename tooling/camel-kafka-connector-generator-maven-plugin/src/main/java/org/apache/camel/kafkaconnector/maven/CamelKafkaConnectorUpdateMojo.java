@@ -791,15 +791,12 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
                 existing = existing.trim();
                 changed = changed.trim();
                 if (existing.equals(changed)) {
-                    System.err.println("content is equal");
                     return false;
                 } else {
-                    System.err.println("content is different");
                     writeText(file, changed);
                     return true;
                 }
             } else {
-                System.err.println("existsing is null");
                 return false;
             }
         } catch (Exception e) {
