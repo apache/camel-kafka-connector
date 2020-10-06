@@ -23,9 +23,9 @@ import org.apache.camel.kafkaconnector.maven.dto.CamelKafkaConnectorOptionModel;
 import org.apache.camel.util.json.JsonObject;
 
 public final class JsonMapperKafkaConnector {
-	
-	private static final String KAFKA_CONNECTOR_GROUPID_SUFFIX = ".kafkaconnector";
-	private static final String KAFKA_CONNECTOR_ARTIFACTID_SUFFIX = "-kafka-connector";
+
+    private static final String KAFKA_CONNECTOR_GROUPID_SUFFIX = ".kafkaconnector";
+    private static final String KAFKA_CONNECTOR_ARTIFACTID_SUFFIX = "-kafka-connector";
 
     private JsonMapperKafkaConnector() {
     }
@@ -43,13 +43,13 @@ public final class JsonMapperKafkaConnector {
         wrapper.put("properties", asJsonObject(model.getOptions()));
         return wrapper;
     }
-    
+
     public static JsonObject asJsonObject(List<CamelKafkaConnectorOptionModel> options) {
         JsonObject json = new JsonObject();
         options.forEach(option -> json.put(option.getName(), asJsonObject(option)));
         return json;
     }
-    
+
     public static JsonObject asJsonObject(CamelKafkaConnectorOptionModel model) {
         JsonObject obj = new JsonObject();
         obj.put("name", model.getName());
