@@ -1,0 +1,71 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ldap.CamelLdapSinkConnector",
+		"artifactId": "camel-ldap",
+		"groupId": "org.apache.camel",
+		"title": "camel-ldap",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.dirContextName": {
+			"name": "camel.sink.path.dirContextName",
+			"description": "Name of either a javax.naming.directory.DirContext, or java.util.Hashtable, or Map bean to lookup in the registry. If the bean is either a Hashtable or Map then a new javax.naming.directory.DirContext instance is created for each use. If the bean is a javax.naming.directory.DirContext then the bean is used as given. The latter may not be possible in all situations where the javax.naming.directory.DirContext must not be shared, and in those situations it can be better to use java.util.Hashtable or Map instead.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.base": {
+			"name": "camel.sink.endpoint.base",
+			"description": "The base DN for searches.",
+			"defaultValue": "\"ou=system\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.pageSize": {
+			"name": "camel.sink.endpoint.pageSize",
+			"description": "When specified the ldap module uses paging to retrieve all results (most LDAP Servers throw an exception when trying to retrieve more than 1000 entries in one query). To be able to use this a LdapContext (subclass of DirContext) has to be passed in as ldapServerBean (otherwise an exception is thrown)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.returnedAttributes": {
+			"name": "camel.sink.endpoint.returnedAttributes",
+			"description": "Comma-separated list of attributes that should be set in each entry of the result",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.scope": {
+			"name": "camel.sink.endpoint.scope",
+			"description": "Specifies how deeply to search the tree of entries, starting at the base DN. One of: [object] [onelevel] [subtree]",
+			"defaultValue": "\"subtree\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ldap.lazyStartProducer": {
+			"name": "camel.component.ldap.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ldap.basicPropertyBinding": {
+			"name": "camel.component.ldap.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

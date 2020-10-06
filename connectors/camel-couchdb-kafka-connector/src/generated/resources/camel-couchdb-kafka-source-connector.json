@@ -1,0 +1,125 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.couchdb.CamelCouchdbSourceConnector",
+		"artifactId": "camel-couchdb",
+		"groupId": "org.apache.camel",
+		"title": "camel-couchdb",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.protocol": {
+			"name": "camel.source.path.protocol",
+			"description": "The protocol to use for communicating with the database. One of: [http] [https]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.hostname": {
+			"name": "camel.source.path.hostname",
+			"description": "Hostname of the running couchdb instance",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.port": {
+			"name": "camel.source.path.port",
+			"description": "Port number for the running couchdb instance",
+			"defaultValue": "5984",
+			"priority": "MEDIUM"
+		},
+		"camel.source.path.database": {
+			"name": "camel.source.path.database",
+			"description": "Name of the database to use",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.createDatabase": {
+			"name": "camel.source.endpoint.createDatabase",
+			"description": "Creates the database if it does not already exist",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.deletes": {
+			"name": "camel.source.endpoint.deletes",
+			"description": "Document deletes are published as events",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.heartbeat": {
+			"name": "camel.source.endpoint.heartbeat",
+			"description": "How often to send an empty message to keep socket alive in millis",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.since": {
+			"name": "camel.source.endpoint.since",
+			"description": "Start tracking changes immediately after the given update sequence. The default, null, will start monitoring from the latest sequence.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.style": {
+			"name": "camel.source.endpoint.style",
+			"description": "Specifies how many revisions are returned in the changes array. The default, main_only, will only return the current winning revision; all_docs will return all leaf revisions (including conflicts and deleted former conflicts.) One of: [all_docs] [main_only]",
+			"defaultValue": "\"main_only\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.updates": {
+			"name": "camel.source.endpoint.updates",
+			"description": "Document inserts\/updates are published as events",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "Password for authenticated databases",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "Username in case of authenticated databases",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.couchdb.bridgeErrorHandler": {
+			"name": "camel.component.couchdb.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.couchdb.basicPropertyBinding": {
+			"name": "camel.component.couchdb.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

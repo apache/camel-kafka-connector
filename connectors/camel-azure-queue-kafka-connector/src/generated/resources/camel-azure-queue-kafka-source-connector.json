@@ -1,0 +1,125 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurequeue.CamelAzurequeueSourceConnector",
+		"artifactId": "camel-azure-queue",
+		"groupId": "org.apache.camel",
+		"title": "camel-azure-queue",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.containerAndQueueUri": {
+			"name": "camel.source.path.containerAndQueueUri",
+			"description": "Container Queue compact Uri",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.azureQueueClient": {
+			"name": "camel.source.endpoint.azureQueueClient",
+			"description": "The queue service client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.credentials": {
+			"name": "camel.source.endpoint.credentials",
+			"description": "Set the storage credentials, required in most cases",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.validateClientURI": {
+			"name": "camel.source.endpoint.validateClientURI",
+			"description": "Whether to validate the Azure client URI",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.credentialsAccountKey": {
+			"name": "camel.source.endpoint.credentialsAccountKey",
+			"description": "Set the storage account key used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.credentialsAccountName": {
+			"name": "camel.source.endpoint.credentialsAccountName",
+			"description": "Set the storage account name used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.azureQueueClient": {
+			"name": "camel.component.azure-queue.azureQueueClient",
+			"description": "The queue service client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.credentials": {
+			"name": "camel.component.azure-queue.credentials",
+			"description": "Set the storage credentials, required in most cases",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.validateClientURI": {
+			"name": "camel.component.azure-queue.validateClientURI",
+			"description": "Whether to validate the Azure client URI",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.bridgeErrorHandler": {
+			"name": "camel.component.azure-queue.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.basicPropertyBinding": {
+			"name": "camel.component.azure-queue.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.configuration": {
+			"name": "camel.component.azure-queue.configuration",
+			"description": "The Queue Service configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.credentialsAccountKey": {
+			"name": "camel.component.azure-queue.credentialsAccountKey",
+			"description": "Set the storage account key used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.credentialsAccountName": {
+			"name": "camel.component.azure-queue.credentialsAccountName",
+			"description": "Set the storage account name used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,215 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.resteasy.CamelResteasySourceConnector",
+		"artifactId": "camel-resteasy",
+		"groupId": "org.apache.camel",
+		"title": "camel-resteasy",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.httpUri": {
+			"name": "camel.source.path.httpUri",
+			"description": "The url of the HTTP endpoint to call.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.chunked": {
+			"name": "camel.source.endpoint.chunked",
+			"description": "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.disableStreamCache": {
+			"name": "camel.source.endpoint.disableStreamCache",
+			"description": "Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory\/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge\/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.resteasyMethod": {
+			"name": "camel.source.endpoint.resteasyMethod",
+			"description": "Sets the resteasy method to process the request",
+			"defaultValue": "\"GET\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.servletName": {
+			"name": "camel.source.endpoint.servletName",
+			"description": "Sets the servlet name",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.transferException": {
+			"name": "camel.source.endpoint.transferException",
+			"description": "If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application\/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.async": {
+			"name": "camel.source.endpoint.async",
+			"description": "Configure the consumer to work in async mode",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpMethodRestrict": {
+			"name": "camel.source.endpoint.httpMethodRestrict",
+			"description": "Used to only allow consuming if the HttpMethod matches, such as GET\/POST\/PUT etc. Multiple methods can be specified separated by comma.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.matchOnUriPrefix": {
+			"name": "camel.source.endpoint.matchOnUriPrefix",
+			"description": "Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.muteException": {
+			"name": "camel.source.endpoint.muteException",
+			"description": "If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.responseBufferSize": {
+			"name": "camel.source.endpoint.responseBufferSize",
+			"description": "To use a custom buffer size on the javax.servlet.ServletResponse.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.eagerCheckContentAvailable": {
+			"name": "camel.source.endpoint.eagerCheckContentAvailable",
+			"description": "Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present. This can be turned on in case HTTP clients do not send streamed data.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.optionsEnabled": {
+			"name": "camel.source.endpoint.optionsEnabled",
+			"description": "Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.traceEnabled": {
+			"name": "camel.source.endpoint.traceEnabled",
+			"description": "Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.headerFilterStrategy": {
+			"name": "camel.source.endpoint.headerFilterStrategy",
+			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mapHttpMessageBody": {
+			"name": "camel.source.endpoint.mapHttpMessageBody",
+			"description": "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mapHttpMessageFormUrlEncodedBody": {
+			"name": "camel.source.endpoint.mapHttpMessageFormUrlEncodedBody",
+			"description": "If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mapHttpMessageHeaders": {
+			"name": "camel.source.endpoint.mapHttpMessageHeaders",
+			"description": "If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.setHttpResponseDuringProcessing": {
+			"name": "camel.source.endpoint.setHttpResponseDuringProcessing",
+			"description": "Sets the flag to use the endpoint where you can either populate camel exchange from servlet response or use request itself which may be thought as if it is a proxy.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.skipServletProcessing": {
+			"name": "camel.source.endpoint.skipServletProcessing",
+			"description": "Sets the flag to use skip servlet processing and let camel take over processing",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useSystemProperties": {
+			"name": "camel.source.endpoint.useSystemProperties",
+			"description": "To use System Properties as fallback for configuration",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxyClientClass": {
+			"name": "camel.source.endpoint.proxyClientClass",
+			"description": "Sets the resteasy proxyClientClass",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "Sets the password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "Sets the username",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.resteasy.bridgeErrorHandler": {
+			"name": "camel.component.resteasy.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.resteasy.proxyConsumersClasses": {
+			"name": "camel.component.resteasy.proxyConsumersClasses",
+			"description": "Proxy classes for consumer endpoints. Multiple classes can be separated by comma.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.resteasy.allowJavaSerializedObject": {
+			"name": "camel.component.resteasy.allowJavaSerializedObject",
+			"description": "Whether to allow java serialization when a request uses context-type=application\/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.resteasy.basicPropertyBinding": {
+			"name": "camel.component.resteasy.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.resteasy.headerFilterStrategy": {
+			"name": "camel.component.resteasy.headerFilterStrategy",
+			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

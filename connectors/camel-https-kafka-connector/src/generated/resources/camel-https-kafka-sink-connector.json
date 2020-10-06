@@ -1,0 +1,491 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.https.CamelHttpsSinkConnector",
+		"artifactId": "camel-https",
+		"groupId": "org.apache.camel",
+		"title": "camel-https",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.httpUri": {
+			"name": "camel.sink.path.httpUri",
+			"description": "The url of the HTTP endpoint to call.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.disableStreamCache": {
+			"name": "camel.sink.endpoint.disableStreamCache",
+			"description": "Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory\/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge\/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.headerFilterStrategy": {
+			"name": "camel.sink.endpoint.headerFilterStrategy",
+			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpBinding": {
+			"name": "camel.sink.endpoint.httpBinding",
+			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.bridgeEndpoint": {
+			"name": "camel.sink.endpoint.bridgeEndpoint",
+			"description": "If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request. You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.chunked": {
+			"name": "camel.sink.endpoint.chunked",
+			"description": "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clearExpiredCookies": {
+			"name": "camel.sink.endpoint.clearExpiredCookies",
+			"description": "Whether to clear expired cookies before sending the HTTP request. This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectionClose": {
+			"name": "camel.sink.endpoint.connectionClose",
+			"description": "Specifies whether a Connection Close header must be added to HTTP Request. By default connectionClose is false.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.copyHeaders": {
+			"name": "camel.sink.endpoint.copyHeaders",
+			"description": "If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy. Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.customHostHeader": {
+			"name": "camel.sink.endpoint.customHostHeader",
+			"description": "To use custom host header for producer. When not set in query will be ignored. When set will override host header derived from url.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpMethod": {
+			"name": "camel.sink.endpoint.httpMethod",
+			"description": "Configure the HTTP method to use. The HttpMethod header cannot override this option if set. One of: [GET] [POST] [PUT] [DELETE] [HEAD] [OPTIONS] [TRACE] [PATCH]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ignoreResponseBody": {
+			"name": "camel.sink.endpoint.ignoreResponseBody",
+			"description": "If this option is true, The http producer won't read response body and cache the input stream",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.preserveHostHeader": {
+			"name": "camel.sink.endpoint.preserveHostHeader",
+			"description": "If the option is true, HttpProducer will set the Host header to the value contained in the current exchange Host header, useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, this allows applications which use the Host header to generate accurate URL's for a proxied service",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.throwExceptionOnFailure": {
+			"name": "camel.sink.endpoint.throwExceptionOnFailure",
+			"description": "Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server. This allows you to get all responses regardless of the HTTP status code.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.transferException": {
+			"name": "camel.sink.endpoint.transferException",
+			"description": "If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application\/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cookieHandler": {
+			"name": "camel.sink.endpoint.cookieHandler",
+			"description": "Configure a cookie handler to maintain a HTTP session",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cookieStore": {
+			"name": "camel.sink.endpoint.cookieStore",
+			"description": "To use a custom CookieStore. By default the BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy). If a cookieHandler is set then the cookie store is also forced to be a noop cookie store as cookie handling is then performed by the cookieHandler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.deleteWithBody": {
+			"name": "camel.sink.endpoint.deleteWithBody",
+			"description": "Whether the HTTP DELETE should include the message body or not. By default HTTP DELETE do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.getWithBody": {
+			"name": "camel.sink.endpoint.getWithBody",
+			"description": "Whether the HTTP GET should include the message body or not. By default HTTP GET do not include any HTTP body. However in some rare cases users may need to be able to include the message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.okStatusCodeRange": {
+			"name": "camel.sink.endpoint.okStatusCodeRange",
+			"description": "The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included.",
+			"defaultValue": "\"200-299\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientBuilder": {
+			"name": "camel.sink.endpoint.clientBuilder",
+			"description": "Provide access to the http client request parameters used on new RequestConfig instances used by producers or consumers of this endpoint.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientConnectionManager": {
+			"name": "camel.sink.endpoint.clientConnectionManager",
+			"description": "To use a custom HttpClientConnectionManager to manage connections",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectionsPerRoute": {
+			"name": "camel.sink.endpoint.connectionsPerRoute",
+			"description": "The maximum number of connections per route.",
+			"defaultValue": "20",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpClient": {
+			"name": "camel.sink.endpoint.httpClient",
+			"description": "Sets a custom HttpClient to be used by the producer",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpClientConfigurer": {
+			"name": "camel.sink.endpoint.httpClientConfigurer",
+			"description": "Register a custom configuration strategy for new HttpClient instances created by producers or consumers such as to configure authentication mechanisms etc.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpClientOptions": {
+			"name": "camel.sink.endpoint.httpClientOptions",
+			"description": "To configure the HttpClient using the key\/values from the Map.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpContext": {
+			"name": "camel.sink.endpoint.httpContext",
+			"description": "To use a custom HttpContext instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.mapHttpMessageBody": {
+			"name": "camel.sink.endpoint.mapHttpMessageBody",
+			"description": "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.mapHttpMessageFormUrlEncodedBody": {
+			"name": "camel.sink.endpoint.mapHttpMessageFormUrlEncodedBody",
+			"description": "If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.mapHttpMessageHeaders": {
+			"name": "camel.sink.endpoint.mapHttpMessageHeaders",
+			"description": "If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxTotalConnections": {
+			"name": "camel.sink.endpoint.maxTotalConnections",
+			"description": "The maximum number of connections.",
+			"defaultValue": "200",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.useSystemProperties": {
+			"name": "camel.sink.endpoint.useSystemProperties",
+			"description": "To use System Properties as fallback for configuration",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthDomain": {
+			"name": "camel.sink.endpoint.proxyAuthDomain",
+			"description": "Proxy authentication domain to use with NTML",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthHost": {
+			"name": "camel.sink.endpoint.proxyAuthHost",
+			"description": "Proxy authentication host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthMethod": {
+			"name": "camel.sink.endpoint.proxyAuthMethod",
+			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthNtHost": {
+			"name": "camel.sink.endpoint.proxyAuthNtHost",
+			"description": "Proxy authentication domain (workstation name) to use with NTML",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthPassword": {
+			"name": "camel.sink.endpoint.proxyAuthPassword",
+			"description": "Proxy authentication password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthPort": {
+			"name": "camel.sink.endpoint.proxyAuthPort",
+			"description": "Proxy authentication port",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthScheme": {
+			"name": "camel.sink.endpoint.proxyAuthScheme",
+			"description": "Proxy authentication scheme to use One of: [http] [https]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthUsername": {
+			"name": "camel.sink.endpoint.proxyAuthUsername",
+			"description": "Proxy authentication username",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "Proxy hostname to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "Proxy port to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authDomain": {
+			"name": "camel.sink.endpoint.authDomain",
+			"description": "Authentication domain to use with NTML",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authenticationPreemptive": {
+			"name": "camel.sink.endpoint.authenticationPreemptive",
+			"description": "If this option is true, camel-http sends preemptive basic authentication to the server.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authHost": {
+			"name": "camel.sink.endpoint.authHost",
+			"description": "Authentication host to use with NTML",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authMethod": {
+			"name": "camel.sink.endpoint.authMethod",
+			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authMethodPriority": {
+			"name": "camel.sink.endpoint.authMethodPriority",
+			"description": "Which authentication method to prioritize to use, either as Basic, Digest or NTLM. One of: [Basic] [Digest] [NTLM]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authPassword": {
+			"name": "camel.sink.endpoint.authPassword",
+			"description": "Authentication password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authUsername": {
+			"name": "camel.sink.endpoint.authUsername",
+			"description": "Authentication username",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sslContextParameters": {
+			"name": "camel.sink.endpoint.sslContextParameters",
+			"description": "To configure security using SSLContextParameters. Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent. If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.x509HostnameVerifier": {
+			"name": "camel.sink.endpoint.x509HostnameVerifier",
+			"description": "To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.cookieStore": {
+			"name": "camel.component.https.cookieStore",
+			"description": "To use a custom org.apache.http.client.CookieStore. By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.lazyStartProducer": {
+			"name": "camel.component.https.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.allowJavaSerializedObject": {
+			"name": "camel.component.https.allowJavaSerializedObject",
+			"description": "Whether to allow java serialization when a request uses context-type=application\/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.basicPropertyBinding": {
+			"name": "camel.component.https.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.clientConnectionManager": {
+			"name": "camel.component.https.clientConnectionManager",
+			"description": "To use a custom and shared HttpClientConnectionManager to manage connections. If this has been configured then this is always used for all endpoints created by this component.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.connectionsPerRoute": {
+			"name": "camel.component.https.connectionsPerRoute",
+			"description": "The maximum number of connections per route.",
+			"defaultValue": "20",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.connectionTimeToLive": {
+			"name": "camel.component.https.connectionTimeToLive",
+			"description": "The time for connection to live, the time unit is millisecond, the default value is always keep alive.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.httpBinding": {
+			"name": "camel.component.https.httpBinding",
+			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.httpClientConfigurer": {
+			"name": "camel.component.https.httpClientConfigurer",
+			"description": "To use the custom HttpClientConfigurer to perform configuration of the HttpClient that will be used.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.httpConfiguration": {
+			"name": "camel.component.https.httpConfiguration",
+			"description": "To use the shared HttpConfiguration as base configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.httpContext": {
+			"name": "camel.component.https.httpContext",
+			"description": "To use a custom org.apache.http.protocol.HttpContext when executing requests.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.maxTotalConnections": {
+			"name": "camel.component.https.maxTotalConnections",
+			"description": "The maximum number of connections.",
+			"defaultValue": "200",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.headerFilterStrategy": {
+			"name": "camel.component.https.headerFilterStrategy",
+			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.proxyAuthDomain": {
+			"name": "camel.component.https.proxyAuthDomain",
+			"description": "Proxy authentication domain to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.proxyAuthHost": {
+			"name": "camel.component.https.proxyAuthHost",
+			"description": "Proxy authentication host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.proxyAuthMethod": {
+			"name": "camel.component.https.proxyAuthMethod",
+			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.proxyAuthNtHost": {
+			"name": "camel.component.https.proxyAuthNtHost",
+			"description": "Proxy authentication domain (workstation name) to use with NTML",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.proxyAuthPassword": {
+			"name": "camel.component.https.proxyAuthPassword",
+			"description": "Proxy authentication password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.proxyAuthPort": {
+			"name": "camel.component.https.proxyAuthPort",
+			"description": "Proxy authentication port",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.proxyAuthUsername": {
+			"name": "camel.component.https.proxyAuthUsername",
+			"description": "Proxy authentication username",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.sslContextParameters": {
+			"name": "camel.component.https.sslContextParameters",
+			"description": "To configure security using SSLContextParameters. Important: Only one instance of org.apache.camel.support.jsse.SSLContextParameters is supported per HttpComponent. If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.useGlobalSslContextParameters": {
+			"name": "camel.component.https.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.x509HostnameVerifier": {
+			"name": "camel.component.https.x509HostnameVerifier",
+			"description": "To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.connectionRequestTimeout": {
+			"name": "camel.component.https.connectionRequestTimeout",
+			"description": "The timeout in milliseconds used when requesting a connection from the connection manager. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.connectTimeout": {
+			"name": "camel.component.https.connectTimeout",
+			"description": "Determines the timeout in milliseconds until a connection is established. A timeout value of zero is interpreted as an infinite timeout. A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		},
+		"camel.component.https.socketTimeout": {
+			"name": "camel.component.https.socketTimeout",
+			"description": "Defines the socket timeout in milliseconds, which is the timeout for waiting for data or, put differently, a maximum period inactivity between two consecutive data packets). A timeout value of zero is interpreted as an infinite timeout. A negative value is interpreted as undefined (system default).",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		}
+	}
+}

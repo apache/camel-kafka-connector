@@ -1,0 +1,353 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.box.CamelBoxSourceConnector",
+		"artifactId": "camel-box",
+		"groupId": "org.apache.camel",
+		"title": "camel-box",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.apiName": {
+			"name": "camel.source.path.apiName",
+			"description": "What kind of operation to perform One of: [COLLABORATIONS] [COMMENTS] [EVENT_LOGS] [FILES] [FOLDERS] [GROUPS] [EVENTS] [SEARCH] [TASKS] [USERS]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.methodName": {
+			"name": "camel.source.path.methodName",
+			"description": "What sub operation to use for the selected operation",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.clientId": {
+			"name": "camel.source.endpoint.clientId",
+			"description": "Box application client ID",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.enterpriseId": {
+			"name": "camel.source.endpoint.enterpriseId",
+			"description": "The enterprise ID to use for an App Enterprise.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.inBody": {
+			"name": "camel.source.endpoint.inBody",
+			"description": "Sets the name of a parameter to be passed in the exchange In Body",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.userId": {
+			"name": "camel.source.endpoint.userId",
+			"description": "The user ID to use for an App User.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
+			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
+			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pollStrategy": {
+			"name": "camel.source.endpoint.pollStrategy",
+			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpParams": {
+			"name": "camel.source.endpoint.httpParams",
+			"description": "Custom HTTP params for settings like proxy host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.authenticationType": {
+			"name": "camel.source.endpoint.authenticationType",
+			"description": "The type of authentication for connection. Types of Authentication: STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION - OAuth 2.0 with JSON Web Tokens",
+			"defaultValue": "\"APP_USER_AUTHENTICATION\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffErrorThreshold": {
+			"name": "camel.source.endpoint.backoffErrorThreshold",
+			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffIdleThreshold": {
+			"name": "camel.source.endpoint.backoffIdleThreshold",
+			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffMultiplier": {
+			"name": "camel.source.endpoint.backoffMultiplier",
+			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Milliseconds before the next poll.",
+			"defaultValue": "500L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.greedy": {
+			"name": "camel.source.endpoint.greedy",
+			"description": "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Milliseconds before the first poll starts.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.repeatCount": {
+			"name": "camel.source.endpoint.repeatCount",
+			"description": "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.runLoggingLevel": {
+			"name": "camel.source.endpoint.runLoggingLevel",
+			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"TRACE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduledExecutorService": {
+			"name": "camel.source.endpoint.scheduledExecutorService",
+			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduler": {
+			"name": "camel.source.endpoint.scheduler",
+			"description": "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler",
+			"defaultValue": "\"none\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.schedulerProperties": {
+			"name": "camel.source.endpoint.schedulerProperties",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.startScheduler": {
+			"name": "camel.source.endpoint.startScheduler",
+			"description": "Whether the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeUnit": {
+			"name": "camel.source.endpoint.timeUnit",
+			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
+			"defaultValue": "\"MILLISECONDS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useFixedDelay": {
+			"name": "camel.source.endpoint.useFixedDelay",
+			"description": "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.accessTokenCache": {
+			"name": "camel.source.endpoint.accessTokenCache",
+			"description": "Custom Access Token Cache for storing and retrieving access tokens.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.clientSecret": {
+			"name": "camel.source.endpoint.clientSecret",
+			"description": "Box application client secret",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.encryptionAlgorithm": {
+			"name": "camel.source.endpoint.encryptionAlgorithm",
+			"description": "The type of encryption algorithm for JWT. Supported Algorithms: RSA_SHA_256 RSA_SHA_384 RSA_SHA_512 One of: [RSA_SHA_256] [RSA_SHA_384] [RSA_SHA_512]",
+			"defaultValue": "\"RSA_SHA_256\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxCacheEntries": {
+			"name": "camel.source.endpoint.maxCacheEntries",
+			"description": "The maximum number of access tokens in cache.",
+			"defaultValue": "100",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.privateKeyFile": {
+			"name": "camel.source.endpoint.privateKeyFile",
+			"description": "The private key for generating the JWT signature.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.privateKeyPassword": {
+			"name": "camel.source.endpoint.privateKeyPassword",
+			"description": "The password for the private key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.publicKeyId": {
+			"name": "camel.source.endpoint.publicKeyId",
+			"description": "The ID for public key for validating the JWT signature.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sslContextParameters": {
+			"name": "camel.source.endpoint.sslContextParameters",
+			"description": "To configure security using SSLContextParameters.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.userName": {
+			"name": "camel.source.endpoint.userName",
+			"description": "Box user name, MUST be provided",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.userPassword": {
+			"name": "camel.source.endpoint.userPassword",
+			"description": "Box user password, MUST be provided if authSecureStorage is not set, or returns null on first call",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.clientId": {
+			"name": "camel.component.box.clientId",
+			"description": "Box application client ID",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.configuration": {
+			"name": "camel.component.box.configuration",
+			"description": "To use the shared configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.enterpriseId": {
+			"name": "camel.component.box.enterpriseId",
+			"description": "The enterprise ID to use for an App Enterprise.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.userId": {
+			"name": "camel.component.box.userId",
+			"description": "The user ID to use for an App User.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.bridgeErrorHandler": {
+			"name": "camel.component.box.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.basicPropertyBinding": {
+			"name": "camel.component.box.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.httpParams": {
+			"name": "camel.component.box.httpParams",
+			"description": "Custom HTTP params for settings like proxy host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.authenticationType": {
+			"name": "camel.component.box.authenticationType",
+			"description": "The type of authentication for connection. Types of Authentication: STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION - OAuth 2.0 with JSON Web Tokens",
+			"defaultValue": "\"APP_USER_AUTHENTICATION\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.accessTokenCache": {
+			"name": "camel.component.box.accessTokenCache",
+			"description": "Custom Access Token Cache for storing and retrieving access tokens.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.clientSecret": {
+			"name": "camel.component.box.clientSecret",
+			"description": "Box application client secret",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.encryptionAlgorithm": {
+			"name": "camel.component.box.encryptionAlgorithm",
+			"description": "The type of encryption algorithm for JWT. Supported Algorithms: RSA_SHA_256 RSA_SHA_384 RSA_SHA_512 One of: [RSA_SHA_256] [RSA_SHA_384] [RSA_SHA_512]",
+			"defaultValue": "\"RSA_SHA_256\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.maxCacheEntries": {
+			"name": "camel.component.box.maxCacheEntries",
+			"description": "The maximum number of access tokens in cache.",
+			"defaultValue": "100",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.privateKeyFile": {
+			"name": "camel.component.box.privateKeyFile",
+			"description": "The private key for generating the JWT signature.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.privateKeyPassword": {
+			"name": "camel.component.box.privateKeyPassword",
+			"description": "The password for the private key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.publicKeyId": {
+			"name": "camel.component.box.publicKeyId",
+			"description": "The ID for public key for validating the JWT signature.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.sslContextParameters": {
+			"name": "camel.component.box.sslContextParameters",
+			"description": "To configure security using SSLContextParameters.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.userName": {
+			"name": "camel.component.box.userName",
+			"description": "Box user name, MUST be provided",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.box.userPassword": {
+			"name": "camel.component.box.userPassword",
+			"description": "Box user password, MUST be provided if authSecureStorage is not set, or returns null on first call",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

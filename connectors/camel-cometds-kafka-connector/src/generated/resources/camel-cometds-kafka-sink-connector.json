@@ -1,0 +1,167 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.cometds.CamelCometdsSinkConnector",
+		"artifactId": "camel-cometds",
+		"groupId": "org.apache.camel",
+		"title": "camel-cometds",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.host": {
+			"name": "camel.sink.path.host",
+			"description": "Hostname",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.port": {
+			"name": "camel.sink.path.port",
+			"description": "Host port number",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.channelName": {
+			"name": "camel.sink.path.channelName",
+			"description": "The channelName represents a topic that can be subscribed to by the Camel endpoints.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.allowedOrigins": {
+			"name": "camel.sink.endpoint.allowedOrigins",
+			"description": "The origins domain that support to cross, if the crosssOriginFilterOn is true",
+			"defaultValue": "\"*\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.baseResource": {
+			"name": "camel.sink.endpoint.baseResource",
+			"description": "The root directory for the web resources or classpath. Use the protocol file: or classpath: depending if you want that the component loads the resource from file system or classpath. Classpath is required for OSGI deployment where the resources are packaged in the jar",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.crossOriginFilterOn": {
+			"name": "camel.sink.endpoint.crossOriginFilterOn",
+			"description": "If true, the server will support for cross-domain filtering",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.filterPath": {
+			"name": "camel.sink.endpoint.filterPath",
+			"description": "The filterPath will be used by the CrossOriginFilter, if the crosssOriginFilterOn is true",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.interval": {
+			"name": "camel.sink.endpoint.interval",
+			"description": "The client side poll timeout in milliseconds. How long a client will wait between reconnects",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.jsonCommented": {
+			"name": "camel.sink.endpoint.jsonCommented",
+			"description": "If true, the server will accept JSON wrapped in a comment and will generate JSON wrapped in a comment. This is a defence against Ajax Hijacking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.logLevel": {
+			"name": "camel.sink.endpoint.logLevel",
+			"description": "Logging level. 0=none, 1=info, 2=debug. One of: [0] [1] [2]",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxInterval": {
+			"name": "camel.sink.endpoint.maxInterval",
+			"description": "The max client side poll timeout in milliseconds. A client will be removed if a connection is not received in this time.",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.multiFrameInterval": {
+			"name": "camel.sink.endpoint.multiFrameInterval",
+			"description": "The client side poll timeout, if multiple connections are detected from the same browser.",
+			"defaultValue": "1500",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout": {
+			"name": "camel.sink.endpoint.timeout",
+			"description": "The server side poll timeout in milliseconds. This is how long the server will hold a reconnect request before responding.",
+			"defaultValue": "240000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.disconnectLocalSession": {
+			"name": "camel.sink.endpoint.disconnectLocalSession",
+			"description": "Whether to disconnect local sessions after publishing a message to its channel. Disconnecting local session is needed as they are not swept by default by CometD, and therefore you can run out of memory.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.lazyStartProducer": {
+			"name": "camel.component.cometds.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.basicPropertyBinding": {
+			"name": "camel.component.cometds.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.extensions": {
+			"name": "camel.component.cometds.extensions",
+			"description": "To use a list of custom BayeuxServer.Extension that allows modifying incoming and outgoing requests.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.securityPolicy": {
+			"name": "camel.component.cometds.securityPolicy",
+			"description": "To use a custom configured SecurityPolicy to control authorization",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.sslContextParameters": {
+			"name": "camel.component.cometds.sslContextParameters",
+			"description": "To configure security using SSLContextParameters",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.sslKeyPassword": {
+			"name": "camel.component.cometds.sslKeyPassword",
+			"description": "The password for the keystore when using SSL.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.sslKeystore": {
+			"name": "camel.component.cometds.sslKeystore",
+			"description": "The path to the keystore.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.sslPassword": {
+			"name": "camel.component.cometds.sslPassword",
+			"description": "The password when using SSL.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometds.useGlobalSslContextParameters": {
+			"name": "camel.component.cometds.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

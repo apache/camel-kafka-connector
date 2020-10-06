@@ -1,0 +1,119 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.reactivestreams.CamelReactivestreamsSourceConnector",
+		"artifactId": "camel-reactive-streams",
+		"groupId": "org.apache.camel",
+		"title": "camel-reactive-streams",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.stream": {
+			"name": "camel.source.path.stream",
+			"description": "Name of the stream channel used by the endpoint to exchange messages.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.concurrentConsumers": {
+			"name": "camel.source.endpoint.concurrentConsumers",
+			"description": "Number of threads used to process exchanges in the Camel route.",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangesRefillLowWatermark": {
+			"name": "camel.source.endpoint.exchangesRefillLowWatermark",
+			"description": "Set the low watermark of requested exchanges to the active subscription as percentage of the maxInflightExchanges. When the number of pending items from the upstream source is lower than the watermark, new items can be requested to the subscription. If set to 0, the subscriber will request items in batches of maxInflightExchanges, only after all items of the previous batch have been processed. If set to 1, the subscriber can request a new item each time an exchange is processed (chatty). Any intermediate value can be used.",
+			"defaultValue": "0.25D",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.forwardOnComplete": {
+			"name": "camel.source.endpoint.forwardOnComplete",
+			"description": "Determines if onComplete events should be pushed to the Camel route.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.forwardOnError": {
+			"name": "camel.source.endpoint.forwardOnError",
+			"description": "Determines if onError events should be pushed to the Camel route. Exceptions will be set as message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxInflightExchanges": {
+			"name": "camel.source.endpoint.maxInflightExchanges",
+			"description": "Maximum number of exchanges concurrently being processed by Camel. This parameter controls backpressure on the stream. Setting a non-positive value will disable backpressure.",
+			"defaultValue": "\"128\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.reactive-streams.threadPoolMaxSize": {
+			"name": "camel.component.reactive-streams.threadPoolMaxSize",
+			"description": "The maximum number of threads used by the reactive streams internal engine.",
+			"defaultValue": "10",
+			"priority": "MEDIUM"
+		},
+		"camel.component.reactive-streams.threadPoolMinSize": {
+			"name": "camel.component.reactive-streams.threadPoolMinSize",
+			"description": "The minimum number of threads used by the reactive streams internal engine.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.reactive-streams.threadPoolName": {
+			"name": "camel.component.reactive-streams.threadPoolName",
+			"description": "The name of the thread pool used by the reactive streams internal engine.",
+			"defaultValue": "\"CamelReactiveStreamsWorker\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.reactive-streams.bridgeErrorHandler": {
+			"name": "camel.component.reactive-streams.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.reactive-streams.basicPropertyBinding": {
+			"name": "camel.component.reactive-streams.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.reactive-streams.reactiveStreamsEngineConfiguration": {
+			"name": "camel.component.reactive-streams.reactiveStreamsEngineConfiguration",
+			"description": "To use an existing reactive stream engine configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.reactive-streams.serviceType": {
+			"name": "camel.component.reactive-streams.serviceType",
+			"description": "Set the type of the underlying reactive streams implementation to use. The implementation is looked up from the registry or using a ServiceLoader, the default implementation is DefaultCamelReactiveStreamsService",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

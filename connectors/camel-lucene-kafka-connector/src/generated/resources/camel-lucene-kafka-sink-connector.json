@@ -1,0 +1,107 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.lucene.CamelLuceneSinkConnector",
+		"artifactId": "camel-lucene",
+		"groupId": "org.apache.camel",
+		"title": "camel-lucene",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.host": {
+			"name": "camel.sink.path.host",
+			"description": "The URL to the lucene server",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.operation": {
+			"name": "camel.sink.path.operation",
+			"description": "Operation to do such as insert or query. One of: [insert] [query]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.analyzer": {
+			"name": "camel.sink.endpoint.analyzer",
+			"description": "An Analyzer builds TokenStreams, which analyze text. It thus represents a policy for extracting index terms from text. The value for analyzer can be any class that extends the abstract class org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of analyzers out of the box",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.indexDir": {
+			"name": "camel.sink.endpoint.indexDir",
+			"description": "A file system directory in which index files are created upon analysis of the document by the specified analyzer",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxHits": {
+			"name": "camel.sink.endpoint.maxHits",
+			"description": "An integer value that limits the result set of the search operation",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.srcDir": {
+			"name": "camel.sink.endpoint.srcDir",
+			"description": "An optional directory containing files to be used to be analyzed and added to the index at producer startup.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.lucene.analyzer": {
+			"name": "camel.component.lucene.analyzer",
+			"description": "An Analyzer builds TokenStreams, which analyze text. It thus represents a policy for extracting index terms from text. The value for analyzer can be any class that extends the abstract class org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of analyzers out of the box",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.lucene.indexDir": {
+			"name": "camel.component.lucene.indexDir",
+			"description": "A file system directory in which index files are created upon analysis of the document by the specified analyzer",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.lucene.lazyStartProducer": {
+			"name": "camel.component.lucene.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.lucene.maxHits": {
+			"name": "camel.component.lucene.maxHits",
+			"description": "An integer value that limits the result set of the search operation",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.lucene.srcDir": {
+			"name": "camel.component.lucene.srcDir",
+			"description": "An optional directory containing files to be used to be analyzed and added to the index at producer startup.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.lucene.basicPropertyBinding": {
+			"name": "camel.component.lucene.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.lucene.config": {
+			"name": "camel.component.lucene.config",
+			"description": "To use a shared lucene configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

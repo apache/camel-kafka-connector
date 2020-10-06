@@ -1,0 +1,245 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.xmlsecurityverify.CamelXmlsecurityverifySinkConnector",
+		"artifactId": "camel-xmlsecurity-verify",
+		"groupId": "org.apache.camel",
+		"title": "camel-xmlsecurity-verify",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.name": {
+			"name": "camel.sink.path.name",
+			"description": "The name part in the URI can be chosen by the user to distinguish between different verify endpoints within the camel context.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.baseUri": {
+			"name": "camel.sink.endpoint.baseUri",
+			"description": "You can set a base URI which is used in the URI dereferencing. Relative URIs are then concatenated with the base URI.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clearHeaders": {
+			"name": "camel.sink.endpoint.clearHeaders",
+			"description": "Determines if the XML signature specific headers be cleared after signing and verification. Defaults to true.",
+			"defaultValue": "\"true\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cryptoContextProperties": {
+			"name": "camel.sink.endpoint.cryptoContextProperties",
+			"description": "Sets the crypto context properties. See {link XMLCryptoContext#setProperty(String, Object)}. Possible properties are defined in XMLSignContext an XMLValidateContext (see Supported Properties). The following properties are set by default to the value Boolean#TRUE for the XML validation. If you want to switch these features off you must set the property value to Boolean#FALSE. org.jcp.xml.dsig.validateManifests javax.xml.crypto.dsig.cacheReference",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.disallowDoctypeDecl": {
+			"name": "camel.sink.endpoint.disallowDoctypeDecl",
+			"description": "Disallows that the incoming XML document contains DTD DOCTYPE declaration. The default value is Boolean#TRUE.",
+			"defaultValue": "\"true\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keySelector": {
+			"name": "camel.sink.endpoint.keySelector",
+			"description": "Provides the key for validating the XML signature.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.omitXmlDeclaration": {
+			"name": "camel.sink.endpoint.omitXmlDeclaration",
+			"description": "Indicator whether the XML declaration in the outgoing message body should be omitted. Default value is false. Can be overwritten by the header XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION.",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.outputNodeSearch": {
+			"name": "camel.sink.endpoint.outputNodeSearch",
+			"description": "Sets the output node search value for determining the node from the XML signature document which shall be set to the output message body. The class of the value depends on the type of the output node search. The output node search is forwarded to XmlSignature2Message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.outputNodeSearchType": {
+			"name": "camel.sink.endpoint.outputNodeSearchType",
+			"description": "Determines the search type for determining the output node which is serialized into the output message bodyF. See setOutputNodeSearch(Object). The supported default search types you can find in DefaultXmlSignature2Message.",
+			"defaultValue": "\"Default\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.outputXmlEncoding": {
+			"name": "camel.sink.endpoint.outputXmlEncoding",
+			"description": "The character encoding of the resulting signed XML document. If null then the encoding of the original XML document is used.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.removeSignatureElements": {
+			"name": "camel.sink.endpoint.removeSignatureElements",
+			"description": "Indicator whether the XML signature elements (elements with local name Signature and namesapce http:\/\/www.w3.org\/2000\/09\/xmldsig#) shall be removed from the document set to the output message. Normally, this is only necessary, if the XML signature is enveloped. The default value is Boolean#FALSE. This parameter is forwarded to XmlSignature2Message. This indicator has no effect if the output node search is of type DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT.F",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.schemaResourceUri": {
+			"name": "camel.sink.endpoint.schemaResourceUri",
+			"description": "Classpath to the XML Schema. Must be specified in the detached XML Signature case for determining the ID attributes, might be set in the enveloped and enveloping case. If set, then the XML document is validated with the specified XML schema. The schema resource URI can be overwritten by the header XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.secureValidation": {
+			"name": "camel.sink.endpoint.secureValidation",
+			"description": "Enables secure validation. If true then secure validation is enabled.",
+			"defaultValue": "\"true\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.validationFailedHandler": {
+			"name": "camel.sink.endpoint.validationFailedHandler",
+			"description": "Handles the different validation failed situations. The default implementation throws specific exceptions for the different situations (All exceptions have the package name org.apache.camel.component.xmlsecurity.api and are a sub-class of XmlSignatureInvalidException. If the signature value validation fails, a XmlSignatureInvalidValueException is thrown. If a reference validation fails, a XmlSignatureInvalidContentHashException is thrown. For more detailed information, see the JavaDoc.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.xmlSignature2Message": {
+			"name": "camel.sink.endpoint.xmlSignature2Message",
+			"description": "Bean which maps the XML signature to the output-message after the validation. How this mapping should be done can be configured by the options outputNodeSearchType, outputNodeSearch, and removeSignatureElements. The default implementation offers three possibilities which are related to the three output node search types Default, ElementName, and XPath. The default implementation determines a node which is then serialized and set to the body of the output message If the search type is ElementName then the output node (which must be in this case an element) is determined by the local name and namespace defined in the search value (see option outputNodeSearch). If the search type is XPath then the output node is determined by the XPath specified in the search value (in this case the output node can be of type Element, TextNode or Document). If the output node search type is Default then the following rules apply: In the enveloped XML signature case (there is a reference with URI= and transform http:\/\/www.w3.org\/2000\/09\/xmldsig#enveloped-signature), the incoming XML document without the Signature element is set to the output message body. In the non-enveloped XML signature case, the message body is determined from a referenced Object; this is explained in more detail in chapter Output Node Determination in Enveloping XML Signature Case.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.xmlSignatureChecker": {
+			"name": "camel.sink.endpoint.xmlSignatureChecker",
+			"description": "This interface allows the application to check the XML signature before the validation is executed. This step is recommended in http:\/\/www.w3.org\/TR\/xmldsig-bestpractices\/#check-what-is-signed",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.uriDereferencer": {
+			"name": "camel.sink.endpoint.uriDereferencer",
+			"description": "If you want to restrict the remote access via reference URIs, you can set an own dereferencer. Optional parameter. If not set the provider default dereferencer is used which can resolve URI fragments, HTTP, file and XPpointer URIs. Attention: The implementation is provider dependent!",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.baseUri": {
+			"name": "camel.component.xmlsecurity-verify.baseUri",
+			"description": "You can set a base URI which is used in the URI dereferencing. Relative URIs are then concatenated with the base URI.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.clearHeaders": {
+			"name": "camel.component.xmlsecurity-verify.clearHeaders",
+			"description": "Determines if the XML signature specific headers be cleared after signing and verification. Defaults to true.",
+			"defaultValue": "\"true\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.cryptoContextProperties": {
+			"name": "camel.component.xmlsecurity-verify.cryptoContextProperties",
+			"description": "Sets the crypto context properties. See {link XMLCryptoContext#setProperty(String, Object)}. Possible properties are defined in XMLSignContext an XMLValidateContext (see Supported Properties). The following properties are set by default to the value Boolean#TRUE for the XML validation. If you want to switch these features off you must set the property value to Boolean#FALSE. org.jcp.xml.dsig.validateManifests javax.xml.crypto.dsig.cacheReference",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.disallowDoctypeDecl": {
+			"name": "camel.component.xmlsecurity-verify.disallowDoctypeDecl",
+			"description": "Disallows that the incoming XML document contains DTD DOCTYPE declaration. The default value is Boolean#TRUE.",
+			"defaultValue": "\"true\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.keySelector": {
+			"name": "camel.component.xmlsecurity-verify.keySelector",
+			"description": "Provides the key for validating the XML signature.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.lazyStartProducer": {
+			"name": "camel.component.xmlsecurity-verify.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.omitXmlDeclaration": {
+			"name": "camel.component.xmlsecurity-verify.omitXmlDeclaration",
+			"description": "Indicator whether the XML declaration in the outgoing message body should be omitted. Default value is false. Can be overwritten by the header XmlSignatureConstants#HEADER_OMIT_XML_DECLARATION.",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.outputNodeSearch": {
+			"name": "camel.component.xmlsecurity-verify.outputNodeSearch",
+			"description": "Sets the output node search value for determining the node from the XML signature document which shall be set to the output message body. The class of the value depends on the type of the output node search. The output node search is forwarded to XmlSignature2Message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.outputNodeSearchType": {
+			"name": "camel.component.xmlsecurity-verify.outputNodeSearchType",
+			"description": "Determines the search type for determining the output node which is serialized into the output message bodyF. See setOutputNodeSearch(Object). The supported default search types you can find in DefaultXmlSignature2Message.",
+			"defaultValue": "\"Default\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.outputXmlEncoding": {
+			"name": "camel.component.xmlsecurity-verify.outputXmlEncoding",
+			"description": "The character encoding of the resulting signed XML document. If null then the encoding of the original XML document is used.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.removeSignatureElements": {
+			"name": "camel.component.xmlsecurity-verify.removeSignatureElements",
+			"description": "Indicator whether the XML signature elements (elements with local name Signature and namesapce http:\/\/www.w3.org\/2000\/09\/xmldsig#) shall be removed from the document set to the output message. Normally, this is only necessary, if the XML signature is enveloped. The default value is Boolean#FALSE. This parameter is forwarded to XmlSignature2Message. This indicator has no effect if the output node search is of type DefaultXmlSignature2Message#OUTPUT_NODE_SEARCH_TYPE_DEFAULT.F",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.schemaResourceUri": {
+			"name": "camel.component.xmlsecurity-verify.schemaResourceUri",
+			"description": "Classpath to the XML Schema. Must be specified in the detached XML Signature case for determining the ID attributes, might be set in the enveloped and enveloping case. If set, then the XML document is validated with the specified XML schema. The schema resource URI can be overwritten by the header XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.secureValidation": {
+			"name": "camel.component.xmlsecurity-verify.secureValidation",
+			"description": "Enables secure validation. If true then secure validation is enabled.",
+			"defaultValue": "\"true\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.validationFailedHandler": {
+			"name": "camel.component.xmlsecurity-verify.validationFailedHandler",
+			"description": "Handles the different validation failed situations. The default implementation throws specific exceptions for the different situations (All exceptions have the package name org.apache.camel.component.xmlsecurity.api and are a sub-class of XmlSignatureInvalidException. If the signature value validation fails, a XmlSignatureInvalidValueException is thrown. If a reference validation fails, a XmlSignatureInvalidContentHashException is thrown. For more detailed information, see the JavaDoc.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.xmlSignature2Message": {
+			"name": "camel.component.xmlsecurity-verify.xmlSignature2Message",
+			"description": "Bean which maps the XML signature to the output-message after the validation. How this mapping should be done can be configured by the options outputNodeSearchType, outputNodeSearch, and removeSignatureElements. The default implementation offers three possibilities which are related to the three output node search types Default, ElementName, and XPath. The default implementation determines a node which is then serialized and set to the body of the output message If the search type is ElementName then the output node (which must be in this case an element) is determined by the local name and namespace defined in the search value (see option outputNodeSearch). If the search type is XPath then the output node is determined by the XPath specified in the search value (in this case the output node can be of type Element, TextNode or Document). If the output node search type is Default then the following rules apply: In the enveloped XML signature case (there is a reference with URI= and transform http:\/\/www.w3.org\/2000\/09\/xmldsig#enveloped-signature), the incoming XML document without the Signature element is set to the output message body. In the non-enveloped XML signature case, the message body is determined from a referenced Object; this is explained in more detail in chapter Output Node Determination in Enveloping XML Signature Case.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.xmlSignatureChecker": {
+			"name": "camel.component.xmlsecurity-verify.xmlSignatureChecker",
+			"description": "This interface allows the application to check the XML signature before the validation is executed. This step is recommended in http:\/\/www.w3.org\/TR\/xmldsig-bestpractices\/#check-what-is-signed",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.basicPropertyBinding": {
+			"name": "camel.component.xmlsecurity-verify.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.uriDereferencer": {
+			"name": "camel.component.xmlsecurity-verify.uriDereferencer",
+			"description": "If you want to restrict the remote access via reference URIs, you can set an own dereferencer. Optional parameter. If not set the provider default dereferencer is used which can resolve URI fragments, HTTP, file and XPpointer URIs. Attention: The implementation is provider dependent!",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmlsecurity-verify.verifierConfiguration": {
+			"name": "camel.component.xmlsecurity-verify.verifierConfiguration",
+			"description": "To use a shared XmlVerifierConfiguration configuration to use as base for configuring endpoints.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

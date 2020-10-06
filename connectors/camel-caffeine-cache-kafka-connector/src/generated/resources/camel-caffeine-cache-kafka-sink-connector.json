@@ -1,0 +1,233 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.caffeinecache.CamelCaffeinecacheSinkConnector",
+		"artifactId": "camel-caffeine-cache",
+		"groupId": "org.apache.camel",
+		"title": "camel-caffeine-cache",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.cacheName": {
+			"name": "camel.sink.path.cacheName",
+			"description": "the cache name",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.action": {
+			"name": "camel.sink.endpoint.action",
+			"description": "To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cache": {
+			"name": "camel.sink.endpoint.cache",
+			"description": "To configure an already instantiated cache to be used",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cacheLoader": {
+			"name": "camel.sink.endpoint.cacheLoader",
+			"description": "To configure a CacheLoader in case of a LoadCache use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.createCacheIfNotExist": {
+			"name": "camel.sink.endpoint.createCacheIfNotExist",
+			"description": "Configure if a cache need to be created if it does exist or can't be pre-configured.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.evictionType": {
+			"name": "camel.sink.endpoint.evictionType",
+			"description": "Set the eviction Type for this cache One of: [size_based] [time_based]",
+			"defaultValue": "\"SIZE_BASED\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.expireAfterAccessTime": {
+			"name": "camel.sink.endpoint.expireAfterAccessTime",
+			"description": "Set the expire After Access Time in case of time based Eviction (in seconds)",
+			"defaultValue": "300",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.expireAfterWriteTime": {
+			"name": "camel.sink.endpoint.expireAfterWriteTime",
+			"description": "Set the expire After Access Write in case of time based Eviction (in seconds)",
+			"defaultValue": "300",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.initialCapacity": {
+			"name": "camel.sink.endpoint.initialCapacity",
+			"description": "Set the initial Capacity for the cache",
+			"defaultValue": "10000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.key": {
+			"name": "camel.sink.endpoint.key",
+			"description": "To configure the default action key. If a key is set in the message header, then the key from the header takes precedence.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maximumSize": {
+			"name": "camel.sink.endpoint.maximumSize",
+			"description": "Set the maximum size for the cache",
+			"defaultValue": "10000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.removalListener": {
+			"name": "camel.sink.endpoint.removalListener",
+			"description": "Set a specific removal Listener for the cache",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.statsCounter": {
+			"name": "camel.sink.endpoint.statsCounter",
+			"description": "Set a specific Stats Counter for the cache stats",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.statsEnabled": {
+			"name": "camel.sink.endpoint.statsEnabled",
+			"description": "To enable stats on the cache",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keyType": {
+			"name": "camel.sink.endpoint.keyType",
+			"description": "The cache key type, default java.lang.Object",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.valueType": {
+			"name": "camel.sink.endpoint.valueType",
+			"description": "The cache value type, default java.lang.Object",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.action": {
+			"name": "camel.component.caffeine-cache.action",
+			"description": "To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.cache": {
+			"name": "camel.component.caffeine-cache.cache",
+			"description": "To configure an already instantiated cache to be used",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.cacheLoader": {
+			"name": "camel.component.caffeine-cache.cacheLoader",
+			"description": "To configure a CacheLoader in case of a LoadCache use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.createCacheIfNotExist": {
+			"name": "camel.component.caffeine-cache.createCacheIfNotExist",
+			"description": "Configure if a cache need to be created if it does exist or can't be pre-configured.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.evictionType": {
+			"name": "camel.component.caffeine-cache.evictionType",
+			"description": "Set the eviction Type for this cache One of: [size_based] [time_based]",
+			"defaultValue": "\"SIZE_BASED\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.expireAfterAccessTime": {
+			"name": "camel.component.caffeine-cache.expireAfterAccessTime",
+			"description": "Set the expire After Access Time in case of time based Eviction (in seconds)",
+			"defaultValue": "300",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.expireAfterWriteTime": {
+			"name": "camel.component.caffeine-cache.expireAfterWriteTime",
+			"description": "Set the expire After Access Write in case of time based Eviction (in seconds)",
+			"defaultValue": "300",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.initialCapacity": {
+			"name": "camel.component.caffeine-cache.initialCapacity",
+			"description": "Set the initial Capacity for the cache",
+			"defaultValue": "10000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.key": {
+			"name": "camel.component.caffeine-cache.key",
+			"description": "To configure the default action key. If a key is set in the message header, then the key from the header takes precedence.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.lazyStartProducer": {
+			"name": "camel.component.caffeine-cache.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.maximumSize": {
+			"name": "camel.component.caffeine-cache.maximumSize",
+			"description": "Set the maximum size for the cache",
+			"defaultValue": "10000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.removalListener": {
+			"name": "camel.component.caffeine-cache.removalListener",
+			"description": "Set a specific removal Listener for the cache",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.statsCounter": {
+			"name": "camel.component.caffeine-cache.statsCounter",
+			"description": "Set a specific Stats Counter for the cache stats",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.statsEnabled": {
+			"name": "camel.component.caffeine-cache.statsEnabled",
+			"description": "To enable stats on the cache",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.basicPropertyBinding": {
+			"name": "camel.component.caffeine-cache.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.configuration": {
+			"name": "camel.component.caffeine-cache.configuration",
+			"description": "Sets the global component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.keyType": {
+			"name": "camel.component.caffeine-cache.keyType",
+			"description": "The cache key type, default java.lang.Object",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.caffeine-cache.valueType": {
+			"name": "camel.component.caffeine-cache.valueType",
+			"description": "The cache value type, default java.lang.Object",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

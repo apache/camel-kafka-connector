@@ -1,0 +1,287 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.yammer.CamelYammerSourceConnector",
+		"artifactId": "camel-yammer",
+		"groupId": "org.apache.camel",
+		"title": "camel-yammer",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.function": {
+			"name": "camel.source.path.function",
+			"description": "The function to use One of: [MESSAGES] [MY_FEED] [ALGO] [FOLLOWING] [SENT] [PRIVATE] [RECEIVED] [USERS] [CURRENT]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.useJson": {
+			"name": "camel.source.endpoint.useJson",
+			"description": "Set to true if you want to use raw JSON rather than converting to POJOs.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Delay between polling in millis",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.limit": {
+			"name": "camel.source.endpoint.limit",
+			"description": "Return only the specified number of messages. Works for threaded set to true and threaded set to extended.",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.newerThan": {
+			"name": "camel.source.endpoint.newerThan",
+			"description": "Returns messages newer than the message ID specified as a numeric string. This should be used when polling for new messages. If you're looking at messages, and the most recent message returned is 3516, you can make a request with the parameter newerThan equals to 3516 to ensure that you do not get duplicate copies of messages already on your page.",
+			"defaultValue": "-1L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.olderThan": {
+			"name": "camel.source.endpoint.olderThan",
+			"description": "Returns messages older than the message ID specified as a numeric string. This is useful for paginating messages. For example, if you're currently viewing 20 messages and the oldest is number 2912, you could append olderThan equals to 2912 to your request to get the 20 messages prior to those you're seeing.",
+			"defaultValue": "-1L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
+			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
+			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.threaded": {
+			"name": "camel.source.endpoint.threaded",
+			"description": "threaded equals to true will only return the first message in each thread. This parameter is intended for apps which display message threads collapsed. threaded equals to extended will return the thread starter messages in order of most recently active as well as the two most recent messages, as they are viewed in the default view on the Yammer web interface. One of: [true] [extended]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.userId": {
+			"name": "camel.source.endpoint.userId",
+			"description": "The user id",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pollStrategy": {
+			"name": "camel.source.endpoint.pollStrategy",
+			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.requestor": {
+			"name": "camel.source.endpoint.requestor",
+			"description": "To use a specific requester to communicate with Yammer.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffErrorThreshold": {
+			"name": "camel.source.endpoint.backoffErrorThreshold",
+			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffIdleThreshold": {
+			"name": "camel.source.endpoint.backoffIdleThreshold",
+			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffMultiplier": {
+			"name": "camel.source.endpoint.backoffMultiplier",
+			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.greedy": {
+			"name": "camel.source.endpoint.greedy",
+			"description": "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Milliseconds before the first poll starts.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.repeatCount": {
+			"name": "camel.source.endpoint.repeatCount",
+			"description": "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.runLoggingLevel": {
+			"name": "camel.source.endpoint.runLoggingLevel",
+			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"TRACE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduledExecutorService": {
+			"name": "camel.source.endpoint.scheduledExecutorService",
+			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduler": {
+			"name": "camel.source.endpoint.scheduler",
+			"description": "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler",
+			"defaultValue": "\"none\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.schedulerProperties": {
+			"name": "camel.source.endpoint.schedulerProperties",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.startScheduler": {
+			"name": "camel.source.endpoint.startScheduler",
+			"description": "Whether the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeUnit": {
+			"name": "camel.source.endpoint.timeUnit",
+			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
+			"defaultValue": "\"MILLISECONDS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useFixedDelay": {
+			"name": "camel.source.endpoint.useFixedDelay",
+			"description": "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.accessToken": {
+			"name": "camel.source.endpoint.accessToken",
+			"description": "The access token",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.consumerKey": {
+			"name": "camel.source.endpoint.consumerKey",
+			"description": "The consumer key",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.consumerSecret": {
+			"name": "camel.source.endpoint.consumerSecret",
+			"description": "The consumer secret",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.component.yammer.useJson": {
+			"name": "camel.component.yammer.useJson",
+			"description": "Set to true if you want to use raw JSON rather than converting to POJOs.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.bridgeErrorHandler": {
+			"name": "camel.component.yammer.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.delay": {
+			"name": "camel.component.yammer.delay",
+			"description": "Delay between polling in millis",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.limit": {
+			"name": "camel.component.yammer.limit",
+			"description": "Return only the specified number of messages. Works for threaded set to true and threaded set to extended.",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.newerThan": {
+			"name": "camel.component.yammer.newerThan",
+			"description": "Returns messages newer than the message ID specified as a numeric string. This should be used when polling for new messages. If you're looking at messages, and the most recent message returned is 3516, you can make a request with the parameter newerThan equals to 3516 to ensure that you do not get duplicate copies of messages already on your page.",
+			"defaultValue": "-1L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.olderThan": {
+			"name": "camel.component.yammer.olderThan",
+			"description": "Returns messages older than the message ID specified as a numeric string. This is useful for paginating messages. For example, if you're currently viewing 20 messages and the oldest is number 2912, you could append olderThan equals to 2912 to your request to get the 20 messages prior to those you're seeing.",
+			"defaultValue": "-1L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.threaded": {
+			"name": "camel.component.yammer.threaded",
+			"description": "threaded equals to true will only return the first message in each thread. This parameter is intended for apps which display message threads collapsed. threaded equals to extended will return the thread starter messages in order of most recently active as well as the two most recent messages, as they are viewed in the default view on the Yammer web interface. One of: [true] [extended]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.userId": {
+			"name": "camel.component.yammer.userId",
+			"description": "The user id",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.basicPropertyBinding": {
+			"name": "camel.component.yammer.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.configuration": {
+			"name": "camel.component.yammer.configuration",
+			"description": "Component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.requestor": {
+			"name": "camel.component.yammer.requestor",
+			"description": "To use a specific requester to communicate with Yammer.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.yammer.accessToken": {
+			"name": "camel.component.yammer.accessToken",
+			"description": "The access token",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.component.yammer.consumerKey": {
+			"name": "camel.component.yammer.consumerKey",
+			"description": "The consumer key",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.component.yammer.consumerSecret": {
+			"name": "camel.component.yammer.consumerSecret",
+			"description": "The consumer secret",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		}
+	}
+}

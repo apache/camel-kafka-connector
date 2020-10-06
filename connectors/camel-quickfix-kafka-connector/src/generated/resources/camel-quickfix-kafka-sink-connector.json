@@ -1,0 +1,83 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.quickfix.CamelQuickfixSinkConnector",
+		"artifactId": "camel-quickfix",
+		"groupId": "org.apache.camel",
+		"title": "camel-quickfix",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.configurationName": {
+			"name": "camel.sink.path.configurationName",
+			"description": "The configFile is the name of the QuickFIX\/J configuration to use for the FIX engine (located as a resource found in your classpath).",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.lazyCreateEngine": {
+			"name": "camel.sink.endpoint.lazyCreateEngine",
+			"description": "This option allows to create QuickFIX\/J engine on demand. Value true means the engine is started when first message is send or there's consumer configured in route definition. When false value is used, the engine is started at the endpoint creation. When this parameter is missing, the value of component's property lazyCreateEngines is being used.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sessionID": {
+			"name": "camel.sink.endpoint.sessionID",
+			"description": "The optional sessionID identifies a specific FIX session. The format of the sessionID is: (BeginString):(SenderCompID)\/(SenderSubID)\/(SenderLocationID)-(TargetCompID)\/(TargetSubID)\/(TargetLocationID)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quickfix.lazyCreateEngines": {
+			"name": "camel.component.quickfix.lazyCreateEngines",
+			"description": "If set to true, the engines will be created and started when needed (when first message is send)",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quickfix.lazyStartProducer": {
+			"name": "camel.component.quickfix.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quickfix.basicPropertyBinding": {
+			"name": "camel.component.quickfix.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quickfix.logFactory": {
+			"name": "camel.component.quickfix.logFactory",
+			"description": "To use the given LogFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quickfix.messageFactory": {
+			"name": "camel.component.quickfix.messageFactory",
+			"description": "To use the given MessageFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quickfix.messageStoreFactory": {
+			"name": "camel.component.quickfix.messageStoreFactory",
+			"description": "To use the given MessageStoreFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

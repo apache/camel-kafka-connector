@@ -1,0 +1,275 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sip.CamelSipSinkConnector",
+		"artifactId": "camel-sip",
+		"groupId": "org.apache.camel",
+		"title": "camel-sip",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.uri": {
+			"name": "camel.sink.path.uri",
+			"description": "URI of the SIP server to connect to (the username and password can be included such as: john:secretmyserver:9999)",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.cacheConnections": {
+			"name": "camel.sink.endpoint.cacheConnections",
+			"description": "Should connections be cached by the SipStack to reduce cost of connection creation. This is useful if the connection is used for long running conversations.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.contentSubType": {
+			"name": "camel.sink.endpoint.contentSubType",
+			"description": "Setting for contentSubType can be set to any valid MimeSubType.",
+			"defaultValue": "\"plain\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.contentType": {
+			"name": "camel.sink.endpoint.contentType",
+			"description": "Setting for contentType can be set to any valid MimeType.",
+			"defaultValue": "\"text\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.eventHeaderName": {
+			"name": "camel.sink.endpoint.eventHeaderName",
+			"description": "Setting for a String based event type.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.eventId": {
+			"name": "camel.sink.endpoint.eventId",
+			"description": "Setting for a String based event Id. Mandatory setting unless a registry based FromHeader is specified",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fromHost": {
+			"name": "camel.sink.endpoint.fromHost",
+			"description": "Hostname of the message originator. Mandatory setting unless a registry based FromHeader is specified",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fromPort": {
+			"name": "camel.sink.endpoint.fromPort",
+			"description": "Port of the message originator. Mandatory setting unless a registry based FromHeader is specified",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fromUser": {
+			"name": "camel.sink.endpoint.fromUser",
+			"description": "Username of the message originator. Mandatory setting unless a registry based custom FromHeader is specified.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.msgExpiration": {
+			"name": "camel.sink.endpoint.msgExpiration",
+			"description": "The amount of time a message received at an endpoint is considered valid",
+			"defaultValue": "3600",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.receiveTimeoutMillis": {
+			"name": "camel.sink.endpoint.receiveTimeoutMillis",
+			"description": "Setting for specifying amount of time to wait for a Response and\/or Acknowledgement can be received from another SIP stack",
+			"defaultValue": "10000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.stackName": {
+			"name": "camel.sink.endpoint.stackName",
+			"description": "Name of the SIP Stack instance associated with an SIP Endpoint.",
+			"defaultValue": "\"NAME_NOT_SET\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.toHost": {
+			"name": "camel.sink.endpoint.toHost",
+			"description": "Hostname of the message receiver. Mandatory setting unless a registry based ToHeader is specified",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.toPort": {
+			"name": "camel.sink.endpoint.toPort",
+			"description": "Portname of the message receiver. Mandatory setting unless a registry based ToHeader is specified",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.toUser": {
+			"name": "camel.sink.endpoint.toUser",
+			"description": "Username of the message receiver. Mandatory setting unless a registry based custom ToHeader is specified.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.transport": {
+			"name": "camel.sink.endpoint.transport",
+			"description": "Setting for choice of transport protocol. Valid choices are tcp or udp. One of: [tcp] [udp]",
+			"defaultValue": "\"tcp\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.addressFactory": {
+			"name": "camel.sink.endpoint.addressFactory",
+			"description": "To use a custom AddressFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.callIdHeader": {
+			"name": "camel.sink.endpoint.callIdHeader",
+			"description": "A custom Header object containing call details. Must implement the type javax.sip.header.CallIdHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.contactHeader": {
+			"name": "camel.sink.endpoint.contactHeader",
+			"description": "An optional custom Header object containing verbose contact details (email, phone number etc). Must implement the type javax.sip.header.ContactHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.contentTypeHeader": {
+			"name": "camel.sink.endpoint.contentTypeHeader",
+			"description": "A custom Header object containing message content details. Must implement the type javax.sip.header.ContentTypeHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.eventHeader": {
+			"name": "camel.sink.endpoint.eventHeader",
+			"description": "A custom Header object containing event details. Must implement the type javax.sip.header.EventHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.expiresHeader": {
+			"name": "camel.sink.endpoint.expiresHeader",
+			"description": "A custom Header object containing message expiration details. Must implement the type javax.sip.header.ExpiresHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.extensionHeader": {
+			"name": "camel.sink.endpoint.extensionHeader",
+			"description": "A custom Header object containing user\/application specific details. Must implement the type javax.sip.header.ExtensionHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fromHeader": {
+			"name": "camel.sink.endpoint.fromHeader",
+			"description": "A custom Header object containing message originator settings. Must implement the type javax.sip.header.FromHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.headerFactory": {
+			"name": "camel.sink.endpoint.headerFactory",
+			"description": "To use a custom HeaderFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.listeningPoint": {
+			"name": "camel.sink.endpoint.listeningPoint",
+			"description": "To use a custom ListeningPoint implementation",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxForwardsHeader": {
+			"name": "camel.sink.endpoint.maxForwardsHeader",
+			"description": "A custom Header object containing details on maximum proxy forwards. This header places a limit on the viaHeaders possible. Must implement the type javax.sip.header.MaxForwardsHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxMessageSize": {
+			"name": "camel.sink.endpoint.maxMessageSize",
+			"description": "Setting for maximum allowed Message size in bytes.",
+			"defaultValue": "1048576",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.messageFactory": {
+			"name": "camel.sink.endpoint.messageFactory",
+			"description": "To use a custom MessageFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sipFactory": {
+			"name": "camel.sink.endpoint.sipFactory",
+			"description": "To use a custom SipFactory to create the SipStack to be used",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sipStack": {
+			"name": "camel.sink.endpoint.sipStack",
+			"description": "To use a custom SipStack",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sipUri": {
+			"name": "camel.sink.endpoint.sipUri",
+			"description": "To use a custom SipURI. If none configured, then the SipUri fallback to use the options toUser toHost:toPort",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.toHeader": {
+			"name": "camel.sink.endpoint.toHeader",
+			"description": "A custom Header object containing message receiver settings. Must implement the type javax.sip.header.ToHeader",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.viaHeaders": {
+			"name": "camel.sink.endpoint.viaHeaders",
+			"description": "List of custom Header objects of the type javax.sip.header.ViaHeader. Each ViaHeader containing a proxy address for request forwarding. (Note this header is automatically updated by each proxy when the request arrives at its listener)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.implementationDebugLogFile": {
+			"name": "camel.sink.endpoint.implementationDebugLogFile",
+			"description": "Name of client debug log file to use for logging",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.implementationServerLogFile": {
+			"name": "camel.sink.endpoint.implementationServerLogFile",
+			"description": "Name of server log file to use for logging",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.implementationTraceLevel": {
+			"name": "camel.sink.endpoint.implementationTraceLevel",
+			"description": "Logging level for tracing",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxForwards": {
+			"name": "camel.sink.endpoint.maxForwards",
+			"description": "Number of maximum proxy forwards",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.useRouterForAllUris": {
+			"name": "camel.sink.endpoint.useRouterForAllUris",
+			"description": "This setting is used when requests are sent to the Presence Agent via a proxy.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sip.lazyStartProducer": {
+			"name": "camel.component.sip.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sip.basicPropertyBinding": {
+			"name": "camel.component.sip.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

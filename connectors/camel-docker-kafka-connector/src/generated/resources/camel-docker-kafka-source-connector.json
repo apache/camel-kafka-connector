@@ -1,0 +1,269 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.docker.CamelDockerSourceConnector",
+		"artifactId": "camel-docker",
+		"groupId": "org.apache.camel",
+		"title": "camel-docker",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.operation": {
+			"name": "camel.source.path.operation",
+			"description": "Which operation to use One of: [events] [stats] [auth] [info] [ping] [version] [imagebuild] [imagecreate] [imageinspect] [imagelist] [imagepull] [imagepushimageremove] [imagesearch] [imagetag] [containerattach] [containercommit] [containercopyfile] [containercreate] [containerdiffinspectcontainer] [containerkill] [containerlist] [containerlog] [containerpause] [containerrestart] [containerremove] [containerstartcontainerstop] [containertop] [containerunpause] [containerwait] [execcreate] [execstart]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.email": {
+			"name": "camel.source.endpoint.email",
+			"description": "Email address associated with the user",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.host": {
+			"name": "camel.source.endpoint.host",
+			"description": "Docker host",
+			"defaultValue": "\"localhost\"",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.port": {
+			"name": "camel.source.endpoint.port",
+			"description": "Docker port",
+			"defaultValue": "\"2375\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.requestTimeout": {
+			"name": "camel.source.endpoint.requestTimeout",
+			"description": "Request timeout for response (in seconds)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.cmdExecFactory": {
+			"name": "camel.source.endpoint.cmdExecFactory",
+			"description": "The fully qualified class name of the DockerCmdExecFactory implementation to use",
+			"defaultValue": "\"com.github.dockerjava.netty.NettyDockerCmdExecFactory\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.followRedirectFilter": {
+			"name": "camel.source.endpoint.followRedirectFilter",
+			"description": "Whether to follow redirect filter",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.loggingFilter": {
+			"name": "camel.source.endpoint.loggingFilter",
+			"description": "Whether to use logging filter",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxPerRouteConnections": {
+			"name": "camel.source.endpoint.maxPerRouteConnections",
+			"description": "Maximum route connections",
+			"defaultValue": "\"100\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxTotalConnections": {
+			"name": "camel.source.endpoint.maxTotalConnections",
+			"description": "Maximum total connections",
+			"defaultValue": "\"100\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.parameters": {
+			"name": "camel.source.endpoint.parameters",
+			"description": "Additional configuration parameters as key\/value pairs",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.serverAddress": {
+			"name": "camel.source.endpoint.serverAddress",
+			"description": "Server address for docker registry.",
+			"defaultValue": "\"https:\/\/index.docker.io\/v1\/\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.socket": {
+			"name": "camel.source.endpoint.socket",
+			"description": "Socket connection mode",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.certPath": {
+			"name": "camel.source.endpoint.certPath",
+			"description": "Location containing the SSL certificate chain",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "Password to authenticate with",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.secure": {
+			"name": "camel.source.endpoint.secure",
+			"description": "Use HTTPS communication",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.tlsVerify": {
+			"name": "camel.source.endpoint.tlsVerify",
+			"description": "Check TLS",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "User name to authenticate with",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.configuration": {
+			"name": "camel.component.docker.configuration",
+			"description": "To use the shared docker configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.email": {
+			"name": "camel.component.docker.email",
+			"description": "Email address associated with the user",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.host": {
+			"name": "camel.component.docker.host",
+			"description": "Docker host",
+			"defaultValue": "\"localhost\"",
+			"priority": "HIGH"
+		},
+		"camel.component.docker.port": {
+			"name": "camel.component.docker.port",
+			"description": "Docker port",
+			"defaultValue": "\"2375\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.requestTimeout": {
+			"name": "camel.component.docker.requestTimeout",
+			"description": "Request timeout for response (in seconds)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.bridgeErrorHandler": {
+			"name": "camel.component.docker.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.basicPropertyBinding": {
+			"name": "camel.component.docker.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.cmdExecFactory": {
+			"name": "camel.component.docker.cmdExecFactory",
+			"description": "The fully qualified class name of the DockerCmdExecFactory implementation to use",
+			"defaultValue": "\"com.github.dockerjava.netty.NettyDockerCmdExecFactory\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.followRedirectFilter": {
+			"name": "camel.component.docker.followRedirectFilter",
+			"description": "Whether to follow redirect filter",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.loggingFilter": {
+			"name": "camel.component.docker.loggingFilter",
+			"description": "Whether to use logging filter",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.maxPerRouteConnections": {
+			"name": "camel.component.docker.maxPerRouteConnections",
+			"description": "Maximum route connections",
+			"defaultValue": "\"100\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.maxTotalConnections": {
+			"name": "camel.component.docker.maxTotalConnections",
+			"description": "Maximum total connections",
+			"defaultValue": "\"100\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.parameters": {
+			"name": "camel.component.docker.parameters",
+			"description": "Additional configuration parameters as key\/value pairs",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.serverAddress": {
+			"name": "camel.component.docker.serverAddress",
+			"description": "Server address for docker registry.",
+			"defaultValue": "\"https:\/\/index.docker.io\/v1\/\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.socket": {
+			"name": "camel.component.docker.socket",
+			"description": "Socket connection mode",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.certPath": {
+			"name": "camel.component.docker.certPath",
+			"description": "Location containing the SSL certificate chain",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.password": {
+			"name": "camel.component.docker.password",
+			"description": "Password to authenticate with",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.secure": {
+			"name": "camel.component.docker.secure",
+			"description": "Use HTTPS communication",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.tlsVerify": {
+			"name": "camel.component.docker.tlsVerify",
+			"description": "Check TLS",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.username": {
+			"name": "camel.component.docker.username",
+			"description": "User name to authenticate with",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

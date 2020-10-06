@@ -1,0 +1,413 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jetty.CamelJettySourceConnector",
+		"artifactId": "camel-jetty",
+		"groupId": "org.apache.camel",
+		"title": "camel-jetty",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.httpUri": {
+			"name": "camel.source.path.httpUri",
+			"description": "The url of the HTTP endpoint to call.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.disableStreamCache": {
+			"name": "camel.source.endpoint.disableStreamCache",
+			"description": "Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory\/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge\/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.headerFilterStrategy": {
+			"name": "camel.source.endpoint.headerFilterStrategy",
+			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpBinding": {
+			"name": "camel.source.endpoint.httpBinding",
+			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.async": {
+			"name": "camel.source.endpoint.async",
+			"description": "Configure the consumer to work in async mode",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.chunked": {
+			"name": "camel.source.endpoint.chunked",
+			"description": "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.continuationTimeout": {
+			"name": "camel.source.endpoint.continuationTimeout",
+			"description": "Allows to set a timeout in millis when using Jetty as consumer (server). By default Jetty uses 30000. You can use a value of = 0 to never expire. If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client. This option is only in use when using Jetty with the Asynchronous Routing Engine.",
+			"defaultValue": "\"30000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.enableCORS": {
+			"name": "camel.source.endpoint.enableCORS",
+			"description": "If the option is true, Jetty server will setup the CrossOriginFilter which supports the CORS out of box.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.enableJmx": {
+			"name": "camel.source.endpoint.enableJmx",
+			"description": "If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.enableMultipartFilter": {
+			"name": "camel.source.endpoint.enableMultipartFilter",
+			"description": "Whether org.apache.camel.component.jetty.MultiPartFilter is enabled or not. You should set this value to false when bridging endpoints, to ensure multipart requests is proxied\/bridged as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpMethodRestrict": {
+			"name": "camel.source.endpoint.httpMethodRestrict",
+			"description": "Used to only allow consuming if the HttpMethod matches, such as GET\/POST\/PUT etc. Multiple methods can be specified separated by comma.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.matchOnUriPrefix": {
+			"name": "camel.source.endpoint.matchOnUriPrefix",
+			"description": "Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.muteException": {
+			"name": "camel.source.endpoint.muteException",
+			"description": "If enabled and an Exchange failed processing on the consumer side the response's body won't contain the exception's stack trace.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.responseBufferSize": {
+			"name": "camel.source.endpoint.responseBufferSize",
+			"description": "To use a custom buffer size on the javax.servlet.ServletResponse.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendDateHeader": {
+			"name": "camel.source.endpoint.sendDateHeader",
+			"description": "If the option is true, jetty server will send the date header to the client which sends the request. NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendServerVersion": {
+			"name": "camel.source.endpoint.sendServerVersion",
+			"description": "If the option is true, jetty will send the server header with the jetty version information to the client which sends the request. NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sessionSupport": {
+			"name": "camel.source.endpoint.sessionSupport",
+			"description": "Specifies whether to enable the session manager on the server side of Jetty.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.transferException": {
+			"name": "camel.source.endpoint.transferException",
+			"description": "If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application\/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useContinuation": {
+			"name": "camel.source.endpoint.useContinuation",
+			"description": "Whether or not to use Jetty continuations for the Jetty Server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.eagerCheckContentAvailable": {
+			"name": "camel.source.endpoint.eagerCheckContentAvailable",
+			"description": "Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present. This can be turned on in case HTTP clients do not send streamed data.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.filterInitParameters": {
+			"name": "camel.source.endpoint.filterInitParameters",
+			"description": "Configuration of the filter init parameters. These parameters will be applied to the filter list before starting the jetty server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.filters": {
+			"name": "camel.source.endpoint.filters",
+			"description": "Allows using a custom filters which is putted into a list and can be find in the Registry. Multiple values can be separated by comma.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.handlers": {
+			"name": "camel.source.endpoint.handlers",
+			"description": "Specifies a comma-delimited set of Handler instances to lookup in your Registry. These handlers are added to the Jetty servlet context (for example, to add security). Important: You can not use different handlers with different Jetty endpoints using the same port number. The handlers is associated to the port number. If you need different handlers, then use different port numbers.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.multipartFilter": {
+			"name": "camel.source.endpoint.multipartFilter",
+			"description": "Allows using a custom multipart filter. Note: setting multipartFilterRef forces the value of enableMultipartFilter to true.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.optionsEnabled": {
+			"name": "camel.source.endpoint.optionsEnabled",
+			"description": "Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.traceEnabled": {
+			"name": "camel.source.endpoint.traceEnabled",
+			"description": "Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mapHttpMessageBody": {
+			"name": "camel.source.endpoint.mapHttpMessageBody",
+			"description": "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mapHttpMessageFormUrlEncodedBody": {
+			"name": "camel.source.endpoint.mapHttpMessageFormUrlEncodedBody",
+			"description": "If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mapHttpMessageHeaders": {
+			"name": "camel.source.endpoint.mapHttpMessageHeaders",
+			"description": "If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sslContextParameters": {
+			"name": "camel.source.endpoint.sslContextParameters",
+			"description": "To configure security using SSLContextParameters",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.bridgeErrorHandler": {
+			"name": "camel.component.jetty.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.continuationTimeout": {
+			"name": "camel.component.jetty.continuationTimeout",
+			"description": "Allows to set a timeout in millis when using Jetty as consumer (server). By default Jetty uses 30000. You can use a value of = 0 to never expire. If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client. This option is only in use when using Jetty with the Asynchronous Routing Engine.",
+			"defaultValue": "\"30000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.enableJmx": {
+			"name": "camel.component.jetty.enableJmx",
+			"description": "If this option is true, Jetty JMX support will be enabled for this endpoint.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.maxThreads": {
+			"name": "camel.component.jetty.maxThreads",
+			"description": "To set a value for maximum number of threads in server thread pool. Notice that both a min and max size must be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.minThreads": {
+			"name": "camel.component.jetty.minThreads",
+			"description": "To set a value for minimum number of threads in server thread pool. Notice that both a min and max size must be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.requestBufferSize": {
+			"name": "camel.component.jetty.requestBufferSize",
+			"description": "Allows to configure a custom value of the request buffer size on the Jetty connectors.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.requestHeaderSize": {
+			"name": "camel.component.jetty.requestHeaderSize",
+			"description": "Allows to configure a custom value of the request header size on the Jetty connectors.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.responseBufferSize": {
+			"name": "camel.component.jetty.responseBufferSize",
+			"description": "Allows to configure a custom value of the response buffer size on the Jetty connectors.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.responseHeaderSize": {
+			"name": "camel.component.jetty.responseHeaderSize",
+			"description": "Allows to configure a custom value of the response header size on the Jetty connectors.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.sendServerVersion": {
+			"name": "camel.component.jetty.sendServerVersion",
+			"description": "If the option is true, jetty will send the server header with the jetty version information to the client which sends the request. NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.useContinuation": {
+			"name": "camel.component.jetty.useContinuation",
+			"description": "Whether or not to use Jetty continuations for the Jetty Server.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.useXForwardedForHeader": {
+			"name": "camel.component.jetty.useXForwardedForHeader",
+			"description": "To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.threadPool": {
+			"name": "camel.component.jetty.threadPool",
+			"description": "To use a custom thread pool for the server. This option should only be used in special circumstances.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.allowJavaSerializedObject": {
+			"name": "camel.component.jetty.allowJavaSerializedObject",
+			"description": "Whether to allow java serialization when a request uses context-type=application\/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.basicPropertyBinding": {
+			"name": "camel.component.jetty.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.errorHandler": {
+			"name": "camel.component.jetty.errorHandler",
+			"description": "This option is used to set the ErrorHandler that Jetty server uses.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.httpBinding": {
+			"name": "camel.component.jetty.httpBinding",
+			"description": "Not to be used - use JettyHttpBinding instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.httpConfiguration": {
+			"name": "camel.component.jetty.httpConfiguration",
+			"description": "Jetty component does not use HttpConfiguration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.jettyHttpBinding": {
+			"name": "camel.component.jetty.jettyHttpBinding",
+			"description": "To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which are used to customize how a response should be written for the producer.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.mbContainer": {
+			"name": "camel.component.jetty.mbContainer",
+			"description": "To use a existing configured org.eclipse.jetty.jmx.MBeanContainer if JMX is enabled that Jetty uses for registering mbeans.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.headerFilterStrategy": {
+			"name": "camel.component.jetty.headerFilterStrategy",
+			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.proxyHost": {
+			"name": "camel.component.jetty.proxyHost",
+			"description": "To use a http proxy to configure the hostname.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.proxyPort": {
+			"name": "camel.component.jetty.proxyPort",
+			"description": "To use a http proxy to configure the port number.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.keystore": {
+			"name": "camel.component.jetty.keystore",
+			"description": "Specifies the location of the Java keystore file, which contains the Jetty server's own X.509 certificate in a key entry.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.socketConnectorProperties": {
+			"name": "camel.component.jetty.socketConnectorProperties",
+			"description": "A map which contains general HTTP connector properties. Uses the same principle as sslSocketConnectorProperties.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.socketConnectors": {
+			"name": "camel.component.jetty.socketConnectors",
+			"description": "A map which contains per port number specific HTTP connectors. Uses the same principle as sslSocketConnectors.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.sslContextParameters": {
+			"name": "camel.component.jetty.sslContextParameters",
+			"description": "To configure security using SSLContextParameters",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.sslKeyPassword": {
+			"name": "camel.component.jetty.sslKeyPassword",
+			"description": "The key password, which is used to access the certificate's key entry in the keystore (this is the same password that is supplied to the keystore command's -keypass option).",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.sslPassword": {
+			"name": "camel.component.jetty.sslPassword",
+			"description": "The ssl password, which is required to access the keystore file (this is the same password that is supplied to the keystore command's -storepass option).",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.sslSocketConnectorProperties": {
+			"name": "camel.component.jetty.sslSocketConnectorProperties",
+			"description": "A map which contains general SSL connector properties.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.sslSocketConnectors": {
+			"name": "camel.component.jetty.sslSocketConnectors",
+			"description": "A map which contains per port number specific SSL connectors.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jetty.useGlobalSslContextParameters": {
+			"name": "camel.component.jetty.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

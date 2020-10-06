@@ -1,0 +1,161 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurequeue.CamelAzurequeueSinkConnector",
+		"artifactId": "camel-azure-queue",
+		"groupId": "org.apache.camel",
+		"title": "camel-azure-queue",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.containerAndQueueUri": {
+			"name": "camel.sink.path.containerAndQueueUri",
+			"description": "Container Queue compact Uri",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.azureQueueClient": {
+			"name": "camel.sink.endpoint.azureQueueClient",
+			"description": "The queue service client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.credentials": {
+			"name": "camel.sink.endpoint.credentials",
+			"description": "Set the storage credentials, required in most cases",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.validateClientURI": {
+			"name": "camel.sink.endpoint.validateClientURI",
+			"description": "Whether to validate the Azure client URI",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.messageTimeToLive": {
+			"name": "camel.sink.endpoint.messageTimeToLive",
+			"description": "Message Time To Live in seconds",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.messageVisibilityDelay": {
+			"name": "camel.sink.endpoint.messageVisibilityDelay",
+			"description": "Message Visibility Delay in seconds",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage]",
+			"defaultValue": "\"listQueues\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.queuePrefix": {
+			"name": "camel.sink.endpoint.queuePrefix",
+			"description": "Set a prefix which can be used for listing the queues",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.credentialsAccountKey": {
+			"name": "camel.sink.endpoint.credentialsAccountKey",
+			"description": "Set the storage account key used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.credentialsAccountName": {
+			"name": "camel.sink.endpoint.credentialsAccountName",
+			"description": "Set the storage account name used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.azureQueueClient": {
+			"name": "camel.component.azure-queue.azureQueueClient",
+			"description": "The queue service client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.credentials": {
+			"name": "camel.component.azure-queue.credentials",
+			"description": "Set the storage credentials, required in most cases",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.validateClientURI": {
+			"name": "camel.component.azure-queue.validateClientURI",
+			"description": "Whether to validate the Azure client URI",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.lazyStartProducer": {
+			"name": "camel.component.azure-queue.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.messageTimeToLive": {
+			"name": "camel.component.azure-queue.messageTimeToLive",
+			"description": "Message Time To Live in seconds",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.messageVisibilityDelay": {
+			"name": "camel.component.azure-queue.messageVisibilityDelay",
+			"description": "Message Visibility Delay in seconds",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.operation": {
+			"name": "camel.component.azure-queue.operation",
+			"description": "Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage]",
+			"defaultValue": "\"listQueues\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.queuePrefix": {
+			"name": "camel.component.azure-queue.queuePrefix",
+			"description": "Set a prefix which can be used for listing the queues",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.basicPropertyBinding": {
+			"name": "camel.component.azure-queue.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.configuration": {
+			"name": "camel.component.azure-queue.configuration",
+			"description": "The Queue Service configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.credentialsAccountKey": {
+			"name": "camel.component.azure-queue.credentialsAccountKey",
+			"description": "Set the storage account key used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-queue.credentialsAccountName": {
+			"name": "camel.component.azure-queue.credentialsAccountName",
+			"description": "Set the storage account name used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

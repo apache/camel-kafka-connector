@@ -1,0 +1,89 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.splunkhec.CamelSplunkhecSinkConnector",
+		"artifactId": "camel-splunk-hec",
+		"groupId": "org.apache.camel",
+		"title": "camel-splunk-hec",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.splunkURL": {
+			"name": "camel.sink.path.splunkURL",
+			"description": "Splunk Host URL",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.token": {
+			"name": "camel.sink.path.token",
+			"description": "Splunk authorization token",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.host": {
+			"name": "camel.sink.endpoint.host",
+			"description": "Splunk host.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.index": {
+			"name": "camel.sink.endpoint.index",
+			"description": "Splunk index to write to",
+			"defaultValue": "\"camel\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.source": {
+			"name": "camel.sink.endpoint.source",
+			"description": "Splunk source argument",
+			"defaultValue": "\"camel\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sourceType": {
+			"name": "camel.sink.endpoint.sourceType",
+			"description": "Splunk sourcetype argument",
+			"defaultValue": "\"camel\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.https": {
+			"name": "camel.sink.endpoint.https",
+			"description": "Contact HEC over https.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.skipTlsVerify": {
+			"name": "camel.sink.endpoint.skipTlsVerify",
+			"description": "Splunk HEC TLS verification.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.splunk-hec.lazyStartProducer": {
+			"name": "camel.component.splunk-hec.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.splunk-hec.basicPropertyBinding": {
+			"name": "camel.component.splunk-hec.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}
