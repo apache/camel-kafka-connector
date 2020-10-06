@@ -1,0 +1,138 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.geocoder.CamelGeocoderSinkConnector",
+		"artifactId": "camel-geocoder-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-geocoder-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.address": {
+			"name": "camel.sink.path.address",
+			"description": "The geo address which should be prefixed with address:",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.path.latlng": {
+			"name": "camel.sink.path.latlng",
+			"description": "The geo latitude and longitude which should be prefixed with latlng:",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.headersOnly": {
+			"name": "camel.sink.endpoint.headersOnly",
+			"description": "Whether to only enrich the Exchange with headers, and leave the body as-is.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.language": {
+			"name": "camel.sink.endpoint.language",
+			"description": "The language to use.",
+			"defaultValue": "\"en\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serverUrl": {
+			"name": "camel.sink.endpoint.serverUrl",
+			"description": "URL to the geocoder server. Mandatory for Nominatim server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.type": {
+			"name": "camel.sink.endpoint.type",
+			"description": "Type of GeoCoding server. Supported Nominatim and Google. One of: [NOMINATIM] [GOOGLE]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthDomain": {
+			"name": "camel.sink.endpoint.proxyAuthDomain",
+			"description": "Proxy Authentication Domain to access Google GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthHost": {
+			"name": "camel.sink.endpoint.proxyAuthHost",
+			"description": "Proxy Authentication Host to access Google GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthMethod": {
+			"name": "camel.sink.endpoint.proxyAuthMethod",
+			"description": "Authentication Method to Google GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthPassword": {
+			"name": "camel.sink.endpoint.proxyAuthPassword",
+			"description": "Proxy Password to access GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyAuthUsername": {
+			"name": "camel.sink.endpoint.proxyAuthUsername",
+			"description": "Proxy Username to access GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "Proxy Host to access GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "Proxy Port to access GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.apiKey": {
+			"name": "camel.sink.endpoint.apiKey",
+			"description": "API Key to access Google. Mandatory for Google GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientId": {
+			"name": "camel.sink.endpoint.clientId",
+			"description": "Client ID to access Google GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientKey": {
+			"name": "camel.sink.endpoint.clientKey",
+			"description": "Client Key to access Google GeoCoding server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.geocoder.lazyStartProducer": {
+			"name": "camel.component.geocoder.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.geocoder.basicPropertyBinding": {
+			"name": "camel.component.geocoder.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

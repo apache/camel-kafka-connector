@@ -1,0 +1,138 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.hbase.CamelHbaseSourceConnector",
+		"artifactId": "camel-hbase-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-hbase-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.tableName": {
+			"name": "camel.source.path.tableName",
+			"description": "The name of the table",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.cellMappingStrategyFactory": {
+			"name": "camel.source.endpoint.cellMappingStrategyFactory",
+			"description": "To use a custom CellMappingStrategyFactory that is responsible for mapping cells.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.filters": {
+			"name": "camel.source.endpoint.filters",
+			"description": "A list of filters to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mappingStrategyClassName": {
+			"name": "camel.source.endpoint.mappingStrategyClassName",
+			"description": "The class name of a custom mapping strategy implementation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mappingStrategyName": {
+			"name": "camel.source.endpoint.mappingStrategyName",
+			"description": "The strategy to use for mapping Camel messages to HBase columns. Supported values: header, or body. One of: [header] [body]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.rowMapping": {
+			"name": "camel.source.endpoint.rowMapping",
+			"description": "To map the key\/values from the Map to a HBaseRow. The following keys is supported: rowId - The id of the row. This has limited use as the row usually changes per Exchange. rowType - The type to covert row id to. Supported operations: CamelHBaseScan. family - The column family. Supports a number suffix for referring to more than one columns. qualifier - The column qualifier. Supports a number suffix for referring to more than one columns. value - The value. Supports a number suffix for referring to more than one columns valueType - The value type. Supports a number suffix for referring to more than one columns. Supported operations: CamelHBaseGet, and CamelHBaseScan.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.rowModel": {
+			"name": "camel.source.endpoint.rowModel",
+			"description": "An instance of org.apache.camel.component.hbase.model.HBaseRow which describes how each row should be modeled",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.userGroupInformation": {
+			"name": "camel.source.endpoint.userGroupInformation",
+			"description": "Defines privileges to communicate with HBase such as using kerberos.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxMessagesPerPoll": {
+			"name": "camel.source.endpoint.maxMessagesPerPoll",
+			"description": "Gets the maximum number of messages as a limit to poll at each polling. Is default unlimited, but use 0 or negative number to disable it as unlimited.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.operation": {
+			"name": "camel.source.endpoint.operation",
+			"description": "The HBase operation to perform One of: [CamelHBasePut] [CamelHBaseGet] [CamelHBaseScan] [CamelHBaseDelete]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.remove": {
+			"name": "camel.source.endpoint.remove",
+			"description": "If the option is true, Camel HBase Consumer will remove the rows which it processes.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.removeHandler": {
+			"name": "camel.source.endpoint.removeHandler",
+			"description": "To use a custom HBaseRemoveHandler that is executed when a row is to be removed.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.hbase.poolMaxSize": {
+			"name": "camel.component.hbase.poolMaxSize",
+			"description": "Maximum number of references to keep for each table in the HTable pool. The default value is 10.",
+			"defaultValue": "10",
+			"priority": "MEDIUM"
+		},
+		"camel.component.hbase.bridgeErrorHandler": {
+			"name": "camel.component.hbase.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.hbase.basicPropertyBinding": {
+			"name": "camel.component.hbase.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.hbase.configuration": {
+			"name": "camel.component.hbase.configuration",
+			"description": "To use the shared configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

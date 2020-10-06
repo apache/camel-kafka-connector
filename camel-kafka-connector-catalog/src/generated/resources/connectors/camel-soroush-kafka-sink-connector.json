@@ -1,0 +1,138 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.soroush.CamelSoroushSinkConnector",
+		"artifactId": "camel-soroush-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-soroush-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.action": {
+			"name": "camel.sink.path.action",
+			"description": "The action to do. One of: [sendMessage] [getMessage] [uploadFile] [downloadFile]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.connectionTimeout": {
+			"name": "camel.sink.endpoint.connectionTimeout",
+			"description": "Connection timeout in ms when connecting to soroush API",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxConnectionRetry": {
+			"name": "camel.sink.endpoint.maxConnectionRetry",
+			"description": "Maximum connection retry when fail to connect to soroush API, if the quota is reached, MaximumConnectionRetryReachedException is thrown for that message.",
+			"defaultValue": "4",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.autoDownload": {
+			"name": "camel.sink.endpoint.autoDownload",
+			"description": "Automatically download SoroushMessage.fileUrl and SoroushMessage.thumbnailUrl if exists for the message and store them in SoroushMessage.file and SoroushMessage.thumbnail field",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.autoUploadFile": {
+			"name": "camel.sink.endpoint.autoUploadFile",
+			"description": "Automatically upload attachments when a message goes to the sendMessage endpoint and the SoroushMessage.file (SoroushMessage.thumbnail) has been set and SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is null",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.downloadThumbnail": {
+			"name": "camel.sink.endpoint.downloadThumbnail",
+			"description": "If true, when downloading an attached file, thumbnail will be downloaded if provided in the message. Otherwise, only the file will be downloaded",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.forceDownload": {
+			"name": "camel.sink.endpoint.forceDownload",
+			"description": "Force to download SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) if exists, even if the SoroushMessage.file(SoroushMessage.thumbnail) was not null in that message",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.forceUpload": {
+			"name": "camel.sink.endpoint.forceUpload",
+			"description": "Force to upload SoroushMessage.file(SoroushMessage.thumbnail) if exists, even if the SoroushMessage.fileUrl(SoroushMessage.thumbnailUrl) is not null in the message",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.backOffStrategy": {
+			"name": "camel.sink.endpoint.backOffStrategy",
+			"description": "The strategy to backoff in case of connection failure. Currently 3 strategies are supported: 1. Exponential (default): It multiply retryWaitingTime by retryExponentialCoefficient after each connection failure. 2. Linear: It increase retryWaitingTime by retryLinearIncrement after each connection failure. 3. Fixed: Always use retryWaitingTime as the time between retries.",
+			"defaultValue": "\"Exponential\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxRetryWaitingTime": {
+			"name": "camel.sink.endpoint.maxRetryWaitingTime",
+			"description": "Maximum amount of time (in millisecond) a thread wait before retrying failed request.",
+			"defaultValue": "3600000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.reconnectIdleConnectionTimeout": {
+			"name": "camel.sink.endpoint.reconnectIdleConnectionTimeout",
+			"description": "The timeout in millisecond to reconnect the existing getMessage connection to ensure that the connection is always live and does not dead without notifying the bot. this value should not be changed.",
+			"defaultValue": "300000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.retryExponentialCoefficient": {
+			"name": "camel.sink.endpoint.retryExponentialCoefficient",
+			"description": "Coefficient to compute back off time when using Exponential Back Off strategy",
+			"defaultValue": "2L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.retryLinearIncrement": {
+			"name": "camel.sink.endpoint.retryLinearIncrement",
+			"description": "The amount of time (in millisecond) which adds to waiting time when using Linear back off strategy",
+			"defaultValue": "10000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.retryWaitingTime": {
+			"name": "camel.sink.endpoint.retryWaitingTime",
+			"description": "Waiting time before retry failed request (Millisecond). If backOffStrategy is not Fixed this is the based value for computing back off waiting time. the first retry is always happen immediately after failure and retryWaitingTime do not apply to the first retry.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authorizationToken": {
+			"name": "camel.sink.endpoint.authorizationToken",
+			"description": "The authorization token for using the bot. if uri path does not contain authorization token, this token will be used.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.soroush.lazyStartProducer": {
+			"name": "camel.component.soroush.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.soroush.basicPropertyBinding": {
+			"name": "camel.component.soroush.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.soroush.authorizationToken": {
+			"name": "camel.component.soroush.authorizationToken",
+			"description": "The default Soroush authorization token to be used when the information is not provided in the endpoints.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

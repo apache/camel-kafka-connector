@@ -1,0 +1,126 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.atmos.CamelAtmosSinkConnector",
+		"artifactId": "camel-atmos-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-atmos-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.name": {
+			"name": "camel.sink.path.name",
+			"description": "Atmos name",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.path.operation": {
+			"name": "camel.sink.path.operation",
+			"description": "Operation to perform One of: [put] [del] [search] [get] [move]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.localPath": {
+			"name": "camel.sink.endpoint.localPath",
+			"description": "Local path to put files",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.newRemotePath": {
+			"name": "camel.sink.endpoint.newRemotePath",
+			"description": "New path on Atmos when moving files",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.query": {
+			"name": "camel.sink.endpoint.query",
+			"description": "Search query on Atmos",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.remotePath": {
+			"name": "camel.sink.endpoint.remotePath",
+			"description": "Where to put files on Atmos",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.uri": {
+			"name": "camel.sink.endpoint.uri",
+			"description": "Atomos server uri",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fullTokenId": {
+			"name": "camel.sink.endpoint.fullTokenId",
+			"description": "Atmos client fullTokenId",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.secretKey": {
+			"name": "camel.sink.endpoint.secretKey",
+			"description": "The secret key to pass to the Atmos client (should be base64 encoded)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sslValidation": {
+			"name": "camel.sink.endpoint.sslValidation",
+			"description": "Atmos SSL validation",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atmos.lazyStartProducer": {
+			"name": "camel.component.atmos.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atmos.basicPropertyBinding": {
+			"name": "camel.component.atmos.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atmos.uri": {
+			"name": "camel.component.atmos.uri",
+			"description": "The URI of the server for the Atmos client to connect to",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atmos.fullTokenId": {
+			"name": "camel.component.atmos.fullTokenId",
+			"description": "The token id to pass to the Atmos client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atmos.secretKey": {
+			"name": "camel.component.atmos.secretKey",
+			"description": "The secret key to pass to the Atmos client (should be base64 encoded)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atmos.sslValidation": {
+			"name": "camel.component.atmos.sslValidation",
+			"description": "Whether the Atmos client should perform SSL validation",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

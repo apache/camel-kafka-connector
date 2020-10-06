@@ -1,0 +1,210 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azureblob.CamelAzureblobSourceConnector",
+		"artifactId": "camel-azure-blob-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-blob-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.containerOrBlobUri": {
+			"name": "camel.source.path.containerOrBlobUri",
+			"description": "Container or Blob compact Uri",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.azureBlobClient": {
+			"name": "camel.source.endpoint.azureBlobClient",
+			"description": "The blob service client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.blobOffset": {
+			"name": "camel.source.endpoint.blobOffset",
+			"description": "Set the blob offset for the upload or download operations, default is 0",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.blobType": {
+			"name": "camel.source.endpoint.blobType",
+			"description": "Set a blob type, 'blockblob' is default One of: [blockblob] [appendblob] [pageblob]",
+			"defaultValue": "\"blockblob\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.closeStreamAfterRead": {
+			"name": "camel.source.endpoint.closeStreamAfterRead",
+			"description": "Close the stream after read or keep it open, default is true",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.credentials": {
+			"name": "camel.source.endpoint.credentials",
+			"description": "Set the storage credentials, required in most cases",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.dataLength": {
+			"name": "camel.source.endpoint.dataLength",
+			"description": "Set the data length for the download or page blob upload operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.fileDir": {
+			"name": "camel.source.endpoint.fileDir",
+			"description": "Set the file directory where the downloaded blobs will be saved to",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.publicForRead": {
+			"name": "camel.source.endpoint.publicForRead",
+			"description": "Storage resources can be public for reading their content, if this property is enabled then the credentials do not have to be set",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.streamReadSize": {
+			"name": "camel.source.endpoint.streamReadSize",
+			"description": "Set the minimum read size in bytes when reading the blob content",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.validateClientURI": {
+			"name": "camel.source.endpoint.validateClientURI",
+			"description": "Whether to validate the Azure client URI",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.credentialsAccountKey": {
+			"name": "camel.source.endpoint.credentialsAccountKey",
+			"description": "Set the storage account key used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.credentialsAccountName": {
+			"name": "camel.source.endpoint.credentialsAccountName",
+			"description": "Set the storage account name used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.azureBlobClient": {
+			"name": "camel.component.azure-blob.azureBlobClient",
+			"description": "The blob service client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.blobOffset": {
+			"name": "camel.component.azure-blob.blobOffset",
+			"description": "Set the blob offset for the upload or download operations, default is 0",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.blobType": {
+			"name": "camel.component.azure-blob.blobType",
+			"description": "Set a blob type, 'blockblob' is default One of: [blockblob] [appendblob] [pageblob]",
+			"defaultValue": "\"blockblob\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.closeStreamAfterRead": {
+			"name": "camel.component.azure-blob.closeStreamAfterRead",
+			"description": "Close the stream after read or keep it open, default is true",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.credentials": {
+			"name": "camel.component.azure-blob.credentials",
+			"description": "Set the storage credentials, required in most cases",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.dataLength": {
+			"name": "camel.component.azure-blob.dataLength",
+			"description": "Set the data length for the download or page blob upload operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.fileDir": {
+			"name": "camel.component.azure-blob.fileDir",
+			"description": "Set the file directory where the downloaded blobs will be saved to",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.publicForRead": {
+			"name": "camel.component.azure-blob.publicForRead",
+			"description": "Storage resources can be public for reading their content, if this property is enabled then the credentials do not have to be set",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.streamReadSize": {
+			"name": "camel.component.azure-blob.streamReadSize",
+			"description": "Set the minimum read size in bytes when reading the blob content",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.validateClientURI": {
+			"name": "camel.component.azure-blob.validateClientURI",
+			"description": "Whether to validate the Azure client URI",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.bridgeErrorHandler": {
+			"name": "camel.component.azure-blob.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.basicPropertyBinding": {
+			"name": "camel.component.azure-blob.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.configuration": {
+			"name": "camel.component.azure-blob.configuration",
+			"description": "The Blob Service configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.credentialsAccountKey": {
+			"name": "camel.component.azure-blob.credentialsAccountKey",
+			"description": "Set the storage account key used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-blob.credentialsAccountName": {
+			"name": "camel.component.azure-blob.credentialsAccountName",
+			"description": "Set the storage account name used during authentication phase",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,90 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.flatpack.CamelFlatpackSinkConnector",
+		"artifactId": "camel-flatpack-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-flatpack-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.type": {
+			"name": "camel.sink.path.type",
+			"description": "Whether to use fixed or delimiter One of: [fixed] [delim]",
+			"defaultValue": "\"delim\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.path.resourceUri": {
+			"name": "camel.sink.path.resourceUri",
+			"description": "URL for loading the flatpack mapping file from classpath or file system",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.allowShortLines": {
+			"name": "camel.sink.endpoint.allowShortLines",
+			"description": "Allows for lines to be shorter than expected and ignores the extra characters",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.delimiter": {
+			"name": "camel.sink.endpoint.delimiter",
+			"description": "The default character delimiter for delimited files.",
+			"defaultValue": "\",\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ignoreExtraColumns": {
+			"name": "camel.sink.endpoint.ignoreExtraColumns",
+			"description": "Allows for lines to be longer than expected and ignores the extra characters",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ignoreFirstRecord": {
+			"name": "camel.sink.endpoint.ignoreFirstRecord",
+			"description": "Whether the first line is ignored for delimited files (for the column headers).",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.splitRows": {
+			"name": "camel.sink.endpoint.splitRows",
+			"description": "Sets the Component to send each row as a separate exchange once parsed",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.textQualifier": {
+			"name": "camel.sink.endpoint.textQualifier",
+			"description": "The text qualifier for delimited files.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.flatpack.lazyStartProducer": {
+			"name": "camel.component.flatpack.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.flatpack.basicPropertyBinding": {
+			"name": "camel.component.flatpack.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

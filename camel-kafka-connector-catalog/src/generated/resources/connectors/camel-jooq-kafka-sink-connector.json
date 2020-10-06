@@ -1,0 +1,90 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jooq.CamelJooqSinkConnector",
+		"artifactId": "camel-jooq-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jooq-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.entityType": {
+			"name": "camel.sink.path.entityType",
+			"description": "JOOQ entity class",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.databaseConfiguration": {
+			"name": "camel.sink.endpoint.databaseConfiguration",
+			"description": "To use a specific database configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "Type of operation to execute on query One of: [EXECUTE] [FETCH] [NONE]",
+			"defaultValue": "\"NONE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.query": {
+			"name": "camel.sink.endpoint.query",
+			"description": "To execute plain SQL query",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jooq.configuration": {
+			"name": "camel.component.jooq.configuration",
+			"description": "Component configuration (database connection, database entity type, etc.)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jooq.databaseConfiguration": {
+			"name": "camel.component.jooq.databaseConfiguration",
+			"description": "To use a specific database configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jooq.lazyStartProducer": {
+			"name": "camel.component.jooq.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jooq.operation": {
+			"name": "camel.component.jooq.operation",
+			"description": "Type of operation to execute on query One of: [EXECUTE] [FETCH] [NONE]",
+			"defaultValue": "\"NONE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jooq.query": {
+			"name": "camel.component.jooq.query",
+			"description": "To execute plain SQL query",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jooq.basicPropertyBinding": {
+			"name": "camel.component.jooq.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

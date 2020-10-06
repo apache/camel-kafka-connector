@@ -1,0 +1,174 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.corda.CamelCordaSourceConnector",
+		"artifactId": "camel-corda-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-corda-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.node": {
+			"name": "camel.source.path.node",
+			"description": "The url for the corda node",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pageSpecification": {
+			"name": "camel.source.endpoint.pageSpecification",
+			"description": "PageSpecification allows specification of a page number (starting from 1) and page size (defaulting to 200 with a maximum page size of (Integer.MAX_INT) Note: we default the page number to 200 to enable queries without requiring a page specification but enabling detection of large results sets that fall out of the 200 requirement. Max page size should be used with extreme caution as results may exceed your JVM memory footprint.",
+			"defaultValue": "\"200\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.processSnapshot": {
+			"name": "camel.source.endpoint.processSnapshot",
+			"description": "Whether to process snapshots or not",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sort": {
+			"name": "camel.source.endpoint.sort",
+			"description": "Sort allows specification of a set of entity attribute names and their associated directionality and null handling, to be applied upon processing a query specification. One of: [ASC] [DESC]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.contractStateClass": {
+			"name": "camel.source.endpoint.contractStateClass",
+			"description": "A contract state (or just state) contains opaque data used by a contract program. It can be thought of as a disk file that the program can use to persist data across transactions. States are immutable: once created they are never updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is responsible for ensuring there is no double spending by only signing a transaction if the input states are all free.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.flowLogicArguments": {
+			"name": "camel.source.endpoint.flowLogicArguments",
+			"description": "Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.flowLogicClass": {
+			"name": "camel.source.endpoint.flowLogicClass",
+			"description": "Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.queryCriteria": {
+			"name": "camel.source.endpoint.queryCriteria",
+			"description": "QueryCriteria assumes underlying schema tables are correctly indexed for performance.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "Password for login",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "Username for login",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.configuration": {
+			"name": "camel.component.corda.configuration",
+			"description": "To use a shared configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.bridgeErrorHandler": {
+			"name": "camel.component.corda.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.pageSpecification": {
+			"name": "camel.component.corda.pageSpecification",
+			"description": "PageSpecification allows specification of a page number (starting from 1) and page size (defaulting to 200 with a maximum page size of (Integer.MAX_INT) Note: we default the page number to 200 to enable queries without requiring a page specification but enabling detection of large results sets that fall out of the 200 requirement. Max page size should be used with extreme caution as results may exceed your JVM memory footprint.",
+			"defaultValue": "\"200\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.processSnapshot": {
+			"name": "camel.component.corda.processSnapshot",
+			"description": "Whether to process snapshots or not",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.sort": {
+			"name": "camel.component.corda.sort",
+			"description": "Sort allows specification of a set of entity attribute names and their associated directionality and null handling, to be applied upon processing a query specification. One of: [ASC] [DESC]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.contractStateClass": {
+			"name": "camel.component.corda.contractStateClass",
+			"description": "A contract state (or just state) contains opaque data used by a contract program. It can be thought of as a disk file that the program can use to persist data across transactions. States are immutable: once created they are never updated, instead, any changes must generate a new successor state. States can be updated (consumed) only once: the notary is responsible for ensuring there is no double spending by only signing a transaction if the input states are all free.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.flowLogicArguments": {
+			"name": "camel.component.corda.flowLogicArguments",
+			"description": "Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.flowLogicClass": {
+			"name": "camel.component.corda.flowLogicClass",
+			"description": "Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.queryCriteria": {
+			"name": "camel.component.corda.queryCriteria",
+			"description": "QueryCriteria assumes underlying schema tables are correctly indexed for performance.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.basicPropertyBinding": {
+			"name": "camel.component.corda.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.password": {
+			"name": "camel.component.corda.password",
+			"description": "Password for login",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.corda.username": {
+			"name": "camel.component.corda.username",
+			"description": "Username for login",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

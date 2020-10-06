@@ -1,0 +1,486 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector",
+		"artifactId": "camel-aws-s3-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-s3-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.bucketNameOrArn": {
+			"name": "camel.source.path.bucketNameOrArn",
+			"description": "Bucket name or ARN",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.amazonS3Client": {
+			"name": "camel.source.endpoint.amazonS3Client",
+			"description": "Reference to a com.amazonaws.services.s3.AmazonS3 in the registry.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.autoCreateBucket": {
+			"name": "camel.source.endpoint.autoCreateBucket",
+			"description": "Setting the autocreation of the bucket",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.autoDiscoverClient": {
+			"name": "camel.source.endpoint.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.endpointConfiguration": {
+			"name": "camel.source.endpoint.endpointConfiguration",
+			"description": "Amazon AWS Endpoint Configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pathStyleAccess": {
+			"name": "camel.source.endpoint.pathStyleAccess",
+			"description": "Whether or not the S3 client should use path style access",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.policy": {
+			"name": "camel.source.endpoint.policy",
+			"description": "The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxyHost": {
+			"name": "camel.source.endpoint.proxyHost",
+			"description": "To define a proxy host when instantiating the S3 client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxyPort": {
+			"name": "camel.source.endpoint.proxyPort",
+			"description": "Specify a proxy port to be used inside the client definition.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxyProtocol": {
+			"name": "camel.source.endpoint.proxyProtocol",
+			"description": "To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS]",
+			"defaultValue": "\"HTTPS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.region": {
+			"name": "camel.source.endpoint.region",
+			"description": "The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useIAMCredentials": {
+			"name": "camel.source.endpoint.useIAMCredentials",
+			"description": "Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.encryptionMaterials": {
+			"name": "camel.source.endpoint.encryptionMaterials",
+			"description": "The encryption materials to use in case of Symmetric\/Asymmetric client usage",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useEncryption": {
+			"name": "camel.source.endpoint.useEncryption",
+			"description": "Define if encryption must be used or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.deleteAfterRead": {
+			"name": "camel.source.endpoint.deleteAfterRead",
+			"description": "Delete objects from S3 after they have been retrieved. The delete is only performed if the Exchange is committed. If a rollback occurs, the object is not deleted. If this option is false, then the same objects will be retrieve over and over again on the polls. Therefore you need to use the Idempotent Consumer EIP in the route to filter out duplicates. You can filter using the S3Constants#BUCKET_NAME and S3Constants#KEY headers, or only the S3Constants#KEY header.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delimiter": {
+			"name": "camel.source.endpoint.delimiter",
+			"description": "The delimiter which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.fileName": {
+			"name": "camel.source.endpoint.fileName",
+			"description": "To get the object from the bucket with the given file name",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.includeBody": {
+			"name": "camel.source.endpoint.includeBody",
+			"description": "If it is true, the exchange body will be set to a stream to the contents of the file. If false, the headers will be set with the S3 object metadata, but the body will be null. This option is strongly related to autocloseBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxConnections": {
+			"name": "camel.source.endpoint.maxConnections",
+			"description": "Set the maxConnections parameter in the S3 client configuration",
+			"defaultValue": "60",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxMessagesPerPoll": {
+			"name": "camel.source.endpoint.maxMessagesPerPoll",
+			"description": "Gets the maximum number of messages as a limit to poll at each polling. Gets the maximum number of messages as a limit to poll at each polling. The default value is 10. Use 0 or a negative number to set it as unlimited.",
+			"defaultValue": "10",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.prefix": {
+			"name": "camel.source.endpoint.prefix",
+			"description": "The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
+			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
+			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.autocloseBody": {
+			"name": "camel.source.endpoint.autocloseBody",
+			"description": "If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion. This option is strongly related to includeBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pollStrategy": {
+			"name": "camel.source.endpoint.pollStrategy",
+			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.accelerateModeEnabled": {
+			"name": "camel.source.endpoint.accelerateModeEnabled",
+			"description": "Define if Accelerate Mode enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.chunkedEncodingDisabled": {
+			"name": "camel.source.endpoint.chunkedEncodingDisabled",
+			"description": "Define if disabled Chunked Encoding is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.dualstackEnabled": {
+			"name": "camel.source.endpoint.dualstackEnabled",
+			"description": "Define if Dualstack enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.forceGlobalBucketAccessEnabled": {
+			"name": "camel.source.endpoint.forceGlobalBucketAccessEnabled",
+			"description": "Define if Force Global Bucket Access enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.payloadSigningEnabled": {
+			"name": "camel.source.endpoint.payloadSigningEnabled",
+			"description": "Define if Payload Signing enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffErrorThreshold": {
+			"name": "camel.source.endpoint.backoffErrorThreshold",
+			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffIdleThreshold": {
+			"name": "camel.source.endpoint.backoffIdleThreshold",
+			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffMultiplier": {
+			"name": "camel.source.endpoint.backoffMultiplier",
+			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Milliseconds before the next poll.",
+			"defaultValue": "500L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.greedy": {
+			"name": "camel.source.endpoint.greedy",
+			"description": "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Milliseconds before the first poll starts.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.repeatCount": {
+			"name": "camel.source.endpoint.repeatCount",
+			"description": "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.runLoggingLevel": {
+			"name": "camel.source.endpoint.runLoggingLevel",
+			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"TRACE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduledExecutorService": {
+			"name": "camel.source.endpoint.scheduledExecutorService",
+			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduler": {
+			"name": "camel.source.endpoint.scheduler",
+			"description": "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler",
+			"defaultValue": "\"none\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.schedulerProperties": {
+			"name": "camel.source.endpoint.schedulerProperties",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.startScheduler": {
+			"name": "camel.source.endpoint.startScheduler",
+			"description": "Whether the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeUnit": {
+			"name": "camel.source.endpoint.timeUnit",
+			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
+			"defaultValue": "\"MILLISECONDS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useFixedDelay": {
+			"name": "camel.source.endpoint.useFixedDelay",
+			"description": "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.accessKey": {
+			"name": "camel.source.endpoint.accessKey",
+			"description": "Amazon AWS Access Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.secretKey": {
+			"name": "camel.source.endpoint.secretKey",
+			"description": "Amazon AWS Secret Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.amazonS3Client": {
+			"name": "camel.component.aws-s3.amazonS3Client",
+			"description": "Reference to a com.amazonaws.services.s3.AmazonS3 in the registry.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.autoCreateBucket": {
+			"name": "camel.component.aws-s3.autoCreateBucket",
+			"description": "Setting the autocreation of the bucket",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.autoDiscoverClient": {
+			"name": "camel.component.aws-s3.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.configuration": {
+			"name": "camel.component.aws-s3.configuration",
+			"description": "The component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.endpointConfiguration": {
+			"name": "camel.component.aws-s3.endpointConfiguration",
+			"description": "Amazon AWS Endpoint Configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.pathStyleAccess": {
+			"name": "camel.component.aws-s3.pathStyleAccess",
+			"description": "Whether or not the S3 client should use path style access",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.policy": {
+			"name": "camel.component.aws-s3.policy",
+			"description": "The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.proxyHost": {
+			"name": "camel.component.aws-s3.proxyHost",
+			"description": "To define a proxy host when instantiating the S3 client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.proxyPort": {
+			"name": "camel.component.aws-s3.proxyPort",
+			"description": "Specify a proxy port to be used inside the client definition.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.proxyProtocol": {
+			"name": "camel.component.aws-s3.proxyProtocol",
+			"description": "To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS]",
+			"defaultValue": "\"HTTPS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.region": {
+			"name": "camel.component.aws-s3.region",
+			"description": "The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.useIAMCredentials": {
+			"name": "camel.component.aws-s3.useIAMCredentials",
+			"description": "Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.encryptionMaterials": {
+			"name": "camel.component.aws-s3.encryptionMaterials",
+			"description": "The encryption materials to use in case of Symmetric\/Asymmetric client usage",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.useEncryption": {
+			"name": "camel.component.aws-s3.useEncryption",
+			"description": "Define if encryption must be used or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.bridgeErrorHandler": {
+			"name": "camel.component.aws-s3.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.deleteAfterRead": {
+			"name": "camel.component.aws-s3.deleteAfterRead",
+			"description": "Delete objects from S3 after they have been retrieved. The delete is only performed if the Exchange is committed. If a rollback occurs, the object is not deleted. If this option is false, then the same objects will be retrieve over and over again on the polls. Therefore you need to use the Idempotent Consumer EIP in the route to filter out duplicates. You can filter using the S3Constants#BUCKET_NAME and S3Constants#KEY headers, or only the S3Constants#KEY header.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.delimiter": {
+			"name": "camel.component.aws-s3.delimiter",
+			"description": "The delimiter which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.fileName": {
+			"name": "camel.component.aws-s3.fileName",
+			"description": "To get the object from the bucket with the given file name",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.includeBody": {
+			"name": "camel.component.aws-s3.includeBody",
+			"description": "If it is true, the exchange body will be set to a stream to the contents of the file. If false, the headers will be set with the S3 object metadata, but the body will be null. This option is strongly related to autocloseBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.prefix": {
+			"name": "camel.component.aws-s3.prefix",
+			"description": "The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.autocloseBody": {
+			"name": "camel.component.aws-s3.autocloseBody",
+			"description": "If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion. This option is strongly related to includeBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.accelerateModeEnabled": {
+			"name": "camel.component.aws-s3.accelerateModeEnabled",
+			"description": "Define if Accelerate Mode enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.chunkedEncodingDisabled": {
+			"name": "camel.component.aws-s3.chunkedEncodingDisabled",
+			"description": "Define if disabled Chunked Encoding is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.dualstackEnabled": {
+			"name": "camel.component.aws-s3.dualstackEnabled",
+			"description": "Define if Dualstack enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.forceGlobalBucketAccessEnabled": {
+			"name": "camel.component.aws-s3.forceGlobalBucketAccessEnabled",
+			"description": "Define if Force Global Bucket Access enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.payloadSigningEnabled": {
+			"name": "camel.component.aws-s3.payloadSigningEnabled",
+			"description": "Define if Payload Signing enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.basicPropertyBinding": {
+			"name": "camel.component.aws-s3.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.accessKey": {
+			"name": "camel.component.aws-s3.accessKey",
+			"description": "Amazon AWS Access Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.secretKey": {
+			"name": "camel.component.aws-s3.secretKey",
+			"description": "Amazon AWS Secret Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

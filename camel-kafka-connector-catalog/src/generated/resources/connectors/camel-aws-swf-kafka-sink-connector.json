@@ -1,0 +1,294 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awsswf.CamelAwsswfSinkConnector",
+		"artifactId": "camel-aws-swf-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-swf-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.type": {
+			"name": "camel.sink.path.type",
+			"description": "Activity or workflow One of: [activity] [workflow]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.amazonSWClient": {
+			"name": "camel.sink.endpoint.amazonSWClient",
+			"description": "To use the given AmazonSimpleWorkflowClient as client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.dataConverter": {
+			"name": "camel.sink.endpoint.dataConverter",
+			"description": "An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter to use for serializing\/deserializing the data.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.domainName": {
+			"name": "camel.sink.endpoint.domainName",
+			"description": "The workflow domain to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.eventName": {
+			"name": "camel.sink.endpoint.eventName",
+			"description": "The workflow or activity event name to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.region": {
+			"name": "camel.sink.endpoint.region",
+			"description": "Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.version": {
+			"name": "camel.sink.endpoint.version",
+			"description": "The workflow or activity event version to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.activitySchedulingOptions": {
+			"name": "camel.sink.endpoint.activitySchedulingOptions",
+			"description": "Activity scheduling options",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientConfigurationParameters": {
+			"name": "camel.sink.endpoint.clientConfigurationParameters",
+			"description": "To configure the ClientConfiguration using the key\/values from the Map.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.startWorkflowOptionsParameters": {
+			"name": "camel.sink.endpoint.startWorkflowOptionsParameters",
+			"description": "To configure the StartWorkflowOptions using the key\/values from the Map.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sWClientParameters": {
+			"name": "camel.sink.endpoint.sWClientParameters",
+			"description": "To configure the AmazonSimpleWorkflowClient using the key\/values from the Map.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accessKey": {
+			"name": "camel.sink.endpoint.accessKey",
+			"description": "Amazon AWS Access Key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.secretKey": {
+			"name": "camel.sink.endpoint.secretKey",
+			"description": "Amazon AWS Secret Key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.childPolicy": {
+			"name": "camel.sink.endpoint.childPolicy",
+			"description": "The policy to use on child workflows when terminating a workflow.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.executionStartToCloseTimeout": {
+			"name": "camel.sink.endpoint.executionStartToCloseTimeout",
+			"description": "Set the execution start to close timeout.",
+			"defaultValue": "\"3600\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "Workflow operation One of: [SIGNAL] [CANCEL] [TERMINATE] [GET_STATE] [START] [DESCRIBE] [GET_HISTORY]",
+			"defaultValue": "\"START\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.signalName": {
+			"name": "camel.sink.endpoint.signalName",
+			"description": "The name of the signal to send to the workflow.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.stateResultType": {
+			"name": "camel.sink.endpoint.stateResultType",
+			"description": "The type of the result when a workflow state is queried.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.taskStartToCloseTimeout": {
+			"name": "camel.sink.endpoint.taskStartToCloseTimeout",
+			"description": "Set the task start to close timeout.",
+			"defaultValue": "\"600\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.terminationDetails": {
+			"name": "camel.sink.endpoint.terminationDetails",
+			"description": "Details for terminating a workflow.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.terminationReason": {
+			"name": "camel.sink.endpoint.terminationReason",
+			"description": "The reason for terminating a workflow.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.amazonSWClient": {
+			"name": "camel.component.aws-swf.amazonSWClient",
+			"description": "To use the given AmazonSimpleWorkflowClient as client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.configuration": {
+			"name": "camel.component.aws-swf.configuration",
+			"description": "The component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.dataConverter": {
+			"name": "camel.component.aws-swf.dataConverter",
+			"description": "An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter to use for serializing\/deserializing the data.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.domainName": {
+			"name": "camel.component.aws-swf.domainName",
+			"description": "The workflow domain to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.eventName": {
+			"name": "camel.component.aws-swf.eventName",
+			"description": "The workflow or activity event name to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.region": {
+			"name": "camel.component.aws-swf.region",
+			"description": "Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.version": {
+			"name": "camel.component.aws-swf.version",
+			"description": "The workflow or activity event version to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.lazyStartProducer": {
+			"name": "camel.component.aws-swf.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.activitySchedulingOptions": {
+			"name": "camel.component.aws-swf.activitySchedulingOptions",
+			"description": "Activity scheduling options",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.basicPropertyBinding": {
+			"name": "camel.component.aws-swf.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.clientConfigurationParameters": {
+			"name": "camel.component.aws-swf.clientConfigurationParameters",
+			"description": "To configure the ClientConfiguration using the key\/values from the Map.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.startWorkflowOptionsParameters": {
+			"name": "camel.component.aws-swf.startWorkflowOptionsParameters",
+			"description": "To configure the StartWorkflowOptions using the key\/values from the Map.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.sWClientParameters": {
+			"name": "camel.component.aws-swf.sWClientParameters",
+			"description": "To configure the AmazonSimpleWorkflowClient using the key\/values from the Map.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.accessKey": {
+			"name": "camel.component.aws-swf.accessKey",
+			"description": "Amazon AWS Access Key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.secretKey": {
+			"name": "camel.component.aws-swf.secretKey",
+			"description": "Amazon AWS Secret Key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.childPolicy": {
+			"name": "camel.component.aws-swf.childPolicy",
+			"description": "The policy to use on child workflows when terminating a workflow.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.executionStartToCloseTimeout": {
+			"name": "camel.component.aws-swf.executionStartToCloseTimeout",
+			"description": "Set the execution start to close timeout.",
+			"defaultValue": "\"3600\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.operation": {
+			"name": "camel.component.aws-swf.operation",
+			"description": "Workflow operation One of: [SIGNAL] [CANCEL] [TERMINATE] [GET_STATE] [START] [DESCRIBE] [GET_HISTORY]",
+			"defaultValue": "\"START\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.signalName": {
+			"name": "camel.component.aws-swf.signalName",
+			"description": "The name of the signal to send to the workflow.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.stateResultType": {
+			"name": "camel.component.aws-swf.stateResultType",
+			"description": "The type of the result when a workflow state is queried.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.taskStartToCloseTimeout": {
+			"name": "camel.component.aws-swf.taskStartToCloseTimeout",
+			"description": "Set the task start to close timeout.",
+			"defaultValue": "\"600\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.terminationDetails": {
+			"name": "camel.component.aws-swf.terminationDetails",
+			"description": "Details for terminating a workflow.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-swf.terminationReason": {
+			"name": "camel.component.aws-swf.terminationReason",
+			"description": "The reason for terminating a workflow.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}
