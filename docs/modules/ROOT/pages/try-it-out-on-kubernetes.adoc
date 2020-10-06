@@ -58,6 +58,8 @@ sudo podman push localhost/$REGISTRY_USR/my-connect:1.0.0 $REGISTRY_URL/$REGISTR
 sudo podman push localhost/$REGISTRY_USR/my-connect:1.0.0 $REGISTRY_URL/$REGISTRY_USR/my-connect:latest
 ----
 
+ Note: your plugin must be under a directory in the plugins. An example path would be /opt/kafka/plugins/myplugin/<my-plugin-jars-here>
+
 Finally, we deploy the KafkaConnect cluster using our custom image:
 
 [source,bash,options="nowrap"]
