@@ -29,7 +29,7 @@
 
     <artifactId>camel-kafka-connector-catalog</artifactId>
     <packaging>jar</packaging>
-    <name>Camel Kafka Connector Calog</name>
+    <name>Camel Kafka Connector Catalog</name>
     <description>Camel Kafka Connector Catalog</description>
 
     <dependencies>
