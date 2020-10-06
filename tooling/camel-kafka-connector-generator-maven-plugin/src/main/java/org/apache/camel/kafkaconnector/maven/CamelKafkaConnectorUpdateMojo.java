@@ -50,10 +50,10 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 import freemarker.template.Template;
-import org.apache.camel.kafkaconnector.maven.dto.CamelKafkaConnectorModel;
-import org.apache.camel.kafkaconnector.maven.dto.CamelKafkaConnectorOptionModel;
 import org.apache.camel.kafkaconnector.maven.utils.JsonMapperKafkaConnector;
 import org.apache.camel.kafkaconnector.maven.utils.MavenUtils;
+import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorModel;
+import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
 import org.apache.camel.maven.packaging.MvelHelper;
 import org.apache.camel.tooling.model.BaseOptionModel;
 import org.apache.camel.tooling.model.ComponentModel;

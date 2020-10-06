@@ -18,8 +18,8 @@ package org.apache.camel.kafkaconnector.maven.utils;
 
 import java.util.List;
 
-import org.apache.camel.kafkaconnector.maven.dto.CamelKafkaConnectorModel;
-import org.apache.camel.kafkaconnector.maven.dto.CamelKafkaConnectorOptionModel;
+import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorModel;
+import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
 import org.apache.camel.util.json.JsonObject;
 
 public final class JsonMapperKafkaConnector {
