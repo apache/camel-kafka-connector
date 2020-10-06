@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.sip.CamelSipSourceConnector",
 		"artifactId": "camel-sip-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-sip",
+		"id": "camel-sip-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

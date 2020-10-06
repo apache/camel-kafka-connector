@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.iec60870server.CamelIec60870serverSourceConnector",
 		"artifactId": "camel-iec60870-server-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-iec60870-server",
+		"id": "camel-iec60870-server-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

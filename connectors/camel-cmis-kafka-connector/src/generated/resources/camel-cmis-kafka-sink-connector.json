@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.cmis.CamelCmisSinkConnector",
 		"artifactId": "camel-cmis-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-cmis",
+		"id": "camel-cmis-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

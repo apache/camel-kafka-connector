@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.smtps.CamelSmtpsSinkConnector",
 		"artifactId": "camel-smtps-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-smtps",
+		"id": "camel-smtps-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.aws2kinesis.CamelAws2kinesisSourceConnector",
 		"artifactId": "camel-aws2-kinesis-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-aws2-kinesis",
+		"id": "camel-aws2-kinesis-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

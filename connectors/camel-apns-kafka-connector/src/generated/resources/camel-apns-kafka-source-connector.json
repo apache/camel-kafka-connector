@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.apns.CamelApnsSourceConnector",
 		"artifactId": "camel-apns-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-apns",
+		"id": "camel-apns-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

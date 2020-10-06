@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.velocity.CamelVelocitySinkConnector",
 		"artifactId": "camel-velocity-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-velocity",
+		"id": "camel-velocity-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.salesforce.CamelSalesforceSourceConnector",
 		"artifactId": "camel-salesforce-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-salesforce",
+		"id": "camel-salesforce-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

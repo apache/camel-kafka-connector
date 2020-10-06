@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ftps.CamelFtpsSinkConnector",
 		"artifactId": "camel-ftps-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ftps",
+		"id": "camel-ftps-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

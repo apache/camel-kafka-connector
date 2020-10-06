@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hipchat.CamelHipchatSinkConnector",
 		"artifactId": "camel-hipchat-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hipchat",
+		"id": "camel-hipchat-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

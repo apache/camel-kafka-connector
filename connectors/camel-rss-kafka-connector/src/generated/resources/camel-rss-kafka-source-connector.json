@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.rss.CamelRssSourceConnector",
 		"artifactId": "camel-rss-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-rss",
+		"id": "camel-rss-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

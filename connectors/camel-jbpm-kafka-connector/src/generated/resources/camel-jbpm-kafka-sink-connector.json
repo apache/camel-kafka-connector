@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jbpm.CamelJbpmSinkConnector",
 		"artifactId": "camel-jbpm-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jbpm",
+		"id": "camel-jbpm-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

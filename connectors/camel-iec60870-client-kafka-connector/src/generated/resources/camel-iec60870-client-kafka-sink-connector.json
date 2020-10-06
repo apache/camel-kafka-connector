@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.iec60870client.CamelIec60870clientSinkConnector",
 		"artifactId": "camel-iec60870-client-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-iec60870-client",
+		"id": "camel-iec60870-client-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

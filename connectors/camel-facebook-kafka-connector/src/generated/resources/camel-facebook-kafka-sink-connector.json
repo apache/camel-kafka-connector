@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.facebook.CamelFacebookSinkConnector",
 		"artifactId": "camel-facebook-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-facebook",
+		"id": "camel-facebook-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

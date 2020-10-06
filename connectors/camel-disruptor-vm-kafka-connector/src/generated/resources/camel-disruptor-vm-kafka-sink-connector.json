@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.disruptorvm.CamelDisruptorvmSinkConnector",
 		"artifactId": "camel-disruptor-vm-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-disruptor-vm",
+		"id": "camel-disruptor-vm-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

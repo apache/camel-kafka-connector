@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jgroups.CamelJgroupsSinkConnector",
 		"artifactId": "camel-jgroups-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jgroups",
+		"id": "camel-jgroups-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

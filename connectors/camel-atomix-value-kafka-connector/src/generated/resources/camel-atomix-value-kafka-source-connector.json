@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.atomixvalue.CamelAtomixvalueSourceConnector",
 		"artifactId": "camel-atomix-value-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-atomix-value",
+		"id": "camel-atomix-value-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

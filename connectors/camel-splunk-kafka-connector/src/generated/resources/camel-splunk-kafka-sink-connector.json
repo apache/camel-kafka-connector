@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.splunk.CamelSplunkSinkConnector",
 		"artifactId": "camel-splunk-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-splunk",
+		"id": "camel-splunk-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

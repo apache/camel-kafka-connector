@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.webhook.CamelWebhookSourceConnector",
 		"artifactId": "camel-webhook-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-webhook",
+		"id": "camel-webhook-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

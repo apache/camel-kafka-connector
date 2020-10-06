@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.azurestoragequeue.CamelAzurestoragequeueSourceConnector",
 		"artifactId": "camel-azure-storage-queue-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-azure-storage-queue",
+		"id": "camel-azure-storage-queue-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

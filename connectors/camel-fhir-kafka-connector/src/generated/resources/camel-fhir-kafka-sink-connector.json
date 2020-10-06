@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.fhir.CamelFhirSinkConnector",
 		"artifactId": "camel-fhir-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-fhir",
+		"id": "camel-fhir-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

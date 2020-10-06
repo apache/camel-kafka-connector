@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jetty.CamelJettySourceConnector",
 		"artifactId": "camel-jetty-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jetty",
+		"id": "camel-jetty-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

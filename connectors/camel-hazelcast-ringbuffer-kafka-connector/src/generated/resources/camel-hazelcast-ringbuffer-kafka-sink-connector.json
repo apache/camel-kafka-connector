@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hazelcastringbuffer.CamelHazelcastringbufferSinkConnector",
 		"artifactId": "camel-hazelcast-ringbuffer-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hazelcast-ringbuffer",
+		"id": "camel-hazelcast-ringbuffer-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

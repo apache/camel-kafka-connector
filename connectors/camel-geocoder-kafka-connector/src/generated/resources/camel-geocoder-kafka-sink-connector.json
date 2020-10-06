@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.geocoder.CamelGeocoderSinkConnector",
 		"artifactId": "camel-geocoder-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-geocoder",
+		"id": "camel-geocoder-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

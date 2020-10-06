@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ldif.CamelLdifSinkConnector",
 		"artifactId": "camel-ldif-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ldif",
+		"id": "camel-ldif-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

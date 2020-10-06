@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.cryptocms.CamelCryptocmsSinkConnector",
 		"artifactId": "camel-crypto-cms-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-crypto-cms",
+		"id": "camel-crypto-cms-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

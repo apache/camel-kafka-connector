@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jslt.CamelJsltSinkConnector",
 		"artifactId": "camel-jslt-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jslt",
+		"id": "camel-jslt-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

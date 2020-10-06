@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.grape.CamelGrapeSinkConnector",
 		"artifactId": "camel-grape-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-grape",
+		"id": "camel-grape-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

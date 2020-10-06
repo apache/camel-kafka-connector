@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hipchat.CamelHipchatSourceConnector",
 		"artifactId": "camel-hipchat-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hipchat",
+		"id": "camel-hipchat-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

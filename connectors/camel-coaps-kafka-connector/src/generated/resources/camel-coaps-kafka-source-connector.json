@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.coaps.CamelCoapsSourceConnector",
 		"artifactId": "camel-coaps-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-coaps",
+		"id": "camel-coaps-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

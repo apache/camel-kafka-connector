@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.dozer.CamelDozerSinkConnector",
 		"artifactId": "camel-dozer-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-dozer",
+		"id": "camel-dozer-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

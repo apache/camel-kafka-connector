@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.box.CamelBoxSinkConnector",
 		"artifactId": "camel-box-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-box",
+		"id": "camel-box-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

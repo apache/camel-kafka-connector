@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.twitterdirectmessage.CamelTwitterdirectmessageSourceConnector",
 		"artifactId": "camel-twitter-directmessage-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-twitter-directmessage",
+		"id": "camel-twitter-directmessage-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

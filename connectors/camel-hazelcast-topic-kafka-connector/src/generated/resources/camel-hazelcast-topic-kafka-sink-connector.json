@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.hazelcasttopic.CamelHazelcasttopicSinkConnector",
 		"artifactId": "camel-hazelcast-topic-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-hazelcast-topic",
+		"id": "camel-hazelcast-topic-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

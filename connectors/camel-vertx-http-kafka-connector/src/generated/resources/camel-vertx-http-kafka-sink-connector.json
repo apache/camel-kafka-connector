@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.vertxhttp.CamelVertxhttpSinkConnector",
 		"artifactId": "camel-vertx-http-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-vertx-http",
+		"id": "camel-vertx-http-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

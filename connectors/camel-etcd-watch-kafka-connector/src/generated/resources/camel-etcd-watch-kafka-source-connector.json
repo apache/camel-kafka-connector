@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.etcdwatch.CamelEtcdwatchSourceConnector",
 		"artifactId": "camel-etcd-watch-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-etcd-watch",
+		"id": "camel-etcd-watch-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.jcr.CamelJcrSourceConnector",
 		"artifactId": "camel-jcr-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-jcr",
+		"id": "camel-jcr-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

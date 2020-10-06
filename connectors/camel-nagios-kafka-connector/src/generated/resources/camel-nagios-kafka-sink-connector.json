@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.nagios.CamelNagiosSinkConnector",
 		"artifactId": "camel-nagios-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-nagios",
+		"id": "camel-nagios-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

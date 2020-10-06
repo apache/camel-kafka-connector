@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.msv.CamelMsvSinkConnector",
 		"artifactId": "camel-msv-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-msv",
+		"id": "camel-msv-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

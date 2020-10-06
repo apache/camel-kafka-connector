@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.googlebigquery.CamelGooglebigquerySinkConnector",
 		"artifactId": "camel-google-bigquery-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-google-bigquery",
+		"id": "camel-google-bigquery-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

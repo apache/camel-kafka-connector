@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ipfs.CamelIpfsSinkConnector",
 		"artifactId": "camel-ipfs-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ipfs",
+		"id": "camel-ipfs-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

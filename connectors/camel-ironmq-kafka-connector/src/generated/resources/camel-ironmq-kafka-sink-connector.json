@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ironmq.CamelIronmqSinkConnector",
 		"artifactId": "camel-ironmq-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ironmq",
+		"id": "camel-ironmq-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

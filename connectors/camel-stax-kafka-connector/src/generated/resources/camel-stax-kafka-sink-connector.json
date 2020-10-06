@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.stax.CamelStaxSinkConnector",
 		"artifactId": "camel-stax-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-stax",
+		"id": "camel-stax-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

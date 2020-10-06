@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.weka.CamelWekaSinkConnector",
 		"artifactId": "camel-weka-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-weka",
+		"id": "camel-weka-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

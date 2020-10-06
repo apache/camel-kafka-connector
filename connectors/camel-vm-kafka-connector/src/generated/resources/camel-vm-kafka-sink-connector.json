@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.vm.CamelVmSinkConnector",
 		"artifactId": "camel-vm-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-vm",
+		"id": "camel-vm-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

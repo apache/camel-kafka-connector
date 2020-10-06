@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.flatpack.CamelFlatpackSinkConnector",
 		"artifactId": "camel-flatpack-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-flatpack",
+		"id": "camel-flatpack-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

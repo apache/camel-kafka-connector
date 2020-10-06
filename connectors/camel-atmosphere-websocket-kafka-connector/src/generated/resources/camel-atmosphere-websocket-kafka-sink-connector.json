@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.atmospherewebsocket.CamelAtmospherewebsocketSinkConnector",
 		"artifactId": "camel-atmosphere-websocket-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-atmosphere-websocket",
+		"id": "camel-atmosphere-websocket-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.etcdkeys.CamelEtcdkeysSinkConnector",
 		"artifactId": "camel-etcd-keys-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-etcd-keys",
+		"id": "camel-etcd-keys-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

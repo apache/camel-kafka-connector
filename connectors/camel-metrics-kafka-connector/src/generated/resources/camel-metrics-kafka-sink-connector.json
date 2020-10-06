@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.metrics.CamelMetricsSinkConnector",
 		"artifactId": "camel-metrics-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-metrics",
+		"id": "camel-metrics-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

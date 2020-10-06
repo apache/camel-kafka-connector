@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.lumberjack.CamelLumberjackSourceConnector",
 		"artifactId": "camel-lumberjack-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-lumberjack",
+		"id": "camel-lumberjack-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.xmlsecuritysign.CamelXmlsecuritysignSinkConnector",
 		"artifactId": "camel-xmlsecurity-sign-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-xmlsecurity-sign",
+		"id": "camel-xmlsecurity-sign-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

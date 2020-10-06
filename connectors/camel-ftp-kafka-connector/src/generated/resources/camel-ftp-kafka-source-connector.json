@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ftp.CamelFtpSourceConnector",
 		"artifactId": "camel-ftp-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ftp",
+		"id": "camel-ftp-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

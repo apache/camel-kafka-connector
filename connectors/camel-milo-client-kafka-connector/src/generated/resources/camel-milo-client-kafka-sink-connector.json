@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.miloclient.CamelMiloclientSinkConnector",
 		"artifactId": "camel-milo-client-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-milo-client",
+		"id": "camel-milo-client-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

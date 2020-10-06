@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.as2.CamelAs2SourceConnector",
 		"artifactId": "camel-as2-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-as2",
+		"id": "camel-as2-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.dropbox.CamelDropboxSinkConnector",
 		"artifactId": "camel-dropbox-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-dropbox",
+		"id": "camel-dropbox-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -23,6 +23,7 @@ public class CamelKafkaConnectorModel {
     private String artifactId;
     private String version;
     private String title;
+    private String type;
     private String connectorClass;
     private List<String> converters;
     private List<String> transforms;
@@ -100,4 +101,12 @@ public class CamelKafkaConnectorModel {
     public void setAggregationStrategies(List<String> aggregationStrategies) {
         this.aggregationStrategies = aggregationStrategies;
     }
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 }

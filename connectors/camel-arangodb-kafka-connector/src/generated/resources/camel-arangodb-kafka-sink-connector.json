@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.arangodb.CamelArangodbSinkConnector",
 		"artifactId": "camel-arangodb-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-arangodb",
+		"id": "camel-arangodb-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

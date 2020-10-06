@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.rabbitmq.CamelRabbitmqSinkConnector",
 		"artifactId": "camel-rabbitmq-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-rabbitmq",
+		"id": "camel-rabbitmq-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

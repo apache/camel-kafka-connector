@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.googlepubsub.CamelGooglepubsubSourceConnector",
 		"artifactId": "camel-google-pubsub-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-google-pubsub",
+		"id": "camel-google-pubsub-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

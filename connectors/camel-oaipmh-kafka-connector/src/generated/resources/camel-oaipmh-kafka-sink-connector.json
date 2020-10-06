@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.oaipmh.CamelOaipmhSinkConnector",
 		"artifactId": "camel-oaipmh-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-oaipmh",
+		"id": "camel-oaipmh-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

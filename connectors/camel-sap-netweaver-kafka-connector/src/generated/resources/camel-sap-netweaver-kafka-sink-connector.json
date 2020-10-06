@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.sapnetweaver.CamelSapnetweaverSinkConnector",
 		"artifactId": "camel-sap-netweaver-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-sap-netweaver",
+		"id": "camel-sap-netweaver-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

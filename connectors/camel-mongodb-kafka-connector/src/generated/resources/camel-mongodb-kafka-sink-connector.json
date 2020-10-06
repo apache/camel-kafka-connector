@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.mongodb.CamelMongodbSinkConnector",
 		"artifactId": "camel-mongodb-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-mongodb",
+		"id": "camel-mongodb-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

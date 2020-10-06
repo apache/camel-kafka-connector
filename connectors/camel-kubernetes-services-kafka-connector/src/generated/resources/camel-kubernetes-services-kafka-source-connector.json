@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetesservices.CamelKubernetesservicesSourceConnector",
 		"artifactId": "camel-kubernetes-services-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-services",
+		"id": "camel-kubernetes-services-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

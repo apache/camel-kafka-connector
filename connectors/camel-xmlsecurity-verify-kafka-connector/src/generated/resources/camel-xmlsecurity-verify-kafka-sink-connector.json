@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.xmlsecurityverify.CamelXmlsecurityverifySinkConnector",
 		"artifactId": "camel-xmlsecurity-verify-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-xmlsecurity-verify",
+		"id": "camel-xmlsecurity-verify-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

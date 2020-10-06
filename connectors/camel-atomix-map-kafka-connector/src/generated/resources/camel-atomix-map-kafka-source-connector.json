@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.atomixmap.CamelAtomixmapSourceConnector",
 		"artifactId": "camel-atomix-map-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-atomix-map",
+		"id": "camel-atomix-map-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

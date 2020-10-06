@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.github.CamelGithubSinkConnector",
 		"artifactId": "camel-github-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-github",
+		"id": "camel-github-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

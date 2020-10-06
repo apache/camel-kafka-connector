@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.pop3s.CamelPop3sSinkConnector",
 		"artifactId": "camel-pop3s-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-pop3s",
+		"id": "camel-pop3s-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

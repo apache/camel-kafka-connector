@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.restapi.CamelRestapiSourceConnector",
 		"artifactId": "camel-rest-api-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-rest-api",
+		"id": "camel-rest-api-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

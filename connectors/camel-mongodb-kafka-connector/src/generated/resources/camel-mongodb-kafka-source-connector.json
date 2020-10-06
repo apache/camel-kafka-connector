@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.mongodb.CamelMongodbSourceConnector",
 		"artifactId": "camel-mongodb-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-mongodb",
+		"id": "camel-mongodb-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

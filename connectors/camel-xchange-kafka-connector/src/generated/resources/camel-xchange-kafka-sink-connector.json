@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.xchange.CamelXchangeSinkConnector",
 		"artifactId": "camel-xchange-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-xchange",
+		"id": "camel-xchange-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

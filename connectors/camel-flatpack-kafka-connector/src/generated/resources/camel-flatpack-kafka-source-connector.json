@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.flatpack.CamelFlatpackSourceConnector",
 		"artifactId": "camel-flatpack-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-flatpack",
+		"id": "camel-flatpack-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

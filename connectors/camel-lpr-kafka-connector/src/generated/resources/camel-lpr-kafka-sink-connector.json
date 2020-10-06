@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.lpr.CamelLprSinkConnector",
 		"artifactId": "camel-lpr-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-lpr",
+		"id": "camel-lpr-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

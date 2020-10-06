@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.azureblob.CamelAzureblobSourceConnector",
 		"artifactId": "camel-azure-blob-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-azure-blob",
+		"id": "camel-azure-blob-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

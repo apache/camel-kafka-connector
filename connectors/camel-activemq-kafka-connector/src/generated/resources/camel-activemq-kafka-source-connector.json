@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.activemq.CamelActivemqSourceConnector",
 		"artifactId": "camel-activemq-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-activemq",
+		"id": "camel-activemq-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

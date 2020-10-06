@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.dataformat.CamelDataformatSinkConnector",
 		"artifactId": "camel-dataformat-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-dataformat",
+		"id": "camel-dataformat-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

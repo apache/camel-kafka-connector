@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ignitecache.CamelIgnitecacheSinkConnector",
 		"artifactId": "camel-ignite-cache-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ignite-cache",
+		"id": "camel-ignite-cache-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

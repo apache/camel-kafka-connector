@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.chatscript.CamelChatscriptSinkConnector",
 		"artifactId": "camel-chatscript-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-chatscript",
+		"id": "camel-chatscript-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

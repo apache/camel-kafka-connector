@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.kubernetesnamespaces.CamelKubernetesnamespacesSinkConnector",
 		"artifactId": "camel-kubernetes-namespaces-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-kubernetes-namespaces",
+		"id": "camel-kubernetes-namespaces-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

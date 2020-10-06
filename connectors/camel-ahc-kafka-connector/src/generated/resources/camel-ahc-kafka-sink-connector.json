@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ahc.CamelAhcSinkConnector",
 		"artifactId": "camel-ahc-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ahc",
+		"id": "camel-ahc-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.microprofilemetrics.CamelMicroprofilemetricsSinkConnector",
 		"artifactId": "camel-microprofile-metrics-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-microprofile-metrics",
+		"id": "camel-microprofile-metrics-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

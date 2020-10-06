@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.ganglia.CamelGangliaSinkConnector",
 		"artifactId": "camel-ganglia-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ganglia",
+		"id": "camel-ganglia-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

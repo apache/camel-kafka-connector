@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.servlet.CamelServletSourceConnector",
 		"artifactId": "camel-servlet-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-servlet",
+		"id": "camel-servlet-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

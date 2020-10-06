@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.guavaeventbus.CamelGuavaeventbusSinkConnector",
 		"artifactId": "camel-guava-eventbus-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-guava-eventbus",
+		"id": "camel-guava-eventbus-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

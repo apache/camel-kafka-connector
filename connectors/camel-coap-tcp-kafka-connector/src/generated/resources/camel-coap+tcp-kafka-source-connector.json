@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.coaptcp.CamelCoaptcpSourceConnector",
 		"artifactId": "camel-coap+tcp-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-coap-tcp",
+		"id": "camel-coap-tcp-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

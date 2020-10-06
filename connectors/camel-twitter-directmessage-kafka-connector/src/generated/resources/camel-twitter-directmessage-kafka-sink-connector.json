@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.twitterdirectmessage.CamelTwitterdirectmessageSinkConnector",
 		"artifactId": "camel-twitter-directmessage-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-twitter-directmessage",
+		"id": "camel-twitter-directmessage-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

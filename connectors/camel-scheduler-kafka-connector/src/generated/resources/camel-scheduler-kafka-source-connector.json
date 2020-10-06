@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.scheduler.CamelSchedulerSourceConnector",
 		"artifactId": "camel-scheduler-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-scheduler",
+		"id": "camel-scheduler-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

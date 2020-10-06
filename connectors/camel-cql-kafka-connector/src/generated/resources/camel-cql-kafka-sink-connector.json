@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.cql.CamelCqlSinkConnector",
 		"artifactId": "camel-cql-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-cql",
+		"id": "camel-cql-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

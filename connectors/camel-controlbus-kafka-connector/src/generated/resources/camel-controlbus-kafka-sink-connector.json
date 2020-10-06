@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.controlbus.CamelControlbusSinkConnector",
 		"artifactId": "camel-controlbus-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-controlbus",
+		"id": "camel-controlbus-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

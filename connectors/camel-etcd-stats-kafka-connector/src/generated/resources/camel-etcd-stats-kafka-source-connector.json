@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.etcdstats.CamelEtcdstatsSourceConnector",
 		"artifactId": "camel-etcd-stats-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-etcd-stats",
+		"id": "camel-etcd-stats-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

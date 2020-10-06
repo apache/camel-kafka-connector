@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.igniteidgen.CamelIgniteidgenSinkConnector",
 		"artifactId": "camel-ignite-idgen-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-ignite-idgen",
+		"id": "camel-ignite-idgen-sink",
+		"type": "sink",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

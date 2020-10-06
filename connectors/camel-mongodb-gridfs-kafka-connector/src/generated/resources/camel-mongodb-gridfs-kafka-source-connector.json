@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.mongodbgridfs.CamelMongodbgridfsSourceConnector",
 		"artifactId": "camel-mongodb-gridfs-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-mongodb-gridfs",
+		"id": "camel-mongodb-gridfs-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

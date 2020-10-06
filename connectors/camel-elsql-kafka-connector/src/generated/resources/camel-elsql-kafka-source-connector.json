@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.elsql.CamelElsqlSourceConnector",
 		"artifactId": "camel-elsql-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-elsql",
+		"id": "camel-elsql-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {

@@ -3,7 +3,8 @@
 		"class": "org.apache.camel.kafkaconnector.reactivestreams.CamelReactivestreamsSourceConnector",
 		"artifactId": "camel-reactive-streams-kafka-connector",
 		"groupId": "org.apache.camel.kafkaconnector",
-		"title": "camel-reactive-streams",
+		"id": "camel-reactive-streams-source",
+		"type": "source",
 		"version": "0.6.0-SNAPSHOT"
 	},
 	"properties": {
