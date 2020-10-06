@@ -33,6 +33,7 @@
     <name>Camel-Kafka-Connector :: Tooling Parent</name>
 
     <modules>
+        <module>camel-kafka-connector-model</module>
         <module>camel-kafka-connector-generator-maven-plugin</module>
         <module>camel-kafka-connector-docs-maven-plugin</module>
     </modules>
