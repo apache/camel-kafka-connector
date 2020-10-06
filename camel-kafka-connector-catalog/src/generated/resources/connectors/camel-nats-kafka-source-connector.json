@@ -1,0 +1,204 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.nats.CamelNatsSourceConnector",
+		"artifactId": "camel-nats-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-nats-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.topic": {
+			"name": "camel.source.path.topic",
+			"description": "The name of topic we want to use",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.connectionTimeout": {
+			"name": "camel.source.endpoint.connectionTimeout",
+			"description": "Timeout for connection attempts. (in milliseconds)",
+			"defaultValue": "2000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.flushConnection": {
+			"name": "camel.source.endpoint.flushConnection",
+			"description": "Define if we want to flush connection when stopping or not",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.flushTimeout": {
+			"name": "camel.source.endpoint.flushTimeout",
+			"description": "Set the flush timeout (in milliseconds)",
+			"defaultValue": "1000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxPingsOut": {
+			"name": "camel.source.endpoint.maxPingsOut",
+			"description": "maximum number of pings have not received a response allowed by the client",
+			"defaultValue": "2",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxReconnectAttempts": {
+			"name": "camel.source.endpoint.maxReconnectAttempts",
+			"description": "Max reconnection attempts",
+			"defaultValue": "60",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.noEcho": {
+			"name": "camel.source.endpoint.noEcho",
+			"description": "Turn off echo. If supported by the gnatsd version you are connecting to this flag will prevent the server from echoing messages back to the connection if it has subscriptions on the subject being published to.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.noRandomizeServers": {
+			"name": "camel.source.endpoint.noRandomizeServers",
+			"description": "Whether or not randomizing the order of servers for the connection attempts",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pedantic": {
+			"name": "camel.source.endpoint.pedantic",
+			"description": "Whether or not running in pedantic mode (this affects performance)",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pingInterval": {
+			"name": "camel.source.endpoint.pingInterval",
+			"description": "Ping interval to be aware if connection is still alive (in milliseconds)",
+			"defaultValue": "120000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.reconnect": {
+			"name": "camel.source.endpoint.reconnect",
+			"description": "Whether or not using reconnection feature",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.reconnectTimeWait": {
+			"name": "camel.source.endpoint.reconnectTimeWait",
+			"description": "Waiting time before attempts reconnection (in milliseconds)",
+			"defaultValue": "2000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.requestCleanupInterval": {
+			"name": "camel.source.endpoint.requestCleanupInterval",
+			"description": "Interval to clean up cancelled\/timed out requests.",
+			"defaultValue": "5000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.servers": {
+			"name": "camel.source.endpoint.servers",
+			"description": "URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.verbose": {
+			"name": "camel.source.endpoint.verbose",
+			"description": "Whether or not running in verbose mode",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxMessages": {
+			"name": "camel.source.endpoint.maxMessages",
+			"description": "Stop receiving messages from a topic we are subscribing to after maxMessages",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.poolSize": {
+			"name": "camel.source.endpoint.poolSize",
+			"description": "Consumer thread pool size (default is 10)",
+			"defaultValue": "10",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.queueName": {
+			"name": "camel.source.endpoint.queueName",
+			"description": "The Queue name if we are using nats for a queue configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.replyToDisabled": {
+			"name": "camel.source.endpoint.replyToDisabled",
+			"description": "Can be used to turn off sending back reply message in the consumer.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.connection": {
+			"name": "camel.source.endpoint.connection",
+			"description": "Reference an already instantiated connection to Nats server",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.secure": {
+			"name": "camel.source.endpoint.secure",
+			"description": "Set secure option indicating TLS is required",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sslContextParameters": {
+			"name": "camel.source.endpoint.sslContextParameters",
+			"description": "To configure security using SSLContextParameters",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.nats.servers": {
+			"name": "camel.component.nats.servers",
+			"description": "URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.nats.verbose": {
+			"name": "camel.component.nats.verbose",
+			"description": "Whether or not running in verbose mode",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.nats.bridgeErrorHandler": {
+			"name": "camel.component.nats.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.nats.basicPropertyBinding": {
+			"name": "camel.component.nats.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.nats.useGlobalSslContextParameters": {
+			"name": "camel.component.nats.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

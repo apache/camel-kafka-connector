@@ -1,0 +1,180 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.cometd.CamelCometdSourceConnector",
+		"artifactId": "camel-cometd-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-cometd-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.host": {
+			"name": "camel.source.path.host",
+			"description": "Hostname",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.port": {
+			"name": "camel.source.path.port",
+			"description": "Host port number",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.channelName": {
+			"name": "camel.source.path.channelName",
+			"description": "The channelName represents a topic that can be subscribed to by the Camel endpoints.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.allowedOrigins": {
+			"name": "camel.source.endpoint.allowedOrigins",
+			"description": "The origins domain that support to cross, if the crosssOriginFilterOn is true",
+			"defaultValue": "\"*\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.baseResource": {
+			"name": "camel.source.endpoint.baseResource",
+			"description": "The root directory for the web resources or classpath. Use the protocol file: or classpath: depending if you want that the component loads the resource from file system or classpath. Classpath is required for OSGI deployment where the resources are packaged in the jar",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.crossOriginFilterOn": {
+			"name": "camel.source.endpoint.crossOriginFilterOn",
+			"description": "If true, the server will support for cross-domain filtering",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.filterPath": {
+			"name": "camel.source.endpoint.filterPath",
+			"description": "The filterPath will be used by the CrossOriginFilter, if the crosssOriginFilterOn is true",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.interval": {
+			"name": "camel.source.endpoint.interval",
+			"description": "The client side poll timeout in milliseconds. How long a client will wait between reconnects",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.jsonCommented": {
+			"name": "camel.source.endpoint.jsonCommented",
+			"description": "If true, the server will accept JSON wrapped in a comment and will generate JSON wrapped in a comment. This is a defence against Ajax Hijacking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.logLevel": {
+			"name": "camel.source.endpoint.logLevel",
+			"description": "Logging level. 0=none, 1=info, 2=debug. One of: [0] [1] [2]",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxInterval": {
+			"name": "camel.source.endpoint.maxInterval",
+			"description": "The max client side poll timeout in milliseconds. A client will be removed if a connection is not received in this time.",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.multiFrameInterval": {
+			"name": "camel.source.endpoint.multiFrameInterval",
+			"description": "The client side poll timeout, if multiple connections are detected from the same browser.",
+			"defaultValue": "1500",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeout": {
+			"name": "camel.source.endpoint.timeout",
+			"description": "The server side poll timeout in milliseconds. This is how long the server will hold a reconnect request before responding.",
+			"defaultValue": "240000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sessionHeadersEnabled": {
+			"name": "camel.source.endpoint.sessionHeadersEnabled",
+			"description": "Whether to include the server session headers in the Camel message when creating a Camel Message for incoming requests.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.bridgeErrorHandler": {
+			"name": "camel.component.cometd.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.basicPropertyBinding": {
+			"name": "camel.component.cometd.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.extensions": {
+			"name": "camel.component.cometd.extensions",
+			"description": "To use a list of custom BayeuxServer.Extension that allows modifying incoming and outgoing requests.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.securityPolicy": {
+			"name": "camel.component.cometd.securityPolicy",
+			"description": "To use a custom configured SecurityPolicy to control authorization",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.sslContextParameters": {
+			"name": "camel.component.cometd.sslContextParameters",
+			"description": "To configure security using SSLContextParameters",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.sslKeyPassword": {
+			"name": "camel.component.cometd.sslKeyPassword",
+			"description": "The password for the keystore when using SSL.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.sslKeystore": {
+			"name": "camel.component.cometd.sslKeystore",
+			"description": "The path to the keystore.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.sslPassword": {
+			"name": "camel.component.cometd.sslPassword",
+			"description": "The password when using SSL.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cometd.useGlobalSslContextParameters": {
+			"name": "camel.component.cometd.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

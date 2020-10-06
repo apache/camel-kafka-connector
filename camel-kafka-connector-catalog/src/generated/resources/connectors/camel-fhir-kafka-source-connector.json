@@ -1,0 +1,450 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.fhir.CamelFhirSourceConnector",
+		"artifactId": "camel-fhir-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-fhir-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.apiName": {
+			"name": "camel.source.path.apiName",
+			"description": "What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.methodName": {
+			"name": "camel.source.path.methodName",
+			"description": "What sub operation to use for the selected operation",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.encoding": {
+			"name": "camel.source.endpoint.encoding",
+			"description": "Encoding to use for all request One of: [JSON] [XML]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.fhirVersion": {
+			"name": "camel.source.endpoint.fhirVersion",
+			"description": "The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5]",
+			"defaultValue": "\"R4\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.inBody": {
+			"name": "camel.source.endpoint.inBody",
+			"description": "Sets the name of a parameter to be passed in the exchange In Body",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.log": {
+			"name": "camel.source.endpoint.log",
+			"description": "Will log every requests and responses",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.prettyPrint": {
+			"name": "camel.source.endpoint.prettyPrint",
+			"description": "Pretty print all request",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.serverUrl": {
+			"name": "camel.source.endpoint.serverUrl",
+			"description": "The FHIR server base URL",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
+			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
+			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pollStrategy": {
+			"name": "camel.source.endpoint.pollStrategy",
+			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.client": {
+			"name": "camel.source.endpoint.client",
+			"description": "To use the custom client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.clientFactory": {
+			"name": "camel.source.endpoint.clientFactory",
+			"description": "To use the custom client factory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.compress": {
+			"name": "camel.source.endpoint.compress",
+			"description": "Compresses outgoing (POST\/PUT) contents to the GZIP format",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.connectionTimeout": {
+			"name": "camel.source.endpoint.connectionTimeout",
+			"description": "How long to try and establish the initial TCP connection (in ms)",
+			"defaultValue": "\"10000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.deferModelScanning": {
+			"name": "camel.source.endpoint.deferModelScanning",
+			"description": "When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.fhirContext": {
+			"name": "camel.source.endpoint.fhirContext",
+			"description": "FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.forceConformanceCheck": {
+			"name": "camel.source.endpoint.forceConformanceCheck",
+			"description": "Force conformance check",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sessionCookie": {
+			"name": "camel.source.endpoint.sessionCookie",
+			"description": "HTTP session cookie to add to every request",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.socketTimeout": {
+			"name": "camel.source.endpoint.socketTimeout",
+			"description": "How long to block for individual read\/write operations (in ms)",
+			"defaultValue": "\"10000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.summary": {
+			"name": "camel.source.endpoint.summary",
+			"description": "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.validationMode": {
+			"name": "camel.source.endpoint.validationMode",
+			"description": "When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE]",
+			"defaultValue": "\"ONCE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxyHost": {
+			"name": "camel.source.endpoint.proxyHost",
+			"description": "The proxy host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxyPassword": {
+			"name": "camel.source.endpoint.proxyPassword",
+			"description": "The proxy password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxyPort": {
+			"name": "camel.source.endpoint.proxyPort",
+			"description": "The proxy port",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxyUser": {
+			"name": "camel.source.endpoint.proxyUser",
+			"description": "The proxy username",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffErrorThreshold": {
+			"name": "camel.source.endpoint.backoffErrorThreshold",
+			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffIdleThreshold": {
+			"name": "camel.source.endpoint.backoffIdleThreshold",
+			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffMultiplier": {
+			"name": "camel.source.endpoint.backoffMultiplier",
+			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Milliseconds before the next poll.",
+			"defaultValue": "500L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.greedy": {
+			"name": "camel.source.endpoint.greedy",
+			"description": "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Milliseconds before the first poll starts.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.repeatCount": {
+			"name": "camel.source.endpoint.repeatCount",
+			"description": "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.runLoggingLevel": {
+			"name": "camel.source.endpoint.runLoggingLevel",
+			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"TRACE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduledExecutorService": {
+			"name": "camel.source.endpoint.scheduledExecutorService",
+			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduler": {
+			"name": "camel.source.endpoint.scheduler",
+			"description": "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler",
+			"defaultValue": "\"none\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.schedulerProperties": {
+			"name": "camel.source.endpoint.schedulerProperties",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.startScheduler": {
+			"name": "camel.source.endpoint.startScheduler",
+			"description": "Whether the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeUnit": {
+			"name": "camel.source.endpoint.timeUnit",
+			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
+			"defaultValue": "\"MILLISECONDS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useFixedDelay": {
+			"name": "camel.source.endpoint.useFixedDelay",
+			"description": "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.accessToken": {
+			"name": "camel.source.endpoint.accessToken",
+			"description": "OAuth access token",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "Username to use for basic authentication",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "Username to use for basic authentication",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.encoding": {
+			"name": "camel.component.fhir.encoding",
+			"description": "Encoding to use for all request One of: [JSON] [XML]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.fhirVersion": {
+			"name": "camel.component.fhir.fhirVersion",
+			"description": "The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5]",
+			"defaultValue": "\"R4\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.log": {
+			"name": "camel.component.fhir.log",
+			"description": "Will log every requests and responses",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.prettyPrint": {
+			"name": "camel.component.fhir.prettyPrint",
+			"description": "Pretty print all request",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.serverUrl": {
+			"name": "camel.component.fhir.serverUrl",
+			"description": "The FHIR server base URL",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.bridgeErrorHandler": {
+			"name": "camel.component.fhir.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.basicPropertyBinding": {
+			"name": "camel.component.fhir.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.client": {
+			"name": "camel.component.fhir.client",
+			"description": "To use the custom client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.clientFactory": {
+			"name": "camel.component.fhir.clientFactory",
+			"description": "To use the custom client factory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.compress": {
+			"name": "camel.component.fhir.compress",
+			"description": "Compresses outgoing (POST\/PUT) contents to the GZIP format",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.configuration": {
+			"name": "camel.component.fhir.configuration",
+			"description": "To use the shared configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.connectionTimeout": {
+			"name": "camel.component.fhir.connectionTimeout",
+			"description": "How long to try and establish the initial TCP connection (in ms)",
+			"defaultValue": "\"10000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.deferModelScanning": {
+			"name": "camel.component.fhir.deferModelScanning",
+			"description": "When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.fhirContext": {
+			"name": "camel.component.fhir.fhirContext",
+			"description": "FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.forceConformanceCheck": {
+			"name": "camel.component.fhir.forceConformanceCheck",
+			"description": "Force conformance check",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.sessionCookie": {
+			"name": "camel.component.fhir.sessionCookie",
+			"description": "HTTP session cookie to add to every request",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.socketTimeout": {
+			"name": "camel.component.fhir.socketTimeout",
+			"description": "How long to block for individual read\/write operations (in ms)",
+			"defaultValue": "\"10000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.summary": {
+			"name": "camel.component.fhir.summary",
+			"description": "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.validationMode": {
+			"name": "camel.component.fhir.validationMode",
+			"description": "When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE]",
+			"defaultValue": "\"ONCE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.proxyHost": {
+			"name": "camel.component.fhir.proxyHost",
+			"description": "The proxy host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.proxyPassword": {
+			"name": "camel.component.fhir.proxyPassword",
+			"description": "The proxy password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.proxyPort": {
+			"name": "camel.component.fhir.proxyPort",
+			"description": "The proxy port",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.proxyUser": {
+			"name": "camel.component.fhir.proxyUser",
+			"description": "The proxy username",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.accessToken": {
+			"name": "camel.component.fhir.accessToken",
+			"description": "OAuth access token",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.password": {
+			"name": "camel.component.fhir.password",
+			"description": "Username to use for basic authentication",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.username": {
+			"name": "camel.component.fhir.username",
+			"description": "Username to use for basic authentication",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

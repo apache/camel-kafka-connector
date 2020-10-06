@@ -1,0 +1,162 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.xmpp.CamelXmppSourceConnector",
+		"artifactId": "camel-xmpp-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-xmpp-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.host": {
+			"name": "camel.source.path.host",
+			"description": "Hostname for the chat server",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.port": {
+			"name": "camel.source.path.port",
+			"description": "Port number for the chat server",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.participant": {
+			"name": "camel.source.path.participant",
+			"description": "JID (Jabber ID) of person to receive messages. room parameter has precedence over participant.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.login": {
+			"name": "camel.source.endpoint.login",
+			"description": "Whether to login the user.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.nickname": {
+			"name": "camel.source.endpoint.nickname",
+			"description": "Use nickname when joining room. If room is specified and nickname is not, user will be used for the nickname.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pubsub": {
+			"name": "camel.source.endpoint.pubsub",
+			"description": "Accept pubsub packets on input, default is false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.room": {
+			"name": "camel.source.endpoint.room",
+			"description": "If this option is specified, the component will connect to MUC (Multi User Chat). Usually, the domain name for MUC is different from the login domain. For example, if you are supermanjabber.org and want to join the krypton room, then the room URL is kryptonconference.jabber.org. Note the conference part. It is not a requirement to provide the full room JID. If the room parameter does not contain the symbol, the domain part will be discovered and added by Camel",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.serviceName": {
+			"name": "camel.source.endpoint.serviceName",
+			"description": "The name of the service you are connecting to. For Google Talk, this would be gmail.com.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.testConnectionOnStartup": {
+			"name": "camel.source.endpoint.testConnectionOnStartup",
+			"description": "Specifies whether to test the connection on startup. This is used to ensure that the XMPP client has a valid connection to the XMPP server when the route starts. Camel throws an exception on startup if a connection cannot be established. When this option is set to false, Camel will attempt to establish a lazy connection when needed by a producer, and will poll for a consumer connection until the connection is established. Default is true.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.createAccount": {
+			"name": "camel.source.endpoint.createAccount",
+			"description": "If true, an attempt to create an account will be made. Default is false.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.resource": {
+			"name": "camel.source.endpoint.resource",
+			"description": "XMPP resource. The default is Camel.",
+			"defaultValue": "\"Camel\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.connectionPollDelay": {
+			"name": "camel.source.endpoint.connectionPollDelay",
+			"description": "The amount of time in seconds between polls (in seconds) to verify the health of the XMPP connection, or between attempts to establish an initial consumer connection. Camel will try to re-establish a connection if it has become inactive. Default is 10 seconds.",
+			"defaultValue": "10",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.doc": {
+			"name": "camel.source.endpoint.doc",
+			"description": "Set a doc header on the IN message containing a Document form of the incoming packet; default is true if presence or pubsub are true, otherwise false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.connectionConfig": {
+			"name": "camel.source.endpoint.connectionConfig",
+			"description": "To use an existing connection configuration. Currently org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only supported (XMPP over TCP).",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.headerFilterStrategy": {
+			"name": "camel.source.endpoint.headerFilterStrategy",
+			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "Password for login",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.roomPassword": {
+			"name": "camel.source.endpoint.roomPassword",
+			"description": "Password for room",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.user": {
+			"name": "camel.source.endpoint.user",
+			"description": "User name (without server name). If not specified, anonymous login will be attempted.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmpp.bridgeErrorHandler": {
+			"name": "camel.component.xmpp.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.xmpp.basicPropertyBinding": {
+			"name": "camel.component.xmpp.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

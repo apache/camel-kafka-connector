@@ -1,0 +1,258 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.docker.CamelDockerSinkConnector",
+		"artifactId": "camel-docker-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-docker-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.operation": {
+			"name": "camel.sink.path.operation",
+			"description": "Which operation to use One of: [events] [stats] [auth] [info] [ping] [version] [imagebuild] [imagecreate] [imageinspect] [imagelist] [imagepull] [imagepushimageremove] [imagesearch] [imagetag] [containerattach] [containercommit] [containercopyfile] [containercreate] [containerdiffinspectcontainer] [containerkill] [containerlist] [containerlog] [containerpause] [containerrestart] [containerremove] [containerstartcontainerstop] [containertop] [containerunpause] [containerwait] [execcreate] [execstart]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.email": {
+			"name": "camel.sink.endpoint.email",
+			"description": "Email address associated with the user",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.host": {
+			"name": "camel.sink.endpoint.host",
+			"description": "Docker host",
+			"defaultValue": "\"localhost\"",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.port": {
+			"name": "camel.sink.endpoint.port",
+			"description": "Docker port",
+			"defaultValue": "\"2375\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.requestTimeout": {
+			"name": "camel.sink.endpoint.requestTimeout",
+			"description": "Request timeout for response (in seconds)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cmdExecFactory": {
+			"name": "camel.sink.endpoint.cmdExecFactory",
+			"description": "The fully qualified class name of the DockerCmdExecFactory implementation to use",
+			"defaultValue": "\"com.github.dockerjava.netty.NettyDockerCmdExecFactory\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.followRedirectFilter": {
+			"name": "camel.sink.endpoint.followRedirectFilter",
+			"description": "Whether to follow redirect filter",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.loggingFilter": {
+			"name": "camel.sink.endpoint.loggingFilter",
+			"description": "Whether to use logging filter",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxPerRouteConnections": {
+			"name": "camel.sink.endpoint.maxPerRouteConnections",
+			"description": "Maximum route connections",
+			"defaultValue": "\"100\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxTotalConnections": {
+			"name": "camel.sink.endpoint.maxTotalConnections",
+			"description": "Maximum total connections",
+			"defaultValue": "\"100\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.parameters": {
+			"name": "camel.sink.endpoint.parameters",
+			"description": "Additional configuration parameters as key\/value pairs",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serverAddress": {
+			"name": "camel.sink.endpoint.serverAddress",
+			"description": "Server address for docker registry.",
+			"defaultValue": "\"https:\/\/index.docker.io\/v1\/\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.socket": {
+			"name": "camel.sink.endpoint.socket",
+			"description": "Socket connection mode",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.certPath": {
+			"name": "camel.sink.endpoint.certPath",
+			"description": "Location containing the SSL certificate chain",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.password": {
+			"name": "camel.sink.endpoint.password",
+			"description": "Password to authenticate with",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.secure": {
+			"name": "camel.sink.endpoint.secure",
+			"description": "Use HTTPS communication",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.tlsVerify": {
+			"name": "camel.sink.endpoint.tlsVerify",
+			"description": "Check TLS",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.username": {
+			"name": "camel.sink.endpoint.username",
+			"description": "User name to authenticate with",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.configuration": {
+			"name": "camel.component.docker.configuration",
+			"description": "To use the shared docker configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.email": {
+			"name": "camel.component.docker.email",
+			"description": "Email address associated with the user",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.host": {
+			"name": "camel.component.docker.host",
+			"description": "Docker host",
+			"defaultValue": "\"localhost\"",
+			"priority": "HIGH"
+		},
+		"camel.component.docker.port": {
+			"name": "camel.component.docker.port",
+			"description": "Docker port",
+			"defaultValue": "\"2375\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.requestTimeout": {
+			"name": "camel.component.docker.requestTimeout",
+			"description": "Request timeout for response (in seconds)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.lazyStartProducer": {
+			"name": "camel.component.docker.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.basicPropertyBinding": {
+			"name": "camel.component.docker.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.cmdExecFactory": {
+			"name": "camel.component.docker.cmdExecFactory",
+			"description": "The fully qualified class name of the DockerCmdExecFactory implementation to use",
+			"defaultValue": "\"com.github.dockerjava.netty.NettyDockerCmdExecFactory\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.followRedirectFilter": {
+			"name": "camel.component.docker.followRedirectFilter",
+			"description": "Whether to follow redirect filter",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.loggingFilter": {
+			"name": "camel.component.docker.loggingFilter",
+			"description": "Whether to use logging filter",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.maxPerRouteConnections": {
+			"name": "camel.component.docker.maxPerRouteConnections",
+			"description": "Maximum route connections",
+			"defaultValue": "\"100\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.maxTotalConnections": {
+			"name": "camel.component.docker.maxTotalConnections",
+			"description": "Maximum total connections",
+			"defaultValue": "\"100\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.parameters": {
+			"name": "camel.component.docker.parameters",
+			"description": "Additional configuration parameters as key\/value pairs",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.serverAddress": {
+			"name": "camel.component.docker.serverAddress",
+			"description": "Server address for docker registry.",
+			"defaultValue": "\"https:\/\/index.docker.io\/v1\/\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.socket": {
+			"name": "camel.component.docker.socket",
+			"description": "Socket connection mode",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.certPath": {
+			"name": "camel.component.docker.certPath",
+			"description": "Location containing the SSL certificate chain",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.password": {
+			"name": "camel.component.docker.password",
+			"description": "Password to authenticate with",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.secure": {
+			"name": "camel.component.docker.secure",
+			"description": "Use HTTPS communication",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.tlsVerify": {
+			"name": "camel.component.docker.tlsVerify",
+			"description": "Check TLS",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.docker.username": {
+			"name": "camel.component.docker.username",
+			"description": "User name to authenticate with",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

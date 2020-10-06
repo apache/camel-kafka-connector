@@ -1,0 +1,162 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.grpc.CamelGrpcSinkConnector",
+		"artifactId": "camel-grpc-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-grpc-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.host": {
+			"name": "camel.sink.path.host",
+			"description": "The gRPC server host name. This is localhost or 0.0.0.0 when being a consumer or remote server host name when using producer.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.port": {
+			"name": "camel.sink.path.port",
+			"description": "The gRPC local or remote server port",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.service": {
+			"name": "camel.sink.path.service",
+			"description": "Fully qualified service name from the protocol buffer descriptor file (package dot service definition name)",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.flowControlWindow": {
+			"name": "camel.sink.endpoint.flowControlWindow",
+			"description": "The HTTP\/2 flow control window size (MiB)",
+			"defaultValue": "1048576",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxMessageSize": {
+			"name": "camel.sink.endpoint.maxMessageSize",
+			"description": "The maximum message size allowed to be received\/sent (MiB)",
+			"defaultValue": "4194304",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.method": {
+			"name": "camel.sink.endpoint.method",
+			"description": "gRPC method name",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.producerStrategy": {
+			"name": "camel.sink.endpoint.producerStrategy",
+			"description": "The mode used to communicate with a remote gRPC server. In SIMPLE mode a single exchange is translated into a remote procedure call. In STREAMING mode all exchanges will be sent within the same request (input and output of the recipient gRPC service must be of type 'stream'). One of: [SIMPLE] [STREAMING]",
+			"defaultValue": "\"SIMPLE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.streamRepliesTo": {
+			"name": "camel.sink.endpoint.streamRepliesTo",
+			"description": "When using STREAMING client mode, it indicates the endpoint where responses should be forwarded.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.userAgent": {
+			"name": "camel.sink.endpoint.userAgent",
+			"description": "The user agent header passed to the server",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.authenticationType": {
+			"name": "camel.sink.endpoint.authenticationType",
+			"description": "Authentication method type in advance to the SSL\/TLS negotiation One of: [NONE] [GOOGLE] [JWT]",
+			"defaultValue": "\"NONE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.jwtAlgorithm": {
+			"name": "camel.sink.endpoint.jwtAlgorithm",
+			"description": "JSON Web Token sign algorithm One of: [HMAC256] [HMAC384] [HMAC512]",
+			"defaultValue": "\"HMAC256\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.jwtIssuer": {
+			"name": "camel.sink.endpoint.jwtIssuer",
+			"description": "JSON Web Token issuer",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.jwtSecret": {
+			"name": "camel.sink.endpoint.jwtSecret",
+			"description": "JSON Web Token secret",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.jwtSubject": {
+			"name": "camel.sink.endpoint.jwtSubject",
+			"description": "JSON Web Token subject",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keyCertChainResource": {
+			"name": "camel.sink.endpoint.keyCertChainResource",
+			"description": "The X.509 certificate chain file resource in PEM format link",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keyPassword": {
+			"name": "camel.sink.endpoint.keyPassword",
+			"description": "The PKCS#8 private key file password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keyResource": {
+			"name": "camel.sink.endpoint.keyResource",
+			"description": "The PKCS#8 private key file resource in PEM format link",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.negotiationType": {
+			"name": "camel.sink.endpoint.negotiationType",
+			"description": "Identifies the security negotiation type used for HTTP\/2 communication One of: [TLS] [PLAINTEXT_UPGRADE] [PLAINTEXT]",
+			"defaultValue": "\"PLAINTEXT\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serviceAccountResource": {
+			"name": "camel.sink.endpoint.serviceAccountResource",
+			"description": "Service Account key file in JSON format resource link supported by the Google Cloud SDK",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.trustCertCollectionResource": {
+			"name": "camel.sink.endpoint.trustCertCollectionResource",
+			"description": "The trusted certificates collection file resource in PEM format for verifying the remote endpoint's certificate",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.grpc.lazyStartProducer": {
+			"name": "camel.component.grpc.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.grpc.basicPropertyBinding": {
+			"name": "camel.component.grpc.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

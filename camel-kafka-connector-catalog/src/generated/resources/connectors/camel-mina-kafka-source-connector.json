@@ -1,0 +1,336 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mina.CamelMinaSourceConnector",
+		"artifactId": "camel-mina-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mina-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.protocol": {
+			"name": "camel.source.path.protocol",
+			"description": "Protocol to use",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.host": {
+			"name": "camel.source.path.host",
+			"description": "Hostname to use. Use localhost or 0.0.0.0 for local server as consumer. For producer use the hostname or ip address of the remote server.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.port": {
+			"name": "camel.source.path.port",
+			"description": "Port number",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.disconnect": {
+			"name": "camel.source.endpoint.disconnect",
+			"description": "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.minaLogger": {
+			"name": "camel.source.endpoint.minaLogger",
+			"description": "You can enable the Apache MINA logging filter. Apache MINA uses slf4j logging at INFO level to log all input and output.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sync": {
+			"name": "camel.source.endpoint.sync",
+			"description": "Setting to set endpoint as one-way or request-response.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeout": {
+			"name": "camel.source.endpoint.timeout",
+			"description": "You can configure the timeout that specifies how long to wait for a response from a remote server. The timeout unit is in milliseconds, so 60000 is 60 seconds.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.writeTimeout": {
+			"name": "camel.source.endpoint.writeTimeout",
+			"description": "Maximum amount of time it should take to send data to the MINA session. Default is 10000 milliseconds.",
+			"defaultValue": "10000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.clientMode": {
+			"name": "camel.source.endpoint.clientMode",
+			"description": "If the clientMode is true, mina consumer will connect the address as a TCP client.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.disconnectOnNoReply": {
+			"name": "camel.source.endpoint.disconnectOnNoReply",
+			"description": "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.noReplyLogLevel": {
+			"name": "camel.source.endpoint.noReplyLogLevel",
+			"description": "If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"WARN\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maximumPoolSize": {
+			"name": "camel.source.endpoint.maximumPoolSize",
+			"description": "Number of worker threads in the worker pool for TCP and UDP",
+			"defaultValue": "16",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.orderedThreadPoolExecutor": {
+			"name": "camel.source.endpoint.orderedThreadPoolExecutor",
+			"description": "Whether to use ordered thread pool, to ensure events are processed orderly on the same channel.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.transferExchange": {
+			"name": "camel.source.endpoint.transferExchange",
+			"description": "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.allowDefaultCodec": {
+			"name": "camel.source.endpoint.allowDefaultCodec",
+			"description": "The mina component installs a default codec if both, codec is null and textline is false. Setting allowDefaultCodec to false prevents the mina component from installing a default codec as the first element in the filter chain. This is useful in scenarios where another filter must be the first in the filter chain, like the SSL filter.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.codec": {
+			"name": "camel.source.endpoint.codec",
+			"description": "To use a custom minda codec implementation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.decoderMaxLineLength": {
+			"name": "camel.source.endpoint.decoderMaxLineLength",
+			"description": "To set the textline protocol decoder max line length. By default the default value of Mina itself is used which are 1024.",
+			"defaultValue": "1024",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.encoderMaxLineLength": {
+			"name": "camel.source.endpoint.encoderMaxLineLength",
+			"description": "To set the textline protocol encoder max line length. By default the default value of Mina itself is used which are Integer.MAX_VALUE.",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.encoding": {
+			"name": "camel.source.endpoint.encoding",
+			"description": "You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.filters": {
+			"name": "camel.source.endpoint.filters",
+			"description": "You can set a list of Mina IoFilters to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.textline": {
+			"name": "camel.source.endpoint.textline",
+			"description": "Only used for TCP. If no codec is specified, you can use this flag to indicate a text line based codec; if not specified or the value is false, then Object Serialization is assumed over TCP.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.textlineDelimiter": {
+			"name": "camel.source.endpoint.textlineDelimiter",
+			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.autoStartTls": {
+			"name": "camel.source.endpoint.autoStartTls",
+			"description": "Whether to auto start SSL handshake.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sslContextParameters": {
+			"name": "camel.source.endpoint.sslContextParameters",
+			"description": "To configure SSL security.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.disconnect": {
+			"name": "camel.component.mina.disconnect",
+			"description": "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.minaLogger": {
+			"name": "camel.component.mina.minaLogger",
+			"description": "You can enable the Apache MINA logging filter. Apache MINA uses slf4j logging at INFO level to log all input and output.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.sync": {
+			"name": "camel.component.mina.sync",
+			"description": "Setting to set endpoint as one-way or request-response.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.timeout": {
+			"name": "camel.component.mina.timeout",
+			"description": "You can configure the timeout that specifies how long to wait for a response from a remote server. The timeout unit is in milliseconds, so 60000 is 60 seconds.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.writeTimeout": {
+			"name": "camel.component.mina.writeTimeout",
+			"description": "Maximum amount of time it should take to send data to the MINA session. Default is 10000 milliseconds.",
+			"defaultValue": "10000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.bridgeErrorHandler": {
+			"name": "camel.component.mina.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.clientMode": {
+			"name": "camel.component.mina.clientMode",
+			"description": "If the clientMode is true, mina consumer will connect the address as a TCP client.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.disconnectOnNoReply": {
+			"name": "camel.component.mina.disconnectOnNoReply",
+			"description": "If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.noReplyLogLevel": {
+			"name": "camel.component.mina.noReplyLogLevel",
+			"description": "If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"WARN\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.basicPropertyBinding": {
+			"name": "camel.component.mina.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.configuration": {
+			"name": "camel.component.mina.configuration",
+			"description": "To use the shared mina configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.maximumPoolSize": {
+			"name": "camel.component.mina.maximumPoolSize",
+			"description": "Number of worker threads in the worker pool for TCP and UDP",
+			"defaultValue": "16",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.orderedThreadPoolExecutor": {
+			"name": "camel.component.mina.orderedThreadPoolExecutor",
+			"description": "Whether to use ordered thread pool, to ensure events are processed orderly on the same channel.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.transferExchange": {
+			"name": "camel.component.mina.transferExchange",
+			"description": "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.allowDefaultCodec": {
+			"name": "camel.component.mina.allowDefaultCodec",
+			"description": "The mina component installs a default codec if both, codec is null and textline is false. Setting allowDefaultCodec to false prevents the mina component from installing a default codec as the first element in the filter chain. This is useful in scenarios where another filter must be the first in the filter chain, like the SSL filter.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.codec": {
+			"name": "camel.component.mina.codec",
+			"description": "To use a custom minda codec implementation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.decoderMaxLineLength": {
+			"name": "camel.component.mina.decoderMaxLineLength",
+			"description": "To set the textline protocol decoder max line length. By default the default value of Mina itself is used which are 1024.",
+			"defaultValue": "1024",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.encoderMaxLineLength": {
+			"name": "camel.component.mina.encoderMaxLineLength",
+			"description": "To set the textline protocol encoder max line length. By default the default value of Mina itself is used which are Integer.MAX_VALUE.",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.encoding": {
+			"name": "camel.component.mina.encoding",
+			"description": "You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.filters": {
+			"name": "camel.component.mina.filters",
+			"description": "You can set a list of Mina IoFilters to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.textline": {
+			"name": "camel.component.mina.textline",
+			"description": "Only used for TCP. If no codec is specified, you can use this flag to indicate a text line based codec; if not specified or the value is false, then Object Serialization is assumed over TCP.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.textlineDelimiter": {
+			"name": "camel.component.mina.textlineDelimiter",
+			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.autoStartTls": {
+			"name": "camel.component.mina.autoStartTls",
+			"description": "Whether to auto start SSL handshake.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.sslContextParameters": {
+			"name": "camel.component.mina.sslContextParameters",
+			"description": "To configure SSL security.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.useGlobalSslContextParameters": {
+			"name": "camel.component.mina.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

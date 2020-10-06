@@ -1,0 +1,330 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sjms2.CamelSjms2SourceConnector",
+		"artifactId": "camel-sjms2-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-sjms2-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.destinationType": {
+			"name": "camel.source.path.destinationType",
+			"description": "The kind of destination to use One of: [queue] [topic]",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.path.destinationName": {
+			"name": "camel.source.path.destinationName",
+			"description": "DestinationName is a JMS queue or topic name. By default, the destinationName is interpreted as a queue name.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.acknowledgementMode": {
+			"name": "camel.source.endpoint.acknowledgementMode",
+			"description": "The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE One of: [SESSION_TRANSACTED] [CLIENT_ACKNOWLEDGE] [AUTO_ACKNOWLEDGE] [DUPS_OK_ACKNOWLEDGE]",
+			"defaultValue": "\"AUTO_ACKNOWLEDGE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.consumerCount": {
+			"name": "camel.source.endpoint.consumerCount",
+			"description": "Sets the number of consumer listeners used for this endpoint.",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.durable": {
+			"name": "camel.source.endpoint.durable",
+			"description": "Sets topic consumer to durable.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.durableSubscriptionId": {
+			"name": "camel.source.endpoint.durableSubscriptionId",
+			"description": "Sets the durable subscription Id required for durable topics.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.reconnectBackOff": {
+			"name": "camel.source.endpoint.reconnectBackOff",
+			"description": "Backoff in millis on consumer pool reconnection attempts",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.reconnectOnError": {
+			"name": "camel.source.endpoint.reconnectOnError",
+			"description": "Try to apply reconnection logic on consumer pool",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.shared": {
+			"name": "camel.source.endpoint.shared",
+			"description": "Sets the consumer to shared.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.subscriptionId": {
+			"name": "camel.source.endpoint.subscriptionId",
+			"description": "Sets the subscription Id, required for durable or shared topics.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.messageSelector": {
+			"name": "camel.source.endpoint.messageSelector",
+			"description": "Sets the JMS Message selector syntax.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.asyncStartListener": {
+			"name": "camel.source.endpoint.asyncStartListener",
+			"description": "Whether to startup the consumer message listener asynchronously, when starting a route. For example if a JmsConsumer cannot get a connection to a remote JMS broker, then it may block while retrying and\/or failover. This will cause Camel to block while starting routes. By setting this option to true, you will let routes startup, while the JmsConsumer connects to the JMS broker using a dedicated thread in asynchronous mode. If this option is used, then beware that if the connection could not be established, then an exception is logged at WARN level, and the consumer will not be able to receive messages; You can then restart the route to retry.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.asyncStopListener": {
+			"name": "camel.source.endpoint.asyncStopListener",
+			"description": "Whether to stop the consumer message listener asynchronously, when stopping a route.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.connectionCount": {
+			"name": "camel.source.endpoint.connectionCount",
+			"description": "The maximum number of connections available to this endpoint",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.connectionFactory": {
+			"name": "camel.source.endpoint.connectionFactory",
+			"description": "Initializes the connectionFactory for the endpoint, which takes precedence over the component's connectionFactory, if any",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.connectionResource": {
+			"name": "camel.source.endpoint.connectionResource",
+			"description": "Initializes the connectionResource for the endpoint, which takes precedence over the component's connectionResource, if any",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.destinationCreationStrategy": {
+			"name": "camel.source.endpoint.destinationCreationStrategy",
+			"description": "To use a custom DestinationCreationStrategy.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionListener": {
+			"name": "camel.source.endpoint.exceptionListener",
+			"description": "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.headerFilterStrategy": {
+			"name": "camel.source.endpoint.headerFilterStrategy",
+			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.includeAllJMSXProperties": {
+			"name": "camel.source.endpoint.includeAllJMSXProperties",
+			"description": "Whether to include all JMSXxxx properties when mapping from JMS to Camel Message. Setting this to true will include properties such as JMSXAppID, and JMSXUserID etc. Note: If you are using a custom headerFilterStrategy then this option does not apply.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.jmsKeyFormatStrategy": {
+			"name": "camel.source.endpoint.jmsKeyFormatStrategy",
+			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.mapJmsMessage": {
+			"name": "camel.source.endpoint.mapJmsMessage",
+			"description": "Specifies whether Camel should auto map the received JMS message to a suited payload type, such as javax.jms.TextMessage to a String etc. See section about how mapping works below for more details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.messageCreatedStrategy": {
+			"name": "camel.source.endpoint.messageCreatedStrategy",
+			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.errorHandlerLoggingLevel": {
+			"name": "camel.source.endpoint.errorHandlerLoggingLevel",
+			"description": "Allows to configure the default errorHandler logging level for logging uncaught exceptions. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"WARN\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.errorHandlerLogStackTrace": {
+			"name": "camel.source.endpoint.errorHandlerLogStackTrace",
+			"description": "Allows to control whether stacktraces should be logged or not, by the default errorHandler.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.transacted": {
+			"name": "camel.source.endpoint.transacted",
+			"description": "Specifies whether to use transacted mode",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.transactionBatchCount": {
+			"name": "camel.source.endpoint.transactionBatchCount",
+			"description": "If transacted sets the number of messages to process before committing a transaction.",
+			"defaultValue": "-1",
+			"priority": "LOW"
+		},
+		"camel.source.endpoint.transactionBatchTimeout": {
+			"name": "camel.source.endpoint.transactionBatchTimeout",
+			"description": "Sets timeout (in millis) for batch transactions, the value should be 1000 or higher.",
+			"defaultValue": "5000L",
+			"priority": "LOW"
+		},
+		"camel.source.endpoint.transactionCommitStrategy": {
+			"name": "camel.source.endpoint.transactionCommitStrategy",
+			"description": "Sets the commit strategy.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sharedJMSSession": {
+			"name": "camel.source.endpoint.sharedJMSSession",
+			"description": "Specifies whether to share JMS session with other SJMS endpoints. Turn this off if your route is accessing to multiple JMS providers. If you need transaction against multiple JMS providers, use jms component to leverage XA transaction.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.connectionCount": {
+			"name": "camel.component.sjms2.connectionCount",
+			"description": "The maximum number of connections available to endpoints started under this component",
+			"defaultValue": "\"1\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.bridgeErrorHandler": {
+			"name": "camel.component.sjms2.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.reconnectBackOff": {
+			"name": "camel.component.sjms2.reconnectBackOff",
+			"description": "Backoff in millis on consumer pool reconnection attempts",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.reconnectOnError": {
+			"name": "camel.component.sjms2.reconnectOnError",
+			"description": "Try to apply reconnection logic on consumer pool",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.basicPropertyBinding": {
+			"name": "camel.component.sjms2.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.connectionClientId": {
+			"name": "camel.component.sjms2.connectionClientId",
+			"description": "The client ID to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.connectionFactory": {
+			"name": "camel.component.sjms2.connectionFactory",
+			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.connectionMaxWait": {
+			"name": "camel.component.sjms2.connectionMaxWait",
+			"description": "The max wait time in millis to block and wait on free connection when the pool is exhausted when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.connectionResource": {
+			"name": "camel.component.sjms2.connectionResource",
+			"description": "A ConnectionResource is an interface that allows for customization and container control of the ConnectionFactory. See Plugable Connection Resource Management for further details.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.connectionTestOnBorrow": {
+			"name": "camel.component.sjms2.connectionTestOnBorrow",
+			"description": "When using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource then should each javax.jms.Connection be tested (calling start) before returned from the pool.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.destinationCreationStrategy": {
+			"name": "camel.component.sjms2.destinationCreationStrategy",
+			"description": "To use a custom DestinationCreationStrategy.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.jmsKeyFormatStrategy": {
+			"name": "camel.component.sjms2.jmsKeyFormatStrategy",
+			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides one implementation out of the box: default. The default strategy will safely marshal dots and hyphens (. and -). Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.messageCreatedStrategy": {
+			"name": "camel.component.sjms2.messageCreatedStrategy",
+			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.timedTaskManager": {
+			"name": "camel.component.sjms2.timedTaskManager",
+			"description": "To use a custom TimedTaskManager",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.headerFilterStrategy": {
+			"name": "camel.component.sjms2.headerFilterStrategy",
+			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.connectionPassword": {
+			"name": "camel.component.sjms2.connectionPassword",
+			"description": "The password to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.connectionUsername": {
+			"name": "camel.component.sjms2.connectionUsername",
+			"description": "The username to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms2.transactionCommitStrategy": {
+			"name": "camel.component.sjms2.transactionCommitStrategy",
+			"description": "To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

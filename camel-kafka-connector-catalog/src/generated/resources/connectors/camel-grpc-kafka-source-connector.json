@@ -1,0 +1,174 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.grpc.CamelGrpcSourceConnector",
+		"artifactId": "camel-grpc-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-grpc-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.host": {
+			"name": "camel.source.path.host",
+			"description": "The gRPC server host name. This is localhost or 0.0.0.0 when being a consumer or remote server host name when using producer.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.port": {
+			"name": "camel.source.path.port",
+			"description": "The gRPC local or remote server port",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.service": {
+			"name": "camel.source.path.service",
+			"description": "Fully qualified service name from the protocol buffer descriptor file (package dot service definition name)",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.flowControlWindow": {
+			"name": "camel.source.endpoint.flowControlWindow",
+			"description": "The HTTP\/2 flow control window size (MiB)",
+			"defaultValue": "1048576",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxMessageSize": {
+			"name": "camel.source.endpoint.maxMessageSize",
+			"description": "The maximum message size allowed to be received\/sent (MiB)",
+			"defaultValue": "4194304",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.consumerStrategy": {
+			"name": "camel.source.endpoint.consumerStrategy",
+			"description": "This option specifies the top-level strategy for processing service requests and responses in streaming mode. If an aggregation strategy is selected, all requests will be accumulated in the list, then transferred to the flow, and the accumulated responses will be sent to the sender. If a propagation strategy is selected, request is sent to the stream, and the response will be immediately sent back to the sender. One of: [AGGREGATION] [PROPAGATION]",
+			"defaultValue": "\"PROPAGATION\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.forwardOnCompleted": {
+			"name": "camel.source.endpoint.forwardOnCompleted",
+			"description": "Determines if onCompleted events should be pushed to the Camel route.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.forwardOnError": {
+			"name": "camel.source.endpoint.forwardOnError",
+			"description": "Determines if onError events should be pushed to the Camel route. Exceptions will be set as message body.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxConcurrentCallsPerConnection": {
+			"name": "camel.source.endpoint.maxConcurrentCallsPerConnection",
+			"description": "The maximum number of concurrent calls permitted for each incoming server connection",
+			"defaultValue": "2147483647",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.authenticationType": {
+			"name": "camel.source.endpoint.authenticationType",
+			"description": "Authentication method type in advance to the SSL\/TLS negotiation One of: [NONE] [GOOGLE] [JWT]",
+			"defaultValue": "\"NONE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.jwtAlgorithm": {
+			"name": "camel.source.endpoint.jwtAlgorithm",
+			"description": "JSON Web Token sign algorithm One of: [HMAC256] [HMAC384] [HMAC512]",
+			"defaultValue": "\"HMAC256\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.jwtIssuer": {
+			"name": "camel.source.endpoint.jwtIssuer",
+			"description": "JSON Web Token issuer",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.jwtSecret": {
+			"name": "camel.source.endpoint.jwtSecret",
+			"description": "JSON Web Token secret",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.jwtSubject": {
+			"name": "camel.source.endpoint.jwtSubject",
+			"description": "JSON Web Token subject",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.keyCertChainResource": {
+			"name": "camel.source.endpoint.keyCertChainResource",
+			"description": "The X.509 certificate chain file resource in PEM format link",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.keyPassword": {
+			"name": "camel.source.endpoint.keyPassword",
+			"description": "The PKCS#8 private key file password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.keyResource": {
+			"name": "camel.source.endpoint.keyResource",
+			"description": "The PKCS#8 private key file resource in PEM format link",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.negotiationType": {
+			"name": "camel.source.endpoint.negotiationType",
+			"description": "Identifies the security negotiation type used for HTTP\/2 communication One of: [TLS] [PLAINTEXT_UPGRADE] [PLAINTEXT]",
+			"defaultValue": "\"PLAINTEXT\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.serviceAccountResource": {
+			"name": "camel.source.endpoint.serviceAccountResource",
+			"description": "Service Account key file in JSON format resource link supported by the Google Cloud SDK",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.trustCertCollectionResource": {
+			"name": "camel.source.endpoint.trustCertCollectionResource",
+			"description": "The trusted certificates collection file resource in PEM format for verifying the remote endpoint's certificate",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.grpc.bridgeErrorHandler": {
+			"name": "camel.component.grpc.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.grpc.basicPropertyBinding": {
+			"name": "camel.component.grpc.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}
