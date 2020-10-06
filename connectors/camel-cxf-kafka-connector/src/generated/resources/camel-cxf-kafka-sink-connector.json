@@ -1,0 +1,251 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.cxf.CamelCxfSinkConnector",
+		"artifactId": "camel-cxf",
+		"groupId": "org.apache.camel",
+		"title": "camel-cxf",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.beanId": {
+			"name": "camel.sink.path.beanId",
+			"description": "To lookup an existing configured CxfEndpoint. Must used bean: as prefix.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.path.address": {
+			"name": "camel.sink.path.address",
+			"description": "The service publish address.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.dataFormat": {
+			"name": "camel.sink.endpoint.dataFormat",
+			"description": "The data type messages supported by the CXF endpoint. One of: [PAYLOAD] [RAW] [MESSAGE] [CXF_MESSAGE] [POJO]",
+			"defaultValue": "\"POJO\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.wrappedStyle": {
+			"name": "camel.sink.endpoint.wrappedStyle",
+			"description": "The WSDL style that describes how parameters are represented in the SOAP body. If the value is false, CXF will chose the document-literal unwrapped style, If the value is true, CXF will chose the document-literal wrapped style",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cookieHandler": {
+			"name": "camel.sink.endpoint.cookieHandler",
+			"description": "Configure a cookie handler to maintain a HTTP session",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.defaultOperationName": {
+			"name": "camel.sink.endpoint.defaultOperationName",
+			"description": "This option will set the default operationName that will be used by the CxfProducer which invokes the remote service.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.defaultOperationNamespace": {
+			"name": "camel.sink.endpoint.defaultOperationNamespace",
+			"description": "This option will set the default operationNamespace that will be used by the CxfProducer which invokes the remote service.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.hostnameVerifier": {
+			"name": "camel.sink.endpoint.hostnameVerifier",
+			"description": "The hostname verifier to be used. Use the # notation to reference a HostnameVerifier from the registry.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sslContextParameters": {
+			"name": "camel.sink.endpoint.sslContextParameters",
+			"description": "The Camel SSL setting reference. Use the # notation to reference the SSL Context.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.wrapped": {
+			"name": "camel.sink.endpoint.wrapped",
+			"description": "Which kind of operation that CXF endpoint producer will invoke",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.allowStreaming": {
+			"name": "camel.sink.endpoint.allowStreaming",
+			"description": "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.bus": {
+			"name": "camel.sink.endpoint.bus",
+			"description": "To use a custom configured CXF Bus.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.continuationTimeout": {
+			"name": "camel.sink.endpoint.continuationTimeout",
+			"description": "This option is used to set the CXF continuation timeout which could be used in CxfConsumer by default when the CXF server is using Jetty or Servlet transport.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cxfBinding": {
+			"name": "camel.sink.endpoint.cxfBinding",
+			"description": "To use a custom CxfBinding to control the binding between Camel Message and CXF Message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cxfConfigurer": {
+			"name": "camel.sink.endpoint.cxfConfigurer",
+			"description": "This option could apply the implementation of org.apache.camel.component.cxf.CxfEndpointConfigurer which supports to configure the CXF endpoint in programmatic way. User can configure the CXF server and client by implementing configure{ServerClient} method of CxfEndpointConfigurer.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.defaultBus": {
+			"name": "camel.sink.endpoint.defaultBus",
+			"description": "Will set the default bus when CXF endpoint create a bus by itself",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.headerFilterStrategy": {
+			"name": "camel.sink.endpoint.headerFilterStrategy",
+			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.mergeProtocolHeaders": {
+			"name": "camel.sink.endpoint.mergeProtocolHeaders",
+			"description": "Whether to merge protocol headers. If enabled then propagating headers between Camel and CXF becomes more consistent and similar. For more details see CAMEL-6393.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.mtomEnabled": {
+			"name": "camel.sink.endpoint.mtomEnabled",
+			"description": "To enable MTOM (attachments). This requires to use POJO or PAYLOAD data format mode.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.properties": {
+			"name": "camel.sink.endpoint.properties",
+			"description": "To set additional CXF options using the key\/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.skipPayloadMessagePartCheck": {
+			"name": "camel.sink.endpoint.skipPayloadMessagePartCheck",
+			"description": "Sets whether SOAP message validation should be disabled.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.loggingFeatureEnabled": {
+			"name": "camel.sink.endpoint.loggingFeatureEnabled",
+			"description": "This option enables CXF Logging Feature which writes inbound and outbound SOAP messages to log.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.loggingSizeLimit": {
+			"name": "camel.sink.endpoint.loggingSizeLimit",
+			"description": "To limit the total size of number of bytes the logger will output when logging feature has been enabled and -1 for no limit.",
+			"defaultValue": "49152",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.skipFaultLogging": {
+			"name": "camel.sink.endpoint.skipFaultLogging",
+			"description": "This option controls whether the PhaseInterceptorChain skips logging the Fault that it catches.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.password": {
+			"name": "camel.sink.endpoint.password",
+			"description": "This option is used to set the basic authentication information of password for the CXF client.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.username": {
+			"name": "camel.sink.endpoint.username",
+			"description": "This option is used to set the basic authentication information of username for the CXF client.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.bindingId": {
+			"name": "camel.sink.endpoint.bindingId",
+			"description": "The bindingId for the service model to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.portName": {
+			"name": "camel.sink.endpoint.portName",
+			"description": "The endpoint name this service is implementing, it maps to the wsdl:portname. In the format of ns:PORT_NAME where ns is a namespace prefix valid at this scope.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.publishedEndpointUrl": {
+			"name": "camel.sink.endpoint.publishedEndpointUrl",
+			"description": "This option can override the endpointUrl that published from the WSDL which can be accessed with service address url plus wsd",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serviceClass": {
+			"name": "camel.sink.endpoint.serviceClass",
+			"description": "The class name of the SEI (Service Endpoint Interface) class which could have JSR181 annotation or not.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serviceName": {
+			"name": "camel.sink.endpoint.serviceName",
+			"description": "The service name this service is implementing, it maps to the wsdl:servicename.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.wsdlURL": {
+			"name": "camel.sink.endpoint.wsdlURL",
+			"description": "The location of the WSDL. Can be on the classpath, file system, or be hosted remotely.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cxf.lazyStartProducer": {
+			"name": "camel.component.cxf.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cxf.allowStreaming": {
+			"name": "camel.component.cxf.allowStreaming",
+			"description": "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cxf.basicPropertyBinding": {
+			"name": "camel.component.cxf.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cxf.headerFilterStrategy": {
+			"name": "camel.component.cxf.headerFilterStrategy",
+			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.cxf.useGlobalSslContextParameters": {
+			"name": "camel.component.cxf.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,89 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.spark.CamelSparkSinkConnector",
+		"artifactId": "camel-spark",
+		"groupId": "org.apache.camel",
+		"title": "camel-spark",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.endpointType": {
+			"name": "camel.sink.path.endpointType",
+			"description": "Type of the endpoint (rdd, dataframe, hive). One of: [rdd] [dataframe] [hive]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.collect": {
+			"name": "camel.sink.endpoint.collect",
+			"description": "Indicates if results should be collected or counted.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.dataFrame": {
+			"name": "camel.sink.endpoint.dataFrame",
+			"description": "DataFrame to compute against.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.dataFrameCallback": {
+			"name": "camel.sink.endpoint.dataFrameCallback",
+			"description": "Function performing action against an DataFrame.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.rdd": {
+			"name": "camel.sink.endpoint.rdd",
+			"description": "RDD to compute against.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.rddCallback": {
+			"name": "camel.sink.endpoint.rddCallback",
+			"description": "Function performing action against an RDD.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.spark.lazyStartProducer": {
+			"name": "camel.component.spark.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.spark.rdd": {
+			"name": "camel.component.spark.rdd",
+			"description": "RDD to compute against.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.spark.rddCallback": {
+			"name": "camel.component.spark.rddCallback",
+			"description": "Function performing action against an RDD.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.spark.basicPropertyBinding": {
+			"name": "camel.component.spark.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

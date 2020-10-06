@@ -1,0 +1,89 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.vertx.CamelVertxSinkConnector",
+		"artifactId": "camel-vertx",
+		"groupId": "org.apache.camel",
+		"title": "camel-vertx",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.address": {
+			"name": "camel.sink.path.address",
+			"description": "Sets the event bus address used to communicate",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.pubSub": {
+			"name": "camel.sink.endpoint.pubSub",
+			"description": "Whether to use publish\/subscribe instead of point to point when sending to a vertx endpoint.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.vertx.host": {
+			"name": "camel.component.vertx.host",
+			"description": "Hostname for creating an embedded clustered EventBus",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.vertx.port": {
+			"name": "camel.component.vertx.port",
+			"description": "Port for creating an embedded clustered EventBus",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.vertx.timeout": {
+			"name": "camel.component.vertx.timeout",
+			"description": "Timeout in seconds to wait for clustered Vertx EventBus to be ready. The default value is 60.",
+			"defaultValue": "60",
+			"priority": "MEDIUM"
+		},
+		"camel.component.vertx.vertx": {
+			"name": "camel.component.vertx.vertx",
+			"description": "To use the given vertx EventBus instead of creating a new embedded EventBus",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.vertx.vertxOptions": {
+			"name": "camel.component.vertx.vertxOptions",
+			"description": "Options to use for creating vertx",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.vertx.lazyStartProducer": {
+			"name": "camel.component.vertx.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.vertx.basicPropertyBinding": {
+			"name": "camel.component.vertx.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.vertx.vertxFactory": {
+			"name": "camel.component.vertx.vertxFactory",
+			"description": "To use a custom VertxFactory implementation",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

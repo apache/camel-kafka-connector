@@ -1,0 +1,191 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jcache.CamelJcacheSourceConnector",
+		"artifactId": "camel-jcache",
+		"groupId": "org.apache.camel",
+		"title": "camel-jcache",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.cacheName": {
+			"name": "camel.source.path.cacheName",
+			"description": "The name of the cache",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.cacheConfiguration": {
+			"name": "camel.source.endpoint.cacheConfiguration",
+			"description": "A Configuration for the Cache",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.cacheConfigurationProperties": {
+			"name": "camel.source.endpoint.cacheConfigurationProperties",
+			"description": "The Properties for the javax.cache.spi.CachingProvider to create the CacheManager",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.cachingProvider": {
+			"name": "camel.source.endpoint.cachingProvider",
+			"description": "The fully qualified class name of the javax.cache.spi.CachingProvider",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.configurationUri": {
+			"name": "camel.source.endpoint.configurationUri",
+			"description": "An implementation specific URI for the CacheManager",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.managementEnabled": {
+			"name": "camel.source.endpoint.managementEnabled",
+			"description": "Whether management gathering is enabled",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.readThrough": {
+			"name": "camel.source.endpoint.readThrough",
+			"description": "If read-through caching should be used",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.statisticsEnabled": {
+			"name": "camel.source.endpoint.statisticsEnabled",
+			"description": "Whether statistics gathering is enabled",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.storeByValue": {
+			"name": "camel.source.endpoint.storeByValue",
+			"description": "If cache should use store-by-value or store-by-reference semantics",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.writeThrough": {
+			"name": "camel.source.endpoint.writeThrough",
+			"description": "If write-through caching should be used",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.filteredEvents": {
+			"name": "camel.source.endpoint.filteredEvents",
+			"description": "Events a consumer should filter (multiple events can be separated by comma). If using filteredEvents option, then eventFilters one will be ignored One of: [CREATED] [UPDATED] [REMOVED] [EXPIRED]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.oldValueRequired": {
+			"name": "camel.source.endpoint.oldValueRequired",
+			"description": "if the old value is required for events",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "if the event listener should block the thread causing the event",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.eventFilters": {
+			"name": "camel.source.endpoint.eventFilters",
+			"description": "The CacheEntryEventFilter. If using eventFilters option, then filteredEvents one will be ignored",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.cacheLoaderFactory": {
+			"name": "camel.source.endpoint.cacheLoaderFactory",
+			"description": "The CacheLoader factory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.cacheWriterFactory": {
+			"name": "camel.source.endpoint.cacheWriterFactory",
+			"description": "The CacheWriter factory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.createCacheIfNotExists": {
+			"name": "camel.source.endpoint.createCacheIfNotExists",
+			"description": "Configure if a cache need to be created if it does exist or can't be pre-configured.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.expiryPolicyFactory": {
+			"name": "camel.source.endpoint.expiryPolicyFactory",
+			"description": "The ExpiryPolicy factory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.lookupProviders": {
+			"name": "camel.source.endpoint.lookupProviders",
+			"description": "Configure if a camel-cache should try to find implementations of jcache api in runtimes like OSGi.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jcache.cacheConfiguration": {
+			"name": "camel.component.jcache.cacheConfiguration",
+			"description": "A Configuration for the Cache",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jcache.cacheConfigurationProperties": {
+			"name": "camel.component.jcache.cacheConfigurationProperties",
+			"description": "Properties to configure jcache",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jcache.cacheConfigurationPropertiesRef": {
+			"name": "camel.component.jcache.cacheConfigurationPropertiesRef",
+			"description": "References to an existing Properties or Map to lookup in the registry to use for configuring jcache.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jcache.cachingProvider": {
+			"name": "camel.component.jcache.cachingProvider",
+			"description": "The fully qualified class name of the javax.cache.spi.CachingProvider",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jcache.configurationUri": {
+			"name": "camel.component.jcache.configurationUri",
+			"description": "An implementation specific URI for the CacheManager",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jcache.bridgeErrorHandler": {
+			"name": "camel.component.jcache.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jcache.basicPropertyBinding": {
+			"name": "camel.component.jcache.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

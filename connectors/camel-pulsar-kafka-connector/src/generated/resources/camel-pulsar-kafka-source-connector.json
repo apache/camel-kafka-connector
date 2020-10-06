@@ -1,0 +1,281 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.pulsar.CamelPulsarSourceConnector",
+		"artifactId": "camel-pulsar",
+		"groupId": "org.apache.camel",
+		"title": "camel-pulsar",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.persistence": {
+			"name": "camel.source.path.persistence",
+			"description": "Whether the topic is persistent or non-persistent One of: [persistent] [non-persistent]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.tenant": {
+			"name": "camel.source.path.tenant",
+			"description": "The tenant",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.namespace": {
+			"name": "camel.source.path.namespace",
+			"description": "The namespace",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.topic": {
+			"name": "camel.source.path.topic",
+			"description": "The topic",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.ackGroupTimeMillis": {
+			"name": "camel.source.endpoint.ackGroupTimeMillis",
+			"description": "Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100",
+			"defaultValue": "100L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.ackTimeoutMillis": {
+			"name": "camel.source.endpoint.ackTimeoutMillis",
+			"description": "Timeout for unacknowledged messages in milliseconds - defaults to 10000",
+			"defaultValue": "10000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.allowManualAcknowledgement": {
+			"name": "camel.source.endpoint.allowManualAcknowledgement",
+			"description": "Whether to allow manual message acknowledgements. If this option is enabled, then messages are not acknowledged automatically after successful route completion. Instead, an instance of PulsarMessageReceipt is stored as a header on the org.apache.camel.Exchange. Messages can then be acknowledged using PulsarMessageReceipt at any time before the ackTimeout occurs.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.consumerName": {
+			"name": "camel.source.endpoint.consumerName",
+			"description": "Name of the consumer when subscription is EXCLUSIVE",
+			"defaultValue": "\"sole-consumer\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.consumerNamePrefix": {
+			"name": "camel.source.endpoint.consumerNamePrefix",
+			"description": "Prefix to add to consumer names when a SHARED or FAILOVER subscription is used",
+			"defaultValue": "\"cons\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.consumerQueueSize": {
+			"name": "camel.source.endpoint.consumerQueueSize",
+			"description": "Size of the consumer queue - defaults to 10",
+			"defaultValue": "10",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.deadLetterTopic": {
+			"name": "camel.source.endpoint.deadLetterTopic",
+			"description": "Name of the topic where the messages which fail maxRedeliverCount times will be sent. Note: if not set, default topic name will be topicName-subscriptionName-DLQ",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.maxRedeliverCount": {
+			"name": "camel.source.endpoint.maxRedeliverCount",
+			"description": "Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.negativeAckRedeliveryDelayMicros": {
+			"name": "camel.source.endpoint.negativeAckRedeliveryDelayMicros",
+			"description": "Set the negative acknowledgement delay",
+			"defaultValue": "60000000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.numberOfConsumers": {
+			"name": "camel.source.endpoint.numberOfConsumers",
+			"description": "Number of consumers - defaults to 1",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.subscriptionInitialPosition": {
+			"name": "camel.source.endpoint.subscriptionInitialPosition",
+			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST]",
+			"defaultValue": "\"LATEST\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.subscriptionName": {
+			"name": "camel.source.endpoint.subscriptionName",
+			"description": "Name of the subscription to use",
+			"defaultValue": "\"subs\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.subscriptionTopicsMode": {
+			"name": "camel.source.endpoint.subscriptionTopicsMode",
+			"description": "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions. One of: [PersistentOnly] [NonPersistentOnly] [AllTopics]",
+			"defaultValue": "\"PersistentOnly\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.subscriptionType": {
+			"name": "camel.source.endpoint.subscriptionType",
+			"description": "Type of the subscription EXCLUSIVESHAREDFAILOVERKEY_SHARED, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] [KEY_SHARED]",
+			"defaultValue": "\"EXCLUSIVE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.topicsPattern": {
+			"name": "camel.source.endpoint.topicsPattern",
+			"description": "Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.configuration": {
+			"name": "camel.component.pulsar.configuration",
+			"description": "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.ackGroupTimeMillis": {
+			"name": "camel.component.pulsar.ackGroupTimeMillis",
+			"description": "Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100",
+			"defaultValue": "100L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.ackTimeoutMillis": {
+			"name": "camel.component.pulsar.ackTimeoutMillis",
+			"description": "Timeout for unacknowledged messages in milliseconds - defaults to 10000",
+			"defaultValue": "10000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.allowManualAcknowledgement": {
+			"name": "camel.component.pulsar.allowManualAcknowledgement",
+			"description": "Whether to allow manual message acknowledgements. If this option is enabled, then messages are not acknowledged automatically after successful route completion. Instead, an instance of PulsarMessageReceipt is stored as a header on the org.apache.camel.Exchange. Messages can then be acknowledged using PulsarMessageReceipt at any time before the ackTimeout occurs.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.bridgeErrorHandler": {
+			"name": "camel.component.pulsar.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.consumerName": {
+			"name": "camel.component.pulsar.consumerName",
+			"description": "Name of the consumer when subscription is EXCLUSIVE",
+			"defaultValue": "\"sole-consumer\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.consumerNamePrefix": {
+			"name": "camel.component.pulsar.consumerNamePrefix",
+			"description": "Prefix to add to consumer names when a SHARED or FAILOVER subscription is used",
+			"defaultValue": "\"cons\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.consumerQueueSize": {
+			"name": "camel.component.pulsar.consumerQueueSize",
+			"description": "Size of the consumer queue - defaults to 10",
+			"defaultValue": "10",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.deadLetterTopic": {
+			"name": "camel.component.pulsar.deadLetterTopic",
+			"description": "Name of the topic where the messages which fail maxRedeliverCount times will be sent. Note: if not set, default topic name will be topicName-subscriptionName-DLQ",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.maxRedeliverCount": {
+			"name": "camel.component.pulsar.maxRedeliverCount",
+			"description": "Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.negativeAckRedeliveryDelayMicros": {
+			"name": "camel.component.pulsar.negativeAckRedeliveryDelayMicros",
+			"description": "Set the negative acknowledgement delay",
+			"defaultValue": "60000000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.numberOfConsumers": {
+			"name": "camel.component.pulsar.numberOfConsumers",
+			"description": "Number of consumers - defaults to 1",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.subscriptionInitialPosition": {
+			"name": "camel.component.pulsar.subscriptionInitialPosition",
+			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST]",
+			"defaultValue": "\"LATEST\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.subscriptionName": {
+			"name": "camel.component.pulsar.subscriptionName",
+			"description": "Name of the subscription to use",
+			"defaultValue": "\"subs\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.subscriptionTopicsMode": {
+			"name": "camel.component.pulsar.subscriptionTopicsMode",
+			"description": "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions. One of: [PersistentOnly] [NonPersistentOnly] [AllTopics]",
+			"defaultValue": "\"PersistentOnly\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.subscriptionType": {
+			"name": "camel.component.pulsar.subscriptionType",
+			"description": "Type of the subscription EXCLUSIVESHAREDFAILOVERKEY_SHARED, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] [KEY_SHARED]",
+			"defaultValue": "\"EXCLUSIVE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.topicsPattern": {
+			"name": "camel.component.pulsar.topicsPattern",
+			"description": "Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.pulsarMessageReceiptFactory": {
+			"name": "camel.component.pulsar.pulsarMessageReceiptFactory",
+			"description": "Provide a factory to create an alternate implementation of PulsarMessageReceipt.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.autoConfiguration": {
+			"name": "camel.component.pulsar.autoConfiguration",
+			"description": "The pulsar auto configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.basicPropertyBinding": {
+			"name": "camel.component.pulsar.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pulsar.pulsarClient": {
+			"name": "camel.component.pulsar.pulsarClient",
+			"description": "The pulsar client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,155 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.iec60870server.CamelIec60870serverSinkConnector",
+		"artifactId": "camel-iec60870-server",
+		"groupId": "org.apache.camel",
+		"title": "camel-iec60870-server",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.uriPath": {
+			"name": "camel.sink.path.uriPath",
+			"description": "The object information address",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.dataModuleOptions": {
+			"name": "camel.sink.endpoint.dataModuleOptions",
+			"description": "Data module options",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.filterNonExecute": {
+			"name": "camel.sink.endpoint.filterNonExecute",
+			"description": "Filter out all requests which don't have the execute bit set",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.protocolOptions": {
+			"name": "camel.sink.endpoint.protocolOptions",
+			"description": "Protocol options",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.acknowledgeWindow": {
+			"name": "camel.sink.endpoint.acknowledgeWindow",
+			"description": "Parameter W - Acknowledgment window.",
+			"defaultValue": "10",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.adsuAddressType": {
+			"name": "camel.sink.endpoint.adsuAddressType",
+			"description": "The common ASDU address size. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.causeOfTransmissionType": {
+			"name": "camel.sink.endpoint.causeOfTransmissionType",
+			"description": "The cause of transmission type. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.informationObjectAddressType": {
+			"name": "camel.sink.endpoint.informationObjectAddressType",
+			"description": "The information address size. May be either SIZE_1, SIZE_2 or SIZE_3. One of: [SIZE_1] [SIZE_2] [SIZE_3]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxUnacknowledged": {
+			"name": "camel.sink.endpoint.maxUnacknowledged",
+			"description": "Parameter K - Maximum number of un-acknowledged messages.",
+			"defaultValue": "15",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout1": {
+			"name": "camel.sink.endpoint.timeout1",
+			"description": "Timeout T1 in milliseconds.",
+			"defaultValue": "15000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout2": {
+			"name": "camel.sink.endpoint.timeout2",
+			"description": "Timeout T2 in milliseconds.",
+			"defaultValue": "10000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout3": {
+			"name": "camel.sink.endpoint.timeout3",
+			"description": "Timeout T3 in milliseconds.",
+			"defaultValue": "20000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.causeSourceAddress": {
+			"name": "camel.sink.endpoint.causeSourceAddress",
+			"description": "Whether to include the source address",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectionTimeout": {
+			"name": "camel.sink.endpoint.connectionTimeout",
+			"description": "Timeout in millis to wait for client to establish a connected connection.",
+			"defaultValue": "10000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ignoreBackgroundScan": {
+			"name": "camel.sink.endpoint.ignoreBackgroundScan",
+			"description": "Whether background scan transmissions should be ignored.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ignoreDaylightSavingTime": {
+			"name": "camel.sink.endpoint.ignoreDaylightSavingTime",
+			"description": "Whether to ignore or respect DST",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeZone": {
+			"name": "camel.sink.endpoint.timeZone",
+			"description": "The timezone to use. May be any Java time zone string",
+			"defaultValue": "\"UTC\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectionId": {
+			"name": "camel.sink.endpoint.connectionId",
+			"description": "An identifier grouping connection instances",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.iec60870-server.defaultConnectionOptions": {
+			"name": "camel.component.iec60870-server.defaultConnectionOptions",
+			"description": "Default connection options",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.iec60870-server.lazyStartProducer": {
+			"name": "camel.component.iec60870-server.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.iec60870-server.basicPropertyBinding": {
+			"name": "camel.component.iec60870-server.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

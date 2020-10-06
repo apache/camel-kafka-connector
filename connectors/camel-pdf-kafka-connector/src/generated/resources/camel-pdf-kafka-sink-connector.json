@@ -1,0 +1,95 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.pdf.CamelPdfSinkConnector",
+		"artifactId": "camel-pdf",
+		"groupId": "org.apache.camel",
+		"title": "camel-pdf",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.operation": {
+			"name": "camel.sink.path.operation",
+			"description": "Operation type One of: [create] [append] [extractText]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.font": {
+			"name": "camel.sink.endpoint.font",
+			"description": "Font One of: [Courier] [Courier-Bold] [Courier-Oblique] [Courier-BoldOblique] [Helvetica] [Helvetica-Bold] [Helvetica-Oblique] [Helvetica-BoldOblique] [Times-Roman] [Times-Bold] [Times-Italic] [Times-BoldItalic] [Symbol] [ZapfDingbats]",
+			"defaultValue": "\"Helvetica\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fontSize": {
+			"name": "camel.sink.endpoint.fontSize",
+			"description": "Font size in pixels",
+			"defaultValue": "14F",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.marginBottom": {
+			"name": "camel.sink.endpoint.marginBottom",
+			"description": "Margin bottom in pixels",
+			"defaultValue": "20",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.marginLeft": {
+			"name": "camel.sink.endpoint.marginLeft",
+			"description": "Margin left in pixels",
+			"defaultValue": "20",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.marginRight": {
+			"name": "camel.sink.endpoint.marginRight",
+			"description": "Margin right in pixels",
+			"defaultValue": "40",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.marginTop": {
+			"name": "camel.sink.endpoint.marginTop",
+			"description": "Margin top in pixels",
+			"defaultValue": "20",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.pageSize": {
+			"name": "camel.sink.endpoint.pageSize",
+			"description": "Page size One of: [LETTER] [LEGAL] [A0] [A1] [A2] [A3] [A4] [A5] [A6]",
+			"defaultValue": "\"A4\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.textProcessingFactory": {
+			"name": "camel.sink.endpoint.textProcessingFactory",
+			"description": "Text processing to use. autoFormatting: Text is getting sliced by words, then max amount of words that fits in the line will be written into pdf document. With this strategy all words that doesn't fit in the line will be moved to the new line. lineTermination: Builds set of classes for line-termination writing strategy. Text getting sliced by line termination symbol and then it will be written regardless it fits in the line or not. One of: [autoFormatting] [lineTermination]",
+			"defaultValue": "\"lineTermination\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pdf.lazyStartProducer": {
+			"name": "camel.component.pdf.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pdf.basicPropertyBinding": {
+			"name": "camel.component.pdf.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

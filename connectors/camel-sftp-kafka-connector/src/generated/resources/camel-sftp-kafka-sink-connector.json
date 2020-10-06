@@ -1,0 +1,365 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sftp.CamelSftpSinkConnector",
+		"artifactId": "camel-sftp",
+		"groupId": "org.apache.camel",
+		"title": "camel-sftp",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.host": {
+			"name": "camel.sink.path.host",
+			"description": "Hostname of the FTP server",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.port": {
+			"name": "camel.sink.path.port",
+			"description": "Port of the FTP server",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.path.directoryName": {
+			"name": "camel.sink.path.directoryName",
+			"description": "The starting directory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.binary": {
+			"name": "camel.sink.endpoint.binary",
+			"description": "Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.charset": {
+			"name": "camel.sink.endpoint.charset",
+			"description": "This option is used to specify the encoding of the file. You can use this on the consumer, to specify the encodings of the files, which allow Camel to know the charset it should load the file content in case the file content is being accessed. Likewise when writing a file, you can use this option to specify which charset to write the file as well. Do mind that when writing the file Camel may have to read the message content into memory to be able to convert the data into the configured charset, so do not use this if you have big messages.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.disconnect": {
+			"name": "camel.sink.endpoint.disconnect",
+			"description": "Whether or not to disconnect from remote FTP server right after use. Disconnect will only disconnect the current connection to the FTP server. If you have a consumer which you want to stop, then you need to stop the consumer\/route instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.doneFileName": {
+			"name": "camel.sink.endpoint.doneFileName",
+			"description": "Producer: If provided, then Camel will write a 2nd done file when the original file has been written. The done file will be empty. This option configures what file name to use. Either you can specify a fixed name. Or you can use dynamic placeholders. The done file will always be written in the same folder as the original file. Consumer: If provided, Camel will only consume files if a done file exists. This option configures what file name to use. Either you can specify a fixed name. Or you can use dynamic placeholders.The done file is always expected in the same folder as the original file. Only ${file.name} and ${file.name.next} is supported as dynamic placeholders.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fileName": {
+			"name": "camel.sink.endpoint.fileName",
+			"description": "Use Expression such as File Language to dynamically set the filename. For consumers, it's used as a filename filter. For producers, it's used to evaluate the filename to write. If an expression is set, it take precedence over the CamelFileName header. (Note: The header itself can also be an Expression). The expression options support both String and Expression types. If the expression is a String type, it is always evaluated using the File Language. If the expression is an Expression type, the specified Expression type is used - this allows you, for instance, to use OGNL expressions. For the consumer, you can use it to filter filenames, so you can for instance consume today's file using the File Language syntax: mydata-${date:now:yyyyMMdd}.txt. The producers support the CamelOverruleFileName header which takes precedence over any existing CamelFileName header; the CamelOverruleFileName is a header that is used only once, and makes it easier as this avoids to temporary store CamelFileName and have to restore it afterwards.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.jschLoggingLevel": {
+			"name": "camel.sink.endpoint.jschLoggingLevel",
+			"description": "The logging level to use for JSCH activity logging. As JSCH is verbose at by default at INFO level the threshold is WARN by default. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"WARN\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.passiveMode": {
+			"name": "camel.sink.endpoint.passiveMode",
+			"description": "Sets passive mode connections. Default is active mode connections.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.separator": {
+			"name": "camel.sink.endpoint.separator",
+			"description": "Sets the path separator to be used. UNIX = Uses unix style path separator Windows = Uses windows style path separator Auto = (is default) Use existing path separator in file name One of: [UNIX] [Windows] [Auto]",
+			"defaultValue": "\"UNIX\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fastExistsCheck": {
+			"name": "camel.sink.endpoint.fastExistsCheck",
+			"description": "If set this option to be true, camel-ftp will use the list file directly to check if the file exists. Since some FTP server may not support to list the file directly, if the option is false, camel-ftp will use the old way to list the directory and check if the file exists. This option also influences readLock=changed to control whether it performs a fast check to update file information or not. This can be used to speed up the process if the FTP server has a lot of files.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fileExist": {
+			"name": "camel.sink.endpoint.fileExist",
+			"description": "What to do if a file already exists with the same name. Override, which is the default, replaces the existing file. - Append - adds content to the existing file. - Fail - throws a GenericFileOperationException, indicating that there is already an existing file. - Ignore - silently ignores the problem and does not override the existing file, but assumes everything is okay. - Move - option requires to use the moveExisting option to be configured as well. The option eagerDeleteTargetFile can be used to control what to do if an moving the file, and there exists already an existing file, otherwise causing the move operation to fail. The Move option will move any existing files, before writing the target file. - TryRename is only applicable if tempFileName option is in use. This allows to try renaming the file from the temporary name to the actual name, without doing any exists check. This check may be faster on some file systems and especially FTP servers. One of: [Override] [Append] [Fail] [Ignore] [Move] [TryRename]",
+			"defaultValue": "\"Override\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.flatten": {
+			"name": "camel.sink.endpoint.flatten",
+			"description": "Flatten is used to flatten the file name path to strip any leading paths, so it's just the file name. This allows you to consume recursively into sub-directories, but when you eg write the files to another directory they will be written in a single directory. Setting this to true on the producer enforces that any file name in CamelFileName header will be stripped for any leading paths.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.jailStartingDirectory": {
+			"name": "camel.sink.endpoint.jailStartingDirectory",
+			"description": "Used for jailing (restricting) writing files to the starting directory (and sub) only. This is enabled by default to not allow Camel to write files to outside directories (to be more secured out of the box). You can turn this off to allow writing files to directories outside the starting directory, such as parent or root folders.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.moveExisting": {
+			"name": "camel.sink.endpoint.moveExisting",
+			"description": "Expression (such as File Language) used to compute file name to use when fileExist=Move is configured. To move files into a backup subdirectory just enter backup. This option only supports the following File Language tokens: file:name, file:name.ext, file:name.noext, file:onlyname, file:onlyname.noext, file:ext, and file:parent. Notice the file:parent is not supported by the FTP component, as the FTP component can only move any existing files to a relative directory based on current dir as base.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.tempFileName": {
+			"name": "camel.sink.endpoint.tempFileName",
+			"description": "The same as tempPrefix option but offering a more fine grained control on the naming of the temporary filename as it uses the File Language. The location for tempFilename is relative to the final file location in the option 'fileName', not the target directory in the base uri. For example if option fileName includes a directory prefix: dir\/finalFilename then tempFileName is relative to that subdirectory dir.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.tempPrefix": {
+			"name": "camel.sink.endpoint.tempPrefix",
+			"description": "This option is used to write the file using a temporary name and then, after the write is complete, rename it to the real name. Can be used to identify files being written and also avoid consumers (not using exclusive read locks) reading in progress files. Is often used by FTP when uploading big files.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.allowNullBody": {
+			"name": "camel.sink.endpoint.allowNullBody",
+			"description": "Used to specify if a null body is allowed during file writing. If set to true then an empty file will be created, when set to false, and attempting to send a null body to the file component, a GenericFileWriteException of 'Cannot write null body to file.' will be thrown. If the fileExist option is set to 'Override', then the file will be truncated, and if set to append the file will remain unchanged.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.chmod": {
+			"name": "camel.sink.endpoint.chmod",
+			"description": "Allows you to set chmod on the stored file. For example chmod=640.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.disconnectOnBatchComplete": {
+			"name": "camel.sink.endpoint.disconnectOnBatchComplete",
+			"description": "Whether or not to disconnect from remote FTP server right after a Batch upload is complete. disconnectOnBatchComplete will only disconnect the current connection to the FTP server.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.eagerDeleteTargetFile": {
+			"name": "camel.sink.endpoint.eagerDeleteTargetFile",
+			"description": "Whether or not to eagerly delete any existing target file. This option only applies when you use fileExists=Override and the tempFileName option as well. You can use this to disable (set it to false) deleting the target file before the temp file is written. For example you may write big files and want the target file to exists during the temp file is being written. This ensure the target file is only deleted until the very last moment, just before the temp file is being renamed to the target filename. This option is also used to control whether to delete any existing files when fileExist=Move is enabled, and an existing file exists. If this option copyAndDeleteOnRenameFails false, then an exception will be thrown if an existing file existed, if its true, then the existing file is deleted before the move operation.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keepLastModified": {
+			"name": "camel.sink.endpoint.keepLastModified",
+			"description": "Will keep the last modified timestamp from the source file (if any). Will use the Exchange.FILE_LAST_MODIFIED header to located the timestamp. This header can contain either a java.util.Date or long with the timestamp. If the timestamp exists and the option is enabled it will set this timestamp on the written file. Note: This option only applies to the file producer. You cannot use this option with any of the ftp producers.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.moveExistingFileStrategy": {
+			"name": "camel.sink.endpoint.moveExistingFileStrategy",
+			"description": "Strategy (Custom Strategy) used to move file with special naming token to use when fileExist=Move is configured. By default, there is an implementation used if no custom strategy is provided",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sendNoop": {
+			"name": "camel.sink.endpoint.sendNoop",
+			"description": "Whether to send a noop command as a pre-write check before uploading files to the FTP server. This is enabled by default as a validation of the connection is still valid, which allows to silently re-connect to be able to upload the file. However if this causes problems, you can turn this option off.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.autoCreate": {
+			"name": "camel.sink.endpoint.autoCreate",
+			"description": "Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.bindAddress": {
+			"name": "camel.sink.endpoint.bindAddress",
+			"description": "Specifies the address of the local interface against which the connection should bind.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.bulkRequests": {
+			"name": "camel.sink.endpoint.bulkRequests",
+			"description": "Specifies how many requests may be outstanding at any one time. Increasing this value may slightly improve file transfer speed but will increase memory usage.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.compression": {
+			"name": "camel.sink.endpoint.compression",
+			"description": "To use compression. Specify a level from 1 to 10. Important: You must manually add the needed JSCH zlib JAR to the classpath for compression support.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectTimeout": {
+			"name": "camel.sink.endpoint.connectTimeout",
+			"description": "Sets the connect timeout for waiting for a connection to be established Used by both FTPClient and JSCH",
+			"defaultValue": "10000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.existDirCheckUsingLs": {
+			"name": "camel.sink.endpoint.existDirCheckUsingLs",
+			"description": "Whether to check for existing directory using LS command or CD. By default LS is used which is safer as otherwise Camel needs to change the directory back after checking. However LS has been reported to cause a problem on windows system in some situations and therefore you can disable this option to use CD.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maximumReconnectAttempts": {
+			"name": "camel.sink.endpoint.maximumReconnectAttempts",
+			"description": "Specifies the maximum reconnect attempts Camel performs when it tries to connect to the remote FTP server. Use 0 to disable this behavior.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxy": {
+			"name": "camel.sink.endpoint.proxy",
+			"description": "To use a custom configured com.jcraft.jsch.Proxy. This proxy is used to consume\/send messages from the target SFTP host.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.reconnectDelay": {
+			"name": "camel.sink.endpoint.reconnectDelay",
+			"description": "Delay in millis Camel will wait before performing a reconnect attempt.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serverAliveCountMax": {
+			"name": "camel.sink.endpoint.serverAliveCountMax",
+			"description": "Sets the number of keep-alive messages which may be sent without receiving any messages back from the server. If this threshold is reached while keep-alive messages are being sent, the connection will be disconnected. The default value is one.",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serverAliveInterval": {
+			"name": "camel.sink.endpoint.serverAliveInterval",
+			"description": "Sets the interval (millis) to send a keep-alive message. If zero is specified, any keep-alive message must not be sent. The default interval is zero.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.soTimeout": {
+			"name": "camel.sink.endpoint.soTimeout",
+			"description": "Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel 2.14.3\/2.15.3\/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in millis. Recommended option is to set this to 300000 so as not have a hanged connection. On SFTP this option is set as timeout on the JSCH Session instance.",
+			"defaultValue": "300000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.stepwise": {
+			"name": "camel.sink.endpoint.stepwise",
+			"description": "Sets whether we should stepwise change directories while traversing file structures when downloading files, or as well when uploading a file to a directory. You can disable this if you for example are in a situation where you cannot change directory on the FTP server due security reasons. Stepwise cannot be used together with streamDownload.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.throwExceptionOnConnectFailed": {
+			"name": "camel.sink.endpoint.throwExceptionOnConnectFailed",
+			"description": "Should an exception be thrown if connection failed (exhausted) By default exception is not thrown and a WARN is logged. You can use this to enable exception being thrown and handle the thrown exception from the org.apache.camel.spi.PollingConsumerPollStrategy rollback method.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout": {
+			"name": "camel.sink.endpoint.timeout",
+			"description": "Sets the data timeout for waiting for reply Used only by FTPClient",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ciphers": {
+			"name": "camel.sink.endpoint.ciphers",
+			"description": "Set a comma separated list of ciphers that will be used in order of preference. Possible cipher names are defined by JCraft JSCH. Some examples include: aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc. If not specified the default list from JSCH will be used.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keyPair": {
+			"name": "camel.sink.endpoint.keyPair",
+			"description": "Sets a key pair of the public and private key so to that the SFTP endpoint can do public\/private key verification.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.knownHosts": {
+			"name": "camel.sink.endpoint.knownHosts",
+			"description": "Sets the known_hosts from the byte array, so that the SFTP endpoint can do host key verification.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.knownHostsFile": {
+			"name": "camel.sink.endpoint.knownHostsFile",
+			"description": "Sets the known_hosts file, so that the SFTP endpoint can do host key verification.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.knownHostsUri": {
+			"name": "camel.sink.endpoint.knownHostsUri",
+			"description": "Sets the known_hosts file (loaded from classpath by default), so that the SFTP endpoint can do host key verification.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.password": {
+			"name": "camel.sink.endpoint.password",
+			"description": "Password to use for login",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.preferredAuthentications": {
+			"name": "camel.sink.endpoint.preferredAuthentications",
+			"description": "Set the preferred authentications which SFTP endpoint will used. Some example include:password,publickey. If not specified the default list from JSCH will be used.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.privateKey": {
+			"name": "camel.sink.endpoint.privateKey",
+			"description": "Set the private key as byte so that the SFTP endpoint can do private key verification.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.privateKeyFile": {
+			"name": "camel.sink.endpoint.privateKeyFile",
+			"description": "Set the private key file so that the SFTP endpoint can do private key verification.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.privateKeyPassphrase": {
+			"name": "camel.sink.endpoint.privateKeyPassphrase",
+			"description": "Set the private key file passphrase so that the SFTP endpoint can do private key verification.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.privateKeyUri": {
+			"name": "camel.sink.endpoint.privateKeyUri",
+			"description": "Set the private key file (loaded from classpath by default) so that the SFTP endpoint can do private key verification.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.strictHostKeyChecking": {
+			"name": "camel.sink.endpoint.strictHostKeyChecking",
+			"description": "Sets whether to use strict host key checking. One of: [no] [yes]",
+			"defaultValue": "\"no\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.username": {
+			"name": "camel.sink.endpoint.username",
+			"description": "Username to use for login",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.useUserKnownHostsFile": {
+			"name": "camel.sink.endpoint.useUserKnownHostsFile",
+			"description": "If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)\/.ssh\/known_hosts",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sftp.lazyStartProducer": {
+			"name": "camel.component.sftp.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sftp.basicPropertyBinding": {
+			"name": "camel.component.sftp.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

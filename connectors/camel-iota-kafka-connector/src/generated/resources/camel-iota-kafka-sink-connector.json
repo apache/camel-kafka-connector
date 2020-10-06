@@ -1,0 +1,83 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.iota.CamelIotaSinkConnector",
+		"artifactId": "camel-iota",
+		"groupId": "org.apache.camel",
+		"title": "camel-iota",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.name": {
+			"name": "camel.sink.path.name",
+			"description": "Component name",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.depth": {
+			"name": "camel.sink.endpoint.depth",
+			"description": "The depth determines how deep the tangle is analysed for getting Tips",
+			"defaultValue": "\"9\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.minWeightMagnitude": {
+			"name": "camel.sink.endpoint.minWeightMagnitude",
+			"description": "The minWeightMagnitude is the minimum number of zeroes that a proof-of-work output\/transaction hash must end with to be considered valid by full nodes",
+			"defaultValue": "\"14\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "Which operation to perform, one of: sendTransfer, getNewAddress, getTransfers One of: [sendTransfer] [getNewAddress] [getTransfers]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.tag": {
+			"name": "camel.sink.endpoint.tag",
+			"description": "TAG",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.url": {
+			"name": "camel.sink.endpoint.url",
+			"description": "Node url",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.securityLevel": {
+			"name": "camel.sink.endpoint.securityLevel",
+			"description": "Address security level",
+			"defaultValue": "\"1\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.iota.lazyStartProducer": {
+			"name": "camel.component.iota.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.iota.basicPropertyBinding": {
+			"name": "camel.component.iota.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

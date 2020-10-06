@@ -1,0 +1,149 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.couchbase.CamelCouchbaseSinkConnector",
+		"artifactId": "camel-couchbase",
+		"groupId": "org.apache.camel",
+		"title": "camel-couchbase",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.protocol": {
+			"name": "camel.sink.path.protocol",
+			"description": "The protocol to use",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.hostname": {
+			"name": "camel.sink.path.hostname",
+			"description": "The hostname to use",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.port": {
+			"name": "camel.sink.path.port",
+			"description": "The port number to use",
+			"defaultValue": "8091",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.bucket": {
+			"name": "camel.sink.endpoint.bucket",
+			"description": "The bucket to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.collection": {
+			"name": "camel.sink.endpoint.collection",
+			"description": "The collection to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.key": {
+			"name": "camel.sink.endpoint.key",
+			"description": "The key to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.scope": {
+			"name": "camel.sink.endpoint.scope",
+			"description": "The scope to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.autoStartIdForInserts": {
+			"name": "camel.sink.endpoint.autoStartIdForInserts",
+			"description": "Define if we want an autostart Id when we are doing an insert operation",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "The operation to do",
+			"defaultValue": "\"CCB_PUT\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.persistTo": {
+			"name": "camel.sink.endpoint.persistTo",
+			"description": "Where to persist the data",
+			"defaultValue": "0",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.producerRetryAttempts": {
+			"name": "camel.sink.endpoint.producerRetryAttempts",
+			"description": "Define the number of retry attempts",
+			"defaultValue": "2",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.producerRetryPause": {
+			"name": "camel.sink.endpoint.producerRetryPause",
+			"description": "Define the retry pause between different attempts",
+			"defaultValue": "5000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.replicateTo": {
+			"name": "camel.sink.endpoint.replicateTo",
+			"description": "Where to replicate the data",
+			"defaultValue": "0",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.startingIdForInsertsFrom": {
+			"name": "camel.sink.endpoint.startingIdForInsertsFrom",
+			"description": "Define the starting Id where we are doing an insert operation",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.additionalHosts": {
+			"name": "camel.sink.endpoint.additionalHosts",
+			"description": "The additional hosts",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.queryTimeout": {
+			"name": "camel.sink.endpoint.queryTimeout",
+			"description": "Define the operation timeout in milliseconds",
+			"defaultValue": "2500L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.password": {
+			"name": "camel.sink.endpoint.password",
+			"description": "The password to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.username": {
+			"name": "camel.sink.endpoint.username",
+			"description": "The username to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.couchbase.lazyStartProducer": {
+			"name": "camel.component.couchbase.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.couchbase.basicPropertyBinding": {
+			"name": "camel.component.couchbase.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

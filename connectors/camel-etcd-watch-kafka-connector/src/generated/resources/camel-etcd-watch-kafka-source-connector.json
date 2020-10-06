@@ -1,0 +1,179 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.etcdwatch.CamelEtcdwatchSourceConnector",
+		"artifactId": "camel-etcd-watch",
+		"groupId": "org.apache.camel",
+		"title": "camel-etcd-watch",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.path": {
+			"name": "camel.source.path.path",
+			"description": "The path the endpoint refers to",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.recursive": {
+			"name": "camel.source.endpoint.recursive",
+			"description": "To apply an action recursively.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.servicePath": {
+			"name": "camel.source.endpoint.servicePath",
+			"description": "The path to look for for service discovery",
+			"defaultValue": "\"\/services\/\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.uris": {
+			"name": "camel.source.endpoint.uris",
+			"description": "To set the URIs the client connects.",
+			"defaultValue": "\"http:\/\/localhost:2379,http:\/\/localhost:4001\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendEmptyExchangeOnTimeout": {
+			"name": "camel.source.endpoint.sendEmptyExchangeOnTimeout",
+			"description": "To send an empty message in case of timeout watching for a key.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeout": {
+			"name": "camel.source.endpoint.timeout",
+			"description": "To set the maximum time an action could take to complete.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.fromIndex": {
+			"name": "camel.source.endpoint.fromIndex",
+			"description": "The index to watch from",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "The password to use for basic authentication.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sslContextParameters": {
+			"name": "camel.source.endpoint.sslContextParameters",
+			"description": "To configure security using SSLContextParameters.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.userName": {
+			"name": "camel.source.endpoint.userName",
+			"description": "The user name to use for basic authentication.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.bridgeErrorHandler": {
+			"name": "camel.component.etcd-watch.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.configuration": {
+			"name": "camel.component.etcd-watch.configuration",
+			"description": "Component configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.recursive": {
+			"name": "camel.component.etcd-watch.recursive",
+			"description": "To apply an action recursively.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.servicePath": {
+			"name": "camel.component.etcd-watch.servicePath",
+			"description": "The path to look for for service discovery",
+			"defaultValue": "\"\/services\/\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.timeout": {
+			"name": "camel.component.etcd-watch.timeout",
+			"description": "To set the maximum time an action could take to complete.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.uris": {
+			"name": "camel.component.etcd-watch.uris",
+			"description": "To set the URIs the client connects.",
+			"defaultValue": "\"http:\/\/localhost:2379,http:\/\/localhost:4001\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.sendEmptyExchangeOnTimeout": {
+			"name": "camel.component.etcd-watch.sendEmptyExchangeOnTimeout",
+			"description": "To send an empty message in case of timeout watching for a key.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.fromIndex": {
+			"name": "camel.component.etcd-watch.fromIndex",
+			"description": "The index to watch from",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.basicPropertyBinding": {
+			"name": "camel.component.etcd-watch.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.password": {
+			"name": "camel.component.etcd-watch.password",
+			"description": "The password to use for basic authentication.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.sslContextParameters": {
+			"name": "camel.component.etcd-watch.sslContextParameters",
+			"description": "To configure security using SSLContextParameters.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.useGlobalSslContextParameters": {
+			"name": "camel.component.etcd-watch.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.etcd-watch.userName": {
+			"name": "camel.component.etcd-watch.userName",
+			"description": "The user name to use for basic authentication.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

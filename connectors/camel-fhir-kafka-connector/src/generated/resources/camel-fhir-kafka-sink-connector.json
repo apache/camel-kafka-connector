@@ -1,0 +1,341 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.fhir.CamelFhirSinkConnector",
+		"artifactId": "camel-fhir",
+		"groupId": "org.apache.camel",
+		"title": "camel-fhir",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.apiName": {
+			"name": "camel.sink.path.apiName",
+			"description": "What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.methodName": {
+			"name": "camel.sink.path.methodName",
+			"description": "What sub operation to use for the selected operation",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.encoding": {
+			"name": "camel.sink.endpoint.encoding",
+			"description": "Encoding to use for all request One of: [JSON] [XML]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fhirVersion": {
+			"name": "camel.sink.endpoint.fhirVersion",
+			"description": "The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5]",
+			"defaultValue": "\"R4\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.inBody": {
+			"name": "camel.sink.endpoint.inBody",
+			"description": "Sets the name of a parameter to be passed in the exchange In Body",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.log": {
+			"name": "camel.sink.endpoint.log",
+			"description": "Will log every requests and responses",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.prettyPrint": {
+			"name": "camel.sink.endpoint.prettyPrint",
+			"description": "Pretty print all request",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serverUrl": {
+			"name": "camel.sink.endpoint.serverUrl",
+			"description": "The FHIR server base URL",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.client": {
+			"name": "camel.sink.endpoint.client",
+			"description": "To use the custom client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientFactory": {
+			"name": "camel.sink.endpoint.clientFactory",
+			"description": "To use the custom client factory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.compress": {
+			"name": "camel.sink.endpoint.compress",
+			"description": "Compresses outgoing (POST\/PUT) contents to the GZIP format",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectionTimeout": {
+			"name": "camel.sink.endpoint.connectionTimeout",
+			"description": "How long to try and establish the initial TCP connection (in ms)",
+			"defaultValue": "\"10000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.deferModelScanning": {
+			"name": "camel.sink.endpoint.deferModelScanning",
+			"description": "When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fhirContext": {
+			"name": "camel.sink.endpoint.fhirContext",
+			"description": "FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.forceConformanceCheck": {
+			"name": "camel.sink.endpoint.forceConformanceCheck",
+			"description": "Force conformance check",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sessionCookie": {
+			"name": "camel.sink.endpoint.sessionCookie",
+			"description": "HTTP session cookie to add to every request",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.socketTimeout": {
+			"name": "camel.sink.endpoint.socketTimeout",
+			"description": "How long to block for individual read\/write operations (in ms)",
+			"defaultValue": "\"10000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.summary": {
+			"name": "camel.sink.endpoint.summary",
+			"description": "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.validationMode": {
+			"name": "camel.sink.endpoint.validationMode",
+			"description": "When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE]",
+			"defaultValue": "\"ONCE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "The proxy host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyPassword": {
+			"name": "camel.sink.endpoint.proxyPassword",
+			"description": "The proxy password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "The proxy port",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyUser": {
+			"name": "camel.sink.endpoint.proxyUser",
+			"description": "The proxy username",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accessToken": {
+			"name": "camel.sink.endpoint.accessToken",
+			"description": "OAuth access token",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.password": {
+			"name": "camel.sink.endpoint.password",
+			"description": "Username to use for basic authentication",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.username": {
+			"name": "camel.sink.endpoint.username",
+			"description": "Username to use for basic authentication",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.encoding": {
+			"name": "camel.component.fhir.encoding",
+			"description": "Encoding to use for all request One of: [JSON] [XML]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.fhirVersion": {
+			"name": "camel.component.fhir.fhirVersion",
+			"description": "The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5]",
+			"defaultValue": "\"R4\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.log": {
+			"name": "camel.component.fhir.log",
+			"description": "Will log every requests and responses",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.prettyPrint": {
+			"name": "camel.component.fhir.prettyPrint",
+			"description": "Pretty print all request",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.serverUrl": {
+			"name": "camel.component.fhir.serverUrl",
+			"description": "The FHIR server base URL",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.lazyStartProducer": {
+			"name": "camel.component.fhir.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.basicPropertyBinding": {
+			"name": "camel.component.fhir.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.client": {
+			"name": "camel.component.fhir.client",
+			"description": "To use the custom client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.clientFactory": {
+			"name": "camel.component.fhir.clientFactory",
+			"description": "To use the custom client factory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.compress": {
+			"name": "camel.component.fhir.compress",
+			"description": "Compresses outgoing (POST\/PUT) contents to the GZIP format",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.configuration": {
+			"name": "camel.component.fhir.configuration",
+			"description": "To use the shared configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.connectionTimeout": {
+			"name": "camel.component.fhir.connectionTimeout",
+			"description": "How long to try and establish the initial TCP connection (in ms)",
+			"defaultValue": "\"10000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.deferModelScanning": {
+			"name": "camel.component.fhir.deferModelScanning",
+			"description": "When this option is set, model classes will not be scanned for children until the child list for the given type is actually accessed.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.fhirContext": {
+			"name": "camel.component.fhir.fhirContext",
+			"description": "FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.forceConformanceCheck": {
+			"name": "camel.component.fhir.forceConformanceCheck",
+			"description": "Force conformance check",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.sessionCookie": {
+			"name": "camel.component.fhir.sessionCookie",
+			"description": "HTTP session cookie to add to every request",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.socketTimeout": {
+			"name": "camel.component.fhir.socketTimeout",
+			"description": "How long to block for individual read\/write operations (in ms)",
+			"defaultValue": "\"10000\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.summary": {
+			"name": "camel.component.fhir.summary",
+			"description": "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.validationMode": {
+			"name": "camel.component.fhir.validationMode",
+			"description": "When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE]",
+			"defaultValue": "\"ONCE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.proxyHost": {
+			"name": "camel.component.fhir.proxyHost",
+			"description": "The proxy host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.proxyPassword": {
+			"name": "camel.component.fhir.proxyPassword",
+			"description": "The proxy password",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.proxyPort": {
+			"name": "camel.component.fhir.proxyPort",
+			"description": "The proxy port",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.proxyUser": {
+			"name": "camel.component.fhir.proxyUser",
+			"description": "The proxy username",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.accessToken": {
+			"name": "camel.component.fhir.accessToken",
+			"description": "OAuth access token",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.password": {
+			"name": "camel.component.fhir.password",
+			"description": "Username to use for basic authentication",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.fhir.username": {
+			"name": "camel.component.fhir.username",
+			"description": "Username to use for basic authentication",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

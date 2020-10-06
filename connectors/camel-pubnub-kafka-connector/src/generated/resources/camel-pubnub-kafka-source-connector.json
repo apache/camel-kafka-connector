@@ -1,0 +1,113 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.pubnub.CamelPubnubSourceConnector",
+		"artifactId": "camel-pubnub",
+		"groupId": "org.apache.camel",
+		"title": "camel-pubnub",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.channel": {
+			"name": "camel.source.path.channel",
+			"description": "The channel used for subscribing\/publishing events",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.uuid": {
+			"name": "camel.source.endpoint.uuid",
+			"description": "UUID to be used as a device identifier, a default UUID is generated if not passed.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.withPresence": {
+			"name": "camel.source.endpoint.withPresence",
+			"description": "Also subscribe to related presence information",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pubnub": {
+			"name": "camel.source.endpoint.pubnub",
+			"description": "Reference to a Pubnub client in the registry.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.authKey": {
+			"name": "camel.source.endpoint.authKey",
+			"description": "If Access Manager is utilized, client will use this authKey in all restricted requests.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.cipherKey": {
+			"name": "camel.source.endpoint.cipherKey",
+			"description": "If cipher is passed, all communications to\/from PubNub will be encrypted.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.publishKey": {
+			"name": "camel.source.endpoint.publishKey",
+			"description": "The publish key obtained from your PubNub account. Required when publishing messages.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.secretKey": {
+			"name": "camel.source.endpoint.secretKey",
+			"description": "The secret key used for message signing.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.secure": {
+			"name": "camel.source.endpoint.secure",
+			"description": "Use SSL for secure transmission.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.subscribeKey": {
+			"name": "camel.source.endpoint.subscribeKey",
+			"description": "The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pubnub.bridgeErrorHandler": {
+			"name": "camel.component.pubnub.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.pubnub.basicPropertyBinding": {
+			"name": "camel.component.pubnub.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

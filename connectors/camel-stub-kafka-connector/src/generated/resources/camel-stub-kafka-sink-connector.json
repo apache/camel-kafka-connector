@@ -1,0 +1,131 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.stub.CamelStubSinkConnector",
+		"artifactId": "camel-stub",
+		"groupId": "org.apache.camel",
+		"title": "camel-stub",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.name": {
+			"name": "camel.sink.path.name",
+			"description": "Name of queue",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.size": {
+			"name": "camel.sink.endpoint.size",
+			"description": "The maximum capacity of the SEDA queue (i.e., the number of messages it can hold). Will by default use the defaultSize set on the SEDA component.",
+			"defaultValue": "1000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.blockWhenFull": {
+			"name": "camel.sink.endpoint.blockWhenFull",
+			"description": "Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted. By default, an exception will be thrown stating that the queue is full. By enabling this option, the calling thread will instead block and wait until the message can be accepted.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.discardIfNoConsumers": {
+			"name": "camel.sink.endpoint.discardIfNoConsumers",
+			"description": "Whether the producer should discard the message (do not add the message to the queue), when sending to a queue with no active consumers. Only one of the options discardIfNoConsumers and failIfNoConsumers can be enabled at the same time.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.discardWhenFull": {
+			"name": "camel.sink.endpoint.discardWhenFull",
+			"description": "Whether a thread that sends messages to a full SEDA queue will be discarded. By default, an exception will be thrown stating that the queue is full. By enabling this option, the calling thread will give up sending and continue, meaning that the message was not sent to the SEDA queue.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.failIfNoConsumers": {
+			"name": "camel.sink.endpoint.failIfNoConsumers",
+			"description": "Whether the producer should fail by throwing an exception, when sending to a queue with no active consumers. Only one of the options discardIfNoConsumers and failIfNoConsumers can be enabled at the same time.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.offerTimeout": {
+			"name": "camel.sink.endpoint.offerTimeout",
+			"description": "offerTimeout (in milliseconds) can be added to the block case when queue is full. You can disable timeout by using 0 or a negative value.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout": {
+			"name": "camel.sink.endpoint.timeout",
+			"description": "Timeout (in milliseconds) before a SEDA producer will stop waiting for an asynchronous task to complete. You can disable timeout by using 0 or a negative value.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.waitForTaskToComplete": {
+			"name": "camel.sink.endpoint.waitForTaskToComplete",
+			"description": "Option to specify whether the caller should wait for the async task to complete or not before continuing. The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory. The last value, IfReplyExpected, will only wait if the message is Request Reply based. The default option is IfReplyExpected. One of: [Never] [IfReplyExpected] [Always]",
+			"defaultValue": "\"IfReplyExpected\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.queue": {
+			"name": "camel.sink.endpoint.queue",
+			"description": "Define the queue instance which will be used by the endpoint",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.stub.defaultBlockWhenFull": {
+			"name": "camel.component.stub.defaultBlockWhenFull",
+			"description": "Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted. By default, an exception will be thrown stating that the queue is full. By enabling this option, the calling thread will instead block and wait until the message can be accepted.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.stub.defaultDiscardWhenFull": {
+			"name": "camel.component.stub.defaultDiscardWhenFull",
+			"description": "Whether a thread that sends messages to a full SEDA queue will be discarded. By default, an exception will be thrown stating that the queue is full. By enabling this option, the calling thread will give up sending and continue, meaning that the message was not sent to the SEDA queue.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.stub.defaultOfferTimeout": {
+			"name": "camel.component.stub.defaultOfferTimeout",
+			"description": "Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted. By default, an exception will be thrown stating that the queue is full. By enabling this option, where a configured timeout can be added to the block case. Utilizing the .offer(timeout) method of the underlining java queue",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.stub.lazyStartProducer": {
+			"name": "camel.component.stub.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.stub.basicPropertyBinding": {
+			"name": "camel.component.stub.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.stub.defaultQueueFactory": {
+			"name": "camel.component.stub.defaultQueueFactory",
+			"description": "Sets the default queue factory.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.stub.queueSize": {
+			"name": "camel.component.stub.queueSize",
+			"description": "Sets the default maximum capacity of the SEDA queue (i.e., the number of messages it can hold).",
+			"defaultValue": "1000",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,131 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.braintree.CamelBraintreeSinkConnector",
+		"artifactId": "camel-braintree",
+		"groupId": "org.apache.camel",
+		"title": "camel-braintree",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.apiName": {
+			"name": "camel.sink.path.apiName",
+			"description": "What kind of operation to perform One of: [ADDON] [ADDRESS] [CLIENTTOKEN] [CREDITCARDVERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENTUPLOAD] [MERCHANTACCOUNT] [PAYMENTMETHOD] [PAYMENTMETHODNONCE] [PLAN] [REPORT] [SETTLEMENTBATCHSUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOKNOTIFICATION]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.methodName": {
+			"name": "camel.sink.path.methodName",
+			"description": "What sub operation to use for the selected operation",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.environment": {
+			"name": "camel.sink.endpoint.environment",
+			"description": "The environment Either SANDBOX or PRODUCTION",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.inBody": {
+			"name": "camel.sink.endpoint.inBody",
+			"description": "Sets the name of a parameter to be passed in the exchange In Body",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.merchantId": {
+			"name": "camel.sink.endpoint.merchantId",
+			"description": "The merchant id provided by Braintree.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpReadTimeout": {
+			"name": "camel.sink.endpoint.httpReadTimeout",
+			"description": "Set read timeout for http calls.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpLogLevel": {
+			"name": "camel.sink.endpoint.httpLogLevel",
+			"description": "Set logging level for http calls, see java.util.logging.Level One of: [OFF] [SEVERE] [WARNING] [INFO] [CONFIG] [FINE] [FINER] [FINEST] [ALL]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.httpLogName": {
+			"name": "camel.sink.endpoint.httpLogName",
+			"description": "Set log category to use to log http calls.",
+			"defaultValue": "\"Braintree\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.logHandlerEnabled": {
+			"name": "camel.sink.endpoint.logHandlerEnabled",
+			"description": "Sets whether to enable the BraintreeLogHandler. It may be desirable to set this to 'false' where an existing JUL - SLF4J logger bridge is on the classpath. This option can also be configured globally on the BraintreeComponent.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "The proxy host",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "The proxy port",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accessToken": {
+			"name": "camel.sink.endpoint.accessToken",
+			"description": "The access token granted by a merchant to another in order to process transactions on their behalf. Used in place of environment, merchant id, public key and private key fields.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.privateKey": {
+			"name": "camel.sink.endpoint.privateKey",
+			"description": "The private key provided by Braintree.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.publicKey": {
+			"name": "camel.sink.endpoint.publicKey",
+			"description": "The public key provided by Braintree.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.braintree.lazyStartProducer": {
+			"name": "camel.component.braintree.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.braintree.basicPropertyBinding": {
+			"name": "camel.component.braintree.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.braintree.configuration": {
+			"name": "camel.component.braintree.configuration",
+			"description": "Component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

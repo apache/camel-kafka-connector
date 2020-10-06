@@ -1,0 +1,209 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.elasticsearchrest.CamelElasticsearchrestSinkConnector",
+		"artifactId": "camel-elasticsearch-rest",
+		"groupId": "org.apache.camel",
+		"title": "camel-elasticsearch-rest",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.clusterName": {
+			"name": "camel.sink.path.clusterName",
+			"description": "Name of the cluster",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.connectionTimeout": {
+			"name": "camel.sink.endpoint.connectionTimeout",
+			"description": "The time in ms to wait before connection will timeout.",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.disconnect": {
+			"name": "camel.sink.endpoint.disconnect",
+			"description": "Disconnect after it finish calling the producer",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.enableSniffer": {
+			"name": "camel.sink.endpoint.enableSniffer",
+			"description": "Enable automatically discover nodes from a running Elasticsearch cluster",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.enableSSL": {
+			"name": "camel.sink.endpoint.enableSSL",
+			"description": "Enable SSL",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.from": {
+			"name": "camel.sink.endpoint.from",
+			"description": "Starting index of the response.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.hostAddresses": {
+			"name": "camel.sink.endpoint.hostAddresses",
+			"description": "Comma separated list with ip:port formatted remote transport addresses to use.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.indexName": {
+			"name": "camel.sink.endpoint.indexName",
+			"description": "The name of the index to act against",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxRetryTimeout": {
+			"name": "camel.sink.endpoint.maxRetryTimeout",
+			"description": "The time in ms before retry",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "What operation to perform One of: [Index] [Update] [Bulk] [BulkIndex] [GetById] [MultiGet] [MultiSearch] [Delete] [DeleteIndex] [Search] [Exists] [Ping]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.scrollKeepAliveMs": {
+			"name": "camel.sink.endpoint.scrollKeepAliveMs",
+			"description": "Time in ms during which elasticsearch will keep search context alive",
+			"defaultValue": "60000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.size": {
+			"name": "camel.sink.endpoint.size",
+			"description": "Size of the response.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sniffAfterFailureDelay": {
+			"name": "camel.sink.endpoint.sniffAfterFailureDelay",
+			"description": "The delay of a sniff execution scheduled after a failure (in milliseconds)",
+			"defaultValue": "60000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.snifferInterval": {
+			"name": "camel.sink.endpoint.snifferInterval",
+			"description": "The interval between consecutive ordinary sniff executions in milliseconds. Will be honoured when sniffOnFailure is disabled or when there are no failures between consecutive sniff executions",
+			"defaultValue": "300000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.socketTimeout": {
+			"name": "camel.sink.endpoint.socketTimeout",
+			"description": "The timeout in ms to wait before the socket will timeout.",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.useScroll": {
+			"name": "camel.sink.endpoint.useScroll",
+			"description": "Enable scroll usage",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.waitForActiveShards": {
+			"name": "camel.sink.endpoint.waitForActiveShards",
+			"description": "Index creation waits for the write consistency number of shards to be available",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.lazyStartProducer": {
+			"name": "camel.component.elasticsearch-rest.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.basicPropertyBinding": {
+			"name": "camel.component.elasticsearch-rest.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.client": {
+			"name": "camel.component.elasticsearch-rest.client",
+			"description": "To use an existing configured Elasticsearch client, instead of creating a client per endpoint. This allow to customize the client with specific settings.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.connectionTimeout": {
+			"name": "camel.component.elasticsearch-rest.connectionTimeout",
+			"description": "The time in ms to wait before connection will timeout.",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.enableSniffer": {
+			"name": "camel.component.elasticsearch-rest.enableSniffer",
+			"description": "Enable automatically discover nodes from a running Elasticsearch cluster",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.hostAddresses": {
+			"name": "camel.component.elasticsearch-rest.hostAddresses",
+			"description": "Comma separated list with ip:port formatted remote transport addresses to use. The ip and port options must be left blank for hostAddresses to be considered instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.maxRetryTimeout": {
+			"name": "camel.component.elasticsearch-rest.maxRetryTimeout",
+			"description": "The time in ms before retry",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.sniffAfterFailureDelay": {
+			"name": "camel.component.elasticsearch-rest.sniffAfterFailureDelay",
+			"description": "The delay of a sniff execution scheduled after a failure (in milliseconds)",
+			"defaultValue": "60000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.snifferInterval": {
+			"name": "camel.component.elasticsearch-rest.snifferInterval",
+			"description": "The interval between consecutive ordinary sniff executions in milliseconds. Will be honoured when sniffOnFailure is disabled or when there are no failures between consecutive sniff executions",
+			"defaultValue": "300000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.socketTimeout": {
+			"name": "camel.component.elasticsearch-rest.socketTimeout",
+			"description": "The timeout in ms to wait before the socket will timeout.",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.enableSSL": {
+			"name": "camel.component.elasticsearch-rest.enableSSL",
+			"description": "Enable SSL",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.password": {
+			"name": "camel.component.elasticsearch-rest.password",
+			"description": "Password for authenticate",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.elasticsearch-rest.user": {
+			"name": "camel.component.elasticsearch-rest.user",
+			"description": "Basic authenticate user",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

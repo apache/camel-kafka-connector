@@ -1,0 +1,209 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.irc.CamelIrcSourceConnector",
+		"artifactId": "camel-irc",
+		"groupId": "org.apache.camel",
+		"title": "camel-irc",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.hostname": {
+			"name": "camel.source.path.hostname",
+			"description": "Hostname for the IRC chat server",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.port": {
+			"name": "camel.source.path.port",
+			"description": "Port number for the IRC chat server. If no port is configured then a default port of either 6667, 6668 or 6669 is used.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.autoRejoin": {
+			"name": "camel.source.endpoint.autoRejoin",
+			"description": "Whether to auto re-join when being kicked",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.channels": {
+			"name": "camel.source.endpoint.channels",
+			"description": "Comma separated list of IRC channels.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.commandTimeout": {
+			"name": "camel.source.endpoint.commandTimeout",
+			"description": "Delay in milliseconds before sending commands after the connection is established.",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.keys": {
+			"name": "camel.source.endpoint.keys",
+			"description": "Comma separated list of keys for channels.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.namesOnJoin": {
+			"name": "camel.source.endpoint.namesOnJoin",
+			"description": "Sends NAMES command to channel after joining it. onReply has to be true in order to process the result which will have the header value irc.num = '353'.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.nickname": {
+			"name": "camel.source.endpoint.nickname",
+			"description": "The nickname used in chat.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.persistent": {
+			"name": "camel.source.endpoint.persistent",
+			"description": "Use persistent messages.",
+			"defaultValue": "true",
+			"priority": "LOW"
+		},
+		"camel.source.endpoint.realname": {
+			"name": "camel.source.endpoint.realname",
+			"description": "The IRC user's actual name.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.colors": {
+			"name": "camel.source.endpoint.colors",
+			"description": "Whether or not the server supports color codes.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onJoin": {
+			"name": "camel.source.endpoint.onJoin",
+			"description": "Handle user join events.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onKick": {
+			"name": "camel.source.endpoint.onKick",
+			"description": "Handle kick events.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onMode": {
+			"name": "camel.source.endpoint.onMode",
+			"description": "Handle mode change events.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onNick": {
+			"name": "camel.source.endpoint.onNick",
+			"description": "Handle nickname change events.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onPart": {
+			"name": "camel.source.endpoint.onPart",
+			"description": "Handle user part events.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onPrivmsg": {
+			"name": "camel.source.endpoint.onPrivmsg",
+			"description": "Handle private message events.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onQuit": {
+			"name": "camel.source.endpoint.onQuit",
+			"description": "Handle user quit events.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onReply": {
+			"name": "camel.source.endpoint.onReply",
+			"description": "Whether or not to handle general responses to commands or informational messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.onTopic": {
+			"name": "camel.source.endpoint.onTopic",
+			"description": "Handle topic change events.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.nickPassword": {
+			"name": "camel.source.endpoint.nickPassword",
+			"description": "Your IRC server nickname password.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "The IRC server password.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sslContextParameters": {
+			"name": "camel.source.endpoint.sslContextParameters",
+			"description": "Used for configuring security using SSL. Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. Note that this setting overrides the trustManager option.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.trustManager": {
+			"name": "camel.source.endpoint.trustManager",
+			"description": "The trust manager used to verify the SSL server's certificate.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "The IRC server user name.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.irc.bridgeErrorHandler": {
+			"name": "camel.component.irc.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.irc.basicPropertyBinding": {
+			"name": "camel.component.irc.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.irc.useGlobalSslContextParameters": {
+			"name": "camel.component.irc.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

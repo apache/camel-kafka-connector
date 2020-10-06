@@ -1,0 +1,107 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.validator.CamelValidatorSinkConnector",
+		"artifactId": "camel-validator",
+		"groupId": "org.apache.camel",
+		"title": "camel-validator",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.resourceUri": {
+			"name": "camel.sink.path.resourceUri",
+			"description": "URL to a local resource on the classpath, or a reference to lookup a bean in the Registry, or a full URL to a remote resource or resource on the file system which contains the XSD to validate against.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.failOnNullBody": {
+			"name": "camel.sink.endpoint.failOnNullBody",
+			"description": "Whether to fail if no body exists.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.failOnNullHeader": {
+			"name": "camel.sink.endpoint.failOnNullHeader",
+			"description": "Whether to fail if no header exists when validating against a header.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.headerName": {
+			"name": "camel.sink.endpoint.headerName",
+			"description": "To validate against a header instead of the message body.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.errorHandler": {
+			"name": "camel.sink.endpoint.errorHandler",
+			"description": "To use a custom org.apache.camel.processor.validation.ValidatorErrorHandler. The default error handler captures the errors and throws an exception.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.resourceResolver": {
+			"name": "camel.sink.endpoint.resourceResolver",
+			"description": "To use a custom LSResourceResolver. Do not use together with resourceResolverFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.resourceResolverFactory": {
+			"name": "camel.sink.endpoint.resourceResolverFactory",
+			"description": "To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI. The default resource resolver factory resturns a resource resolver which can read files from the class path and file system. Do not use together with resourceResolver.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.schemaFactory": {
+			"name": "camel.sink.endpoint.schemaFactory",
+			"description": "To use a custom javax.xml.validation.SchemaFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.schemaLanguage": {
+			"name": "camel.sink.endpoint.schemaLanguage",
+			"description": "Configures the W3C XML Schema Namespace URI.",
+			"defaultValue": "\"http:\/\/www.w3.org\/2001\/XMLSchema\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.useSharedSchema": {
+			"name": "camel.sink.endpoint.useSharedSchema",
+			"description": "Whether the Schema instance should be shared or not. This option is introduced to work around a JDK 1.6.x bug. Xerces should not have this issue.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.validator.lazyStartProducer": {
+			"name": "camel.component.validator.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.validator.basicPropertyBinding": {
+			"name": "camel.component.validator.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.validator.resourceResolverFactory": {
+			"name": "camel.component.validator.resourceResolverFactory",
+			"description": "To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}
