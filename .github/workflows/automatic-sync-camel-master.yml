@@ -35,10 +35,10 @@ jobs:
           repository: apache/camel
           ref: master
           path: camel
-      - name: Set Up Java
-        uses: actions/setup-java@v1
+      - name: Set up JDK ${{ matrix.java }}
+        uses: AdoptOpenJDK/install-jdk@v1
         with:
-          java-version: ${{ matrix.java }}
+          version: ${{ matrix.java }}
       - name: Cache local Maven repository
         uses: actions/cache@v2
         with:
