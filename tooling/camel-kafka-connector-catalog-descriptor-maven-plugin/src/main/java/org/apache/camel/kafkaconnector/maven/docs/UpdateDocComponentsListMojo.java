@@ -49,14 +49,13 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Parameter(defaultValue = "${project.directory}/../../connectors/")
     protected File connectorsDir;
-    
 
     /**
      * The directory for components catalog
      */
     @Parameter(defaultValue = "${project.directory}/../../camel-kafka-connector-catalog/src/generated/resources/descriptors")
     protected File catalogDescriptorDir;
-    
+
     /**
      * The maven project.
      */
@@ -73,14 +72,15 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         if (!project.getArtifactId().equals(connectorsProjectName)) {
-            getLog().debug("Skipping project " + project.getArtifactId() + " since it is not " + connectorsProjectName + " can be configured with <connectors-project-name> option.");
+            getLog()
+                .debug("Skipping project " + project.getArtifactId() + " since it is not " + connectorsProjectName + " can be configured with <connectors-project-name> option.");
             return;
         }
         try {
-			executeComponentsReadme();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+            executeComponentsReadme();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void executeComponentsReadme() throws MojoExecutionException, MojoFailureException, IOException {
@@ -88,7 +88,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
         if (connectorsDir != null && connectorsDir.isDirectory()) {
             File[] files = connectorsDir.listFiles();
             if (files != null) {
-            	StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < files.length; i++) {
                     File file = files[i];
                     if (file.isDirectory()) {
