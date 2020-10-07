@@ -17,6 +17,7 @@ There are multiple areas in which camel-kafka-connector could be improved. Here 
 
 * <<getting-in-touch,Getting in touch>>
 * <<building-the-project,Building the project>>
+** <<speeding-up-the-build,Speeding up the build>>
 
 [#getting-in-touch]
 == Getting in touch
@@ -162,3 +163,41 @@ the values setup previously.
 ----
 mvn -U -Psalesforce -DskipIntegrationTests=false -Dit.test.salesforce.sfdx.path=/path/to/sfdx -Dit.test.salesforce.enable=true -Dit.test.salesforce.client.id=<client id> -Dit.test.salesforce.client.secret=<client secret> -Dit.test.salesforce.password=<password> -Dit.test.salesforce.username=<your account> compile test-compile test
 ----
+
+[#speeding-up-the-build]
+== Speeding up the build
+
+Building the project may take several minutes to complete. This is, in parts, because of how Maven works in its default
+by default: downloading dependencies; sequentially going through the modules; building them and installing them.
+
+Although this conservative approach helps the project to ensure consistency and stability throughout the builds, it
+fails to make use of available processing power from modern computers.
+
+A few approaches to leverage this available processing power have emerged recently. One of them works particularly well
+with this project: https://github.com/mvndaemon/mvnd[mvnd - The Maven Daemon]. The project embeds Maven itself to
+leverage its native parallelization and implement lower level build optimizations. It can greatly reduce the build
+time:
+
+- Build with Maven: 24:22 min.
+- Same build with mvnd: 05:09 min.
+
+Note: consult the mvnd project documentation for details about the supported installation methods.
+
+Having mvnd installed and available on your system, building the project is as simple as replacing `mvn` with `mvnd` in
+almost all the commands of this guide. A notable *exception* is the integration test execution.
+
+To build the project using `mvnd` instead of Maven, use the following command:
+
+[source,bash]
+----
+mvnd -DskipIntegrationTests=true clean install
+----
+
+*Troubleshooting*:
+
+Most of the build problems when using `mvnd` are caused by problems on misbehaved plugins. Should you face build
+problems using mvnd, it is recommended to try the build again using Maven.
+
+
+
+
