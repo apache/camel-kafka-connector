@@ -10,6 +10,9 @@
 
 **Closed issues:**
 
+- Move model classes CamelKafkaConnectorModel and CamelKafkaConnectorOptionModel in their own module [\#515](https://github.com/apache/camel-kafka-connector/issues/515)
+- Copy all Json connectors metadata into a camel-kafka-connector-catalog [\#514](https://github.com/apache/camel-kafka-connector/issues/514)
+- Generator a JSON metadata file for each connector [\#508](https://github.com/apache/camel-kafka-connector/issues/508)
 - \[camel-main-support\] Reordering props should not be required anymore [\#498](https://github.com/apache/camel-kafka-connector/issues/498)
 - Add an ASF deploy GH Action like other camel projects [\#492](https://github.com/apache/camel-kafka-connector/issues/492)
 - MongoDB Kafka Connector: In the docs add Json as base value converter [\#490](https://github.com/apache/camel-kafka-connector/issues/490)
@@ -23,6 +26,12 @@
 
 **Merged pull requests:**
 
+- Added encoding to maven-resources-plugin to avoid warning [\#520](https://github.com/apache/camel-kafka-connector/pull/520) ([oscerd](https://github.com/oscerd))
+- Fixed GH Actions with the new camel-kafka-connector-model [\#519](https://github.com/apache/camel-kafka-connector/pull/519) ([oscerd](https://github.com/oscerd))
+- Move model classes CamelKafkaConnectorModel and CamelKafkaConnectorOp… [\#518](https://github.com/apache/camel-kafka-connector/pull/518) ([oscerd](https://github.com/oscerd))
+- adding docs that explain the directory requirement under the plugins folder [\#517](https://github.com/apache/camel-kafka-connector/pull/517) ([codexetreme](https://github.com/codexetreme))
+- Added a camel-kafka-connector-catalog collecting all the JSON metadata [\#516](https://github.com/apache/camel-kafka-connector/pull/516) ([oscerd](https://github.com/oscerd))
+- Generate a Json Metadata file for each connector [\#512](https://github.com/apache/camel-kafka-connector/pull/512) ([oscerd](https://github.com/oscerd))
 - Opted the project in for HAcktoberfest 2020. [\#511](https://github.com/apache/camel-kafka-connector/pull/511) ([valdar](https://github.com/valdar))
 - \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
 - Removed folder added for error and regen docs [\#504](https://github.com/apache/camel-kafka-connector/pull/504) ([oscerd](https://github.com/oscerd))
