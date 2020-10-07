@@ -39,7 +39,7 @@ public class CamelSourceTaskTest {
     private static final String TOPIC_NAME = "my-topic";
 
     private void sendBatchOfRecords(CamelSourceTask sourceTask, long size) {
-        final ProducerTemplate template = sourceTask.getCms().createProducerTemplate();
+        final ProducerTemplate template = sourceTask.getCms().getProducerTemplate();
         for (int i = 0; i < size; i++) {
             template.sendBody(DIRECT_URI, "test" + i);
         }
@@ -113,7 +113,7 @@ public class CamelSourceTaskTest {
 
         CamelSourceTask sourceTask = new CamelSourceTask();
         sourceTask.start(props);
-        final ProducerTemplate template = sourceTask.getCms().createProducerTemplate();
+        final ProducerTemplate template = sourceTask.getCms().getProducerTemplate();
 
         // key in the message with body
         template.sendBodyAndHeader(DIRECT_URI, "test", "CamelSpecialTestKey", 1234);
@@ -150,7 +150,7 @@ public class CamelSourceTaskTest {
 
         CamelSourceTask sourceTask = new CamelSourceTask();
         sourceTask.start(props);
-        final ProducerTemplate template = sourceTask.getCms().createProducerTemplate();
+        final ProducerTemplate template = sourceTask.getCms().getProducerTemplate();
 
         // send String
         template.sendBody(DIRECT_URI, "test");
@@ -206,9 +206,9 @@ public class CamelSourceTaskTest {
         CamelSourceTask sourceTask = new CamelSourceTask();
         sourceTask.start(props);
 
-        assertEquals(2, sourceTask.getCms().getEndpoints().size());
+        assertEquals(2, sourceTask.getCms().getCamelContext().getEndpoints().size());
 
-        sourceTask.getCms().getEndpoints().stream()
+        sourceTask.getCms().getCamelContext().getEndpoints().stream()
                 .filter(e -> e.getEndpointUri().startsWith("timer"))
                 .forEach(e -> {
                     assertTrue(e.getEndpointUri().contains("foo"));
@@ -231,9 +231,9 @@ public class CamelSourceTaskTest {
         CamelSourceTask sourceTask = new CamelSourceTask();
         sourceTask.start(props);
 
-        assertEquals(2, sourceTask.getCms().getEndpoints().size());
+        assertEquals(2, sourceTask.getCms().getCamelContext().getEndpoints().size());
 
-        sourceTask.getCms().getEndpoints().stream()
+        sourceTask.getCms().getCamelContext().getEndpoints().stream()
                 .filter(e -> e.getEndpointUri().startsWith("direct"))
                 .forEach(e -> {
                     assertTrue(e.getEndpointUri().contains("end"));
@@ -259,7 +259,7 @@ public class CamelSourceTaskTest {
         CamelSourceTask sourceTask = new CamelSourceTask();
         sourceTask.start(props);
 
-        sourceTask.getCms().getEndpoints().stream()
+        sourceTask.getCms().getCamelContext().getEndpoints().stream()
             .filter(e -> e.getEndpointUri().startsWith("timer"))
             .forEach(e -> {
                 assertTrue(e.getEndpointUri().contains("foo"));
@@ -281,7 +281,7 @@ public class CamelSourceTaskTest {
         sourceTask.start(props);
 
 
-        final ProducerTemplate template = sourceTask.getCms().createProducerTemplate();
+        final ProducerTemplate template = sourceTask.getCms().getProducerTemplate();
         template.sendBodyAndHeader(DIRECT_URI, "test", "bigdecimal", new BigDecimal(1234567890));
 
         List<SourceRecord> results = sourceTask.poll();

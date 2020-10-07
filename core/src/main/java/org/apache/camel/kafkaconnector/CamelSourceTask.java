@@ -25,18 +25,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.PollingConsumer;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectDataformat;
-import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
+import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
 import org.apache.camel.kafkaconnector.utils.SchemaHelper;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.kafka.connect.data.Decimal;
@@ -58,7 +55,7 @@ public class CamelSourceTask extends SourceTask {
 
     private static final String LOCAL_URL = "direct:end";
 
-    private CamelMainSupport cms;
+    private CamelKafkaConnectMain cms;
     private CamelSourceConnectorConfig config;
     private PollingConsumer consumer;
     private String topic;
@@ -87,13 +84,7 @@ public class CamelSourceTask extends SourceTask {
             String remoteUrl = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF);
             final String unmarshaller = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_UNMARSHAL_CONF);
             final String marshaller = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_MARSHAL_CONF);
-            List<CamelKafkaConnectDataformat> dataformats = new LinkedList<>();
-            if (unmarshaller != null) {
-                dataformats.add(new CamelKafkaConnectDataformat(unmarshaller, CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.UNMARSHALL));
-            }
-            if (marshaller != null) {
-                dataformats.add(new CamelKafkaConnectDataformat(marshaller, CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.MARSHALL));
-            }
+
             topic = config.getString(CamelSourceConnectorConfig.TOPIC_CONF);
             topics = Arrays.asList(topic.split(","));
 
@@ -106,10 +97,15 @@ public class CamelSourceTask extends SourceTask {
                                                 CAMEL_SOURCE_PATH_PROPERTIES_PREFIX);
             }
 
-            cms = new CamelMainSupport(actualProps, remoteUrl, localUrl, dataformats, 10, 500, camelContext);
+            cms = CamelKafkaConnectMain.builder(remoteUrl, localUrl)
+                .withProperties(actualProps)
+                .withUnmarshallDataFormat(unmarshaller)
+                .withMarshallDataFormat(marshaller)
+                .withAggregationSize(10)
+                .withAggregationTimeout(500)
+                .build(camelContext);
 
-            Endpoint endpoint = cms.getEndpoint(localUrl);
-            consumer = endpoint.createPollingConsumer();
+            consumer = cms.getCamelContext().getEndpoint(localUrl).createPollingConsumer();
             consumer.start();
 
             cms.start();
@@ -268,7 +264,7 @@ public class CamelSourceTask extends SourceTask {
                + "&pollingConsumerBlockWhenFull=" + pollingConsumerBlockWhenFull;
     }
 
-    public CamelMainSupport getCms() {
+    CamelKafkaConnectMain getCms() {
         return cms;
     }
 }

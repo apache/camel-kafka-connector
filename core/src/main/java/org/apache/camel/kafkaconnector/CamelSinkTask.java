@@ -20,7 +20,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -29,8 +28,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectDataformat;
-import org.apache.camel.kafkaconnector.utils.CamelMainSupport;
+import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.DefaultExchange;
 import org.apache.commons.lang3.StringUtils;
@@ -57,7 +55,7 @@ public class CamelSinkTask extends SinkTask {
     private static final String LOCAL_URL = "direct:start";
 
 
-    private CamelMainSupport cms;
+    private CamelKafkaConnectMain cms;
     private ProducerTemplate producer;
     private CamelSinkConnectorConfig config;
 
@@ -76,13 +74,6 @@ public class CamelSinkTask extends SinkTask {
             String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
             final String marshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF);
             final String unmarshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_UNMARSHAL_CONF);
-            List<CamelKafkaConnectDataformat> dataformats = new LinkedList<>();
-            if (unmarshaller != null) {
-                dataformats.add(new CamelKafkaConnectDataformat(unmarshaller, CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.UNMARSHALL));
-            }
-            if (marshaller != null) {
-                dataformats.add(new CamelKafkaConnectDataformat(marshaller, CamelKafkaConnectDataformat.CamelKafkaConnectDataformatKind.MARSHALL));
-            }
             final int size = config.getInt(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_SIZE_CONF);
             final long timeout = config.getLong(CamelSinkConnectorConfig.CAMEL_SINK_AGGREGATE_TIMEOUT_CONF);
 
@@ -95,9 +86,15 @@ public class CamelSinkTask extends SinkTask {
                                                 CAMEL_SINK_PATH_PROPERTIES_PREFIX);
             }
 
-            cms = new CamelMainSupport(actualProps, LOCAL_URL, remoteUrl, dataformats, size, timeout, camelContext);
+            cms = CamelKafkaConnectMain.builder(LOCAL_URL, remoteUrl)
+                .withProperties(actualProps)
+                .withUnmarshallDataFormat(unmarshaller)
+                .withMarshallDataFormat(marshaller)
+                .withAggregationSize(size)
+                .withAggregationTimeout(timeout)
+                .build(camelContext);
 
-            producer = cms.createProducerTemplate();
+            producer = cms.getProducerTemplate();
 
             cms.start();
             LOG.info("CamelSinkTask connector task started");
@@ -229,7 +226,7 @@ public class CamelSinkTask extends SinkTask {
         }
     }
 
-    public CamelMainSupport getCms() {
+    CamelKafkaConnectMain getCms() {
         return cms;
     }
 }
