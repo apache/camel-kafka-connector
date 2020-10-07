@@ -1,0 +1,222 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.quartz.CamelQuartzSourceConnector",
+		"artifactId": "camel-quartz-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-quartz-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.groupName": {
+			"name": "camel.source.path.groupName",
+			"description": "The quartz group name to use. The combination of group name and trigger name should be unique.",
+			"defaultValue": "\"Camel\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.path.triggerName": {
+			"name": "camel.source.path.triggerName",
+			"description": "The quartz trigger name to use. The combination of group name and trigger name should be unique.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.cron": {
+			"name": "camel.source.endpoint.cron",
+			"description": "Specifies a cron expression to define when to trigger.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.deleteJob": {
+			"name": "camel.source.endpoint.deleteJob",
+			"description": "If set to true, then the trigger automatically delete when route stop. Else if set to false, it will remain in scheduler. When set to false, it will also mean user may reuse pre-configured trigger with camel Uri. Just ensure the names match. Notice you cannot have both deleteJob and pauseJob set to true.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.durableJob": {
+			"name": "camel.source.endpoint.durableJob",
+			"description": "Whether or not the job should remain stored after it is orphaned (no triggers point to it).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pauseJob": {
+			"name": "camel.source.endpoint.pauseJob",
+			"description": "If set to true, then the trigger automatically pauses when route stop. Else if set to false, it will remain in scheduler. When set to false, it will also mean user may reuse pre-configured trigger with camel Uri. Just ensure the names match. Notice you cannot have both deleteJob and pauseJob set to true.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.recoverableJob": {
+			"name": "camel.source.endpoint.recoverableJob",
+			"description": "Instructs the scheduler whether or not the job should be re-executed if a 'recovery' or 'fail-over' situation is encountered.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.stateful": {
+			"name": "camel.source.endpoint.stateful",
+			"description": "Uses a Quartz PersistJobDataAfterExecution and DisallowConcurrentExecution instead of the default job.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.customCalendar": {
+			"name": "camel.source.endpoint.customCalendar",
+			"description": "Specifies a custom calendar to avoid specific range of date",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.jobParameters": {
+			"name": "camel.source.endpoint.jobParameters",
+			"description": "To configure additional options on the job.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.prefixJobNameWithEndpointId": {
+			"name": "camel.source.endpoint.prefixJobNameWithEndpointId",
+			"description": "Whether the job name should be prefixed with endpoint id",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.triggerParameters": {
+			"name": "camel.source.endpoint.triggerParameters",
+			"description": "To configure additional options on the trigger.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.usingFixedCamelContextName": {
+			"name": "camel.source.endpoint.usingFixedCamelContextName",
+			"description": "If it is true, JobDataMap uses the CamelContext name directly to reference the CamelContext, if it is false, JobDataMap uses use the CamelContext management name which could be changed during the deploy time.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.autoStartScheduler": {
+			"name": "camel.source.endpoint.autoStartScheduler",
+			"description": "Whether or not the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.fireNow": {
+			"name": "camel.source.endpoint.fireNow",
+			"description": "If it is true will fire the trigger when the route is start when using SimpleTrigger.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.startDelayedSeconds": {
+			"name": "camel.source.endpoint.startDelayedSeconds",
+			"description": "Seconds to wait before starting the quartz scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.triggerStartDelay": {
+			"name": "camel.source.endpoint.triggerStartDelay",
+			"description": "In case of scheduler has already started, we want the trigger start slightly after current time to ensure endpoint is fully started before the job kicks in.",
+			"defaultValue": "500L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.bridgeErrorHandler": {
+			"name": "camel.component.quartz.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.enableJmx": {
+			"name": "camel.component.quartz.enableJmx",
+			"description": "Whether to enable Quartz JMX which allows to manage the Quartz scheduler from JMX. This options is default true",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.prefixInstanceName": {
+			"name": "camel.component.quartz.prefixInstanceName",
+			"description": "Whether to prefix the Quartz Scheduler instance name with the CamelContext name. This is enabled by default, to let each CamelContext use its own Quartz scheduler instance by default. You can set this option to false to reuse Quartz scheduler instances between multiple CamelContext's.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.prefixJobNameWithEndpointId": {
+			"name": "camel.component.quartz.prefixJobNameWithEndpointId",
+			"description": "Whether to prefix the quartz job with the endpoint id. This option is default false.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.properties": {
+			"name": "camel.component.quartz.properties",
+			"description": "Properties to configure the Quartz scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.propertiesFile": {
+			"name": "camel.component.quartz.propertiesFile",
+			"description": "File name of the properties to load from the classpath",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.propertiesRef": {
+			"name": "camel.component.quartz.propertiesRef",
+			"description": "References to an existing Properties or Map to lookup in the registry to use for configuring quartz.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.basicPropertyBinding": {
+			"name": "camel.component.quartz.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.scheduler": {
+			"name": "camel.component.quartz.scheduler",
+			"description": "To use the custom configured Quartz scheduler, instead of creating a new Scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.schedulerFactory": {
+			"name": "camel.component.quartz.schedulerFactory",
+			"description": "To use the custom SchedulerFactory which is used to create the Scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.autoStartScheduler": {
+			"name": "camel.component.quartz.autoStartScheduler",
+			"description": "Whether or not the scheduler should be auto started. This options is default true",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.interruptJobsOnShutdown": {
+			"name": "camel.component.quartz.interruptJobsOnShutdown",
+			"description": "Whether to interrupt jobs on shutdown which forces the scheduler to shutdown quicker and attempt to interrupt any running jobs. If this is enabled then any running jobs can fail due to being interrupted.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.quartz.startDelayedSeconds": {
+			"name": "camel.component.quartz.startDelayedSeconds",
+			"description": "Seconds to wait before starting the quartz scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

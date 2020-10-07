@@ -1,0 +1,150 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.googledrive.CamelGoogledriveSinkConnector",
+		"artifactId": "camel-google-drive-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-google-drive-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.apiName": {
+			"name": "camel.sink.path.apiName",
+			"description": "What kind of operation to perform One of: [drive-about] [drive-apps] [drive-changes] [drive-channels] [drive-children] [drive-comments] [drive-files] [drive-parents] [drive-permissions] [drive-properties] [drive-realtime] [drive-replies] [drive-revisions]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.methodName": {
+			"name": "camel.sink.path.methodName",
+			"description": "What sub operation to use for the selected operation One of: [copy] [delete] [get] [getIdForEmail] [insert] [list] [patch] [stop] [touch] [trash] [untrash] [update] [watch]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.applicationName": {
+			"name": "camel.sink.endpoint.applicationName",
+			"description": "Google drive application name. Example would be camel-google-drive\/1.0",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientFactory": {
+			"name": "camel.sink.endpoint.clientFactory",
+			"description": "To use the GoogleCalendarClientFactory as factory for creating the client. Will by default use BatchGoogleDriveClientFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientId": {
+			"name": "camel.sink.endpoint.clientId",
+			"description": "Client ID of the drive application",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.inBody": {
+			"name": "camel.sink.endpoint.inBody",
+			"description": "Sets the name of a parameter to be passed in the exchange In Body",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.scopes": {
+			"name": "camel.sink.endpoint.scopes",
+			"description": "Specifies the level of permissions you want a drive application to have to a user account. See https:\/\/developers.google.com\/drive\/web\/scopes for more info.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accessToken": {
+			"name": "camel.sink.endpoint.accessToken",
+			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.clientSecret": {
+			"name": "camel.sink.endpoint.clientSecret",
+			"description": "Client secret of the drive application",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.refreshToken": {
+			"name": "camel.sink.endpoint.refreshToken",
+			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.applicationName": {
+			"name": "camel.component.google-drive.applicationName",
+			"description": "Google drive application name. Example would be camel-google-drive\/1.0",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.clientId": {
+			"name": "camel.component.google-drive.clientId",
+			"description": "Client ID of the drive application",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.configuration": {
+			"name": "camel.component.google-drive.configuration",
+			"description": "To use the shared configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.scopes": {
+			"name": "camel.component.google-drive.scopes",
+			"description": "Specifies the level of permissions you want a drive application to have to a user account. See https:\/\/developers.google.com\/drive\/web\/scopes for more info.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.lazyStartProducer": {
+			"name": "camel.component.google-drive.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.basicPropertyBinding": {
+			"name": "camel.component.google-drive.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.clientFactory": {
+			"name": "camel.component.google-drive.clientFactory",
+			"description": "To use the GoogleCalendarClientFactory as factory for creating the client. Will by default use BatchGoogleDriveClientFactory",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.accessToken": {
+			"name": "camel.component.google-drive.accessToken",
+			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.clientSecret": {
+			"name": "camel.component.google-drive.clientSecret",
+			"description": "Client secret of the drive application",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-drive.refreshToken": {
+			"name": "camel.component.google-drive.refreshToken",
+			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

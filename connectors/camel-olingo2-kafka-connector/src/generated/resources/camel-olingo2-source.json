@@ -1,0 +1,336 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.olingo2.CamelOlingo2SourceConnector",
+		"artifactId": "camel-olingo2-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-olingo2-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.apiName": {
+			"name": "camel.source.path.apiName",
+			"description": "What kind of operation to perform One of: [DEFAULT]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.methodName": {
+			"name": "camel.source.path.methodName",
+			"description": "What sub operation to use for the selected operation",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.connectTimeout": {
+			"name": "camel.source.endpoint.connectTimeout",
+			"description": "HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds)",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.contentType": {
+			"name": "camel.source.endpoint.contentType",
+			"description": "Content-Type header value can be used to specify JSON or XML message format, defaults to application\/json;charset=utf-8",
+			"defaultValue": "\"application\/json;charset=utf-8\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.entityProviderReadProperties": {
+			"name": "camel.source.endpoint.entityProviderReadProperties",
+			"description": "Custom entity provider read properties applied to all read operations.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.entityProviderWriteProperties": {
+			"name": "camel.source.endpoint.entityProviderWriteProperties",
+			"description": "Custom entity provider write properties applied to create, update, patch, batch and merge operations. For instance users can skip the Json object wrapper or enable content only mode when sending request data. A service URI set in the properties will always be overwritten by the serviceUri configuration parameter. Please consider to using the serviceUri configuration parameter instead of setting the respective write property here.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.filterAlreadySeen": {
+			"name": "camel.source.endpoint.filterAlreadySeen",
+			"description": "Set this to true to filter out results that have already been communicated by this component.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpHeaders": {
+			"name": "camel.source.endpoint.httpHeaders",
+			"description": "Custom HTTP headers to inject into every request, this could include OAuth tokens, etc.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.inBody": {
+			"name": "camel.source.endpoint.inBody",
+			"description": "Sets the name of a parameter to be passed in the exchange In Body",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.proxy": {
+			"name": "camel.source.endpoint.proxy",
+			"description": "HTTP proxy server configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.serviceUri": {
+			"name": "camel.source.endpoint.serviceUri",
+			"description": "Target OData service base URI, e.g. http:\/\/services.odata.org\/OData\/OData.svc",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.socketTimeout": {
+			"name": "camel.source.endpoint.socketTimeout",
+			"description": "HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds)",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
+			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
+			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.splitResult": {
+			"name": "camel.source.endpoint.splitResult",
+			"description": "For endpoints that return an array or collection, a consumer endpoint will map every element to distinct messages, unless splitResult is set to false.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pollStrategy": {
+			"name": "camel.source.endpoint.pollStrategy",
+			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpAsyncClientBuilder": {
+			"name": "camel.source.endpoint.httpAsyncClientBuilder",
+			"description": "Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpClientBuilder": {
+			"name": "camel.source.endpoint.httpClientBuilder",
+			"description": "Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffErrorThreshold": {
+			"name": "camel.source.endpoint.backoffErrorThreshold",
+			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffIdleThreshold": {
+			"name": "camel.source.endpoint.backoffIdleThreshold",
+			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffMultiplier": {
+			"name": "camel.source.endpoint.backoffMultiplier",
+			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Milliseconds before the next poll.",
+			"defaultValue": "500L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.greedy": {
+			"name": "camel.source.endpoint.greedy",
+			"description": "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Milliseconds before the first poll starts.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.repeatCount": {
+			"name": "camel.source.endpoint.repeatCount",
+			"description": "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.runLoggingLevel": {
+			"name": "camel.source.endpoint.runLoggingLevel",
+			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"TRACE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduledExecutorService": {
+			"name": "camel.source.endpoint.scheduledExecutorService",
+			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduler": {
+			"name": "camel.source.endpoint.scheduler",
+			"description": "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler",
+			"defaultValue": "\"none\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.schedulerProperties": {
+			"name": "camel.source.endpoint.schedulerProperties",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.startScheduler": {
+			"name": "camel.source.endpoint.startScheduler",
+			"description": "Whether the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeUnit": {
+			"name": "camel.source.endpoint.timeUnit",
+			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
+			"defaultValue": "\"MILLISECONDS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useFixedDelay": {
+			"name": "camel.source.endpoint.useFixedDelay",
+			"description": "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sslContextParameters": {
+			"name": "camel.source.endpoint.sslContextParameters",
+			"description": "To configure security using SSLContextParameters",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.configuration": {
+			"name": "camel.component.olingo2.configuration",
+			"description": "To use the shared configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.connectTimeout": {
+			"name": "camel.component.olingo2.connectTimeout",
+			"description": "HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds)",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.contentType": {
+			"name": "camel.component.olingo2.contentType",
+			"description": "Content-Type header value can be used to specify JSON or XML message format, defaults to application\/json;charset=utf-8",
+			"defaultValue": "\"application\/json;charset=utf-8\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.entityProviderReadProperties": {
+			"name": "camel.component.olingo2.entityProviderReadProperties",
+			"description": "Custom entity provider read properties applied to all read operations.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.entityProviderWriteProperties": {
+			"name": "camel.component.olingo2.entityProviderWriteProperties",
+			"description": "Custom entity provider write properties applied to create, update, patch, batch and merge operations. For instance users can skip the Json object wrapper or enable content only mode when sending request data. A service URI set in the properties will always be overwritten by the serviceUri configuration parameter. Please consider to using the serviceUri configuration parameter instead of setting the respective write property here.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.filterAlreadySeen": {
+			"name": "camel.component.olingo2.filterAlreadySeen",
+			"description": "Set this to true to filter out results that have already been communicated by this component.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.httpHeaders": {
+			"name": "camel.component.olingo2.httpHeaders",
+			"description": "Custom HTTP headers to inject into every request, this could include OAuth tokens, etc.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.proxy": {
+			"name": "camel.component.olingo2.proxy",
+			"description": "HTTP proxy server configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.serviceUri": {
+			"name": "camel.component.olingo2.serviceUri",
+			"description": "Target OData service base URI, e.g. http:\/\/services.odata.org\/OData\/OData.svc",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.socketTimeout": {
+			"name": "camel.component.olingo2.socketTimeout",
+			"description": "HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds)",
+			"defaultValue": "30000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.bridgeErrorHandler": {
+			"name": "camel.component.olingo2.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.splitResult": {
+			"name": "camel.component.olingo2.splitResult",
+			"description": "For endpoints that return an array or collection, a consumer endpoint will map every element to distinct messages, unless splitResult is set to false.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.basicPropertyBinding": {
+			"name": "camel.component.olingo2.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.httpAsyncClientBuilder": {
+			"name": "camel.component.olingo2.httpAsyncClientBuilder",
+			"description": "Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.httpClientBuilder": {
+			"name": "camel.component.olingo2.httpClientBuilder",
+			"description": "Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.sslContextParameters": {
+			"name": "camel.component.olingo2.sslContextParameters",
+			"description": "To configure security using SSLContextParameters",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.olingo2.useGlobalSslContextParameters": {
+			"name": "camel.component.olingo2.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,108 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.disruptor.CamelDisruptorSourceConnector",
+		"artifactId": "camel-disruptor-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-disruptor-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.name": {
+			"name": "camel.source.path.name",
+			"description": "Name of queue",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.size": {
+			"name": "camel.source.endpoint.size",
+			"description": "The maximum capacity of the Disruptors ringbuffer Will be effectively increased to the nearest power of two. Notice: Mind if you use this option, then its the first endpoint being created with the queue name, that determines the size. To make sure all endpoints use same size, then configure the size option on all of them, or the first endpoint being created.",
+			"defaultValue": "1024",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.concurrentConsumers": {
+			"name": "camel.source.endpoint.concurrentConsumers",
+			"description": "Number of concurrent threads processing exchanges.",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.multipleConsumers": {
+			"name": "camel.source.endpoint.multipleConsumers",
+			"description": "Specifies whether multiple consumers are allowed. If enabled, you can use Disruptor for Publish-Subscribe messaging. That is, you can send a message to the queue and have each consumer receive a copy of the message. When enabled, this option should be specified on every consumer endpoint.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.waitStrategy": {
+			"name": "camel.source.endpoint.waitStrategy",
+			"description": "Defines the strategy used by consumer threads to wait on new exchanges to be published. The options allowed are:Blocking, Sleeping, BusySpin and Yielding. One of: [Blocking] [Sleeping] [BusySpin] [Yielding]",
+			"defaultValue": "\"Blocking\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.disruptor.bufferSize": {
+			"name": "camel.component.disruptor.bufferSize",
+			"description": "To configure the ring buffer size",
+			"defaultValue": "1024",
+			"priority": "MEDIUM"
+		},
+		"camel.component.disruptor.bridgeErrorHandler": {
+			"name": "camel.component.disruptor.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.disruptor.defaultConcurrentConsumers": {
+			"name": "camel.component.disruptor.defaultConcurrentConsumers",
+			"description": "To configure the default number of concurrent consumers",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.component.disruptor.defaultMultipleConsumers": {
+			"name": "camel.component.disruptor.defaultMultipleConsumers",
+			"description": "To configure the default value for multiple consumers",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.disruptor.defaultWaitStrategy": {
+			"name": "camel.component.disruptor.defaultWaitStrategy",
+			"description": "To configure the default value for DisruptorWaitStrategy The default value is Blocking. One of: [Blocking] [Sleeping] [BusySpin] [Yielding]",
+			"defaultValue": "\"Blocking\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.disruptor.basicPropertyBinding": {
+			"name": "camel.component.disruptor.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

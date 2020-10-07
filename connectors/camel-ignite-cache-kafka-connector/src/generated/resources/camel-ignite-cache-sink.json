@@ -1,0 +1,102 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ignitecache.CamelIgnitecacheSinkConnector",
+		"artifactId": "camel-ignite-cache-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ignite-cache-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.cacheName": {
+			"name": "camel.sink.path.cacheName",
+			"description": "The cache name.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue": {
+			"name": "camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue",
+			"description": "Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.treatCollectionsAsCacheObjects": {
+			"name": "camel.sink.endpoint.treatCollectionsAsCacheObjects",
+			"description": "Sets whether to treat Collections as cache objects or as Collections of items to insert\/update\/compute, etc.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.query": {
+			"name": "camel.sink.endpoint.query",
+			"description": "The Query to execute, only needed for operations that require it, and for the Continuous Query Consumer.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cachePeekMode": {
+			"name": "camel.sink.endpoint.cachePeekMode",
+			"description": "The CachePeekMode, only needed for operations that require it (IgniteCacheOperation#SIZE). One of: [ALL] [NEAR] [PRIMARY] [BACKUP] [ONHEAP] [OFFHEAP]",
+			"defaultValue": "\"ALL\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.failIfInexistentCache": {
+			"name": "camel.sink.endpoint.failIfInexistentCache",
+			"description": "Whether to fail the initialization if the cache doesn't exist.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "The cache operation to invoke. Possible values: GET, PUT, REMOVE, SIZE, REBALANCE, QUERY, CLEAR. One of: [GET] [PUT] [REMOVE] [SIZE] [REBALANCE] [QUERY] [CLEAR]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ignite-cache.configurationResource": {
+			"name": "camel.component.ignite-cache.configurationResource",
+			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ignite-cache.ignite": {
+			"name": "camel.component.ignite-cache.ignite",
+			"description": "To use an existing Ignite instance.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ignite-cache.igniteConfiguration": {
+			"name": "camel.component.ignite-cache.igniteConfiguration",
+			"description": "Allows the user to set a programmatic ignite configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ignite-cache.lazyStartProducer": {
+			"name": "camel.component.ignite-cache.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ignite-cache.basicPropertyBinding": {
+			"name": "camel.component.ignite-cache.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,90 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.jgroupsraft.CamelJgroupsraftSourceConnector",
+		"artifactId": "camel-jgroups-raft-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-jgroups-raft-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.clusterName": {
+			"name": "camel.source.path.clusterName",
+			"description": "The name of the JGroupsraft cluster the component should connect to.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.enableRoleChangeEvents": {
+			"name": "camel.source.endpoint.enableRoleChangeEvents",
+			"description": "If set to true, the consumer endpoint will receive roleChange event as well (not just connecting and\/or using the state machine). By default it is set to false.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jgroups-raft.channelProperties": {
+			"name": "camel.component.jgroups-raft.channelProperties",
+			"description": "Specifies configuration properties of the RaftHandle JChannel used by the endpoint (ignored if raftHandle ref is provided).",
+			"defaultValue": "\"raft.xml\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jgroups-raft.raftHandle": {
+			"name": "camel.component.jgroups-raft.raftHandle",
+			"description": "RaftHandle to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jgroups-raft.raftId": {
+			"name": "camel.component.jgroups-raft.raftId",
+			"description": "Unique raftId to use.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.component.jgroups-raft.stateMachine": {
+			"name": "camel.component.jgroups-raft.stateMachine",
+			"description": "StateMachine to use.",
+			"defaultValue": "\"NopStateMachine\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jgroups-raft.bridgeErrorHandler": {
+			"name": "camel.component.jgroups-raft.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.jgroups-raft.basicPropertyBinding": {
+			"name": "camel.component.jgroups-raft.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

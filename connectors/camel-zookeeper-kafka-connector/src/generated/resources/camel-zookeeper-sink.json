@@ -1,0 +1,108 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.zookeeper.CamelZookeeperSinkConnector",
+		"artifactId": "camel-zookeeper-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-zookeeper-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.serverUrls": {
+			"name": "camel.sink.path.serverUrls",
+			"description": "The zookeeper server hosts (multiple servers can be separated by comma)",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.path": {
+			"name": "camel.sink.path.path",
+			"description": "The node in the ZooKeeper server (aka znode)",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.listChildren": {
+			"name": "camel.sink.endpoint.listChildren",
+			"description": "Whether the children of the node should be listed",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout": {
+			"name": "camel.sink.endpoint.timeout",
+			"description": "The time interval to wait on connection before timing out.",
+			"defaultValue": "5000",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.create": {
+			"name": "camel.sink.endpoint.create",
+			"description": "Should the endpoint create the node if it does not currently exist.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.createMode": {
+			"name": "camel.sink.endpoint.createMode",
+			"description": "The create mode that should be used for the newly created node One of: [PERSISTENT] [PERSISTENT_SEQUENTIAL] [EPHEMERAL] [EPHEMERAL_SEQUENTIAL]",
+			"defaultValue": "\"EPHEMERAL\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.zookeeper.listChildren": {
+			"name": "camel.component.zookeeper.listChildren",
+			"description": "Whether the children of the node should be listed",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.zookeeper.timeout": {
+			"name": "camel.component.zookeeper.timeout",
+			"description": "The time interval to wait on connection before timing out.",
+			"defaultValue": "5000",
+			"priority": "MEDIUM"
+		},
+		"camel.component.zookeeper.create": {
+			"name": "camel.component.zookeeper.create",
+			"description": "Should the endpoint create the node if it does not currently exist.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.zookeeper.createMode": {
+			"name": "camel.component.zookeeper.createMode",
+			"description": "The create mode that should be used for the newly created node One of: [PERSISTENT] [PERSISTENT_SEQUENTIAL] [EPHEMERAL] [EPHEMERAL_SEQUENTIAL]",
+			"defaultValue": "\"EPHEMERAL\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.zookeeper.lazyStartProducer": {
+			"name": "camel.component.zookeeper.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.zookeeper.basicPropertyBinding": {
+			"name": "camel.component.zookeeper.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.zookeeper.configuration": {
+			"name": "camel.component.zookeeper.configuration",
+			"description": "To use a shared ZooKeeperConfiguration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

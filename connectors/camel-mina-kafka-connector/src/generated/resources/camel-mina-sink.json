@@ -1,0 +1,312 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mina.CamelMinaSinkConnector",
+		"artifactId": "camel-mina-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mina-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.protocol": {
+			"name": "camel.sink.path.protocol",
+			"description": "Protocol to use",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.host": {
+			"name": "camel.sink.path.host",
+			"description": "Hostname to use. Use localhost or 0.0.0.0 for local server as consumer. For producer use the hostname or ip address of the remote server.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.port": {
+			"name": "camel.sink.path.port",
+			"description": "Port number",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.disconnect": {
+			"name": "camel.sink.endpoint.disconnect",
+			"description": "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.minaLogger": {
+			"name": "camel.sink.endpoint.minaLogger",
+			"description": "You can enable the Apache MINA logging filter. Apache MINA uses slf4j logging at INFO level to log all input and output.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sync": {
+			"name": "camel.sink.endpoint.sync",
+			"description": "Setting to set endpoint as one-way or request-response.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout": {
+			"name": "camel.sink.endpoint.timeout",
+			"description": "You can configure the timeout that specifies how long to wait for a response from a remote server. The timeout unit is in milliseconds, so 60000 is 60 seconds.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.writeTimeout": {
+			"name": "camel.sink.endpoint.writeTimeout",
+			"description": "Maximum amount of time it should take to send data to the MINA session. Default is 10000 milliseconds.",
+			"defaultValue": "10000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.cachedAddress": {
+			"name": "camel.sink.endpoint.cachedAddress",
+			"description": "Whether to create the InetAddress once and reuse. Setting this to false allows to pickup DNS changes in the network.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazySessionCreation": {
+			"name": "camel.sink.endpoint.lazySessionCreation",
+			"description": "Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maximumPoolSize": {
+			"name": "camel.sink.endpoint.maximumPoolSize",
+			"description": "Number of worker threads in the worker pool for TCP and UDP",
+			"defaultValue": "16",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.orderedThreadPoolExecutor": {
+			"name": "camel.sink.endpoint.orderedThreadPoolExecutor",
+			"description": "Whether to use ordered thread pool, to ensure events are processed orderly on the same channel.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.transferExchange": {
+			"name": "camel.sink.endpoint.transferExchange",
+			"description": "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.allowDefaultCodec": {
+			"name": "camel.sink.endpoint.allowDefaultCodec",
+			"description": "The mina component installs a default codec if both, codec is null and textline is false. Setting allowDefaultCodec to false prevents the mina component from installing a default codec as the first element in the filter chain. This is useful in scenarios where another filter must be the first in the filter chain, like the SSL filter.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.codec": {
+			"name": "camel.sink.endpoint.codec",
+			"description": "To use a custom minda codec implementation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.decoderMaxLineLength": {
+			"name": "camel.sink.endpoint.decoderMaxLineLength",
+			"description": "To set the textline protocol decoder max line length. By default the default value of Mina itself is used which are 1024.",
+			"defaultValue": "1024",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.encoderMaxLineLength": {
+			"name": "camel.sink.endpoint.encoderMaxLineLength",
+			"description": "To set the textline protocol encoder max line length. By default the default value of Mina itself is used which are Integer.MAX_VALUE.",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.encoding": {
+			"name": "camel.sink.endpoint.encoding",
+			"description": "You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.filters": {
+			"name": "camel.sink.endpoint.filters",
+			"description": "You can set a list of Mina IoFilters to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.textline": {
+			"name": "camel.sink.endpoint.textline",
+			"description": "Only used for TCP. If no codec is specified, you can use this flag to indicate a text line based codec; if not specified or the value is false, then Object Serialization is assumed over TCP.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.textlineDelimiter": {
+			"name": "camel.sink.endpoint.textlineDelimiter",
+			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.autoStartTls": {
+			"name": "camel.sink.endpoint.autoStartTls",
+			"description": "Whether to auto start SSL handshake.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sslContextParameters": {
+			"name": "camel.sink.endpoint.sslContextParameters",
+			"description": "To configure SSL security.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.disconnect": {
+			"name": "camel.component.mina.disconnect",
+			"description": "Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.minaLogger": {
+			"name": "camel.component.mina.minaLogger",
+			"description": "You can enable the Apache MINA logging filter. Apache MINA uses slf4j logging at INFO level to log all input and output.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.sync": {
+			"name": "camel.component.mina.sync",
+			"description": "Setting to set endpoint as one-way or request-response.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.timeout": {
+			"name": "camel.component.mina.timeout",
+			"description": "You can configure the timeout that specifies how long to wait for a response from a remote server. The timeout unit is in milliseconds, so 60000 is 60 seconds.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.writeTimeout": {
+			"name": "camel.component.mina.writeTimeout",
+			"description": "Maximum amount of time it should take to send data to the MINA session. Default is 10000 milliseconds.",
+			"defaultValue": "10000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.lazyStartProducer": {
+			"name": "camel.component.mina.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.cachedAddress": {
+			"name": "camel.component.mina.cachedAddress",
+			"description": "Whether to create the InetAddress once and reuse. Setting this to false allows to pickup DNS changes in the network.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.lazySessionCreation": {
+			"name": "camel.component.mina.lazySessionCreation",
+			"description": "Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.basicPropertyBinding": {
+			"name": "camel.component.mina.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.configuration": {
+			"name": "camel.component.mina.configuration",
+			"description": "To use the shared mina configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.maximumPoolSize": {
+			"name": "camel.component.mina.maximumPoolSize",
+			"description": "Number of worker threads in the worker pool for TCP and UDP",
+			"defaultValue": "16",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.orderedThreadPoolExecutor": {
+			"name": "camel.component.mina.orderedThreadPoolExecutor",
+			"description": "Whether to use ordered thread pool, to ensure events are processed orderly on the same channel.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.transferExchange": {
+			"name": "camel.component.mina.transferExchange",
+			"description": "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.allowDefaultCodec": {
+			"name": "camel.component.mina.allowDefaultCodec",
+			"description": "The mina component installs a default codec if both, codec is null and textline is false. Setting allowDefaultCodec to false prevents the mina component from installing a default codec as the first element in the filter chain. This is useful in scenarios where another filter must be the first in the filter chain, like the SSL filter.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.codec": {
+			"name": "camel.component.mina.codec",
+			"description": "To use a custom minda codec implementation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.decoderMaxLineLength": {
+			"name": "camel.component.mina.decoderMaxLineLength",
+			"description": "To set the textline protocol decoder max line length. By default the default value of Mina itself is used which are 1024.",
+			"defaultValue": "1024",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.encoderMaxLineLength": {
+			"name": "camel.component.mina.encoderMaxLineLength",
+			"description": "To set the textline protocol encoder max line length. By default the default value of Mina itself is used which are Integer.MAX_VALUE.",
+			"defaultValue": "-1",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.encoding": {
+			"name": "camel.component.mina.encoding",
+			"description": "You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.filters": {
+			"name": "camel.component.mina.filters",
+			"description": "You can set a list of Mina IoFilters to use.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.textline": {
+			"name": "camel.component.mina.textline",
+			"description": "Only used for TCP. If no codec is specified, you can use this flag to indicate a text line based codec; if not specified or the value is false, then Object Serialization is assumed over TCP.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.textlineDelimiter": {
+			"name": "camel.component.mina.textlineDelimiter",
+			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.autoStartTls": {
+			"name": "camel.component.mina.autoStartTls",
+			"description": "Whether to auto start SSL handshake.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.sslContextParameters": {
+			"name": "camel.component.mina.sslContextParameters",
+			"description": "To configure SSL security.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mina.useGlobalSslContextParameters": {
+			"name": "camel.component.mina.useGlobalSslContextParameters",
+			"description": "Enable usage of global SSL context parameters.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

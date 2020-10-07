@@ -1,0 +1,126 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.webhook.CamelWebhookSourceConnector",
+		"artifactId": "camel-webhook-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-webhook-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.endpointUri": {
+			"name": "camel.source.path.endpointUri",
+			"description": "The delegate uri. Must belong to a component that supports webhooks.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.webhookAutoRegister": {
+			"name": "camel.source.endpoint.webhookAutoRegister",
+			"description": "Automatically register the webhook at startup and unregister it on shutdown.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.webhookBasePath": {
+			"name": "camel.source.endpoint.webhookBasePath",
+			"description": "The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.webhookComponentName": {
+			"name": "camel.source.endpoint.webhookComponentName",
+			"description": "The Camel Rest component to use for the REST transport, such as netty-http.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.webhookExternalUrl": {
+			"name": "camel.source.endpoint.webhookExternalUrl",
+			"description": "The URL of the current service as seen by the webhook provider",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.webhookPath": {
+			"name": "camel.source.endpoint.webhookPath",
+			"description": "The path where the webhook endpoint will be exposed (relative to basePath, if any)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.webhook.bridgeErrorHandler": {
+			"name": "camel.component.webhook.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.webhook.webhookAutoRegister": {
+			"name": "camel.component.webhook.webhookAutoRegister",
+			"description": "Automatically register the webhook at startup and unregister it on shutdown.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.webhook.webhookBasePath": {
+			"name": "camel.component.webhook.webhookBasePath",
+			"description": "The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.webhook.webhookComponentName": {
+			"name": "camel.component.webhook.webhookComponentName",
+			"description": "The Camel Rest component to use for the REST transport, such as netty-http.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.webhook.webhookExternalUrl": {
+			"name": "camel.component.webhook.webhookExternalUrl",
+			"description": "The URL of the current service as seen by the webhook provider",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.webhook.webhookPath": {
+			"name": "camel.component.webhook.webhookPath",
+			"description": "The path where the webhook endpoint will be exposed (relative to basePath, if any)",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.webhook.basicPropertyBinding": {
+			"name": "camel.component.webhook.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.webhook.configuration": {
+			"name": "camel.component.webhook.configuration",
+			"description": "Set the default configuration for the webhook meta-component.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}
