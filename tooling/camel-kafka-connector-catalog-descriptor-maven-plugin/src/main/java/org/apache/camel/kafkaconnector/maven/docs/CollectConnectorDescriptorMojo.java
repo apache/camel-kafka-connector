@@ -36,7 +36,7 @@ import org.apache.maven.project.MavenProject;
  * Updates connector.properties file
  */
 @Mojo(name = "list-descriptor-files", threadSafe = true)
-public class UpdateDocComponentsListMojo extends AbstractMojo {
+public class CollectConnectorDescriptorMojo extends AbstractMojo {
 
     /**
      * The maven project.
