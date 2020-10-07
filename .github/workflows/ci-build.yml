@@ -15,12 +15,15 @@
 # limitations under the License.
 #
 
-name: master pr build
+name: Camel Kafka Connect CI
 
 env:
   MAVEN_ARGS: -V -ntp
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
