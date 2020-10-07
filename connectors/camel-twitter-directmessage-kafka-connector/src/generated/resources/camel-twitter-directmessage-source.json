@@ -1,0 +1,336 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.twitterdirectmessage.CamelTwitterdirectmessageSourceConnector",
+		"artifactId": "camel-twitter-directmessage-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-twitter-directmessage-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.user": {
+			"name": "camel.source.path.user",
+			"description": "The user name to send a direct message. This will be ignored for consumer.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
+			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
+			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.type": {
+			"name": "camel.source.endpoint.type",
+			"description": "Endpoint type to use. One of: [polling] [direct]",
+			"defaultValue": "\"polling\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.distanceMetric": {
+			"name": "camel.source.endpoint.distanceMetric",
+			"description": "Used by the geography search, to search by radius using the configured metrics. The unit can either be mi for miles, or km for kilometers. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. One of: [km] [mi]",
+			"defaultValue": "\"km\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.extendedMode": {
+			"name": "camel.source.endpoint.extendedMode",
+			"description": "Used for enabling full text from twitter (eg receive tweets that contains more than 140 characters).",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.latitude": {
+			"name": "camel.source.endpoint.latitude",
+			"description": "Used by the geography search to search by latitude. You need to configure all the following options: longitude, latitude, radius, and distanceMetric.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.locations": {
+			"name": "camel.source.endpoint.locations",
+			"description": "Bounding boxes, created by pairs of lat\/lons. Can be used for filter. A pair is defined as lat,lon. And multiple paris can be separated by semi colon.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.longitude": {
+			"name": "camel.source.endpoint.longitude",
+			"description": "Used by the geography search to search by longitude. You need to configure all the following options: longitude, latitude, radius, and distanceMetric.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pollStrategy": {
+			"name": "camel.source.endpoint.pollStrategy",
+			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.radius": {
+			"name": "camel.source.endpoint.radius",
+			"description": "Used by the geography search to search by radius. You need to configure all the following options: longitude, latitude, radius, and distanceMetric.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.count": {
+			"name": "camel.source.endpoint.count",
+			"description": "Limiting number of results per page.",
+			"defaultValue": "\"5\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.filterOld": {
+			"name": "camel.source.endpoint.filterOld",
+			"description": "Filter out old tweets, that has previously been polled. This state is stored in memory only, and based on last tweet id.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.lang": {
+			"name": "camel.source.endpoint.lang",
+			"description": "The lang string ISO_639-1 which will be used for searching",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.numberOfPages": {
+			"name": "camel.source.endpoint.numberOfPages",
+			"description": "The number of pages result which you want camel-twitter to consume.",
+			"defaultValue": "\"1\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sinceId": {
+			"name": "camel.source.endpoint.sinceId",
+			"description": "The last tweet id which will be used for pulling the tweets. It is useful when the camel route is restarted after a long running.",
+			"defaultValue": "1L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.userIds": {
+			"name": "camel.source.endpoint.userIds",
+			"description": "To filter by user ids for filter. Multiple values can be separated by comma.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpProxyHost": {
+			"name": "camel.source.endpoint.httpProxyHost",
+			"description": "The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpProxyPassword": {
+			"name": "camel.source.endpoint.httpProxyPassword",
+			"description": "The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpProxyPort": {
+			"name": "camel.source.endpoint.httpProxyPort",
+			"description": "The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.httpProxyUser": {
+			"name": "camel.source.endpoint.httpProxyUser",
+			"description": "The http proxy user which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffErrorThreshold": {
+			"name": "camel.source.endpoint.backoffErrorThreshold",
+			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffIdleThreshold": {
+			"name": "camel.source.endpoint.backoffIdleThreshold",
+			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffMultiplier": {
+			"name": "camel.source.endpoint.backoffMultiplier",
+			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Milliseconds before the next poll.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.greedy": {
+			"name": "camel.source.endpoint.greedy",
+			"description": "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Milliseconds before the first poll starts.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.repeatCount": {
+			"name": "camel.source.endpoint.repeatCount",
+			"description": "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.runLoggingLevel": {
+			"name": "camel.source.endpoint.runLoggingLevel",
+			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"TRACE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduledExecutorService": {
+			"name": "camel.source.endpoint.scheduledExecutorService",
+			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduler": {
+			"name": "camel.source.endpoint.scheduler",
+			"description": "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler",
+			"defaultValue": "\"none\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.schedulerProperties": {
+			"name": "camel.source.endpoint.schedulerProperties",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.startScheduler": {
+			"name": "camel.source.endpoint.startScheduler",
+			"description": "Whether the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeUnit": {
+			"name": "camel.source.endpoint.timeUnit",
+			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
+			"defaultValue": "\"MILLISECONDS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useFixedDelay": {
+			"name": "camel.source.endpoint.useFixedDelay",
+			"description": "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.accessToken": {
+			"name": "camel.source.endpoint.accessToken",
+			"description": "The access token. Can also be configured on the TwitterComponent level instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.accessTokenSecret": {
+			"name": "camel.source.endpoint.accessTokenSecret",
+			"description": "The access secret. Can also be configured on the TwitterComponent level instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.consumerKey": {
+			"name": "camel.source.endpoint.consumerKey",
+			"description": "The consumer key. Can also be configured on the TwitterComponent level instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.consumerSecret": {
+			"name": "camel.source.endpoint.consumerSecret",
+			"description": "The consumer secret. Can also be configured on the TwitterComponent level instead.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sortById": {
+			"name": "camel.source.endpoint.sortById",
+			"description": "Sorts by id, so the oldest are first, and newest last.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.bridgeErrorHandler": {
+			"name": "camel.component.twitter-directmessage.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.basicPropertyBinding": {
+			"name": "camel.component.twitter-directmessage.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.httpProxyHost": {
+			"name": "camel.component.twitter-directmessage.httpProxyHost",
+			"description": "The http proxy host which can be used for the camel-twitter.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.httpProxyPassword": {
+			"name": "camel.component.twitter-directmessage.httpProxyPassword",
+			"description": "The http proxy password which can be used for the camel-twitter.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.httpProxyPort": {
+			"name": "camel.component.twitter-directmessage.httpProxyPort",
+			"description": "The http proxy port which can be used for the camel-twitter.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.httpProxyUser": {
+			"name": "camel.component.twitter-directmessage.httpProxyUser",
+			"description": "The http proxy user which can be used for the camel-twitter.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.accessToken": {
+			"name": "camel.component.twitter-directmessage.accessToken",
+			"description": "The access token",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.accessTokenSecret": {
+			"name": "camel.component.twitter-directmessage.accessTokenSecret",
+			"description": "The access token secret",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.consumerKey": {
+			"name": "camel.component.twitter-directmessage.consumerKey",
+			"description": "The consumer key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.twitter-directmessage.consumerSecret": {
+			"name": "camel.component.twitter-directmessage.consumerSecret",
+			"description": "The consumer secret",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

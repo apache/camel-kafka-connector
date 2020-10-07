@@ -1,0 +1,126 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.mongodbgridfs.CamelMongodbgridfsSourceConnector",
+		"artifactId": "camel-mongodb-gridfs-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-mongodb-gridfs-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.connectionBean": {
+			"name": "camel.source.path.connectionBean",
+			"description": "Name of com.mongodb.client.MongoClient to use.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.bucket": {
+			"name": "camel.source.endpoint.bucket",
+			"description": "Sets the name of the GridFS bucket within the database. Default is fs.",
+			"defaultValue": "\"fs\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.database": {
+			"name": "camel.source.endpoint.database",
+			"description": "Sets the name of the MongoDB database to target",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.endpoint.readPreference": {
+			"name": "camel.source.endpoint.readPreference",
+			"description": "Sets a MongoDB ReadPreference on the Mongo connection. Read preferences set directly on the connection will be overridden by this setting. The com.mongodb.ReadPreference#valueOf(String) utility method is used to resolve the passed readPreference value. Some examples for the possible values are nearest, primary or secondary etc.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.writeConcern": {
+			"name": "camel.source.endpoint.writeConcern",
+			"description": "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Sets the delay between polls within the Consumer. Default is 500ms",
+			"defaultValue": "500L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.fileAttributeName": {
+			"name": "camel.source.endpoint.fileAttributeName",
+			"description": "If the QueryType uses a FileAttribute, this sets the name of the attribute that is used. Default is camel-processed.",
+			"defaultValue": "\"camel-processed\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Sets the initialDelay before the consumer will start polling. Default is 1000ms",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.persistentTSCollection": {
+			"name": "camel.source.endpoint.persistentTSCollection",
+			"description": "If the QueryType uses a persistent timestamp, this sets the name of the collection within the DB to store the timestamp.",
+			"defaultValue": "\"camel-timestamps\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.persistentTSObject": {
+			"name": "camel.source.endpoint.persistentTSObject",
+			"description": "If the QueryType uses a persistent timestamp, this is the ID of the object in the collection to store the timestamp.",
+			"defaultValue": "\"camel-timestamp\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.query": {
+			"name": "camel.source.endpoint.query",
+			"description": "Additional query parameters (in JSON) that are used to configure the query used for finding files in the GridFsConsumer",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.queryStrategy": {
+			"name": "camel.source.endpoint.queryStrategy",
+			"description": "Sets the QueryStrategy that is used for polling for new files. Default is Timestamp One of: [TimeStamp] [PersistentTimestamp] [FileAttribute] [TimeStampAndFileAttribute] [PersistentTimestampAndFileAttribute]",
+			"defaultValue": "\"TimeStamp\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mongodb-gridfs.bridgeErrorHandler": {
+			"name": "camel.component.mongodb-gridfs.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.mongodb-gridfs.basicPropertyBinding": {
+			"name": "camel.component.mongodb-gridfs.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,342 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestorageblob.CamelAzurestorageblobSinkConnector",
+		"artifactId": "camel-azure-storage-blob-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-blob-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.accountName": {
+			"name": "camel.sink.path.accountName",
+			"description": "Azure account name to be used for authentication with azure blob services",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.path.containerName": {
+			"name": "camel.sink.path.containerName",
+			"description": "The blob container name",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.autoDiscoverClient": {
+			"name": "camel.sink.endpoint.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.blobName": {
+			"name": "camel.sink.endpoint.blobName",
+			"description": "The blob name, required for consumer. However on producer, is only required for the operations on the blob level",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.blobOffset": {
+			"name": "camel.sink.endpoint.blobOffset",
+			"description": "Set the blob offset for the upload or download operations, default is 0",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.blobServiceClient": {
+			"name": "camel.sink.endpoint.blobServiceClient",
+			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.blobType": {
+			"name": "camel.sink.endpoint.blobType",
+			"description": "The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob]",
+			"defaultValue": "\"blockblob\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.closeStreamAfterRead": {
+			"name": "camel.sink.endpoint.closeStreamAfterRead",
+			"description": "Close the stream after read or keep it open, default is true",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.credentials": {
+			"name": "camel.sink.endpoint.credentials",
+			"description": "StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.dataCount": {
+			"name": "camel.sink.endpoint.dataCount",
+			"description": "How many bytes to include in the range. Must be greater than or equal to 0 if specified.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.fileDir": {
+			"name": "camel.sink.endpoint.fileDir",
+			"description": "The file directory where the downloaded blobs will be saved to, this can be used in both, producer and consumer",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxResultsPerPage": {
+			"name": "camel.sink.endpoint.maxResultsPerPage",
+			"description": "Specifies the maximum number of blobs to return, including all BlobPrefix elements. If the request does not specify maxResultsPerPage or specifies a value greater than 5,000, the server will return up to 5,000 items.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.maxRetryRequests": {
+			"name": "camel.sink.endpoint.maxRetryRequests",
+			"description": "Specifies the maximum number of additional HTTP Get requests that will be made while reading the data from a response body.",
+			"defaultValue": "0",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.prefix": {
+			"name": "camel.sink.endpoint.prefix",
+			"description": "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serviceClient": {
+			"name": "camel.sink.endpoint.serviceClient",
+			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout": {
+			"name": "camel.sink.endpoint.timeout",
+			"description": "An optional timeout value beyond which a RuntimeException will be raised.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.blobSequenceNumber": {
+			"name": "camel.sink.endpoint.blobSequenceNumber",
+			"description": "A user-controlled value that you can use to track requests. The value of the sequence number must be between 0 and 263 - 1.The default value is 0.",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.blockListType": {
+			"name": "camel.sink.endpoint.blockListType",
+			"description": "Specifies which type of blocks to return. One of: [committed] [uncommitted] [all]",
+			"defaultValue": "\"COMMITTED\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.closeStreamAfterWrite": {
+			"name": "camel.sink.endpoint.closeStreamAfterWrite",
+			"description": "Close the stream after write or keep it open, default is true",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.commitBlockListLater": {
+			"name": "camel.sink.endpoint.commitBlockListLater",
+			"description": "When is set to true, the staged blocks will not be committed directly.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.createAppendBlob": {
+			"name": "camel.sink.endpoint.createAppendBlob",
+			"description": "When is set to true, the append blocks will be created when committing append blocks.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.createPageBlob": {
+			"name": "camel.sink.endpoint.createPageBlob",
+			"description": "When is set to true, the page blob will be created when uploading page blob.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.downloadLinkExpiration": {
+			"name": "camel.sink.endpoint.downloadLinkExpiration",
+			"description": "Override the default expiration (millis) of URL download link.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges]",
+			"defaultValue": "\"listBlobContainers\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.pageBlobSize": {
+			"name": "camel.sink.endpoint.pageBlobSize",
+			"description": "Specifies the maximum size for the page blob, up to 8 TB. The page blob size must be aligned to a 512-byte boundary.",
+			"defaultValue": "\"512\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accessKey": {
+			"name": "camel.sink.endpoint.accessKey",
+			"description": "Access key for the associated azure account name to be used for authentication with azure blob services",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.autoDiscoverClient": {
+			"name": "camel.component.azure-storage-blob.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.blobName": {
+			"name": "camel.component.azure-storage-blob.blobName",
+			"description": "The blob name, required for consumer. However on producer, is only required for the operations on the blob level",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.blobOffset": {
+			"name": "camel.component.azure-storage-blob.blobOffset",
+			"description": "Set the blob offset for the upload or download operations, default is 0",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.blobType": {
+			"name": "camel.component.azure-storage-blob.blobType",
+			"description": "The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob]",
+			"defaultValue": "\"blockblob\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.closeStreamAfterRead": {
+			"name": "camel.component.azure-storage-blob.closeStreamAfterRead",
+			"description": "Close the stream after read or keep it open, default is true",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.configuration": {
+			"name": "camel.component.azure-storage-blob.configuration",
+			"description": "The component configurations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.credentials": {
+			"name": "camel.component.azure-storage-blob.credentials",
+			"description": "StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.dataCount": {
+			"name": "camel.component.azure-storage-blob.dataCount",
+			"description": "How many bytes to include in the range. Must be greater than or equal to 0 if specified.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.fileDir": {
+			"name": "camel.component.azure-storage-blob.fileDir",
+			"description": "The file directory where the downloaded blobs will be saved to, this can be used in both, producer and consumer",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.maxResultsPerPage": {
+			"name": "camel.component.azure-storage-blob.maxResultsPerPage",
+			"description": "Specifies the maximum number of blobs to return, including all BlobPrefix elements. If the request does not specify maxResultsPerPage or specifies a value greater than 5,000, the server will return up to 5,000 items.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.maxRetryRequests": {
+			"name": "camel.component.azure-storage-blob.maxRetryRequests",
+			"description": "Specifies the maximum number of additional HTTP Get requests that will be made while reading the data from a response body.",
+			"defaultValue": "0",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.prefix": {
+			"name": "camel.component.azure-storage-blob.prefix",
+			"description": "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.serviceClient": {
+			"name": "camel.component.azure-storage-blob.serviceClient",
+			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.timeout": {
+			"name": "camel.component.azure-storage-blob.timeout",
+			"description": "An optional timeout value beyond which a RuntimeException will be raised.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.blobSequenceNumber": {
+			"name": "camel.component.azure-storage-blob.blobSequenceNumber",
+			"description": "A user-controlled value that you can use to track requests. The value of the sequence number must be between 0 and 263 - 1.The default value is 0.",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.blockListType": {
+			"name": "camel.component.azure-storage-blob.blockListType",
+			"description": "Specifies which type of blocks to return. One of: [committed] [uncommitted] [all]",
+			"defaultValue": "\"COMMITTED\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.closeStreamAfterWrite": {
+			"name": "camel.component.azure-storage-blob.closeStreamAfterWrite",
+			"description": "Close the stream after write or keep it open, default is true",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.commitBlockListLater": {
+			"name": "camel.component.azure-storage-blob.commitBlockListLater",
+			"description": "When is set to true, the staged blocks will not be committed directly.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.createAppendBlob": {
+			"name": "camel.component.azure-storage-blob.createAppendBlob",
+			"description": "When is set to true, the append blocks will be created when committing append blocks.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.createPageBlob": {
+			"name": "camel.component.azure-storage-blob.createPageBlob",
+			"description": "When is set to true, the page blob will be created when uploading page blob.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.downloadLinkExpiration": {
+			"name": "camel.component.azure-storage-blob.downloadLinkExpiration",
+			"description": "Override the default expiration (millis) of URL download link.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.lazyStartProducer": {
+			"name": "camel.component.azure-storage-blob.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.operation": {
+			"name": "camel.component.azure-storage-blob.operation",
+			"description": "The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges]",
+			"defaultValue": "\"listBlobContainers\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.pageBlobSize": {
+			"name": "camel.component.azure-storage-blob.pageBlobSize",
+			"description": "Specifies the maximum size for the page blob, up to 8 TB. The page blob size must be aligned to a 512-byte boundary.",
+			"defaultValue": "\"512\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.basicPropertyBinding": {
+			"name": "camel.component.azure-storage-blob.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.accessKey": {
+			"name": "camel.component.azure-storage-blob.accessKey",
+			"description": "Access key for the associated azure account name to be used for authentication with azure blob services",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

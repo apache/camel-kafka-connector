@@ -1,0 +1,198 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.atomixqueue.CamelAtomixqueueSinkConnector",
+		"artifactId": "camel-atomix-queue-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-atomix-queue-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.resourceName": {
+			"name": "camel.sink.path.resourceName",
+			"description": "The distributed resource name",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.atomix": {
+			"name": "camel.sink.endpoint.atomix",
+			"description": "The Atomix instance to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.configurationUri": {
+			"name": "camel.sink.endpoint.configurationUri",
+			"description": "The Atomix configuration uri.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.defaultAction": {
+			"name": "camel.sink.endpoint.defaultAction",
+			"description": "The default action. One of: [ADD] [OFFER] [PEEK] [POLL] [CLEAR] [CONTAINS] [IS_EMPTY] [REMOVE] [SIZE]",
+			"defaultValue": "\"ADD\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.nodes": {
+			"name": "camel.sink.endpoint.nodes",
+			"description": "The address of the nodes composing the cluster.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.resultHeader": {
+			"name": "camel.sink.endpoint.resultHeader",
+			"description": "The header that wil carry the result.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.transportClassName": {
+			"name": "camel.sink.endpoint.transportClassName",
+			"description": "The class name (fqn) of the Atomix transport",
+			"defaultValue": "\"io.atomix.catalyst.transport.netty.NettyTransport\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.defaultResourceConfig": {
+			"name": "camel.sink.endpoint.defaultResourceConfig",
+			"description": "The cluster wide default resource configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.defaultResourceOptions": {
+			"name": "camel.sink.endpoint.defaultResourceOptions",
+			"description": "The local default resource options.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ephemeral": {
+			"name": "camel.sink.endpoint.ephemeral",
+			"description": "Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.readConsistency": {
+			"name": "camel.sink.endpoint.readConsistency",
+			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.resourceConfigs": {
+			"name": "camel.sink.endpoint.resourceConfigs",
+			"description": "Cluster wide resources configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.resourceOptions": {
+			"name": "camel.sink.endpoint.resourceOptions",
+			"description": "Local resources configurations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.atomix": {
+			"name": "camel.component.atomix-queue.atomix",
+			"description": "The Atomix instance to use",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.configuration": {
+			"name": "camel.component.atomix-queue.configuration",
+			"description": "The shared component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.configurationUri": {
+			"name": "camel.component.atomix-queue.configurationUri",
+			"description": "The path to the AtomixClient configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.defaultAction": {
+			"name": "camel.component.atomix-queue.defaultAction",
+			"description": "The default action. One of: [ADD] [OFFER] [PEEK] [POLL] [CLEAR] [CONTAINS] [IS_EMPTY] [REMOVE] [SIZE]",
+			"defaultValue": "\"ADD\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.nodes": {
+			"name": "camel.component.atomix-queue.nodes",
+			"description": "The nodes the AtomixClient should connect to",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.resultHeader": {
+			"name": "camel.component.atomix-queue.resultHeader",
+			"description": "The header that wil carry the result.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.transportClassName": {
+			"name": "camel.component.atomix-queue.transportClassName",
+			"description": "The class name (fqn) of the Atomix transport",
+			"defaultValue": "\"io.atomix.catalyst.transport.netty.NettyTransport\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.lazyStartProducer": {
+			"name": "camel.component.atomix-queue.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.basicPropertyBinding": {
+			"name": "camel.component.atomix-queue.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.defaultResourceConfig": {
+			"name": "camel.component.atomix-queue.defaultResourceConfig",
+			"description": "The cluster wide default resource configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.defaultResourceOptions": {
+			"name": "camel.component.atomix-queue.defaultResourceOptions",
+			"description": "The local default resource options.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.ephemeral": {
+			"name": "camel.component.atomix-queue.ephemeral",
+			"description": "Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.readConsistency": {
+			"name": "camel.component.atomix-queue.readConsistency",
+			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.resourceConfigs": {
+			"name": "camel.component.atomix-queue.resourceConfigs",
+			"description": "Cluster wide resources configuration.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atomix-queue.resourceOptions": {
+			"name": "camel.component.atomix-queue.resourceOptions",
+			"description": "Local resources configurations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

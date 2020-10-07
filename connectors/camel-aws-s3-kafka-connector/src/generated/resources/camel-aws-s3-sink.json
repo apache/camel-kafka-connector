@@ -1,0 +1,402 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awss3.CamelAwss3SinkConnector",
+		"artifactId": "camel-aws-s3-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-s3-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.bucketNameOrArn": {
+			"name": "camel.sink.path.bucketNameOrArn",
+			"description": "Bucket name or ARN",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.amazonS3Client": {
+			"name": "camel.sink.endpoint.amazonS3Client",
+			"description": "Reference to a com.amazonaws.services.s3.AmazonS3 in the registry.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.autoCreateBucket": {
+			"name": "camel.sink.endpoint.autoCreateBucket",
+			"description": "Setting the autocreation of the bucket",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.autoDiscoverClient": {
+			"name": "camel.sink.endpoint.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.endpointConfiguration": {
+			"name": "camel.sink.endpoint.endpointConfiguration",
+			"description": "Amazon AWS Endpoint Configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.pathStyleAccess": {
+			"name": "camel.sink.endpoint.pathStyleAccess",
+			"description": "Whether or not the S3 client should use path style access",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.policy": {
+			"name": "camel.sink.endpoint.policy",
+			"description": "The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "To define a proxy host when instantiating the S3 client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "Specify a proxy port to be used inside the client definition.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyProtocol": {
+			"name": "camel.sink.endpoint.proxyProtocol",
+			"description": "To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS]",
+			"defaultValue": "\"HTTPS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.region": {
+			"name": "camel.sink.endpoint.region",
+			"description": "The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.useIAMCredentials": {
+			"name": "camel.sink.endpoint.useIAMCredentials",
+			"description": "Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.encryptionMaterials": {
+			"name": "camel.sink.endpoint.encryptionMaterials",
+			"description": "The encryption materials to use in case of Symmetric\/Asymmetric client usage",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.useEncryption": {
+			"name": "camel.sink.endpoint.useEncryption",
+			"description": "Define if encryption must be used or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.deleteAfterWrite": {
+			"name": "camel.sink.endpoint.deleteAfterWrite",
+			"description": "Delete file object after the S3 file has been uploaded",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keyName": {
+			"name": "camel.sink.endpoint.keyName",
+			"description": "Setting the key name for an element in the bucket through endpoint parameter",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.multiPartUpload": {
+			"name": "camel.sink.endpoint.multiPartUpload",
+			"description": "If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [deleteBucket] [listBuckets] [downloadLink]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.partSize": {
+			"name": "camel.sink.endpoint.partSize",
+			"description": "Setup the partSize which is used in multi part upload, the default size is 25M.",
+			"defaultValue": "26214400L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.serverSideEncryption": {
+			"name": "camel.sink.endpoint.serverSideEncryption",
+			"description": "Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys. For example use AES256.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.storageClass": {
+			"name": "camel.sink.endpoint.storageClass",
+			"description": "The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.awsKMSKeyId": {
+			"name": "camel.sink.endpoint.awsKMSKeyId",
+			"description": "Define the id of KMS key to use in case KMS is enabled",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.useAwsKMS": {
+			"name": "camel.sink.endpoint.useAwsKMS",
+			"description": "Define if KMS must be used or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accelerateModeEnabled": {
+			"name": "camel.sink.endpoint.accelerateModeEnabled",
+			"description": "Define if Accelerate Mode enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.chunkedEncodingDisabled": {
+			"name": "camel.sink.endpoint.chunkedEncodingDisabled",
+			"description": "Define if disabled Chunked Encoding is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.dualstackEnabled": {
+			"name": "camel.sink.endpoint.dualstackEnabled",
+			"description": "Define if Dualstack enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.forceGlobalBucketAccessEnabled": {
+			"name": "camel.sink.endpoint.forceGlobalBucketAccessEnabled",
+			"description": "Define if Force Global Bucket Access enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.payloadSigningEnabled": {
+			"name": "camel.sink.endpoint.payloadSigningEnabled",
+			"description": "Define if Payload Signing enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accessKey": {
+			"name": "camel.sink.endpoint.accessKey",
+			"description": "Amazon AWS Access Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.secretKey": {
+			"name": "camel.sink.endpoint.secretKey",
+			"description": "Amazon AWS Secret Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.amazonS3Client": {
+			"name": "camel.component.aws-s3.amazonS3Client",
+			"description": "Reference to a com.amazonaws.services.s3.AmazonS3 in the registry.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.autoCreateBucket": {
+			"name": "camel.component.aws-s3.autoCreateBucket",
+			"description": "Setting the autocreation of the bucket",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.autoDiscoverClient": {
+			"name": "camel.component.aws-s3.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.configuration": {
+			"name": "camel.component.aws-s3.configuration",
+			"description": "The component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.endpointConfiguration": {
+			"name": "camel.component.aws-s3.endpointConfiguration",
+			"description": "Amazon AWS Endpoint Configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.pathStyleAccess": {
+			"name": "camel.component.aws-s3.pathStyleAccess",
+			"description": "Whether or not the S3 client should use path style access",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.policy": {
+			"name": "camel.component.aws-s3.policy",
+			"description": "The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.proxyHost": {
+			"name": "camel.component.aws-s3.proxyHost",
+			"description": "To define a proxy host when instantiating the S3 client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.proxyPort": {
+			"name": "camel.component.aws-s3.proxyPort",
+			"description": "Specify a proxy port to be used inside the client definition.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.proxyProtocol": {
+			"name": "camel.component.aws-s3.proxyProtocol",
+			"description": "To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS]",
+			"defaultValue": "\"HTTPS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.region": {
+			"name": "camel.component.aws-s3.region",
+			"description": "The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.useIAMCredentials": {
+			"name": "camel.component.aws-s3.useIAMCredentials",
+			"description": "Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.encryptionMaterials": {
+			"name": "camel.component.aws-s3.encryptionMaterials",
+			"description": "The encryption materials to use in case of Symmetric\/Asymmetric client usage",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.useEncryption": {
+			"name": "camel.component.aws-s3.useEncryption",
+			"description": "Define if encryption must be used or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.deleteAfterWrite": {
+			"name": "camel.component.aws-s3.deleteAfterWrite",
+			"description": "Delete file object after the S3 file has been uploaded",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.keyName": {
+			"name": "camel.component.aws-s3.keyName",
+			"description": "Setting the key name for an element in the bucket through endpoint parameter",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.lazyStartProducer": {
+			"name": "camel.component.aws-s3.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.multiPartUpload": {
+			"name": "camel.component.aws-s3.multiPartUpload",
+			"description": "If it is true, camel will upload the file with multi part format, the part size is decided by the option of partSize",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.operation": {
+			"name": "camel.component.aws-s3.operation",
+			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [deleteBucket] [listBuckets] [downloadLink]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.partSize": {
+			"name": "camel.component.aws-s3.partSize",
+			"description": "Setup the partSize which is used in multi part upload, the default size is 25M.",
+			"defaultValue": "26214400L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.serverSideEncryption": {
+			"name": "camel.component.aws-s3.serverSideEncryption",
+			"description": "Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys. For example use AES256.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.storageClass": {
+			"name": "camel.component.aws-s3.storageClass",
+			"description": "The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.awsKMSKeyId": {
+			"name": "camel.component.aws-s3.awsKMSKeyId",
+			"description": "Define the id of KMS key to use in case KMS is enabled",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.useAwsKMS": {
+			"name": "camel.component.aws-s3.useAwsKMS",
+			"description": "Define if KMS must be used or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.accelerateModeEnabled": {
+			"name": "camel.component.aws-s3.accelerateModeEnabled",
+			"description": "Define if Accelerate Mode enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.chunkedEncodingDisabled": {
+			"name": "camel.component.aws-s3.chunkedEncodingDisabled",
+			"description": "Define if disabled Chunked Encoding is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.dualstackEnabled": {
+			"name": "camel.component.aws-s3.dualstackEnabled",
+			"description": "Define if Dualstack enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.forceGlobalBucketAccessEnabled": {
+			"name": "camel.component.aws-s3.forceGlobalBucketAccessEnabled",
+			"description": "Define if Force Global Bucket Access enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.payloadSigningEnabled": {
+			"name": "camel.component.aws-s3.payloadSigningEnabled",
+			"description": "Define if Payload Signing enabled is true or false",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.basicPropertyBinding": {
+			"name": "camel.component.aws-s3.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.accessKey": {
+			"name": "camel.component.aws-s3.accessKey",
+			"description": "Amazon AWS Access Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-s3.secretKey": {
+			"name": "camel.component.aws-s3.secretKey",
+			"description": "Amazon AWS Secret Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

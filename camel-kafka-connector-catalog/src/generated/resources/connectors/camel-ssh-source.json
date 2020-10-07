@@ -1,0 +1,324 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ssh.CamelSshSourceConnector",
+		"artifactId": "camel-ssh-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ssh-source",
+		"type": "source",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.source.path.host": {
+			"name": "camel.source.path.host",
+			"description": "Sets the hostname of the remote SSH server.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.source.path.port": {
+			"name": "camel.source.path.port",
+			"description": "Sets the port number for the remote SSH server.",
+			"defaultValue": "22",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.failOnUnknownHost": {
+			"name": "camel.source.endpoint.failOnUnknownHost",
+			"description": "Specifies whether a connection to an unknown host should fail or not. This value is only checked when the property knownHosts is set.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.knownHostsResource": {
+			"name": "camel.source.endpoint.knownHostsResource",
+			"description": "Sets the resource path for a known_hosts file",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeout": {
+			"name": "camel.source.endpoint.timeout",
+			"description": "Sets the timeout in milliseconds to wait in establishing the remote SSH server connection. Defaults to 30000 milliseconds.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pollCommand": {
+			"name": "camel.source.endpoint.pollCommand",
+			"description": "Sets the command string to send to the remote SSH server during every poll cycle. Only works with camel-ssh component being used as a consumer, i.e. from(ssh:\/\/...) You may need to end your command with a newline, and that must be URL encoded %0A",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
+			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
+			"description": "If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.pollStrategy": {
+			"name": "camel.source.endpoint.pollStrategy",
+			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.basicPropertyBinding": {
+			"name": "camel.source.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.channelType": {
+			"name": "camel.source.endpoint.channelType",
+			"description": "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.",
+			"defaultValue": "\"exec\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.shellPrompt": {
+			"name": "camel.source.endpoint.shellPrompt",
+			"description": "Sets the shellPrompt to be dropped when response is read after command execution",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.sleepForShellPrompt": {
+			"name": "camel.source.endpoint.sleepForShellPrompt",
+			"description": "Sets the sleep period in milliseconds to wait reading response from shell prompt. Defaults to 100 milliseconds.",
+			"defaultValue": "100L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffErrorThreshold": {
+			"name": "camel.source.endpoint.backoffErrorThreshold",
+			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffIdleThreshold": {
+			"name": "camel.source.endpoint.backoffIdleThreshold",
+			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.backoffMultiplier": {
+			"name": "camel.source.endpoint.backoffMultiplier",
+			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.delay": {
+			"name": "camel.source.endpoint.delay",
+			"description": "Milliseconds before the next poll.",
+			"defaultValue": "500L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.greedy": {
+			"name": "camel.source.endpoint.greedy",
+			"description": "If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.initialDelay": {
+			"name": "camel.source.endpoint.initialDelay",
+			"description": "Milliseconds before the first poll starts.",
+			"defaultValue": "1000L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.repeatCount": {
+			"name": "camel.source.endpoint.repeatCount",
+			"description": "Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever.",
+			"defaultValue": "0L",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.runLoggingLevel": {
+			"name": "camel.source.endpoint.runLoggingLevel",
+			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
+			"defaultValue": "\"TRACE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduledExecutorService": {
+			"name": "camel.source.endpoint.scheduledExecutorService",
+			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.scheduler": {
+			"name": "camel.source.endpoint.scheduler",
+			"description": "To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler",
+			"defaultValue": "\"none\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.schedulerProperties": {
+			"name": "camel.source.endpoint.schedulerProperties",
+			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.startScheduler": {
+			"name": "camel.source.endpoint.startScheduler",
+			"description": "Whether the scheduler should be auto started.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.timeUnit": {
+			"name": "camel.source.endpoint.timeUnit",
+			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
+			"defaultValue": "\"MILLISECONDS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useFixedDelay": {
+			"name": "camel.source.endpoint.useFixedDelay",
+			"description": "Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.certResource": {
+			"name": "camel.source.endpoint.certResource",
+			"description": "Sets the resource path of the certificate to use for Authentication. Will use ResourceHelperKeyPairProvider to resolve file based certificate, and depends on keyType setting.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.certResourcePassword": {
+			"name": "camel.source.endpoint.certResourcePassword",
+			"description": "Sets the password to use in loading certResource, if certResource is an encrypted key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.keyPairProvider": {
+			"name": "camel.source.endpoint.keyPairProvider",
+			"description": "Sets the KeyPairProvider reference to use when connecting using Certificates to the remote SSH Server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.keyType": {
+			"name": "camel.source.endpoint.keyType",
+			"description": "Sets the key type to pass to the KeyPairProvider as part of authentication. KeyPairProvider.loadKey(...) will be passed this value. From Camel 3.0.0 \/ 2.25.0, by default Camel will select the first available KeyPair that is loaded. Prior to this, a KeyType of 'ssh-rsa' was enforced by default.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "Sets the password to use in connecting to remote SSH server. Requires keyPairProvider to be set to null.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "Sets the username to use in logging into the remote SSH server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.failOnUnknownHost": {
+			"name": "camel.component.ssh.failOnUnknownHost",
+			"description": "Specifies whether a connection to an unknown host should fail or not. This value is only checked when the property knownHosts is set.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.knownHostsResource": {
+			"name": "camel.component.ssh.knownHostsResource",
+			"description": "Sets the resource path for a known_hosts file",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.timeout": {
+			"name": "camel.component.ssh.timeout",
+			"description": "Sets the timeout in milliseconds to wait in establishing the remote SSH server connection. Defaults to 30000 milliseconds.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.bridgeErrorHandler": {
+			"name": "camel.component.ssh.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.pollCommand": {
+			"name": "camel.component.ssh.pollCommand",
+			"description": "Sets the command string to send to the remote SSH server during every poll cycle. Only works with camel-ssh component being used as a consumer, i.e. from(ssh:\/\/...) You may need to end your command with a newline, and that must be URL encoded %0A",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.basicPropertyBinding": {
+			"name": "camel.component.ssh.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.channelType": {
+			"name": "camel.component.ssh.channelType",
+			"description": "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.",
+			"defaultValue": "\"exec\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.configuration": {
+			"name": "camel.component.ssh.configuration",
+			"description": "Component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.shellPrompt": {
+			"name": "camel.component.ssh.shellPrompt",
+			"description": "Sets the shellPrompt to be dropped when response is read after command execution",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.sleepForShellPrompt": {
+			"name": "camel.component.ssh.sleepForShellPrompt",
+			"description": "Sets the sleep period in milliseconds to wait reading response from shell prompt. Defaults to 100 milliseconds.",
+			"defaultValue": "100L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.certResource": {
+			"name": "camel.component.ssh.certResource",
+			"description": "Sets the resource path of the certificate to use for Authentication. Will use ResourceHelperKeyPairProvider to resolve file based certificate, and depends on keyType setting.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.certResourcePassword": {
+			"name": "camel.component.ssh.certResourcePassword",
+			"description": "Sets the password to use in loading certResource, if certResource is an encrypted key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.keyPairProvider": {
+			"name": "camel.component.ssh.keyPairProvider",
+			"description": "Sets the KeyPairProvider reference to use when connecting using Certificates to the remote SSH Server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.keyType": {
+			"name": "camel.component.ssh.keyType",
+			"description": "Sets the key type to pass to the KeyPairProvider as part of authentication. KeyPairProvider.loadKey(...) will be passed this value. From Camel 3.0.0 \/ 2.25.0, by default Camel will select the first available KeyPair that is loaded. Prior to this, a KeyType of 'ssh-rsa' was enforced by default.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.password": {
+			"name": "camel.component.ssh.password",
+			"description": "Sets the password to use in connecting to remote SSH server. Requires keyPairProvider to be set to null.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.username": {
+			"name": "camel.component.ssh.username",
+			"description": "Sets the username to use in logging into the remote SSH server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

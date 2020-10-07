@@ -1,0 +1,204 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.ssh.CamelSshSinkConnector",
+		"artifactId": "camel-ssh-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-ssh-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.host": {
+			"name": "camel.sink.path.host",
+			"description": "Sets the hostname of the remote SSH server.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.path.port": {
+			"name": "camel.sink.path.port",
+			"description": "Sets the port number for the remote SSH server.",
+			"defaultValue": "22",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.failOnUnknownHost": {
+			"name": "camel.sink.endpoint.failOnUnknownHost",
+			"description": "Specifies whether a connection to an unknown host should fail or not. This value is only checked when the property knownHosts is set.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.knownHostsResource": {
+			"name": "camel.sink.endpoint.knownHostsResource",
+			"description": "Sets the resource path for a known_hosts file",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.timeout": {
+			"name": "camel.sink.endpoint.timeout",
+			"description": "Sets the timeout in milliseconds to wait in establishing the remote SSH server connection. Defaults to 30000 milliseconds.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.channelType": {
+			"name": "camel.sink.endpoint.channelType",
+			"description": "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.",
+			"defaultValue": "\"exec\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.shellPrompt": {
+			"name": "camel.sink.endpoint.shellPrompt",
+			"description": "Sets the shellPrompt to be dropped when response is read after command execution",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sleepForShellPrompt": {
+			"name": "camel.sink.endpoint.sleepForShellPrompt",
+			"description": "Sets the sleep period in milliseconds to wait reading response from shell prompt. Defaults to 100 milliseconds.",
+			"defaultValue": "100L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.certResource": {
+			"name": "camel.sink.endpoint.certResource",
+			"description": "Sets the resource path of the certificate to use for Authentication. Will use ResourceHelperKeyPairProvider to resolve file based certificate, and depends on keyType setting.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.certResourcePassword": {
+			"name": "camel.sink.endpoint.certResourcePassword",
+			"description": "Sets the password to use in loading certResource, if certResource is an encrypted key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keyPairProvider": {
+			"name": "camel.sink.endpoint.keyPairProvider",
+			"description": "Sets the KeyPairProvider reference to use when connecting using Certificates to the remote SSH Server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.keyType": {
+			"name": "camel.sink.endpoint.keyType",
+			"description": "Sets the key type to pass to the KeyPairProvider as part of authentication. KeyPairProvider.loadKey(...) will be passed this value. From Camel 3.0.0 \/ 2.25.0, by default Camel will select the first available KeyPair that is loaded. Prior to this, a KeyType of 'ssh-rsa' was enforced by default.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.password": {
+			"name": "camel.sink.endpoint.password",
+			"description": "Sets the password to use in connecting to remote SSH server. Requires keyPairProvider to be set to null.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.username": {
+			"name": "camel.sink.endpoint.username",
+			"description": "Sets the username to use in logging into the remote SSH server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.failOnUnknownHost": {
+			"name": "camel.component.ssh.failOnUnknownHost",
+			"description": "Specifies whether a connection to an unknown host should fail or not. This value is only checked when the property knownHosts is set.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.knownHostsResource": {
+			"name": "camel.component.ssh.knownHostsResource",
+			"description": "Sets the resource path for a known_hosts file",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.timeout": {
+			"name": "camel.component.ssh.timeout",
+			"description": "Sets the timeout in milliseconds to wait in establishing the remote SSH server connection. Defaults to 30000 milliseconds.",
+			"defaultValue": "30000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.lazyStartProducer": {
+			"name": "camel.component.ssh.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.basicPropertyBinding": {
+			"name": "camel.component.ssh.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.channelType": {
+			"name": "camel.component.ssh.channelType",
+			"description": "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.",
+			"defaultValue": "\"exec\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.configuration": {
+			"name": "camel.component.ssh.configuration",
+			"description": "Component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.shellPrompt": {
+			"name": "camel.component.ssh.shellPrompt",
+			"description": "Sets the shellPrompt to be dropped when response is read after command execution",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.sleepForShellPrompt": {
+			"name": "camel.component.ssh.sleepForShellPrompt",
+			"description": "Sets the sleep period in milliseconds to wait reading response from shell prompt. Defaults to 100 milliseconds.",
+			"defaultValue": "100L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.certResource": {
+			"name": "camel.component.ssh.certResource",
+			"description": "Sets the resource path of the certificate to use for Authentication. Will use ResourceHelperKeyPairProvider to resolve file based certificate, and depends on keyType setting.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.certResourcePassword": {
+			"name": "camel.component.ssh.certResourcePassword",
+			"description": "Sets the password to use in loading certResource, if certResource is an encrypted key.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.keyPairProvider": {
+			"name": "camel.component.ssh.keyPairProvider",
+			"description": "Sets the KeyPairProvider reference to use when connecting using Certificates to the remote SSH Server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.keyType": {
+			"name": "camel.component.ssh.keyType",
+			"description": "Sets the key type to pass to the KeyPairProvider as part of authentication. KeyPairProvider.loadKey(...) will be passed this value. From Camel 3.0.0 \/ 2.25.0, by default Camel will select the first available KeyPair that is loaded. Prior to this, a KeyType of 'ssh-rsa' was enforced by default.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.password": {
+			"name": "camel.component.ssh.password",
+			"description": "Sets the password to use in connecting to remote SSH server. Requires keyPairProvider to be set to null.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.ssh.username": {
+			"name": "camel.component.ssh.username",
+			"description": "Sets the username to use in logging into the remote SSH server.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}

@@ -1,0 +1,264 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.sjms.CamelSjmsSinkConnector",
+		"artifactId": "camel-sjms-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-sjms-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.destinationType": {
+			"name": "camel.sink.path.destinationType",
+			"description": "The kind of destination to use One of: [queue] [topic]",
+			"defaultValue": "\"queue\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.path.destinationName": {
+			"name": "camel.sink.path.destinationName",
+			"description": "DestinationName is a JMS queue or topic name. By default, the destinationName is interpreted as a queue name.",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.acknowledgementMode": {
+			"name": "camel.sink.endpoint.acknowledgementMode",
+			"description": "The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE One of: [SESSION_TRANSACTED] [CLIENT_ACKNOWLEDGE] [AUTO_ACKNOWLEDGE] [DUPS_OK_ACKNOWLEDGE]",
+			"defaultValue": "\"AUTO_ACKNOWLEDGE\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.namedReplyTo": {
+			"name": "camel.sink.endpoint.namedReplyTo",
+			"description": "Sets the reply to destination name used for InOut producer endpoints. The type of the reply to destination can be determined by the starting prefix (topic: or queue:) in its name.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.persistent": {
+			"name": "camel.sink.endpoint.persistent",
+			"description": "Flag used to enable\/disable message persistence.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.producerCount": {
+			"name": "camel.sink.endpoint.producerCount",
+			"description": "Sets the number of producers used for this endpoint.",
+			"defaultValue": "1",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ttl": {
+			"name": "camel.sink.endpoint.ttl",
+			"description": "Flag used to adjust the Time To Live value of produced messages.",
+			"defaultValue": "-1L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.allowNullBody": {
+			"name": "camel.sink.endpoint.allowNullBody",
+			"description": "Whether to allow sending messages with no body. If this option is false and the message body is null, then an JMSException is thrown.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.prefillPool": {
+			"name": "camel.sink.endpoint.prefillPool",
+			"description": "Whether to prefill the producer connection pool on startup, or create connections lazy when needed.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.responseTimeOut": {
+			"name": "camel.sink.endpoint.responseTimeOut",
+			"description": "Sets the amount of time we should wait before timing out a InOut response.",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.asyncStartListener": {
+			"name": "camel.sink.endpoint.asyncStartListener",
+			"description": "Whether to startup the consumer message listener asynchronously, when starting a route. For example if a JmsConsumer cannot get a connection to a remote JMS broker, then it may block while retrying and\/or failover. This will cause Camel to block while starting routes. By setting this option to true, you will let routes startup, while the JmsConsumer connects to the JMS broker using a dedicated thread in asynchronous mode. If this option is used, then beware that if the connection could not be established, then an exception is logged at WARN level, and the consumer will not be able to receive messages; You can then restart the route to retry.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.asyncStopListener": {
+			"name": "camel.sink.endpoint.asyncStopListener",
+			"description": "Whether to stop the consumer message listener asynchronously, when stopping a route.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectionCount": {
+			"name": "camel.sink.endpoint.connectionCount",
+			"description": "The maximum number of connections available to this endpoint",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectionFactory": {
+			"name": "camel.sink.endpoint.connectionFactory",
+			"description": "Initializes the connectionFactory for the endpoint, which takes precedence over the component's connectionFactory, if any",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.connectionResource": {
+			"name": "camel.sink.endpoint.connectionResource",
+			"description": "Initializes the connectionResource for the endpoint, which takes precedence over the component's connectionResource, if any",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.destinationCreationStrategy": {
+			"name": "camel.sink.endpoint.destinationCreationStrategy",
+			"description": "To use a custom DestinationCreationStrategy.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.exceptionListener": {
+			"name": "camel.sink.endpoint.exceptionListener",
+			"description": "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.headerFilterStrategy": {
+			"name": "camel.sink.endpoint.headerFilterStrategy",
+			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.includeAllJMSXProperties": {
+			"name": "camel.sink.endpoint.includeAllJMSXProperties",
+			"description": "Whether to include all JMSXxxx properties when mapping from JMS to Camel Message. Setting this to true will include properties such as JMSXAppID, and JMSXUserID etc. Note: If you are using a custom headerFilterStrategy then this option does not apply.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.jmsKeyFormatStrategy": {
+			"name": "camel.sink.endpoint.jmsKeyFormatStrategy",
+			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.mapJmsMessage": {
+			"name": "camel.sink.endpoint.mapJmsMessage",
+			"description": "Specifies whether Camel should auto map the received JMS message to a suited payload type, such as javax.jms.TextMessage to a String etc. See section about how mapping works below for more details.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.messageCreatedStrategy": {
+			"name": "camel.sink.endpoint.messageCreatedStrategy",
+			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.transactionCommitStrategy": {
+			"name": "camel.sink.endpoint.transactionCommitStrategy",
+			"description": "Sets the commit strategy.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sharedJMSSession": {
+			"name": "camel.sink.endpoint.sharedJMSSession",
+			"description": "Specifies whether to share JMS session with other SJMS endpoints. Turn this off if your route is accessing to multiple JMS providers. If you need transaction against multiple JMS providers, use jms component to leverage XA transaction.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.connectionCount": {
+			"name": "camel.component.sjms.connectionCount",
+			"description": "The maximum number of connections available to endpoints started under this component",
+			"defaultValue": "\"1\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.lazyStartProducer": {
+			"name": "camel.component.sjms.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.basicPropertyBinding": {
+			"name": "camel.component.sjms.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.connectionClientId": {
+			"name": "camel.component.sjms.connectionClientId",
+			"description": "The client ID to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.connectionFactory": {
+			"name": "camel.component.sjms.connectionFactory",
+			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.connectionMaxWait": {
+			"name": "camel.component.sjms.connectionMaxWait",
+			"description": "The max wait time in millis to block and wait on free connection when the pool is exhausted when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.connectionResource": {
+			"name": "camel.component.sjms.connectionResource",
+			"description": "A ConnectionResource is an interface that allows for customization and container control of the ConnectionFactory. See Plugable Connection Resource Management for further details.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.connectionTestOnBorrow": {
+			"name": "camel.component.sjms.connectionTestOnBorrow",
+			"description": "When using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource then should each javax.jms.Connection be tested (calling start) before returned from the pool.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.destinationCreationStrategy": {
+			"name": "camel.component.sjms.destinationCreationStrategy",
+			"description": "To use a custom DestinationCreationStrategy.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.jmsKeyFormatStrategy": {
+			"name": "camel.component.sjms.jmsKeyFormatStrategy",
+			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides one implementation out of the box: default. The default strategy will safely marshal dots and hyphens (. and -). Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.messageCreatedStrategy": {
+			"name": "camel.component.sjms.messageCreatedStrategy",
+			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.timedTaskManager": {
+			"name": "camel.component.sjms.timedTaskManager",
+			"description": "To use a custom TimedTaskManager",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.headerFilterStrategy": {
+			"name": "camel.component.sjms.headerFilterStrategy",
+			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.connectionPassword": {
+			"name": "camel.component.sjms.connectionPassword",
+			"description": "The password to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.connectionUsername": {
+			"name": "camel.component.sjms.connectionUsername",
+			"description": "The username to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.sjms.transactionCommitStrategy": {
+			"name": "camel.component.sjms.transactionCommitStrategy",
+			"description": "To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}
