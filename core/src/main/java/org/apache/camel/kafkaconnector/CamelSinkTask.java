@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.ProducerTemplate;
@@ -57,6 +58,7 @@ public class CamelSinkTask extends SinkTask {
     private CamelKafkaConnectMain cms;
     private ProducerTemplate producer;
     private CamelSinkConnectorConfig config;
+    private Endpoint localEndpoint;
 
     @Override
     public String version() {
@@ -93,9 +95,12 @@ public class CamelSinkTask extends SinkTask {
                 .withAggregationTimeout(timeout)
                 .build(camelContext);
 
-            producer = cms.getProducerTemplate();
 
             cms.start();
+
+            producer = cms.getProducerTemplate();
+            localEndpoint = cms.getCamelContext().getEndpoint(LOCAL_URL);
+
             LOG.info("CamelSinkTask connector task started");
         } catch (Exception e) {
             throw new ConnectException("Failed to create and start Camel context", e);
@@ -136,7 +141,7 @@ public class CamelSinkTask extends SinkTask {
             exchange.getMessage().setBody(record.value());
 
             LOG.debug("Sending exchange {} to {}", exchange.getExchangeId(), LOCAL_URL);
-            producer.send(LOCAL_URL, exchange);
+            producer.send(localEndpoint, exchange);
 
             if (exchange.isFailed()) {
                 throw new ConnectException("Exchange delivery has failed!", exchange.getException());
