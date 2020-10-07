@@ -23,9 +23,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.jupiter.api.Assertions.fail;
 
 public final class PropertyUtils {
     private static final Logger LOG = LoggerFactory.getLogger(PropertyUtils.class);
@@ -56,12 +57,12 @@ public final class PropertyUtils {
             LOG.error("Test properties provided at {} does not exist, therefore aborting the test execution",
                     fileName);
 
-            Assert.fail("The given test properties file does not exist");
+            fail("The given test properties file does not exist");
         } catch (IOException e) {
             LOG.error("I/O error reading the test properties at {}: {}",
                     fileName, e.getMessage(), e);
 
-            Assert.fail("Unable to read the test properties file");
+            fail("Unable to read the test properties file");
         }
     }
 }
