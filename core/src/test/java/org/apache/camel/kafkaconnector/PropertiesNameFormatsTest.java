@@ -39,7 +39,7 @@ public class PropertiesNameFormatsTest {
 
         CamelSourceTask camelsourceTask = new CamelSourceTask();
         camelsourceTask.start(props);
-        BlockingQueueFactory<Exchange> sedaTestQueue = ((SedaComponent) camelsourceTask.getCms().getEndpoint("seda://test").getCamelContext().getComponent("seda")).getDefaultQueueFactory();
+        BlockingQueueFactory<Exchange> sedaTestQueue = ((SedaComponent) camelsourceTask.getCms().getCamelContext().getEndpoint("seda://test").getCamelContext().getComponent("seda")).getDefaultQueueFactory();
         assertEquals("org.apache.camel.kafkaconnector.test.TestBlockingQueueFactory", sedaTestQueue.getClass().getName());
         assertEquals(1, ((TestBlockingQueueFactory)sedaTestQueue).getCounter());
         camelsourceTask.stop();
@@ -55,7 +55,7 @@ public class PropertiesNameFormatsTest {
 
         CamelSourceTask camelsourceTask = new CamelSourceTask();
         camelsourceTask.start(props);
-        BlockingQueueFactory<Exchange> sedaTestQueue = ((SedaComponent) camelsourceTask.getCms().getEndpoint("seda://test").getCamelContext().getComponent("seda")).getDefaultQueueFactory();
+        BlockingQueueFactory<Exchange> sedaTestQueue = ((SedaComponent) camelsourceTask.getCms().getCamelContext().getEndpoint("seda://test").getCamelContext().getComponent("seda")).getDefaultQueueFactory();
         assertEquals("org.apache.camel.kafkaconnector.test.TestBlockingQueueFactory", sedaTestQueue.getClass().getName());
         assertEquals(1, ((TestBlockingQueueFactory)sedaTestQueue).getCounter());
         camelsourceTask.stop();

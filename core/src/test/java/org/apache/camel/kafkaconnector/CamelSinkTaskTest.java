@@ -58,7 +58,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -67,7 +67,7 @@ public class CamelSinkTaskTest {
 
         sinkTask.stop();
     }
-    
+
     @Test
     public void testTopicsRegex() {
         Map<String, String> props = new HashMap<>();
@@ -84,7 +84,7 @@ public class CamelSinkTaskTest {
         records.add(record1);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -128,7 +128,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -172,7 +172,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -222,7 +222,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -281,7 +281,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -345,7 +345,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -407,7 +407,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -466,7 +466,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -509,7 +509,7 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -533,11 +533,11 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
-        assertEquals(1, sinkTask.getCms().getEndpoints()
+        assertEquals(1, sinkTask.getCms().getCamelContext().getEndpoints()
             .stream().filter(e -> e.getEndpointUri().equals("seda://test?bridgeErrorHandler=true")).count());
 
         sinkTask.stop();
@@ -560,12 +560,12 @@ public class CamelSinkTaskTest {
         records.add(record);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
 
-        assertEquals(1, sinkTask.getCms().getEndpoints()
+        assertEquals(1, sinkTask.getCms().getCamelContext().getEndpoints()
             .stream().filter(e -> e.getEndpointUri().equals("seda://test?bridgeErrorHandler=true&size=50")).count());
 
         sinkTask.stop();
@@ -590,7 +590,7 @@ public class CamelSinkTaskTest {
 
         sinkTask.stop();
     }
-    
+
     @Test
     public void testAggregationBody() {
         Map<String, String> props = new HashMap<>();
@@ -616,7 +616,7 @@ public class CamelSinkTaskTest {
         records.add(record5);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel camel1 camel2 camel3 camel4", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
@@ -625,7 +625,7 @@ public class CamelSinkTaskTest {
 
         sinkTask.stop();
     }
-    
+
     @Test
     public void testAggregationBodyAndTimeout() throws InterruptedException {
         Map<String, String> props = new HashMap<>();
@@ -652,7 +652,7 @@ public class CamelSinkTaskTest {
         records.add(record5);
         sinkTask.put(records);
 
-        ConsumerTemplate consumer = sinkTask.getCms().createConsumerTemplate();
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
         Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
         assertEquals("camel camel1 camel2 camel3 camel4", exchange.getMessage().getBody());
         assertEquals("test", exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER));
