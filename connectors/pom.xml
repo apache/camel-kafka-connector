@@ -189,6 +189,19 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.camel.kafkaconnector</groupId>
+                <artifactId>camel-kafka-connector-catalog-descriptor-maven-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>list-descriptor-files</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
