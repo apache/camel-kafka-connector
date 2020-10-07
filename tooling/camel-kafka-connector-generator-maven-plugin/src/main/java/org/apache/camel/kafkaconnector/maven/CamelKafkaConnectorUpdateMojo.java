@@ -583,6 +583,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
             getLog().debug("No changes to website doc file: " + docFileWebsite);
         }
         writeJson(listOptions, getMainDepArtifactId(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList, transformsList, aggregationStrategiesList);
+        writeDescriptors(connectorDir, ct);
     }
 
     private void addProperties(Map<String, String> additionalProperties, String additionalProp) {
@@ -736,7 +737,22 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         File docFolder = new File(connectorDir, "src/generated/resources/");
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.json");
         JsonObject j = JsonMapperKafkaConnector.asJsonObject(model);
-        updateJsonFile(docFile, Jsoner.prettyPrint(j.toJson()));
+        updateFile(docFile, Jsoner.prettyPrint(j.toJson()));
+    }
+    
+    private void writeDescriptors(File connectorDir, ConnectorType ct) throws MojoExecutionException {
+
+        String title;
+        if (getMainDepArtifactId().equalsIgnoreCase("camel-coap+tcp")) {
+            title = "camel-coap-tcp";
+        } else if (getMainDepArtifactId().equalsIgnoreCase("camel-coaps+tcp")) {
+            title = "camel-coaps-tcp";
+        } else {
+            title = getMainDepArtifactId();
+        }
+        File docFolder = new File(connectorDir, "src/generated/descriptors/");
+        File docFile = new File(docFolder, "connector-" + ct.name().toLowerCase() + ".properties");
+        updateFile(docFile, title + "-" + ct.name().toLowerCase());
     }
 
     private boolean updateAutoConfigureOptions(File file, String changed) throws MojoExecutionException {
@@ -776,7 +792,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         }
     }
 
-    private boolean updateJsonFile(File file, String changed) throws MojoExecutionException {
+    private boolean updateFile(File file, String changed) throws MojoExecutionException {
         try {
             if (!file.exists()) {
                 writeText(file, changed);
