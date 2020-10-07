@@ -81,21 +81,21 @@ public final class TaskHelper {
                 .filter(k -> k.startsWith(prefix))
                 .map(k -> k.replace(prefix, "") + "=" + props.get(k))
                 .reduce((o1, o2) -> o1 + "&" + o2)
-                .map(result -> (result == null || result.isEmpty()) ? "" : "?" + result)
+                .map(result -> result.isEmpty() ? "" : "?" + result)
                 .orElse("");
     }
 
     public static String createUrlPathFromProperties(Map<String, String> props, String prefix) {
         return props.keySet().stream()
                 .filter(k -> k.startsWith(prefix))
-                .map(k -> props.get(k))
+                .map(props::get)
                 .reduce((p1, p2) -> p1 + ":" + p2)
                 .orElse("");
     }
 
     public static Map<String, String> mergeProperties(Map<String, String> defaultProps, Map<String, String> loadedProps) {
         if (loadedProps == null && defaultProps == null) {
-            return Collections.EMPTY_MAP;
+            return Collections.emptyMap();
         } else if (loadedProps == null) {
             return new HashMap<>(defaultProps);
         } else if (defaultProps == null) {
