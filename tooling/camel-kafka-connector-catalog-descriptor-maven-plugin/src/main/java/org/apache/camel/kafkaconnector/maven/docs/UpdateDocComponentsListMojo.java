@@ -23,32 +23,20 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.TreeSet;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.DirectoryFileFilter;
-import org.apache.commons.io.filefilter.RegexFileFilter;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.apache.maven.project.MavenProjectHelper;
 
 /**
- * Updates the documentation in: - docs/modules/ROOT/pages/connectors.adoc
+ * Updates connector.properties file
  */
 @Mojo(name = "list-descriptor-files", threadSafe = true)
 public class UpdateDocComponentsListMojo extends AbstractMojo {
-    private static final String SINK_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-sink-connector.adoc[Sink Docs]";
-    private static final String SOURCE_CONNECTOR_LINK_SUFFIX_ADOC = "kafka-source-connector.adoc[Source Docs]";
-    private static final String XREF_CONNECTOR_LINK_PREFIX = "xref:connectors/";
 
     /**
      * The maven project.
@@ -61,12 +49,6 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Parameter(defaultValue = "${project.directory}/../../connectors/")
     protected File connectorsDir;
-
-    /**
-     * The project directory
-     */
-    @Parameter(defaultValue = "${basedir}/../")
-    protected File projectBaseDir;
     
 
     /**
@@ -80,12 +62,6 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
      */
     @Parameter(property = "connectors-project-name", defaultValue = "connectors", readonly = true)
     protected String connectorsProjectName;
-
-    /**
-     * Maven ProjectHelper.
-     */
-    @Component
-    private MavenProjectHelper projectHelper;
 
     /**
      * Execute goal.
