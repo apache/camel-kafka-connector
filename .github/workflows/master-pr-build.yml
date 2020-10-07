@@ -17,6 +17,9 @@
 
 name: master pr build
 
+env:
+  MAVEN_ARGS: -V -ntp
+
 on:
   pull_request:
     branches:
@@ -40,11 +43,37 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: mvn sourcecheck + build and itests
-        # first command builds the source check module,
-        # second one source check and install :camel-kafka-connector-generator-maven-plugin. This is needed to add maven plugin metadata to it,
-        # third command source check everything else but :camel-kafka-connector-generator-maven-plugin
+      # first command builds the source check module,
+      - name: build tools
         run: |
-          ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:parent,org.apache.camel.kafkaconnector:camel-kafka-connector-aggregator,org.apache.camel.kafkaconnector:camel-buildtools clean install
-          ./mvnw -V --no-transfer-progress --projects org.apache.camel.kafkaconnector:camel-kafka-connector-model,org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean install
-          ./mvnw -Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 -V --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
+          ./mvnw ${MAVEN_ARGS} \
+            -DskipTests \
+            -pl :parent \
+            -pl :camel-kafka-connector-aggregator \
+            -pl :camel-buildtools \
+            clean install
+      # second one source check and install :camel-kafka-connector-generator-maven-plugin
+      # this is needed to add maven plugin metadata to it,
+      - name: build connector-generator-plugin
+        run: |
+          ./mvnw ${MAVEN_ARGS} \
+            -Dcheckstyle.failOnViolation=true \
+            -Psourcecheck \
+            -DskipTests \
+            -pl :camel-kafka-connector-model \
+            -pl :camel-kafka-connector-generator-maven-plugin \
+            clean install
+      # third command source check everything else but :camel-kafka-connector-generator-maven-plugin
+      - name: build and itests
+        run: |
+          ./mvnw ${MAVEN_ARGS} \
+            -Dcheckstyle.failOnViolation=true \
+            -Psourcecheck \
+            -DskipIntegrationTests=false \
+            -Dhttp.keepAlive=false \
+            -Dmaven.wagon.http.pool=false \
+            -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
+            -pl '!:camel-kafka-connector-generator-maven-plugin' \
+            clean test
+
+

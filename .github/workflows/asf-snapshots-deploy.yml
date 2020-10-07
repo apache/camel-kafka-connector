@@ -16,6 +16,9 @@
 #
 name: Deploy Camel Kafka Connector Snapshot
 
+env:
+  MAVEN_ARGS: -V -ntp -Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=120
+
 on:
   schedule:
     # Run at 1 during night
@@ -54,6 +57,9 @@ jobs:
       with:
         version: '11'
     - name: Deploy to ASF Snapshots Repository
-      run: ./mvnw -U -B -e -fae -V -Dnoassembly -Dmaven.compiler.fork=true -Pdeploy -Dmaven.test.skip.exec=true -Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 --no-transfer-progress clean deploy --settings .github/asf-deploy-settings.xml
+      run: ./mvnw ${MAVEN_ARGS} \
+        -U -B -e -fae -Dnoassembly -Dmaven.compiler.fork=true -Pdeploy -Dmaven.test.skip.exec=true \
+        --settings .github/asf-deploy-settings.xml \
+        clean deploy
 
 
