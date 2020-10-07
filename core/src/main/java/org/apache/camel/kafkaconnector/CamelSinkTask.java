@@ -19,7 +19,6 @@ package org.apache.camel.kafkaconnector;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -61,7 +60,7 @@ public class CamelSinkTask extends SinkTask {
 
     @Override
     public String version() {
-        return new CamelSinkConnector().version();
+        return VersionUtil.getVersion();
     }
 
     @Override
@@ -108,7 +107,7 @@ public class CamelSinkTask extends SinkTask {
     }
 
     protected Map<String, String> getDefaultConfig() {
-        return Collections.EMPTY_MAP;
+        return Collections.emptyMap();
     }
 
     protected static String getCamelSinkEndpointConfigPrefix() {
@@ -123,11 +122,10 @@ public class CamelSinkTask extends SinkTask {
     public void put(Collection<SinkRecord> sinkRecords) {
         for (SinkRecord record : sinkRecords) {
             TaskHelper.logRecordContent(LOG, record, config);
-            Map<String, Object> headers = new HashMap<String, Object>();
+            Map<String, Object> headers = new HashMap<>();
             Exchange exchange = new DefaultExchange(producer.getCamelContext());
             headers.put(KAFKA_RECORD_KEY_HEADER, record.key());
-            for (Iterator<Header> iterator = record.headers().iterator(); iterator.hasNext();) {
-                Header header = (Header)iterator.next();
+            for (Header header : record.headers()) {
                 if (header.key().startsWith(HEADER_CAMEL_PREFIX)) {
                     addHeader(headers, header);
                 } else if (header.key().startsWith(PROPERTY_CAMEL_PREFIX)) {
