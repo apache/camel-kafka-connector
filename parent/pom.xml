@@ -464,7 +464,7 @@
                                     <sourceDirectory>${basedir}/src</sourceDirectory>
                                 </sourceDirectories>
                                 <headerLocation>header-java.txt</headerLocation>
-                                <includes>**/*.java,**/*.groovy,**/*.scala,**/*.properties,**/*.xml,**/*.xsd</includes>
+                                <includes>**/*.java,**/*.groovy,**/*.scala,**/*.xml,**/*.xsd</includes>
                                 <excludes>
                                     **/archetype-resources/**/*.java,**/archetype-resources/**/*.groovy,**/archetype-resources/**/*.scala,**/archetype-resources/**/*.xml,**/org/json/simple/**/*.java,**/camel-checkstyle.xml
                                 </excludes>
