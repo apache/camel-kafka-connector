@@ -17,6 +17,9 @@
 
 name: Sync Camel Kafka Connector camel-master Branch
 
+env:
+  MAVEN_ARGS: -V -ntp
+
 on:
   schedule:
     # Run at 2 AM every day
@@ -47,18 +50,48 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Build Camel Project
-        run: ./mvnw -V --no-transfer-progress clean install -DskipTests
+        run: |
+          ./mvnw ${MAVEN_ARGS} \
+            -DskipTests \
+            clean install
         working-directory: ${{ github.workspace }}/camel
       - name: Checkout camel-kafka-connector project
         uses: actions/checkout@v2
         with:
           ref: camel-master
           fetch-depth: 0
-      - name: Build Camel-kafka-connector Project
+      # first command builds the source check module,
+      - name: build tools
         run: |
-          ./mvnw -V --no-transfer-progress -DskipTests --projects org.apache.camel.kafkaconnector:parent,org.apache.camel.kafkaconnector:camel-kafka-connector-aggregator,org.apache.camel.kafkaconnector:camel-buildtools clean install
-          ./mvnw -V --no-transfer-progress --projects org.apache.camel.kafkaconnector:camel-kafka-connector-model,org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipTests clean install
-          ./mvnw -V -Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 --no-transfer-progress --projects '!org.apache.camel.kafkaconnector:camel-kafka-connector-generator-maven-plugin' -Dcheckstyle.failOnViolation=true -Psourcecheck -DskipIntegrationTests=false clean test
+          ./mvnw ${MAVEN_ARGS} \
+            -DskipTests \
+            -pl :parent \
+            -pl :camel-kafka-connector-aggregator \
+            -pl :camel-buildtools \
+            clean install
+      # second one source check and install :camel-kafka-connector-generator-maven-plugin
+      # this is needed to add maven plugin metadata to it,
+      - name: build connector-generator-plugin
+        run: |
+          ./mvnw ${MAVEN_ARGS} \
+            -Dcheckstyle.failOnViolation=true \
+            -Psourcecheck \
+            -DskipTests \
+            -pl :camel-kafka-connector-model \
+            -pl :camel-kafka-connector-generator-maven-plugin \
+            clean install
+      # third command source check everything else but :camel-kafka-connector-generator-maven-plugin
+      - name: build and itests
+        run: |
+          ./mvnw ${MAVEN_ARGS} \
+            -Dcheckstyle.failOnViolation=true \
+            -Psourcecheck \
+            -DskipIntegrationTests=false \
+            -Dhttp.keepAlive=false \
+            -Dmaven.wagon.http.pool=false \
+            -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
+            -pl '!:camel-kafka-connector-generator-maven-plugin' \
+            clean test
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2.4.1
         with:
