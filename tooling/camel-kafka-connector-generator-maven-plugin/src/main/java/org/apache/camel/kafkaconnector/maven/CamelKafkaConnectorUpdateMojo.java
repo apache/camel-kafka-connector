@@ -735,7 +735,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
             model.setTitle(getMainDepArtifactId());
         }
         File docFolder = new File(connectorDir, "src/generated/resources/");
-        File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.json");
+        File docFile = new File(docFolder, getMainDepArtifactId() + "-" + ct.name().toLowerCase() + ".json");
         JsonObject j = JsonMapperKafkaConnector.asJsonObject(model);
         updateFile(docFile, Jsoner.prettyPrint(j.toJson()));
     }
