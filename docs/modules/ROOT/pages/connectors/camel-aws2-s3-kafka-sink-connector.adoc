@@ -87,7 +87,7 @@ The camel-aws2-s3 sink connector supports 61 options, which are listed below.
 | *camel.component.aws2-s3.awsKMSKeyId* | Define the id of KMS key to use in case KMS is enabled | null | MEDIUM
 | *camel.component.aws2-s3.useAwsKMS* | Define if KMS must be used or not | false | MEDIUM
 | *camel.component.aws2-s3.useCustomerKey* | Define if Customer Key must be used or not | false | MEDIUM
-| *camel.component.aws2-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws2-s3.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-s3.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

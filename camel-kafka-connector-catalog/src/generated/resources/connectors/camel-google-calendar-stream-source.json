@@ -12,13 +12,7 @@
 			"name": "camel.source.path.index",
 			"description": "Specifies an index for the endpoint",
 			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
-		"camel.source.endpoint.accessToken": {
-			"name": "camel.source.endpoint.accessToken",
-			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
+			"priority": "HIGH"
 		},
 		"camel.source.endpoint.applicationName": {
 			"name": "camel.source.endpoint.applicationName",
@@ -44,12 +38,6 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
-		"camel.source.endpoint.clientSecret": {
-			"name": "camel.source.endpoint.clientSecret",
-			"description": "Client secret of the calendar application",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
 		"camel.source.endpoint.considerLastUpdate": {
 			"name": "camel.source.endpoint.considerLastUpdate",
 			"description": "Take into account the lastUpdate of the last event polled as start date for the next poll",
@@ -71,12 +59,6 @@
 		"camel.source.endpoint.query": {
 			"name": "camel.source.endpoint.query",
 			"description": "The query to execute on calendar",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
-		"camel.source.endpoint.refreshToken": {
-			"name": "camel.source.endpoint.refreshToken",
-			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -206,9 +188,21 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
-		"camel.component.google-calendar-stream.accessToken": {
-			"name": "camel.component.google-calendar-stream.accessToken",
+		"camel.source.endpoint.accessToken": {
+			"name": "camel.source.endpoint.accessToken",
 			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.clientSecret": {
+			"name": "camel.source.endpoint.clientSecret",
+			"description": "Client secret of the calendar application",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.refreshToken": {
+			"name": "camel.source.endpoint.refreshToken",
+			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -236,9 +230,9 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
-		"camel.component.google-calendar-stream.clientSecret": {
-			"name": "camel.component.google-calendar-stream.clientSecret",
-			"description": "Client secret of the calendar application",
+		"camel.component.google-calendar-stream.configuration": {
+			"name": "camel.component.google-calendar-stream.configuration",
+			"description": "The configuration",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -266,12 +260,6 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
-		"camel.component.google-calendar-stream.refreshToken": {
-			"name": "camel.component.google-calendar-stream.refreshToken",
-			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
 		"camel.component.google-calendar-stream.scopes": {
 			"name": "camel.component.google-calendar-stream.scopes",
 			"description": "Specifies the level of permissions you want a calendar application to have to a user account. See https:\/\/developers.google.com\/calendar\/auth for more info.",
@@ -282,7 +270,7 @@
 			"name": "camel.component.google-calendar-stream.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.google-calendar-stream.clientFactory": {
 			"name": "camel.component.google-calendar-stream.clientFactory",
@@ -290,9 +278,21 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
-		"camel.component.google-calendar-stream.configuration": {
-			"name": "camel.component.google-calendar-stream.configuration",
-			"description": "The configuration",
+		"camel.component.google-calendar-stream.accessToken": {
+			"name": "camel.component.google-calendar-stream.accessToken",
+			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-calendar-stream.clientSecret": {
+			"name": "camel.component.google-calendar-stream.clientSecret",
+			"description": "Client secret of the calendar application",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-calendar-stream.refreshToken": {
+			"name": "camel.component.google-calendar-stream.refreshToken",
+			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}

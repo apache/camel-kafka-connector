@@ -45,6 +45,9 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JMS_ENDPOINT_JMS_MESSAGE_TYPE_CONF = "camel.sink.endpoint.jmsMessageType";
     public static final String CAMEL_SINK_JMS_ENDPOINT_JMS_MESSAGE_TYPE_DOC = "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]";
     public static final String CAMEL_SINK_JMS_ENDPOINT_JMS_MESSAGE_TYPE_DEFAULT = null;
+    public static final String CAMEL_SINK_JMS_ENDPOINT_REPLY_TO_CONF = "camel.sink.endpoint.replyTo";
+    public static final String CAMEL_SINK_JMS_ENDPOINT_REPLY_TO_DOC = "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).";
+    public static final String CAMEL_SINK_JMS_ENDPOINT_REPLY_TO_DEFAULT = null;
     public static final String CAMEL_SINK_JMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF = "camel.sink.endpoint.testConnectionOnStartup";
     public static final String CAMEL_SINK_JMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC = "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.";
     public static final Boolean CAMEL_SINK_JMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT = false;
@@ -52,7 +55,7 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JMS_ENDPOINT_DELIVERY_DELAY_DOC = "Sets delivery delay to use for send calls for JMS. This option requires JMS 2.0 compliant broker.";
     public static final Long CAMEL_SINK_JMS_ENDPOINT_DELIVERY_DELAY_DEFAULT = -1L;
     public static final String CAMEL_SINK_JMS_ENDPOINT_DELIVERY_MODE_CONF = "camel.sink.endpoint.deliveryMode";
-    public static final String CAMEL_SINK_JMS_ENDPOINT_DELIVERY_MODE_DOC = "Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]";
+    public static final String CAMEL_SINK_JMS_ENDPOINT_DELIVERY_MODE_DOC = "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]";
     public static final String CAMEL_SINK_JMS_ENDPOINT_DELIVERY_MODE_DEFAULT = null;
     public static final String CAMEL_SINK_JMS_ENDPOINT_DELIVERY_PERSISTENT_CONF = "camel.sink.endpoint.deliveryPersistent";
     public static final String CAMEL_SINK_JMS_ENDPOINT_DELIVERY_PERSISTENT_DOC = "Specifies whether persistent delivery is used by default.";
@@ -252,6 +255,9 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JMS_COMPONENT_JMS_MESSAGE_TYPE_CONF = "camel.component.jms.jmsMessageType";
     public static final String CAMEL_SINK_JMS_COMPONENT_JMS_MESSAGE_TYPE_DOC = "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]";
     public static final String CAMEL_SINK_JMS_COMPONENT_JMS_MESSAGE_TYPE_DEFAULT = null;
+    public static final String CAMEL_SINK_JMS_COMPONENT_REPLY_TO_CONF = "camel.component.jms.replyTo";
+    public static final String CAMEL_SINK_JMS_COMPONENT_REPLY_TO_DOC = "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).";
+    public static final String CAMEL_SINK_JMS_COMPONENT_REPLY_TO_DEFAULT = null;
     public static final String CAMEL_SINK_JMS_COMPONENT_TEST_CONNECTION_ON_STARTUP_CONF = "camel.component.jms.testConnectionOnStartup";
     public static final String CAMEL_SINK_JMS_COMPONENT_TEST_CONNECTION_ON_STARTUP_DOC = "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.";
     public static final Boolean CAMEL_SINK_JMS_COMPONENT_TEST_CONNECTION_ON_STARTUP_DEFAULT = false;
@@ -259,7 +265,7 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JMS_COMPONENT_DELIVERY_DELAY_DOC = "Sets delivery delay to use for send calls for JMS. This option requires JMS 2.0 compliant broker.";
     public static final Long CAMEL_SINK_JMS_COMPONENT_DELIVERY_DELAY_DEFAULT = -1L;
     public static final String CAMEL_SINK_JMS_COMPONENT_DELIVERY_MODE_CONF = "camel.component.jms.deliveryMode";
-    public static final String CAMEL_SINK_JMS_COMPONENT_DELIVERY_MODE_DOC = "Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]";
+    public static final String CAMEL_SINK_JMS_COMPONENT_DELIVERY_MODE_DOC = "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]";
     public static final String CAMEL_SINK_JMS_COMPONENT_DELIVERY_MODE_DEFAULT = null;
     public static final String CAMEL_SINK_JMS_COMPONENT_DELIVERY_PERSISTENT_CONF = "camel.component.jms.deliveryPersistent";
     public static final String CAMEL_SINK_JMS_COMPONENT_DELIVERY_PERSISTENT_DOC = "Specifies whether persistent delivery is used by default.";
@@ -473,6 +479,7 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JMS_ENDPOINT_DISABLE_REPLY_TO_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_ENDPOINT_DISABLE_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_DISABLE_REPLY_TO_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_DURABLE_SUBSCRIPTION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_ENDPOINT_DURABLE_SUBSCRIPTION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_DURABLE_SUBSCRIPTION_NAME_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_JMS_MESSAGE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_ENDPOINT_JMS_MESSAGE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_JMS_MESSAGE_TYPE_DOC);
+        conf.define(CAMEL_SINK_JMS_ENDPOINT_REPLY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_ENDPOINT_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_REPLY_TO_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_DELIVERY_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SINK_JMS_ENDPOINT_DELIVERY_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_DELIVERY_DELAY_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_DELIVERY_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_ENDPOINT_DELIVERY_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_DELIVERY_MODE_DOC);
@@ -542,6 +549,7 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JMS_COMPONENT_DISABLE_REPLY_TO_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_DISABLE_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_DISABLE_REPLY_TO_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_DURABLE_SUBSCRIPTION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_DURABLE_SUBSCRIPTION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_DURABLE_SUBSCRIPTION_NAME_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_JMS_MESSAGE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_JMS_MESSAGE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_JMS_MESSAGE_TYPE_DOC);
+        conf.define(CAMEL_SINK_JMS_COMPONENT_REPLY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_REPLY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_REPLY_TO_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_TEST_CONNECTION_ON_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_TEST_CONNECTION_ON_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_TEST_CONNECTION_ON_STARTUP_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_DELIVERY_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SINK_JMS_COMPONENT_DELIVERY_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_DELIVERY_DELAY_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_DELIVERY_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_DELIVERY_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_DELIVERY_MODE_DOC);
@@ -574,7 +582,7 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JMS_COMPONENT_ARTEMIS_STREAMING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_ARTEMIS_STREAMING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_ARTEMIS_STREAMING_ENABLED_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_ASYNC_START_LISTENER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_ASYNC_START_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_ASYNC_START_LISTENER_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_DOC);
-        conf.define(CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_DESTINATION_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_DESTINATION_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_DESTINATION_RESOLVER_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_ERROR_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_ERROR_HANDLER_DOC);

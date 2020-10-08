@@ -10,14 +10,26 @@
 	"properties": {
 		"camel.source.path.configFile": {
 			"name": "camel.source.path.configFile",
-			"description": "Specifies the location to the solver file",
+			"description": "Specifies the location to the solver file. If useSolverManager=FALSE, Camel uses this file and create the Solver. If useSolverManager=TRUE and SolverManager is set in the header {OptaPlannerConstants.SOLVER_MANAGER} : this file is ignored by Camel usage of SolverManager. SolverManager can be injected by DI in Quarkus or Spring.",
 			"defaultValue": "null",
 			"priority": "HIGH"
+		},
+		"camel.source.endpoint.problemId": {
+			"name": "camel.source.endpoint.problemId",
+			"description": "In case of using SolverManager : the problem id",
+			"defaultValue": "\"1L\"",
+			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.solverId": {
 			"name": "camel.source.endpoint.solverId",
 			"description": "Specifies the solverId to user for the solver instance key",
 			"defaultValue": "\"DEFAULT_SOLVER\"",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.useSolverManager": {
+			"name": "camel.source.endpoint.useSolverManager",
+			"description": "use SolverManager instead of XML file config. Use this mode on Quarkus app.",
+			"defaultValue": "false",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -60,7 +72,7 @@
 			"name": "camel.component.optaplanner.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		}
 	}
 }

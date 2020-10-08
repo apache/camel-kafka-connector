@@ -57,7 +57,7 @@ The camel-aws-ses sink connector supports 31 options, which are listed below.
 | *camel.component.aws-ses.returnPath* | The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header. | null | MEDIUM
 | *camel.component.aws-ses.subject* | The subject which is used if the message header 'CamelAwsSesSubject' is not present. | null | MEDIUM
 | *camel.component.aws-ses.to* | List of destination email address. Can be overriden with 'CamelAwsSesTo' header. | null | MEDIUM
-| *camel.component.aws-ses.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-ses.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-ses.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-ses.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

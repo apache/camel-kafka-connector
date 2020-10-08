@@ -44,6 +44,12 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
+		"camel.source.endpoint.customNSQLookup": {
+			"name": "camel.source.endpoint.customNSQLookup",
+			"description": "A Custom NSQ lookup implementation",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.source.endpoint.lookupInterval": {
 			"name": "camel.source.endpoint.lookupInterval",
 			"description": "The lookup interval",
@@ -126,7 +132,7 @@
 			"name": "camel.component.nsq.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.nsq.useGlobalSslContextParameters": {
 			"name": "camel.component.nsq.useGlobalSslContextParameters",
