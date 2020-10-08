@@ -301,6 +301,34 @@ public class CamelSourceTaskTest {
     }
 
     @Test
+    public void testSourceByteArrayHeader() {
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(mapOf(
+            CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME,
+            CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "direct",
+            CamelSourceTask.getCamelSourcePathConfigPrefix() + "name", "start"
+        ));
+
+        sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "test", "byteArray", new Byte[] {
+            1, 2
+        });
+
+        try {
+            List<SourceRecord> results = sourceTask.poll();
+            assertThat(results).hasSize(1);
+
+            Header header = results.get(0).headers().allWithName(CamelSourceTask.HEADER_CAMEL_PREFIX + "byteArray").next();
+
+            assertThat(header.schema().type()).isEqualTo(Schema.Type.BYTES);
+            assertThat(header.value()).isInstanceOfSatisfying(byte[].class, b -> {
+                assertThat(b).contains(1, 2);
+            });
+        } finally {
+            sourceTask.stop();
+        }
+    }
+
+    @Test
     public void testSourcePollingWithAggregationBySize() {
         final int size = 10;
         final int chunkSize = 5;
