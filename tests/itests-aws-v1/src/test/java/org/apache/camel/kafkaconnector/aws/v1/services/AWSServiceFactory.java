@@ -19,9 +19,9 @@ package org.apache.camel.kafkaconnector.aws.v1.services;
 
 import com.amazonaws.services.kinesis.AmazonKinesis;
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.sqs.AmazonSQS;
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v1.clients.AWSClientUtils;
-import org.apache.camel.kafkaconnector.aws.v1.clients.AWSSQSClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +35,7 @@ public final class AWSServiceFactory {
         return awsInstanceType == null ? "default" : awsInstanceType;
     }
 
-    public static AWSService<AWSSQSClient> createSQSService() {
+    public static AWSService<AmazonSQS> createSQSService() {
         String awsInstanceType = System.getProperty("aws-service.instance.type");
         LOG.info("Creating a {} AWS SQS instance", getInstanceTypeName(awsInstanceType));
 
@@ -44,7 +44,7 @@ public final class AWSServiceFactory {
         }
 
         if (awsInstanceType.equals("remote")) {
-            return new AWSRemoteService<>(AWSRemoteService::newSQSClient);
+            return new AWSRemoteService<>(AWSClientUtils::newSQSClient);
         }
 
         LOG.error("Invalid AWS instance type: {}. Must be either 'remote' or 'local-aws-container'",
@@ -53,7 +53,7 @@ public final class AWSServiceFactory {
     }
 
 
-    public static AWSService<AWSSQSClient> createSNSService() {
+    public static AWSService<AmazonSQS> createSNSService() {
         String awsInstanceType = System.getProperty("aws-service.instance.type");
         LOG.info("Creating a {} AWS SNS instance", getInstanceTypeName(awsInstanceType));
 
@@ -62,7 +62,7 @@ public final class AWSServiceFactory {
         }
 
         if (awsInstanceType.equals("remote")) {
-            return new AWSRemoteService<>(AWSRemoteService::newSQSClient);
+            return new AWSRemoteService<>(AWSClientUtils::newSQSClient);
         }
 
         LOG.error("Invalid AWS instance type: {}. Must be either 'remote' or 'local-aws-container'",

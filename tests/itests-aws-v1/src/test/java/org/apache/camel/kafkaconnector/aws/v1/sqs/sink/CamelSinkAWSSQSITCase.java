@@ -25,6 +25,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import com.amazonaws.regions.Regions;
+import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.model.Message;
 import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
@@ -52,7 +53,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Testcontainers
 public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     @RegisterExtension
-    public static AWSService<AWSSQSClient> awsService = AWSServiceFactory.createSQSService();
+    public static AWSService<AmazonSQS> awsService = AWSServiceFactory.createSQSService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
 
@@ -70,7 +71,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        awssqsClient = awsService.getClient();
+        awssqsClient = new AWSSQSClient(awsService.getClient());
 
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
         queueUrl = awssqsClient.getQueue(queueName);

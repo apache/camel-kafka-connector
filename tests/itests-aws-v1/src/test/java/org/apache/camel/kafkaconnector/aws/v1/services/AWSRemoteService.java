@@ -23,11 +23,8 @@ import java.util.function.Supplier;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.regions.Regions;
-import com.amazonaws.services.sqs.AmazonSQS;
 import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
-import org.apache.camel.kafkaconnector.aws.v1.clients.AWSClientUtils;
-import org.apache.camel.kafkaconnector.aws.v1.clients.AWSSQSClient;
 import org.apache.camel.kafkaconnector.aws.v1.common.TestAWSCredentialsProvider;
 
 public class AWSRemoteService<T> implements AWSService<T> {
@@ -70,12 +67,4 @@ public class AWSRemoteService<T> implements AWSService<T> {
     public void shutdown() {
 
     }
-
-    public static AWSSQSClient newSQSClient() {
-        AmazonSQS sqs = AWSClientUtils.newSQSClient();
-
-        return new AWSSQSClient(sqs);
-    }
-
-
 }
