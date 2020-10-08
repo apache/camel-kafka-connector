@@ -229,7 +229,14 @@ public class CamelSourceTask extends SourceTask {
             } else if (value instanceof Byte) {
                 record.headers().addByte(keyCamelHeader, (byte)value);
             } else if (value instanceof Byte[]) {
-                record.headers().addBytes(keyCamelHeader, (byte[])value);
+                final Byte[] array = (Byte[])value;
+                final byte[] bytes = new byte[array.length];
+
+                for (int i = 0; i < array.length; i++) {
+                    bytes[i] = array[i];
+                }
+
+                record.headers().addBytes(keyCamelHeader, bytes);
             } else if (value instanceof Time) {
                 record.headers().addTime(keyCamelHeader, (Time)value);
             } else if (value instanceof Timestamp) {
