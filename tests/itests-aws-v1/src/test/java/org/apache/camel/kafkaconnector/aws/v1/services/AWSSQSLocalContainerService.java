@@ -19,10 +19,9 @@ package org.apache.camel.kafkaconnector.aws.v1.services;
 
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
-import org.apache.camel.kafkaconnector.aws.v1.clients.AWSSQSClient;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 
-public class AWSSQSLocalContainerService extends AWSLocalContainerService<AWSSQSClient> {
+public class AWSSQSLocalContainerService extends AWSLocalContainerService<AmazonSQS> {
 
     public AWSSQSLocalContainerService() {
         super(LocalStackContainer.Service.SQS);
@@ -41,14 +40,12 @@ public class AWSSQSLocalContainerService extends AWSLocalContainerService<AWSSQS
     }
 
     @Override
-    public AWSSQSClient getClient() {
-        AmazonSQS sqs = AmazonSQSClientBuilder
+    public AmazonSQS getClient() {
+        return AmazonSQSClientBuilder
                 .standard()
                 .withEndpointConfiguration(getContainer()
                         .getEndpointConfiguration(LocalStackContainer.Service.SQS))
                 .withCredentials(getContainer().getDefaultCredentialsProvider())
                 .build();
-
-        return new AWSSQSClient(sqs);
     }
 }
