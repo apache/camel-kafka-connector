@@ -17,18 +17,24 @@
 package org.apache.camel.kafkaconnector;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.kafkaconnector.utils.StringJoinerAggregator;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 
+import static org.apache.camel.util.CollectionHelper.mapOf;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -292,5 +298,84 @@ public class CamelSourceTaskTest {
         assertEquals(Schema.Type.BYTES, bigDecimalHeader.schema().type());
 
         sourceTask.stop();
+    }
+
+    @Test
+    public void testSourcePollingWithAggregationBySize() {
+        final int size = 10;
+        final int chunkSize = 5;
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(mapOf(
+            CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME,
+            CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF, "#class:org.apache.camel.kafkaconnector.utils.StringJoinerAggregator",
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF + ".delimiter", "|",
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF, chunkSize
+        ));
+
+        try {
+            assertThat(sourceTask.getCms().getCamelContext().getRegistry().lookupByName(CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME))
+                .isInstanceOf(StringJoinerAggregator.class)
+                .hasFieldOrPropertyWithValue("delimiter", "|");
+
+            for (int i = 0; i < size; i++) {
+                sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI,  Integer.toString(i));
+            }
+
+            List<SourceRecord> records = sourceTask.poll();
+
+            assertThat(records).hasSize(size / chunkSize);
+
+            for (int i = 0; i < size / chunkSize; i++) {
+                assertThat(records)
+                    .element(i)
+                    .hasFieldOrPropertyWithValue(
+                        "value",
+                        IntStream.range(i * chunkSize, (i * chunkSize) + chunkSize).mapToObj(Integer::toString).collect(Collectors.joining("|"))
+                    );
+            }
+
+        } finally {
+            sourceTask.stop();
+        }
+    }
+
+    @Test
+    public void testSourcePollingWithAggregationBySizeAndTimeout() {
+        final int size = 3;
+        final int chunkSize = 2;
+        final long chunkTimeout = 500L;
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(mapOf(
+            CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME,
+            CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF, "#class:org.apache.camel.kafkaconnector.utils.StringJoinerAggregator",
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF + ".delimiter", "|",
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_TIMEOUT_CONF, chunkTimeout,
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF, chunkSize
+        ));
+
+        try {
+            assertThat(sourceTask.getCms().getCamelContext().getRegistry().lookupByName(CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME))
+                .isInstanceOf(StringJoinerAggregator.class)
+                .hasFieldOrPropertyWithValue("delimiter", "|");
+
+            for (int i = 0; i < size; i++) {
+                sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, Integer.toString(i));
+            }
+
+            List<SourceRecord> records = new ArrayList<>();
+            while (records.size() < 2) {
+                records.addAll(sourceTask.poll());
+            }
+
+            assertThat(records).hasSize(2);
+            assertThat(records).element(0).hasFieldOrPropertyWithValue("value", "0|1");
+            assertThat(records).element(1).hasFieldOrPropertyWithValue("value", "2");
+        } finally {
+            sourceTask.stop();
+        }
     }
 }
