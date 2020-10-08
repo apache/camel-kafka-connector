@@ -59,7 +59,7 @@ The camel-web3j source connector supports 31 options, which are listed below.
 | *camel.component.web3j.topics* | Topics are order-dependent. Each topic can also be a list of topics. Specify multiple topics separated by comma. | null | MEDIUM
 | *camel.component.web3j.web3j* | The preconfigured Web3j object. | null | MEDIUM
 | *camel.component.web3j.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.web3j.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.web3j.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 

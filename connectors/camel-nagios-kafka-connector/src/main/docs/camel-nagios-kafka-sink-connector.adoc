@@ -42,7 +42,7 @@ The camel-nagios sink connector supports 17 options, which are listed below.
 | *camel.component.nagios.connectionTimeout* | Connection timeout in millis. | 5000 | MEDIUM
 | *camel.component.nagios.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.nagios.timeout* | Sending timeout in millis. | 5000 | MEDIUM
-| *camel.component.nagios.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.nagios.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.nagios.configuration* | To use a shared NagiosConfiguration | null | MEDIUM
 | *camel.component.nagios.encryption* | To specify an encryption method. One of: [NONE] [TRIPLE_DES] [XOR] [RIJNDAEL128] [RIJNDAEL192] [RIJNDAEL256] [BLOWFISH] | null | MEDIUM
 | *camel.component.nagios.password* | Password to be authenticated when sending checks to Nagios. | null | MEDIUM

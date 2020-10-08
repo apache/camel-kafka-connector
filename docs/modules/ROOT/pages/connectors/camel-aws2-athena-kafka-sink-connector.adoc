@@ -88,7 +88,7 @@ The camel-aws2-athena sink connector supports 61 options, which are listed below
 | *camel.component.aws2-athena.secretKey* | Amazon AWS Secret Key. | null | MEDIUM
 | *camel.component.aws2-athena.waitTimeout* | Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 0L | MEDIUM
 | *camel.component.aws2-athena.workGroup* | The workgroup to use for running the query. | null | MEDIUM
-| *camel.component.aws2-athena.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-athena.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws2-athena.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | MEDIUM
 |===
 

@@ -62,7 +62,7 @@ The camel-jmx source connector supports 34 options, which are listed below.
 | *camel.source.endpoint.notifyMatch* | If true, will fire a notification when the string attribute matches the string to compare (string monitor or consumer). By default the consumer will notify match if observed attribute and string to compare has been configured. | false | MEDIUM
 | *camel.source.endpoint.stringToCompare* | Value for attribute to compare (string monitor or consumer). By default the consumer will notify match if observed attribute and string to compare has been configured. | null | MEDIUM
 | *camel.component.jmx.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.jmx.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.jmx.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 

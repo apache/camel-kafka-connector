@@ -103,7 +103,7 @@ The camel-web3j sink connector supports 75 options, which are listed below.
 | *camel.component.web3j.transactionHash* | The information about a transaction requested by transaction hash. | null | MEDIUM
 | *camel.component.web3j.ttl* | The time to live in seconds of a whisper message. | null | MEDIUM
 | *camel.component.web3j.value* | The value sent within a transaction. | null | MEDIUM
-| *camel.component.web3j.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.web3j.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 
