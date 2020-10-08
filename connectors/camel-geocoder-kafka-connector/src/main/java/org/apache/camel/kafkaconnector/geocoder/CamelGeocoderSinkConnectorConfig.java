@@ -89,6 +89,9 @@ public class CamelGeocoderSinkConnectorConfig
     public static final String CAMEL_SINK_GEOCODER_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.geocoder.basicPropertyBinding";
     public static final String CAMEL_SINK_GEOCODER_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
     public static final Boolean CAMEL_SINK_GEOCODER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_GEOCODER_COMPONENT_GEO_API_CONTEXT_CONF = "camel.component.geocoder.geoApiContext";
+    public static final String CAMEL_SINK_GEOCODER_COMPONENT_GEO_API_CONTEXT_DOC = "Configuration for Google maps API";
+    public static final String CAMEL_SINK_GEOCODER_COMPONENT_GEO_API_CONTEXT_DEFAULT = null;
 
     public CamelGeocoderSinkConnectorConfig(
             ConfigDef config,
@@ -123,6 +126,7 @@ public class CamelGeocoderSinkConnectorConfig
         conf.define(CAMEL_SINK_GEOCODER_ENDPOINT_CLIENT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GEOCODER_ENDPOINT_CLIENT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GEOCODER_ENDPOINT_CLIENT_KEY_DOC);
         conf.define(CAMEL_SINK_GEOCODER_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GEOCODER_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GEOCODER_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_GEOCODER_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GEOCODER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_GEOCODER_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_GEOCODER_COMPONENT_GEO_API_CONTEXT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GEOCODER_COMPONENT_GEO_API_CONTEXT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GEOCODER_COMPONENT_GEO_API_CONTEXT_DOC);
         return conf;
     }
 }

@@ -95,6 +95,12 @@ public class CamelRabbitmqSinkConnectorConfig
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_VHOST_CONF = "camel.sink.endpoint.vhost";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_VHOST_DOC = "The vhost for the channel";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_VHOST_DEFAULT = "/";
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_HEADERS_CONF = "camel.sink.endpoint.additionalHeaders";
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_HEADERS_DOC = "Map of additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true";
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_HEADERS_DEFAULT = null;
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_PROPERTIES_CONF = "camel.sink.endpoint.additionalProperties";
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_PROPERTIES_DOC = "Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties. The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored.";
+    public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_PROPERTIES_DEFAULT = null;
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_CUSTOM_HEADERS_CONF = "camel.sink.endpoint.allowCustomHeaders";
     public static final String CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_CUSTOM_HEADERS_DOC = "Allow pass custom values to header";
     public static final Boolean CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_CUSTOM_HEADERS_DEFAULT = false;
@@ -236,6 +242,12 @@ public class CamelRabbitmqSinkConnectorConfig
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_VHOST_CONF = "camel.component.rabbitmq.vhost";
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_VHOST_DOC = "The vhost for the channel";
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_VHOST_DEFAULT = "/";
+    public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_HEADERS_CONF = "camel.component.rabbitmq.additionalHeaders";
+    public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_HEADERS_DOC = "Map of additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true";
+    public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_HEADERS_DEFAULT = null;
+    public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_PROPERTIES_CONF = "camel.component.rabbitmq.additionalProperties";
+    public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_PROPERTIES_DOC = "Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored. When the message already contains these headers they will be given precedence over these properties.";
+    public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_PROPERTIES_DEFAULT = null;
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ALLOW_NULL_HEADERS_CONF = "camel.component.rabbitmq.allowNullHeaders";
     public static final String CAMEL_SINK_RABBITMQ_COMPONENT_ALLOW_NULL_HEADERS_DOC = "Allow pass null values to header";
     public static final Boolean CAMEL_SINK_RABBITMQ_COMPONENT_ALLOW_NULL_HEADERS_DEFAULT = false;
@@ -356,6 +368,8 @@ public class CamelRabbitmqSinkConnectorConfig
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_BIND_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_BIND_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_BIND_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_DECLARE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_DECLARE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_SKIP_QUEUE_DECLARE_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_VHOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RABBITMQ_ENDPOINT_VHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_VHOST_DOC);
+        conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_HEADERS_DOC);
+        conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_ADDITIONAL_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_CUSTOM_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_CUSTOM_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_CUSTOM_HEADERS_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_NULL_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_NULL_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_ALLOW_NULL_HEADERS_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_ENDPOINT_BRIDGE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_ENDPOINT_BRIDGE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_ENDPOINT_BRIDGE_ENDPOINT_DOC);
@@ -403,6 +417,8 @@ public class CamelRabbitmqSinkConnectorConfig
         conf.define(CAMEL_SINK_RABBITMQ_COMPONENT_SKIP_QUEUE_BIND_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_COMPONENT_SKIP_QUEUE_BIND_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_COMPONENT_SKIP_QUEUE_BIND_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_COMPONENT_SKIP_QUEUE_DECLARE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_COMPONENT_SKIP_QUEUE_DECLARE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_COMPONENT_SKIP_QUEUE_DECLARE_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_COMPONENT_VHOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RABBITMQ_COMPONENT_VHOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_COMPONENT_VHOST_DOC);
+        conf.define(CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_HEADERS_DOC);
+        conf.define(CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_COMPONENT_ADDITIONAL_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_COMPONENT_ALLOW_NULL_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RABBITMQ_COMPONENT_ALLOW_NULL_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_COMPONENT_ALLOW_NULL_HEADERS_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_COMPONENT_CHANNEL_POOL_MAX_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_RABBITMQ_COMPONENT_CHANNEL_POOL_MAX_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_COMPONENT_CHANNEL_POOL_MAX_SIZE_DOC);
         conf.define(CAMEL_SINK_RABBITMQ_COMPONENT_CHANNEL_POOL_MAX_WAIT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_RABBITMQ_COMPONENT_CHANNEL_POOL_MAX_WAIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RABBITMQ_COMPONENT_CHANNEL_POOL_MAX_WAIT_DOC);

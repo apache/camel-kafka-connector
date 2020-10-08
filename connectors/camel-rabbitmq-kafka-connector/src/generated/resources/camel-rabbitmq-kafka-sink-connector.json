@@ -146,6 +146,18 @@
 			"defaultValue": "\"\/\"",
 			"priority": "MEDIUM"
 		},
+		"camel.sink.endpoint.additionalHeaders": {
+			"name": "camel.sink.endpoint.additionalHeaders",
+			"description": "Map of additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.additionalProperties": {
+			"name": "camel.sink.endpoint.additionalProperties",
+			"description": "Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties. The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.sink.endpoint.allowCustomHeaders": {
 			"name": "camel.sink.endpoint.allowCustomHeaders",
 			"description": "Allow pass custom values to header",
@@ -426,6 +438,18 @@
 			"name": "camel.component.rabbitmq.vhost",
 			"description": "The vhost for the channel",
 			"defaultValue": "\"\/\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.rabbitmq.additionalHeaders": {
+			"name": "camel.component.rabbitmq.additionalHeaders",
+			"description": "Map of additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.rabbitmq.additionalProperties": {
+			"name": "camel.component.rabbitmq.additionalProperties",
+			"description": "Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored. When the message already contains these headers they will be given precedence over these properties.",
+			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.allowNullHeaders": {

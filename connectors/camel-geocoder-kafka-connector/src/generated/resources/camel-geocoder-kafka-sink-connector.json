@@ -133,6 +133,12 @@
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
 			"priority": "LOW"
+		},
+		"camel.component.geocoder.geoApiContext": {
+			"name": "camel.component.geocoder.geoApiContext",
+			"description": "Configuration for Google maps API",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
 		}
 	}
 }
