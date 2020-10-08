@@ -18,6 +18,7 @@ package org.apache.camel.kafkaconnector;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -322,6 +323,35 @@ public class CamelSourceTaskTest {
             assertThat(header.schema().type()).isEqualTo(Schema.Type.BYTES);
             assertThat(header.value()).isInstanceOfSatisfying(byte[].class, b -> {
                 assertThat(b).contains(1, 2);
+            });
+        } finally {
+            sourceTask.stop();
+        }
+    }
+
+    @Test
+    public void testSourceDateHeader() {
+        final String key = "_key";
+        final Date now = new Date();
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(mapOf(
+            CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME,
+            CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "direct",
+            CamelSourceTask.getCamelSourcePathConfigPrefix() + "name", "start"
+        ));
+
+        sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "test", key, now);
+
+        try {
+            List<SourceRecord> results = sourceTask.poll();
+            assertThat(results).hasSize(1);
+
+            Header header = results.get(0).headers().allWithName(CamelSourceTask.HEADER_CAMEL_PREFIX + key).next();
+
+            assertThat(header.schema().type()).isEqualTo(Schema.Type.INT64);
+            assertThat(header.value()).isInstanceOfSatisfying(Date.class, value -> {
+                assertThat(value).isEqualTo(now);
             });
         } finally {
             sourceTask.stop();
