@@ -26,6 +26,7 @@ import org.apache.camel.CamelContextAware;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.kafkaconnector.CamelConnectorConfig;
 import org.apache.camel.main.BaseMainSupport;
 import org.apache.camel.main.MainListener;
 import org.apache.camel.model.RouteDefinition;
@@ -204,7 +205,7 @@ public class CamelKafkaConnectMain extends BaseMainSupport {
                     }
                     if (getContext().getRegistry().lookupByName("aggregate") != null) {
                         //aggregation
-                        AggregationStrategy s = (AggregationStrategy) getContext().getRegistry().lookupByName("aggregate");
+                        AggregationStrategy s = getContext().getRegistry().lookupByNameAndType(CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME, AggregationStrategy.class);
                         LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({})", s, aggregationSize, aggregationTimeout);
                         LOG.info(".to({})", to);
                         rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(to);
