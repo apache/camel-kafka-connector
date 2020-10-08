@@ -10,9 +10,14 @@
 
 **Closed issues:**
 
+- Catalog: Rename the json file to reflect the id and connectors.properties content [\#534](https://github.com/apache/camel-kafka-connector/issues/534)
+- Add a Maven Plugin to collect the connector descriptors for catalog purpose [\#529](https://github.com/apache/camel-kafka-connector/issues/529)
+- Create descriptors for source and sink connector for catalog purpose [\#523](https://github.com/apache/camel-kafka-connector/issues/523)
 - Move model classes CamelKafkaConnectorModel and CamelKafkaConnectorOptionModel in their own module [\#515](https://github.com/apache/camel-kafka-connector/issues/515)
 - Copy all Json connectors metadata into a camel-kafka-connector-catalog [\#514](https://github.com/apache/camel-kafka-connector/issues/514)
+- Document build steps w/ mvnd [\#513](https://github.com/apache/camel-kafka-connector/issues/513)
 - Generator a JSON metadata file for each connector [\#508](https://github.com/apache/camel-kafka-connector/issues/508)
+- \[camel-main-support\] Use BaseMainSupport instead of Main [\#499](https://github.com/apache/camel-kafka-connector/issues/499)
 - \[camel-main-support\] Reordering props should not be required anymore [\#498](https://github.com/apache/camel-kafka-connector/issues/498)
 - Add an ASF deploy GH Action like other camel projects [\#492](https://github.com/apache/camel-kafka-connector/issues/492)
 - MongoDB Kafka Connector: In the docs add Json as base value converter [\#490](https://github.com/apache/camel-kafka-connector/issues/490)
@@ -26,6 +31,17 @@
 
 **Merged pull requests:**
 
+- Catalog: Rename the json file to reflect the id and connectors.properties content [\#536](https://github.com/apache/camel-kafka-connector/pull/536) ([oscerd](https://github.com/oscerd))
+- Improve core [\#535](https://github.com/apache/camel-kafka-connector/pull/535) ([lburgazzoli](https://github.com/lburgazzoli))
+- Clean up usages of org.junit.Assert [\#533](https://github.com/apache/camel-kafka-connector/pull/533) ([mureinik](https://github.com/mureinik))
+- chore\(build\): merge GitHub workflow master-pr-build master-push-build [\#532](https://github.com/apache/camel-kafka-connector/pull/532) ([lburgazzoli](https://github.com/lburgazzoli))
+- Added build details using mvnd [\#531](https://github.com/apache/camel-kafka-connector/pull/531) ([orpiske](https://github.com/orpiske))
+- Add a Maven Plugin to collect the connector descriptors for catalog purpose [\#530](https://github.com/apache/camel-kafka-connector/pull/530) ([oscerd](https://github.com/oscerd))
+- chore\(build\): split build in multiple steps [\#528](https://github.com/apache/camel-kafka-connector/pull/528) ([lburgazzoli](https://github.com/lburgazzoli))
+- chore\(build\): use AdoptOpenJDK to set-up java [\#527](https://github.com/apache/camel-kafka-connector/pull/527) ([lburgazzoli](https://github.com/lburgazzoli))
+- \[camel-main-support\] Use BaseMainSupport instead of Main [\#526](https://github.com/apache/camel-kafka-connector/pull/526) ([lburgazzoli](https://github.com/lburgazzoli))
+- Create descriptors for source and sink connector for catalog purpose [\#525](https://github.com/apache/camel-kafka-connector/pull/525) ([oscerd](https://github.com/oscerd))
+- camel-kafka-connector-model should have tooling pom as parent pom [\#521](https://github.com/apache/camel-kafka-connector/pull/521) ([valdar](https://github.com/valdar))
 - Added encoding to maven-resources-plugin to avoid warning [\#520](https://github.com/apache/camel-kafka-connector/pull/520) ([oscerd](https://github.com/oscerd))
 - Fixed GH Actions with the new camel-kafka-connector-model [\#519](https://github.com/apache/camel-kafka-connector/pull/519) ([oscerd](https://github.com/oscerd))
 - Move model classes CamelKafkaConnectorModel and CamelKafkaConnectorOp… [\#518](https://github.com/apache/camel-kafka-connector/pull/518) ([oscerd](https://github.com/oscerd))
