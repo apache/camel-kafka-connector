@@ -26,16 +26,76 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
+		"camel.sink.endpoint.secure": {
+			"name": "camel.sink.endpoint.secure",
+			"description": "Define if we are connecting to a secured Infinispan instance",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.defaultValue": {
+			"name": "camel.sink.endpoint.defaultValue",
+			"description": "Set a specific default value for some producer operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.key": {
+			"name": "camel.sink.endpoint.key",
+			"description": "Set a specific key for producer operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
 			"priority": "MEDIUM"
 		},
+		"camel.sink.endpoint.oldValue": {
+			"name": "camel.sink.endpoint.oldValue",
+			"description": "Set a specific old value for some producer operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
 			"defaultValue": "\"PUT\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.value": {
+			"name": "camel.sink.endpoint.value",
+			"description": "Set a specific value for producer operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.password": {
+			"name": "camel.sink.endpoint.password",
+			"description": "Define the password to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.saslMechanism": {
+			"name": "camel.sink.endpoint.saslMechanism",
+			"description": "Define the SASL Mechanism to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.securityRealm": {
+			"name": "camel.sink.endpoint.securityRealm",
+			"description": "Define the security realm to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.securityServerName": {
+			"name": "camel.sink.endpoint.securityServerName",
+			"description": "Define the security server name to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.username": {
+			"name": "camel.sink.endpoint.username",
+			"description": "Define the username to access the infinispan instance",
+			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -110,10 +170,34 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
+		"camel.component.infinispan.secure": {
+			"name": "camel.component.infinispan.secure",
+			"description": "Define if we are connecting to a secured Infinispan instance",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.defaultValue": {
+			"name": "camel.component.infinispan.defaultValue",
+			"description": "Set a specific default value for some producer operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.key": {
+			"name": "camel.component.infinispan.key",
+			"description": "Set a specific key for producer operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.component.infinispan.lazyStartProducer": {
 			"name": "camel.component.infinispan.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.oldValue": {
+			"name": "camel.component.infinispan.oldValue",
+			"description": "Set a specific old value for some producer operations",
+			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.operation": {
@@ -122,11 +206,47 @@
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM"
 		},
+		"camel.component.infinispan.value": {
+			"name": "camel.component.infinispan.value",
+			"description": "Set a specific value for producer operations",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.password": {
+			"name": "camel.component.infinispan.password",
+			"description": "Define the password to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.saslMechanism": {
+			"name": "camel.component.infinispan.saslMechanism",
+			"description": "Define the SASL Mechanism to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.securityRealm": {
+			"name": "camel.component.infinispan.securityRealm",
+			"description": "Define the security realm to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.securityServerName": {
+			"name": "camel.component.infinispan.securityServerName",
+			"description": "Define the security server name to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.username": {
+			"name": "camel.component.infinispan.username",
+			"description": "Define the username to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.component.infinispan.basicPropertyBinding": {
 			"name": "camel.component.infinispan.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.infinispan.cacheContainer": {
 			"name": "camel.component.infinispan.cacheContainer",

@@ -68,7 +68,7 @@ The camel-azure-blob sink connector supports 43 options, which are listed below.
 | *camel.component.azure-blob.operation* | Blob service operation hint to the producer One of: [getBlob] [deleteBlob] [listBlobs] [updateBlockBlob] [uploadBlobBlocks] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [updateAppendBlob] [createPageBlob] [updatePageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobs" | MEDIUM
 | *camel.component.azure-blob.streamWriteSize* | Set the size of the buffer for writing block and page blocks | null | MEDIUM
 | *camel.component.azure-blob.useFlatListing* | Specify if the flat or hierarchical blob listing should be used | true | MEDIUM
-| *camel.component.azure-blob.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.azure-blob.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.azure-blob.configuration* | The Blob Service configuration | null | MEDIUM
 | *camel.component.azure-blob.credentialsAccountKey* | Set the storage account key used during authentication phase | null | MEDIUM
 | *camel.component.azure-blob.credentialsAccountName* | Set the storage account name used during authentication phase | null | MEDIUM

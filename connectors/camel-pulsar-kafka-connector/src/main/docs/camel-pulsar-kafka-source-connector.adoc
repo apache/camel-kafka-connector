@@ -72,7 +72,7 @@ The camel-pulsar source connector supports 45 options, which are listed below.
 | *camel.component.pulsar.topicsPattern* | Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace | false | MEDIUM
 | *camel.component.pulsar.pulsarMessageReceiptFactory* | Provide a factory to create an alternate implementation of PulsarMessageReceipt. | null | MEDIUM
 | *camel.component.pulsar.autoConfiguration* | The pulsar auto configuration | null | MEDIUM
-| *camel.component.pulsar.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.pulsar.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.pulsar.pulsarClient* | The pulsar client | null | MEDIUM
 |===
 

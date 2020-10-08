@@ -45,7 +45,7 @@ The camel-pubnub source connector supports 17 options, which are listed below.
 | *camel.source.endpoint.secure* | Use SSL for secure transmission. | true | MEDIUM
 | *camel.source.endpoint.subscribeKey* | The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events | null | MEDIUM
 | *camel.component.pubnub.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.pubnub.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.pubnub.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 

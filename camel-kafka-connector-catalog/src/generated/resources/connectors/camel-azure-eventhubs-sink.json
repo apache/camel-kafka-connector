@@ -46,7 +46,7 @@
 		},
 		"camel.sink.endpoint.partitionId": {
 			"name": "camel.sink.endpoint.partitionId",
-			"description": "Sets the identifier of the Event Hub partition that the {link EventData events} will be sent to. If the identifier is not specified, the Event Hubs service will be responsible for routing events that are sent to an available partition.",
+			"description": "Sets the identifier of the Event Hub partition that the events will be sent to. If the identifier is not specified, the Event Hubs service will be responsible for routing events that are sent to an available partition.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -58,7 +58,7 @@
 		},
 		"camel.sink.endpoint.producerAsyncClient": {
 			"name": "camel.sink.endpoint.producerAsyncClient",
-			"description": "Sets the EventHubProducerAsyncClient.An asynchronous producer responsible for transmitting EventData to a specific Event Hub, grouped together in batches. Depending on the {link CreateBatchOptions options} specified when creating an {linkEventDataBatch}, the events may be automatically routed to an available partition or specific to a partition. Use by this component to produce the data in camel producer.",
+			"description": "Sets the EventHubProducerAsyncClient.An asynchronous producer responsible for transmitting EventData to a specific Event Hub, grouped together in batches. Depending on the options specified when creating an {linkEventDataBatch}, the events may be automatically routed to an available partition or specific to a partition. Use by this component to produce the data in camel producer.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -124,7 +124,7 @@
 		},
 		"camel.component.azure-eventhubs.partitionId": {
 			"name": "camel.component.azure-eventhubs.partitionId",
-			"description": "Sets the identifier of the Event Hub partition that the {link EventData events} will be sent to. If the identifier is not specified, the Event Hubs service will be responsible for routing events that are sent to an available partition.",
+			"description": "Sets the identifier of the Event Hub partition that the events will be sent to. If the identifier is not specified, the Event Hubs service will be responsible for routing events that are sent to an available partition.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -136,7 +136,7 @@
 		},
 		"camel.component.azure-eventhubs.producerAsyncClient": {
 			"name": "camel.component.azure-eventhubs.producerAsyncClient",
-			"description": "Sets the EventHubProducerAsyncClient.An asynchronous producer responsible for transmitting EventData to a specific Event Hub, grouped together in batches. Depending on the {link CreateBatchOptions options} specified when creating an {linkEventDataBatch}, the events may be automatically routed to an available partition or specific to a partition. Use by this component to produce the data in camel producer.",
+			"description": "Sets the EventHubProducerAsyncClient.An asynchronous producer responsible for transmitting EventData to a specific Event Hub, grouped together in batches. Depending on the options specified when creating an {linkEventDataBatch}, the events may be automatically routed to an available partition or specific to a partition. Use by this component to produce the data in camel producer.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -144,7 +144,7 @@
 			"name": "camel.component.azure-eventhubs.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.azure-eventhubs.connectionString": {
 			"name": "camel.component.azure-eventhubs.connectionString",
