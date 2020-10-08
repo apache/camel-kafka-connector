@@ -17,9 +17,6 @@
 package org.apache.camel.kafkaconnector;
 
 import java.math.BigDecimal;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -237,12 +234,8 @@ public class CamelSourceTask extends SourceTask {
                 }
 
                 record.headers().addBytes(keyCamelHeader, bytes);
-            } else if (value instanceof Time) {
-                record.headers().addTime(keyCamelHeader, (Time)value);
-            } else if (value instanceof Timestamp) {
-                record.headers().addTimestamp(keyCamelHeader, (Timestamp)value);
             } else if (value instanceof Date) {
-                record.headers().addString(keyCamelHeader, new SimpleDateFormat("yyyy-MM-dd").format(value));
+                record.headers().addTimestamp(keyCamelHeader, (Date)value);
             } else if (value instanceof BigDecimal) {
                 Schema schema = Decimal.schema(((BigDecimal)value).scale());
                 record.headers().add(keyCamelHeader, Decimal.fromLogical(schema, (BigDecimal)value), schema);

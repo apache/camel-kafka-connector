@@ -18,9 +18,11 @@ package org.apache.camel.kafkaconnector;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
@@ -35,6 +37,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
+import org.apache.kafka.connect.data.Timestamp;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.sink.SinkRecord;
@@ -172,7 +175,10 @@ public class CamelSinkTask extends SinkTask {
     private void addHeader(Map<String, Object> map, Header singleHeader) {
         String camelHeaderKey = StringUtils.removeStart(singleHeader.key(), HEADER_CAMEL_PREFIX);
         Schema schema = singleHeader.schema();
-        if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
+
+        if (schema.type().equals(Timestamp.SCHEMA.type()) && Objects.equals(schema.name(), Timestamp.SCHEMA.name())) {
+            map.put(camelHeaderKey, (Date)singleHeader.value());
+        } else if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
             map.put(camelHeaderKey, (String)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BOOLEAN_SCHEMA.type().getName())) {
             map.put(camelHeaderKey, (Boolean)singleHeader.value());
@@ -204,7 +210,10 @@ public class CamelSinkTask extends SinkTask {
     private void addProperty(Exchange exchange, Header singleHeader) {
         String camelPropertyKey = StringUtils.removeStart(singleHeader.key(), PROPERTY_CAMEL_PREFIX);
         Schema schema = singleHeader.schema();
-        if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
+
+        if (schema.type().equals(Timestamp.SCHEMA.type()) && Objects.equals(schema.name(), Timestamp.SCHEMA.name())) {
+            exchange.getProperties().put(camelPropertyKey, (Date)singleHeader.value());
+        } else if (schema.type().getName().equals(Schema.STRING_SCHEMA.type().getName())) {
             exchange.getProperties().put(camelPropertyKey, (String)singleHeader.value());
         } else if (schema.type().getName().equalsIgnoreCase(Schema.BOOLEAN_SCHEMA.type().getName())) {
             exchange.getProperties().put(camelPropertyKey, (Boolean)singleHeader.value());
