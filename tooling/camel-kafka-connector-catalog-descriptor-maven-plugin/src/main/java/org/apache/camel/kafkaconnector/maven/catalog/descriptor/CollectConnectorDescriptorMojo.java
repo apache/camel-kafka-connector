@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.camel.kafkaconnector.maven.docs;
+package org.apache.camel.kafkaconnector.maven.catalog.descriptor;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -45,19 +45,19 @@ public class CollectConnectorDescriptorMojo extends AbstractMojo {
     protected MavenProject project;
 
     /**
-     * The directory for components catalog
+     * The directory for connectors
      */
     @Parameter(defaultValue = "${project.directory}/../../connectors/")
     protected File connectorsDir;
 
     /**
-     * The directory for components catalog
+     * The directory for catalog descriptors
      */
     @Parameter(defaultValue = "${project.directory}/../../camel-kafka-connector-catalog/src/generated/resources/descriptors")
     protected File catalogDescriptorDir;
 
     /**
-     * The maven project.
+     * The connectors project name parameter.
      */
     @Parameter(property = "connectors-project-name", defaultValue = "connectors", readonly = true)
     protected String connectorsProjectName;
