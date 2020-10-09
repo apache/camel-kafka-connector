@@ -19,11 +19,10 @@ package org.apache.camel.kafkaconnector.aws.v1.s3.source;
 
 import com.amazonaws.services.s3.AmazonS3;
 import org.apache.camel.component.aws.s3.S3Configuration;
-import org.apache.camel.kafkaconnector.aws.v1.clients.AWSClientUtils;
+import org.apache.camel.test.infra.aws.clients.AWSClientUtils;
 
 public class TestS3Configuration extends S3Configuration {
     private AmazonS3 amazonS3;
-
 
     private AmazonS3 buildClient() {
         return AWSClientUtils.newS3Client();

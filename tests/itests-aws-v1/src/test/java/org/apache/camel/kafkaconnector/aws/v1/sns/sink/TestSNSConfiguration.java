@@ -20,7 +20,7 @@ package org.apache.camel.kafkaconnector.aws.v1.sns.sink;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sqs.AmazonSQS;
 import org.apache.camel.component.aws.sns.SnsConfiguration;
-import org.apache.camel.kafkaconnector.aws.v1.clients.AWSClientUtils;
+import org.apache.camel.test.infra.aws.clients.AWSClientUtils;
 
 public class TestSNSConfiguration extends SnsConfiguration {
 

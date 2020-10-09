@@ -22,10 +22,9 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.amazonaws.regions.Regions;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
-
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
@@ -57,12 +56,9 @@ final class CamelAWSS3PropertyFactory extends SourceConnectorPropertyFactory<Cam
         String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
         String regionKey = style.get(AWSConfigs.REGION);
 
-        setProperty(accessKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        setProperty(secretKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        return setProperty(regionKey,
-                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
+        setProperty(accessKeyKey, amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
+        setProperty(secretKeyKey, amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
+        return setProperty(regionKey, amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
     }
 
     public EndpointUrlBuilder<CamelAWSS3PropertyFactory> withUrl(String bucket) {
@@ -84,9 +80,7 @@ final class CamelAWSS3PropertyFactory extends SourceConnectorPropertyFactory<Cam
     }
 
     public static CamelAWSS3PropertyFactory basic() {
-        return new CamelAWSS3PropertyFactory()
-                .withName("CamelAwss3SourceConnector")
-                .withTasksMax(1)
+        return new CamelAWSS3PropertyFactory().withName("CamelAwss3SourceConnector").withTasksMax(1)
                 .withConnectorClass("org.apache.camel.kafkaconnector.awss3.CamelAwss3SourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");

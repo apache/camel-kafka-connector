@@ -39,9 +39,17 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.camel.kafkaconnector</groupId>
-            <artifactId>itests-aws-common</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-infra-aws-common</artifactId>
+            <version>${camel.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-infra-aws-v1</artifactId>
+            <version>${camel.version}</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
@@ -61,12 +69,6 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-aws-kinesis</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>localstack</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

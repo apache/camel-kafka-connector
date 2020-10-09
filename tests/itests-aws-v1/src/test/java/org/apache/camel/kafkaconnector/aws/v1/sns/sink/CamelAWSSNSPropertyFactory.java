@@ -22,9 +22,9 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.amazonaws.regions.Regions;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
@@ -57,8 +57,8 @@ final class CamelAWSSNSPropertyFactory extends SinkConnectorPropertyFactory<Came
     }
 
     public CamelAWSSNSPropertyFactory withSubscribeSNStoSQS(String queue) {
-        return setProperty("camel.sink.endpoint.subscribeSNStoSQS", "true")
-                .setProperty("camel.sink.endpoint.queueUrl", queue);
+        return setProperty("camel.sink.endpoint.subscribeSNStoSQS", "true").setProperty("camel.sink.endpoint.queueUrl",
+                queue);
     }
 
     public CamelAWSSNSPropertyFactory withAmazonConfig(Properties amazonConfigs) {
@@ -70,24 +70,17 @@ final class CamelAWSSNSPropertyFactory extends SinkConnectorPropertyFactory<Came
         String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
         String regionKey = style.get(AWSConfigs.REGION);
 
-        setProperty(accessKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        setProperty(secretKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        return setProperty(regionKey,
-                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
+        setProperty(accessKeyKey, amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
+        setProperty(secretKeyKey, amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
+        return setProperty(regionKey, amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
     }
 
     public CamelAWSSNSPropertyFactory withConfiguration(String configurationClass) {
-        return setProperty("camel.component.aws-sns.configuration",
-                classRef(configurationClass));
+        return setProperty("camel.component.aws-sns.configuration", classRef(configurationClass));
     }
 
-
     public static CamelAWSSNSPropertyFactory basic() {
-        return new CamelAWSSNSPropertyFactory()
-                .withName("CamelAWSSNSSinkConnector")
-                .withTasksMax(1)
+        return new CamelAWSSNSPropertyFactory().withName("CamelAWSSNSSinkConnector").withTasksMax(1)
                 .withConnectorClass("org.apache.camel.kafkaconnector.awssns.CamelAwssnsSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");

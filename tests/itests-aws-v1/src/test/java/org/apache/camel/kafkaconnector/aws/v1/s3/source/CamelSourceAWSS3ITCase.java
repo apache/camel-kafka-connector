@@ -23,15 +23,15 @@ import java.util.concurrent.ExecutionException;
 
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
-import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
-import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v1.clients.AWSClientUtils;
-import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.test.infra.aws.common.AWSCommon;
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
+import org.apache.camel.test.infra.aws.common.services.AWSService;
+import org.apache.camel.test.infra.aws.services.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -95,7 +95,8 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         return true;
     }
 
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory)
+            throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
@@ -120,11 +121,9 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     @Test
     @Timeout(180)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory.basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withBucketNameOrArn(AWSCommon.DEFAULT_S3_BUCKET)
+                .withConfiguration(TestS3Configuration.class.getName()).withBucketNameOrArn(AWSCommon.DEFAULT_S3_BUCKET)
                 .withAmazonConfig(service.getConnectionProperties());
 
         runTest(connectorPropertyFactory);
@@ -133,13 +132,10 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     @Test
     @Timeout(180)
     public void testBasicSendReceiveWithMaxMessagesPerPoll() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory.basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withMaxMessagesPerPoll(5)
-                .withBucketNameOrArn(AWSCommon.DEFAULT_S3_BUCKET)
-                .withAmazonConfig(service.getConnectionProperties());
+                .withConfiguration(TestS3Configuration.class.getName()).withMaxMessagesPerPoll(5)
+                .withBucketNameOrArn(AWSCommon.DEFAULT_S3_BUCKET).withAmazonConfig(service.getConnectionProperties());
 
         runTest(connectorPropertyFactory);
     }
@@ -147,11 +143,9 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     @Test
     @Timeout(180)
     public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory.basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withBucketNameOrArn(AWSCommon.DEFAULT_S3_BUCKET)
+                .withConfiguration(TestS3Configuration.class.getName()).withBucketNameOrArn(AWSCommon.DEFAULT_S3_BUCKET)
                 .withAmazonConfig(service.getConnectionProperties(), CamelAWSS3PropertyFactory.KAFKA_STYLE);
 
         runTest(connectorPropertyFactory);
@@ -162,16 +156,13 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
     public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
         Properties amazonProperties = service.getConnectionProperties();
 
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory.basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withUrl(AWSCommon.DEFAULT_S3_BUCKET)
-                    .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
-                    .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                    .appendIfAvailable("proxyProtocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
-                    .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
-                .buildUrl();
+                .withConfiguration(TestS3Configuration.class.getName()).withUrl(AWSCommon.DEFAULT_S3_BUCKET)
+                .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
+                .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
+                .appendIfAvailable("proxyProtocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
+                .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name())).buildUrl();
 
         runTest(connectorPropertyFactory);
     }

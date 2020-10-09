@@ -19,11 +19,10 @@ package org.apache.camel.kafkaconnector.aws.v1.kinesis.source;
 
 import com.amazonaws.services.kinesis.AmazonKinesis;
 import org.apache.camel.component.aws.kinesis.KinesisConfiguration;
-import org.apache.camel.kafkaconnector.aws.v1.clients.AWSClientUtils;
+import org.apache.camel.test.infra.aws.clients.AWSClientUtils;
 
 public class TestKinesisConfiguration extends KinesisConfiguration {
     private AmazonKinesis amazonKinesis;
-
 
     private AmazonKinesis buildClient() {
         return AWSClientUtils.newKinesisClient();

@@ -22,15 +22,15 @@ import java.util.concurrent.ExecutionException;
 
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.sqs.AmazonSQS;
-import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
-import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v1.clients.AWSSQSClient;
-import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.test.infra.aws.common.AWSCommon;
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
+import org.apache.camel.test.infra.aws.common.services.AWSService;
+import org.apache.camel.test.infra.aws.services.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -91,7 +91,8 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         return true;
     }
 
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory)
+            throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
@@ -112,10 +113,8 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
-                .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withQueueOrArn(queueName)
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory.basic()
+                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass())).withQueueOrArn(queueName)
                 .withAmazonConfig(service.getConnectionProperties());
 
         runTest(connectorPropertyFactory);
@@ -127,10 +126,8 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @Test
     @Timeout(90)
     public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
-                .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withQueueOrArn(queueName)
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory.basic()
+                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass())).withQueueOrArn(queueName)
                 .withAmazonConfig(service.getConnectionProperties(), CamelAWSSQSPropertyFactory.KAFKA_STYLE);
 
         runTest(connectorPropertyFactory);
@@ -144,16 +141,13 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
         Properties amazonProperties = service.getConnectionProperties();
 
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
-                .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withUrl(queueName)
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory.basic()
+                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass())).withUrl(queueName)
                 .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                 .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
                 .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
                 .appendIfAvailable("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST))
-                .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
-                .buildUrl();
+                .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name())).buildUrl();
 
         runTest(connectorPropertyFactory);
     }
