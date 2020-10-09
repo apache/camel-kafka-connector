@@ -18,7 +18,7 @@
 package org.apache.camel.kafkaconnector.aws.v2.s3.source;
 
 import org.apache.camel.component.aws2.s3.AWS2S3Configuration;
-import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSDKClientUtils;
+import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import software.amazon.awssdk.services.s3.S3Client;
 
 public class TestS3Configuration extends AWS2S3Configuration {
