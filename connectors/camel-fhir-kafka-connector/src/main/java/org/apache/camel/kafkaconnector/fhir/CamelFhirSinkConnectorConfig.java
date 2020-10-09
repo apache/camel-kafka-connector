@@ -25,7 +25,7 @@ import org.apache.kafka.common.config.ConfigDef;
 public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_FHIR_PATH_API_NAME_CONF = "camel.sink.path.apiName";
-    public static final String CAMEL_SINK_FHIR_PATH_API_NAME_DOC = "What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate]";
+    public static final String CAMEL_SINK_FHIR_PATH_API_NAME_DOC = "What kind of operation to perform One of: [CAPABILITIES] [CREATE] [DELETE] [HISTORY] [LOAD_PAGE] [META] [OPERATION] [PATCH] [READ] [SEARCH] [TRANSACTION] [UPDATE] [VALIDATE]";
     public static final String CAMEL_SINK_FHIR_PATH_API_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_FHIR_PATH_METHOD_NAME_CONF = "camel.sink.path.methodName";
     public static final String CAMEL_SINK_FHIR_PATH_METHOD_NAME_DOC = "What sub operation to use for the selected operation";
@@ -237,7 +237,7 @@ public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_FHIR_COMPONENT_PRETTY_PRINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_PRETTY_PRINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_PRETTY_PRINT_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_SERVER_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_COMPONENT_SERVER_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_SERVER_URL_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_COMPONENT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_CLIENT_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_COMPONENT_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_CLIENT_FACTORY_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_COMPRESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_COMPRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_COMPRESS_DOC);

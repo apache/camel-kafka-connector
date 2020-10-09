@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.rabbitmq.CamelRabbitmqSinkConnec
 ----
 
 
-The camel-rabbitmq sink connector supports 98 options, which are listed below.
+The camel-rabbitmq sink connector supports 102 options, which are listed below.
 
 
 
@@ -52,6 +52,8 @@ The camel-rabbitmq sink connector supports 98 options, which are listed below.
 | *camel.sink.endpoint.skipQueueBind* | If true the queue will not be bound to the exchange after declaring it | false | MEDIUM
 | *camel.sink.endpoint.skipQueueDeclare* | If true the producer will not declare and bind a queue. This can be used for directing messages via an existing routing key. | false | MEDIUM
 | *camel.sink.endpoint.vhost* | The vhost for the channel | "/" | MEDIUM
+| *camel.sink.endpoint.additionalHeaders* | Map of additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true | null | MEDIUM
+| *camel.sink.endpoint.additionalProperties* | Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties. The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored. | null | MEDIUM
 | *camel.sink.endpoint.allowCustomHeaders* | Allow pass custom values to header | false | MEDIUM
 | *camel.sink.endpoint.allowNullHeaders* | Allow pass null values to header | false | MEDIUM
 | *camel.sink.endpoint.bridgeEndpoint* | If the bridgeEndpoint is true, the producer will ignore the message header of rabbitmq.EXCHANGE_NAME and rabbitmq.ROUTING_KEY | false | MEDIUM
@@ -99,6 +101,8 @@ The camel-rabbitmq sink connector supports 98 options, which are listed below.
 | *camel.component.rabbitmq.skipQueueBind* | If true the queue will not be bound to the exchange after declaring it | false | MEDIUM
 | *camel.component.rabbitmq.skipQueueDeclare* | If true the producer will not declare and bind a queue. This can be used for directing messages via an existing routing key. | false | MEDIUM
 | *camel.component.rabbitmq.vhost* | The vhost for the channel | "/" | MEDIUM
+| *camel.component.rabbitmq.additionalHeaders* | Map of additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true | null | MEDIUM
+| *camel.component.rabbitmq.additionalProperties* | Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored. When the message already contains these headers they will be given precedence over these properties. | null | MEDIUM
 | *camel.component.rabbitmq.allowNullHeaders* | Allow pass null values to header | false | MEDIUM
 | *camel.component.rabbitmq.channelPoolMaxSize* | Get maximum number of opened channel in pool | 10 | MEDIUM
 | *camel.component.rabbitmq.channelPoolMaxWait* | Set the maximum number of milliseconds to wait for a channel from the pool | 1000L | MEDIUM
@@ -111,7 +115,7 @@ The camel-rabbitmq sink connector supports 98 options, which are listed below.
 | *camel.component.rabbitmq.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ Binding: arg.dlq.binding. For example to declare a queue with message ttl argument: \http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000 | null | MEDIUM
 | *camel.component.rabbitmq.autoDetectConnection Factory* | Whether to auto-detect looking up RabbitMQ connection factory from the registry. When enabled and a single instance of the connection factory is found then it will be used. An explicit connection factory can be configured on the component or endpoint level which takes precedence. | true | MEDIUM
 | *camel.component.rabbitmq.automaticRecoveryEnabled* | Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application) | null | MEDIUM
-| *camel.component.rabbitmq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.rabbitmq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.rabbitmq.clientProperties* | Connection client properties (client info used in negotiating with the server) | null | MEDIUM
 | *camel.component.rabbitmq.connectionFactory ExceptionHandler* | Custom rabbitmq ExceptionHandler for ConnectionFactory | null | MEDIUM
 | *camel.component.rabbitmq.connectionTimeout* | Connection timeout | 60000 | MEDIUM

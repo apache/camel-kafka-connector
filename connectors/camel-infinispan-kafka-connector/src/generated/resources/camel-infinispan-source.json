@@ -26,6 +26,12 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
+		"camel.source.endpoint.secure": {
+			"name": "camel.source.endpoint.secure",
+			"description": "Define if we are connecting to a secured Infinispan instance",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -71,6 +77,36 @@
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.password": {
+			"name": "camel.source.endpoint.password",
+			"description": "Define the password to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.saslMechanism": {
+			"name": "camel.source.endpoint.saslMechanism",
+			"description": "Define the SASL Mechanism to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.securityRealm": {
+			"name": "camel.source.endpoint.securityRealm",
+			"description": "Define the security realm to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.securityServerName": {
+			"name": "camel.source.endpoint.securityServerName",
+			"description": "Define the security server name to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.username": {
+			"name": "camel.source.endpoint.username",
+			"description": "Define the username to access the infinispan instance",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -146,6 +182,12 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
+		"camel.component.infinispan.secure": {
+			"name": "camel.component.infinispan.secure",
+			"description": "Define if we are connecting to a secured Infinispan instance",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
 		"camel.component.infinispan.bridgeErrorHandler": {
 			"name": "camel.component.infinispan.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -182,11 +224,41 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
+		"camel.component.infinispan.password": {
+			"name": "camel.component.infinispan.password",
+			"description": "Define the password to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.saslMechanism": {
+			"name": "camel.component.infinispan.saslMechanism",
+			"description": "Define the SASL Mechanism to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.securityRealm": {
+			"name": "camel.component.infinispan.securityRealm",
+			"description": "Define the security realm to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.securityServerName": {
+			"name": "camel.component.infinispan.securityServerName",
+			"description": "Define the security server name to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.infinispan.username": {
+			"name": "camel.component.infinispan.username",
+			"description": "Define the username to access the infinispan instance",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.component.infinispan.basicPropertyBinding": {
 			"name": "camel.component.infinispan.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.infinispan.cacheContainer": {
 			"name": "camel.component.infinispan.cacheContainer",
