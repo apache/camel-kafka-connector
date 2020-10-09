@@ -17,6 +17,7 @@
 package org.apache.camel.kafkaconnector.catalog;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -42,6 +43,9 @@ public class CamelKafkaConnectorCatalog {
     static List<String> connectorsName = new ArrayList<String>();
     static Map<String, CamelKafkaConnectorModel> connectorsModel = new HashMap<String, CamelKafkaConnectorModel>();
     private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectorCatalog.class);
+    private static final String CONNECTORS_DIR = "src/generated/resources/connectors";
+    private static final String DESCRIPTORS_DIR = "src/generated/resources/descriptors";
+    private static final String CONNECTORS_PROPERTIES = "connectors.properties";
 
     public CamelKafkaConnectorCatalog() {
         initCatalog();
@@ -55,7 +59,7 @@ public class CamelKafkaConnectorCatalog {
     }
 
     private void initCatalog() {
-        try (FileInputStream input = new FileInputStream("src/generated/resources/descriptors/connectors.properties")) {
+        try (FileInputStream input = new FileInputStream(DESCRIPTORS_DIR + File.separator + CONNECTORS_PROPERTIES)) {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
@@ -83,7 +87,7 @@ public class CamelKafkaConnectorCatalog {
     public String getConnectorAsJson(String connectorName) {
         String result = null;
         try {
-            result = Files.lines(Paths.get("src/generated/resources/connectors/" + connectorName + ".json")).parallel() // for
+            result = Files.lines(Paths.get(CONNECTORS_DIR + File.separator + connectorName + ".json")).parallel() // for
                                                                                                                         // parallel
                                                                                                                         // processing
                 .map(String::trim) // to change line
