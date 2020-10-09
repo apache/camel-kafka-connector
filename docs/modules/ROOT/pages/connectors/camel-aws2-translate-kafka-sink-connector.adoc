@@ -61,7 +61,7 @@ The camel-aws2-translate sink connector supports 35 options, which are listed be
 | *camel.component.aws2-translate.targetLanguage* | Target language to use | null | MEDIUM
 | *camel.component.aws2-translate.translateClient* | To use a existing configured AWS Translate as client | null | MEDIUM
 | *camel.component.aws2-translate.trustAll Certificates* | If we want to trust all certificates in case of overriding the endpoint | false | MEDIUM
-| *camel.component.aws2-translate.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws2-translate.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws2-translate.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws2-translate.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

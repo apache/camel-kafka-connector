@@ -92,6 +92,12 @@
 			"defaultValue": "\"2\"",
 			"priority": "MEDIUM"
 		},
+		"camel.component.wordpress.configuration": {
+			"name": "camel.component.wordpress.configuration",
+			"description": "Wordpress configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.component.wordpress.criteria": {
 			"name": "camel.component.wordpress.criteria",
 			"description": "The criteria to use with complex searches.",
@@ -144,13 +150,7 @@
 			"name": "camel.component.wordpress.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
-		},
-		"camel.component.wordpress.configuration": {
-			"name": "camel.component.wordpress.configuration",
-			"description": "Wordpress component configuration",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		}
 	}
 }

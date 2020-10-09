@@ -54,7 +54,7 @@ The camel-iec60870-server source connector supports 26 options, which are listed
 | *camel.source.endpoint.connectionId* | An identifier grouping connection instances | null | MEDIUM
 | *camel.component.iec60870-server.defaultConnection Options* | Default connection options | null | MEDIUM
 | *camel.component.iec60870-server.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.iec60870-server.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.iec60870-server.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 

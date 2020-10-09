@@ -46,7 +46,7 @@ The camel-webhook source connector supports 19 options, which are listed below.
 | *camel.component.webhook.webhookComponentName* | The Camel Rest component to use for the REST transport, such as netty-http. | null | MEDIUM
 | *camel.component.webhook.webhookExternalUrl* | The URL of the current service as seen by the webhook provider | null | MEDIUM
 | *camel.component.webhook.webhookPath* | The path where the webhook endpoint will be exposed (relative to basePath, if any) | null | MEDIUM
-| *camel.component.webhook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.webhook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.webhook.configuration* | Set the default configuration for the webhook meta-component. | null | MEDIUM
 |===
 
