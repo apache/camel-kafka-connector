@@ -22,15 +22,12 @@ import java.util.Properties;
 
 import org.apache.camel.AggregationStrategy;
 import org.apache.camel.CamelContext;
-import org.apache.camel.CamelContextAware;
 import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.kafkaconnector.CamelConnectorConfig;
 import org.apache.camel.main.SimpleMain;
 import org.apache.camel.model.RouteDefinition;
-import org.apache.camel.spi.DataFormat;
-import org.apache.camel.support.PropertyBindingSupport;
 import org.apache.camel.support.service.ServiceHelper;
 import org.apache.camel.util.ObjectHelper;
 import org.slf4j.Logger;
@@ -144,14 +141,12 @@ public class CamelKafkaConnectMain extends SimpleMain {
 
                     //dataformats
                     if (!ObjectHelper.isEmpty(marshallDataFormat)) {
-                        LOG.info(".marshal().custom({})", marshallDataFormat);
-                        getContext().getRegistry().bind(marshallDataFormat, lookupAndInstantiateDataformat(getContext(), marshallDataFormat));
-                        rd.marshal().custom(marshallDataFormat);
+                        LOG.info(".marshal({})", marshallDataFormat);
+                        rd.marshal(marshallDataFormat);
                     }
                     if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
-                        LOG.info(".unmarshal().custom({})", unmarshallDataFormat);
-                        getContext().getRegistry().bind(unmarshallDataFormat, lookupAndInstantiateDataformat(getContext(), unmarshallDataFormat));
-                        rd.unmarshal().custom(unmarshallDataFormat);
+                        LOG.info(".unmarshal({})", unmarshallDataFormat);
+                        rd.unmarshal(unmarshallDataFormat);
                     }
                     if (getContext().getRegistry().lookupByName("aggregate") != null) {
                         //aggregation
@@ -169,34 +164,5 @@ public class CamelKafkaConnectMain extends SimpleMain {
 
             return camelMain;
         }
-    }
-
-    private static DataFormat lookupAndInstantiateDataformat(CamelContext camelContext, String dataformatName) {
-        DataFormat df = camelContext.resolveDataFormat(dataformatName);
-
-        if (df == null) {
-            df = camelContext.createDataFormat(dataformatName);
-
-            final String prefix = CAMEL_DATAFORMAT_PROPERTIES_PREFIX + dataformatName + ".";
-            final Properties props = camelContext.getPropertiesComponent().loadProperties(k -> k.startsWith(prefix));
-
-            CamelContextAware.trySetCamelContext(df, camelContext);
-
-            if (!props.isEmpty()) {
-                PropertyBindingSupport.build()
-                    .withCamelContext(camelContext)
-                    .withOptionPrefix(prefix)
-                    .withRemoveParameters(false)
-                    .withProperties((Map) props)
-                    .withTarget(df)
-                    .bind();
-            }
-        }
-
-        //TODO: move it to the caller?
-        if (df == null) {
-            throw new UnsupportedOperationException("No DataFormat found with name " + dataformatName);
-        }
-        return df;
     }
 }
