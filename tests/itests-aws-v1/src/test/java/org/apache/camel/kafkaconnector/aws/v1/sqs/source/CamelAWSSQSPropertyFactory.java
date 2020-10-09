@@ -22,9 +22,9 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.amazonaws.regions.Regions;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
@@ -62,12 +62,9 @@ final class CamelAWSSQSPropertyFactory extends SourceConnectorPropertyFactory<Ca
         String protocolKey = style.get(AWSConfigs.PROTOCOL);
         String hostKey = style.get(AWSConfigs.AMAZON_AWS_HOST);
 
-        setProperty(accessKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        setProperty(secretKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        setProperty(regionKey,
-                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
+        setProperty(accessKeyKey, amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
+        setProperty(secretKeyKey, amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
+        setProperty(regionKey, amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
 
         String protocol = amazonConfigs.getProperty(AWSConfigs.PROTOCOL, "");
         if (protocol != null && !protocol.isEmpty()) {
@@ -93,9 +90,7 @@ final class CamelAWSSQSPropertyFactory extends SourceConnectorPropertyFactory<Ca
     }
 
     public static CamelAWSSQSPropertyFactory basic() {
-        return new CamelAWSSQSPropertyFactory()
-                .withName("CamelAwssqsSourceConnector")
-                .withTasksMax(1)
+        return new CamelAWSSQSPropertyFactory().withName("CamelAwssqsSourceConnector").withTasksMax(1)
                 .withConnectorClass("org.apache.camel.kafkaconnector.awssqs.CamelAwssqsSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");

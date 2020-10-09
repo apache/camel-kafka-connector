@@ -22,9 +22,9 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.amazonaws.regions.Regions;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
@@ -40,7 +40,6 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
         SPRING_STYLE.put(AWSConfigs.PROTOCOL, "camel.sink.endpoint.protocol");
         SPRING_STYLE.put(AWSConfigs.AMAZON_AWS_HOST, "camel.sink.endpoint.amazonAWSHost");
 
-
         KAFKA_STYLE.put(AWSConfigs.ACCESS_KEY, "camel.component.aws-sqs.access-key");
         KAFKA_STYLE.put(AWSConfigs.SECRET_KEY, "camel.component.aws-sqs.secret-key");
         KAFKA_STYLE.put(AWSConfigs.REGION, "camel.component.aws-sqs.region");
@@ -50,7 +49,6 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
 
     private CamelAWSSQSPropertyFactory() {
     }
-
 
     public CamelAWSSQSPropertyFactory withAmazonConfig(Properties amazonConfigs) {
         return withAmazonConfig(amazonConfigs, this.SPRING_STYLE);
@@ -63,12 +61,9 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
         String protocolKey = style.get(AWSConfigs.PROTOCOL);
         String hostKey = style.get(AWSConfigs.AMAZON_AWS_HOST);
 
-        setProperty(accessKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        setProperty(secretKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        setProperty(regionKey,
-                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
+        setProperty(accessKeyKey, amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
+        setProperty(secretKeyKey, amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
+        setProperty(regionKey, amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
 
         String protocol = amazonConfigs.getProperty(AWSConfigs.PROTOCOL, "");
 
@@ -85,8 +80,7 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
     }
 
     public CamelAWSSQSPropertyFactory withConfiguration(String configurationClass) {
-        return setProperty("camel.component.aws-sqs.configuration",
-                classRef(configurationClass));
+        return setProperty("camel.component.aws-sqs.configuration", classRef(configurationClass));
     }
 
     public EndpointUrlBuilder<CamelAWSSQSPropertyFactory> withUrl(String queueNameOrArn) {
@@ -100,9 +94,7 @@ final class CamelAWSSQSPropertyFactory extends SinkConnectorPropertyFactory<Came
     }
 
     public static CamelAWSSQSPropertyFactory basic() {
-        return new CamelAWSSQSPropertyFactory()
-                .withName("CamelAwssqsSinkConnector")
-                .withTasksMax(1)
+        return new CamelAWSSQSPropertyFactory().withName("CamelAwssqsSinkConnector").withTasksMax(1)
                 .withConnectorClass("org.apache.camel.kafkaconnector.awssqs.CamelAwssqsSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");

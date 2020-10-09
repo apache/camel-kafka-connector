@@ -27,15 +27,15 @@ import java.util.concurrent.TimeUnit;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.model.Message;
-import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
-import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v1.clients.AWSSQSClient;
-import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.test.infra.aws.common.AWSCommon;
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
+import org.apache.camel.test.infra.aws.common.services.AWSService;
+import org.apache.camel.test.infra.aws.services.AWSServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -102,7 +102,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         return true;
     }
 
-
     private void consumeMessages(CountDownLatch latch) {
         try {
             awssqsClient.receiveFrom(queueUrl, this::checkMessages);
@@ -113,7 +112,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         }
     }
 
-    private void produceMessages()  {
+    private void produceMessages() {
         try {
             KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
@@ -141,13 +140,13 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
         LOG.debug("Waiting for the test to complete");
         if (latch.await(110, TimeUnit.SECONDS)) {
-            assertEquals(expect, received, "Didn't process the expected amount of messages: " + received + " != " + expect);
+            assertEquals(expect, received,
+                    "Didn't process the expected amount of messages: " + received + " != " + expect);
         } else {
-            fail(String.format("Failed to receive the messages within the specified time: received %d of %d",
-                    received, expect));
+            fail(String.format("Failed to receive the messages within the specified time: received %d of %d", received,
+                    expect));
         }
     }
-
 
     @Test
     @Timeout(value = 120)
@@ -155,11 +154,9 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
 
-            ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
-                    .basic()
+            ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory.basic()
                     .withName("CamelAwssqsSinkConnectorSpringBootStyle")
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withAmazonConfig(amazonProperties)
+                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass())).withAmazonConfig(amazonProperties)
                     .withQueueNameOrArn(queueName);
 
             runTest(testProperties);
@@ -176,8 +173,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
 
-            ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
-                    .basic()
+            ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory.basic()
                     .withName("CamelAwssqsSinkConnectorKafkaStyle")
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withAmazonConfig(amazonProperties, CamelAWSSQSPropertyFactory.KAFKA_STYLE)
@@ -198,18 +194,15 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
 
-            ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
-                    .basic()
+            ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory.basic()
                     .withName("CamelAwssqsSinkConnectorUsingUrl")
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withUrl(queueName)
-                        .append("autoCreateQueue", "true")
-                        .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
-                        .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                        .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
-                        .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
-                        .append("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST))
-                        .buildUrl();
+                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass())).withUrl(queueName)
+                    .append("autoCreateQueue", "true")
+                    .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
+                    .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
+                    .append("protocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
+                    .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
+                    .append("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST)).buildUrl();
 
             runTest(testProperties);
 
@@ -218,7 +211,5 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
             fail(e.getMessage());
         }
     }
-
-
 
 }

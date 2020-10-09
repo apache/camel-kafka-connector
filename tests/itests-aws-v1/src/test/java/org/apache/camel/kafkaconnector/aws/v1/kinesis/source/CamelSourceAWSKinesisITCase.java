@@ -33,13 +33,13 @@ import com.amazonaws.services.kinesis.model.PutRecordsRequestEntry;
 import com.amazonaws.services.kinesis.model.PutRecordsResult;
 import com.amazonaws.services.kinesis.model.ResourceInUseException;
 import com.amazonaws.services.kinesis.model.ResourceNotFoundException;
-import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
-import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
-import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.test.infra.aws.common.AWSCommon;
+import org.apache.camel.test.infra.aws.common.services.AWSService;
+import org.apache.camel.test.infra.aws.services.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -120,7 +120,6 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         }
     }
 
-
     @BeforeEach
     public void setUp() {
         streamName = AWSCommon.KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
@@ -131,14 +130,12 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         createStream();
     }
 
-
     @AfterEach
     public void tearDown() {
         deleteStream();
 
         awsKinesisClient.shutdown();
     }
-
 
     private boolean checkRecord(ConsumerRecord<String, String> record) {
         LOG.debug("Received: {}", record.value());
@@ -151,7 +148,8 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         return true;
     }
 
-    public void runtTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+    public void runtTest(ConnectorPropertyFactory connectorPropertyFactory)
+            throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
@@ -169,26 +167,21 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     @Test
     @Timeout(120)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory
-                .basic()
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory.basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withAmazonConfig(service.getConnectionProperties())
-                .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withStreamName(streamName);
+                .withConfiguration(TestKinesisConfiguration.class.getName()).withStreamName(streamName);
 
         runtTest(connectorPropertyFactory);
     }
 
-
     @Test
     @Timeout(120)
     public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory
-                .basic()
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory.basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withAmazonConfig(service.getConnectionProperties(), CamelAWSKinesisPropertyFactory.KAFKA_STYLE)
-                .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withStreamName(streamName);
+                .withConfiguration(TestKinesisConfiguration.class.getName()).withStreamName(streamName);
 
         runtTest(connectorPropertyFactory);
     }
@@ -196,13 +189,10 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     @Test
     @Timeout(120)
     public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory
-                .basic()
+        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory.basic()
                 .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withAmazonConfig(service.getConnectionProperties())
-                .withConfiguration(TestKinesisConfiguration.class.getName())
-                .withUrl(streamName)
-                    .buildUrl();
+                .withConfiguration(TestKinesisConfiguration.class.getName()).withUrl(streamName).buildUrl();
 
         runtTest(connectorPropertyFactory);
     }
@@ -245,17 +235,17 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
                 retries--;
 
                 /*
-                 This works around the "... Cannot deserialize instance of `...AmazonKinesisException` out of NOT_AVAILABLE token
-
-                 It may take some time for the local Kinesis backend to be fully up - even though the container is
-                 reportedly up and running. Therefore, it tries a few more times
+                 * This works around the "... Cannot deserialize instance of `...AmazonKinesisException` out of
+                 * NOT_AVAILABLE token
+                 * 
+                 * It may take some time for the local Kinesis backend to be fully up - even though the container is
+                 * reportedly up and running. Therefore, it tries a few more times
                  */
                 LOG.trace("Failed to put the records: {}. Retrying in 2 seconds ...", e.getMessage());
                 if (retries == 0) {
                     LOG.error("Failed to put the records: {}", e.getMessage(), e);
                     throw e;
                 }
-
 
                 try {
                     Thread.sleep(TimeUnit.SECONDS.toMillis(2));
@@ -264,7 +254,6 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
                 }
             }
         } while (retries > 0);
-
 
     }
 }

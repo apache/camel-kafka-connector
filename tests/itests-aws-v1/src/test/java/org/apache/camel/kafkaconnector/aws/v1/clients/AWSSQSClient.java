@@ -48,11 +48,9 @@ public class AWSSQSClient {
     public String createQueue(String queue) {
         final Map<String, String> queueAttributes = new HashMap<>();
 
-        final CreateQueueRequest createFifoQueueRequest = new CreateQueueRequest(queue)
-                .withAttributes(queueAttributes);
+        final CreateQueueRequest createFifoQueueRequest = new CreateQueueRequest(queue).withAttributes(queueAttributes);
 
-        return sqs.createQueue(createFifoQueueRequest)
-                .getQueueUrl();
+        return sqs.createQueue(createFifoQueueRequest).getQueueUrl();
     }
 
     public synchronized String getQueue(String queue) {
@@ -65,7 +63,6 @@ public class AWSSQSClient {
         }
     }
 
-
     public void receive(String queue, Predicate<List<Message>> predicate) {
         final String queueUrl = getQueue(queue);
 
@@ -75,8 +72,7 @@ public class AWSSQSClient {
     public void receiveFrom(String queueUrl, Predicate<List<Message>> predicate) {
         LOG.debug("Consuming messages from {}", queueUrl);
 
-        final ReceiveMessageRequest request = new ReceiveMessageRequest(queueUrl)
-                .withWaitTimeSeconds(maxWaitTime)
+        final ReceiveMessageRequest request = new ReceiveMessageRequest(queueUrl).withWaitTimeSeconds(maxWaitTime)
                 .withMaxNumberOfMessages(maxNumberOfMessages);
 
         while (true) {
@@ -90,7 +86,6 @@ public class AWSSQSClient {
         }
     }
 
-
     public void send(String queue, String body) {
         final String queueUrl = getQueue(queue);
 
@@ -100,9 +95,7 @@ public class AWSSQSClient {
     public void sendTo(String queueUrl, String body) {
         LOG.debug("Sending messages to {}", queueUrl);
 
-        SendMessageRequest request = new SendMessageRequest()
-                .withQueueUrl(queueUrl)
-                .withMessageBody(body);
+        SendMessageRequest request = new SendMessageRequest().withQueueUrl(queueUrl).withMessageBody(body);
 
         sqs.sendMessage(request);
     }

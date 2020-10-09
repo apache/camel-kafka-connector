@@ -22,10 +22,9 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.amazonaws.regions.Regions;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
-
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
 
 /**
  * Creates the set of properties used by a Camel Kinesis Source Connector
@@ -57,12 +56,9 @@ final class CamelAWSKinesisPropertyFactory extends SourceConnectorPropertyFactor
         String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
         String regionKey = style.get(AWSConfigs.REGION);
 
-        setProperty(accessKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        setProperty(secretKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        return setProperty(regionKey,
-                amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
+        setProperty(accessKeyKey, amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
+        setProperty(secretKeyKey, amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
+        return setProperty(regionKey, amazonConfigs.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()));
     }
 
     public CamelAWSKinesisPropertyFactory withStreamName(String streamName) {
@@ -76,14 +72,11 @@ final class CamelAWSKinesisPropertyFactory extends SourceConnectorPropertyFactor
     }
 
     public CamelAWSKinesisPropertyFactory withConfiguration(String configurationClass) {
-        return setProperty("camel.component.aws-kinesis.configuration",
-                classRef(configurationClass));
+        return setProperty("camel.component.aws-kinesis.configuration", classRef(configurationClass));
     }
 
     public static CamelAWSKinesisPropertyFactory basic() {
-        return new CamelAWSKinesisPropertyFactory()
-                .withName("CamelAwskinesisSourceConnector")
-                .withTasksMax(1)
+        return new CamelAWSKinesisPropertyFactory().withName("CamelAwskinesisSourceConnector").withTasksMax(1)
                 .withConnectorClass("org.apache.camel.kafkaconnector.awskinesis.CamelAwskinesisSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");

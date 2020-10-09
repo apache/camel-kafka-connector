@@ -28,15 +28,15 @@ import java.util.concurrent.TimeUnit;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.model.Message;
-import org.apache.camel.kafkaconnector.aws.common.AWSCommon;
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
-import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v1.clients.AWSSQSClient;
-import org.apache.camel.kafkaconnector.aws.v1.services.AWSServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.test.infra.aws.common.AWSCommon;
+import org.apache.camel.test.infra.aws.common.AWSConfigs;
+import org.apache.camel.test.infra.aws.common.services.AWSService;
+import org.apache.camel.test.infra.aws.services.AWSServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -50,7 +50,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @Testcontainers
-public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
+public class CamelSinkAWSSNSITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static AWSService<AmazonSQS> service = AWSServiceFactory.createSNSService();
 
@@ -94,7 +94,6 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
         return true;
     }
 
-
     private void consumeMessages(CountDownLatch latch) {
         try {
             awsSqsClient.receiveFrom(sqsQueueUrl, this::checkMessages);
@@ -106,7 +105,8 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
         }
     }
 
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory)
+            throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
 
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
@@ -126,12 +126,12 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
         LOG.debug("Created the consumer ... About to receive messages");
 
         if (latch.await(120, TimeUnit.SECONDS)) {
-            assertEquals(expect, received, "Didn't process the expected amount of messages: " + received + " != " + expect);
+            assertEquals(expect, received,
+                    "Didn't process the expected amount of messages: " + received + " != " + expect);
         } else {
             fail("Failed to receive the messages within the specified time");
         }
     }
-
 
     @Test
     @Timeout(value = 90)
@@ -141,10 +141,8 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSNSPropertyFactory.basic()
                     .withName("CamelAWSSNSSinkConnectorDefault")
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withTopicOrArn(queueName)
-                    .withSubscribeSNStoSQS(sqsQueueUrl)
-                    .withConfiguration(TestSNSConfiguration.class.getName())
+                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass())).withTopicOrArn(queueName)
+                    .withSubscribeSNStoSQS(sqsQueueUrl).withConfiguration(TestSNSConfiguration.class.getName())
                     .withAmazonConfig(amazonProperties);
 
             runTest(connectorPropertyFactory);
@@ -162,10 +160,8 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSNSPropertyFactory.basic()
                     .withName("CamelAWSSNSSinkKafkaStyleConnector")
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withTopicOrArn(queueName)
-                    .withSubscribeSNStoSQS(sqsQueueUrl)
-                    .withConfiguration(TestSNSConfiguration.class.getName())
+                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass())).withTopicOrArn(queueName)
+                    .withSubscribeSNStoSQS(sqsQueueUrl).withConfiguration(TestSNSConfiguration.class.getName())
                     .withAmazonConfig(amazonProperties, CamelAWSSNSPropertyFactory.KAFKA_STYLE);
 
             runTest(connectorPropertyFactory);
@@ -184,15 +180,12 @@ public class CamelSinkAWSSNSITCase extends AbstractKafkaTest  {
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSNSPropertyFactory.basic()
                     .withName("CamelAWSSNSSinkKafkaStyleConnector")
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withUrl(queueName)
-                        .append("queueUrl", sqsQueueUrl)
-                        .append("subscribeSNStoSQS", "true")
-                        .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
-                        .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                        .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
-                        .append("configuration", "#class:" + TestSNSConfiguration.class.getName())
-                        .buildUrl();
+                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass())).withUrl(queueName)
+                    .append("queueUrl", sqsQueueUrl).append("subscribeSNStoSQS", "true")
+                    .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
+                    .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
+                    .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Regions.US_EAST_1.name()))
+                    .append("configuration", "#class:" + TestSNSConfiguration.class.getName()).buildUrl();
 
             runTest(connectorPropertyFactory);
         } catch (Exception e) {
