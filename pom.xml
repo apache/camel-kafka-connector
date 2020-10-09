@@ -306,10 +306,10 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <!-- calculate checksums of source release for Apache dist area -->
                     <plugin>
                         <groupId>net.nicoulaj.maven.plugins</groupId>
                         <artifactId>checksum-maven-plugin</artifactId>
-                        <version>${maven-checksum-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>source-release-checksum</id>
@@ -319,21 +319,18 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <algorithms>
-                                <algorithm>SHA-512</algorithm>
-                            </algorithms>
-                            <csvSummary>false</csvSummary>
                             <fileSets>
                                 <fileSet>
                                     <directory>${project.build.directory}</directory>
                                     <includes>
-                                        <include>${project.artifactId}-${project.version}.jar</include>
+                                        <include>${project.artifactId}-${project.version}-sources.zip</include>
+                                        <include>${project.artifactId}-${project.version}-sources.tar.gz</include>
                                         <include>${project.artifactId}-${project.version}-package.zip</include>
-                                        <include>${project.artifactId}-${project.version}-package.tar*</include>
+                                        <include>${project.artifactId}-${project.version}-package.tar.gz</include>
                                     </includes>
                                 </fileSet>
                             </fileSets>
-                            <failIfNoFiles>false</failIfNoFiles><!-- usually, no file to do checksum: don't consider error -->
+                            <failIfNoFiles>false</failIfNoFiles>
                         </configuration>
                     </plugin>
                 <plugin>
