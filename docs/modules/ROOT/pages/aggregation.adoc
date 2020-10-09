@@ -11,8 +11,8 @@ We introduced then the following options in the Sink Connector Configuration:
 [source,bash]
 ----
 camel.beans.aggregate=#class:org.apache.camel.kafkaconnector.aggregator.StringAggregator
-camel.beans.aggregation.size=10
-camel.beans.aggregation.timeout=5000
+camel.aggregation.size=10
+camel.aggregation.timeout=5000
 ----
 
 So you'll be able to define your own AggregationStrategy by writing it through extending the AggregationStrategy Camel class or you can use one of the Aggregator provided by Camel.
