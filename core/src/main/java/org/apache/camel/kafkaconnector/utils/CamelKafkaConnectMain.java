@@ -27,8 +27,7 @@ import org.apache.camel.ConsumerTemplate;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.kafkaconnector.CamelConnectorConfig;
-import org.apache.camel.main.BaseMainSupport;
-import org.apache.camel.main.MainListener;
+import org.apache.camel.main.SimpleMain;
 import org.apache.camel.model.RouteDefinition;
 import org.apache.camel.spi.DataFormat;
 import org.apache.camel.support.PropertyBindingSupport;
@@ -37,7 +36,7 @@ import org.apache.camel.util.ObjectHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CamelKafkaConnectMain extends BaseMainSupport {
+public class CamelKafkaConnectMain extends SimpleMain {
     public static final String CAMEL_DATAFORMAT_PROPERTIES_PREFIX = "camel.dataformat.";
     private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectMain.class);
 
@@ -45,57 +44,18 @@ public class CamelKafkaConnectMain extends BaseMainSupport {
     protected volatile ProducerTemplate producerTemplate;
 
     public CamelKafkaConnectMain(CamelContext context) {
-        this.camelContext = context;
-    }
-
-    @Override
-    protected void doInit() throws Exception {
-        super.doInit();
-        postProcessCamelContext(camelContext);
-    }
-
-    @Override
-    protected void doStart() throws Exception {
-        LOG.info("Starting Main");
-
-        for (MainListener listener : listeners) {
-            listener.beforeStart(this);
-        }
-
-        super.doStart();
-
-        getCamelContext().start();
-
-        for (MainListener listener : listeners) {
-            listener.afterStart(this);
-        }
-
-        LOG.info("Main started");
+        super(context);
     }
 
     @Override
     protected void doStop() throws Exception {
-        LOG.info("Stopping Main");
-
         ServiceHelper.stopService(consumerTemplate);
         consumerTemplate = null;
 
         ServiceHelper.stopService(producerTemplate);
         producerTemplate = null;
 
-        for (MainListener listener : listeners) {
-            listener.beforeStop(this);
-        }
-
-        super.doStart();
-
-        getCamelContext().stop();
-
-        for (MainListener listener : listeners) {
-            listener.afterStop(this);
-        }
-
-        LOG.info("Main stopped");
+        super.doStop();
     }
 
     public ProducerTemplate getProducerTemplate() {
