@@ -97,16 +97,6 @@ public class CamelKafkaConnectMain extends BaseMainSupport {
         LOG.info("Main stopped");
     }
 
-    @Override
-    protected ProducerTemplate findOrCreateCamelTemplate() {
-        throw new UnsupportedOperationException("Should not happen");
-    }
-
-    @Override
-    protected CamelContext createCamelContext() {
-        throw new UnsupportedOperationException("Should not happen");
-    }
-
     public ProducerTemplate getProducerTemplate() {
         if (this.producerTemplate == null) {
             synchronized (this) {
