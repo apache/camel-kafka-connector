@@ -18,7 +18,7 @@
 package org.apache.camel.kafkaconnector.aws.v2.kinesis.source;
 
 import org.apache.camel.component.aws2.kinesis.Kinesis2Configuration;
-import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSDKClientUtils;
+import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import software.amazon.awssdk.services.kinesis.KinesisClient;
 
 public class TestKinesisConfiguration extends Kinesis2Configuration {

@@ -17,125 +17,17 @@
 
 package org.apache.camel.kafkaconnector.aws.v2.clients;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.apache.camel.kafkaconnector.aws.common.AWSConfigs;
-import org.apache.camel.kafkaconnector.aws.v2.common.TestAWSCredentialsProvider;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.kinesis.KinesisClient;
-import software.amazon.awssdk.services.kinesis.KinesisClientBuilder;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.S3ClientBuilder;
 import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
 import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;
 import software.amazon.awssdk.services.s3.model.S3Object;
-import software.amazon.awssdk.services.sqs.SqsClient;
-import software.amazon.awssdk.services.sqs.SqsClientBuilder;
 
 public final class AWSSDKClientUtils {
-    private static final Logger LOG = LoggerFactory.getLogger(AWSSDKClientUtils.class);
-
     private AWSSDKClientUtils() {
 
     }
-
-    private static URI getEndpoint() {
-        String amazonHost = System.getProperty(AWSConfigs.AMAZON_AWS_HOST);
-
-        if (amazonHost == null || amazonHost.isEmpty()) {
-            return null;
-        }
-
-        try {
-            return new URI(String.format("http://%s", amazonHost));
-        } catch (URISyntaxException e) {
-            throw new RuntimeException("Invalid endpoint");
-        }
-    }
-
-    private static boolean isLocalContainer(String awsInstanceType) {
-        return awsInstanceType == null || awsInstanceType.equals("local-aws-container");
-    }
-
-    public static KinesisClient newKinesisClient() {
-        LOG.debug("Creating a new AWS v2 Kinesis client");
-
-        String awsInstanceType = System.getProperty("aws-service.kinesis.instance.type");
-
-        KinesisClientBuilder clientBuilder = KinesisClient.builder();
-
-        clientBuilder.region(Region.US_EAST_1);
-
-        URI endpoint = getEndpoint();
-
-        if (isLocalContainer(awsInstanceType) || endpoint != null) {
-            clientBuilder.endpointOverride(endpoint);
-        }
-
-        if (isLocalContainer(awsInstanceType)) {
-            clientBuilder.credentialsProvider(TestAWSCredentialsProvider.CONTAINER_LOCAL_DEFAULT_PROVIDER);
-
-        } else {
-            clientBuilder.credentialsProvider(TestAWSCredentialsProvider.SYSTEM_PROPERTY_PROVIDER);
-        }
-
-        return clientBuilder.build();
-    }
-
-    public static SqsClient newSQSClient() {
-        LOG.debug("Creating a new AWS v2 SQS client");
-
-        String awsInstanceType = System.getProperty("aws-service.instance.type");
-
-        SqsClientBuilder clientBuilder = SqsClient.builder();
-
-        clientBuilder.region(Region.US_EAST_1);
-
-        URI endpoint = getEndpoint();
-
-        if (isLocalContainer(awsInstanceType) || endpoint != null) {
-            clientBuilder.endpointOverride(endpoint);
-        }
-
-        if (isLocalContainer(awsInstanceType)) {
-            clientBuilder.credentialsProvider(TestAWSCredentialsProvider.CONTAINER_LOCAL_DEFAULT_PROVIDER);
-
-        } else {
-            clientBuilder.credentialsProvider(TestAWSCredentialsProvider.SYSTEM_PROPERTY_PROVIDER);
-        }
-
-        return clientBuilder.build();
-    }
-
-    public static S3Client newS3Client() {
-        LOG.debug("Creating a new S3 client");
-        S3ClientBuilder clientBuilder = S3Client.builder();
-
-        String awsInstanceType = System.getProperty("aws-service.instance.type");
-
-        clientBuilder.region(Region.US_EAST_1);
-
-        URI endpoint = getEndpoint();
-
-        if (isLocalContainer(awsInstanceType) || endpoint != null) {
-            clientBuilder.endpointOverride(endpoint);
-        }
-
-        if (isLocalContainer(awsInstanceType)) {
-            clientBuilder.credentialsProvider(TestAWSCredentialsProvider.CONTAINER_LOCAL_DEFAULT_PROVIDER);
-
-        } else {
-            clientBuilder.credentialsProvider(TestAWSCredentialsProvider.SYSTEM_PROPERTY_PROVIDER);
-        }
-
-        return clientBuilder.build();
-    }
-
 
     /**
      * Delete an S3 bucket using the provided client. Coming from AWS documentation:
