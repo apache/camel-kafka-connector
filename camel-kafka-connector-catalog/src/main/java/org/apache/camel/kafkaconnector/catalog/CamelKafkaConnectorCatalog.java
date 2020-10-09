@@ -38,97 +38,97 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CamelKafkaConnectorCatalog {
-	
-	private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectorCatalog.class);
-	
-	static List<String> connectorsName = new ArrayList<String>();
-	static Map<String, CamelKafkaConnectorModel> connectorsModel = new HashMap<String, CamelKafkaConnectorModel>();
 
-	public CamelKafkaConnectorCatalog() {
-         initCatalog();
-         generateModel();
-	}
+    static List<String> connectorsName = new ArrayList<String>();
+    static Map<String, CamelKafkaConnectorModel> connectorsModel = new HashMap<String, CamelKafkaConnectorModel>();
+    private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectorCatalog.class);
 
-	private void generateModel() {
-		for (String connector : connectorsName) {
-			connectorsModel.put(connector, getConnectorModel(connector));
-		}
-	}
+    public CamelKafkaConnectorCatalog() {
+        initCatalog();
+        generateModel();
+    }
 
-	private void initCatalog() {
-	    try(FileInputStream input = new FileInputStream("src/generated/resources/descriptors/connectors.properties")) {
+    private void generateModel() {
+        for (String connector : connectorsName) {
+            connectorsModel.put(connector, getConnectorModel(connector));
+        }
+    }
 
-	    	BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+    private void initCatalog() {
+        try (FileInputStream input = new FileInputStream("src/generated/resources/descriptors/connectors.properties")) {
 
-	    	while(reader.ready()) {
-	    	     String connector = reader.readLine();
-	    	        if (connector.equalsIgnoreCase("camel-coap-tcp-source")) {
-	    	        	connectorsName.add("camel-coap+tcp-source");
-	    	        } else if (connector.equalsIgnoreCase("camel-coaps-tcp-source")) {
-	    	        	connectorsName.add("camel-coaps+tcp-source");
-	    	        } else if (connector.equalsIgnoreCase("camel-coaps-tcp-sink")) {
-	    	        	connectorsName.add("camel-coaps+tcp-sink");
-	    	        } else if (connector.equalsIgnoreCase("camel-coap-tcp-sink")) {
-	    	        	connectorsName.add("camel-coap+tcp-sink");
-	    	        }else {
-	    	        	connectorsName.add(connector);
-	    	        }
-	    	}
-	    } catch (FileNotFoundException e) {
-	    	LOG.error("Cannot find file: {}", e.getMessage(), e);
-		} catch (IOException e) {
-			LOG.error("IO Exception: {}", e.getMessage(), e);
-		}
-	}
-	
-	public String getConnectorAsJson(String connectorName) {
-	    String result = null;
-		try {
-			result = Files.lines(Paths.get("src/generated/resources/connectors/" + connectorName + ".json"))
-			        .parallel() // for parallel processing 
-			        .map(String::trim) // to change line                     
-			        .collect(Collectors.joining());
-		} catch (IOException e) {
-			LOG.error("IO Exception: {}", e.getMessage(), e);
-		} 
-		return result;
-	}
-	
-	private CamelKafkaConnectorModel getConnectorModel(String connectorName) {
-		CamelKafkaConnectorModel model = new CamelKafkaConnectorModel();
-		String json = getConnectorAsJson(connectorName);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+            while (reader.ready()) {
+                String connector = reader.readLine();
+                if (connector.equalsIgnoreCase("camel-coap-tcp-source")) {
+                    connectorsName.add("camel-coap+tcp-source");
+                } else if (connector.equalsIgnoreCase("camel-coaps-tcp-source")) {
+                    connectorsName.add("camel-coaps+tcp-source");
+                } else if (connector.equalsIgnoreCase("camel-coaps-tcp-sink")) {
+                    connectorsName.add("camel-coaps+tcp-sink");
+                } else if (connector.equalsIgnoreCase("camel-coap-tcp-sink")) {
+                    connectorsName.add("camel-coap+tcp-sink");
+                } else {
+                    connectorsName.add(connector);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            LOG.error("Cannot find file: {}", e.getMessage(), e);
+        } catch (IOException e) {
+            LOG.error("IO Exception: {}", e.getMessage(), e);
+        }
+    }
+
+    public String getConnectorAsJson(String connectorName) {
+        String result = null;
+        try {
+            result = Files.lines(Paths.get("src/generated/resources/connectors/" + connectorName + ".json")).parallel() // for
+                                                                                                                        // parallel
+                                                                                                                        // processing
+                .map(String::trim) // to change line
+                .collect(Collectors.joining());
+        } catch (IOException e) {
+            LOG.error("IO Exception: {}", e.getMessage(), e);
+        }
+        return result;
+    }
+
+    private CamelKafkaConnectorModel getConnectorModel(String connectorName) {
+        CamelKafkaConnectorModel model = new CamelKafkaConnectorModel();
+        String json = getConnectorAsJson(connectorName);
         JsonObject obj = JsonMapper.deserialize(json);
-        JsonObject wrapper = (JsonObject) obj.get("connector");
-        model.setConnectorClass((String) wrapper.get("class"));
-        model.setArtifactId((String) wrapper.get("artifactId"));
-        model.setGroupId((String) wrapper.get("groupId"));
-        model.setType((String) wrapper.get("type"));
-        model.setVersion((String) wrapper.get("version"));
-        model.setOptions((List<CamelKafkaConnectorOptionModel>) getConnectorOptionModel(obj));
-		return model;
-	}
-	
-	private List<CamelKafkaConnectorOptionModel> getConnectorOptionModel(JsonObject obj) {
+        JsonObject wrapper = (JsonObject)obj.get("connector");
+        model.setConnectorClass((String)wrapper.get("class"));
+        model.setArtifactId((String)wrapper.get("artifactId"));
+        model.setGroupId((String)wrapper.get("groupId"));
+        model.setType((String)wrapper.get("type"));
+        model.setVersion((String)wrapper.get("version"));
+        model.setOptions((List<CamelKafkaConnectorOptionModel>)getConnectorOptionModel(obj));
+        return model;
+    }
+
+    private List<CamelKafkaConnectorOptionModel> getConnectorOptionModel(JsonObject obj) {
         List<CamelKafkaConnectorOptionModel> model = new ArrayList<CamelKafkaConnectorOptionModel>();
-        JsonObject wrapper = (JsonObject) obj.get("properties");
+        JsonObject wrapper = (JsonObject)obj.get("properties");
         Set<String> options = wrapper.keySet();
         for (String string : options) {
-			JsonObject object = (JsonObject) wrapper.get(string);
-			CamelKafkaConnectorOptionModel singleModel = new CamelKafkaConnectorOptionModel();
-			singleModel.setDefaultValue((String) object.get("defaultValue"));
-			singleModel.setPriority((String) object.get("priority"));
-			singleModel.setDescription((String) object.get("description"));
-			singleModel.setName((String) object.get("name"));
-			model.add(singleModel);
-		}
-		return model;
-	}
+            JsonObject object = (JsonObject)wrapper.get(string);
+            CamelKafkaConnectorOptionModel singleModel = new CamelKafkaConnectorOptionModel();
+            singleModel.setDefaultValue((String)object.get("defaultValue"));
+            singleModel.setPriority((String)object.get("priority"));
+            singleModel.setDescription((String)object.get("description"));
+            singleModel.setName((String)object.get("name"));
+            model.add(singleModel);
+        }
+        return model;
+    }
 
-	public List<String> getConnectorsName() {
-		return connectorsName;
-	}
+    public List<String> getConnectorsName() {
+        return connectorsName;
+    }
 
-	public static Map<String, CamelKafkaConnectorModel> getConnectorsModel() {
-		return connectorsModel;
-	}
+    public static Map<String, CamelKafkaConnectorModel> getConnectorsModel() {
+        return connectorsModel;
+    }
 }
