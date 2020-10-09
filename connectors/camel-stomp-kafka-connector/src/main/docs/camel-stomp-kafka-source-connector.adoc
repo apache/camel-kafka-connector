@@ -48,7 +48,7 @@ The camel-stomp source connector supports 26 options, which are listed below.
 | *camel.component.stomp.host* | The virtual host name | null | MEDIUM
 | *camel.component.stomp.version* | The stomp version (1.1, or 1.2) | null | MEDIUM
 | *camel.component.stomp.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.stomp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.stomp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.stomp.configuration* | Component configuration. | null | MEDIUM
 | *camel.component.stomp.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
 | *camel.component.stomp.login* | The username | null | MEDIUM

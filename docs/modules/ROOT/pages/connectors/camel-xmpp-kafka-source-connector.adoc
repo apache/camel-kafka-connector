@@ -53,7 +53,7 @@ The camel-xmpp source connector supports 25 options, which are listed below.
 | *camel.source.endpoint.roomPassword* | Password for room | null | MEDIUM
 | *camel.source.endpoint.user* | User name (without server name). If not specified, anonymous login will be attempted. | null | MEDIUM
 | *camel.component.xmpp.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.xmpp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.xmpp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 

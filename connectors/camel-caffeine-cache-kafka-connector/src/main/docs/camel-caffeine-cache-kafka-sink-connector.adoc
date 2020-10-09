@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.caffeinecache.CamelCaffeinecache
 ----
 
 
-The camel-caffeine-cache sink connector supports 37 options, which are listed below.
+The camel-caffeine-cache sink connector supports 35 options, which are listed below.
 
 
 
@@ -31,7 +31,6 @@ The camel-caffeine-cache sink connector supports 37 options, which are listed be
 | Name | Description | Default | Priority
 | *camel.sink.path.cacheName* | the cache name | null | HIGH
 | *camel.sink.endpoint.action* | To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence. | null | MEDIUM
-| *camel.sink.endpoint.cache* | To configure an already instantiated cache to be used | null | MEDIUM
 | *camel.sink.endpoint.cacheLoader* | To configure a CacheLoader in case of a LoadCache use | null | MEDIUM
 | *camel.sink.endpoint.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | MEDIUM
 | *camel.sink.endpoint.evictionType* | Set the eviction Type for this cache One of: [size_based] [time_based] | "SIZE_BASED" | MEDIUM
@@ -49,7 +48,6 @@ The camel-caffeine-cache sink connector supports 37 options, which are listed be
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.sink.endpoint.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
 | *camel.component.caffeine-cache.action* | To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence. | null | MEDIUM
-| *camel.component.caffeine-cache.cache* | To configure an already instantiated cache to be used | null | MEDIUM
 | *camel.component.caffeine-cache.cacheLoader* | To configure a CacheLoader in case of a LoadCache use | null | MEDIUM
 | *camel.component.caffeine-cache.createCacheIfNot Exist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | MEDIUM
 | *camel.component.caffeine-cache.evictionType* | Set the eviction Type for this cache One of: [size_based] [time_based] | "SIZE_BASED" | MEDIUM
@@ -62,7 +60,7 @@ The camel-caffeine-cache sink connector supports 37 options, which are listed be
 | *camel.component.caffeine-cache.removalListener* | Set a specific removal Listener for the cache | null | MEDIUM
 | *camel.component.caffeine-cache.statsCounter* | Set a specific Stats Counter for the cache stats | null | MEDIUM
 | *camel.component.caffeine-cache.statsEnabled* | To enable stats on the cache | false | MEDIUM
-| *camel.component.caffeine-cache.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.caffeine-cache.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.caffeine-cache.configuration* | Sets the global component configuration | null | MEDIUM
 | *camel.component.caffeine-cache.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
 | *camel.component.caffeine-cache.valueType* | The cache value type, default java.lang.Object | null | MEDIUM

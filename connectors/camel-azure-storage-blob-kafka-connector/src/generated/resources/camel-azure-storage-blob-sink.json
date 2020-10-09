@@ -94,7 +94,7 @@
 		},
 		"camel.sink.endpoint.serviceClient": {
 			"name": "camel.sink.endpoint.serviceClient",
-			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
+			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -256,7 +256,7 @@
 		},
 		"camel.component.azure-storage-blob.serviceClient": {
 			"name": "camel.component.azure-storage-blob.serviceClient",
-			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
+			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -330,7 +330,7 @@
 			"name": "camel.component.azure-storage-blob.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.azure-storage-blob.accessKey": {
 			"name": "camel.component.azure-storage-blob.accessKey",

@@ -84,7 +84,7 @@
 			"name": "camel.component.jolt.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.jolt.transform": {
 			"name": "camel.component.jolt.transform",

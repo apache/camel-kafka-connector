@@ -62,7 +62,7 @@ The camel-aws-swf sink connector supports 47 options, which are listed below.
 | *camel.component.aws-swf.version* | The workflow or activity event version to use. | null | MEDIUM
 | *camel.component.aws-swf.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
 | *camel.component.aws-swf.activitySchedulingOptions* | Activity scheduling options | null | MEDIUM
-| *camel.component.aws-swf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-swf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-swf.clientConfiguration Parameters* | To configure the ClientConfiguration using the key/values from the Map. | null | MEDIUM
 | *camel.component.aws-swf.startWorkflowOptions Parameters* | To configure the StartWorkflowOptions using the key/values from the Map. | null | MEDIUM
 | *camel.component.aws-swf.sWClientParameters* | To configure the AmazonSimpleWorkflowClient using the key/values from the Map. | null | MEDIUM

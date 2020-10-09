@@ -34,13 +34,13 @@
 		},
 		"camel.sink.endpoint.faultAction": {
 			"name": "camel.sink.endpoint.faultAction",
-			"description": "Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method.",
+			"description": "Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.faultTo": {
 			"name": "camel.sink.endpoint.faultTo",
-			"description": "Signifies the value for the faultAction response WS-Addressing FaultTo header that is provided by the method.",
+			"description": "Signifies the value for the faultAction response WS-Addressing FaultTo header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -56,12 +56,6 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
-		"camel.sink.endpoint.messageIdStrategy": {
-			"name": "camel.sink.endpoint.messageIdStrategy",
-			"description": "Option to provide a custom MessageIdStrategy to control generation of unique message ids.",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
 		"camel.sink.endpoint.messageSender": {
 			"name": "camel.sink.endpoint.messageSender",
 			"description": "Option to provide a custom WebServiceMessageSender. For example to perform authentication or use alternative transports",
@@ -70,13 +64,13 @@
 		},
 		"camel.sink.endpoint.outputAction": {
 			"name": "camel.sink.endpoint.outputAction",
-			"description": "Signifies the value for the response WS-Addressing Action header that is provided by the method.",
+			"description": "Signifies the value for the response WS-Addressing Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.replyTo": {
 			"name": "camel.sink.endpoint.replyTo",
-			"description": "Signifies the value for the replyTo response WS-Addressing ReplyTo header that is provided by the method.",
+			"description": "Signifies the value for the replyTo response WS-Addressing ReplyTo header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -132,7 +126,7 @@
 			"name": "camel.component.spring-ws.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.spring-ws.useGlobalSslContextParameters": {
 			"name": "camel.component.spring-ws.useGlobalSslContextParameters",

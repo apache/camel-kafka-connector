@@ -34,7 +34,7 @@
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
-			"description": "The operation to do in case the user don't want to send only a record One of: [sendBatchRecord] [createDeliveryStream] [deleteDeliveryStream] [updateDestination]",
+			"description": "The operation to do in case the user don't want to send only a record One of: [sendBatchRecord] [createDeliveryStream] [deleteDeliveryStream] [describeDeliveryStream] [updateDestination]",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -118,7 +118,7 @@
 		},
 		"camel.component.aws2-kinesis-firehose.operation": {
 			"name": "camel.component.aws2-kinesis-firehose.operation",
-			"description": "The operation to do in case the user don't want to send only a record One of: [sendBatchRecord] [createDeliveryStream] [deleteDeliveryStream] [updateDestination]",
+			"description": "The operation to do in case the user don't want to send only a record One of: [sendBatchRecord] [createDeliveryStream] [deleteDeliveryStream] [describeDeliveryStream] [updateDestination]",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -156,7 +156,7 @@
 			"name": "camel.component.aws2-kinesis-firehose.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.aws2-kinesis-firehose.accessKey": {
 			"name": "camel.component.aws2-kinesis-firehose.accessKey",

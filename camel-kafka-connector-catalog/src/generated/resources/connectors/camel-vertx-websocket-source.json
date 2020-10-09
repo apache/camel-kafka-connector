@@ -90,6 +90,12 @@
 			"name": "camel.component.vertx-websocket.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
+			"priority": "LOW"
+		},
+		"camel.component.vertx-websocket.router": {
+			"name": "camel.component.vertx-websocket.router",
+			"description": "To provide a custom vertx router to use on the WebSocket server",
+			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-websocket.vertx": {

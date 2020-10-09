@@ -200,6 +200,12 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
+		"camel.source.endpoint.reQueue": {
+			"name": "camel.source.endpoint.reQueue",
+			"description": "This is used by the consumer to control rejection of the message. When the consumer is complete processing the exchange, and if the exchange failed, then the consumer is going to reject the message from the RabbitMQ broker. If the header CamelRabbitmqRequeue is present then the value of the header will be used, otherwise this endpoint value is used as fallback. If the value is false (by default) then the message is discarded\/dead-lettered. If the value is true, then the message is re-queued.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -504,7 +510,7 @@
 			"name": "camel.component.rabbitmq.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.rabbitmq.clientProperties": {
 			"name": "camel.component.rabbitmq.clientProperties",
