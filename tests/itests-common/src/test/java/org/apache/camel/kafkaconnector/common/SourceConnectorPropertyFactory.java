@@ -33,8 +33,8 @@ public abstract class SourceConnectorPropertyFactory<T extends SourceConnectorPr
 
     public T withAggregate(String aggregate, int size, int timeout) {
         withBeans("aggregate", classRef(aggregate));
-        getProperties().put("camel.beans.aggregation.size", size);
-        getProperties().put("camel.beans.aggregation.timeout", timeout);
+        getProperties().put("camel.aggregation.size", size);
+        getProperties().put("camel.aggregation.timeout", timeout);
 
         return (T) this;
     }
