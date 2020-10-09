@@ -132,7 +132,7 @@ public class CamelKafkaConnectorCatalog {
         return connectorsName;
     }
 
-    public static Map<String, CamelKafkaConnectorModel> getConnectorsModel() {
+    public Map<String, CamelKafkaConnectorModel> getConnectorsModel() {
         return connectorsModel;
     }
 }
