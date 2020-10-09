@@ -41,6 +41,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.sqs.SqsClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -49,7 +50,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Testcontainers
 public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @RegisterExtension
-    public static AWSService<AWSSQSClient> service = AWSServiceFactory.createSQSService();
+    public static AWSService<SqsClient> service = AWSServiceFactory.createSQSService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSSQSITCase.class);
 
@@ -66,7 +67,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        awssqsClient = service.getClient();
+        awssqsClient = new AWSSQSClient(service.getClient());
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
         received = 0;
     }

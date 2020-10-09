@@ -87,7 +87,7 @@ public final class AWSSDKClientUtils {
         return clientBuilder.build();
     }
 
-    public static AWSSQSClient newSQSClient() {
+    public static SqsClient newSQSClient() {
         LOG.debug("Creating a new AWS v2 SQS client");
 
         String awsInstanceType = System.getProperty("aws-service.instance.type");
@@ -109,7 +109,7 @@ public final class AWSSDKClientUtils {
             clientBuilder.credentialsProvider(TestAWSCredentialsProvider.SYSTEM_PROPERTY_PROVIDER);
         }
 
-        return new AWSSQSClient(clientBuilder.build());
+        return clientBuilder.build();
     }
 
     public static S3Client newS3Client() {

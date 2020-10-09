@@ -17,14 +17,13 @@
 
 package org.apache.camel.kafkaconnector.aws.v2.services;
 
-import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
 import org.apache.camel.kafkaconnector.aws.v2.common.TestAWSCredentialsProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
 
-public class AWSSQSLocalContainerService extends AWSLocalContainerService<AWSSQSClient> {
+public class AWSSQSLocalContainerService extends AWSLocalContainerService<SqsClient> {
     private static final Logger LOG = LoggerFactory.getLogger(AWSSQSLocalContainerService.class);
 
     public AWSSQSLocalContainerService() {
@@ -37,15 +36,13 @@ public class AWSSQSLocalContainerService extends AWSLocalContainerService<AWSSQS
     }
 
     @Override
-    public AWSSQSClient getClient() {
+    public SqsClient getClient() {
         Region region = Region.US_EAST_1;
 
-        SqsClient client = SqsClient.builder()
+        return SqsClient.builder()
                 .region(region)
                 .credentialsProvider(TestAWSCredentialsProvider.CONTAINER_LOCAL_DEFAULT_PROVIDER)
                 .endpointOverride(getServiceEndpoint())
                 .build();
-
-        return new AWSSQSClient(client);
     }
 }

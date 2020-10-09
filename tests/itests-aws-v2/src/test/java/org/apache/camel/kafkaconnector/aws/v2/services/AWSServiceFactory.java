@@ -19,12 +19,12 @@ package org.apache.camel.kafkaconnector.aws.v2.services;
 
 import org.apache.camel.kafkaconnector.aws.common.services.AWSService;
 import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSDKClientUtils;
-import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.core.SdkSystemSetting;
 import software.amazon.awssdk.services.kinesis.KinesisClient;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.sqs.SqsClient;
 
 public final class AWSServiceFactory {
     private static final Logger LOG = LoggerFactory.getLogger(AWSServiceFactory.class);
@@ -58,7 +58,7 @@ public final class AWSServiceFactory {
         throw new UnsupportedOperationException("Invalid AWS instance type");
     }
 
-    public static AWSService<AWSSQSClient> createSQSService() {
+    public static AWSService<SqsClient> createSQSService() {
         String awsInstanceType = System.getProperty("aws-service.instance.type");
         LOG.info("Creating a {} AWS SQS instance", getInstanceTypeName(awsInstanceType));
 
