@@ -10,6 +10,7 @@
 
 **Closed issues:**
 
+- source: better handling of headers of type Data [\#544](https://github.com/apache/camel-kafka-connector/issues/544)
 - Catalog: Rename the json file to reflect the id and connectors.properties content [\#534](https://github.com/apache/camel-kafka-connector/issues/534)
 - Add a Maven Plugin to collect the connector descriptors for catalog purpose [\#529](https://github.com/apache/camel-kafka-connector/issues/529)
 - Create descriptors for source and sink connector for catalog purpose [\#523](https://github.com/apache/camel-kafka-connector/issues/523)
@@ -31,6 +32,13 @@
 
 **Merged pull requests:**
 
+- core: simplify kafka headers to camel exchange mapping [\#547](https://github.com/apache/camel-kafka-connector/pull/547) ([lburgazzoli](https://github.com/lburgazzoli))
+- source: better handling of headers of type Data [\#546](https://github.com/apache/camel-kafka-connector/pull/546) ([lburgazzoli](https://github.com/lburgazzoli))
+- Do not use the wrapper test client on the AWS service classes [\#545](https://github.com/apache/camel-kafka-connector/pull/545) ([orpiske](https://github.com/orpiske))
+- core: cast from Byte\[\] to byte\[\] fails because of incompatible types [\#543](https://github.com/apache/camel-kafka-connector/pull/543) ([lburgazzoli](https://github.com/lburgazzoli))
+- core: add support for aggreation on source sinks [\#541](https://github.com/apache/camel-kafka-connector/pull/541) ([lburgazzoli](https://github.com/lburgazzoli))
+- Improve Catalog and cleanup [\#540](https://github.com/apache/camel-kafka-connector/pull/540) ([oscerd](https://github.com/oscerd))
+- \[core\] use Endpoint instead of URI string to send exchnages using the producer template [\#538](https://github.com/apache/camel-kafka-connector/pull/538) ([lburgazzoli](https://github.com/lburgazzoli))
 - Catalog: Rename the json file to reflect the id and connectors.properties content [\#536](https://github.com/apache/camel-kafka-connector/pull/536) ([oscerd](https://github.com/oscerd))
 - Improve core [\#535](https://github.com/apache/camel-kafka-connector/pull/535) ([lburgazzoli](https://github.com/lburgazzoli))
 - Clean up usages of org.junit.Assert [\#533](https://github.com/apache/camel-kafka-connector/pull/533) ([mureinik](https://github.com/mureinik))
