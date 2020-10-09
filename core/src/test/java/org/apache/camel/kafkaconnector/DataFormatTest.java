@@ -20,9 +20,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.camel.component.hl7.HL7DataFormat;
+import org.apache.camel.component.syslog.SyslogDataFormat;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
-import org.apache.camel.model.dataformat.SyslogDataFormat;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.junit.jupiter.api.Test;
 
@@ -94,9 +94,9 @@ public class DataFormatTest {
         dcc.getRegistry().bind("syslog", syslogDf);
 
         cms.start();
-        HL7DataFormat hl7dfLoaded = dcc.getRegistry().lookupByNameAndType("hl7", HL7DataFormat.class);
+        HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("hl7");
         assertNotNull(hl7dfLoaded);
-        SyslogDataFormat syslogDfLoaded = dcc.getRegistry().lookupByNameAndType("syslog", SyslogDataFormat.class);
+        SyslogDataFormat syslogDfLoaded = (SyslogDataFormat)dcc.resolveDataFormat("syslog");
         assertNotNull(syslogDfLoaded);
         cms.stop();
     }
@@ -119,7 +119,7 @@ public class DataFormatTest {
         dcc.getRegistry().bind("hl7", hl7df);
 
         cms.start();
-        HL7DataFormat hl7dfLoaded = dcc.getRegistry().lookupByNameAndType("hl7", HL7DataFormat.class);
+        HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("hl7");
         assertFalse(hl7dfLoaded.isValidate());
         cms.stop();
     }
@@ -139,9 +139,8 @@ public class DataFormatTest {
             .withMarshallDataFormat("hl7")
             .build(dcc);
 
-
         cms.start();
-        HL7DataFormat hl7dfLoaded = dcc.getRegistry().lookupByNameAndType("hl7", HL7DataFormat.class);
+        HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("hl7");
         assertTrue(hl7dfLoaded.isValidate());
         cms.stop();
     }
