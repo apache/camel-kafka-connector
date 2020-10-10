@@ -11,6 +11,7 @@
 **Closed issues:**
 
 - source: better handling of headers of type Data [\#544](https://github.com/apache/camel-kafka-connector/issues/544)
+- Catalog: expose an API for consuming connectors catalog metadata and options [\#542](https://github.com/apache/camel-kafka-connector/issues/542)
 - Catalog: Rename the json file to reflect the id and connectors.properties content [\#534](https://github.com/apache/camel-kafka-connector/issues/534)
 - Add a Maven Plugin to collect the connector descriptors for catalog purpose [\#529](https://github.com/apache/camel-kafka-connector/issues/529)
 - Create descriptors for source and sink connector for catalog purpose [\#523](https://github.com/apache/camel-kafka-connector/issues/523)
@@ -32,6 +33,12 @@
 
 **Merged pull requests:**
 
+- Do not use the wrapper test client on the AWS v2 service classes [\#562](https://github.com/apache/camel-kafka-connector/pull/562) ([orpiske](https://github.com/orpiske))
+- Have CamelKafkaConnectorCatalog working with bundled jar [\#554](https://github.com/apache/camel-kafka-connector/pull/554) ([apupier](https://github.com/apupier))
+- Catalog: Removed static modifier from getConnectorsModel [\#553](https://github.com/apache/camel-kafka-connector/pull/553) ([oscerd](https://github.com/oscerd))
+- build: execute ci-build for pr/push to the camel-master branch [\#552](https://github.com/apache/camel-kafka-connector/pull/552) ([lburgazzoli](https://github.com/lburgazzoli))
+- Jenkinsfiles clean [\#551](https://github.com/apache/camel-kafka-connector/pull/551) ([oscerd](https://github.com/oscerd))
+- Catalog: expose an API for consuming connectors catalog metadata and options [\#548](https://github.com/apache/camel-kafka-connector/pull/548) ([oscerd](https://github.com/oscerd))
 - core: simplify kafka headers to camel exchange mapping [\#547](https://github.com/apache/camel-kafka-connector/pull/547) ([lburgazzoli](https://github.com/lburgazzoli))
 - source: better handling of headers of type Data [\#546](https://github.com/apache/camel-kafka-connector/pull/546) ([lburgazzoli](https://github.com/lburgazzoli))
 - Do not use the wrapper test client on the AWS service classes [\#545](https://github.com/apache/camel-kafka-connector/pull/545) ([orpiske](https://github.com/orpiske))
@@ -57,6 +64,7 @@
 - Added a camel-kafka-connector-catalog collecting all the JSON metadata [\#516](https://github.com/apache/camel-kafka-connector/pull/516) ([oscerd](https://github.com/oscerd))
 - Generate a Json Metadata file for each connector [\#512](https://github.com/apache/camel-kafka-connector/pull/512) ([oscerd](https://github.com/oscerd))
 - Opted the project in for HAcktoberfest 2020. [\#511](https://github.com/apache/camel-kafka-connector/pull/511) ([valdar](https://github.com/valdar))
+- Add an integration test for the archetype [\#510](https://github.com/apache/camel-kafka-connector/pull/510) ([cunningt](https://github.com/cunningt))
 - \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
 - Removed folder added for error and regen docs [\#504](https://github.com/apache/camel-kafka-connector/pull/504) ([oscerd](https://github.com/oscerd))
 - Throttles strimzi startup to prevent resource reuse errors [\#503](https://github.com/apache/camel-kafka-connector/pull/503) ([orpiske](https://github.com/orpiske))
