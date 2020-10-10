@@ -38,6 +38,9 @@ public class CamelSpringwsSourceConnectorConfig
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_FILTER_CONF = "camel.source.endpoint.messageFilter";
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DOC = "Option to provide a custom MessageFilter. For example when you want to process your headers or attachments by your own.";
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_CONF = "camel.source.endpoint.messageIdStrategy";
+    public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DOC = "Option to provide a custom MessageIdStrategy to control generation of WS-Addressing unique message ids.";
+    public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DEFAULT = null;
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_SPRINGWS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -47,9 +50,6 @@ public class CamelSpringwsSourceConnectorConfig
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_MAPPING_CONF = "camel.source.endpoint.endpointMapping";
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_MAPPING_DOC = "Reference to an instance of org.apache.camel.component.spring.ws.bean.CamelEndpointMapping in the Registry/ApplicationContext. Only one bean is required in the registry to serve all Camel/Spring-WS endpoints. This bean is auto-discovered by the MessageDispatcher and used to map requests to Camel endpoints based on characteristics specified on the endpoint (like root QName, SOAP action, etc)";
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_MAPPING_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_CONF = "camel.source.endpoint.messageIdStrategy";
-    public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DOC = "Option to provide a custom MessageIdStrategy to control generation of WS-Addressing unique message ids.";
-    public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DEFAULT = null;
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
@@ -91,10 +91,10 @@ public class CamelSpringwsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SPRINGWS_PATH_LOOKUP_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_PATH_LOOKUP_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_PATH_LOOKUP_KEY_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_PATH_EXPRESSION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_PATH_EXPRESSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_PATH_EXPRESSION_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_FILTER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DOC);
+        conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SPRINGWS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_DISPATCHER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_DISPATCHER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_DISPATCHER_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_MAPPING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_MAPPING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_ENDPOINT_MAPPING_DOC);
-        conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_SPRINGWS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SPRINGWS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGWS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);

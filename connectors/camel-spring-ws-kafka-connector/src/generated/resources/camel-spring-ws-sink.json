@@ -20,6 +20,12 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
+		"camel.sink.endpoint.messageIdStrategy": {
+			"name": "camel.sink.endpoint.messageIdStrategy",
+			"description": "Option to provide a custom MessageIdStrategy to control generation of WS-Addressing unique message ids.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.sink.endpoint.allowResponseAttachmentOverride": {
 			"name": "camel.sink.endpoint.allowResponseAttachmentOverride",
 			"description": "Option to override soap response attachments in in\/out exchange with attachments from the actual service layer. If the invoked service appends or rewrites the soap attachments this option when set to true, allows the modified soap attachments to be overwritten in in\/out message attachments",

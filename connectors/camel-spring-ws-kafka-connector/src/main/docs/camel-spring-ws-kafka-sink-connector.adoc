@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.springws.CamelSpringwsSinkConnec
 ----
 
 
-The camel-spring-ws sink connector supports 21 options, which are listed below.
+The camel-spring-ws sink connector supports 22 options, which are listed below.
 
 
 
@@ -31,6 +31,7 @@ The camel-spring-ws sink connector supports 21 options, which are listed below.
 | Name | Description | Default | Priority
 | *camel.sink.path.webServiceEndpointUri* | The default Web Service endpoint uri to use for the producer. | null | MEDIUM
 | *camel.sink.endpoint.messageFilter* | Option to provide a custom MessageFilter. For example when you want to process your headers or attachments by your own. | null | MEDIUM
+| *camel.sink.endpoint.messageIdStrategy* | Option to provide a custom MessageIdStrategy to control generation of WS-Addressing unique message ids. | null | MEDIUM
 | *camel.sink.endpoint.allowResponseAttachment Override* | Option to override soap response attachments in in/out exchange with attachments from the actual service layer. If the invoked service appends or rewrites the soap attachments this option when set to true, allows the modified soap attachments to be overwritten in in/out message attachments | false | MEDIUM
 | *camel.sink.endpoint.allowResponseHeaderOverride* | Option to override soap response header in in/out exchange with header info from the actual service layer. If the invoked service appends or rewrites the soap header this option when set to true, allows the modified soap header to be overwritten in in/out message headers | false | MEDIUM
 | *camel.sink.endpoint.faultAction* | Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details. | null | MEDIUM

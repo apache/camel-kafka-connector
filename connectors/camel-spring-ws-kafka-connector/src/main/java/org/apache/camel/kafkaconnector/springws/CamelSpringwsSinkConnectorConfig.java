@@ -32,6 +32,9 @@ public class CamelSpringwsSinkConnectorConfig
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_CONF = "camel.sink.endpoint.messageFilter";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DOC = "Option to provide a custom MessageFilter. For example when you want to process your headers or attachments by your own.";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DEFAULT = null;
+    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_CONF = "camel.sink.endpoint.messageIdStrategy";
+    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DOC = "Option to provide a custom MessageIdStrategy to control generation of WS-Addressing unique message ids.";
+    public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DEFAULT = null;
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_ATTACHMENT_OVERRIDE_CONF = "camel.sink.endpoint.allowResponseAttachmentOverride";
     public static final String CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_ATTACHMENT_OVERRIDE_DOC = "Option to override soap response attachments in in/out exchange with attachments from the actual service layer. If the invoked service appends or rewrites the soap attachments this option when set to true, allows the modified soap attachments to be overwritten in in/out message attachments";
     public static final Boolean CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_ATTACHMENT_OVERRIDE_DEFAULT = false;
@@ -104,6 +107,7 @@ public class CamelSpringwsSinkConnectorConfig
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_SPRINGWS_PATH_WEB_SERVICE_ENDPOINT_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_PATH_WEB_SERVICE_ENDPOINT_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_PATH_WEB_SERVICE_ENDPOINT_URI_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_FILTER_DOC);
+        conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_MESSAGE_ID_STRATEGY_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_ATTACHMENT_OVERRIDE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_ATTACHMENT_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_ATTACHMENT_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_HEADER_OVERRIDE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_HEADER_OVERRIDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_ALLOW_RESPONSE_HEADER_OVERRIDE_DOC);
         conf.define(CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_ACTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_ACTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGWS_ENDPOINT_FAULT_ACTION_DOC);
