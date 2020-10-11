@@ -24,6 +24,7 @@ on:
   schedule:
     # Run at 2 AM every day
     - cron:  '0 2 * * *'
+  workflow_dispatch:
 jobs:
   build:
     name: Sync Camel Kafka Connector camel-master Branch
