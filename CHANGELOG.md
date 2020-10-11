@@ -2,37 +2,11 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...HEAD)
-
-**Fixed bugs:**
-
-- Azure blob sink does not put file in azure [\#270](https://github.com/apache/camel-kafka-connector/issues/270)
-
-**Closed issues:**
-
-- source: better handling of headers of type Data [\#544](https://github.com/apache/camel-kafka-connector/issues/544)
-- Catalog: expose an API for consuming connectors catalog metadata and options [\#542](https://github.com/apache/camel-kafka-connector/issues/542)
-- Catalog: Rename the json file to reflect the id and connectors.properties content [\#534](https://github.com/apache/camel-kafka-connector/issues/534)
-- Add a Maven Plugin to collect the connector descriptors for catalog purpose [\#529](https://github.com/apache/camel-kafka-connector/issues/529)
-- Create descriptors for source and sink connector for catalog purpose [\#523](https://github.com/apache/camel-kafka-connector/issues/523)
-- Move model classes CamelKafkaConnectorModel and CamelKafkaConnectorOptionModel in their own module [\#515](https://github.com/apache/camel-kafka-connector/issues/515)
-- Copy all Json connectors metadata into a camel-kafka-connector-catalog [\#514](https://github.com/apache/camel-kafka-connector/issues/514)
-- Document build steps w/ mvnd [\#513](https://github.com/apache/camel-kafka-connector/issues/513)
-- Generator a JSON metadata file for each connector [\#508](https://github.com/apache/camel-kafka-connector/issues/508)
-- \[camel-main-support\] Use BaseMainSupport instead of Main [\#499](https://github.com/apache/camel-kafka-connector/issues/499)
-- \[camel-main-support\] Reordering props should not be required anymore [\#498](https://github.com/apache/camel-kafka-connector/issues/498)
-- Add an ASF deploy GH Action like other camel projects [\#492](https://github.com/apache/camel-kafka-connector/issues/492)
-- MongoDB Kafka Connector: In the docs add Json as base value converter [\#490](https://github.com/apache/camel-kafka-connector/issues/490)
-- Create an Infinispan example [\#486](https://github.com/apache/camel-kafka-connector/issues/486)
-- Create Minio connector examples [\#456](https://github.com/apache/camel-kafka-connector/issues/456)
-- Support topics.regex  [\#454](https://github.com/apache/camel-kafka-connector/issues/454)
-- Define a default naming for converters, transforms and aggregation packages [\#439](https://github.com/apache/camel-kafka-connector/issues/439)
-- High CPU Usage with RabbitMQ Connector \(polling interface implemented incorrectly?\) [\#414](https://github.com/apache/camel-kafka-connector/issues/414)
-- How to have connector output JSON String? [\#398](https://github.com/apache/camel-kafka-connector/issues/398)
-- Question: Does Camel looks for IAM roles from Env variables [\#282](https://github.com/apache/camel-kafka-connector/issues/282)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-aggregator-0.4.4...HEAD)
 
 **Merged pull requests:**
 
+- GH actions: Fixed deploy action [\#567](https://github.com/apache/camel-kafka-connector/pull/567) ([oscerd](https://github.com/oscerd))
 - Do not use the wrapper test client on the AWS v2 service classes [\#562](https://github.com/apache/camel-kafka-connector/pull/562) ([orpiske](https://github.com/orpiske))
 - Have CamelKafkaConnectorCatalog working with bundled jar [\#554](https://github.com/apache/camel-kafka-connector/pull/554) ([apupier](https://github.com/apupier))
 - Catalog: Removed static modifier from getConnectorsModel [\#553](https://github.com/apache/camel-kafka-connector/pull/553) ([oscerd](https://github.com/oscerd))
@@ -104,6 +78,52 @@
 - Remove useless connector [\#441](https://github.com/apache/camel-kafka-connector/pull/441) ([oscerd](https://github.com/oscerd))
 - AWS SQS tests w/ SDK v2 [\#438](https://github.com/apache/camel-kafka-connector/pull/438) ([orpiske](https://github.com/orpiske))
 
+## [camel-kafka-connector-aggregator-0.4.4](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-aggregator-0.4.4) (2020-10-10)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...camel-kafka-connector-aggregator-0.4.4)
+
+**Fixed bugs:**
+
+- Azure blob sink does not put file in azure [\#270](https://github.com/apache/camel-kafka-connector/issues/270)
+
+**Closed issues:**
+
+- source: better handling of headers of type Data [\#544](https://github.com/apache/camel-kafka-connector/issues/544)
+- Catalog: expose an API for consuming connectors catalog metadata and options [\#542](https://github.com/apache/camel-kafka-connector/issues/542)
+- Catalog: Rename the json file to reflect the id and connectors.properties content [\#534](https://github.com/apache/camel-kafka-connector/issues/534)
+- Add a Maven Plugin to collect the connector descriptors for catalog purpose [\#529](https://github.com/apache/camel-kafka-connector/issues/529)
+- Create descriptors for source and sink connector for catalog purpose [\#523](https://github.com/apache/camel-kafka-connector/issues/523)
+- Move model classes CamelKafkaConnectorModel and CamelKafkaConnectorOptionModel in their own module [\#515](https://github.com/apache/camel-kafka-connector/issues/515)
+- Copy all Json connectors metadata into a camel-kafka-connector-catalog [\#514](https://github.com/apache/camel-kafka-connector/issues/514)
+- Document build steps w/ mvnd [\#513](https://github.com/apache/camel-kafka-connector/issues/513)
+- Generator a JSON metadata file for each connector [\#508](https://github.com/apache/camel-kafka-connector/issues/508)
+- \[camel-main-support\] Use BaseMainSupport instead of Main [\#499](https://github.com/apache/camel-kafka-connector/issues/499)
+- \[camel-main-support\] Reordering props should not be required anymore [\#498](https://github.com/apache/camel-kafka-connector/issues/498)
+- Add an ASF deploy GH Action like other camel projects [\#492](https://github.com/apache/camel-kafka-connector/issues/492)
+- MongoDB Kafka Connector: In the docs add Json as base value converter [\#490](https://github.com/apache/camel-kafka-connector/issues/490)
+- Create an Infinispan example [\#486](https://github.com/apache/camel-kafka-connector/issues/486)
+- Create Minio connector examples [\#456](https://github.com/apache/camel-kafka-connector/issues/456)
+- Support topics.regex  [\#454](https://github.com/apache/camel-kafka-connector/issues/454)
+- Define a default naming for converters, transforms and aggregation packages [\#439](https://github.com/apache/camel-kafka-connector/issues/439)
+- High CPU Usage with RabbitMQ Connector \(polling interface implemented incorrectly?\) [\#414](https://github.com/apache/camel-kafka-connector/issues/414)
+- How to have connector output JSON String? [\#398](https://github.com/apache/camel-kafka-connector/issues/398)
+- Question: Does Camel looks for IAM roles from Env variables [\#282](https://github.com/apache/camel-kafka-connector/issues/282)
+
+**Merged pull requests:**
+
+- Added connector class on each connector documentation page [\#406](https://github.com/apache/camel-kafka-connector/pull/406) ([oscerd](https://github.com/oscerd))
+- Removed wrong terminal output from example in archetype docs [\#395](https://github.com/apache/camel-kafka-connector/pull/395) ([oscerd](https://github.com/oscerd))
+- Point to correct branch in gh workflows [\#385](https://github.com/apache/camel-kafka-connector/pull/385) ([oscerd](https://github.com/oscerd))
+- Point to correct branch in github workflows [\#384](https://github.com/apache/camel-kafka-connector/pull/384) ([oscerd](https://github.com/oscerd))
+- Camel 3.4.3 [\#382](https://github.com/apache/camel-kafka-connector/pull/382) ([oscerd](https://github.com/oscerd))
+- Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
+- Make the camel-kafka-connector archetype use the parent POM [\#364](https://github.com/apache/camel-kafka-connector/pull/364) ([oscerd](https://github.com/oscerd))
+- Fixed index adoc [\#353](https://github.com/apache/camel-kafka-connector/pull/353) ([oscerd](https://github.com/oscerd))
+- Added missing connector in connectors pom [\#351](https://github.com/apache/camel-kafka-connector/pull/351) ([oscerd](https://github.com/oscerd))
+- 0.4.1-SNAPSHOT [\#349](https://github.com/apache/camel-kafka-connector/pull/349) ([oscerd](https://github.com/oscerd))
+- Pointing to 0.4.x on this branch for antora [\#348](https://github.com/apache/camel-kafka-connector/pull/348) ([oscerd](https://github.com/oscerd))
+- Release 0.4.0 [\#347](https://github.com/apache/camel-kafka-connector/pull/347) ([oscerd](https://github.com/oscerd))
+
 ## [camel-kafka-connector-0.5.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0) (2020-09-09)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0...camel-kafka-connector-0.5.0)
@@ -166,8 +186,8 @@
 - \#389 - Fix doc- Kubernetes command [\#401](https://github.com/apache/camel-kafka-connector/pull/401) ([rogeriob2br](https://github.com/rogeriob2br))
 - Fix mongodb test [\#396](https://github.com/apache/camel-kafka-connector/pull/396) ([unsortedhashsets](https://github.com/unsortedhashsets))
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
-- Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
 - Added automatic-sync gh action for camel-kafka-connector on camel-mas… [\#392](https://github.com/apache/camel-kafka-connector/pull/392) ([oscerd](https://github.com/oscerd))
+- Added automatic-sync-camel-master to camel-master branch for testing … [\#390](https://github.com/apache/camel-kafka-connector/pull/390) ([oscerd](https://github.com/oscerd))
 - Adds basic aggregation test \(github issue \#291\) [\#388](https://github.com/apache/camel-kafka-connector/pull/388) ([orpiske](https://github.com/orpiske))
 - Fix flaky syslog test [\#386](https://github.com/apache/camel-kafka-connector/pull/386) ([orpiske](https://github.com/orpiske))
 - Added a simple troubleshooting guide [\#383](https://github.com/apache/camel-kafka-connector/pull/383) ([orpiske](https://github.com/orpiske))
