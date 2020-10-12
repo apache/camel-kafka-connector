@@ -1,0 +1,186 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.aws2iam.CamelAws2iamSinkConnector",
+		"artifactId": "camel-aws2-iam-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws2-iam-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.label": {
+			"name": "camel.sink.path.label",
+			"description": "Logical name",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.autoDiscoverClient": {
+			"name": "camel.sink.endpoint.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.iamClient": {
+			"name": "camel.sink.endpoint.iamClient",
+			"description": "To use a existing configured AWS IAM as client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.pojoRequest": {
+			"name": "camel.sink.endpoint.pojoRequest",
+			"description": "If we want to use a POJO request as body or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "To define a proxy host when instantiating the IAM client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "To define a proxy port when instantiating the IAM client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyProtocol": {
+			"name": "camel.sink.endpoint.proxyProtocol",
+			"description": "To define a proxy protocol when instantiating the IAM client One of: [HTTP] [HTTPS]",
+			"defaultValue": "\"HTTPS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.region": {
+			"name": "camel.sink.endpoint.region",
+			"description": "The region in which IAM client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
+			"defaultValue": "\"aws-global\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.trustAllCertificates": {
+			"name": "camel.sink.endpoint.trustAllCertificates",
+			"description": "If we want to trust all certificates in case of overriding the endpoint",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accessKey": {
+			"name": "camel.sink.endpoint.accessKey",
+			"description": "Amazon AWS Access Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.secretKey": {
+			"name": "camel.sink.endpoint.secretKey",
+			"description": "Amazon AWS Secret Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.autoDiscoverClient": {
+			"name": "camel.component.aws2-iam.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.configuration": {
+			"name": "camel.component.aws2-iam.configuration",
+			"description": "Component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.iamClient": {
+			"name": "camel.component.aws2-iam.iamClient",
+			"description": "To use a existing configured AWS IAM as client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.lazyStartProducer": {
+			"name": "camel.component.aws2-iam.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.operation": {
+			"name": "camel.component.aws2-iam.operation",
+			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.component.aws2-iam.pojoRequest": {
+			"name": "camel.component.aws2-iam.pojoRequest",
+			"description": "If we want to use a POJO request as body or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.proxyHost": {
+			"name": "camel.component.aws2-iam.proxyHost",
+			"description": "To define a proxy host when instantiating the IAM client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.proxyPort": {
+			"name": "camel.component.aws2-iam.proxyPort",
+			"description": "To define a proxy port when instantiating the IAM client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.proxyProtocol": {
+			"name": "camel.component.aws2-iam.proxyProtocol",
+			"description": "To define a proxy protocol when instantiating the IAM client One of: [HTTP] [HTTPS]",
+			"defaultValue": "\"HTTPS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.region": {
+			"name": "camel.component.aws2-iam.region",
+			"description": "The region in which IAM client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
+			"defaultValue": "\"aws-global\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.trustAllCertificates": {
+			"name": "camel.component.aws2-iam.trustAllCertificates",
+			"description": "If we want to trust all certificates in case of overriding the endpoint",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.basicPropertyBinding": {
+			"name": "camel.component.aws2-iam.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.accessKey": {
+			"name": "camel.component.aws2-iam.accessKey",
+			"description": "Amazon AWS Access Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-iam.secretKey": {
+			"name": "camel.component.aws2-iam.secretKey",
+			"description": "Amazon AWS Secret Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		}
+	}
+}
