@@ -26,24 +26,23 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class CamelKafkaConnectorCatalogTest {
+class CamelKafkaConnectorCatalogTest {
 
     static CamelKafkaConnectorCatalog catalog;
-
-    @BeforeAll
+   @BeforeAll
     public static void createCamelCatalog() {
         catalog = new CamelKafkaConnectorCatalog();
     }
 
     @Test
-    public void testConnectors() throws Exception {
+    void testConnectors() throws Exception {
         List<String> list = catalog.getConnectorsName();
         assertTrue(list.contains("camel-aws2-s3-sink"));
         assertTrue(list.contains("camel-aws2-s3-source"));
     }
 
     @Test
-    public void testOptions() throws Exception {
+    void testOptions() throws Exception {
         Map<String, CamelKafkaConnectorModel> p = catalog.getConnectorsModel();
         CamelKafkaConnectorModel model = p.get("camel-aws2-s3-sink");
         assertEquals("org.apache.camel.kafkaconnector", model.getGroupId());
