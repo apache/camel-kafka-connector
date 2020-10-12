@@ -1,0 +1,162 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.awsecs.CamelAwsecsSinkConnector",
+		"artifactId": "camel-aws-ecs-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-aws-ecs-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.label": {
+			"name": "camel.sink.path.label",
+			"description": "Logical name",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.autoDiscoverClient": {
+			"name": "camel.sink.endpoint.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.accessKey": {
+			"name": "camel.sink.endpoint.accessKey",
+			"description": "Amazon AWS Access Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.ecsClient": {
+			"name": "camel.sink.endpoint.ecsClient",
+			"description": "To use a existing configured AWS ECS as client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "To define a proxy host when instantiating the ECS client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "To define a proxy port when instantiating the ECS client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.proxyProtocol": {
+			"name": "camel.sink.endpoint.proxyProtocol",
+			"description": "To define a proxy protocol when instantiating the ECS client One of: [HTTP] [HTTPS]",
+			"defaultValue": "\"HTTPS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.region": {
+			"name": "camel.sink.endpoint.region",
+			"description": "The region in which ECS client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.secretKey": {
+			"name": "camel.sink.endpoint.secretKey",
+			"description": "Amazon AWS Secret Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.autoDiscoverClient": {
+			"name": "camel.component.aws-ecs.autoDiscoverClient",
+			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.accessKey": {
+			"name": "camel.component.aws-ecs.accessKey",
+			"description": "Amazon AWS Access Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.configuration": {
+			"name": "camel.component.aws-ecs.configuration",
+			"description": "The component configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.ecsClient": {
+			"name": "camel.component.aws-ecs.ecsClient",
+			"description": "To use a existing configured AWS ECS as client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.lazyStartProducer": {
+			"name": "camel.component.aws-ecs.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.operation": {
+			"name": "camel.component.aws-ecs.operation",
+			"description": "The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster]",
+			"defaultValue": "null",
+			"priority": "HIGH"
+		},
+		"camel.component.aws-ecs.proxyHost": {
+			"name": "camel.component.aws-ecs.proxyHost",
+			"description": "To define a proxy host when instantiating the ECS client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.proxyPort": {
+			"name": "camel.component.aws-ecs.proxyPort",
+			"description": "To define a proxy port when instantiating the ECS client",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.proxyProtocol": {
+			"name": "camel.component.aws-ecs.proxyProtocol",
+			"description": "To define a proxy protocol when instantiating the ECS client One of: [HTTP] [HTTPS]",
+			"defaultValue": "\"HTTPS\"",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.region": {
+			"name": "camel.component.aws-ecs.region",
+			"description": "The region in which ECS client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.secretKey": {
+			"name": "camel.component.aws-ecs.secretKey",
+			"description": "Amazon AWS Secret Key",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws-ecs.basicPropertyBinding": {
+			"name": "camel.component.aws-ecs.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		}
+	}
+}
