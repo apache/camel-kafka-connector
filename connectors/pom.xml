@@ -102,20 +102,6 @@
                     <exampleSinkPropertiesFileTemplate>${project.basedir}/camel-kafka-connector-template-example-sink-properties.template</exampleSinkPropertiesFileTemplate>
                     <excludedComponents>
                         <param>bonita</param>
-                        <param>aws-ec2</param>
-                        <param>aws-ecs</param>
-                        <param>aws-eks</param>
-                        <param>aws-iam</param>
-                        <param>aws-kms</param>
-                        <param>aws-mq</param>
-                        <param>aws-msk</param>
-                        <param>aws2-ec2</param>
-                        <param>aws2-ecs</param>
-                        <param>aws2-eks</param>
-                        <param>aws2-iam</param>
-                        <param>aws2-kms</param>
-                        <param>aws2-mq</param>
-                        <param>aws2-msk</param>
                         <param>bean-validator</param>
                         <param>browse</param>
                         <param>class</param>
