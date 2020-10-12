@@ -796,6 +796,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         try {
             if (!file.exists()) {
                 writeText(file, changed);
+                getLog().debug("File doesn't exist, created it: " + file.getName());
                 return true;
             }
 
@@ -807,9 +808,11 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
                 existing = existing.trim();
                 changed = changed.trim();
                 if (existing.equals(changed)) {
+                    getLog().debug("No change to the file " + file.getName());
                     return false;
                 } else {
                     writeText(file, changed);
+                    getLog().debug("Changes detected to the file " + file.getName() + ": updated it");
                     return true;
                 }
             } else {
