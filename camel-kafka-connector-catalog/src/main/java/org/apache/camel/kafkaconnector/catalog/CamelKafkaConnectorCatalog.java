@@ -149,4 +149,12 @@ public class CamelKafkaConnectorCatalog {
         connectorsName.add(connectorName);
         connectorsModel.put(connectorName, createModel(connectorDefinitionAsJson));
     }
+
+    /**
+     * @param connectorName The connector name to remove from the Catalog
+     */
+    public void removeConnector(String connectorName) {
+        connectorsName.remove(connectorName);
+        connectorsModel.remove(connectorName);
+    }
 }
