@@ -2,10 +2,11 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-aggregator-0.4.4...HEAD)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.4...HEAD)
 
 **Merged pull requests:**
 
+- github action: add trigger on workflow\_dispatch [\#568](https://github.com/apache/camel-kafka-connector/pull/568) ([lburgazzoli](https://github.com/lburgazzoli))
 - GH actions: Fixed deploy action [\#567](https://github.com/apache/camel-kafka-connector/pull/567) ([oscerd](https://github.com/oscerd))
 - Do not use the wrapper test client on the AWS v2 service classes [\#562](https://github.com/apache/camel-kafka-connector/pull/562) ([orpiske](https://github.com/orpiske))
 - Have CamelKafkaConnectorCatalog working with bundled jar [\#554](https://github.com/apache/camel-kafka-connector/pull/554) ([apupier](https://github.com/apupier))
@@ -78,9 +79,9 @@
 - Remove useless connector [\#441](https://github.com/apache/camel-kafka-connector/pull/441) ([oscerd](https://github.com/oscerd))
 - AWS SQS tests w/ SDK v2 [\#438](https://github.com/apache/camel-kafka-connector/pull/438) ([orpiske](https://github.com/orpiske))
 
-## [camel-kafka-connector-aggregator-0.4.4](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-aggregator-0.4.4) (2020-10-10)
+## [camel-kafka-connector-0.4.4](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.4) (2020-10-10)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...camel-kafka-connector-aggregator-0.4.4)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...camel-kafka-connector-0.4.4)
 
 **Fixed bugs:**
 
@@ -186,8 +187,8 @@
 - \#389 - Fix doc- Kubernetes command [\#401](https://github.com/apache/camel-kafka-connector/pull/401) ([rogeriob2br](https://github.com/rogeriob2br))
 - Fix mongodb test [\#396](https://github.com/apache/camel-kafka-connector/pull/396) ([unsortedhashsets](https://github.com/unsortedhashsets))
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
+- Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
 - Added automatic-sync gh action for camel-kafka-connector on camel-mas… [\#392](https://github.com/apache/camel-kafka-connector/pull/392) ([oscerd](https://github.com/oscerd))
-- Added automatic-sync-camel-master to camel-master branch for testing … [\#390](https://github.com/apache/camel-kafka-connector/pull/390) ([oscerd](https://github.com/oscerd))
 - Adds basic aggregation test \(github issue \#291\) [\#388](https://github.com/apache/camel-kafka-connector/pull/388) ([orpiske](https://github.com/orpiske))
 - Fix flaky syslog test [\#386](https://github.com/apache/camel-kafka-connector/pull/386) ([orpiske](https://github.com/orpiske))
 - Added a simple troubleshooting guide [\#383](https://github.com/apache/camel-kafka-connector/pull/383) ([orpiske](https://github.com/orpiske))
@@ -289,7 +290,31 @@
 
 ## [camel-kafka-connector-0.3.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.3.0) (2020-06-17)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0...camel-kafka-connector-0.3.0)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/container-image-0.3.0...camel-kafka-connector-0.3.0)
+
+**Fixed bugs:**
+
+- Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
+- Possible problems in CamelSinkAWSSQSITCase tests [\#215](https://github.com/apache/camel-kafka-connector/issues/215)
+
+**Closed issues:**
+
+- Question: How to provide aws role:arn value to authenticate S3  [\#267](https://github.com/apache/camel-kafka-connector/issues/267)
+- AWS S3: bucket name not resolved when using URL configuration [\#260](https://github.com/apache/camel-kafka-connector/issues/260)
+- Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache.camel.kafkaconnector.CamelSinkConnectorConfig [\#251](https://github.com/apache/camel-kafka-connector/issues/251)
+
+**Merged pull requests:**
+
+- Fix a javadoc issue. [\#276](https://github.com/apache/camel-kafka-connector/pull/276) ([valdar](https://github.com/valdar))
+- fix \#259: Camel-elasticsearch-rest-kafka-connector throws java.lang.N… [\#275](https://github.com/apache/camel-kafka-connector/pull/275) ([valdar](https://github.com/valdar))
+- Throw ConnectException due to failed exchanges [\#273](https://github.com/apache/camel-kafka-connector/pull/273) ([omarsmak](https://github.com/omarsmak))
+- Issue/260 [\#272](https://github.com/apache/camel-kafka-connector/pull/272) ([valdar](https://github.com/valdar))
+- Test modularization cleanups [\#271](https://github.com/apache/camel-kafka-connector/pull/271) ([orpiske](https://github.com/orpiske))
+- AWS2-S3 connector: Added the same set of converters/transformers we h… [\#268](https://github.com/apache/camel-kafka-connector/pull/268) ([oscerd](https://github.com/oscerd))
+
+## [container-image-0.3.0](https://github.com/apache/camel-kafka-connector/tree/container-image-0.3.0) (2020-06-10)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0...container-image-0.3.0)
 
 **Implemented enhancements:**
 
@@ -300,17 +325,12 @@
 
 **Fixed bugs:**
 
-- Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
 - Wrong signature of autogenerated method `public static ConfigDef conf\(Map\<String, String\> parsedConfig\)` of each `Camel\*ConnectorConfig` [\#221](https://github.com/apache/camel-kafka-connector/issues/221)
-- Possible problems in CamelSinkAWSSQSITCase tests [\#215](https://github.com/apache/camel-kafka-connector/issues/215)
 
 **Closed issues:**
 
-- Question: How to provide aws role:arn value to authenticate S3  [\#267](https://github.com/apache/camel-kafka-connector/issues/267)
 - Add CamelAMQP source and sink example properties [\#264](https://github.com/apache/camel-kafka-connector/issues/264)
 - Add download links to the connectors list page [\#261](https://github.com/apache/camel-kafka-connector/issues/261)
-- AWS S3: bucket name not resolved when using URL configuration [\#260](https://github.com/apache/camel-kafka-connector/issues/260)
-- Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache.camel.kafkaconnector.CamelSinkConnectorConfig [\#251](https://github.com/apache/camel-kafka-connector/issues/251)
 - Camel AWS2-S3: Add the same converters and transforms we have for AWS-S3 connector [\#250](https://github.com/apache/camel-kafka-connector/issues/250)
 - pls  [\#248](https://github.com/apache/camel-kafka-connector/issues/248)
 - Connectors doc generation shuld be moved from `core` to `connectors` module [\#226](https://github.com/apache/camel-kafka-connector/issues/226)
@@ -322,12 +342,6 @@
 
 **Merged pull requests:**
 
-- Fix a javadoc issue. [\#276](https://github.com/apache/camel-kafka-connector/pull/276) ([valdar](https://github.com/valdar))
-- fix \#259: Camel-elasticsearch-rest-kafka-connector throws java.lang.N… [\#275](https://github.com/apache/camel-kafka-connector/pull/275) ([valdar](https://github.com/valdar))
-- Throw ConnectException due to failed exchanges [\#273](https://github.com/apache/camel-kafka-connector/pull/273) ([omarsmak](https://github.com/omarsmak))
-- Issue/260 [\#272](https://github.com/apache/camel-kafka-connector/pull/272) ([valdar](https://github.com/valdar))
-- Test modularization cleanups [\#271](https://github.com/apache/camel-kafka-connector/pull/271) ([orpiske](https://github.com/orpiske))
-- AWS2-S3 connector: Added the same set of converters/transformers we h… [\#268](https://github.com/apache/camel-kafka-connector/pull/268) ([oscerd](https://github.com/oscerd))
 - Docs download link [\#266](https://github.com/apache/camel-kafka-connector/pull/266) ([oscerd](https://github.com/oscerd))
 - Add AMQP examples for source and sink [\#265](https://github.com/apache/camel-kafka-connector/pull/265) ([rgannu](https://github.com/rgannu))
 - Split the tests in modules per service [\#262](https://github.com/apache/camel-kafka-connector/pull/262) ([orpiske](https://github.com/orpiske))
