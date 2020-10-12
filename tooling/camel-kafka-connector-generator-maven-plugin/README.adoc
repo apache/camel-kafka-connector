@@ -1,3 +1,22 @@
 == Camel Kafka Connector generator plugin
 
-//TODO: write the plugin documentation
+The Camel Kafka Connector generator plugin allows you to generator connectors based off of a catalog of camel components.
+
+=== Goals Supported
+
+| Goal | Description |
+| ------------- | ----------- |
+| generate-camel-kafka-connectors | Generate connectors based off of a catalog |
+
+=== Options
+
+| Parameter | Default Value | Description |
+| --------- | ------------- | ----------- |
+| excludedComponents | empty | components to exclude from connector generation |
+| overridePomFile | false | regenerate the pom file completely even if one exists |
+| initialPomTemplate | empty | Initial pom template |
+| noticeTemplate | empty | Initial NOTICE template |
+| licenseTemplate | empty | Inintial LICENSES template |
+| fixDependenciesProperties | Properties file to configure additional dependencies |
+| packageFileTemplate | Package file template to be placed in src/main/assembly/package.xml |
+| exampleSinkPropertiesFileTemplate | Example connector sink file template |
