@@ -112,7 +112,6 @@
                         <param>debezium-postgres</param>
                         <param>debezium-sqlserver</param>
                         <param>digitalocean</param>
-                        <param>kafka</param>
                         <param>mock</param>
                         <param>ref</param>
                         <param>robotframework</param>
