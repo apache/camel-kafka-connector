@@ -229,9 +229,16 @@
         <module>camel-aws-cw-kafka-connector</module>
         <module>camel-aws-ddb-kafka-connector</module>
         <module>camel-aws-ddbstream-kafka-connector</module>
+        <module>camel-aws-ec2-kafka-connector</module>
+        <module>camel-aws-ecs-kafka-connector</module>
+        <module>camel-aws-eks-kafka-connector</module>
+        <module>camel-aws-iam-kafka-connector</module>
         <module>camel-aws-kinesis-firehose-kafka-connector</module>
         <module>camel-aws-kinesis-kafka-connector</module>
+        <module>camel-aws-kms-kafka-connector</module>
         <module>camel-aws-lambda-kafka-connector</module>
+        <module>camel-aws-mq-kafka-connector</module>
+        <module>camel-aws-msk-kafka-connector</module>
         <module>camel-aws-s3-kafka-connector</module>
         <module>camel-aws-sdb-kafka-connector</module>
         <module>camel-aws-ses-kafka-connector</module>
@@ -243,9 +250,16 @@
         <module>camel-aws2-cw-kafka-connector</module>
         <module>camel-aws2-ddb-kafka-connector</module>
         <module>camel-aws2-ddbstream-kafka-connector</module>
+        <module>camel-aws2-ec2-kafka-connector</module>
+        <module>camel-aws2-ecs-kafka-connector</module>
+        <module>camel-aws2-eks-kafka-connector</module>
+        <module>camel-aws2-iam-kafka-connector</module>
         <module>camel-aws2-kinesis-firehose-kafka-connector</module>
         <module>camel-aws2-kinesis-kafka-connector</module>
+        <module>camel-aws2-kms-kafka-connector</module>
         <module>camel-aws2-lambda-kafka-connector</module>
+        <module>camel-aws2-mq-kafka-connector</module>
+        <module>camel-aws2-msk-kafka-connector</module>
         <module>camel-aws2-s3-kafka-connector</module>
         <module>camel-aws2-ses-kafka-connector</module>
         <module>camel-aws2-sns-kafka-connector</module>
