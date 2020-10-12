@@ -19,18 +19,18 @@ package org.apache.camel.kafkaconnector.azure.storage.services;
 
 import com.azure.core.http.policy.HttpLogDetailLevel;
 import com.azure.core.http.policy.HttpLogOptions;
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
 import com.azure.storage.common.StorageSharedKeyCredential;
-import com.azure.storage.queue.QueueServiceClient;
-import com.azure.storage.queue.QueueServiceClientBuilder;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 
-public final class AzureStorageClientUtils {
+public final class AzureStorageBlobClientUtils {
 
-    private AzureStorageClientUtils() {
+    private AzureStorageBlobClientUtils() {
 
     }
 
-    public static QueueServiceClient getClient() {
+    public static BlobServiceClient getClient() {
         String instanceType = System.getProperty("azure.instance.type");
 
         String accountName = System.getProperty(AzureConfigs.ACCOUNT_NAME);
@@ -52,7 +52,7 @@ public final class AzureStorageClientUtils {
             }
         }
 
-        return new QueueServiceClientBuilder()
+        return new BlobServiceClientBuilder()
                 .endpoint(endpoint)
                 .credential(credential)
                 .httpLogOptions(new HttpLogOptions().setLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS).setPrettyPrintBody(true))

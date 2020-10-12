@@ -17,31 +17,41 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
-import com.azure.storage.queue.QueueServiceClient;
+import com.azure.storage.blob.BlobServiceClient;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
-import org.apache.camel.kafkaconnector.azure.common.services.AzureServices;
-import org.apache.camel.kafkaconnector.azure.common.services.AzureStorageService;
+import org.apache.camel.kafkaconnector.azure.common.services.AzureService;
 
-public class AzureStorageQueueLocalContainerService extends AzureStorageService<QueueServiceClient> {
+public class AzureStorageBlobRemoteService implements AzureService<BlobServiceClient> {
 
     @Override
     public void initialize() {
-        super.initialize();
+        // NO-OP
+    }
 
-        System.setProperty(AzureConfigs.ACCOUNT_NAME, getContainer().azureCredentials().accountName());
-        System.setProperty(AzureConfigs.ACCOUNT_KEY, getContainer().azureCredentials().accountKey());
-        System.setProperty(AzureConfigs.HOST, getContainer().getContainerIpAddress());
-        System.setProperty(AzureConfigs.PORT, String.valueOf(getContainer().getMappedPort(AzureServices.QUEUE_SERVICE)));
+    @Override
+    public void shutdown() {
+        // NO-OP
     }
 
     @Override
     public AzureCredentialsHolder azureCredentials() {
-        return getContainer().azureCredentials();
+        // Default credentials for Azurite
+        return new AzureCredentialsHolder() {
+            @Override
+            public String accountName() {
+                return System.getProperty(AzureConfigs.ACCOUNT_NAME);
+            }
+
+            @Override
+            public String accountKey() {
+                return System.getProperty(AzureConfigs.ACCOUNT_KEY);
+            }
+        };
     }
 
     @Override
-    public QueueServiceClient getClient() {
-        return AzureStorageClientUtils.getClient();
+    public BlobServiceClient getClient() {
+        return AzureStorageBlobClientUtils.getClient();
     }
 }
