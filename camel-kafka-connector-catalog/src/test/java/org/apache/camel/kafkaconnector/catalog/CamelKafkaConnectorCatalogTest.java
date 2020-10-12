@@ -84,5 +84,29 @@ class CamelKafkaConnectorCatalogTest {
         assertEquals("MEDIUM", camelKafkaConnectorOptionModel.getPriority());
         assertEquals("A demo description of the component", camelKafkaConnectorOptionModel.getDescription());
     }
+    
+    @Test
+    void testRemoveConnector() throws Exception {
+        String connectorName = "my-test-to-remove-connector";
+        catalog.addConnector(connectorName, "{\n"
+                + "    \"connector\": {\n"
+                + "        \"class\": \"org.apache.camel.kafkaconnector.my-test-connector.TestDemoConnector\",\n"
+                + "        \"artifactId\": \"camel-my-test-connector-kafka-connector\",\n"
+                + "        \"groupId\": \"org.apache.camel.kafkaconnector\",\n"
+                + "        \"id\": \"my-test-to-remove-connector\",\n"
+                + "        \"type\": \"sink\",\n"
+                + "        \"version\": \"0.6.0-SNAPSHOT\"\n"
+                + "    },\n"
+                + "    \"properties\": {}\n"
+                + "}\n");
+        
+        assertTrue(catalog.getConnectorsName().contains(connectorName));
+        assertNotNull(catalog.getConnectorsModel().get(connectorName));
+        
+        catalog.removeConnector(connectorName);
+        
+        assertFalse(catalog.getConnectorsName().contains(connectorName));
+        assertNull(catalog.getConnectorsModel().get(connectorName));
+    }
 
 }
