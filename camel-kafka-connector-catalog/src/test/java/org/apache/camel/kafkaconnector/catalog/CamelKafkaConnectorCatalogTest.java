@@ -16,8 +16,6 @@
  */
 package org.apache.camel.kafkaconnector.catalog;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 import java.util.Map;
 
@@ -26,10 +24,13 @@ import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class CamelKafkaConnectorCatalogTest {
 
     static CamelKafkaConnectorCatalog catalog;
-   @BeforeAll
+    
+    @BeforeAll
     public static void createCamelCatalog() {
         catalog = new CamelKafkaConnectorCatalog();
     }
@@ -76,8 +77,12 @@ class CamelKafkaConnectorCatalogTest {
                 + "    }\n"
                 + "}\n");
         
-        assertTrue(catalog.getConnectorsName().contains(connectorName));
-        assertNotNull(catalog.getConnectorsModel().get(connectorName));
+        assertTrue(catalog.getConnectorsName().contains(connectorName), "The new Connector wasn't added in the ConnectorNames list.");
+        assertNotNull(catalog.getConnectorsModel().get(connectorName), "The new Connector wasn't added in the ConnectorModel map.");
+        checkAddedConnectorContainsCorrectPropertyValues(connectorName);
+    }
+
+    private void checkAddedConnectorContainsCorrectPropertyValues(String connectorName) {
         CamelKafkaConnectorOptionModel camelKafkaConnectorOptionModel = catalog.getConnectorsModel().get(connectorName).getOptions().get(0);
         assertEquals("\"false\"", camelKafkaConnectorOptionModel.getDefaultValue());
         assertEquals("camel.component.my-test-connector.demo", camelKafkaConnectorOptionModel.getName());
@@ -100,13 +105,10 @@ class CamelKafkaConnectorCatalogTest {
                 + "    \"properties\": {}\n"
                 + "}\n");
         
-        assertTrue(catalog.getConnectorsName().contains(connectorName));
-        assertNotNull(catalog.getConnectorsModel().get(connectorName));
-        
         catalog.removeConnector(connectorName);
         
-        assertFalse(catalog.getConnectorsName().contains(connectorName));
-        assertNull(catalog.getConnectorsModel().get(connectorName));
+        assertFalse(catalog.getConnectorsName().contains(connectorName), "The connector is still present in ConnectorNames list.");
+        assertNull(catalog.getConnectorsModel().get(connectorName), "The connector model is still present in the ConnectorsModel map.");
     }
 
 }
