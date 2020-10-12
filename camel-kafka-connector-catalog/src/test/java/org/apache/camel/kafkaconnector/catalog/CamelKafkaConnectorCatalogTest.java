@@ -16,15 +16,15 @@
  */
 package org.apache.camel.kafkaconnector.catalog;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorModel;
+import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CamelKafkaConnectorCatalogTest {
 
@@ -52,6 +52,37 @@ class CamelKafkaConnectorCatalogTest {
         assertEquals("camel.sink.path.bucketNameOrArn", model.getOptions().get(0).getName());
         assertEquals("camel.sink.endpoint.amazonS3Client", model.getOptions().get(1).getName());
         assertEquals("camel.sink.endpoint.autoCreateBucket", model.getOptions().get(2).getName());
+    }
+
+    @Test
+    void testAddConnector() throws Exception {
+        String connectorName = "my-test-connector";
+        catalog.addConnector(connectorName, "{\n"
+                + "    \"connector\": {\n"
+                + "        \"class\": \"org.apache.camel.kafkaconnector.my-test-connector.TestDemoConnector\",\n"
+                + "        \"artifactId\": \"camel-my-test-connector-kafka-connector\",\n"
+                + "        \"groupId\": \"org.apache.camel.kafkaconnector\",\n"
+                + "        \"id\": \"my-test-connector\",\n"
+                + "        \"type\": \"sink\",\n"
+                + "        \"version\": \"0.6.0-SNAPSHOT\"\n"
+                + "    },\n"
+                + "    \"properties\": {\n"
+                + "        \"camel.component.my-test-connector.demo\": {\n"
+                + "            \"name\": \"camel.component.my-test-connector.demo\",\n"
+                + "            \"description\": \"A demo description of the component\",\n"
+                + "            \"defaultValue\": \"\\\"false\\\"\",\n"
+                + "            \"priority\": \"MEDIUM\"\n"
+                + "        }\n"
+                + "    }\n"
+                + "}\n");
+        
+        assertTrue(catalog.getConnectorsName().contains(connectorName));
+        assertNotNull(catalog.getConnectorsModel().get(connectorName));
+        CamelKafkaConnectorOptionModel camelKafkaConnectorOptionModel = catalog.getConnectorsModel().get(connectorName).getOptions().get(0);
+        assertEquals("\"false\"", camelKafkaConnectorOptionModel.getDefaultValue());
+        assertEquals("camel.component.my-test-connector.demo", camelKafkaConnectorOptionModel.getName());
+        assertEquals("MEDIUM", camelKafkaConnectorOptionModel.getPriority());
+        assertEquals("A demo description of the component", camelKafkaConnectorOptionModel.getDescription());
     }
 
 }

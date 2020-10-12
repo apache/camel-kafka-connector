@@ -39,8 +39,8 @@ import org.slf4j.LoggerFactory;
 
 public class CamelKafkaConnectorCatalog {
 
-    static List<String> connectorsName = new ArrayList<String>();
-    static Map<String, CamelKafkaConnectorModel> connectorsModel = new HashMap<String, CamelKafkaConnectorModel>();
+    static List<String> connectorsName = new ArrayList<>();
+    static Map<String, CamelKafkaConnectorModel> connectorsModel = new HashMap<>();
     private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectorCatalog.class);
     private static final String CONNECTORS_DIR = "connectors";
     private static final String DESCRIPTORS_DIR = "descriptors";
@@ -83,7 +83,7 @@ public class CamelKafkaConnectorCatalog {
         }
     }
 
-    public String getConnectorAsJson(String connectorName) {
+    private String loadConnectorAsJsonFromEmbeddedCatalog(String connectorName) {
         String result = null;
         try (InputStream connectorModelInputSream = CamelKafkaConnectorCatalog.class.getResourceAsStream(File.separator + CONNECTORS_DIR + File.separator + connectorName + ".json")) {
             result = new BufferedReader(new InputStreamReader(connectorModelInputSream, StandardCharsets.UTF_8))
@@ -97,8 +97,12 @@ public class CamelKafkaConnectorCatalog {
     }
 
     private CamelKafkaConnectorModel getConnectorModel(String connectorName) {
+        String json = loadConnectorAsJsonFromEmbeddedCatalog(connectorName);
+        return createModel(json);
+    }
+
+    private CamelKafkaConnectorModel createModel(String json) {
         CamelKafkaConnectorModel model = new CamelKafkaConnectorModel();
-        String json = getConnectorAsJson(connectorName);
         JsonObject obj = JsonMapper.deserialize(json);
         JsonObject wrapper = (JsonObject)obj.get("connector");
         model.setConnectorClass((String)wrapper.get("class"));
@@ -106,12 +110,12 @@ public class CamelKafkaConnectorCatalog {
         model.setGroupId((String)wrapper.get("groupId"));
         model.setType((String)wrapper.get("type"));
         model.setVersion((String)wrapper.get("version"));
-        model.setOptions((List<CamelKafkaConnectorOptionModel>)getConnectorOptionModel(obj));
+        model.setOptions(getConnectorOptionModel(obj));
         return model;
     }
 
     private List<CamelKafkaConnectorOptionModel> getConnectorOptionModel(JsonObject obj) {
-        List<CamelKafkaConnectorOptionModel> model = new ArrayList<CamelKafkaConnectorOptionModel>();
+        List<CamelKafkaConnectorOptionModel> model = new ArrayList<>();
         JsonObject wrapper = (JsonObject)obj.get("properties");
         Set<String> options = wrapper.keySet();
         for (String string : options) {
@@ -132,5 +136,17 @@ public class CamelKafkaConnectorCatalog {
 
     public Map<String, CamelKafkaConnectorModel> getConnectorsModel() {
         return connectorsModel;
+    }
+
+    /**
+     * Register a new Connector definition in the catalog.
+     * If it already exists, the previous one is overwritten.
+     * 
+     * @param connectorName - the connector name
+     * @param connectorDefinitionAsJson - the definition of the connector provided as a String with Json format
+     */
+    public void addConnector(String connectorName, String connectorDefinitionAsJson) {
+        connectorsName.add(connectorName);
+        connectorsModel.put(connectorName, createModel(connectorDefinitionAsJson));
     }
 }
