@@ -15,15 +15,25 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.azure.storage.common;
+package org.apache.camel.kafkaconnector.azure.storage.blob.sink;
 
-public final class AzureConfigs {
-    public static final String HOST = "azure.storage.queue.host";
-    public static final String PORT = "azure.storage.queue.port";
-    public static final String ACCOUNT_NAME = "azure.storage.queue.account.name";
-    public static final String ACCOUNT_KEY = "azure.storage.queue.account.key";
+import com.azure.storage.blob.BlobServiceClient;
+import org.apache.camel.component.azure.storage.blob.BlobConfiguration;
+import org.apache.camel.kafkaconnector.azure.storage.services.AzureStorageBlobClientUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    private AzureConfigs() {
+public class TestBlobConfiguration extends BlobConfiguration {
+    private static final Logger LOG = LoggerFactory.getLogger(TestBlobConfiguration.class);
+    private BlobServiceClient serviceClient;
 
+    @Override
+    public BlobServiceClient getServiceClient() {
+        if (serviceClient == null) {
+            LOG.info("Creating a custom BlobServiceClient");
+            serviceClient = AzureStorageBlobClientUtils.getClient();
+        }
+
+        return serviceClient;
     }
 }

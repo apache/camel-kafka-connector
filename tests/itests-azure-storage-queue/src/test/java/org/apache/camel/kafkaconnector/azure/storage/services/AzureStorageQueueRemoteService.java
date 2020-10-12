@@ -18,9 +18,9 @@
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
 import com.azure.storage.queue.QueueServiceClient;
+import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureService;
-import org.apache.camel.kafkaconnector.azure.storage.common.AzureConfigs;
 
 public class AzureStorageQueueRemoteService implements AzureService<QueueServiceClient> {
 

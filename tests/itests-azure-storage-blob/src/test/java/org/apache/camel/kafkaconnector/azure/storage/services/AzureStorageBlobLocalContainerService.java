@@ -17,13 +17,13 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
-import com.azure.storage.queue.QueueServiceClient;
+import com.azure.storage.blob.BlobServiceClient;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureServices;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureStorageService;
 
-public class AzureStorageQueueLocalContainerService extends AzureStorageService<QueueServiceClient> {
+public class AzureStorageBlobLocalContainerService extends AzureStorageService<BlobServiceClient> {
 
     @Override
     public void initialize() {
@@ -32,7 +32,7 @@ public class AzureStorageQueueLocalContainerService extends AzureStorageService<
         System.setProperty(AzureConfigs.ACCOUNT_NAME, getContainer().azureCredentials().accountName());
         System.setProperty(AzureConfigs.ACCOUNT_KEY, getContainer().azureCredentials().accountKey());
         System.setProperty(AzureConfigs.HOST, getContainer().getContainerIpAddress());
-        System.setProperty(AzureConfigs.PORT, String.valueOf(getContainer().getMappedPort(AzureServices.QUEUE_SERVICE)));
+        System.setProperty(AzureConfigs.PORT, String.valueOf(getContainer().getMappedPort(AzureServices.BLOB_SERVICE)));
     }
 
     @Override
@@ -41,7 +41,7 @@ public class AzureStorageQueueLocalContainerService extends AzureStorageService<
     }
 
     @Override
-    public QueueServiceClient getClient() {
-        return AzureStorageClientUtils.getClient();
+    public BlobServiceClient getClient() {
+        return AzureStorageBlobClientUtils.getClient();
     }
 }
