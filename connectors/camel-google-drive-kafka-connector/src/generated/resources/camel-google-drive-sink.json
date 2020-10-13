@@ -10,7 +10,7 @@
 	"properties": {
 		"camel.sink.path.apiName": {
 			"name": "camel.sink.path.apiName",
-			"description": "What kind of operation to perform One of: [drive-about] [drive-apps] [drive-changes] [drive-channels] [drive-children] [drive-comments] [drive-files] [drive-parents] [drive-permissions] [drive-properties] [drive-realtime] [drive-replies] [drive-revisions]",
+			"description": "What kind of operation to perform One of: [DRIVE_ABOUT] [DRIVE_APPS] [DRIVE_CHANGES] [DRIVE_CHANNELS] [DRIVE_CHILDREN] [DRIVE_COMMENTS] [DRIVE_FILES] [DRIVE_PARENTS] [DRIVE_PERMISSIONS] [DRIVE_PROPERTIES] [DRIVE_REALTIME] [DRIVE_REPLIES] [DRIVE_REVISIONS]",
 			"defaultValue": "null",
 			"priority": "HIGH"
 		},
@@ -120,7 +120,7 @@
 			"name": "camel.component.google-drive.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.google-drive.clientFactory": {
 			"name": "camel.component.google-drive.clientFactory",

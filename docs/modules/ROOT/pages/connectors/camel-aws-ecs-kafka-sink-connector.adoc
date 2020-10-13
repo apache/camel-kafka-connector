@@ -53,7 +53,7 @@ The camel-aws-ecs sink connector supports 25 options, which are listed below.
 | *camel.component.aws-ecs.proxyProtocol* | To define a proxy protocol when instantiating the ECS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.component.aws-ecs.region* | The region in which ECS client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM
 | *camel.component.aws-ecs.secretKey* | Amazon AWS Secret Key | null | MEDIUM
-| *camel.component.aws-ecs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-ecs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 
@@ -71,8 +71,4 @@ The camel-aws-ecs sink connector has no transforms out of the box.
 
 
 The camel-aws-ecs sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

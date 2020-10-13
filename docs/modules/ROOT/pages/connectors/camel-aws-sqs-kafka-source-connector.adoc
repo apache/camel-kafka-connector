@@ -106,7 +106,7 @@ The camel-aws-sqs source connector supports 89 options, which are listed below.
 | *camel.component.aws-sqs.serverSideEncryption Enabled* | Define if Server Side Encryption is enabled or not on the queue | false | MEDIUM
 | *camel.component.aws-sqs.visibilityTimeout* | The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only make sense if its different from defaultVisibilityTimeout. It changes the queue visibility timeout attribute permanently. | null | MEDIUM
 | *camel.component.aws-sqs.waitTimeSeconds* | Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response. | null | MEDIUM
-| *camel.component.aws-sqs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-sqs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-sqs.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | MEDIUM
 | *camel.component.aws-sqs.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | MEDIUM
 | *camel.component.aws-sqs.proxyHost* | To define a proxy host when instantiating the SQS client | null | MEDIUM

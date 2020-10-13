@@ -32,6 +32,12 @@
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
+		"camel.source.endpoint.messageIdStrategy": {
+			"name": "camel.source.endpoint.messageIdStrategy",
+			"description": "Option to provide a custom MessageIdStrategy to control generation of WS-Addressing unique message ids.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -90,7 +96,7 @@
 			"name": "camel.component.spring-ws.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.spring-ws.useGlobalSslContextParameters": {
 			"name": "camel.component.spring-ws.useGlobalSslContextParameters",

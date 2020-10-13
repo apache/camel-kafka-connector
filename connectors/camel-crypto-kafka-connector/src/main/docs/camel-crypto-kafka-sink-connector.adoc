@@ -64,7 +64,7 @@ The camel-crypto sink connector supports 44 options, which are listed below.
 | *camel.component.crypto.publicKeyName* | references that should be resolved when the context changes | null | MEDIUM
 | *camel.component.crypto.secureRandomName* | Sets the reference name for a SecureRandom that can be found in the registry. | null | MEDIUM
 | *camel.component.crypto.signatureHeaderName* | Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature' | null | MEDIUM
-| *camel.component.crypto.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.crypto.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.crypto.bufferSize* | Set the size of the buffer used to read in the Exchange payload data. | "2048" | MEDIUM
 | *camel.component.crypto.certificate* | Set the Certificate that should be used to verify the signature in the exchange based on its payload. | null | MEDIUM
 | *camel.component.crypto.clearHeaders* | Determines if the Signature specific headers be cleared after signing and verification. Defaults to true, and should only be made otherwise at your extreme peril as vital private information such as Keys and passwords may escape if unset. | true | MEDIUM

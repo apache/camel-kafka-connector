@@ -47,7 +47,7 @@ The camel-mongodb-gridfs source connector supports 19 options, which are listed 
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
 | *camel.component.mongodb-gridfs.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.mongodb-gridfs.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.mongodb-gridfs.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 |===
 
 

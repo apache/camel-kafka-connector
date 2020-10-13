@@ -360,7 +360,7 @@
 			"name": "camel.component.aws2-s3.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.aws2-s3.accessKey": {
 			"name": "camel.component.aws2-s3.accessKey",

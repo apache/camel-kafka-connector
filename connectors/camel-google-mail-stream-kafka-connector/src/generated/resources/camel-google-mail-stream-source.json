@@ -10,15 +10,9 @@
 	"properties": {
 		"camel.source.path.index": {
 			"name": "camel.source.path.index",
-			"description": "Specifies an index for the endpoint",
+			"description": "Currently not in use",
 			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
-		"camel.source.endpoint.accessToken": {
-			"name": "camel.source.endpoint.accessToken",
-			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
+			"priority": "HIGH"
 		},
 		"camel.source.endpoint.applicationName": {
 			"name": "camel.source.endpoint.applicationName",
@@ -35,12 +29,6 @@
 		"camel.source.endpoint.clientId": {
 			"name": "camel.source.endpoint.clientId",
 			"description": "Client ID of the mail application",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
-		"camel.source.endpoint.clientSecret": {
-			"name": "camel.source.endpoint.clientSecret",
-			"description": "Client secret of the mail application",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -66,12 +54,6 @@
 			"name": "camel.source.endpoint.query",
 			"description": "The query to execute on gmail box",
 			"defaultValue": "\"is:unread\"",
-			"priority": "MEDIUM"
-		},
-		"camel.source.endpoint.refreshToken": {
-			"name": "camel.source.endpoint.refreshToken",
-			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
@@ -194,9 +176,21 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
-		"camel.component.google-mail-stream.accessToken": {
-			"name": "camel.component.google-mail-stream.accessToken",
+		"camel.source.endpoint.accessToken": {
+			"name": "camel.source.endpoint.accessToken",
 			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.clientSecret": {
+			"name": "camel.source.endpoint.clientSecret",
+			"description": "Client secret of the mail application",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.refreshToken": {
+			"name": "camel.source.endpoint.refreshToken",
+			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -215,12 +209,6 @@
 		"camel.component.google-mail-stream.clientId": {
 			"name": "camel.component.google-mail-stream.clientId",
 			"description": "Client ID of the mail application",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
-		"camel.component.google-mail-stream.clientSecret": {
-			"name": "camel.component.google-mail-stream.clientSecret",
-			"description": "Client secret of the mail application",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
@@ -248,17 +236,11 @@
 			"defaultValue": "\"is:unread\"",
 			"priority": "MEDIUM"
 		},
-		"camel.component.google-mail-stream.refreshToken": {
-			"name": "camel.component.google-mail-stream.refreshToken",
-			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
-			"defaultValue": "null",
-			"priority": "MEDIUM"
-		},
 		"camel.component.google-mail-stream.basicPropertyBinding": {
 			"name": "camel.component.google-mail-stream.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.google-mail-stream.clientFactory": {
 			"name": "camel.component.google-mail-stream.clientFactory",
@@ -269,6 +251,24 @@
 		"camel.component.google-mail-stream.configuration": {
 			"name": "camel.component.google-mail-stream.configuration",
 			"description": "The configuration",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-mail-stream.accessToken": {
+			"name": "camel.component.google-mail-stream.accessToken",
+			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-mail-stream.clientSecret": {
+			"name": "camel.component.google-mail-stream.clientSecret",
+			"description": "Client secret of the mail application",
+			"defaultValue": "null",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-mail-stream.refreshToken": {
+			"name": "camel.component.google-mail-stream.refreshToken",
+			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
