@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2kinesis.CamelAws2kinesisSour
 ----
 
 
-The camel-aws2-kinesis source connector supports 53 options, which are listed below.
+The camel-aws2-kinesis source connector supports 55 options, which are listed below.
 
 
 
@@ -32,6 +32,7 @@ The camel-aws2-kinesis source connector supports 53 options, which are listed be
 | *camel.source.path.streamName* | Name of the stream | null | HIGH
 | *camel.source.endpoint.amazonKinesisClient* | Amazon Kinesis client to use for all requests for this endpoint | null | MEDIUM
 | *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
+| *camel.source.endpoint.cborEnabled* | This option will set the CBOR_ENABLED property during the execution | true | MEDIUM
 | *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the Kinesis client | null | MEDIUM
 | *camel.source.endpoint.proxyPort* | To define a proxy port when instantiating the Kinesis client | null | MEDIUM
 | *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Kinesis client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
@@ -67,6 +68,7 @@ The camel-aws2-kinesis source connector supports 53 options, which are listed be
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 | *camel.component.aws2-kinesis.amazonKinesisClient* | Amazon Kinesis client to use for all requests for this endpoint | null | MEDIUM
 | *camel.component.aws2-kinesis.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
+| *camel.component.aws2-kinesis.cborEnabled* | This option will set the CBOR_ENABLED property during the execution | true | MEDIUM
 | *camel.component.aws2-kinesis.configuration* | Component configuration | null | MEDIUM
 | *camel.component.aws2-kinesis.proxyHost* | To define a proxy host when instantiating the Kinesis client | null | MEDIUM
 | *camel.component.aws2-kinesis.proxyPort* | To define a proxy port when instantiating the Kinesis client | null | MEDIUM

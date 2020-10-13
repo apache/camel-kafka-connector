@@ -26,6 +26,12 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
+		"camel.sink.endpoint.cborEnabled": {
+			"name": "camel.sink.endpoint.cborEnabled",
+			"description": "This option will set the CBOR_ENABLED property during the execution",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the Kinesis client",
@@ -95,6 +101,12 @@
 		"camel.component.aws2-kinesis.autoDiscoverClient": {
 			"name": "camel.component.aws2-kinesis.autoDiscoverClient",
 			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.aws2-kinesis.cborEnabled": {
+			"name": "camel.component.aws2-kinesis.cborEnabled",
+			"description": "This option will set the CBOR_ENABLED property during the execution",
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
