@@ -11,31 +11,26 @@
 		"camel.source.path.apiEndpoint": {
 			"name": "camel.source.path.apiEndpoint",
 			"description": "The API endpoint",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.connectTimeout": {
 			"name": "camel.source.endpoint.connectTimeout",
 			"description": "Connect timeout for OkHttpClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.connectTimeoutMillis": {
 			"name": "camel.source.endpoint.connectTimeoutMillis",
 			"description": "Connect timeout for OkHttpClient. Deprecation note: Use connectTimeout instead",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.source.endpoint.consulClient": {
 			"name": "camel.source.endpoint.consulClient",
 			"description": "Reference to a com.orbitz.consul.Consul in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.key": {
 			"name": "camel.source.endpoint.key",
 			"description": "The default key. Can be overridden by CamelConsulKey",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pingInstance": {
@@ -47,37 +42,31 @@
 		"camel.source.endpoint.readTimeout": {
 			"name": "camel.source.endpoint.readTimeout",
 			"description": "Read timeout for OkHttpClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.readTimeoutMillis": {
 			"name": "camel.source.endpoint.readTimeoutMillis",
 			"description": "Read timeout for OkHttpClient. Deprecation note: Use readTimeout instead",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.source.endpoint.tags": {
 			"name": "camel.source.endpoint.tags",
 			"description": "Set tags. You can separate multiple tags by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.url": {
 			"name": "camel.source.endpoint.url",
 			"description": "The Consul agent URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.writeTimeout": {
 			"name": "camel.source.endpoint.writeTimeout",
 			"description": "Write timeout for OkHttpClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.writeTimeoutMillis": {
 			"name": "camel.source.endpoint.writeTimeoutMillis",
 			"description": "Write timeout for OkHttpClient. Deprecation note: Use writeTimeout instead",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -89,13 +78,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -113,19 +100,16 @@
 		"camel.source.endpoint.datacenter": {
 			"name": "camel.source.endpoint.datacenter",
 			"description": "The data center",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.nearNode": {
 			"name": "camel.source.endpoint.nearNode",
 			"description": "The near node to use for queries.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.nodeMeta": {
 			"name": "camel.source.endpoint.nodeMeta",
 			"description": "The note meta-data to use for queries.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.synchronous": {
@@ -137,25 +121,21 @@
 		"camel.source.endpoint.aclToken": {
 			"name": "camel.source.endpoint.aclToken",
 			"description": "Sets the ACL token to be used with Consul",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Sets the password to be used for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.userName": {
 			"name": "camel.source.endpoint.userName",
 			"description": "Sets the username to be used for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.blockSeconds": {
@@ -179,25 +159,21 @@
 		"camel.component.consul.connectTimeout": {
 			"name": "camel.component.consul.connectTimeout",
 			"description": "Connect timeout for OkHttpClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.connectTimeoutMillis": {
 			"name": "camel.component.consul.connectTimeoutMillis",
 			"description": "Connect timeout for OkHttpClient. Deprecation note: Use connectTimeout instead",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.component.consul.consulClient": {
 			"name": "camel.component.consul.consulClient",
 			"description": "Reference to a com.orbitz.consul.Consul in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.key": {
 			"name": "camel.component.consul.key",
 			"description": "The default key. Can be overridden by CamelConsulKey",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.pingInstance": {
@@ -209,37 +185,31 @@
 		"camel.component.consul.readTimeout": {
 			"name": "camel.component.consul.readTimeout",
 			"description": "Read timeout for OkHttpClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.readTimeoutMillis": {
 			"name": "camel.component.consul.readTimeoutMillis",
 			"description": "Read timeout for OkHttpClient. Deprecation note: Use readTimeout instead",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.component.consul.tags": {
 			"name": "camel.component.consul.tags",
 			"description": "Set tags. You can separate multiple tags by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.url": {
 			"name": "camel.component.consul.url",
 			"description": "The Consul agent URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.writeTimeout": {
 			"name": "camel.component.consul.writeTimeout",
 			"description": "Write timeout for OkHttpClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.writeTimeoutMillis": {
 			"name": "camel.component.consul.writeTimeoutMillis",
 			"description": "Write timeout for OkHttpClient. Deprecation note: Use writeTimeout instead",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.component.consul.bridgeErrorHandler": {
@@ -257,7 +227,6 @@
 		"camel.component.consul.configuration": {
 			"name": "camel.component.consul.configuration",
 			"description": "Consul configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.consistencyMode": {
@@ -269,37 +238,31 @@
 		"camel.component.consul.datacenter": {
 			"name": "camel.component.consul.datacenter",
 			"description": "The data center",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.nearNode": {
 			"name": "camel.component.consul.nearNode",
 			"description": "The near node to use for queries.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.nodeMeta": {
 			"name": "camel.component.consul.nodeMeta",
 			"description": "The note meta-data to use for queries.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.aclToken": {
 			"name": "camel.component.consul.aclToken",
 			"description": "Sets the ACL token to be used with Consul",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.password": {
 			"name": "camel.component.consul.password",
 			"description": "Sets the password to be used for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.sslContextParameters": {
 			"name": "camel.component.consul.sslContextParameters",
 			"description": "SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.useGlobalSslContextParameters": {
@@ -311,7 +274,6 @@
 		"camel.component.consul.userName": {
 			"name": "camel.component.consul.userName",
 			"description": "Sets the username to be used for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.consul.blockSeconds": {

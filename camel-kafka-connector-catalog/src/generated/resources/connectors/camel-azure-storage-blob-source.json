@@ -11,13 +11,11 @@
 		"camel.source.path.accountName": {
 			"name": "camel.source.path.accountName",
 			"description": "Azure account name to be used for authentication with azure blob services",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.path.containerName": {
 			"name": "camel.source.path.containerName",
 			"description": "The blob container name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.autoDiscoverClient": {
@@ -29,7 +27,6 @@
 		"camel.source.endpoint.blobName": {
 			"name": "camel.source.endpoint.blobName",
 			"description": "The blob name, required for consumer. However on producer, is only required for the operations on the blob level",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.blobOffset": {
@@ -41,7 +38,6 @@
 		"camel.source.endpoint.blobServiceClient": {
 			"name": "camel.source.endpoint.blobServiceClient",
 			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.blobType": {
@@ -59,25 +55,21 @@
 		"camel.source.endpoint.credentials": {
 			"name": "camel.source.endpoint.credentials",
 			"description": "StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.dataCount": {
 			"name": "camel.source.endpoint.dataCount",
 			"description": "How many bytes to include in the range. Must be greater than or equal to 0 if specified.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.fileDir": {
 			"name": "camel.source.endpoint.fileDir",
 			"description": "The file directory where the downloaded blobs will be saved to, this can be used in both, producer and consumer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.maxResultsPerPage": {
 			"name": "camel.source.endpoint.maxResultsPerPage",
 			"description": "Specifies the maximum number of blobs to return, including all BlobPrefix elements. If the request does not specify maxResultsPerPage or specifies a value greater than 5,000, the server will return up to 5,000 items.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.maxRetryRequests": {
@@ -89,19 +81,16 @@
 		"camel.source.endpoint.prefix": {
 			"name": "camel.source.endpoint.prefix",
 			"description": "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.serviceClient": {
 			"name": "camel.source.endpoint.serviceClient",
 			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.timeout": {
 			"name": "camel.source.endpoint.timeout",
 			"description": "An optional timeout value beyond which a RuntimeException will be raised.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -113,13 +102,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -137,7 +124,6 @@
 		"camel.source.endpoint.accessKey": {
 			"name": "camel.source.endpoint.accessKey",
 			"description": "Access key for the associated azure account name to be used for authentication with azure blob services",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.autoDiscoverClient": {
@@ -149,7 +135,6 @@
 		"camel.component.azure-storage-blob.blobName": {
 			"name": "camel.component.azure-storage-blob.blobName",
 			"description": "The blob name, required for consumer. However on producer, is only required for the operations on the blob level",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.blobOffset": {
@@ -173,31 +158,26 @@
 		"camel.component.azure-storage-blob.configuration": {
 			"name": "camel.component.azure-storage-blob.configuration",
 			"description": "The component configurations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.credentials": {
 			"name": "camel.component.azure-storage-blob.credentials",
 			"description": "StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.dataCount": {
 			"name": "camel.component.azure-storage-blob.dataCount",
 			"description": "How many bytes to include in the range. Must be greater than or equal to 0 if specified.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.fileDir": {
 			"name": "camel.component.azure-storage-blob.fileDir",
 			"description": "The file directory where the downloaded blobs will be saved to, this can be used in both, producer and consumer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.maxResultsPerPage": {
 			"name": "camel.component.azure-storage-blob.maxResultsPerPage",
 			"description": "Specifies the maximum number of blobs to return, including all BlobPrefix elements. If the request does not specify maxResultsPerPage or specifies a value greater than 5,000, the server will return up to 5,000 items.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.maxRetryRequests": {
@@ -209,19 +189,16 @@
 		"camel.component.azure-storage-blob.prefix": {
 			"name": "camel.component.azure-storage-blob.prefix",
 			"description": "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.serviceClient": {
 			"name": "camel.component.azure-storage-blob.serviceClient",
 			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.timeout": {
 			"name": "camel.component.azure-storage-blob.timeout",
 			"description": "An optional timeout value beyond which a RuntimeException will be raised.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.bridgeErrorHandler": {
@@ -239,7 +216,6 @@
 		"camel.component.azure-storage-blob.accessKey": {
 			"name": "camel.component.azure-storage-blob.accessKey",
 			"description": "Access key for the associated azure account name to be used for authentication with azure blob services",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

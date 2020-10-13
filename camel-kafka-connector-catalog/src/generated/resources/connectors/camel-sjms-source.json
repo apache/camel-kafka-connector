@@ -17,7 +17,6 @@
 		"camel.source.path.destinationName": {
 			"name": "camel.source.path.destinationName",
 			"description": "DestinationName is a JMS queue or topic name. By default, the destinationName is interpreted as a queue name.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.acknowledgementMode": {
@@ -41,7 +40,6 @@
 		"camel.source.endpoint.durableSubscriptionId": {
 			"name": "camel.source.endpoint.durableSubscriptionId",
 			"description": "Sets the durable subscription Id required for durable topics.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.reconnectBackOff": {
@@ -65,19 +63,16 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.messageSelector": {
 			"name": "camel.source.endpoint.messageSelector",
 			"description": "Sets the JMS Message selector syntax.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.asyncStartListener": {
@@ -101,37 +96,31 @@
 		"camel.source.endpoint.connectionCount": {
 			"name": "camel.source.endpoint.connectionCount",
 			"description": "The maximum number of connections available to this endpoint",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.connectionFactory": {
 			"name": "camel.source.endpoint.connectionFactory",
 			"description": "Initializes the connectionFactory for the endpoint, which takes precedence over the component's connectionFactory, if any",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.connectionResource": {
 			"name": "camel.source.endpoint.connectionResource",
 			"description": "Initializes the connectionResource for the endpoint, which takes precedence over the component's connectionResource, if any",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.destinationCreationStrategy": {
 			"name": "camel.source.endpoint.destinationCreationStrategy",
 			"description": "To use a custom DestinationCreationStrategy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exceptionListener": {
 			"name": "camel.source.endpoint.exceptionListener",
 			"description": "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.includeAllJMSXProperties": {
@@ -143,7 +132,6 @@
 		"camel.source.endpoint.jmsKeyFormatStrategy": {
 			"name": "camel.source.endpoint.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.mapJmsMessage": {
@@ -155,7 +143,6 @@
 		"camel.source.endpoint.messageCreatedStrategy": {
 			"name": "camel.source.endpoint.messageCreatedStrategy",
 			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.errorHandlerLoggingLevel": {
@@ -191,7 +178,6 @@
 		"camel.source.endpoint.transactionCommitStrategy": {
 			"name": "camel.source.endpoint.transactionCommitStrategy",
 			"description": "Sets the commit strategy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sharedJMSSession": {
@@ -233,13 +219,11 @@
 		"camel.component.sjms.connectionClientId": {
 			"name": "camel.component.sjms.connectionClientId",
 			"description": "The client ID to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.connectionFactory": {
 			"name": "camel.component.sjms.connectionFactory",
 			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.connectionMaxWait": {
@@ -251,7 +235,6 @@
 		"camel.component.sjms.connectionResource": {
 			"name": "camel.component.sjms.connectionResource",
 			"description": "A ConnectionResource is an interface that allows for customization and container control of the ConnectionFactory. See Plugable Connection Resource Management for further details.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.connectionTestOnBorrow": {
@@ -263,49 +246,41 @@
 		"camel.component.sjms.destinationCreationStrategy": {
 			"name": "camel.component.sjms.destinationCreationStrategy",
 			"description": "To use a custom DestinationCreationStrategy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.jmsKeyFormatStrategy": {
 			"name": "camel.component.sjms.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides one implementation out of the box: default. The default strategy will safely marshal dots and hyphens (. and -). Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.messageCreatedStrategy": {
 			"name": "camel.component.sjms.messageCreatedStrategy",
 			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.timedTaskManager": {
 			"name": "camel.component.sjms.timedTaskManager",
 			"description": "To use a custom TimedTaskManager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.headerFilterStrategy": {
 			"name": "camel.component.sjms.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.connectionPassword": {
 			"name": "camel.component.sjms.connectionPassword",
 			"description": "The password to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.connectionUsername": {
 			"name": "camel.component.sjms.connectionUsername",
 			"description": "The username to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms.transactionCommitStrategy": {
 			"name": "camel.component.sjms.transactionCommitStrategy",
 			"description": "To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

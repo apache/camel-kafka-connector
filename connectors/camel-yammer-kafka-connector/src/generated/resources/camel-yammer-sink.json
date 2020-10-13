@@ -11,7 +11,6 @@
 		"camel.sink.path.function": {
 			"name": "camel.sink.path.function",
 			"description": "The function to use One of: [MESSAGES] [MY_FEED] [ALGO] [FOLLOWING] [SENT] [PRIVATE] [RECEIVED] [USERS] [CURRENT]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.useJson": {
@@ -35,7 +34,6 @@
 		"camel.sink.endpoint.requestor": {
 			"name": "camel.sink.endpoint.requestor",
 			"description": "To use a specific requester to communicate with Yammer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -47,19 +45,16 @@
 		"camel.sink.endpoint.accessToken": {
 			"name": "camel.sink.endpoint.accessToken",
 			"description": "The access token",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.consumerKey": {
 			"name": "camel.sink.endpoint.consumerKey",
 			"description": "The consumer key",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.consumerSecret": {
 			"name": "camel.sink.endpoint.consumerSecret",
 			"description": "The consumer secret",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.yammer.useJson": {
@@ -83,31 +78,26 @@
 		"camel.component.yammer.configuration": {
 			"name": "camel.component.yammer.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.yammer.requestor": {
 			"name": "camel.component.yammer.requestor",
 			"description": "To use a specific requester to communicate with Yammer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.yammer.accessToken": {
 			"name": "camel.component.yammer.accessToken",
 			"description": "The access token",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.yammer.consumerKey": {
 			"name": "camel.component.yammer.consumerKey",
 			"description": "The consumer key",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.yammer.consumerSecret": {
 			"name": "camel.component.yammer.consumerSecret",
 			"description": "The consumer secret",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		}
 	}

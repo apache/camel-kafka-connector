@@ -11,31 +11,26 @@
 		"camel.sink.path.apiName": {
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [ADDON] [ADDRESS] [CLIENTTOKEN] [CREDITCARDVERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENTUPLOAD] [MERCHANTACCOUNT] [PAYMENTMETHOD] [PAYMENTMETHODNONCE] [PLAN] [REPORT] [SETTLEMENTBATCHSUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOKNOTIFICATION]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.environment": {
 			"name": "camel.sink.endpoint.environment",
 			"description": "The environment Either SANDBOX or PRODUCTION",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.inBody": {
 			"name": "camel.sink.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.merchantId": {
 			"name": "camel.sink.endpoint.merchantId",
 			"description": "The merchant id provided by Braintree.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -53,7 +48,6 @@
 		"camel.sink.endpoint.httpReadTimeout": {
 			"name": "camel.sink.endpoint.httpReadTimeout",
 			"description": "Set read timeout for http calls.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -65,7 +59,6 @@
 		"camel.sink.endpoint.httpLogLevel": {
 			"name": "camel.sink.endpoint.httpLogLevel",
 			"description": "Set logging level for http calls, see java.util.logging.Level One of: [OFF] [SEVERE] [WARNING] [INFO] [CONFIG] [FINE] [FINER] [FINEST] [ALL]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpLogName": {
@@ -83,31 +76,26 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "The proxy host",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "The proxy port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.accessToken": {
 			"name": "camel.sink.endpoint.accessToken",
 			"description": "The access token granted by a merchant to another in order to process transactions on their behalf. Used in place of environment, merchant id, public key and private key fields.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.privateKey": {
 			"name": "camel.sink.endpoint.privateKey",
 			"description": "The private key provided by Braintree.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.publicKey": {
 			"name": "camel.sink.endpoint.publicKey",
 			"description": "The public key provided by Braintree.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.braintree.lazyStartProducer": {
@@ -125,7 +113,6 @@
 		"camel.component.braintree.configuration": {
 			"name": "camel.component.braintree.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

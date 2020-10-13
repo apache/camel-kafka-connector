@@ -11,13 +11,11 @@
 		"camel.sink.path.cryptoOperation": {
 			"name": "camel.sink.path.cryptoOperation",
 			"description": "Set the Crypto operation from that supplied after the crypto scheme in the endpoint uri e.g. crypto:sign sets sign as the operation. One of: [sign] [verify]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "The logical name of this operation.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.algorithm": {
@@ -29,25 +27,21 @@
 		"camel.sink.endpoint.alias": {
 			"name": "camel.sink.endpoint.alias",
 			"description": "Sets the alias used to query the KeyStore for keys and {link java.security.cert.Certificate Certificates} to be used in signing and verifying exchanges. This value can be provided at runtime via the message header org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.certificateName": {
 			"name": "camel.sink.endpoint.certificateName",
 			"description": "Sets the reference name for a PrivateKey that can be found in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keystore": {
 			"name": "camel.sink.endpoint.keystore",
 			"description": "Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keystoreName": {
 			"name": "camel.sink.endpoint.keystoreName",
 			"description": "Sets the reference name for a Keystore that can be found in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,37 +53,31 @@
 		"camel.sink.endpoint.privateKey": {
 			"name": "camel.sink.endpoint.privateKey",
 			"description": "Set the PrivateKey that should be used to sign the exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.privateKeyName": {
 			"name": "camel.sink.endpoint.privateKeyName",
 			"description": "Sets the reference name for a PrivateKey that can be found in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.provider": {
 			"name": "camel.sink.endpoint.provider",
 			"description": "Set the id of the security provider that provides the configured Signature algorithm.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.publicKeyName": {
 			"name": "camel.sink.endpoint.publicKeyName",
 			"description": "references that should be resolved when the context changes",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secureRandomName": {
 			"name": "camel.sink.endpoint.secureRandomName",
 			"description": "Sets the reference name for a SecureRandom that can be found in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.signatureHeaderName": {
 			"name": "camel.sink.endpoint.signatureHeaderName",
 			"description": "Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature'",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -107,7 +95,6 @@
 		"camel.sink.endpoint.certificate": {
 			"name": "camel.sink.endpoint.certificate",
 			"description": "Set the Certificate that should be used to verify the signature in the exchange based on its payload.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clearHeaders": {
@@ -119,19 +106,16 @@
 		"camel.sink.endpoint.keyStoreParameters": {
 			"name": "camel.sink.endpoint.keyStoreParameters",
 			"description": "Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges based on the given KeyStoreParameters. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.publicKey": {
 			"name": "camel.sink.endpoint.publicKey",
 			"description": "Set the PublicKey that should be used to verify the signature in the exchange.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secureRandom": {
 			"name": "camel.sink.endpoint.secureRandom",
 			"description": "Set the SecureRandom used to initialize the Signature service",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -143,7 +127,6 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Sets the password used to access an aliased PrivateKey in the KeyStore.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.algorithm": {
@@ -155,25 +138,21 @@
 		"camel.component.crypto.alias": {
 			"name": "camel.component.crypto.alias",
 			"description": "Sets the alias used to query the KeyStore for keys and {link java.security.cert.Certificate Certificates} to be used in signing and verifying exchanges. This value can be provided at runtime via the message header org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.certificateName": {
 			"name": "camel.component.crypto.certificateName",
 			"description": "Sets the reference name for a PrivateKey that can be found in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.keystore": {
 			"name": "camel.component.crypto.keystore",
 			"description": "Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.keystoreName": {
 			"name": "camel.component.crypto.keystoreName",
 			"description": "Sets the reference name for a Keystore that can be found in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.lazyStartProducer": {
@@ -185,37 +164,31 @@
 		"camel.component.crypto.privateKey": {
 			"name": "camel.component.crypto.privateKey",
 			"description": "Set the PrivateKey that should be used to sign the exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.privateKeyName": {
 			"name": "camel.component.crypto.privateKeyName",
 			"description": "Sets the reference name for a PrivateKey that can be found in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.provider": {
 			"name": "camel.component.crypto.provider",
 			"description": "Set the id of the security provider that provides the configured Signature algorithm.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.publicKeyName": {
 			"name": "camel.component.crypto.publicKeyName",
 			"description": "references that should be resolved when the context changes",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.secureRandomName": {
 			"name": "camel.component.crypto.secureRandomName",
 			"description": "Sets the reference name for a SecureRandom that can be found in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.signatureHeaderName": {
 			"name": "camel.component.crypto.signatureHeaderName",
 			"description": "Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature'",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.basicPropertyBinding": {
@@ -233,7 +206,6 @@
 		"camel.component.crypto.certificate": {
 			"name": "camel.component.crypto.certificate",
 			"description": "Set the Certificate that should be used to verify the signature in the exchange based on its payload.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.clearHeaders": {
@@ -245,31 +217,26 @@
 		"camel.component.crypto.configuration": {
 			"name": "camel.component.crypto.configuration",
 			"description": "To use the shared DigitalSignatureConfiguration as configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.keyStoreParameters": {
 			"name": "camel.component.crypto.keyStoreParameters",
 			"description": "Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges based on the given KeyStoreParameters. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.publicKey": {
 			"name": "camel.component.crypto.publicKey",
 			"description": "Set the PublicKey that should be used to verify the signature in the exchange.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.secureRandom": {
 			"name": "camel.component.crypto.secureRandom",
 			"description": "Set the SecureRandom used to initialize the Signature service",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.crypto.password": {
 			"name": "camel.component.crypto.password",
 			"description": "Sets the password used to access an aliased PrivateKey in the KeyStore.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

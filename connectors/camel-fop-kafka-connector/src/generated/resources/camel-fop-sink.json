@@ -11,13 +11,11 @@
 		"camel.sink.path.outputType": {
 			"name": "camel.sink.path.outputType",
 			"description": "The primary output format is PDF but other output formats are also supported. One of: [pdf] [ps] [pcl] [png] [jpeg] [svg] [xml] [mif] [rtf] [txt]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.fopFactory": {
 			"name": "camel.sink.endpoint.fopFactory",
 			"description": "Allows to use a custom configured or implementation of org.apache.fop.apps.FopFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -29,7 +27,6 @@
 		"camel.sink.endpoint.userConfigURL": {
 			"name": "camel.sink.endpoint.userConfigURL",
 			"description": "The location of a configuration file which can be loaded from classpath or file system.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

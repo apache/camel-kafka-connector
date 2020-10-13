@@ -11,7 +11,6 @@
 		"camel.sink.path.ipfsCmd": {
 			"name": "camel.sink.path.ipfsCmd",
 			"description": "The ipfs command One of: [add] [cat] [get] [version]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.outdir": {
 			"name": "camel.sink.endpoint.outdir",
 			"description": "The ipfs output directory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

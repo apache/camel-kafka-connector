@@ -11,13 +11,11 @@
 		"camel.sink.path.protocol": {
 			"name": "camel.sink.path.protocol",
 			"description": "The protocol for the hipchat server, such as http.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "The host for the hipchat server, such as api.hipchat.com",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
@@ -29,13 +27,11 @@
 		"camel.sink.endpoint.authToken": {
 			"name": "camel.sink.endpoint.authToken",
 			"description": "OAuth 2 auth token",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.consumeUsers": {
 			"name": "camel.sink.endpoint.consumeUsers",
 			"description": "Username(s) when consuming messages from the hiptchat server. Multiple user names can be separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpClient": {

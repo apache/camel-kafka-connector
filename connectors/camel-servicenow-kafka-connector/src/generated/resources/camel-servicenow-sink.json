@@ -11,7 +11,6 @@
 		"camel.sink.path.instanceName": {
 			"name": "camel.sink.path.instanceName",
 			"description": "The ServiceNow instance name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.display": {
@@ -29,55 +28,46 @@
 		"camel.sink.endpoint.excludeReferenceLink": {
 			"name": "camel.sink.endpoint.excludeReferenceLink",
 			"description": "True to exclude Table API links for reference fields (default: false)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.favorites": {
 			"name": "camel.sink.endpoint.favorites",
 			"description": "Set this parameter to true to return only scorecards that are favorites of the querying user.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.includeAggregates": {
 			"name": "camel.sink.endpoint.includeAggregates",
 			"description": "Set this parameter to true to always return all available aggregates for an indicator, including when an aggregate has already been applied. If a value is not specified, this parameter defaults to false and returns no aggregates.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.includeAvailableAggregates": {
 			"name": "camel.sink.endpoint.includeAvailableAggregates",
 			"description": "Set this parameter to true to return all available aggregates for an indicator when no aggregate has been applied. If a value is not specified, this parameter defaults to false and returns no aggregates.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.includeAvailableBreakdowns": {
 			"name": "camel.sink.endpoint.includeAvailableBreakdowns",
 			"description": "Set this parameter to true to return all available breakdowns for an indicator. If a value is not specified, this parameter defaults to false and returns no breakdowns.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.includeScoreNotes": {
 			"name": "camel.sink.endpoint.includeScoreNotes",
 			"description": "Set this parameter to true to return all notes associated with the score. The note element contains the note text as well as the author and timestamp when the note was added.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.includeScores": {
 			"name": "camel.sink.endpoint.includeScores",
 			"description": "Set this parameter to true to return all scores for a scorecard. If a value is not specified, this parameter defaults to false and returns only the most recent score value.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.inputDisplayValue": {
 			"name": "camel.sink.endpoint.inputDisplayValue",
 			"description": "True to set raw value of input fields (default: false)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
 			"description": "Set this parameter to true to return only scorecards for key indicators.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -89,7 +79,6 @@
 		"camel.sink.endpoint.models": {
 			"name": "camel.sink.endpoint.models",
 			"description": "Defines both request and response models",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.perPage": {
@@ -107,67 +96,56 @@
 		"camel.sink.endpoint.requestModels": {
 			"name": "camel.sink.endpoint.requestModels",
 			"description": "Defines the request model",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resource": {
 			"name": "camel.sink.endpoint.resource",
 			"description": "The default resource, can be overridden by header CamelServiceNowResource",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.responseModels": {
 			"name": "camel.sink.endpoint.responseModels",
 			"description": "Defines the response model",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sortBy": {
 			"name": "camel.sink.endpoint.sortBy",
 			"description": "Specify the value to use when sorting results. By default, queries sort records by value. One of: [value] [change] [changeperc] [gap] [gapperc] [duedate] [name] [order] [default] [group] [indicator_group] [frequency] [target] [date] [trend] [bullet] [direction]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sortDir": {
 			"name": "camel.sink.endpoint.sortDir",
 			"description": "Specify the sort direction, ascending or descending. By default, queries sort records in descending order. Use sysparm_sortdir=asc to sort in ascending order. One of: [asc] [desc]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.suppressAutoSysField": {
 			"name": "camel.sink.endpoint.suppressAutoSysField",
 			"description": "True to suppress auto generation of system fields (default: false)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.suppressPaginationHeader": {
 			"name": "camel.sink.endpoint.suppressPaginationHeader",
 			"description": "Set this value to true to remove the Link header from the response. The Link header allows you to request additional pages of data when the number of records matching your query exceeds the query limit",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.table": {
 			"name": "camel.sink.endpoint.table",
 			"description": "The default table, can be overridden by header CamelServiceNowTable",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.target": {
 			"name": "camel.sink.endpoint.target",
 			"description": "Set this parameter to true to return only scorecards that have a target.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.topLevelOnly": {
 			"name": "camel.sink.endpoint.topLevelOnly",
 			"description": "Gets only those categories whose parent is a catalog.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.apiVersion": {
 			"name": "camel.sink.endpoint.apiVersion",
 			"description": "The ServiceNow REST API version, default latest",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -191,19 +169,16 @@
 		"camel.sink.endpoint.httpClientPolicy": {
 			"name": "camel.sink.endpoint.httpClientPolicy",
 			"description": "To configure http-client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.mapper": {
 			"name": "camel.sink.endpoint.mapper",
 			"description": "Sets Jackson's ObjectMapper to use for request\/reply",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthorizationPolicy": {
 			"name": "camel.sink.endpoint.proxyAuthorizationPolicy",
 			"description": "To configure proxy authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.retrieveTargetRecordOnImport": {
@@ -227,73 +202,61 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "The proxy host name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "The proxy port number",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.apiUrl": {
 			"name": "camel.sink.endpoint.apiUrl",
 			"description": "The ServiceNow REST API url",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.oauthClientId": {
 			"name": "camel.sink.endpoint.oauthClientId",
 			"description": "OAuth2 ClientID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.oauthClientSecret": {
 			"name": "camel.sink.endpoint.oauthClientSecret",
 			"description": "OAuth2 ClientSecret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.oauthTokenUrl": {
 			"name": "camel.sink.endpoint.oauthTokenUrl",
 			"description": "OAuth token Url",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "ServiceNow account password, MUST be provided",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.proxyPassword": {
 			"name": "camel.sink.endpoint.proxyPassword",
 			"description": "Password for proxy authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyUserName": {
 			"name": "camel.sink.endpoint.proxyUserName",
 			"description": "Username for proxy authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters. See http:\/\/camel.apache.org\/camel-configuration-utilities.html",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.userName": {
 			"name": "camel.sink.endpoint.userName",
 			"description": "ServiceNow user account name, MUST be provided",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.servicenow.configuration": {
 			"name": "camel.component.servicenow.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.display": {
@@ -311,55 +274,46 @@
 		"camel.component.servicenow.excludeReferenceLink": {
 			"name": "camel.component.servicenow.excludeReferenceLink",
 			"description": "True to exclude Table API links for reference fields (default: false)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.favorites": {
 			"name": "camel.component.servicenow.favorites",
 			"description": "Set this parameter to true to return only scorecards that are favorites of the querying user.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.includeAggregates": {
 			"name": "camel.component.servicenow.includeAggregates",
 			"description": "Set this parameter to true to always return all available aggregates for an indicator, including when an aggregate has already been applied. If a value is not specified, this parameter defaults to false and returns no aggregates.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.includeAvailableAggregates": {
 			"name": "camel.component.servicenow.includeAvailableAggregates",
 			"description": "Set this parameter to true to return all available aggregates for an indicator when no aggregate has been applied. If a value is not specified, this parameter defaults to false and returns no aggregates.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.includeAvailableBreakdowns": {
 			"name": "camel.component.servicenow.includeAvailableBreakdowns",
 			"description": "Set this parameter to true to return all available breakdowns for an indicator. If a value is not specified, this parameter defaults to false and returns no breakdowns.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.includeScoreNotes": {
 			"name": "camel.component.servicenow.includeScoreNotes",
 			"description": "Set this parameter to true to return all notes associated with the score. The note element contains the note text as well as the author and timestamp when the note was added.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.includeScores": {
 			"name": "camel.component.servicenow.includeScores",
 			"description": "Set this parameter to true to return all scores for a scorecard. If a value is not specified, this parameter defaults to false and returns only the most recent score value.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.inputDisplayValue": {
 			"name": "camel.component.servicenow.inputDisplayValue",
 			"description": "True to set raw value of input fields (default: false)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.key": {
 			"name": "camel.component.servicenow.key",
 			"description": "Set this parameter to true to return only scorecards for key indicators.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.lazyStartProducer": {
@@ -371,7 +325,6 @@
 		"camel.component.servicenow.models": {
 			"name": "camel.component.servicenow.models",
 			"description": "Defines both request and response models",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.perPage": {
@@ -389,67 +342,56 @@
 		"camel.component.servicenow.requestModels": {
 			"name": "camel.component.servicenow.requestModels",
 			"description": "Defines the request model",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.resource": {
 			"name": "camel.component.servicenow.resource",
 			"description": "The default resource, can be overridden by header CamelServiceNowResource",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.responseModels": {
 			"name": "camel.component.servicenow.responseModels",
 			"description": "Defines the response model",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.sortBy": {
 			"name": "camel.component.servicenow.sortBy",
 			"description": "Specify the value to use when sorting results. By default, queries sort records by value. One of: [value] [change] [changeperc] [gap] [gapperc] [duedate] [name] [order] [default] [group] [indicator_group] [frequency] [target] [date] [trend] [bullet] [direction]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.sortDir": {
 			"name": "camel.component.servicenow.sortDir",
 			"description": "Specify the sort direction, ascending or descending. By default, queries sort records in descending order. Use sysparm_sortdir=asc to sort in ascending order. One of: [asc] [desc]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.suppressAutoSysField": {
 			"name": "camel.component.servicenow.suppressAutoSysField",
 			"description": "True to suppress auto generation of system fields (default: false)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.suppressPaginationHeader": {
 			"name": "camel.component.servicenow.suppressPaginationHeader",
 			"description": "Set this value to true to remove the Link header from the response. The Link header allows you to request additional pages of data when the number of records matching your query exceeds the query limit",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.table": {
 			"name": "camel.component.servicenow.table",
 			"description": "The default table, can be overridden by header CamelServiceNowTable",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.target": {
 			"name": "camel.component.servicenow.target",
 			"description": "Set this parameter to true to return only scorecards that have a target.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.topLevelOnly": {
 			"name": "camel.component.servicenow.topLevelOnly",
 			"description": "Gets only those categories whose parent is a catalog.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.apiVersion": {
 			"name": "camel.component.servicenow.apiVersion",
 			"description": "The ServiceNow REST API version, default latest",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.basicPropertyBinding": {
@@ -473,25 +415,21 @@
 		"camel.component.servicenow.httpClientPolicy": {
 			"name": "camel.component.servicenow.httpClientPolicy",
 			"description": "To configure http-client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.instanceName": {
 			"name": "camel.component.servicenow.instanceName",
 			"description": "The ServiceNow instance name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.mapper": {
 			"name": "camel.component.servicenow.mapper",
 			"description": "Sets Jackson's ObjectMapper to use for request\/reply",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.proxyAuthorizationPolicy": {
 			"name": "camel.component.servicenow.proxyAuthorizationPolicy",
 			"description": "To configure proxy authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.retrieveTargetRecordOnImport": {
@@ -509,61 +447,51 @@
 		"camel.component.servicenow.proxyHost": {
 			"name": "camel.component.servicenow.proxyHost",
 			"description": "The proxy host name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.proxyPort": {
 			"name": "camel.component.servicenow.proxyPort",
 			"description": "The proxy port number",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.apiUrl": {
 			"name": "camel.component.servicenow.apiUrl",
 			"description": "The ServiceNow REST API url",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.oauthClientId": {
 			"name": "camel.component.servicenow.oauthClientId",
 			"description": "OAuth2 ClientID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.oauthClientSecret": {
 			"name": "camel.component.servicenow.oauthClientSecret",
 			"description": "OAuth2 ClientSecret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.oauthTokenUrl": {
 			"name": "camel.component.servicenow.oauthTokenUrl",
 			"description": "OAuth token Url",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.password": {
 			"name": "camel.component.servicenow.password",
 			"description": "ServiceNow account password, MUST be provided",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.servicenow.proxyPassword": {
 			"name": "camel.component.servicenow.proxyPassword",
 			"description": "Password for proxy authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.proxyUserName": {
 			"name": "camel.component.servicenow.proxyUserName",
 			"description": "Username for proxy authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.sslContextParameters": {
 			"name": "camel.component.servicenow.sslContextParameters",
 			"description": "To configure security using SSLContextParameters. See http:\/\/camel.apache.org\/camel-configuration-utilities.html",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servicenow.useGlobalSslContextParameters": {
@@ -575,7 +503,6 @@
 		"camel.component.servicenow.userName": {
 			"name": "camel.component.servicenow.userName",
 			"description": "ServiceNow user account name, MUST be provided",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		}
 	}

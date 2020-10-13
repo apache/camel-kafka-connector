@@ -11,19 +11,16 @@
 		"camel.sink.path.containerAndQueueUri": {
 			"name": "camel.sink.path.containerAndQueueUri",
 			"description": "Container Queue compact Uri",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.azureQueueClient": {
 			"name": "camel.sink.endpoint.azureQueueClient",
 			"description": "The queue service client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.credentials": {
 			"name": "camel.sink.endpoint.credentials",
 			"description": "Set the storage credentials, required in most cases",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.validateClientURI": {
@@ -41,13 +38,11 @@
 		"camel.sink.endpoint.messageTimeToLive": {
 			"name": "camel.sink.endpoint.messageTimeToLive",
 			"description": "Message Time To Live in seconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.messageVisibilityDelay": {
 			"name": "camel.sink.endpoint.messageVisibilityDelay",
 			"description": "Message Visibility Delay in seconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.operation": {
@@ -59,7 +54,6 @@
 		"camel.sink.endpoint.queuePrefix": {
 			"name": "camel.sink.endpoint.queuePrefix",
 			"description": "Set a prefix which can be used for listing the queues",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -77,25 +71,21 @@
 		"camel.sink.endpoint.credentialsAccountKey": {
 			"name": "camel.sink.endpoint.credentialsAccountKey",
 			"description": "Set the storage account key used during authentication phase",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.credentialsAccountName": {
 			"name": "camel.sink.endpoint.credentialsAccountName",
 			"description": "Set the storage account name used during authentication phase",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-queue.azureQueueClient": {
 			"name": "camel.component.azure-queue.azureQueueClient",
 			"description": "The queue service client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-queue.credentials": {
 			"name": "camel.component.azure-queue.credentials",
 			"description": "Set the storage credentials, required in most cases",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-queue.validateClientURI": {
@@ -113,13 +103,11 @@
 		"camel.component.azure-queue.messageTimeToLive": {
 			"name": "camel.component.azure-queue.messageTimeToLive",
 			"description": "Message Time To Live in seconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-queue.messageVisibilityDelay": {
 			"name": "camel.component.azure-queue.messageVisibilityDelay",
 			"description": "Message Visibility Delay in seconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-queue.operation": {
@@ -131,7 +119,6 @@
 		"camel.component.azure-queue.queuePrefix": {
 			"name": "camel.component.azure-queue.queuePrefix",
 			"description": "Set a prefix which can be used for listing the queues",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-queue.basicPropertyBinding": {
@@ -143,19 +130,16 @@
 		"camel.component.azure-queue.configuration": {
 			"name": "camel.component.azure-queue.configuration",
 			"description": "The Queue Service configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-queue.credentialsAccountKey": {
 			"name": "camel.component.azure-queue.credentialsAccountKey",
 			"description": "Set the storage account key used during authentication phase",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-queue.credentialsAccountName": {
 			"name": "camel.component.azure-queue.credentialsAccountName",
 			"description": "Set the storage account name used during authentication phase",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

@@ -11,19 +11,16 @@
 		"camel.sink.path.beanName": {
 			"name": "camel.sink.path.beanName",
 			"description": "Sets the name of the bean to invoke",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.cache": {
 			"name": "camel.sink.endpoint.cache",
 			"description": "Use scope option instead.",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.sink.endpoint.method": {
 			"name": "camel.sink.endpoint.method",
 			"description": "Sets the name of the method to invoke on the bean",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.scope": {
@@ -47,7 +44,6 @@
 		"camel.sink.endpoint.parameters": {
 			"name": "camel.sink.endpoint.parameters",
 			"description": "Used for configuring additional properties on the bean",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {

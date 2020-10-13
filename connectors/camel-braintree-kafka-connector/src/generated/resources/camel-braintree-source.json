@@ -11,31 +11,26 @@
 		"camel.source.path.apiName": {
 			"name": "camel.source.path.apiName",
 			"description": "What kind of operation to perform One of: [ADDON] [ADDRESS] [CLIENTTOKEN] [CREDITCARDVERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENTUPLOAD] [MERCHANTACCOUNT] [PAYMENTMETHOD] [PAYMENTMETHODNONCE] [PLAN] [REPORT] [SETTLEMENTBATCHSUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOKNOTIFICATION]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.methodName": {
 			"name": "camel.source.path.methodName",
 			"description": "What sub operation to use for the selected operation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.environment": {
 			"name": "camel.source.endpoint.environment",
 			"description": "The environment Either SANDBOX or PRODUCTION",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.inBody": {
 			"name": "camel.source.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.merchantId": {
 			"name": "camel.source.endpoint.merchantId",
 			"description": "The merchant id provided by Braintree.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -53,19 +48,16 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -77,7 +69,6 @@
 		"camel.source.endpoint.httpReadTimeout": {
 			"name": "camel.source.endpoint.httpReadTimeout",
 			"description": "Set read timeout for http calls.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.synchronous": {
@@ -89,7 +80,6 @@
 		"camel.source.endpoint.httpLogLevel": {
 			"name": "camel.source.endpoint.httpLogLevel",
 			"description": "Set logging level for http calls, see java.util.logging.Level One of: [OFF] [SEVERE] [WARNING] [INFO] [CONFIG] [FINE] [FINER] [FINEST] [ALL]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpLogName": {
@@ -107,31 +97,26 @@
 		"camel.source.endpoint.proxyHost": {
 			"name": "camel.source.endpoint.proxyHost",
 			"description": "The proxy host",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.proxyPort": {
 			"name": "camel.source.endpoint.proxyPort",
 			"description": "The proxy port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffErrorThreshold": {
 			"name": "camel.source.endpoint.backoffErrorThreshold",
 			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffIdleThreshold": {
 			"name": "camel.source.endpoint.backoffIdleThreshold",
 			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffMultiplier": {
 			"name": "camel.source.endpoint.backoffMultiplier",
 			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.delay": {
@@ -167,7 +152,6 @@
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
 			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.scheduler": {
@@ -179,7 +163,6 @@
 		"camel.source.endpoint.schedulerProperties": {
 			"name": "camel.source.endpoint.schedulerProperties",
 			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startScheduler": {
@@ -203,19 +186,16 @@
 		"camel.source.endpoint.accessToken": {
 			"name": "camel.source.endpoint.accessToken",
 			"description": "The access token granted by a merchant to another in order to process transactions on their behalf. Used in place of environment, merchant id, public key and private key fields.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.privateKey": {
 			"name": "camel.source.endpoint.privateKey",
 			"description": "The private key provided by Braintree.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.publicKey": {
 			"name": "camel.source.endpoint.publicKey",
 			"description": "The public key provided by Braintree.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.braintree.bridgeErrorHandler": {
@@ -233,7 +213,6 @@
 		"camel.component.braintree.configuration": {
 			"name": "camel.component.braintree.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

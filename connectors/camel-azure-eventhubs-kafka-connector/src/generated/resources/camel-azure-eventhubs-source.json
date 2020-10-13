@@ -11,19 +11,16 @@
 		"camel.source.path.namespace": {
 			"name": "camel.source.path.namespace",
 			"description": "EventHubs namespace created in Azure Portal",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.path.eventHubName": {
 			"name": "camel.source.path.eventHubName",
 			"description": "EventHubs name under a specific namcespace",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.amqpRetryOptions": {
 			"name": "camel.source.endpoint.amqpRetryOptions",
 			"description": "Sets the retry policy for EventHubAsyncClient. If not specified, the default retry options are used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.amqpTransportType": {
@@ -41,25 +38,21 @@
 		"camel.source.endpoint.blobAccessKey": {
 			"name": "camel.source.endpoint.blobAccessKey",
 			"description": "In case you chose the default BlobCheckpointStore, this sets access key for the associated azure account name to be used for authentication with azure blob services",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.blobAccountName": {
 			"name": "camel.source.endpoint.blobAccountName",
 			"description": "In case you chose the default BlobCheckpointStore, this sets Azure account name to be used for authentication with azure blob services.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.blobContainerName": {
 			"name": "camel.source.endpoint.blobContainerName",
 			"description": "In case you chose the default BlobCheckpointStore, this sets the blob container that shall be used by the BlobCheckpointStore to store the checkpoint offsets",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.blobStorageSharedKeyCredential": {
 			"name": "camel.source.endpoint.blobStorageSharedKeyCredential",
 			"description": "In case you chose the default BlobCheckpointStore, StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -83,7 +76,6 @@
 		"camel.source.endpoint.eventPosition": {
 			"name": "camel.source.endpoint.eventPosition",
 			"description": "Sets the map containing the event position to use for each partition if a checkpoint for the partition does not exist in CheckpointStore. This map is keyed off of the partition id. If there is no checkpoint in CheckpointStore and there is no entry in this map, the processing of the partition will start from {link EventPosition#latest() latest} position.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.prefetchCount": {
@@ -95,13 +87,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -119,25 +109,21 @@
 		"camel.source.endpoint.connectionString": {
 			"name": "camel.source.endpoint.connectionString",
 			"description": "Instead of supplying namespace, sharedAccessKey, sharedAccessName ... etc, you can just supply the connection string for your eventHub. The connection string for EventHubs already include all the necessary information to connection to your EventHub. To learn on how to generate the connection string, take a look at this documentation: https:\/\/docs.microsoft.com\/en-us\/azure\/event-hubs\/event-hubs-get-connection-string",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sharedAccessKey": {
 			"name": "camel.source.endpoint.sharedAccessKey",
 			"description": "The generated value for the SharedAccessName",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sharedAccessName": {
 			"name": "camel.source.endpoint.sharedAccessName",
 			"description": "The name you chose for your EventHubs SAS keys",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.amqpRetryOptions": {
 			"name": "camel.component.azure-eventhubs.amqpRetryOptions",
 			"description": "Sets the retry policy for EventHubAsyncClient. If not specified, the default retry options are used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.amqpTransportType": {
@@ -155,31 +141,26 @@
 		"camel.component.azure-eventhubs.configuration": {
 			"name": "camel.component.azure-eventhubs.configuration",
 			"description": "The component configurations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.blobAccessKey": {
 			"name": "camel.component.azure-eventhubs.blobAccessKey",
 			"description": "In case you chose the default BlobCheckpointStore, this sets access key for the associated azure account name to be used for authentication with azure blob services",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.blobAccountName": {
 			"name": "camel.component.azure-eventhubs.blobAccountName",
 			"description": "In case you chose the default BlobCheckpointStore, this sets Azure account name to be used for authentication with azure blob services.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.blobContainerName": {
 			"name": "camel.component.azure-eventhubs.blobContainerName",
 			"description": "In case you chose the default BlobCheckpointStore, this sets the blob container that shall be used by the BlobCheckpointStore to store the checkpoint offsets",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.blobStorageSharedKeyCredential": {
 			"name": "camel.component.azure-eventhubs.blobStorageSharedKeyCredential",
 			"description": "In case you chose the default BlobCheckpointStore, StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.bridgeErrorHandler": {
@@ -203,7 +184,6 @@
 		"camel.component.azure-eventhubs.eventPosition": {
 			"name": "camel.component.azure-eventhubs.eventPosition",
 			"description": "Sets the map containing the event position to use for each partition if a checkpoint for the partition does not exist in CheckpointStore. This map is keyed off of the partition id. If there is no checkpoint in CheckpointStore and there is no entry in this map, the processing of the partition will start from {link EventPosition#latest() latest} position.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.prefetchCount": {
@@ -221,19 +201,16 @@
 		"camel.component.azure-eventhubs.connectionString": {
 			"name": "camel.component.azure-eventhubs.connectionString",
 			"description": "Instead of supplying namespace, sharedAccessKey, sharedAccessName ... etc, you can just supply the connection string for your eventHub. The connection string for EventHubs already include all the necessary information to connection to your EventHub. To learn on how to generate the connection string, take a look at this documentation: https:\/\/docs.microsoft.com\/en-us\/azure\/event-hubs\/event-hubs-get-connection-string",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.sharedAccessKey": {
 			"name": "camel.component.azure-eventhubs.sharedAccessKey",
 			"description": "The generated value for the SharedAccessName",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-eventhubs.sharedAccessName": {
 			"name": "camel.component.azure-eventhubs.sharedAccessName",
 			"description": "The name you chose for your EventHubs SAS keys",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

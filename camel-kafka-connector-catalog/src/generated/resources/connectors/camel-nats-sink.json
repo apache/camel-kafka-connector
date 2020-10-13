@@ -11,7 +11,6 @@
 		"camel.sink.path.topic": {
 			"name": "camel.sink.path.topic",
 			"description": "The name of topic we want to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.connectionTimeout": {
@@ -89,7 +88,6 @@
 		"camel.sink.endpoint.servers": {
 			"name": "camel.sink.endpoint.servers",
 			"description": "URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.verbose": {
@@ -107,7 +105,6 @@
 		"camel.sink.endpoint.replySubject": {
 			"name": "camel.sink.endpoint.replySubject",
 			"description": "the subject to which subscribers should send response",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -119,7 +116,6 @@
 		"camel.sink.endpoint.connection": {
 			"name": "camel.sink.endpoint.connection",
 			"description": "Reference an already instantiated connection to Nats server",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -137,13 +133,11 @@
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.nats.servers": {
 			"name": "camel.component.nats.servers",
 			"description": "URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.nats.verbose": {

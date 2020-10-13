@@ -11,7 +11,6 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "Name of queue",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.size": {
@@ -53,7 +52,6 @@
 		"camel.sink.endpoint.offerTimeout": {
 			"name": "camel.sink.endpoint.offerTimeout",
 			"description": "offerTimeout (in milliseconds) can be added to the block case when queue is full. You can disable timeout by using 0 or a negative value.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.timeout": {
@@ -77,7 +75,6 @@
 		"camel.sink.endpoint.queue": {
 			"name": "camel.sink.endpoint.queue",
 			"description": "Define the queue instance which will be used by the endpoint",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -101,7 +98,6 @@
 		"camel.component.seda.defaultOfferTimeout": {
 			"name": "camel.component.seda.defaultOfferTimeout",
 			"description": "Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted. By default, an exception will be thrown stating that the queue is full. By enabling this option, where a configured timeout can be added to the block case. Utilizing the .offer(timeout) method of the underlining java queue",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.seda.lazyStartProducer": {
@@ -119,7 +115,6 @@
 		"camel.component.seda.defaultQueueFactory": {
 			"name": "camel.component.seda.defaultQueueFactory",
 			"description": "Sets the default queue factory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.seda.queueSize": {

@@ -11,13 +11,11 @@
 		"camel.source.path.uriPath": {
 			"name": "camel.source.path.uriPath",
 			"description": "The object information address",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.dataModuleOptions": {
 			"name": "camel.source.endpoint.dataModuleOptions",
 			"description": "Data module options",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.filterNonExecute": {
@@ -29,7 +27,6 @@
 		"camel.source.endpoint.protocolOptions": {
 			"name": "camel.source.endpoint.protocolOptions",
 			"description": "Protocol options",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -41,13 +38,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -71,19 +66,16 @@
 		"camel.source.endpoint.adsuAddressType": {
 			"name": "camel.source.endpoint.adsuAddressType",
 			"description": "The common ASDU address size. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.causeOfTransmissionType": {
 			"name": "camel.source.endpoint.causeOfTransmissionType",
 			"description": "The cause of transmission type. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.informationObjectAddressType": {
 			"name": "camel.source.endpoint.informationObjectAddressType",
 			"description": "The information address size. May be either SIZE_1, SIZE_2 or SIZE_3. One of: [SIZE_1] [SIZE_2] [SIZE_3]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.maxUnacknowledged": {
@@ -113,7 +105,6 @@
 		"camel.source.endpoint.causeSourceAddress": {
 			"name": "camel.source.endpoint.causeSourceAddress",
 			"description": "Whether to include the source address",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.connectionTimeout": {
@@ -143,13 +134,11 @@
 		"camel.source.endpoint.connectionId": {
 			"name": "camel.source.endpoint.connectionId",
 			"description": "An identifier grouping connection instances",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.iec60870-server.defaultConnectionOptions": {
 			"name": "camel.component.iec60870-server.defaultConnectionOptions",
 			"description": "Default connection options",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.iec60870-server.bridgeErrorHandler": {

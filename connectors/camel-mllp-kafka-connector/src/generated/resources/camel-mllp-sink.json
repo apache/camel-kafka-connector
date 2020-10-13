@@ -11,13 +11,11 @@
 		"camel.sink.path.hostname": {
 			"name": "camel.sink.path.hostname",
 			"description": "Hostname or IP for connection for the TCP connection. The default value is null, which means any local IP address",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port number for the TCP connection",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autoAck": {
@@ -77,7 +75,6 @@
 		"camel.sink.endpoint.charsetName": {
 			"name": "camel.sink.endpoint.charsetName",
 			"description": "Set the CamelCharsetName property on the exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keepAlive": {
@@ -113,7 +110,6 @@
 		"camel.sink.endpoint.idleTimeout": {
 			"name": "camel.sink.endpoint.idleTimeout",
 			"description": "The approximate idle time allowed before the Client TCP Connection will be reset. A null value or a value less than or equal to zero will disable the idle timeout.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.readTimeout": {

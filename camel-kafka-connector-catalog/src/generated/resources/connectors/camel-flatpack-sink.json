@@ -17,7 +17,6 @@
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",
 			"description": "URL for loading the flatpack mapping file from classpath or file system",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.allowShortLines": {
@@ -53,7 +52,6 @@
 		"camel.sink.endpoint.textQualifier": {
 			"name": "camel.sink.endpoint.textQualifier",
 			"description": "The text qualifier for delimited files.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {

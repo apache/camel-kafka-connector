@@ -11,13 +11,11 @@
 		"camel.sink.path.from": {
 			"name": "camel.sink.path.from",
 			"description": "The sender's email address.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.amazonSESClient": {
 			"name": "camel.sink.endpoint.amazonSESClient",
 			"description": "To use the AmazonSimpleEmailService as the client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -35,13 +33,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the SES client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the SES client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -53,31 +49,26 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which SES client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.replyToAddresses": {
 			"name": "camel.sink.endpoint.replyToAddresses",
 			"description": "List of reply-to email address(es) for the message, override it using 'CamelAwsSesReplyToAddresses' header.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.returnPath": {
 			"name": "camel.sink.endpoint.returnPath",
 			"description": "The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.subject": {
 			"name": "camel.sink.endpoint.subject",
 			"description": "The subject which is used if the message header 'CamelAwsSesSubject' is not present.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.to": {
 			"name": "camel.sink.endpoint.to",
 			"description": "List of destination email address. Can be overriden with 'CamelAwsSesTo' header.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -95,19 +86,16 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.amazonSESClient": {
 			"name": "camel.component.aws-ses.amazonSESClient",
 			"description": "To use the AmazonSimpleEmailService as the client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.autoDiscoverClient": {
@@ -119,7 +107,6 @@
 		"camel.component.aws-ses.configuration": {
 			"name": "camel.component.aws-ses.configuration",
 			"description": "The component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.lazyStartProducer": {
@@ -131,13 +118,11 @@
 		"camel.component.aws-ses.proxyHost": {
 			"name": "camel.component.aws-ses.proxyHost",
 			"description": "To define a proxy host when instantiating the SES client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.proxyPort": {
 			"name": "camel.component.aws-ses.proxyPort",
 			"description": "To define a proxy port when instantiating the SES client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.proxyProtocol": {
@@ -149,31 +134,26 @@
 		"camel.component.aws-ses.region": {
 			"name": "camel.component.aws-ses.region",
 			"description": "The region in which SES client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.replyToAddresses": {
 			"name": "camel.component.aws-ses.replyToAddresses",
 			"description": "List of reply-to email address(es) for the message, override it using 'CamelAwsSesReplyToAddresses' header.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.returnPath": {
 			"name": "camel.component.aws-ses.returnPath",
 			"description": "The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.subject": {
 			"name": "camel.component.aws-ses.subject",
 			"description": "The subject which is used if the message header 'CamelAwsSesSubject' is not present.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.to": {
 			"name": "camel.component.aws-ses.to",
 			"description": "List of destination email address. Can be overriden with 'CamelAwsSesTo' header.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.basicPropertyBinding": {
@@ -185,13 +165,11 @@
 		"camel.component.aws-ses.accessKey": {
 			"name": "camel.component.aws-ses.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ses.secretKey": {
 			"name": "camel.component.aws-ses.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

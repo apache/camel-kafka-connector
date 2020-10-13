@@ -11,19 +11,16 @@
 		"camel.sink.path.baseUrl": {
 			"name": "camel.sink.path.baseUrl",
 			"description": "Base URL of the repository to which the request is made through the OAI-PMH protocol",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.from": {
 			"name": "camel.sink.endpoint.from",
 			"description": "Specifies a lower bound for datestamp-based selective harvesting. UTC DateTime value",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.identifier": {
 			"name": "camel.sink.endpoint.identifier",
 			"description": "Identifier of the requested resources. Applicable only with certain verbs",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.metadataPrefix": {
@@ -35,13 +32,11 @@
 		"camel.sink.endpoint.set": {
 			"name": "camel.sink.endpoint.set",
 			"description": "Specifies membership as a criteria for set-based selective harvesting",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.until": {
 			"name": "camel.sink.endpoint.until",
 			"description": "Specifies an upper bound for datestamp-based selective harvesting. UTC DateTime value.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.verb": {

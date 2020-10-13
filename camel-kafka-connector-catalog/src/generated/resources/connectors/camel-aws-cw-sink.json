@@ -11,13 +11,11 @@
 		"camel.sink.path.namespace": {
 			"name": "camel.sink.path.namespace",
 			"description": "The metric namespace",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.amazonCwClient": {
 			"name": "camel.sink.endpoint.amazonCwClient",
 			"description": "To use the AmazonCloudWatch as the client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -35,19 +33,16 @@
 		"camel.sink.endpoint.name": {
 			"name": "camel.sink.endpoint.name",
 			"description": "The metric name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the CW client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the CW client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -59,25 +54,21 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which CW client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.timestamp": {
 			"name": "camel.sink.endpoint.timestamp",
 			"description": "The metric timestamp",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.unit": {
 			"name": "camel.sink.endpoint.unit",
 			"description": "The metric unit",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.value": {
 			"name": "camel.sink.endpoint.value",
 			"description": "The metric value",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -95,19 +86,16 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.amazonCwClient": {
 			"name": "camel.component.aws-cw.amazonCwClient",
 			"description": "To use the AmazonCloudWatch as the client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.autoDiscoverClient": {
@@ -119,7 +107,6 @@
 		"camel.component.aws-cw.configuration": {
 			"name": "camel.component.aws-cw.configuration",
 			"description": "The component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.lazyStartProducer": {
@@ -131,19 +118,16 @@
 		"camel.component.aws-cw.name": {
 			"name": "camel.component.aws-cw.name",
 			"description": "The metric name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.proxyHost": {
 			"name": "camel.component.aws-cw.proxyHost",
 			"description": "To define a proxy host when instantiating the CW client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.proxyPort": {
 			"name": "camel.component.aws-cw.proxyPort",
 			"description": "To define a proxy port when instantiating the CW client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.proxyProtocol": {
@@ -155,25 +139,21 @@
 		"camel.component.aws-cw.region": {
 			"name": "camel.component.aws-cw.region",
 			"description": "The region in which CW client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.timestamp": {
 			"name": "camel.component.aws-cw.timestamp",
 			"description": "The metric timestamp",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.unit": {
 			"name": "camel.component.aws-cw.unit",
 			"description": "The metric unit",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.value": {
 			"name": "camel.component.aws-cw.value",
 			"description": "The metric value",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.basicPropertyBinding": {
@@ -185,13 +165,11 @@
 		"camel.component.aws-cw.accessKey": {
 			"name": "camel.component.aws-cw.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-cw.secretKey": {
 			"name": "camel.component.aws-cw.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

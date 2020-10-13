@@ -11,25 +11,21 @@
 		"camel.sink.path.persistence": {
 			"name": "camel.sink.path.persistence",
 			"description": "Whether the topic is persistent or non-persistent One of: [persistent] [non-persistent]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.tenant": {
 			"name": "camel.sink.path.tenant",
 			"description": "The tenant",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.namespace": {
 			"name": "camel.sink.path.namespace",
 			"description": "The namespace",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.topic": {
 			"name": "camel.sink.path.topic",
 			"description": "The topic",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.batcherBuilder": {
@@ -95,7 +91,6 @@
 		"camel.sink.endpoint.messageRouter": {
 			"name": "camel.sink.endpoint.messageRouter",
 			"description": "Custom Message Router to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.messageRoutingMode": {
@@ -107,7 +102,6 @@
 		"camel.sink.endpoint.producerName": {
 			"name": "camel.sink.endpoint.producerName",
 			"description": "Name of the producer. If unset, lets Pulsar select a unique identifier.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sendTimeoutMs": {
@@ -131,7 +125,6 @@
 		"camel.component.pulsar.configuration": {
 			"name": "camel.component.pulsar.configuration",
 			"description": "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.pulsar.batcherBuilder": {
@@ -197,7 +190,6 @@
 		"camel.component.pulsar.messageRouter": {
 			"name": "camel.component.pulsar.messageRouter",
 			"description": "Custom Message Router to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.pulsar.messageRoutingMode": {
@@ -209,7 +201,6 @@
 		"camel.component.pulsar.producerName": {
 			"name": "camel.component.pulsar.producerName",
 			"description": "Name of the producer. If unset, lets Pulsar select a unique identifier.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.pulsar.sendTimeoutMs": {
@@ -221,7 +212,6 @@
 		"camel.component.pulsar.autoConfiguration": {
 			"name": "camel.component.pulsar.autoConfiguration",
 			"description": "The pulsar auto configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.pulsar.basicPropertyBinding": {
@@ -233,7 +223,6 @@
 		"camel.component.pulsar.pulsarClient": {
 			"name": "camel.component.pulsar.pulsarClient",
 			"description": "The pulsar client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

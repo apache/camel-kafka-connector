@@ -11,25 +11,21 @@
 		"camel.sink.path.cacheName": {
 			"name": "camel.sink.path.cacheName",
 			"description": "the cache name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.cacheManager": {
 			"name": "camel.sink.endpoint.cacheManager",
 			"description": "The cache manager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.cacheManagerConfiguration": {
 			"name": "camel.sink.endpoint.cacheManagerConfiguration",
 			"description": "The cache manager configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.configurationUri": {
 			"name": "camel.sink.endpoint.configurationUri",
 			"description": "URI pointing to the Ehcache XML configuration file's location",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.createCacheIfNotExist": {
@@ -41,13 +37,11 @@
 		"camel.sink.endpoint.action": {
 			"name": "camel.sink.endpoint.action",
 			"description": "To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
 			"description": "To configure the default action key. If a key is set in the message header, then the key from the header takes precedence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -65,19 +59,16 @@
 		"camel.sink.endpoint.configuration": {
 			"name": "camel.sink.endpoint.configuration",
 			"description": "The default cache configuration to be used to create caches.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.configurations": {
 			"name": "camel.sink.endpoint.configurations",
 			"description": "A map of cache configuration to be used to create caches.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyType": {
 			"name": "camel.sink.endpoint.keyType",
 			"description": "The cache key type, default java.lang.Object",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -89,25 +80,21 @@
 		"camel.sink.endpoint.valueType": {
 			"name": "camel.sink.endpoint.valueType",
 			"description": "The cache value type, default java.lang.Object",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.cacheManager": {
 			"name": "camel.component.ehcache.cacheManager",
 			"description": "The cache manager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.cacheManagerConfiguration": {
 			"name": "camel.component.ehcache.cacheManagerConfiguration",
 			"description": "The cache manager configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.configurationUri": {
 			"name": "camel.component.ehcache.configurationUri",
 			"description": "URI pointing to the Ehcache XML configuration file's location",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.createCacheIfNotExist": {
@@ -119,13 +106,11 @@
 		"camel.component.ehcache.action": {
 			"name": "camel.component.ehcache.action",
 			"description": "To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.key": {
 			"name": "camel.component.ehcache.key",
 			"description": "To configure the default action key. If a key is set in the message header, then the key from the header takes precedence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.lazyStartProducer": {
@@ -143,25 +128,21 @@
 		"camel.component.ehcache.configuration": {
 			"name": "camel.component.ehcache.configuration",
 			"description": "The default cache configuration to be used to create caches.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.configurations": {
 			"name": "camel.component.ehcache.configurations",
 			"description": "A map of cache configuration to be used to create caches.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.keyType": {
 			"name": "camel.component.ehcache.keyType",
 			"description": "The cache key type, default java.lang.Object",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ehcache.valueType": {
 			"name": "camel.component.ehcache.valueType",
 			"description": "The cache value type, default java.lang.Object",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

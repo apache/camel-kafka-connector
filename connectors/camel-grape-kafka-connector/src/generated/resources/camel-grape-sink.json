@@ -11,7 +11,6 @@
 		"camel.sink.path.defaultCoordinates": {
 			"name": "camel.sink.path.defaultCoordinates",
 			"description": "Maven coordinates to use as default to grab if the message body is empty.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,7 +46,6 @@
 		"camel.component.grape.patchesRepository": {
 			"name": "camel.component.grape.patchesRepository",
 			"description": "Implementation of org.apache.camel.component.grape.PatchesRepository, by default: FilePatchesRepository",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

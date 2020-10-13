@@ -23,19 +23,16 @@
 		"camel.source.path.database": {
 			"name": "camel.source.path.database",
 			"description": "The database name. The database name can take any characters because it is sent as a quoted identifier. It is part of the endpoint URI, so diacritical marks and non-Latin letters have to be URL encoded.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.channel": {
 			"name": "camel.source.path.channel",
 			"description": "The channel name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.datasource": {
 			"name": "camel.source.endpoint.datasource",
 			"description": "To connect using the given javax.sql.DataSource instead of using hostname and port.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -47,13 +44,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -71,7 +66,6 @@
 		"camel.source.endpoint.pass": {
 			"name": "camel.source.endpoint.pass",
 			"description": "Password for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.user": {

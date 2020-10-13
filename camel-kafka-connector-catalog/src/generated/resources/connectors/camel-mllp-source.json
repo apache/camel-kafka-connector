@@ -11,13 +11,11 @@
 		"camel.source.path.hostname": {
 			"name": "camel.source.path.hostname",
 			"description": "Hostname or IP for connection for the TCP connection. The default value is null, which means any local IP address",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "Port number for the TCP connection",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.autoAck": {
@@ -65,7 +63,6 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
@@ -89,7 +86,6 @@
 		"camel.source.endpoint.charsetName": {
 			"name": "camel.source.endpoint.charsetName",
 			"description": "Set the CamelCharsetName property on the exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backlog": {
@@ -149,13 +145,11 @@
 		"camel.source.endpoint.idleTimeout": {
 			"name": "camel.source.endpoint.idleTimeout",
 			"description": "The approximate idle time allowed before the Client TCP Connection will be reset. A null value or a value less than or equal to zero will disable the idle timeout.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.maxReceiveTimeouts": {
 			"name": "camel.source.endpoint.maxReceiveTimeouts",
 			"description": "The maximum number of timeouts (specified by receiveTimeout) allowed before the TCP Connection will be reset.",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.source.endpoint.readTimeout": {

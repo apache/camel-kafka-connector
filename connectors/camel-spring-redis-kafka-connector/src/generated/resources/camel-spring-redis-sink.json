@@ -11,19 +11,16 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "The host where Redis server is running.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Redis server port number",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.channels": {
 			"name": "camel.sink.endpoint.channels",
 			"description": "List of topic names or name patterns to subscribe to. Multiple names can be separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.command": {
@@ -35,19 +32,16 @@
 		"camel.sink.endpoint.connectionFactory": {
 			"name": "camel.sink.endpoint.connectionFactory",
 			"description": "Reference to a pre-configured RedisConnectionFactory instance to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.redisTemplate": {
 			"name": "camel.sink.endpoint.redisTemplate",
 			"description": "Reference to a pre-configured RedisTemplate instance to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.serializer": {
 			"name": "camel.sink.endpoint.serializer",
 			"description": "Reference to a pre-configured RedisSerializer instance to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {

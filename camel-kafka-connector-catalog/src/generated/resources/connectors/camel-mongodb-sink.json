@@ -11,19 +11,16 @@
 		"camel.sink.path.connectionBean": {
 			"name": "camel.sink.path.connectionBean",
 			"description": "Sets the connection bean reference used to lookup a client for connecting to a database.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.collection": {
 			"name": "camel.sink.endpoint.collection",
 			"description": "Sets the name of the MongoDB collection to bind to this endpoint",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.collectionIndex": {
 			"name": "camel.sink.endpoint.collectionIndex",
 			"description": "Sets the collection index (JSON FORMAT : { field1 : order1, field2 : order2})",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.createCollection": {
@@ -35,25 +32,21 @@
 		"camel.sink.endpoint.database": {
 			"name": "camel.sink.endpoint.database",
 			"description": "Sets the name of the MongoDB database to target",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.mongoConnection": {
 			"name": "camel.sink.endpoint.mongoConnection",
 			"description": "Sets the connection bean used as a client for connecting to a database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "Sets the operation this endpoint will execute against MongoDB. One of: [findById] [findOneByQuery] [findAll] [findDistinct] [insert] [save] [update] [remove] [bulkWrite] [aggregate] [getDbStats] [getColStats] [count] [command]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.outputType": {
 			"name": "camel.sink.endpoint.outputType",
 			"description": "Convert the output of the producer to the selected type : DocumentList Document or MongoIterable. DocumentList or MongoIterable applies to findAll and aggregate. Document applies to all other operations. One of: [DocumentList] [Document] [MongoIterable]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -107,13 +100,11 @@
 		"camel.sink.endpoint.streamFilter": {
 			"name": "camel.sink.endpoint.streamFilter",
 			"description": "Filter condition for change streams consumer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.persistentId": {
 			"name": "camel.sink.endpoint.persistentId",
 			"description": "One tail tracking collection can host many trackers for several tailable consumers. To keep them separate, each tracker should have its own unique persistentId.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.persistentTailTracking": {
@@ -125,31 +116,26 @@
 		"camel.sink.endpoint.tailTrackCollection": {
 			"name": "camel.sink.endpoint.tailTrackCollection",
 			"description": "Collection where tail tracking information will be persisted. If not specified, MongoDbTailTrackingConfig#DEFAULT_COLLECTION will be used by default.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tailTrackDb": {
 			"name": "camel.sink.endpoint.tailTrackDb",
 			"description": "Indicates what database the tail tracking mechanism will persist to. If not specified, the current database will be picked by default. Dynamicity will not be taken into account even if enabled, i.e. the tail tracking database will not vary past endpoint initialisation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tailTrackField": {
 			"name": "camel.sink.endpoint.tailTrackField",
 			"description": "Field where the last tracked value will be placed. If not specified, MongoDbTailTrackingConfig#DEFAULT_FIELD will be used by default.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tailTrackIncreasingField": {
 			"name": "camel.sink.endpoint.tailTrackIncreasingField",
 			"description": "Correlation field in the incoming record which is of increasing nature and will be used to position the tailing cursor every time it is generated. The cursor will be (re)created with a query of type: tailTrackIncreasingField greater than lastValue (possibly recovered from persistent tail tracking). Can be of type Integer, Date, String, etc. NOTE: No support for dot notation at the current time, so the field should be at the top level of the document.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mongodb.mongoConnection": {
 			"name": "camel.component.mongodb.mongoConnection",
 			"description": "Shared client used for connection. All endpoints generated from the component will share this connection client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mongodb.lazyStartProducer": {

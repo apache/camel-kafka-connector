@@ -11,7 +11,6 @@
 		"camel.sink.path.httpUri": {
 			"name": "camel.sink.path.httpUri",
 			"description": "The HTTP URI to connect to",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.connectTimeout": {
@@ -35,7 +34,6 @@
 		"camel.sink.endpoint.httpMethod": {
 			"name": "camel.sink.endpoint.httpMethod",
 			"description": "The HTTP method to use. The HttpMethod header cannot override this option if set One of: [OPTIONS] [GET] [HEAD] [POST] [PUT] [DELETE] [TRACE] [CONNECT] [PATCH] [OTHER]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -83,13 +81,11 @@
 		"camel.sink.endpoint.vertxHttpBinding": {
 			"name": "camel.sink.endpoint.vertxHttpBinding",
 			"description": "A custom VertxHttpBinding which can control how to bind between Vert.x and Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.webClientOptions": {
 			"name": "camel.sink.endpoint.webClientOptions",
 			"description": "Sets customized options for configuring the Vert.x WebClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -107,55 +103,46 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "The proxy server host address",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPassword": {
 			"name": "camel.sink.endpoint.proxyPassword",
 			"description": "The proxy server password if authentication is required",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "The proxy server port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyType": {
 			"name": "camel.sink.endpoint.proxyType",
 			"description": "The proxy server type One of: [HTTP] [SOCKS4] [SOCKS5]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyUsername": {
 			"name": "camel.sink.endpoint.proxyUsername",
 			"description": "The proxy server username if authentication is required",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicAuthPassword": {
 			"name": "camel.sink.endpoint.basicAuthPassword",
 			"description": "The password to use for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicAuthUsername": {
 			"name": "camel.sink.endpoint.basicAuthUsername",
 			"description": "The user name to use for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.bearerToken": {
 			"name": "camel.sink.endpoint.bearerToken",
 			"description": "The bearer token to use for bearer token authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.lazyStartProducer": {
@@ -179,79 +166,66 @@
 		"camel.component.vertx-http.vertx": {
 			"name": "camel.component.vertx-http.vertx",
 			"description": "To use an existing vertx instead of creating a new instance",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.vertxHttpBinding": {
 			"name": "camel.component.vertx-http.vertxHttpBinding",
 			"description": "A custom VertxHttpBinding which can control how to bind between Vert.x and Camel",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.vertxOptions": {
 			"name": "camel.component.vertx-http.vertxOptions",
 			"description": "To provide a custom set of vertx options for configuring vertx",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.headerFilterStrategy": {
 			"name": "camel.component.vertx-http.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.proxyHost": {
 			"name": "camel.component.vertx-http.proxyHost",
 			"description": "The proxy server host address",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.proxyPassword": {
 			"name": "camel.component.vertx-http.proxyPassword",
 			"description": "The proxy server password if authentication is required",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.proxyPort": {
 			"name": "camel.component.vertx-http.proxyPort",
 			"description": "The proxy server port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.proxyType": {
 			"name": "camel.component.vertx-http.proxyType",
 			"description": "The proxy server type One of: [HTTP] [SOCKS4] [SOCKS5]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.proxyUsername": {
 			"name": "camel.component.vertx-http.proxyUsername",
 			"description": "The proxy server username if authentication is required",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.basicAuthPassword": {
 			"name": "camel.component.vertx-http.basicAuthPassword",
 			"description": "The password to use for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.basicAuthUsername": {
 			"name": "camel.component.vertx-http.basicAuthUsername",
 			"description": "The user name to use for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.bearerToken": {
 			"name": "camel.component.vertx-http.bearerToken",
 			"description": "The bearer token to use for bearer token authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.sslContextParameters": {
 			"name": "camel.component.vertx-http.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-http.useGlobalSslContextParameters": {

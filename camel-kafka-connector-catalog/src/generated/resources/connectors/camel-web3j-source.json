@@ -11,19 +11,16 @@
 		"camel.source.path.nodeAddress": {
 			"name": "camel.source.path.nodeAddress",
 			"description": "Sets the node address used to communicate",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.addresses": {
 			"name": "camel.source.endpoint.addresses",
 			"description": "Contract address or a list of addresses.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.fromAddress": {
 			"name": "camel.source.endpoint.fromAddress",
 			"description": "The address the transaction is send from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.fromBlock": {
@@ -41,13 +38,11 @@
 		"camel.source.endpoint.gasLimit": {
 			"name": "camel.source.endpoint.gasLimit",
 			"description": "The maximum gas allowed in this block.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.privateFor": {
 			"name": "camel.source.endpoint.privateFor",
 			"description": "A transaction privateFor nodes with public keys in a Quorum network",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.quorumAPI": {
@@ -59,7 +54,6 @@
 		"camel.source.endpoint.toAddress": {
 			"name": "camel.source.endpoint.toAddress",
 			"description": "The address the transaction is directed to.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.toBlock": {
@@ -71,13 +65,11 @@
 		"camel.source.endpoint.topics": {
 			"name": "camel.source.endpoint.topics",
 			"description": "Topics are order-dependent. Each topic can also be a list of topics. Specify multiple topics separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.web3j": {
 			"name": "camel.source.endpoint.web3j",
 			"description": "The preconfigured Web3j object.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -89,13 +81,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -113,19 +103,16 @@
 		"camel.component.web3j.addresses": {
 			"name": "camel.component.web3j.addresses",
 			"description": "Contract address or a list of addresses.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.configuration": {
 			"name": "camel.component.web3j.configuration",
 			"description": "Default configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.fromAddress": {
 			"name": "camel.component.web3j.fromAddress",
 			"description": "The address the transaction is send from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.fromBlock": {
@@ -143,13 +130,11 @@
 		"camel.component.web3j.gasLimit": {
 			"name": "camel.component.web3j.gasLimit",
 			"description": "The maximum gas allowed in this block.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.privateFor": {
 			"name": "camel.component.web3j.privateFor",
 			"description": "A transaction privateFor nodes with public keys in a Quorum network",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.quorumAPI": {
@@ -161,7 +146,6 @@
 		"camel.component.web3j.toAddress": {
 			"name": "camel.component.web3j.toAddress",
 			"description": "The address the transaction is directed to.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.toBlock": {
@@ -173,13 +157,11 @@
 		"camel.component.web3j.topics": {
 			"name": "camel.component.web3j.topics",
 			"description": "Topics are order-dependent. Each topic can also be a list of topics. Specify multiple topics separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.web3j": {
 			"name": "camel.component.web3j.web3j",
 			"description": "The preconfigured Web3j object.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.bridgeErrorHandler": {

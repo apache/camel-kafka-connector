@@ -11,13 +11,11 @@
 		"camel.sink.path.uriPath": {
 			"name": "camel.sink.path.uriPath",
 			"description": "The object information address",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.dataModuleOptions": {
 			"name": "camel.sink.endpoint.dataModuleOptions",
 			"description": "Data module options",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.filterNonExecute": {
@@ -29,7 +27,6 @@
 		"camel.sink.endpoint.protocolOptions": {
 			"name": "camel.sink.endpoint.protocolOptions",
 			"description": "Protocol options",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,19 +56,16 @@
 		"camel.sink.endpoint.adsuAddressType": {
 			"name": "camel.sink.endpoint.adsuAddressType",
 			"description": "The common ASDU address size. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.causeOfTransmissionType": {
 			"name": "camel.sink.endpoint.causeOfTransmissionType",
 			"description": "The cause of transmission type. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.informationObjectAddressType": {
 			"name": "camel.sink.endpoint.informationObjectAddressType",
 			"description": "The information address size. May be either SIZE_1, SIZE_2 or SIZE_3. One of: [SIZE_1] [SIZE_2] [SIZE_3]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.maxUnacknowledged": {
@@ -101,7 +95,6 @@
 		"camel.sink.endpoint.causeSourceAddress": {
 			"name": "camel.sink.endpoint.causeSourceAddress",
 			"description": "Whether to include the source address",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.connectionTimeout": {
@@ -131,13 +124,11 @@
 		"camel.sink.endpoint.connectionId": {
 			"name": "camel.sink.endpoint.connectionId",
 			"description": "An identifier grouping connection instances",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.iec60870-server.defaultConnectionOptions": {
 			"name": "camel.component.iec60870-server.defaultConnectionOptions",
 			"description": "Default connection options",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.iec60870-server.lazyStartProducer": {

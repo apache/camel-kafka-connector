@@ -11,13 +11,11 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "Name of the endpoint",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tokens": {
 			"name": "camel.sink.endpoint.tokens",
 			"description": "Configure this property in case you want to statically declare tokens related to devices you want to notify. Tokens are separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -41,7 +39,6 @@
 		"camel.component.apns.apnsService": {
 			"name": "camel.component.apns.apnsService",
 			"description": "The ApnsService to use. The org.apache.camel.component.apns.factory.ApnsServiceFactory can be used to build a ApnsService",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.apns.lazyStartProducer": {

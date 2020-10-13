@@ -11,7 +11,6 @@
 		"camel.sink.path.label": {
 			"name": "camel.sink.path.label",
 			"description": "Logical name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -41,13 +40,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the STS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the STS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -65,7 +62,6 @@
 		"camel.sink.endpoint.stsClient": {
 			"name": "camel.sink.endpoint.stsClient",
 			"description": "To use a existing configured AWS STS as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
@@ -89,13 +85,11 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sts.autoDiscoverClient": {
@@ -107,7 +101,6 @@
 		"camel.component.aws2-sts.configuration": {
 			"name": "camel.component.aws2-sts.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sts.lazyStartProducer": {
@@ -131,13 +124,11 @@
 		"camel.component.aws2-sts.proxyHost": {
 			"name": "camel.component.aws2-sts.proxyHost",
 			"description": "To define a proxy host when instantiating the STS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sts.proxyPort": {
 			"name": "camel.component.aws2-sts.proxyPort",
 			"description": "To define a proxy port when instantiating the STS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sts.proxyProtocol": {
@@ -155,7 +146,6 @@
 		"camel.component.aws2-sts.stsClient": {
 			"name": "camel.component.aws2-sts.stsClient",
 			"description": "To use a existing configured AWS STS as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sts.trustAllCertificates": {
@@ -173,13 +163,11 @@
 		"camel.component.aws2-sts.accessKey": {
 			"name": "camel.component.aws2-sts.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sts.secretKey": {
 			"name": "camel.component.aws2-sts.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

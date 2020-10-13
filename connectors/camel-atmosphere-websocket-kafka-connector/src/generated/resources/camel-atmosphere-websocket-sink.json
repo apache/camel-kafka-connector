@@ -11,7 +11,6 @@
 		"camel.sink.path.servicePath": {
 			"name": "camel.sink.path.servicePath",
 			"description": "Name of websocket endpoint",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.chunked": {
@@ -29,7 +28,6 @@
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sendToAll": {
@@ -53,7 +51,6 @@
 		"camel.sink.endpoint.httpBinding": {
 			"name": "camel.sink.endpoint.httpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.bridgeEndpoint": {
@@ -119,19 +116,16 @@
 		"camel.component.atmosphere-websocket.httpBinding": {
 			"name": "camel.component.atmosphere-websocket.httpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atmosphere-websocket.httpConfiguration": {
 			"name": "camel.component.atmosphere-websocket.httpConfiguration",
 			"description": "To use the shared HttpConfiguration as base configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atmosphere-websocket.headerFilterStrategy": {
 			"name": "camel.component.atmosphere-websocket.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

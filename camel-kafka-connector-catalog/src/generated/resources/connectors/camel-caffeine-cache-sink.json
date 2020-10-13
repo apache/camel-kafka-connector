@@ -11,25 +11,21 @@
 		"camel.sink.path.cacheName": {
 			"name": "camel.sink.path.cacheName",
 			"description": "the cache name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.action": {
 			"name": "camel.sink.endpoint.action",
 			"description": "To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.cache": {
 			"name": "camel.sink.endpoint.cache",
 			"description": "To configure an already instantiated cache to be used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.cacheLoader": {
 			"name": "camel.sink.endpoint.cacheLoader",
 			"description": "To configure a CacheLoader in case of a LoadCache use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.createCacheIfNotExist": {
@@ -65,7 +61,6 @@
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
 			"description": "To configure the default action key. If a key is set in the message header, then the key from the header takes precedence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -83,13 +78,11 @@
 		"camel.sink.endpoint.removalListener": {
 			"name": "camel.sink.endpoint.removalListener",
 			"description": "Set a specific removal Listener for the cache",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.statsCounter": {
 			"name": "camel.sink.endpoint.statsCounter",
 			"description": "Set a specific Stats Counter for the cache stats",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.statsEnabled": {
@@ -107,7 +100,6 @@
 		"camel.sink.endpoint.keyType": {
 			"name": "camel.sink.endpoint.keyType",
 			"description": "The cache key type, default java.lang.Object",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -119,25 +111,21 @@
 		"camel.sink.endpoint.valueType": {
 			"name": "camel.sink.endpoint.valueType",
 			"description": "The cache value type, default java.lang.Object",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.action": {
 			"name": "camel.component.caffeine-cache.action",
 			"description": "To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.cache": {
 			"name": "camel.component.caffeine-cache.cache",
 			"description": "To configure an already instantiated cache to be used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.cacheLoader": {
 			"name": "camel.component.caffeine-cache.cacheLoader",
 			"description": "To configure a CacheLoader in case of a LoadCache use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.createCacheIfNotExist": {
@@ -173,7 +161,6 @@
 		"camel.component.caffeine-cache.key": {
 			"name": "camel.component.caffeine-cache.key",
 			"description": "To configure the default action key. If a key is set in the message header, then the key from the header takes precedence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.lazyStartProducer": {
@@ -191,13 +178,11 @@
 		"camel.component.caffeine-cache.removalListener": {
 			"name": "camel.component.caffeine-cache.removalListener",
 			"description": "Set a specific removal Listener for the cache",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.statsCounter": {
 			"name": "camel.component.caffeine-cache.statsCounter",
 			"description": "Set a specific Stats Counter for the cache stats",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.statsEnabled": {
@@ -215,19 +200,16 @@
 		"camel.component.caffeine-cache.configuration": {
 			"name": "camel.component.caffeine-cache.configuration",
 			"description": "Sets the global component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.keyType": {
 			"name": "camel.component.caffeine-cache.keyType",
 			"description": "The cache key type, default java.lang.Object",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.caffeine-cache.valueType": {
 			"name": "camel.component.caffeine-cache.valueType",
 			"description": "The cache value type, default java.lang.Object",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

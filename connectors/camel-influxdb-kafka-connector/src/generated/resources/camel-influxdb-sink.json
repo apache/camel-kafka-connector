@@ -11,7 +11,6 @@
 		"camel.sink.path.connectionBean": {
 			"name": "camel.sink.path.connectionBean",
 			"description": "Connection to the influx database, of class InfluxDB.class",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.batch": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.databaseName": {
 			"name": "camel.sink.endpoint.databaseName",
 			"description": "The name of the database where the time series will be stored",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -41,7 +39,6 @@
 		"camel.sink.endpoint.query": {
 			"name": "camel.sink.endpoint.query",
 			"description": "Define the query in case of operation query",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.retentionPolicy": {
@@ -65,7 +62,6 @@
 		"camel.component.influxdb.influxDB": {
 			"name": "camel.component.influxdb.influxDB",
 			"description": "The shared Influx DB to use for all endpoints",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.influxdb.lazyStartProducer": {

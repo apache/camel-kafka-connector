@@ -11,7 +11,6 @@
 		"camel.sink.path.endpointType": {
 			"name": "camel.sink.path.endpointType",
 			"description": "Type of the endpoint (dataset, datastream). One of: [dataset] [datastream]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.collect": {
@@ -23,25 +22,21 @@
 		"camel.sink.endpoint.dataSet": {
 			"name": "camel.sink.endpoint.dataSet",
 			"description": "DataSet to compute against.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.dataSetCallback": {
 			"name": "camel.sink.endpoint.dataSetCallback",
 			"description": "Function performing action against a DataSet.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.dataStream": {
 			"name": "camel.sink.endpoint.dataStream",
 			"description": "DataStream to compute against.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.dataStreamCallback": {
 			"name": "camel.sink.endpoint.dataStreamCallback",
 			"description": "Function performing action against a DataStream.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -65,19 +60,16 @@
 		"camel.component.flink.dataSetCallback": {
 			"name": "camel.component.flink.dataSetCallback",
 			"description": "Function performing action against a DataSet.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.flink.dataStream": {
 			"name": "camel.component.flink.dataStream",
 			"description": "DataStream to compute against.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.flink.dataStreamCallback": {
 			"name": "camel.component.flink.dataStreamCallback",
 			"description": "Function performing action against a DataStream.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.flink.lazyStartProducer": {

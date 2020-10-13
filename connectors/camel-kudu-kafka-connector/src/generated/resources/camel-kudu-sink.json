@@ -11,19 +11,16 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Host of the server to connect to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port of the server to connect to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.path.tableName": {
 			"name": "camel.sink.path.tableName",
 			"description": "Table to connect to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -35,7 +32,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "Operation to perform One of: [INSERT] [CREATE_TABLE] [SCAN]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

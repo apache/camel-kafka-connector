@@ -11,7 +11,6 @@
 		"camel.sink.path.uri": {
 			"name": "camel.sink.path.uri",
 			"description": "If a schemeless URI path is provided, a ServerEndpoint is deployed under that path. Else if the URI is prefixed with the 'ws:\/\/' scheme, then a connection is established to the corresponding server",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sessionCount": {
@@ -53,7 +52,6 @@
 		"camel.component.websocket-jsr356.serverEndpointDeploymentStrategy": {
 			"name": "camel.component.websocket-jsr356.serverEndpointDeploymentStrategy",
 			"description": "To enable customization of how a WebSocket ServerEndpoint is configured and deployed. By default DefaultServerEndpointDeploymentStrategy is used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

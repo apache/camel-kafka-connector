@@ -11,43 +11,36 @@
 		"camel.source.path.transport": {
 			"name": "camel.source.path.transport",
 			"description": "Transport to use, can be either http or netty One of: [http] [netty]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "Port number to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.host": {
 			"name": "camel.source.path.host",
 			"description": "Hostname to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.messageName": {
 			"name": "camel.source.path.messageName",
 			"description": "The name of the message to send.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.protocol": {
 			"name": "camel.source.endpoint.protocol",
 			"description": "Avro protocol to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.protocolClassName": {
 			"name": "camel.source.endpoint.protocolClassName",
 			"description": "Avro protocol to use defined by the FQN class name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.protocolLocation": {
 			"name": "camel.source.endpoint.protocolLocation",
 			"description": "Avro protocol location",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.reflectionProtocol": {
@@ -65,7 +58,6 @@
 		"camel.source.endpoint.uriAuthority": {
 			"name": "camel.source.endpoint.uriAuthority",
 			"description": "Authority to use (username and password)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -77,13 +69,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -101,19 +91,16 @@
 		"camel.component.avro.protocol": {
 			"name": "camel.component.avro.protocol",
 			"description": "Avro protocol to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.avro.protocolClassName": {
 			"name": "camel.component.avro.protocolClassName",
 			"description": "Avro protocol to use defined by the FQN class name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.avro.protocolLocation": {
 			"name": "camel.component.avro.protocolLocation",
 			"description": "Avro protocol location",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.avro.reflectionProtocol": {
@@ -131,7 +118,6 @@
 		"camel.component.avro.uriAuthority": {
 			"name": "camel.component.avro.uriAuthority",
 			"description": "Authority to use (username and password)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.avro.bridgeErrorHandler": {
@@ -149,7 +135,6 @@
 		"camel.component.avro.configuration": {
 			"name": "camel.component.avro.configuration",
 			"description": "To use a shared AvroConfiguration to configure options once",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

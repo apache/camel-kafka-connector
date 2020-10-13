@@ -47,7 +47,6 @@
 		"camel.sink.endpoint.systemType": {
 			"name": "camel.sink.endpoint.systemType",
 			"description": "This parameter is used to categorize the type of ESME (External Short Message Entity) that is binding to the SMSC (max. 13 characters).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.destAddr": {
@@ -59,13 +58,11 @@
 		"camel.sink.endpoint.destAddrNpi": {
 			"name": "camel.sink.endpoint.destAddrNpi",
 			"description": "Defines the type of number (TON) to be used in the SME destination address parameters. Only for SubmitSm, SubmitMulti, CancelSm and DataSm. The following NPI values are defined: 0: Unknown 1: ISDN (E163\/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined by WAP Forum) One of: [0] [1] [2] [3] [6] [8] [9] [10] [13] [18]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.destAddrTon": {
 			"name": "camel.sink.endpoint.destAddrTon",
 			"description": "Defines the type of number (TON) to be used in the SME destination address parameters. Only for SubmitSm, SubmitMulti, CancelSm and DataSm. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazySessionCreation": {
@@ -83,37 +80,31 @@
 		"camel.sink.endpoint.numberingPlanIndicator": {
 			"name": "camel.sink.endpoint.numberingPlanIndicator",
 			"description": "Defines the numeric plan indicator (NPI) to be used in the SME. The following NPI values are defined: 0: Unknown 1: ISDN (E163\/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined by WAP Forum) One of: [0] [1] [2] [3] [6] [8] [9] [10] [13] [18]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.priorityFlag": {
 			"name": "camel.sink.endpoint.priorityFlag",
 			"description": "Allows the originating SME to assign a priority level to the short message. Only for SubmitSm and SubmitMulti. Four Priority Levels are supported: 0: Level 0 (lowest) priority 1: Level 1 priority 2: Level 2 priority 3: Level 3 (highest) priority One of: [0] [1] [2] [3]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.protocolId": {
 			"name": "camel.sink.endpoint.protocolId",
 			"description": "The protocol id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.registeredDelivery": {
 			"name": "camel.sink.endpoint.registeredDelivery",
 			"description": "Is used to request an SMSC delivery receipt and\/or SME originated acknowledgements. The following values are defined: 0: No SMSC delivery receipt requested. 1: SMSC delivery receipt requested where final delivery outcome is success or failure. 2: SMSC delivery receipt requested where the final delivery outcome is delivery failure. One of: [0] [1] [2]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.replaceIfPresentFlag": {
 			"name": "camel.sink.endpoint.replaceIfPresentFlag",
 			"description": "Used to request the SMSC to replace a previously submitted message, that is still pending delivery. The SMSC will replace an existing message provided that the source address, destination address and service type match the same fields in the new message. The following replace if present flag values are defined: 0: Don't replace 1: Replace One of: [0] [1]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.serviceType": {
 			"name": "camel.sink.endpoint.serviceType",
 			"description": "The service type parameter can be used to indicate the SMS Application service associated with the message. The following generic service_types are defined: CMT: Cellular Messaging CPT: Cellular Paging VMN: Voice Mail Notification VMA: Voice Mail Alerting WAP: Wireless Application Protocol USSD: Unstructured Supplementary Services Data One of: [CMT] [CPT] [VMN] [VMA] [WAP] [USSD]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sourceAddr": {
@@ -125,19 +116,16 @@
 		"camel.sink.endpoint.sourceAddrNpi": {
 			"name": "camel.sink.endpoint.sourceAddrNpi",
 			"description": "Defines the numeric plan indicator (NPI) to be used in the SME originator address parameters. The following NPI values are defined: 0: Unknown 1: ISDN (E163\/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined by WAP Forum) One of: [0] [1] [2] [3] [6] [8] [9] [10] [13] [18]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sourceAddrTon": {
 			"name": "camel.sink.endpoint.sourceAddrTon",
 			"description": "Defines the type of number (TON) to be used in the SME originator address parameters. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.typeOfNumber": {
 			"name": "camel.sink.endpoint.typeOfNumber",
 			"description": "Defines the type of number (TON) to be used in the SME. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -155,7 +143,6 @@
 		"camel.sink.endpoint.sessionStateListener": {
 			"name": "camel.sink.endpoint.sessionStateListener",
 			"description": "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -173,13 +160,11 @@
 		"camel.sink.endpoint.alphabet": {
 			"name": "camel.sink.endpoint.alphabet",
 			"description": "Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.dataCoding": {
 			"name": "camel.sink.endpoint.dataCoding",
 			"description": "Defines the data coding according the SMPP 3.4 specification, section 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2 (ISO\/IEC-10646) 13: Extended Kanji JIS(X 0212-1990)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.encoding": {
@@ -191,13 +176,11 @@
 		"camel.sink.endpoint.httpProxyHost": {
 			"name": "camel.sink.endpoint.httpProxyHost",
 			"description": "If you need to tunnel SMPP through a HTTP proxy, set this attribute to the hostname or ip address of your HTTP proxy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpProxyPassword": {
 			"name": "camel.sink.endpoint.httpProxyPassword",
 			"description": "If your HTTP proxy requires basic authentication, set this attribute to the password required for your HTTP proxy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpProxyPort": {
@@ -209,19 +192,16 @@
 		"camel.sink.endpoint.httpProxyUsername": {
 			"name": "camel.sink.endpoint.httpProxyUsername",
 			"description": "If your HTTP proxy requires basic authentication, set this attribute to the username required for your HTTP proxy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyHeaders": {
 			"name": "camel.sink.endpoint.proxyHeaders",
 			"description": "These headers will be passed to the proxy server while establishing the connection.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The password for connecting to SMSC server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.systemId": {
@@ -263,7 +243,6 @@
 		"camel.component.smpp.systemType": {
 			"name": "camel.component.smpp.systemType",
 			"description": "This parameter is used to categorize the type of ESME (External Short Message Entity) that is binding to the SMSC (max. 13 characters).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.destAddr": {
@@ -275,13 +254,11 @@
 		"camel.component.smpp.destAddrNpi": {
 			"name": "camel.component.smpp.destAddrNpi",
 			"description": "Defines the type of number (TON) to be used in the SME destination address parameters. Only for SubmitSm, SubmitMulti, CancelSm and DataSm. The following NPI values are defined: 0: Unknown 1: ISDN (E163\/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined by WAP Forum) One of: [0] [1] [2] [3] [6] [8] [9] [10] [13] [18]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.destAddrTon": {
 			"name": "camel.component.smpp.destAddrTon",
 			"description": "Defines the type of number (TON) to be used in the SME destination address parameters. Only for SubmitSm, SubmitMulti, CancelSm and DataSm. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.lazySessionCreation": {
@@ -299,37 +276,31 @@
 		"camel.component.smpp.numberingPlanIndicator": {
 			"name": "camel.component.smpp.numberingPlanIndicator",
 			"description": "Defines the numeric plan indicator (NPI) to be used in the SME. The following NPI values are defined: 0: Unknown 1: ISDN (E163\/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined by WAP Forum) One of: [0] [1] [2] [3] [6] [8] [9] [10] [13] [18]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.priorityFlag": {
 			"name": "camel.component.smpp.priorityFlag",
 			"description": "Allows the originating SME to assign a priority level to the short message. Only for SubmitSm and SubmitMulti. Four Priority Levels are supported: 0: Level 0 (lowest) priority 1: Level 1 priority 2: Level 2 priority 3: Level 3 (highest) priority One of: [0] [1] [2] [3]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.protocolId": {
 			"name": "camel.component.smpp.protocolId",
 			"description": "The protocol id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.registeredDelivery": {
 			"name": "camel.component.smpp.registeredDelivery",
 			"description": "Is used to request an SMSC delivery receipt and\/or SME originated acknowledgements. The following values are defined: 0: No SMSC delivery receipt requested. 1: SMSC delivery receipt requested where final delivery outcome is success or failure. 2: SMSC delivery receipt requested where the final delivery outcome is delivery failure. One of: [0] [1] [2]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.replaceIfPresentFlag": {
 			"name": "camel.component.smpp.replaceIfPresentFlag",
 			"description": "Used to request the SMSC to replace a previously submitted message, that is still pending delivery. The SMSC will replace an existing message provided that the source address, destination address and service type match the same fields in the new message. The following replace if present flag values are defined: 0: Don't replace 1: Replace One of: [0] [1]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.serviceType": {
 			"name": "camel.component.smpp.serviceType",
 			"description": "The service type parameter can be used to indicate the SMS Application service associated with the message. The following generic service_types are defined: CMT: Cellular Messaging CPT: Cellular Paging VMN: Voice Mail Notification VMA: Voice Mail Alerting WAP: Wireless Application Protocol USSD: Unstructured Supplementary Services Data One of: [CMT] [CPT] [VMN] [VMA] [WAP] [USSD]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.sourceAddr": {
@@ -341,19 +312,16 @@
 		"camel.component.smpp.sourceAddrNpi": {
 			"name": "camel.component.smpp.sourceAddrNpi",
 			"description": "Defines the numeric plan indicator (NPI) to be used in the SME originator address parameters. The following NPI values are defined: 0: Unknown 1: ISDN (E163\/E164) 2: Data (X.121) 3: Telex (F.69) 6: Land Mobile (E.212) 8: National 9: Private 10: ERMES 13: Internet (IP) 18: WAP Client Id (to be defined by WAP Forum) One of: [0] [1] [2] [3] [6] [8] [9] [10] [13] [18]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.sourceAddrTon": {
 			"name": "camel.component.smpp.sourceAddrTon",
 			"description": "Defines the type of number (TON) to be used in the SME originator address parameters. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.typeOfNumber": {
 			"name": "camel.component.smpp.typeOfNumber",
 			"description": "Defines the type of number (TON) to be used in the SME. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.basicPropertyBinding": {
@@ -365,7 +333,6 @@
 		"camel.component.smpp.configuration": {
 			"name": "camel.component.smpp.configuration",
 			"description": "To use the shared SmppConfiguration as configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.enquireLinkTimer": {
@@ -377,7 +344,6 @@
 		"camel.component.smpp.sessionStateListener": {
 			"name": "camel.component.smpp.sessionStateListener",
 			"description": "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.transactionTimer": {
@@ -389,13 +355,11 @@
 		"camel.component.smpp.alphabet": {
 			"name": "camel.component.smpp.alphabet",
 			"description": "Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.dataCoding": {
 			"name": "camel.component.smpp.dataCoding",
 			"description": "Defines the data coding according the SMPP 3.4 specification, section 5.2.19. Example data encodings are: 0: SMSC Default Alphabet 3: Latin 1 (ISO-8859-1) 4: Octet unspecified (8-bit binary) 8: UCS2 (ISO\/IEC-10646) 13: Extended Kanji JIS(X 0212-1990)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.encoding": {
@@ -407,13 +371,11 @@
 		"camel.component.smpp.httpProxyHost": {
 			"name": "camel.component.smpp.httpProxyHost",
 			"description": "If you need to tunnel SMPP through a HTTP proxy, set this attribute to the hostname or ip address of your HTTP proxy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.httpProxyPassword": {
 			"name": "camel.component.smpp.httpProxyPassword",
 			"description": "If your HTTP proxy requires basic authentication, set this attribute to the password required for your HTTP proxy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.httpProxyPort": {
@@ -425,19 +387,16 @@
 		"camel.component.smpp.httpProxyUsername": {
 			"name": "camel.component.smpp.httpProxyUsername",
 			"description": "If your HTTP proxy requires basic authentication, set this attribute to the username required for your HTTP proxy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.proxyHeaders": {
 			"name": "camel.component.smpp.proxyHeaders",
 			"description": "These headers will be passed to the proxy server while establishing the connection.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.password": {
 			"name": "camel.component.smpp.password",
 			"description": "The password for connecting to SMSC server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smpp.systemId": {

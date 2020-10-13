@@ -11,7 +11,6 @@
 		"camel.sink.path.httpUri": {
 			"name": "camel.sink.path.httpUri",
 			"description": "The URI to use such as http:\/\/hostname:port\/path",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.bridgeEndpoint": {
@@ -29,7 +28,6 @@
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.throwExceptionOnFailure": {
@@ -53,7 +51,6 @@
 		"camel.sink.endpoint.cookieHandler": {
 			"name": "camel.sink.endpoint.cookieHandler",
 			"description": "Configure a cookie handler to maintain a HTTP session",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -77,19 +74,16 @@
 		"camel.sink.endpoint.binding": {
 			"name": "camel.sink.endpoint.binding",
 			"description": "To use a custom AhcBinding which allows to control how to bind between AHC and Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientConfig": {
 			"name": "camel.sink.endpoint.clientConfig",
 			"description": "To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientConfigOptions": {
 			"name": "camel.sink.endpoint.clientConfigOptions",
 			"description": "To configure the AsyncHttpClientConfig using the key\/values from the Map.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -101,13 +95,11 @@
 		"camel.sink.endpoint.clientConfigRealmOptions": {
 			"name": "camel.sink.endpoint.clientConfigRealmOptions",
 			"description": "To configure the AsyncHttpClientConfig Realm using the key\/values from the Map.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. See Using the JSSE Configuration Utility. Note that configuring this option will override any SSL\/TLS configuration options provided through the clientConfig option at the endpoint or component level.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ahc-ws.lazyStartProducer": {
@@ -131,31 +123,26 @@
 		"camel.component.ahc-ws.binding": {
 			"name": "camel.component.ahc-ws.binding",
 			"description": "To use a custom AhcBinding which allows to control how to bind between AHC and Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ahc-ws.client": {
 			"name": "camel.component.ahc-ws.client",
 			"description": "To use a custom AsyncHttpClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ahc-ws.clientConfig": {
 			"name": "camel.component.ahc-ws.clientConfig",
 			"description": "To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ahc-ws.headerFilterStrategy": {
 			"name": "camel.component.ahc-ws.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ahc-ws.sslContextParameters": {
 			"name": "camel.component.ahc-ws.sslContextParameters",
 			"description": "Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. Note that configuring this option will override any SSL\/TLS configuration options provided through the clientConfig option at the endpoint or component level.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ahc-ws.useGlobalSslContextParameters": {

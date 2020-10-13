@@ -11,73 +11,61 @@
 		"camel.source.path.methodName": {
 			"name": "camel.source.path.methodName",
 			"description": "What operation to perform",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.achievementURL": {
 			"name": "camel.source.endpoint.achievementURL",
 			"description": "The unique URL of the achievement",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.albumId": {
 			"name": "camel.source.endpoint.albumId",
 			"description": "The album ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.albumUpdate": {
 			"name": "camel.source.endpoint.albumUpdate",
 			"description": "The facebook Album to be created or updated",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.appId": {
 			"name": "camel.source.endpoint.appId",
 			"description": "The ID of the Facebook Application",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.center": {
 			"name": "camel.source.endpoint.center",
 			"description": "Location latitude and longitude",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.checkinId": {
 			"name": "camel.source.endpoint.checkinId",
 			"description": "The checkin ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.checkinUpdate": {
 			"name": "camel.source.endpoint.checkinUpdate",
 			"description": "The checkin to be created. Deprecated, instead create a Post with an attached location",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.source.endpoint.clientURL": {
 			"name": "camel.source.endpoint.clientURL",
 			"description": "Facebook4J API client URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.clientVersion": {
 			"name": "camel.source.endpoint.clientVersion",
 			"description": "Facebook4J client API version",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.commentId": {
 			"name": "camel.source.endpoint.commentId",
 			"description": "The comment ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.commentUpdate": {
 			"name": "camel.source.endpoint.commentUpdate",
 			"description": "The facebook Comment to be created or updated",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.debugEnabled": {
@@ -89,73 +77,61 @@
 		"camel.source.endpoint.description": {
 			"name": "camel.source.endpoint.description",
 			"description": "The description text",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.distance": {
 			"name": "camel.source.endpoint.distance",
 			"description": "Distance in meters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.domainId": {
 			"name": "camel.source.endpoint.domainId",
 			"description": "The domain ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.domainName": {
 			"name": "camel.source.endpoint.domainName",
 			"description": "The domain name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.domainNames": {
 			"name": "camel.source.endpoint.domainNames",
 			"description": "The domain names",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.eventId": {
 			"name": "camel.source.endpoint.eventId",
 			"description": "The event ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.eventUpdate": {
 			"name": "camel.source.endpoint.eventUpdate",
 			"description": "The event to be created or updated",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.friendId": {
 			"name": "camel.source.endpoint.friendId",
 			"description": "The friend ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.friendlistId": {
 			"name": "camel.source.endpoint.friendlistId",
 			"description": "The friend list ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.friendlistName": {
 			"name": "camel.source.endpoint.friendlistName",
 			"description": "The friend list Name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.friendUserId": {
 			"name": "camel.source.endpoint.friendUserId",
 			"description": "The friend user ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.groupId": {
 			"name": "camel.source.endpoint.groupId",
 			"description": "The group ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.gzipEnabled": {
@@ -209,25 +185,21 @@
 		"camel.source.endpoint.ids": {
 			"name": "camel.source.endpoint.ids",
 			"description": "The ids of users",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.inBody": {
 			"name": "camel.source.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.includeRead": {
 			"name": "camel.source.endpoint.includeRead",
 			"description": "Enables notifications that the user has already read in addition to unread ones",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.isHidden": {
 			"name": "camel.source.endpoint.isHidden",
 			"description": "Whether hidden",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.jsonStoreEnabled": {
@@ -239,19 +211,16 @@
 		"camel.source.endpoint.link": {
 			"name": "camel.source.endpoint.link",
 			"description": "Link URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.linkId": {
 			"name": "camel.source.endpoint.linkId",
 			"description": "Link ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.locale": {
 			"name": "camel.source.endpoint.locale",
 			"description": "Desired FQL locale",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.mbeanEnabled": {
@@ -263,121 +232,101 @@
 		"camel.source.endpoint.message": {
 			"name": "camel.source.endpoint.message",
 			"description": "The message text",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.messageId": {
 			"name": "camel.source.endpoint.messageId",
 			"description": "The message ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.metric": {
 			"name": "camel.source.endpoint.metric",
 			"description": "The metric name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.milestoneId": {
 			"name": "camel.source.endpoint.milestoneId",
 			"description": "The milestone id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.name": {
 			"name": "camel.source.endpoint.name",
 			"description": "Test user name, must be of the form 'first last'",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.noteId": {
 			"name": "camel.source.endpoint.noteId",
 			"description": "The note ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.notificationId": {
 			"name": "camel.source.endpoint.notificationId",
 			"description": "The notification ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.objectId": {
 			"name": "camel.source.endpoint.objectId",
 			"description": "The insight object ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.offerId": {
 			"name": "camel.source.endpoint.offerId",
 			"description": "The offer id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.optionDescription": {
 			"name": "camel.source.endpoint.optionDescription",
 			"description": "The question's answer option description",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pageId": {
 			"name": "camel.source.endpoint.pageId",
 			"description": "The page id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.permissionName": {
 			"name": "camel.source.endpoint.permissionName",
 			"description": "The permission name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.permissions": {
 			"name": "camel.source.endpoint.permissions",
 			"description": "Test user permissions in the format perm1,perm2,...",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.photoId": {
 			"name": "camel.source.endpoint.photoId",
 			"description": "The photo ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pictureId": {
 			"name": "camel.source.endpoint.pictureId",
 			"description": "The picture id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pictureId2": {
 			"name": "camel.source.endpoint.pictureId2",
 			"description": "The picture2 id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pictureSize": {
 			"name": "camel.source.endpoint.pictureSize",
 			"description": "The picture size One of: [square] [small] [normal] [large] [thumbnail] [album]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.placeId": {
 			"name": "camel.source.endpoint.placeId",
 			"description": "The place ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.postId": {
 			"name": "camel.source.endpoint.postId",
 			"description": "The post ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.postUpdate": {
 			"name": "camel.source.endpoint.postUpdate",
 			"description": "The post to create or update",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.prettyDebugEnabled": {
@@ -389,31 +338,26 @@
 		"camel.source.endpoint.queries": {
 			"name": "camel.source.endpoint.queries",
 			"description": "FQL queries",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.query": {
 			"name": "camel.source.endpoint.query",
 			"description": "FQL query or search terms for search endpoints",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.questionId": {
 			"name": "camel.source.endpoint.questionId",
 			"description": "The question id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.reading": {
 			"name": "camel.source.endpoint.reading",
 			"description": "Optional reading parameters. See Reading Options(#reading)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.readingOptions": {
 			"name": "camel.source.endpoint.readingOptions",
 			"description": "To configure Reading using key\/value pairs from the Map.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.restBaseURL": {
@@ -425,103 +369,86 @@
 		"camel.source.endpoint.scoreValue": {
 			"name": "camel.source.endpoint.scoreValue",
 			"description": "The numeric score with value",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.size": {
 			"name": "camel.source.endpoint.size",
 			"description": "The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.source": {
 			"name": "camel.source.endpoint.source",
 			"description": "The media content from either a java.io.File or java.io.Inputstream",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.subject": {
 			"name": "camel.source.endpoint.subject",
 			"description": "The note of the subject",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.tabId": {
 			"name": "camel.source.endpoint.tabId",
 			"description": "The tab id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.tagUpdate": {
 			"name": "camel.source.endpoint.tagUpdate",
 			"description": "Photo tag information",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.testUser1": {
 			"name": "camel.source.endpoint.testUser1",
 			"description": "Test user 1",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.testUser2": {
 			"name": "camel.source.endpoint.testUser2",
 			"description": "Test user 2",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.testUserId": {
 			"name": "camel.source.endpoint.testUserId",
 			"description": "The ID of the test user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.title": {
 			"name": "camel.source.endpoint.title",
 			"description": "The title text",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.toUserId": {
 			"name": "camel.source.endpoint.toUserId",
 			"description": "The ID of the user to tag",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.toUserIds": {
 			"name": "camel.source.endpoint.toUserIds",
 			"description": "The IDs of the users to tag",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.userId": {
 			"name": "camel.source.endpoint.userId",
 			"description": "The Facebook user ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.userId1": {
 			"name": "camel.source.endpoint.userId1",
 			"description": "The ID of a user 1",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.userId2": {
 			"name": "camel.source.endpoint.userId2",
 			"description": "The ID of a user 2",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.userIds": {
 			"name": "camel.source.endpoint.userIds",
 			"description": "The IDs of users to invite to event",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.userLocale": {
 			"name": "camel.source.endpoint.userLocale",
 			"description": "The test user locale",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.useSSL": {
@@ -539,7 +466,6 @@
 		"camel.source.endpoint.videoId": {
 			"name": "camel.source.endpoint.videoId",
 			"description": "The video ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -551,13 +477,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -575,31 +499,26 @@
 		"camel.source.endpoint.httpProxyHost": {
 			"name": "camel.source.endpoint.httpProxyHost",
 			"description": "HTTP proxy server host name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpProxyPassword": {
 			"name": "camel.source.endpoint.httpProxyPassword",
 			"description": "HTTP proxy server password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpProxyPort": {
 			"name": "camel.source.endpoint.httpProxyPort",
 			"description": "HTTP proxy server port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpProxyUser": {
 			"name": "camel.source.endpoint.httpProxyUser",
 			"description": "HTTP proxy server user name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.oAuthAccessToken": {
 			"name": "camel.source.endpoint.oAuthAccessToken",
 			"description": "The user access token",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.oAuthAccessTokenURL": {
@@ -611,13 +530,11 @@
 		"camel.source.endpoint.oAuthAppId": {
 			"name": "camel.source.endpoint.oAuthAppId",
 			"description": "The application Id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.oAuthAppSecret": {
 			"name": "camel.source.endpoint.oAuthAppSecret",
 			"description": "The application Secret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.oAuthAuthorizationURL": {
@@ -629,19 +546,16 @@
 		"camel.source.endpoint.oAuthPermissions": {
 			"name": "camel.source.endpoint.oAuthPermissions",
 			"description": "Default OAuth permissions. Comma separated permission names. See https:\/\/developers.facebook.com\/docs\/reference\/login\/#permissions for the detail",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.clientURL": {
 			"name": "camel.component.facebook.clientURL",
 			"description": "Facebook4J API client URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.clientVersion": {
 			"name": "camel.component.facebook.clientVersion",
 			"description": "Facebook4J client API version",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.debugEnabled": {
@@ -749,37 +663,31 @@
 		"camel.component.facebook.configuration": {
 			"name": "camel.component.facebook.configuration",
 			"description": "To use the shared configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.httpProxyHost": {
 			"name": "camel.component.facebook.httpProxyHost",
 			"description": "HTTP proxy server host name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.httpProxyPassword": {
 			"name": "camel.component.facebook.httpProxyPassword",
 			"description": "HTTP proxy server password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.httpProxyPort": {
 			"name": "camel.component.facebook.httpProxyPort",
 			"description": "HTTP proxy server port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.httpProxyUser": {
 			"name": "camel.component.facebook.httpProxyUser",
 			"description": "HTTP proxy server user name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.oAuthAccessToken": {
 			"name": "camel.component.facebook.oAuthAccessToken",
 			"description": "The user access token",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.oAuthAccessTokenURL": {
@@ -791,13 +699,11 @@
 		"camel.component.facebook.oAuthAppId": {
 			"name": "camel.component.facebook.oAuthAppId",
 			"description": "The application Id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.oAuthAppSecret": {
 			"name": "camel.component.facebook.oAuthAppSecret",
 			"description": "The application Secret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.facebook.oAuthAuthorizationURL": {
@@ -809,7 +715,6 @@
 		"camel.component.facebook.oAuthPermissions": {
 			"name": "camel.component.facebook.oAuthPermissions",
 			"description": "Default OAuth permissions. Comma separated permission names. See https:\/\/developers.facebook.com\/docs\/reference\/login\/#permissions for the detail",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

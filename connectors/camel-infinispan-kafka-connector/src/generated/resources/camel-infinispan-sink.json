@@ -11,19 +11,16 @@
 		"camel.sink.path.cacheName": {
 			"name": "camel.sink.path.cacheName",
 			"description": "The name of the cache to use. Use current to use the existing cache name from the currently configured cached manager. Or use default for the default cache manager name.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.hosts": {
 			"name": "camel.sink.endpoint.hosts",
 			"description": "Specifies the host of the cache on Infinispan instance",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.queryBuilder": {
 			"name": "camel.sink.endpoint.queryBuilder",
 			"description": "Specifies the query builder.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,43 +44,36 @@
 		"camel.sink.endpoint.cacheContainer": {
 			"name": "camel.sink.endpoint.cacheContainer",
 			"description": "Specifies the cache Container to connect",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.cacheContainerConfiguration": {
 			"name": "camel.sink.endpoint.cacheContainerConfiguration",
 			"description": "The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.configurationProperties": {
 			"name": "camel.sink.endpoint.configurationProperties",
 			"description": "Implementation specific properties for the CacheManager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.configurationUri": {
 			"name": "camel.sink.endpoint.configurationUri",
 			"description": "An implementation specific URI for the CacheManager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.flags": {
 			"name": "camel.sink.endpoint.flags",
 			"description": "A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.remappingFunction": {
 			"name": "camel.sink.endpoint.remappingFunction",
 			"description": "Set a specific remappingFunction to use in a compute operation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resultHeader": {
 			"name": "camel.sink.endpoint.resultHeader",
 			"description": "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -95,19 +85,16 @@
 		"camel.component.infinispan.configuration": {
 			"name": "camel.component.infinispan.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.hosts": {
 			"name": "camel.component.infinispan.hosts",
 			"description": "Specifies the host of the cache on Infinispan instance",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.queryBuilder": {
 			"name": "camel.component.infinispan.queryBuilder",
 			"description": "Specifies the query builder.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.lazyStartProducer": {
@@ -131,43 +118,36 @@
 		"camel.component.infinispan.cacheContainer": {
 			"name": "camel.component.infinispan.cacheContainer",
 			"description": "Specifies the cache Container to connect",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.cacheContainerConfiguration": {
 			"name": "camel.component.infinispan.cacheContainerConfiguration",
 			"description": "The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.configurationProperties": {
 			"name": "camel.component.infinispan.configurationProperties",
 			"description": "Implementation specific properties for the CacheManager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.configurationUri": {
 			"name": "camel.component.infinispan.configurationUri",
 			"description": "An implementation specific URI for the CacheManager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.flags": {
 			"name": "camel.component.infinispan.flags",
 			"description": "A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.remappingFunction": {
 			"name": "camel.component.infinispan.remappingFunction",
 			"description": "Set a specific remappingFunction to use in a compute operation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.infinispan.resultHeader": {
 			"name": "camel.component.infinispan.resultHeader",
 			"description": "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

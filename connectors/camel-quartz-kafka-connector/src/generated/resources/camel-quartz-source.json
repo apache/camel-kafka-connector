@@ -17,7 +17,6 @@
 		"camel.source.path.triggerName": {
 			"name": "camel.source.path.triggerName",
 			"description": "The quartz trigger name to use. The combination of group name and trigger name should be unique.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -29,7 +28,6 @@
 		"camel.source.endpoint.cron": {
 			"name": "camel.source.endpoint.cron",
 			"description": "Specifies a cron expression to define when to trigger.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.deleteJob": {
@@ -65,13 +63,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -83,13 +79,11 @@
 		"camel.source.endpoint.customCalendar": {
 			"name": "camel.source.endpoint.customCalendar",
 			"description": "Specifies a custom calendar to avoid specific range of date",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.jobParameters": {
 			"name": "camel.source.endpoint.jobParameters",
 			"description": "To configure additional options on the job.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.prefixJobNameWithEndpointId": {
@@ -107,7 +101,6 @@
 		"camel.source.endpoint.triggerParameters": {
 			"name": "camel.source.endpoint.triggerParameters",
 			"description": "To configure additional options on the trigger.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.usingFixedCamelContextName": {
@@ -131,7 +124,6 @@
 		"camel.source.endpoint.startDelayedSeconds": {
 			"name": "camel.source.endpoint.startDelayedSeconds",
 			"description": "Seconds to wait before starting the quartz scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.triggerStartDelay": {
@@ -167,19 +159,16 @@
 		"camel.component.quartz.properties": {
 			"name": "camel.component.quartz.properties",
 			"description": "Properties to configure the Quartz scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quartz.propertiesFile": {
 			"name": "camel.component.quartz.propertiesFile",
 			"description": "File name of the properties to load from the classpath",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quartz.propertiesRef": {
 			"name": "camel.component.quartz.propertiesRef",
 			"description": "References to an existing Properties or Map to lookup in the registry to use for configuring quartz.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quartz.basicPropertyBinding": {
@@ -191,13 +180,11 @@
 		"camel.component.quartz.scheduler": {
 			"name": "camel.component.quartz.scheduler",
 			"description": "To use the custom configured Quartz scheduler, instead of creating a new Scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quartz.schedulerFactory": {
 			"name": "camel.component.quartz.schedulerFactory",
 			"description": "To use the custom SchedulerFactory which is used to create the Scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quartz.autoStartScheduler": {
@@ -215,7 +202,6 @@
 		"camel.component.quartz.startDelayedSeconds": {
 			"name": "camel.component.quartz.startDelayedSeconds",
 			"description": "Seconds to wait before starting the quartz scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

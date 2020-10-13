@@ -11,19 +11,16 @@
 		"camel.sink.path.splunkURL": {
 			"name": "camel.sink.path.splunkURL",
 			"description": "Splunk Host URL",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.token": {
 			"name": "camel.sink.path.token",
 			"description": "Splunk authorization token",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.host": {
 			"name": "camel.sink.endpoint.host",
 			"description": "Splunk host.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.index": {

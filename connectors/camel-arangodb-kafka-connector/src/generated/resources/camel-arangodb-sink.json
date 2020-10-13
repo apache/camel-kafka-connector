@@ -11,31 +11,26 @@
 		"camel.sink.path.database": {
 			"name": "camel.sink.path.database",
 			"description": "database name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.documentCollection": {
 			"name": "camel.sink.endpoint.documentCollection",
 			"description": "Collection name, when using ArangoDb as a Document Database. Set the documentCollection name when using the CRUD operation on the document database collections (SAVE_DOCUMENT , FIND_DOCUMENT_BY_KEY, UPDATE_DOCUMENT, DELETE_DOCUMENT).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.edgeCollection": {
 			"name": "camel.sink.endpoint.edgeCollection",
 			"description": "Collection name of vertices, when using ArangoDb as a Graph Database. Set the edgeCollection name to perform CRUD operation on edges using these operations : SAVE_VERTEX, FIND_VERTEX_BY_KEY, UPDATE_VERTEX, DELETE_VERTEX. The graph attribute is mandatory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.graph": {
 			"name": "camel.sink.endpoint.graph",
 			"description": "Graph name, when using ArangoDb as a Graph Database. Combine this attribute with one of the two attributes vertexCollection and edgeCollection.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.host": {
 			"name": "camel.sink.endpoint.host",
 			"description": "ArangoDB host. If host and port are default, this field is Optional.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,19 +42,16 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "Operations to perform on ArangoDb. For the operation AQL_QUERY, no need to specify a collection or graph. One of: [SAVE_DOCUMENT] [FIND_DOCUMENT_BY_KEY] [UPDATE_DOCUMENT] [DELETE_DOCUMENT] [AQL_QUERY] [SAVE_VERTEX] [FIND_VERTEX_BY_KEY] [UPDATE_VERTEX] [DELETE_VERTEX] [SAVE_EDGE] [FIND_EDGE_BY_KEY] [UPDATE_EDGE] [DELETE_EDGE]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.port": {
 			"name": "camel.sink.endpoint.port",
 			"description": "ArangoDB exposed port. If host and port are default, this field is Optional.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.vertexCollection": {
 			"name": "camel.sink.endpoint.vertexCollection",
 			"description": "Collection name of vertices, when using ArangoDb as a Graph Database. Set the vertexCollection name to perform CRUD operation on vertices using these operations : SAVE_EDGE, FIND_EDGE_BY_KEY, UPDATE_EDGE, DELETE_EDGE. The graph attribute is mandatory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -77,43 +69,36 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "ArangoDB password. If user and password are default, this field is Optional.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.user": {
 			"name": "camel.sink.endpoint.user",
 			"description": "ArangoDB user. If user and password are default, this field is Optional.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.configuration": {
 			"name": "camel.component.arangodb.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.documentCollection": {
 			"name": "camel.component.arangodb.documentCollection",
 			"description": "Collection name, when using ArangoDb as a Document Database. Set the documentCollection name when using the CRUD operation on the document database collections (SAVE_DOCUMENT , FIND_DOCUMENT_BY_KEY, UPDATE_DOCUMENT, DELETE_DOCUMENT).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.edgeCollection": {
 			"name": "camel.component.arangodb.edgeCollection",
 			"description": "Collection name of vertices, when using ArangoDb as a Graph Database. Set the edgeCollection name to perform CRUD operation on edges using these operations : SAVE_VERTEX, FIND_VERTEX_BY_KEY, UPDATE_VERTEX, DELETE_VERTEX. The graph attribute is mandatory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.graph": {
 			"name": "camel.component.arangodb.graph",
 			"description": "Graph name, when using ArangoDb as a Graph Database. Combine this attribute with one of the two attributes vertexCollection and edgeCollection.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.host": {
 			"name": "camel.component.arangodb.host",
 			"description": "ArangoDB host. If host and port are default, this field is Optional.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.lazyStartProducer": {
@@ -125,19 +110,16 @@
 		"camel.component.arangodb.operation": {
 			"name": "camel.component.arangodb.operation",
 			"description": "Operations to perform on ArangoDb. For the operation AQL_QUERY, no need to specify a collection or graph. One of: [SAVE_DOCUMENT] [FIND_DOCUMENT_BY_KEY] [UPDATE_DOCUMENT] [DELETE_DOCUMENT] [AQL_QUERY] [SAVE_VERTEX] [FIND_VERTEX_BY_KEY] [UPDATE_VERTEX] [DELETE_VERTEX] [SAVE_EDGE] [FIND_EDGE_BY_KEY] [UPDATE_EDGE] [DELETE_EDGE]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.port": {
 			"name": "camel.component.arangodb.port",
 			"description": "ArangoDB exposed port. If host and port are default, this field is Optional.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.vertexCollection": {
 			"name": "camel.component.arangodb.vertexCollection",
 			"description": "Collection name of vertices, when using ArangoDb as a Graph Database. Set the vertexCollection name to perform CRUD operation on vertices using these operations : SAVE_EDGE, FIND_EDGE_BY_KEY, UPDATE_EDGE, DELETE_EDGE. The graph attribute is mandatory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.basicPropertyBinding": {
@@ -149,13 +131,11 @@
 		"camel.component.arangodb.password": {
 			"name": "camel.component.arangodb.password",
 			"description": "ArangoDB password. If user and password are default, this field is Optional.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.arangodb.user": {
 			"name": "camel.component.arangodb.user",
 			"description": "ArangoDB user. If user and password are default, this field is Optional.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

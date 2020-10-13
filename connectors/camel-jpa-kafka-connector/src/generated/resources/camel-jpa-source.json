@@ -11,7 +11,6 @@
 		"camel.source.path.entityType": {
 			"name": "camel.source.path.entityType",
 			"description": "Entity class name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.joinTransaction": {
@@ -29,13 +28,11 @@
 		"camel.source.endpoint.namedQuery": {
 			"name": "camel.source.endpoint.namedQuery",
 			"description": "To use a named query.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.nativeQuery": {
 			"name": "camel.source.endpoint.nativeQuery",
 			"description": "To use a custom native query. You may want to use the option resultClass also when using native queries.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.persistenceUnit": {
@@ -47,13 +44,11 @@
 		"camel.source.endpoint.query": {
 			"name": "camel.source.endpoint.query",
 			"description": "To use a custom query.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.resultClass": {
 			"name": "camel.source.endpoint.resultClass",
 			"description": "Defines the type of the returned payload (we will call entityManager.createNativeQuery(nativeQuery, resultClass) instead of entityManager.createNativeQuery(nativeQuery)). Without this option, we will return an object array. Only has an affect when using in conjunction with native query when consuming data.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -77,7 +72,6 @@
 		"camel.source.endpoint.deleteHandler": {
 			"name": "camel.source.endpoint.deleteHandler",
 			"description": "To use a custom DeleteHandler to delete the row after the consumer is done processing the exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.lockModeType": {
@@ -89,13 +83,11 @@
 		"camel.source.endpoint.maxMessagesPerPoll": {
 			"name": "camel.source.endpoint.maxMessagesPerPoll",
 			"description": "An integer value to define the maximum number of messages to gather per poll. By default, no maximum is set. Can be used to avoid polling many thousands of messages when starting up the server. Set a value of 0 or negative to disable.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.preDeleteHandler": {
 			"name": "camel.source.endpoint.preDeleteHandler",
 			"description": "To use a custom Pre-DeleteHandler to delete the row after the consumer has read the entity.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
@@ -119,25 +111,21 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.parameters": {
 			"name": "camel.source.endpoint.parameters",
 			"description": "This key\/value mapping is used for building the query parameters. It is expected to be of the generic type java.util.Map where the keys are the named parameters of a given JPA query and the values are their corresponding effective values you want to select for. When it's used for producer, Simple expression can be used as a parameter value. It allows you to retrieve parameter values from the message body, header and etc.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -149,7 +137,6 @@
 		"camel.source.endpoint.entityManagerProperties": {
 			"name": "camel.source.endpoint.entityManagerProperties",
 			"description": "Additional properties for the entity manager to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sharedEntityManager": {
@@ -167,19 +154,16 @@
 		"camel.source.endpoint.backoffErrorThreshold": {
 			"name": "camel.source.endpoint.backoffErrorThreshold",
 			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffIdleThreshold": {
 			"name": "camel.source.endpoint.backoffIdleThreshold",
 			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffMultiplier": {
 			"name": "camel.source.endpoint.backoffMultiplier",
 			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.delay": {
@@ -215,7 +199,6 @@
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
 			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.scheduler": {
@@ -227,7 +210,6 @@
 		"camel.source.endpoint.schedulerProperties": {
 			"name": "camel.source.endpoint.schedulerProperties",
 			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startScheduler": {
@@ -251,7 +233,6 @@
 		"camel.component.jpa.entityManagerFactory": {
 			"name": "camel.component.jpa.entityManagerFactory",
 			"description": "To use the EntityManagerFactory. This is strongly recommended to configure.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jpa.joinTransaction": {
@@ -269,7 +250,6 @@
 		"camel.component.jpa.transactionManager": {
 			"name": "camel.component.jpa.transactionManager",
 			"description": "To use the PlatformTransactionManager for managing transactions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jpa.bridgeErrorHandler": {

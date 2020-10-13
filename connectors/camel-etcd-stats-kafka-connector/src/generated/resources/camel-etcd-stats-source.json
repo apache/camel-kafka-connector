@@ -11,7 +11,6 @@
 		"camel.source.path.path": {
 			"name": "camel.source.path.path",
 			"description": "The path the endpoint refers to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.recursive": {
@@ -29,7 +28,6 @@
 		"camel.source.endpoint.timeout": {
 			"name": "camel.source.endpoint.timeout",
 			"description": "To set the maximum time an action could take to complete.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.uris": {
@@ -59,13 +57,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.fromIndex": {
@@ -77,7 +73,6 @@
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -95,19 +90,16 @@
 		"camel.source.endpoint.backoffErrorThreshold": {
 			"name": "camel.source.endpoint.backoffErrorThreshold",
 			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffIdleThreshold": {
 			"name": "camel.source.endpoint.backoffIdleThreshold",
 			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffMultiplier": {
 			"name": "camel.source.endpoint.backoffMultiplier",
 			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.delay": {
@@ -143,7 +135,6 @@
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
 			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.scheduler": {
@@ -155,7 +146,6 @@
 		"camel.source.endpoint.schedulerProperties": {
 			"name": "camel.source.endpoint.schedulerProperties",
 			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startScheduler": {
@@ -179,25 +169,21 @@
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "The password to use for basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.userName": {
 			"name": "camel.source.endpoint.userName",
 			"description": "The user name to use for basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.configuration": {
 			"name": "camel.component.etcd-stats.configuration",
 			"description": "Component configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.recursive": {
@@ -215,7 +201,6 @@
 		"camel.component.etcd-stats.timeout": {
 			"name": "camel.component.etcd-stats.timeout",
 			"description": "To set the maximum time an action could take to complete.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.uris": {
@@ -251,13 +236,11 @@
 		"camel.component.etcd-stats.password": {
 			"name": "camel.component.etcd-stats.password",
 			"description": "The password to use for basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.sslContextParameters": {
 			"name": "camel.component.etcd-stats.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.useGlobalSslContextParameters": {
@@ -269,7 +252,6 @@
 		"camel.component.etcd-stats.userName": {
 			"name": "camel.component.etcd-stats.userName",
 			"description": "The user name to use for basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

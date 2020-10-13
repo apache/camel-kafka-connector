@@ -11,13 +11,11 @@
 		"camel.sink.path.apiName": {
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [DEFAULT]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.connectTimeout": {
@@ -35,13 +33,11 @@
 		"camel.sink.endpoint.entityProviderReadProperties": {
 			"name": "camel.sink.endpoint.entityProviderReadProperties",
 			"description": "Custom entity provider read properties applied to all read operations.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.entityProviderWriteProperties": {
 			"name": "camel.sink.endpoint.entityProviderWriteProperties",
 			"description": "Custom entity provider write properties applied to create, update, patch, batch and merge operations. For instance users can skip the Json object wrapper or enable content only mode when sending request data. A service URI set in the properties will always be overwritten by the serviceUri configuration parameter. Please consider to using the serviceUri configuration parameter instead of setting the respective write property here.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.filterAlreadySeen": {
@@ -53,25 +49,21 @@
 		"camel.sink.endpoint.httpHeaders": {
 			"name": "camel.sink.endpoint.httpHeaders",
 			"description": "Custom HTTP headers to inject into every request, this could include OAuth tokens, etc.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.inBody": {
 			"name": "camel.sink.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxy": {
 			"name": "camel.sink.endpoint.proxy",
 			"description": "HTTP proxy server configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.serviceUri": {
 			"name": "camel.sink.endpoint.serviceUri",
 			"description": "Target OData service base URI, e.g. http:\/\/services.odata.org\/OData\/OData.svc",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.socketTimeout": {
@@ -95,13 +87,11 @@
 		"camel.sink.endpoint.httpAsyncClientBuilder": {
 			"name": "camel.sink.endpoint.httpAsyncClientBuilder",
 			"description": "Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpClientBuilder": {
 			"name": "camel.sink.endpoint.httpClientBuilder",
 			"description": "Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -113,13 +103,11 @@
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.configuration": {
 			"name": "camel.component.olingo2.configuration",
 			"description": "To use the shared configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.connectTimeout": {
@@ -137,13 +125,11 @@
 		"camel.component.olingo2.entityProviderReadProperties": {
 			"name": "camel.component.olingo2.entityProviderReadProperties",
 			"description": "Custom entity provider read properties applied to all read operations.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.entityProviderWriteProperties": {
 			"name": "camel.component.olingo2.entityProviderWriteProperties",
 			"description": "Custom entity provider write properties applied to create, update, patch, batch and merge operations. For instance users can skip the Json object wrapper or enable content only mode when sending request data. A service URI set in the properties will always be overwritten by the serviceUri configuration parameter. Please consider to using the serviceUri configuration parameter instead of setting the respective write property here.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.filterAlreadySeen": {
@@ -155,19 +141,16 @@
 		"camel.component.olingo2.httpHeaders": {
 			"name": "camel.component.olingo2.httpHeaders",
 			"description": "Custom HTTP headers to inject into every request, this could include OAuth tokens, etc.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.proxy": {
 			"name": "camel.component.olingo2.proxy",
 			"description": "HTTP proxy server configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.serviceUri": {
 			"name": "camel.component.olingo2.serviceUri",
 			"description": "Target OData service base URI, e.g. http:\/\/services.odata.org\/OData\/OData.svc",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.socketTimeout": {
@@ -191,19 +174,16 @@
 		"camel.component.olingo2.httpAsyncClientBuilder": {
 			"name": "camel.component.olingo2.httpAsyncClientBuilder",
 			"description": "Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.httpClientBuilder": {
 			"name": "camel.component.olingo2.httpClientBuilder",
 			"description": "Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.sslContextParameters": {
 			"name": "camel.component.olingo2.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.olingo2.useGlobalSslContextParameters": {

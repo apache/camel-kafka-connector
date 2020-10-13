@@ -11,7 +11,6 @@
 		"camel.source.path.destination": {
 			"name": "camel.source.path.destination",
 			"description": "Name of the queue",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.brokerURL": {
@@ -23,19 +22,16 @@
 		"camel.source.endpoint.customHeaders": {
 			"name": "camel.source.endpoint.customHeaders",
 			"description": "To set custom headers",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.host": {
 			"name": "camel.source.endpoint.host",
 			"description": "The virtual host name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.version": {
 			"name": "camel.source.endpoint.version",
 			"description": "The stomp version (1.1, or 1.2)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -47,13 +43,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -65,7 +59,6 @@
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.synchronous": {
@@ -77,19 +70,16 @@
 		"camel.source.endpoint.login": {
 			"name": "camel.source.endpoint.login",
 			"description": "The username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.passcode": {
 			"name": "camel.source.endpoint.passcode",
 			"description": "The password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.brokerURL": {
@@ -101,19 +91,16 @@
 		"camel.component.stomp.customHeaders": {
 			"name": "camel.component.stomp.customHeaders",
 			"description": "To set custom headers",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.host": {
 			"name": "camel.component.stomp.host",
 			"description": "The virtual host name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.version": {
 			"name": "camel.component.stomp.version",
 			"description": "The stomp version (1.1, or 1.2)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.bridgeErrorHandler": {
@@ -131,31 +118,26 @@
 		"camel.component.stomp.configuration": {
 			"name": "camel.component.stomp.configuration",
 			"description": "Component configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.headerFilterStrategy": {
 			"name": "camel.component.stomp.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.login": {
 			"name": "camel.component.stomp.login",
 			"description": "The username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.passcode": {
 			"name": "camel.component.stomp.passcode",
 			"description": "The password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.sslContextParameters": {
 			"name": "camel.component.stomp.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.stomp.useGlobalSslContextParameters": {

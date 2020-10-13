@@ -23,19 +23,16 @@
 		"camel.sink.path.database": {
 			"name": "camel.sink.path.database",
 			"description": "The database name. The database name can take any characters because it is sent as a quoted identifier. It is part of the endpoint URI, so diacritical marks and non-Latin letters have to be URL encoded.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.channel": {
 			"name": "camel.sink.path.channel",
 			"description": "The channel name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.datasource": {
 			"name": "camel.sink.endpoint.datasource",
 			"description": "To connect using the given javax.sql.DataSource instead of using hostname and port.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,7 +56,6 @@
 		"camel.sink.endpoint.pass": {
 			"name": "camel.sink.endpoint.pass",
 			"description": "Password for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.user": {

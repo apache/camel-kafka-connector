@@ -11,19 +11,16 @@
 		"camel.source.path.host": {
 			"name": "camel.source.path.host",
 			"description": "The gRPC server host name. This is localhost or 0.0.0.0 when being a consumer or remote server host name when using producer.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "The gRPC local or remote server port",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.service": {
 			"name": "camel.source.path.service",
 			"description": "Fully qualified service name from the protocol buffer descriptor file (package dot service definition name)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.flowControlWindow": {
@@ -71,13 +68,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -107,37 +102,31 @@
 		"camel.source.endpoint.jwtIssuer": {
 			"name": "camel.source.endpoint.jwtIssuer",
 			"description": "JSON Web Token issuer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.jwtSecret": {
 			"name": "camel.source.endpoint.jwtSecret",
 			"description": "JSON Web Token secret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.jwtSubject": {
 			"name": "camel.source.endpoint.jwtSubject",
 			"description": "JSON Web Token subject",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.keyCertChainResource": {
 			"name": "camel.source.endpoint.keyCertChainResource",
 			"description": "The X.509 certificate chain file resource in PEM format link",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.keyPassword": {
 			"name": "camel.source.endpoint.keyPassword",
 			"description": "The PKCS#8 private key file password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.keyResource": {
 			"name": "camel.source.endpoint.keyResource",
 			"description": "The PKCS#8 private key file resource in PEM format link",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.negotiationType": {
@@ -149,13 +138,11 @@
 		"camel.source.endpoint.serviceAccountResource": {
 			"name": "camel.source.endpoint.serviceAccountResource",
 			"description": "Service Account key file in JSON format resource link supported by the Google Cloud SDK",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.trustCertCollectionResource": {
 			"name": "camel.source.endpoint.trustCertCollectionResource",
 			"description": "The trusted certificates collection file resource in PEM format for verifying the remote endpoint's certificate",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.grpc.bridgeErrorHandler": {

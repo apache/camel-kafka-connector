@@ -11,7 +11,6 @@
 		"camel.sink.path.jobName": {
 			"name": "camel.sink.path.jobName",
 			"description": "The name of the Spring Batch job located in the registry.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.jobFromHeader": {
@@ -23,13 +22,11 @@
 		"camel.sink.endpoint.jobLauncher": {
 			"name": "camel.sink.endpoint.jobLauncher",
 			"description": "Explicitly specifies a JobLauncher to be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.jobRegistry": {
 			"name": "camel.sink.endpoint.jobRegistry",
 			"description": "Explicitly specifies a JobRegistry to be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -53,13 +50,11 @@
 		"camel.component.spring-batch.jobLauncher": {
 			"name": "camel.component.spring-batch.jobLauncher",
 			"description": "Explicitly specifies a JobLauncher to be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.spring-batch.jobRegistry": {
 			"name": "camel.component.spring-batch.jobRegistry",
 			"description": "Explicitly specifies a JobRegistry to be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.spring-batch.lazyStartProducer": {

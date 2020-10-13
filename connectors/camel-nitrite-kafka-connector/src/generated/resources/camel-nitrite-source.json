@@ -11,25 +11,21 @@
 		"camel.source.path.database": {
 			"name": "camel.source.path.database",
 			"description": "Path to database file. Will be created if not exists.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.collection": {
 			"name": "camel.source.endpoint.collection",
 			"description": "Name of Nitrite collection. Cannot be used in combination with repositoryClass option.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.repositoryClass": {
 			"name": "camel.source.endpoint.repositoryClass",
 			"description": "Class of Nitrite ObjectRepository. Cannot be used in combination with collection option.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.repositoryName": {
 			"name": "camel.source.endpoint.repositoryName",
 			"description": "Optional name of ObjectRepository. Can be only used in combination with repositoryClass, otherwise have no effect",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -41,13 +37,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -65,13 +59,11 @@
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Password for Nitrite database. Required, if option username specified.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "Username for Nitrite database. Database is not secured if option not specified.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.nitrite.bridgeErrorHandler": {

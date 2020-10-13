@@ -11,7 +11,6 @@
 		"camel.sink.path.label": {
 			"name": "camel.sink.path.label",
 			"description": "Logical name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -23,19 +22,16 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.amazonAthenaClient": {
 			"name": "camel.sink.endpoint.amazonAthenaClient",
 			"description": "The AmazonAthena instance to use as the client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.database": {
 			"name": "camel.sink.endpoint.database",
 			"description": "The Athena database to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.delay": {
@@ -47,7 +43,6 @@
 		"camel.sink.endpoint.encryptionOption": {
 			"name": "camel.sink.endpoint.encryptionOption",
 			"description": "The encryption type to use when storing query results in S3. One of SSE_S3, SSE_KMS, or CSE_KMS. One of: [SSE_S3] [SSE_KMS] [CSE_KMS] [null]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.includeTrace": {
@@ -65,7 +60,6 @@
 		"camel.sink.endpoint.kmsKey": {
 			"name": "camel.sink.endpoint.kmsKey",
 			"description": "For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -83,13 +77,11 @@
 		"camel.sink.endpoint.maxResults": {
 			"name": "camel.sink.endpoint.maxResults",
 			"description": "Max number of results to return for the given operation (if supported by the Athena API endpoint). If not set, will use the Athena API default for the given operation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.nextToken": {
 			"name": "camel.sink.endpoint.nextToken",
 			"description": "Pagination token to use in the case where the response from the previous request was truncated.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.operation": {
@@ -101,7 +93,6 @@
 		"camel.sink.endpoint.outputLocation": {
 			"name": "camel.sink.endpoint.outputLocation",
 			"description": "The location in Amazon S3 where query results are stored, such as s3:\/\/path\/to\/query\/bucket\/. Ensure this value ends with a forward slash ('\/').",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.outputType": {
@@ -113,13 +104,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the Athena client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the Athena client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -131,19 +120,16 @@
 		"camel.sink.endpoint.queryExecutionId": {
 			"name": "camel.sink.endpoint.queryExecutionId",
 			"description": "The unique ID identifying the query execution.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.queryString": {
 			"name": "camel.sink.endpoint.queryString",
 			"description": "The SQL query to run. Except for simple queries, prefer setting this as the body of the Exchange or as a header using Athena2Constants.QUERY_STRING to avoid having to deal with URL encoding issues.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which Athena client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1). You'll need to use the name Region.EU_WEST_1.id().",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resetWaitTimeoutOnRetry": {
@@ -161,7 +147,6 @@
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.waitTimeout": {
@@ -173,7 +158,6 @@
 		"camel.sink.endpoint.workGroup": {
 			"name": "camel.sink.endpoint.workGroup",
 			"description": "The workgroup to use for running the query.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -185,7 +169,6 @@
 		"camel.sink.endpoint.clientRequestToken": {
 			"name": "camel.sink.endpoint.clientRequestToken",
 			"description": "A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -197,13 +180,11 @@
 		"camel.component.aws2-athena.accessKey": {
 			"name": "camel.component.aws2-athena.accessKey",
 			"description": "Amazon AWS Access Key.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.amazonAthenaClient": {
 			"name": "camel.component.aws2-athena.amazonAthenaClient",
 			"description": "The AmazonAthena instance to use as the client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.autoDiscoverClient": {
@@ -215,13 +196,11 @@
 		"camel.component.aws2-athena.configuration": {
 			"name": "camel.component.aws2-athena.configuration",
 			"description": "The component configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.database": {
 			"name": "camel.component.aws2-athena.database",
 			"description": "The Athena database to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.delay": {
@@ -233,7 +212,6 @@
 		"camel.component.aws2-athena.encryptionOption": {
 			"name": "camel.component.aws2-athena.encryptionOption",
 			"description": "The encryption type to use when storing query results in S3. One of SSE_S3, SSE_KMS, or CSE_KMS. One of: [SSE_S3] [SSE_KMS] [CSE_KMS] [null]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.includeTrace": {
@@ -251,7 +229,6 @@
 		"camel.component.aws2-athena.kmsKey": {
 			"name": "camel.component.aws2-athena.kmsKey",
 			"description": "For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.lazyStartProducer": {
@@ -269,13 +246,11 @@
 		"camel.component.aws2-athena.maxResults": {
 			"name": "camel.component.aws2-athena.maxResults",
 			"description": "Max number of results to return for the given operation (if supported by the Athena API endpoint). If not set, will use the Athena API default for the given operation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.nextToken": {
 			"name": "camel.component.aws2-athena.nextToken",
 			"description": "Pagination token to use in the case where the response from the previous request was truncated.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.operation": {
@@ -287,7 +262,6 @@
 		"camel.component.aws2-athena.outputLocation": {
 			"name": "camel.component.aws2-athena.outputLocation",
 			"description": "The location in Amazon S3 where query results are stored, such as s3:\/\/path\/to\/query\/bucket\/. Ensure this value ends with a forward slash ('\/').",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.outputType": {
@@ -299,13 +273,11 @@
 		"camel.component.aws2-athena.proxyHost": {
 			"name": "camel.component.aws2-athena.proxyHost",
 			"description": "To define a proxy host when instantiating the Athena client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.proxyPort": {
 			"name": "camel.component.aws2-athena.proxyPort",
 			"description": "To define a proxy port when instantiating the Athena client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.proxyProtocol": {
@@ -317,19 +289,16 @@
 		"camel.component.aws2-athena.queryExecutionId": {
 			"name": "camel.component.aws2-athena.queryExecutionId",
 			"description": "The unique ID identifying the query execution.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.queryString": {
 			"name": "camel.component.aws2-athena.queryString",
 			"description": "The SQL query to run. Except for simple queries, prefer setting this as the body of the Exchange or as a header using Athena2Constants.QUERY_STRING to avoid having to deal with URL encoding issues.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.region": {
 			"name": "camel.component.aws2-athena.region",
 			"description": "The region in which Athena client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1). You'll need to use the name Region.EU_WEST_1.id().",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.resetWaitTimeoutOnRetry": {
@@ -347,7 +316,6 @@
 		"camel.component.aws2-athena.secretKey": {
 			"name": "camel.component.aws2-athena.secretKey",
 			"description": "Amazon AWS Secret Key.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.waitTimeout": {
@@ -359,7 +327,6 @@
 		"camel.component.aws2-athena.workGroup": {
 			"name": "camel.component.aws2-athena.workGroup",
 			"description": "The workgroup to use for running the query.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-athena.basicPropertyBinding": {
@@ -371,7 +338,6 @@
 		"camel.component.aws2-athena.clientRequestToken": {
 			"name": "camel.component.aws2-athena.clientRequestToken",
 			"description": "A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

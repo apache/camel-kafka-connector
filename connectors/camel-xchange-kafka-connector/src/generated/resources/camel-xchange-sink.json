@@ -11,19 +11,16 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "The exchange to connect to",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.currency": {
 			"name": "camel.sink.endpoint.currency",
 			"description": "The currency",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.currencyPair": {
 			"name": "camel.sink.endpoint.currencyPair",
 			"description": "The currency pair",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -35,13 +32,11 @@
 		"camel.sink.endpoint.method": {
 			"name": "camel.sink.endpoint.method",
 			"description": "The method to execute One of: [balances] [fundingHistory] [wallets] [currencies] [currencyMetaData] [currencyPairs] [currencyPairMetaData] [ticker]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.service": {
 			"name": "camel.sink.endpoint.service",
 			"description": "The service to call One of: [marketdata] [metadata] [account]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

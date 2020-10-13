@@ -11,13 +11,11 @@
 		"camel.source.path.exchangeName": {
 			"name": "camel.source.path.exchangeName",
 			"description": "The exchange name determines the exchange to which the produced messages will be sent to. In the case of consumers, the exchange name determines the exchange the queue will be bound to.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.addresses": {
 			"name": "camel.source.endpoint.addresses",
 			"description": "If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses. The addresses value is a string which looks like server1:12345, server2:12345",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.autoDelete": {
@@ -35,13 +33,11 @@
 		"camel.source.endpoint.connectionFactory": {
 			"name": "camel.source.endpoint.connectionFactory",
 			"description": "To use a custom RabbitMQ connection factory. When this option is set, all connection options (connectionTimeout, requestedChannelMax...) set on URI are not used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.deadLetterExchange": {
 			"name": "camel.source.endpoint.deadLetterExchange",
 			"description": "The name of the dead letter exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.deadLetterExchangeType": {
@@ -53,13 +49,11 @@
 		"camel.source.endpoint.deadLetterQueue": {
 			"name": "camel.source.endpoint.deadLetterQueue",
 			"description": "The name of the dead letter queue",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.deadLetterRoutingKey": {
 			"name": "camel.source.endpoint.deadLetterRoutingKey",
 			"description": "The routing key for the dead letter exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.declare": {
@@ -89,7 +83,6 @@
 		"camel.source.endpoint.hostname": {
 			"name": "camel.source.endpoint.hostname",
 			"description": "The hostname of the running rabbitmq instance or cluster.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.passive": {
@@ -101,19 +94,16 @@
 		"camel.source.endpoint.portNumber": {
 			"name": "camel.source.endpoint.portNumber",
 			"description": "Port number for the host with the running rabbitmq instance or cluster. Default value is 5672.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.queue": {
 			"name": "camel.source.endpoint.queue",
 			"description": "The queue to receive messages from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.routingKey": {
 			"name": "camel.source.endpoint.routingKey",
 			"description": "The routing key to use when binding a consumer queue to the exchange. For producer routing keys, you set the header rabbitmq.ROUTING_KEY.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.skipDlqDeclare": {
@@ -167,7 +157,6 @@
 		"camel.source.endpoint.consumerTag": {
 			"name": "camel.source.endpoint.consumerTag",
 			"description": "Specify a client-generated consumer tag to establish context when invoking the consume operation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exclusiveConsumer": {
@@ -179,7 +168,6 @@
 		"camel.source.endpoint.prefetchCount": {
 			"name": "camel.source.endpoint.prefetchCount",
 			"description": "The maximum number of messages that the server will deliver, 0 if unlimited. You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.prefetchEnabled": {
@@ -197,19 +185,16 @@
 		"camel.source.endpoint.prefetchSize": {
 			"name": "camel.source.endpoint.prefetchSize",
 			"description": "The maximum amount of content (measured in octets) that the server will deliver, 0 if unlimited. You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.threadPoolSize": {
@@ -221,7 +206,6 @@
 		"camel.source.endpoint.args": {
 			"name": "camel.source.endpoint.args",
 			"description": "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ binding: arg.dlq.binding. For example to declare a queue with message ttl argument: http:\/\/localhost:5672\/exchange\/queueargs=arg.queue.x-message-ttl=60000",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -233,13 +217,11 @@
 		"camel.source.endpoint.clientProperties": {
 			"name": "camel.source.endpoint.clientProperties",
 			"description": "Connection client properties (client info used in negotiating with the server)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.connectionFactoryExceptionHandler": {
 			"name": "camel.source.endpoint.connectionFactoryExceptionHandler",
 			"description": "Custom rabbitmq ExceptionHandler for ConnectionFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.connectionTimeout": {
@@ -293,7 +275,6 @@
 		"camel.source.endpoint.topologyRecoveryEnabled": {
 			"name": "camel.source.endpoint.topologyRecoveryEnabled",
 			"description": "Enables connection topology recovery (should topology recovery be performed)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.transferException": {
@@ -317,13 +298,11 @@
 		"camel.source.endpoint.sslProtocol": {
 			"name": "camel.source.endpoint.sslProtocol",
 			"description": "Enables SSL on connection, accepted value are true, TLS and 'SSLv3",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.trustManager": {
 			"name": "camel.source.endpoint.trustManager",
 			"description": "Configure SSL trust manager, SSL should be enabled for this option to be effective",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.username": {
@@ -335,7 +314,6 @@
 		"camel.component.rabbitmq.addresses": {
 			"name": "camel.component.rabbitmq.addresses",
 			"description": "If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses. The addresses value is a string which looks like server1:12345, server2:12345",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.autoDelete": {
@@ -347,13 +325,11 @@
 		"camel.component.rabbitmq.connectionFactory": {
 			"name": "camel.component.rabbitmq.connectionFactory",
 			"description": "To use a custom RabbitMQ connection factory. When this option is set, all connection options (connectionTimeout, requestedChannelMax...) set on URI are not used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.deadLetterExchange": {
 			"name": "camel.component.rabbitmq.deadLetterExchange",
 			"description": "The name of the dead letter exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.deadLetterExchangeType": {
@@ -365,13 +341,11 @@
 		"camel.component.rabbitmq.deadLetterQueue": {
 			"name": "camel.component.rabbitmq.deadLetterQueue",
 			"description": "The name of the dead letter queue",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.deadLetterRoutingKey": {
 			"name": "camel.component.rabbitmq.deadLetterRoutingKey",
 			"description": "The routing key for the dead letter exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.declare": {
@@ -395,7 +369,6 @@
 		"camel.component.rabbitmq.hostname": {
 			"name": "camel.component.rabbitmq.hostname",
 			"description": "The hostname of the running RabbitMQ instance or cluster.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.passive": {
@@ -455,7 +428,6 @@
 		"camel.component.rabbitmq.prefetchCount": {
 			"name": "camel.component.rabbitmq.prefetchCount",
 			"description": "The maximum number of messages that the server will deliver, 0 if unlimited. You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.prefetchEnabled": {
@@ -473,7 +445,6 @@
 		"camel.component.rabbitmq.prefetchSize": {
 			"name": "camel.component.rabbitmq.prefetchSize",
 			"description": "The maximum amount of content (measured in octets) that the server will deliver, 0 if unlimited. You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.threadPoolSize": {
@@ -485,7 +456,6 @@
 		"camel.component.rabbitmq.args": {
 			"name": "camel.component.rabbitmq.args",
 			"description": "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ Binding: arg.dlq.binding. For example to declare a queue with message ttl argument: http:\/\/localhost:5672\/exchange\/queueargs=arg.queue.x-message-ttl=60000",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.autoDetectConnectionFactory": {
@@ -497,7 +467,6 @@
 		"camel.component.rabbitmq.automaticRecoveryEnabled": {
 			"name": "camel.component.rabbitmq.automaticRecoveryEnabled",
 			"description": "Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.basicPropertyBinding": {
@@ -509,13 +478,11 @@
 		"camel.component.rabbitmq.clientProperties": {
 			"name": "camel.component.rabbitmq.clientProperties",
 			"description": "Connection client properties (client info used in negotiating with the server)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.connectionFactoryExceptionHandler": {
 			"name": "camel.component.rabbitmq.connectionFactoryExceptionHandler",
 			"description": "Custom rabbitmq ExceptionHandler for ConnectionFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.connectionTimeout": {
@@ -563,7 +530,6 @@
 		"camel.component.rabbitmq.topologyRecoveryEnabled": {
 			"name": "camel.component.rabbitmq.topologyRecoveryEnabled",
 			"description": "Enables connection topology recovery (should topology recovery be performed)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.transferException": {
@@ -581,13 +547,11 @@
 		"camel.component.rabbitmq.sslProtocol": {
 			"name": "camel.component.rabbitmq.sslProtocol",
 			"description": "Enables SSL on connection, accepted value are true, TLS and 'SSLv3",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.trustManager": {
 			"name": "camel.component.rabbitmq.trustManager",
 			"description": "Configure SSL trust manager, SSL should be enabled for this option to be effective",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.username": {

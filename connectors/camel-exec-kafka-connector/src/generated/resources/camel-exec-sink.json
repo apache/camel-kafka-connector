@@ -11,25 +11,21 @@
 		"camel.sink.path.executable": {
 			"name": "camel.sink.path.executable",
 			"description": "Sets the executable to be executed. The executable must not be empty or null.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.args": {
 			"name": "camel.sink.endpoint.args",
 			"description": "The arguments may be one or many whitespace-separated tokens.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.binding": {
 			"name": "camel.sink.endpoint.binding",
 			"description": "A reference to a org.apache.commons.exec.ExecBinding in the Registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.commandExecutor": {
 			"name": "camel.sink.endpoint.commandExecutor",
 			"description": "A reference to a org.apache.commons.exec.ExecCommandExecutor in the Registry that customizes the command execution. The default command executor utilizes the commons-exec library, which adds a shutdown hook for every executed command.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.commandLogLevel": {
@@ -47,13 +43,11 @@
 		"camel.sink.endpoint.outFile": {
 			"name": "camel.sink.endpoint.outFile",
 			"description": "The name of a file, created by the executable, that should be considered as its output. If no outFile is set, the standard output (stdout) of the executable will be used instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.timeout": {
 			"name": "camel.sink.endpoint.timeout",
 			"description": "The timeout, in milliseconds, after which the executable should be terminated. If execution has not completed within the timeout, the component will send a termination request.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.useStderrOnEmptyStdout": {
@@ -65,7 +59,6 @@
 		"camel.sink.endpoint.workingDir": {
 			"name": "camel.sink.endpoint.workingDir",
 			"description": "The directory in which the command should be executed. If null, the working directory of the current process will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

@@ -11,7 +11,6 @@
 		"camel.sink.path.url": {
 			"name": "camel.sink.path.url",
 			"description": "Url to the SAP net-weaver gateway server.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.flatternMap": {
@@ -41,13 +40,11 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Password for account.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Username for account.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

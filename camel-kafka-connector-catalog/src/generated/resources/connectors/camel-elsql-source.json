@@ -11,13 +11,11 @@
 		"camel.source.path.elsqlName": {
 			"name": "camel.source.path.elsqlName",
 			"description": "The name of the elsql to use (is NAMED in the elsql file)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.resourceUri": {
 			"name": "camel.source.path.resourceUri",
 			"description": "The resource file which contains the elsql SQL statements to use. You can specify multiple resources separated by comma. The resources are loaded on the classpath by default, you can prefix with file: to load from file system. Notice you can set this option on the component and then you do not have to configure this on the endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.allowNamedParameters": {
@@ -29,31 +27,26 @@
 		"camel.source.endpoint.databaseVendor": {
 			"name": "camel.source.endpoint.databaseVendor",
 			"description": "To use a vendor specific com.opengamma.elsql.ElSqlConfig One of: [Default] [Postgres] [HSql] [MySql] [Oracle] [SqlServer2008] [Veritca]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.dataSource": {
 			"name": "camel.source.endpoint.dataSource",
 			"description": "Sets the DataSource to use to communicate with the database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.dataSourceRef": {
 			"name": "camel.source.endpoint.dataSourceRef",
 			"description": "Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database.",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.source.endpoint.outputClass": {
 			"name": "camel.source.endpoint.outputClass",
 			"description": "Specify the full package and class name to use as conversion when outputType=SelectOne.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.outputHeader": {
 			"name": "camel.source.endpoint.outputHeader",
 			"description": "Store the query result in a header instead of the message body. By default, outputHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If outputHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.outputType": {
@@ -89,25 +82,21 @@
 		"camel.source.endpoint.maxMessagesPerPoll": {
 			"name": "camel.source.endpoint.maxMessagesPerPoll",
 			"description": "Sets the maximum number of messages to poll",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.onConsume": {
 			"name": "camel.source.endpoint.onConsume",
 			"description": "After processing each row then this query can be executed, if the Exchange was processed successfully, for example to mark the row as processed. The query can have parameter.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.onConsumeBatchComplete": {
 			"name": "camel.source.endpoint.onConsumeBatchComplete",
 			"description": "After processing the entire batch, this query can be executed to bulk update rows etc. The query cannot have parameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.onConsumeFailed": {
 			"name": "camel.source.endpoint.onConsumeFailed",
 			"description": "After processing each row then this query can be executed, if the Exchange failed, for example to mark the row as failed. The query can have parameter.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.routeEmptyResultSet": {
@@ -137,25 +126,21 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.processingStrategy": {
 			"name": "camel.source.endpoint.processingStrategy",
 			"description": "Allows to plugin to use a custom org.apache.camel.component.sql.SqlProcessingStrategy to execute queries when the consumer has processed the rows\/batch.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.alwaysPopulateStatement": {
@@ -173,13 +158,11 @@
 		"camel.source.endpoint.elSqlConfig": {
 			"name": "camel.source.endpoint.elSqlConfig",
 			"description": "To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.parametersCount": {
 			"name": "camel.source.endpoint.parametersCount",
 			"description": "If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.placeholder": {
@@ -191,7 +174,6 @@
 		"camel.source.endpoint.prepareStatementStrategy": {
 			"name": "camel.source.endpoint.prepareStatementStrategy",
 			"description": "Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.synchronous": {
@@ -203,7 +185,6 @@
 		"camel.source.endpoint.templateOptions": {
 			"name": "camel.source.endpoint.templateOptions",
 			"description": "Configures the Spring JdbcTemplate with the key\/values from the Map",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.usePlaceholder": {
@@ -215,19 +196,16 @@
 		"camel.source.endpoint.backoffErrorThreshold": {
 			"name": "camel.source.endpoint.backoffErrorThreshold",
 			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffIdleThreshold": {
 			"name": "camel.source.endpoint.backoffIdleThreshold",
 			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffMultiplier": {
 			"name": "camel.source.endpoint.backoffMultiplier",
 			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.delay": {
@@ -263,7 +241,6 @@
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
 			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.scheduler": {
@@ -275,7 +252,6 @@
 		"camel.source.endpoint.schedulerProperties": {
 			"name": "camel.source.endpoint.schedulerProperties",
 			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startScheduler": {
@@ -299,19 +275,16 @@
 		"camel.component.elsql.databaseVendor": {
 			"name": "camel.component.elsql.databaseVendor",
 			"description": "To use a vendor specific com.opengamma.elsql.ElSqlConfig One of: [Default] [Postgres] [HSql] [MySql] [Oracle] [SqlServer2008] [Veritca]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elsql.dataSource": {
 			"name": "camel.component.elsql.dataSource",
 			"description": "Sets the DataSource to use to communicate with the database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elsql.resourceUri": {
 			"name": "camel.component.elsql.resourceUri",
 			"description": "The resource file which contains the elsql SQL statements to use. You can specify multiple resources separated by comma. The resources are loaded on the classpath by default, you can prefix with file: to load from file system. Notice you can set this option on the component and then you do not have to configure this on the endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elsql.bridgeErrorHandler": {
@@ -329,7 +302,6 @@
 		"camel.component.elsql.elSqlConfig": {
 			"name": "camel.component.elsql.elSqlConfig",
 			"description": "To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

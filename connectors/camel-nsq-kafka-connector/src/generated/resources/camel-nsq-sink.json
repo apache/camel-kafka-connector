@@ -11,19 +11,16 @@
 		"camel.sink.path.topic": {
 			"name": "camel.sink.path.topic",
 			"description": "The NSQ topic",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.servers": {
 			"name": "camel.sink.endpoint.servers",
 			"description": "The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.userAgent": {
 			"name": "camel.sink.endpoint.userAgent",
 			"description": "A String to identify the kind of client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,13 +56,11 @@
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.nsq.servers": {
 			"name": "camel.component.nsq.servers",
 			"description": "The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.nsq.lazyStartProducer": {

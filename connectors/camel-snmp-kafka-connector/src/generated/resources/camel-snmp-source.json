@@ -11,19 +11,16 @@
 		"camel.source.path.host": {
 			"name": "camel.source.path.host",
 			"description": "Hostname of the SNMP enabled device",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "Port number of the SNMP enabled device",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.oids": {
 			"name": "camel.source.endpoint.oids",
 			"description": "Defines which values you are interested in. Please have a look at the Wikipedia to get a better understanding. You may provide a single OID or a coma separated list of OIDs. Example: oids=1.3.6.1.2.1.1.3.0,1.3.6.1.2.1.25.3.2.1.5.1,1.3.6.1.2.1.25.3.5.1.1.1,1.3.6.1.2.1.43.5.1.1.11.1",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.protocol": {
@@ -47,13 +44,11 @@
 		"camel.source.endpoint.snmpContextEngineId": {
 			"name": "camel.source.endpoint.snmpContextEngineId",
 			"description": "Sets the context engine ID field of the scoped PDU.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.snmpContextName": {
 			"name": "camel.source.endpoint.snmpContextName",
 			"description": "Sets the context name field of this scoped PDU.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.snmpVersion": {
@@ -71,7 +66,6 @@
 		"camel.source.endpoint.type": {
 			"name": "camel.source.endpoint.type",
 			"description": "Which operation to perform such as poll, trap, etc. One of: [TRAP] [POLL] [GET_NEXT]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -101,19 +95,16 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -131,19 +122,16 @@
 		"camel.source.endpoint.backoffErrorThreshold": {
 			"name": "camel.source.endpoint.backoffErrorThreshold",
 			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffIdleThreshold": {
 			"name": "camel.source.endpoint.backoffIdleThreshold",
 			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffMultiplier": {
 			"name": "camel.source.endpoint.backoffMultiplier",
 			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.greedy": {
@@ -173,7 +161,6 @@
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
 			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.scheduler": {
@@ -185,7 +172,6 @@
 		"camel.source.endpoint.schedulerProperties": {
 			"name": "camel.source.endpoint.schedulerProperties",
 			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startScheduler": {
@@ -209,25 +195,21 @@
 		"camel.source.endpoint.authenticationPassphrase": {
 			"name": "camel.source.endpoint.authenticationPassphrase",
 			"description": "The authentication passphrase. If not null, authenticationProtocol must also be not null. RFC3414 11.2 requires passphrases to have a minimum length of 8 bytes. If the length of authenticationPassphrase is less than 8 bytes an IllegalArgumentException is thrown.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.authenticationProtocol": {
 			"name": "camel.source.endpoint.authenticationProtocol",
 			"description": "Authentication protocol to use if security level is set to enable authentication The possible values are: MD5, SHA1 One of: [MD5] [SHA1]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.privacyPassphrase": {
 			"name": "camel.source.endpoint.privacyPassphrase",
 			"description": "The privacy passphrase. If not null, privacyProtocol must also be not null. RFC3414 11.2 requires passphrases to have a minimum length of 8 bytes. If the length of authenticationPassphrase is less than 8 bytes an IllegalArgumentException is thrown.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.privacyProtocol": {
 			"name": "camel.source.endpoint.privacyProtocol",
 			"description": "The privacy protocol ID to be associated with this user. If set to null, this user only supports unencrypted messages.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.securityLevel": {
@@ -239,7 +221,6 @@
 		"camel.source.endpoint.securityName": {
 			"name": "camel.source.endpoint.securityName",
 			"description": "Sets the security name to be used with this target.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.snmp.bridgeErrorHandler": {

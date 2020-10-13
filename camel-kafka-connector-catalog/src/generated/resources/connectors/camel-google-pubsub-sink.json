@@ -11,13 +11,11 @@
 		"camel.sink.path.projectId": {
 			"name": "camel.sink.path.projectId",
 			"description": "Project Id",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.destinationName": {
 			"name": "camel.sink.path.destinationName",
 			"description": "Destination Name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.ackMode": {
@@ -35,7 +33,6 @@
 		"camel.sink.endpoint.loggerId": {
 			"name": "camel.sink.endpoint.loggerId",
 			"description": "Logger ID to use when a match to the parent route required",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.maxMessagesPerPoll": {
@@ -71,7 +68,6 @@
 		"camel.component.google-pubsub.endpoint": {
 			"name": "camel.component.google-pubsub.endpoint",
 			"description": "Endpoint to use with local Pub\/Sub emulator.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-pubsub.lazyStartProducer": {
@@ -83,13 +79,11 @@
 		"camel.component.google-pubsub.publisherCacheSize": {
 			"name": "camel.component.google-pubsub.publisherCacheSize",
 			"description": "Maximum number of producers to cache. This could be increased if you have producers for lots of different topics.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-pubsub.publisherCacheTimeout": {
 			"name": "camel.component.google-pubsub.publisherCacheTimeout",
 			"description": "How many milliseconds should each producer stay alive in the cache.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-pubsub.basicPropertyBinding": {
@@ -101,7 +95,6 @@
 		"camel.component.google-pubsub.publisherTerminationTimeout": {
 			"name": "camel.component.google-pubsub.publisherTerminationTimeout",
 			"description": "How many milliseconds should a producer be allowed to terminate.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

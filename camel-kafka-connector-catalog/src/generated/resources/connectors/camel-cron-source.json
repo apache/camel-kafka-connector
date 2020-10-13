@@ -11,7 +11,6 @@
 		"camel.source.path.name": {
 			"name": "camel.source.path.name",
 			"description": "The name of the cron trigger",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -23,19 +22,16 @@
 		"camel.source.endpoint.schedule": {
 			"name": "camel.source.endpoint.schedule",
 			"description": "A cron expression that will be used to generate events",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -65,7 +61,6 @@
 		"camel.component.cron.cronService": {
 			"name": "camel.component.cron.cronService",
 			"description": "The id of the CamelCronService to use when multiple implementations are provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

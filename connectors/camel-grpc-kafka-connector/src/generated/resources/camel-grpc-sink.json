@@ -11,19 +11,16 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "The gRPC server host name. This is localhost or 0.0.0.0 when being a consumer or remote server host name when using producer.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "The gRPC local or remote server port",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.service": {
 			"name": "camel.sink.path.service",
 			"description": "Fully qualified service name from the protocol buffer descriptor file (package dot service definition name)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.flowControlWindow": {
@@ -47,7 +44,6 @@
 		"camel.sink.endpoint.method": {
 			"name": "camel.sink.endpoint.method",
 			"description": "gRPC method name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.producerStrategy": {
@@ -59,13 +55,11 @@
 		"camel.sink.endpoint.streamRepliesTo": {
 			"name": "camel.sink.endpoint.streamRepliesTo",
 			"description": "When using STREAMING client mode, it indicates the endpoint where responses should be forwarded.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.userAgent": {
 			"name": "camel.sink.endpoint.userAgent",
 			"description": "The user agent header passed to the server",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -95,37 +89,31 @@
 		"camel.sink.endpoint.jwtIssuer": {
 			"name": "camel.sink.endpoint.jwtIssuer",
 			"description": "JSON Web Token issuer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.jwtSecret": {
 			"name": "camel.sink.endpoint.jwtSecret",
 			"description": "JSON Web Token secret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.jwtSubject": {
 			"name": "camel.sink.endpoint.jwtSubject",
 			"description": "JSON Web Token subject",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyCertChainResource": {
 			"name": "camel.sink.endpoint.keyCertChainResource",
 			"description": "The X.509 certificate chain file resource in PEM format link",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyPassword": {
 			"name": "camel.sink.endpoint.keyPassword",
 			"description": "The PKCS#8 private key file password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyResource": {
 			"name": "camel.sink.endpoint.keyResource",
 			"description": "The PKCS#8 private key file resource in PEM format link",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.negotiationType": {
@@ -137,13 +125,11 @@
 		"camel.sink.endpoint.serviceAccountResource": {
 			"name": "camel.sink.endpoint.serviceAccountResource",
 			"description": "Service Account key file in JSON format resource link supported by the Google Cloud SDK",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustCertCollectionResource": {
 			"name": "camel.sink.endpoint.trustCertCollectionResource",
 			"description": "The trusted certificates collection file resource in PEM format for verifying the remote endpoint's certificate",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.grpc.lazyStartProducer": {

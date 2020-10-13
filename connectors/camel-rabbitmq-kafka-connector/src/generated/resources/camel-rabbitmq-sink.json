@@ -11,13 +11,11 @@
 		"camel.sink.path.exchangeName": {
 			"name": "camel.sink.path.exchangeName",
 			"description": "The exchange name determines the exchange to which the produced messages will be sent to. In the case of consumers, the exchange name determines the exchange the queue will be bound to.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.addresses": {
 			"name": "camel.sink.endpoint.addresses",
 			"description": "If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses. The addresses value is a string which looks like server1:12345, server2:12345",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoDelete": {
@@ -35,13 +33,11 @@
 		"camel.sink.endpoint.connectionFactory": {
 			"name": "camel.sink.endpoint.connectionFactory",
 			"description": "To use a custom RabbitMQ connection factory. When this option is set, all connection options (connectionTimeout, requestedChannelMax...) set on URI are not used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.deadLetterExchange": {
 			"name": "camel.sink.endpoint.deadLetterExchange",
 			"description": "The name of the dead letter exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.deadLetterExchangeType": {
@@ -53,13 +49,11 @@
 		"camel.sink.endpoint.deadLetterQueue": {
 			"name": "camel.sink.endpoint.deadLetterQueue",
 			"description": "The name of the dead letter queue",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.deadLetterRoutingKey": {
 			"name": "camel.sink.endpoint.deadLetterRoutingKey",
 			"description": "The routing key for the dead letter exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.declare": {
@@ -89,7 +83,6 @@
 		"camel.sink.endpoint.hostname": {
 			"name": "camel.sink.endpoint.hostname",
 			"description": "The hostname of the running rabbitmq instance or cluster.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.passive": {
@@ -101,19 +94,16 @@
 		"camel.sink.endpoint.portNumber": {
 			"name": "camel.sink.endpoint.portNumber",
 			"description": "Port number for the host with the running rabbitmq instance or cluster. Default value is 5672.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.queue": {
 			"name": "camel.sink.endpoint.queue",
 			"description": "The queue to receive messages from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.routingKey": {
 			"name": "camel.sink.endpoint.routingKey",
 			"description": "The routing key to use when binding a consumer queue to the exchange. For producer routing keys, you set the header rabbitmq.ROUTING_KEY.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.skipDlqDeclare": {
@@ -209,13 +199,11 @@
 		"camel.sink.endpoint.publisherAcknowledgementsTimeout": {
 			"name": "camel.sink.endpoint.publisherAcknowledgementsTimeout",
 			"description": "The amount of time in milliseconds to wait for a basic.ack response from RabbitMQ server",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.args": {
 			"name": "camel.sink.endpoint.args",
 			"description": "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ binding: arg.dlq.binding. For example to declare a queue with message ttl argument: http:\/\/localhost:5672\/exchange\/queueargs=arg.queue.x-message-ttl=60000",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -227,13 +215,11 @@
 		"camel.sink.endpoint.clientProperties": {
 			"name": "camel.sink.endpoint.clientProperties",
 			"description": "Connection client properties (client info used in negotiating with the server)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.connectionFactoryExceptionHandler": {
 			"name": "camel.sink.endpoint.connectionFactoryExceptionHandler",
 			"description": "Custom rabbitmq ExceptionHandler for ConnectionFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.connectionTimeout": {
@@ -287,7 +273,6 @@
 		"camel.sink.endpoint.topologyRecoveryEnabled": {
 			"name": "camel.sink.endpoint.topologyRecoveryEnabled",
 			"description": "Enables connection topology recovery (should topology recovery be performed)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.transferException": {
@@ -311,13 +296,11 @@
 		"camel.sink.endpoint.sslProtocol": {
 			"name": "camel.sink.endpoint.sslProtocol",
 			"description": "Enables SSL on connection, accepted value are true, TLS and 'SSLv3",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustManager": {
 			"name": "camel.sink.endpoint.trustManager",
 			"description": "Configure SSL trust manager, SSL should be enabled for this option to be effective",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
@@ -329,7 +312,6 @@
 		"camel.component.rabbitmq.addresses": {
 			"name": "camel.component.rabbitmq.addresses",
 			"description": "If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses. The addresses value is a string which looks like server1:12345, server2:12345",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.autoDelete": {
@@ -341,13 +323,11 @@
 		"camel.component.rabbitmq.connectionFactory": {
 			"name": "camel.component.rabbitmq.connectionFactory",
 			"description": "To use a custom RabbitMQ connection factory. When this option is set, all connection options (connectionTimeout, requestedChannelMax...) set on URI are not used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.deadLetterExchange": {
 			"name": "camel.component.rabbitmq.deadLetterExchange",
 			"description": "The name of the dead letter exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.deadLetterExchangeType": {
@@ -359,13 +339,11 @@
 		"camel.component.rabbitmq.deadLetterQueue": {
 			"name": "camel.component.rabbitmq.deadLetterQueue",
 			"description": "The name of the dead letter queue",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.deadLetterRoutingKey": {
 			"name": "camel.component.rabbitmq.deadLetterRoutingKey",
 			"description": "The routing key for the dead letter exchange",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.declare": {
@@ -389,7 +367,6 @@
 		"camel.component.rabbitmq.hostname": {
 			"name": "camel.component.rabbitmq.hostname",
 			"description": "The hostname of the running RabbitMQ instance or cluster.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.passive": {
@@ -479,13 +456,11 @@
 		"camel.component.rabbitmq.publisherAcknowledgementsTimeout": {
 			"name": "camel.component.rabbitmq.publisherAcknowledgementsTimeout",
 			"description": "The amount of time in milliseconds to wait for a basic.ack response from RabbitMQ server",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.args": {
 			"name": "camel.component.rabbitmq.args",
 			"description": "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ Binding: arg.dlq.binding. For example to declare a queue with message ttl argument: http:\/\/localhost:5672\/exchange\/queueargs=arg.queue.x-message-ttl=60000",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.autoDetectConnectionFactory": {
@@ -497,7 +472,6 @@
 		"camel.component.rabbitmq.automaticRecoveryEnabled": {
 			"name": "camel.component.rabbitmq.automaticRecoveryEnabled",
 			"description": "Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.basicPropertyBinding": {
@@ -509,13 +483,11 @@
 		"camel.component.rabbitmq.clientProperties": {
 			"name": "camel.component.rabbitmq.clientProperties",
 			"description": "Connection client properties (client info used in negotiating with the server)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.connectionFactoryExceptionHandler": {
 			"name": "camel.component.rabbitmq.connectionFactoryExceptionHandler",
 			"description": "Custom rabbitmq ExceptionHandler for ConnectionFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.connectionTimeout": {
@@ -563,7 +535,6 @@
 		"camel.component.rabbitmq.topologyRecoveryEnabled": {
 			"name": "camel.component.rabbitmq.topologyRecoveryEnabled",
 			"description": "Enables connection topology recovery (should topology recovery be performed)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.transferException": {
@@ -581,13 +552,11 @@
 		"camel.component.rabbitmq.sslProtocol": {
 			"name": "camel.component.rabbitmq.sslProtocol",
 			"description": "Enables SSL on connection, accepted value are true, TLS and 'SSLv3",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.trustManager": {
 			"name": "camel.component.rabbitmq.trustManager",
 			"description": "Configure SSL trust manager, SSL should be enabled for this option to be effective",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rabbitmq.username": {

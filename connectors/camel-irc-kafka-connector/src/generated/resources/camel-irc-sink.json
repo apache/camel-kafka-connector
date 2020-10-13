@@ -11,13 +11,11 @@
 		"camel.sink.path.hostname": {
 			"name": "camel.sink.path.hostname",
 			"description": "Hostname for the IRC chat server",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port number for the IRC chat server. If no port is configured then a default port of either 6667, 6668 or 6669 is used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoRejoin": {
@@ -29,7 +27,6 @@
 		"camel.sink.endpoint.channels": {
 			"name": "camel.sink.endpoint.channels",
 			"description": "Comma separated list of IRC channels.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.commandTimeout": {
@@ -41,7 +38,6 @@
 		"camel.sink.endpoint.keys": {
 			"name": "camel.sink.endpoint.keys",
 			"description": "Comma separated list of keys for channels.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.namesOnJoin": {
@@ -53,7 +49,6 @@
 		"camel.sink.endpoint.nickname": {
 			"name": "camel.sink.endpoint.nickname",
 			"description": "The nickname used in chat.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.persistent": {
@@ -65,7 +60,6 @@
 		"camel.sink.endpoint.realname": {
 			"name": "camel.sink.endpoint.realname",
 			"description": "The IRC user's actual name.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -149,31 +143,26 @@
 		"camel.sink.endpoint.nickPassword": {
 			"name": "camel.sink.endpoint.nickPassword",
 			"description": "Your IRC server nickname password.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The IRC server password.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "Used for configuring security using SSL. Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. Note that this setting overrides the trustManager option.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustManager": {
 			"name": "camel.sink.endpoint.trustManager",
 			"description": "The trust manager used to verify the SSL server's certificate.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "The IRC server user name.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.irc.lazyStartProducer": {

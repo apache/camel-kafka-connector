@@ -11,7 +11,6 @@
 		"camel.sink.path.topic": {
 			"name": "camel.sink.path.topic",
 			"description": "The topic name.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue": {
@@ -29,7 +28,6 @@
 		"camel.sink.endpoint.clusterGroupExpression": {
 			"name": "camel.sink.endpoint.clusterGroupExpression",
 			"description": "The cluster group expression.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,7 +45,6 @@
 		"camel.sink.endpoint.timeout": {
 			"name": "camel.sink.endpoint.timeout",
 			"description": "The timeout for the send operation when using ordered messages.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -65,19 +62,16 @@
 		"camel.component.ignite-messaging.configurationResource": {
 			"name": "camel.component.ignite-messaging.configurationResource",
 			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-messaging.ignite": {
 			"name": "camel.component.ignite-messaging.ignite",
 			"description": "To use an existing Ignite instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-messaging.igniteConfiguration": {
 			"name": "camel.component.ignite-messaging.igniteConfiguration",
 			"description": "Allows the user to set a programmatic ignite configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-messaging.lazyStartProducer": {

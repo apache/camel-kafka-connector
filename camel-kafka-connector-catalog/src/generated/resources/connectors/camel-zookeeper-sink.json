@@ -11,13 +11,11 @@
 		"camel.sink.path.serverUrls": {
 			"name": "camel.sink.path.serverUrls",
 			"description": "The zookeeper server hosts (multiple servers can be separated by comma)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
 			"description": "The node in the ZooKeeper server (aka znode)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.listChildren": {
@@ -101,7 +99,6 @@
 		"camel.component.zookeeper.configuration": {
 			"name": "camel.component.zookeeper.configuration",
 			"description": "To use a shared ZooKeeperConfiguration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

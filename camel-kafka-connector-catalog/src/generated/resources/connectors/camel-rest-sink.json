@@ -11,67 +11,56 @@
 		"camel.sink.path.method": {
 			"name": "camel.sink.path.method",
 			"description": "HTTP method to use. One of: [get] [post] [put] [delete] [patch] [head] [trace] [connect] [options]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
 			"description": "The base path",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.uriTemplate": {
 			"name": "camel.sink.path.uriTemplate",
 			"description": "The uri template",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.consumes": {
 			"name": "camel.sink.endpoint.consumes",
 			"description": "Media type such as: 'text\/xml', or 'application\/json' this REST service accepts. By default we accept all kinds of types.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.inType": {
 			"name": "camel.sink.endpoint.inType",
 			"description": "To declare the incoming POJO binding type as a FQN class name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.outType": {
 			"name": "camel.sink.endpoint.outType",
 			"description": "To declare the outgoing POJO binding type as a FQN class name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.produces": {
 			"name": "camel.sink.endpoint.produces",
 			"description": "Media type such as: 'text\/xml', or 'application\/json' this REST service returns.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.routeId": {
 			"name": "camel.sink.endpoint.routeId",
 			"description": "Name of the route this REST services creates",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.apiDoc": {
 			"name": "camel.sink.endpoint.apiDoc",
 			"description": "The openapi api doc resource to use. The resource is loaded from classpath by default and must be in JSON format.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.bindingMode": {
 			"name": "camel.sink.endpoint.bindingMode",
 			"description": "Configures the binding mode for the producer. If set to anything other than 'off' the producer will try to convert the body of the incoming message from inType to the json or xml, and the response from json or xml to outType. One of: [auto] [off] [json] [xml] [json_xml]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.host": {
 			"name": "camel.sink.endpoint.host",
 			"description": "Host and port of HTTP service to use (override host in openapi schema)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -83,13 +72,11 @@
 		"camel.sink.endpoint.producerComponentName": {
 			"name": "camel.sink.endpoint.producerComponentName",
 			"description": "The Camel Rest component to use for (producer) the REST transport, such as http, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory is registered in the registry. If either one is found, then that is being used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.queryParameters": {
 			"name": "camel.sink.endpoint.queryParameters",
 			"description": "Query parameters for the HTTP service to call. The query parameters can contain multiple parameters separated by ampersand such such as foo=123&bar=456.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -107,19 +94,16 @@
 		"camel.component.rest.apiDoc": {
 			"name": "camel.component.rest.apiDoc",
 			"description": "The swagger api doc resource to use. The resource is loaded from classpath by default and must be in JSON format.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rest.componentName": {
 			"name": "camel.component.rest.componentName",
 			"description": "The Camel Rest component to use for (producer) the REST transport, such as http, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory is registered in the registry. If either one is found, then that is being used.",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.component.rest.host": {
 			"name": "camel.component.rest.host",
 			"description": "Host and port of HTTP service to use (override host in swagger schema)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rest.lazyStartProducer": {
@@ -131,7 +115,6 @@
 		"camel.component.rest.producerComponentName": {
 			"name": "camel.component.rest.producerComponentName",
 			"description": "The Camel Rest component to use for (producer) the REST transport, such as http, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory is registered in the registry. If either one is found, then that is being used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.rest.basicPropertyBinding": {

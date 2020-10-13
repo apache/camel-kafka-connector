@@ -11,7 +11,6 @@
 		"camel.source.path.configurationName": {
 			"name": "camel.source.path.configurationName",
 			"description": "The configFile is the name of the QuickFIX\/J configuration to use for the FIX engine (located as a resource found in your classpath).",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.lazyCreateEngine": {
@@ -23,7 +22,6 @@
 		"camel.source.endpoint.sessionID": {
 			"name": "camel.source.endpoint.sessionID",
 			"description": "The optional sessionID identifies a specific FIX session. The format of the sessionID is: (BeginString):(SenderCompID)\/(SenderSubID)\/(SenderLocationID)-(TargetCompID)\/(TargetSubID)\/(TargetLocationID)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -35,13 +33,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -77,19 +73,16 @@
 		"camel.component.quickfix.logFactory": {
 			"name": "camel.component.quickfix.logFactory",
 			"description": "To use the given LogFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quickfix.messageFactory": {
 			"name": "camel.component.quickfix.messageFactory",
 			"description": "To use the given MessageFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quickfix.messageStoreFactory": {
 			"name": "camel.component.quickfix.messageStoreFactory",
 			"description": "To use the given MessageStoreFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

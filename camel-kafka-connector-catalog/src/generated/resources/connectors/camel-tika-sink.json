@@ -11,7 +11,6 @@
 		"camel.sink.path.operation": {
 			"name": "camel.sink.path.operation",
 			"description": "Operation type One of: [parse] [detect]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -23,19 +22,16 @@
 		"camel.sink.endpoint.tikaConfig": {
 			"name": "camel.sink.endpoint.tikaConfig",
 			"description": "Tika Config",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tikaConfigUri": {
 			"name": "camel.sink.endpoint.tikaConfigUri",
 			"description": "Tika Config Url",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tikaParseOutputEncoding": {
 			"name": "camel.sink.endpoint.tikaParseOutputEncoding",
 			"description": "Tika Parse Output Encoding",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tikaParseOutputFormat": {

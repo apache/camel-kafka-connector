@@ -11,13 +11,11 @@
 		"camel.source.path.hostname": {
 			"name": "camel.source.path.hostname",
 			"description": "Hostname for the IRC chat server",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "Port number for the IRC chat server. If no port is configured then a default port of either 6667, 6668 or 6669 is used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.autoRejoin": {
@@ -29,7 +27,6 @@
 		"camel.source.endpoint.channels": {
 			"name": "camel.source.endpoint.channels",
 			"description": "Comma separated list of IRC channels.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.commandTimeout": {
@@ -41,7 +38,6 @@
 		"camel.source.endpoint.keys": {
 			"name": "camel.source.endpoint.keys",
 			"description": "Comma separated list of keys for channels.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.namesOnJoin": {
@@ -53,7 +49,6 @@
 		"camel.source.endpoint.nickname": {
 			"name": "camel.source.endpoint.nickname",
 			"description": "The nickname used in chat.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.persistent": {
@@ -65,7 +60,6 @@
 		"camel.source.endpoint.realname": {
 			"name": "camel.source.endpoint.realname",
 			"description": "The IRC user's actual name.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -77,13 +71,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -161,31 +153,26 @@
 		"camel.source.endpoint.nickPassword": {
 			"name": "camel.source.endpoint.nickPassword",
 			"description": "Your IRC server nickname password.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "The IRC server password.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "Used for configuring security using SSL. Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. Note that this setting overrides the trustManager option.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.trustManager": {
 			"name": "camel.source.endpoint.trustManager",
 			"description": "The trust manager used to verify the SSL server's certificate.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "The IRC server user name.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.irc.bridgeErrorHandler": {

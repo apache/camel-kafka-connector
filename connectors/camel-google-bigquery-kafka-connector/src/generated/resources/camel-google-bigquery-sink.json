@@ -11,25 +11,21 @@
 		"camel.sink.path.projectId": {
 			"name": "camel.sink.path.projectId",
 			"description": "Google Cloud Project Id",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.datasetId": {
 			"name": "camel.sink.path.datasetId",
 			"description": "BigQuery Dataset Id",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.tableId": {
 			"name": "camel.sink.path.tableId",
 			"description": "BigQuery table id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.connectionFactory": {
 			"name": "camel.sink.endpoint.connectionFactory",
 			"description": "ConnectionFactory to obtain connection to Bigquery Service. If non provided the default one will be used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -41,7 +37,6 @@
 		"camel.sink.endpoint.useAsInsertId": {
 			"name": "camel.sink.endpoint.useAsInsertId",
 			"description": "Field name to use as insert id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -59,13 +54,11 @@
 		"camel.component.google-bigquery.connectionFactory": {
 			"name": "camel.component.google-bigquery.connectionFactory",
 			"description": "ConnectionFactory to obtain connection to Bigquery Service. If non provided the default one will be used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-bigquery.datasetId": {
 			"name": "camel.component.google-bigquery.datasetId",
 			"description": "BigQuery Dataset Id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-bigquery.lazyStartProducer": {
@@ -77,7 +70,6 @@
 		"camel.component.google-bigquery.projectId": {
 			"name": "camel.component.google-bigquery.projectId",
 			"description": "Google Cloud Project Id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-bigquery.basicPropertyBinding": {

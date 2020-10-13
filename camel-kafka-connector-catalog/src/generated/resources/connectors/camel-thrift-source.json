@@ -11,19 +11,16 @@
 		"camel.source.path.host": {
 			"name": "camel.source.path.host",
 			"description": "The Thrift server host name. This is localhost or 0.0.0.0 (if not defined) when being a consumer or remote server host name when using producer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "The Thrift server port",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.service": {
 			"name": "camel.source.path.service",
 			"description": "Fully qualified service name from the thrift descriptor file (package dot service definition name)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.compressionType": {
@@ -47,7 +44,6 @@
 		"camel.source.endpoint.clientTimeout": {
 			"name": "camel.source.endpoint.clientTimeout",
 			"description": "Client timeout for consumers",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.maxPoolSize": {
@@ -65,13 +61,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -95,7 +89,6 @@
 		"camel.source.endpoint.sslParameters": {
 			"name": "camel.source.endpoint.sslParameters",
 			"description": "Configuration parameters for SSL\/TLS security negotiation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.thrift.bridgeErrorHandler": {

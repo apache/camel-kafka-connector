@@ -11,19 +11,16 @@
 		"camel.sink.path.channel": {
 			"name": "camel.sink.path.channel",
 			"description": "The channel name (syntax #name) or slackuser (syntax userName) to send a message directly to an user.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.iconEmoji": {
 			"name": "camel.sink.endpoint.iconEmoji",
 			"description": "Use a Slack emoji as an avatar",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.iconUrl": {
 			"name": "camel.sink.endpoint.iconUrl",
 			"description": "The avatar that the component will use when sending message to a channel or user.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -35,13 +32,11 @@
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "This is the username that the bot will have when sending messages to a channel or user.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.webhookUrl": {
 			"name": "camel.sink.endpoint.webhookUrl",
 			"description": "The incoming webhook URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -71,7 +66,6 @@
 		"camel.component.slack.webhookUrl": {
 			"name": "camel.component.slack.webhookUrl",
 			"description": "The incoming webhook URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

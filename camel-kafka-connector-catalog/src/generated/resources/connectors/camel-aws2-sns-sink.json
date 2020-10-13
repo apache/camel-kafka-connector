@@ -11,13 +11,11 @@
 		"camel.sink.path.topicNameOrArn": {
 			"name": "camel.sink.path.topicNameOrArn",
 			"description": "Topic name or ARN",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.amazonSNSClient": {
 			"name": "camel.sink.endpoint.amazonSNSClient",
 			"description": "To use the AmazonSNS as the client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoCreateTopic": {
@@ -35,13 +33,11 @@
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to map headers to\/from Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.kmsMasterKeyId": {
 			"name": "camel.sink.endpoint.kmsMasterKeyId",
 			"description": "The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -53,25 +49,21 @@
 		"camel.sink.endpoint.messageStructure": {
 			"name": "camel.sink.endpoint.messageStructure",
 			"description": "The message structure to use such as json",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.policy": {
 			"name": "camel.sink.endpoint.policy",
 			"description": "The policy for this queue",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the SNS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the SNS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -83,13 +75,11 @@
 		"camel.sink.endpoint.queueUrl": {
 			"name": "camel.sink.endpoint.queueUrl",
 			"description": "The queueUrl to subscribe to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which SNS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.serverSideEncryptionEnabled": {
@@ -101,7 +91,6 @@
 		"camel.sink.endpoint.subject": {
 			"name": "camel.sink.endpoint.subject",
 			"description": "The subject which is used if the message header 'CamelAwsSnsSubject' is not present.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.subscribeSNStoSQS": {
@@ -131,19 +120,16 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.amazonSNSClient": {
 			"name": "camel.component.aws2-sns.amazonSNSClient",
 			"description": "To use the AmazonSNS as the client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.autoCreateTopic": {
@@ -161,13 +147,11 @@
 		"camel.component.aws2-sns.configuration": {
 			"name": "camel.component.aws2-sns.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.kmsMasterKeyId": {
 			"name": "camel.component.aws2-sns.kmsMasterKeyId",
 			"description": "The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.lazyStartProducer": {
@@ -179,25 +163,21 @@
 		"camel.component.aws2-sns.messageStructure": {
 			"name": "camel.component.aws2-sns.messageStructure",
 			"description": "The message structure to use such as json",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.policy": {
 			"name": "camel.component.aws2-sns.policy",
 			"description": "The policy for this queue",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.proxyHost": {
 			"name": "camel.component.aws2-sns.proxyHost",
 			"description": "To define a proxy host when instantiating the SNS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.proxyPort": {
 			"name": "camel.component.aws2-sns.proxyPort",
 			"description": "To define a proxy port when instantiating the SNS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.proxyProtocol": {
@@ -209,13 +189,11 @@
 		"camel.component.aws2-sns.queueUrl": {
 			"name": "camel.component.aws2-sns.queueUrl",
 			"description": "The queueUrl to subscribe to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.region": {
 			"name": "camel.component.aws2-sns.region",
 			"description": "The region in which SNS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.serverSideEncryptionEnabled": {
@@ -227,7 +205,6 @@
 		"camel.component.aws2-sns.subject": {
 			"name": "camel.component.aws2-sns.subject",
 			"description": "The subject which is used if the message header 'CamelAwsSnsSubject' is not present.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.subscribeSNStoSQS": {
@@ -251,13 +228,11 @@
 		"camel.component.aws2-sns.accessKey": {
 			"name": "camel.component.aws2-sns.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-sns.secretKey": {
 			"name": "camel.component.aws2-sns.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

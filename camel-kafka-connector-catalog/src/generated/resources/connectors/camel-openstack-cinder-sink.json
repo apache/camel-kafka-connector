@@ -11,7 +11,6 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "OpenStack host url",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.apiVersion": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.config": {
 			"name": "camel.sink.endpoint.config",
 			"description": "OpenStack configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.domain": {
@@ -41,31 +39,26 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "OpenStack password",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.project": {
 			"name": "camel.sink.endpoint.project",
 			"description": "The project ID",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.subsystem": {
 			"name": "camel.sink.endpoint.subsystem",
 			"description": "OpenStack Cinder subsystem One of: [snapshots] [volumes]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "OpenStack username",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

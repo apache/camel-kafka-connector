@@ -11,7 +11,6 @@
 		"camel.sink.path.node": {
 			"name": "camel.sink.path.node",
 			"description": "The url for the corda node",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "Operation to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -41,19 +39,16 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Password for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Username for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.corda.configuration": {
 			"name": "camel.component.corda.configuration",
 			"description": "To use a shared configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.corda.lazyStartProducer": {
@@ -65,7 +60,6 @@
 		"camel.component.corda.operation": {
 			"name": "camel.component.corda.operation",
 			"description": "Operation to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.corda.basicPropertyBinding": {
@@ -77,13 +71,11 @@
 		"camel.component.corda.password": {
 			"name": "camel.component.corda.password",
 			"description": "Password for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.corda.username": {
 			"name": "camel.component.corda.username",
 			"description": "Username for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

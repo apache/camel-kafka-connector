@@ -11,7 +11,6 @@
 		"camel.source.path.endpointId": {
 			"name": "camel.source.path.endpointId",
 			"description": "The endpoint ID (not used).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -23,7 +22,6 @@
 		"camel.source.endpoint.clusterGroupExpression": {
 			"name": "camel.source.endpoint.clusterGroupExpression",
 			"description": "The cluster group expression.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.events": {
@@ -47,13 +45,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -77,19 +73,16 @@
 		"camel.component.ignite-events.configurationResource": {
 			"name": "camel.component.ignite-events.configurationResource",
 			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-events.ignite": {
 			"name": "camel.component.ignite-events.ignite",
 			"description": "To use an existing Ignite instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-events.igniteConfiguration": {
 			"name": "camel.component.ignite-events.igniteConfiguration",
 			"description": "Allows the user to set a programmatic ignite configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-events.basicPropertyBinding": {

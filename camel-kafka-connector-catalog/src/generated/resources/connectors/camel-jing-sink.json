@@ -11,7 +11,6 @@
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",
 			"description": "URL to a local resource on the classpath or a full URL to a remote resource or resource on the file system which contains the schema to validate against.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.compactSyntax": {

@@ -11,7 +11,6 @@
 		"camel.sink.path.query": {
 			"name": "camel.sink.path.query",
 			"description": "Sets the SQL query to perform. You can externalize the query by using file: or classpath: as prefix and specify the location of the file.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.allowNamedParameters": {
@@ -23,25 +22,21 @@
 		"camel.sink.endpoint.dataSource": {
 			"name": "camel.sink.endpoint.dataSource",
 			"description": "Sets the DataSource to use to communicate with the database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.dataSourceRef": {
 			"name": "camel.sink.endpoint.dataSourceRef",
 			"description": "Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database.",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.sink.endpoint.outputClass": {
 			"name": "camel.sink.endpoint.outputClass",
 			"description": "Specify the full package and class name to use as conversion when outputType=SelectOne.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.outputHeader": {
 			"name": "camel.sink.endpoint.outputHeader",
 			"description": "Store the query result in a header instead of the message body. By default, outputHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If outputHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.outputType": {
@@ -95,7 +90,6 @@
 		"camel.sink.endpoint.parametersCount": {
 			"name": "camel.sink.endpoint.parametersCount",
 			"description": "If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.placeholder": {
@@ -107,7 +101,6 @@
 		"camel.sink.endpoint.prepareStatementStrategy": {
 			"name": "camel.sink.endpoint.prepareStatementStrategy",
 			"description": "Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -119,7 +112,6 @@
 		"camel.sink.endpoint.templateOptions": {
 			"name": "camel.sink.endpoint.templateOptions",
 			"description": "Configures the Spring JdbcTemplate with the key\/values from the Map",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.usePlaceholder": {
@@ -131,7 +123,6 @@
 		"camel.component.sql.dataSource": {
 			"name": "camel.component.sql.dataSource",
 			"description": "Sets the DataSource to use to communicate with the database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sql.lazyStartProducer": {
