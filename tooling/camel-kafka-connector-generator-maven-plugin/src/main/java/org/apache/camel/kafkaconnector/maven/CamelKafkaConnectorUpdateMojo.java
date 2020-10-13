@@ -109,6 +109,13 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
 
     private static final Map<String, String> RESERVED_WORDS_SUBSTITUTION_MAP;
 
+    private static final String CONFIG_DEF_TYPE_STRING = "ConfigDef.Type.STRING";
+    private static final String CONFIG_DEF_IMPORTANCE_LOW = "ConfigDef.Importance.LOW";
+    private static final String CONFIG_DEF_IMPORTANCE_MEDIUM = "ConfigDef.Importance.MEDIUM";
+    private static final String CONFIG_DEF_IMPORTANCE_HIGH = "ConfigDef.Importance.HIGH";
+    private static final String CONFIG_DEF_IMPORTANCE_PREFIX = "ConfigDef.Importance.";
+    private static final String CONFIG_DEF_NO_DEFAULT_VALUE = "ConfigDef.NO_DEFAULT_VALUE";
+
     static {
         PRIMITIVE_TYPES_TO_CLASS_MAP = new HashMap<>();
         PRIMITIVE_TYPES_TO_CLASS_MAP.put("boolean", Boolean.class);
@@ -570,6 +577,8 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
         String changed = templateAutoConfigurationOptions(listOptions, getMainDepArtifactId(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList,
                                                           transformsList, aggregationStrategiesList);
+
+
         boolean updated = updateAutoConfigureOptions(docFile, changed);
         if (updated) {
             getLog().info("Updated doc file: " + docFile);
@@ -598,84 +607,79 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
     }
 
     private void addConnectorOptions(String sanitizedName, ConnectorType ct, JavaClass javaClass, Method confMethod, String propertyQualifier, String firstNamespace,
-                                     String secondNamespace, BaseOptionModel epo, List<CamelKafkaConnectorOptionModel> listOptions) {
-        String propertyName = epo.getName();
+                                     String secondNamespace, BaseOptionModel baseOptionModel, List<CamelKafkaConnectorOptionModel> listOptions) {
+        String propertyName = baseOptionModel.getName();
 
         String regex = "([A-Z][a-z]+)";
         String replacement = "$1_";
 
         String propertyPrefix = "CAMEL_" + ct + "_" + sanitizedName.replace("-", "").toUpperCase() + "_" + propertyQualifier.toUpperCase() + "_"
                                 + StringUtils.capitalize(propertyName).replaceAll(regex, replacement).toUpperCase();
-        String propertyValue = "camel." + firstNamespace + "." + secondNamespace + "." + epo.getName();
+        String propertyValue = "camel." + firstNamespace + "." + secondNamespace + "." + baseOptionModel.getName();
 
         String confFieldName = propertyPrefix + "CONF";
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(confFieldName).setType(String.class).setStringInitializer(propertyValue);
 
         String docFieldName = propertyPrefix + "DOC";
-        String docLiteralInitializer = epo.getDescription();
-        if (epo.getEnums() != null && !epo.getEnums().isEmpty()) {
+        String docLiteralInitializer = baseOptionModel.getDescription();
+        if (baseOptionModel.getEnums() != null && !baseOptionModel.getEnums().isEmpty()) {
             docLiteralInitializer = docLiteralInitializer + " One of:";
-            String enumOptionListing = epo.getEnums().stream().reduce("", (s, s2) -> s + " [" + s2 + "]");
+            String enumOptionListing = baseOptionModel.getEnums().stream().reduce("", (s, s2) -> s + " [" + s2 + "]");
             docLiteralInitializer = docLiteralInitializer + enumOptionListing;
         }
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(docFieldName).setType(String.class).setStringInitializer(docLiteralInitializer);
 
         String defaultFieldName = propertyPrefix + "DEFAULT";
-        Class<?> defaultValueClass = PRIMITIVE_TYPES_TO_CLASS_MAP.getOrDefault(epo.getShortJavaType(), String.class);
-        String type = epo.getType();
-        String defaultValueClassLiteralInitializer = epo.getDefaultValue() == null ? "null" : epo.getDefaultValue().toString();
-        if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(String.class)) {
-            defaultValueClassLiteralInitializer = "\"" + defaultValueClassLiteralInitializer + "\"";
-        } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Long.class)) {
-            if (!type.equalsIgnoreCase("duration")) {
-                defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "L";
-            } else {
-                if (defaultValueClassLiteralInitializer.endsWith("ms")) {
-                    defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer, "ms") + "L";
-                } else {
-                    defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "L";
+        Class<?> defaultValueClass = PRIMITIVE_TYPES_TO_CLASS_MAP.getOrDefault(baseOptionModel.getShortJavaType(), String.class);
+        String type = baseOptionModel.getType();
+
+        String defaultValueClassLiteralInitializer;
+        if (baseOptionModel.getDefaultValue() == null) {
+            //Handling null default camel options values (that means there is no default value).
+            defaultValueClassLiteralInitializer = "null";
+        } else {
+            defaultValueClassLiteralInitializer = baseOptionModel.getDefaultValue().toString();
+            if (defaultValueClass.equals(String.class)) {
+                defaultValueClassLiteralInitializer = "\"" + defaultValueClassLiteralInitializer + "\"";
+            }
+
+            if (defaultValueClass.equals(Long.class) || defaultValueClass.equals(Integer.class) || defaultValueClass.equals(int.class)) {
+                if (type.equalsIgnoreCase("duration")) {
+                    if (defaultValueClassLiteralInitializer.endsWith("ms")) {
+                        defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer, "ms");
+                    } else {
+                        defaultValueClassLiteralInitializer = Long.toString(TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer));
+                    }
+                }
+
+                if (defaultValueClass.equals(Long.class) && !defaultValueClassLiteralInitializer.endsWith("L")) {
+                    defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "L";
                 }
             }
-        } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Integer.class)) {
-            if (!type.equalsIgnoreCase("duration")) {
-                defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "";
-            } else {
-                if (defaultValueClassLiteralInitializer.endsWith("ms")) {
-                    defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer, "ms") + "";
-                } else {
-                    defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "";
-                }
+
+            if (defaultValueClass.equals(Float.class)) {
+                defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "F";
             }
-        } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(int.class)) {
-            if (!type.equalsIgnoreCase("duration")) {
-                defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "";
-            } else {
-                if (defaultValueClassLiteralInitializer.endsWith("ms")) {
-                    defaultValueClassLiteralInitializer = StringUtils.removeEnd(defaultValueClassLiteralInitializer, "ms") + "";
-                } else {
-                    defaultValueClassLiteralInitializer = TimeUtils.toMilliSeconds(defaultValueClassLiteralInitializer) + "";
-                }
+
+            if (defaultValueClass.equals(Double.class)) {
+                defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "D";
             }
-        } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Float.class)) {
-            defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "F";
-        } else if (!defaultValueClassLiteralInitializer.equals("null") && defaultValueClass.equals(Double.class)) {
-            defaultValueClassLiteralInitializer = defaultValueClassLiteralInitializer + "D";
         }
+
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(defaultFieldName).setType(defaultValueClass)
             .setLiteralInitializer(defaultValueClassLiteralInitializer);
 
-        String confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(epo.getShortJavaType(), "ConfigDef.Type.STRING");
-        String confPriority = epo.isDeprecated() ? "ConfigDef.Importance.LOW" : "ConfigDef.Importance.MEDIUM";
-        confPriority = epo.isRequired() ? "ConfigDef.Importance.HIGH" : confPriority;
+        String confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(baseOptionModel.getShortJavaType(), CONFIG_DEF_TYPE_STRING);
+        String confPriority = baseOptionModel.isDeprecated() ? CONFIG_DEF_IMPORTANCE_LOW : CONFIG_DEF_IMPORTANCE_MEDIUM;
+        confPriority = baseOptionModel.isRequired() ? CONFIG_DEF_IMPORTANCE_HIGH : confPriority;
         confMethod.setBody(confMethod.getBody() + "conf.define(" + confFieldName + ", " + confType + ", " + defaultFieldName + ", " + confPriority + ", " + docFieldName + ");\n");
 
         CamelKafkaConnectorOptionModel optionModel = new CamelKafkaConnectorOptionModel();
         optionModel.setName(propertyValue);
         optionModel.setDescription(docLiteralInitializer);
-        optionModel.setPriority(StringUtils.removeStart(confPriority, "ConfigDef.Importance."));
-        optionModel.setDefaultValue(defaultValueClassLiteralInitializer);
+        optionModel.setPriority(StringUtils.removeStart(confPriority, CONFIG_DEF_IMPORTANCE_PREFIX));
+        optionModel.setDefaultValue(defaultValueClassLiteralInitializer.equals("null") ? null : defaultValueClassLiteralInitializer);
         listOptions.add(optionModel);
-
     }
 
     private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct, String connectorClass,

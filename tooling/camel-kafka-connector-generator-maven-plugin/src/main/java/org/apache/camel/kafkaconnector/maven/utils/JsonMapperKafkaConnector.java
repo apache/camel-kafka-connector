@@ -54,7 +54,9 @@ public final class JsonMapperKafkaConnector {
         JsonObject obj = new JsonObject();
         obj.put("name", model.getName());
         obj.put("description", model.getDescription());
-        obj.put("defaultValue", model.getDefaultValue());
+        if (model.getDefaultValue() != null) {
+            obj.put("defaultValue", model.getDefaultValue());
+        }
         obj.put("priority", model.getPriority());
         return obj;
     }
