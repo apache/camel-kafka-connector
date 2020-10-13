@@ -272,8 +272,6 @@ public final class MavenUtils {
     }
 
     public static void writeSourceIfChanged(String source, String fileName, File baseDir, File javaFileHeader) throws MojoFailureException {
-        //TODO: Do not write class if a class already exist and has no @generated annotation.
-
         File target = new File(new File(baseDir, "src/main/java"), fileName);
         if (target.exists()) {
             try {
