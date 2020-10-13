@@ -408,6 +408,18 @@ First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive i
 > unzip camel-sjsm2-kafka-connector-0.3.0-SNAPSHOT-package.zip
 ----
 
+These are the basic connectors. For camel-sjms2 we have a bunch of provided dependencies we need to add in our path, so run the following commands:
+
+[source,bash]
+----
+> cd /home/connectors/camel-sjms2-kafka-connector
+> wget https://repo1.maven.org/maven2/org/apache/activemq/activemq-client/5.15.11/activemq-client-5.15.11.jar
+> wget https://repo1.maven.org/maven2/org/apache/geronimo/specs/geronimo-jms_2.0_spec/1.0-alpha-2/geronimo-jms_2.0_spec-1.0-alpha-2.jar
+> wget https://repo1.maven.org/maven2/org/apache/geronimo/specs/geronimo-annotation_1.0_spec/1.1.1/geronimo-annotation_1.0_spec-1.1.1.jar
+> wget https://repo1.maven.org/maven2/javax/management/j2ee/management-api/1.1-rev-1/management-api-1.1-rev-1.jar
+> wget https://repo1.maven.org/maven2/org/fusesource/hawtbuf/hawtbuf/1.11/hawtbuf-1.11.jar
+```
+
 This example receives messages from a JMS queue named `myqueue` and transfers them to `mytopic` Kafka topic. In this example ActiveMQ is used and it's configured to connect to the broker running on `localhost:61616`. Adjust properties in `examples/CamelJmsSourceConnector.properties` for your environment, for example configuring username and password by setting `camel.component.sjms2.connection-factory.userName=yourusername` and `camel.component.sjms2.connection-factory.password=yourpassword` or change the `camel.component.sjms2.connection-factory` and `camel.component.sjms2.connection-factory.brokerURL` to reflect your JMS implementation and URL.
 
 .Run the JMS source:
