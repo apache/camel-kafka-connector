@@ -11,13 +11,11 @@
 		"camel.sink.path.address": {
 			"name": "camel.sink.path.address",
 			"description": "The geo address which should be prefixed with address:",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.path.latlng": {
 			"name": "camel.sink.path.latlng",
 			"description": "The geo latitude and longitude which should be prefixed with latlng:",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.headersOnly": {
@@ -41,13 +39,11 @@
 		"camel.sink.endpoint.serverUrl": {
 			"name": "camel.sink.endpoint.serverUrl",
 			"description": "URL to the geocoder server. Mandatory for Nominatim server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.type": {
 			"name": "camel.sink.endpoint.type",
 			"description": "Type of GeoCoding server. Supported Nominatim and Google. One of: [NOMINATIM] [GOOGLE]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -65,61 +61,51 @@
 		"camel.sink.endpoint.proxyAuthDomain": {
 			"name": "camel.sink.endpoint.proxyAuthDomain",
 			"description": "Proxy Authentication Domain to access Google GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthHost": {
 			"name": "camel.sink.endpoint.proxyAuthHost",
 			"description": "Proxy Authentication Host to access Google GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthMethod": {
 			"name": "camel.sink.endpoint.proxyAuthMethod",
 			"description": "Authentication Method to Google GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthPassword": {
 			"name": "camel.sink.endpoint.proxyAuthPassword",
 			"description": "Proxy Password to access GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthUsername": {
 			"name": "camel.sink.endpoint.proxyAuthUsername",
 			"description": "Proxy Username to access GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "Proxy Host to access GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "Proxy Port to access GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.apiKey": {
 			"name": "camel.sink.endpoint.apiKey",
 			"description": "API Key to access Google. Mandatory for Google GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientId": {
 			"name": "camel.sink.endpoint.clientId",
 			"description": "Client ID to access Google GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientKey": {
 			"name": "camel.sink.endpoint.clientKey",
 			"description": "Client Key to access Google GeoCoding server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.geocoder.lazyStartProducer": {

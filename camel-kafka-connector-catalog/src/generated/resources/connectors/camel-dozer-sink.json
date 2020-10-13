@@ -11,7 +11,6 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "A human readable name of the mapping.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.mappingConfiguration": {
 			"name": "camel.sink.endpoint.mappingConfiguration",
 			"description": "The name of a DozerBeanMapperConfiguration bean in the Camel registry which should be used for configuring the Dozer mapping. This is an alternative to the mappingFile option that can be used for fine-grained control over how Dozer is configured. Remember to use a # prefix in the value to indicate that the bean is in the Camel registry (e.g. #myDozerConfig).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.mappingFile": {
@@ -35,25 +33,21 @@
 		"camel.sink.endpoint.marshalId": {
 			"name": "camel.sink.endpoint.marshalId",
 			"description": "The id of a dataFormat defined within the Camel Context to use for marshalling the mapping output to a non-Java type.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sourceModel": {
 			"name": "camel.sink.endpoint.sourceModel",
 			"description": "Fully-qualified class name for the source type used in the mapping. If specified, the input to the mapping is converted to the specified type before being mapped with Dozer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.targetModel": {
 			"name": "camel.sink.endpoint.targetModel",
 			"description": "Fully-qualified class name for the target type used in the mapping.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.unmarshalId": {
 			"name": "camel.sink.endpoint.unmarshalId",
 			"description": "The id of a dataFormat defined within the Camel Context to use for unmarshalling the mapping input from a non-Java type.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

@@ -11,13 +11,11 @@
 		"camel.sink.path.stream": {
 			"name": "camel.sink.path.stream",
 			"description": "Name of the stream channel used by the endpoint to exchange messages.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.backpressureStrategy": {
 			"name": "camel.sink.endpoint.backpressureStrategy",
 			"description": "The backpressure strategy to use when pushing events to a slow subscriber. One of: [BUFFER] [OLDEST] [LATEST]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,7 +45,6 @@
 		"camel.component.reactive-streams.threadPoolMinSize": {
 			"name": "camel.component.reactive-streams.threadPoolMinSize",
 			"description": "The minimum number of threads used by the reactive streams internal engine.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.reactive-streams.threadPoolName": {
@@ -77,13 +74,11 @@
 		"camel.component.reactive-streams.reactiveStreamsEngineConfiguration": {
 			"name": "camel.component.reactive-streams.reactiveStreamsEngineConfiguration",
 			"description": "To use an existing reactive stream engine configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.reactive-streams.serviceType": {
 			"name": "camel.component.reactive-streams.serviceType",
 			"description": "Set the type of the underlying reactive streams implementation to use. The implementation is looked up from the registry or using a ServiceLoader, the default implementation is DefaultCamelReactiveStreamsService",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

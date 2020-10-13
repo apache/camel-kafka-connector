@@ -11,7 +11,6 @@
 		"camel.source.path.httpUri": {
 			"name": "camel.source.path.httpUri",
 			"description": "The url of the HTTP endpoint to call.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.chunked": {
@@ -35,7 +34,6 @@
 		"camel.source.endpoint.servletName": {
 			"name": "camel.source.endpoint.servletName",
 			"description": "Sets the servlet name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.transferException": {
@@ -59,7 +57,6 @@
 		"camel.source.endpoint.httpMethodRestrict": {
 			"name": "camel.source.endpoint.httpMethodRestrict",
 			"description": "Used to only allow consuming if the HttpMethod matches, such as GET\/POST\/PUT etc. Multiple methods can be specified separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.matchOnUriPrefix": {
@@ -77,7 +74,6 @@
 		"camel.source.endpoint.responseBufferSize": {
 			"name": "camel.source.endpoint.responseBufferSize",
 			"description": "To use a custom buffer size on the javax.servlet.ServletResponse.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.eagerCheckContentAvailable": {
@@ -89,13 +85,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.optionsEnabled": {
@@ -119,7 +113,6 @@
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.mapHttpMessageBody": {
@@ -143,13 +136,11 @@
 		"camel.source.endpoint.setHttpResponseDuringProcessing": {
 			"name": "camel.source.endpoint.setHttpResponseDuringProcessing",
 			"description": "Sets the flag to use the endpoint where you can either populate camel exchange from servlet response or use request itself which may be thought as if it is a proxy.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.skipServletProcessing": {
 			"name": "camel.source.endpoint.skipServletProcessing",
 			"description": "Sets the flag to use skip servlet processing and let camel take over processing",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.synchronous": {
@@ -167,19 +158,16 @@
 		"camel.source.endpoint.proxyClientClass": {
 			"name": "camel.source.endpoint.proxyClientClass",
 			"description": "Sets the resteasy proxyClientClass",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Sets the password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "Sets the username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.resteasy.bridgeErrorHandler": {
@@ -191,7 +179,6 @@
 		"camel.component.resteasy.proxyConsumersClasses": {
 			"name": "camel.component.resteasy.proxyConsumersClasses",
 			"description": "Proxy classes for consumer endpoints. Multiple classes can be separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.resteasy.allowJavaSerializedObject": {
@@ -209,7 +196,6 @@
 		"camel.component.resteasy.headerFilterStrategy": {
 			"name": "camel.component.resteasy.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

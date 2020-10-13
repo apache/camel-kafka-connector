@@ -11,13 +11,11 @@
 		"camel.source.path.operation": {
 			"name": "camel.source.path.operation",
 			"description": "The endpoint operation. One of: [post] [user]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.operationDetail": {
 			"name": "camel.source.path.operationDetail",
 			"description": "The second part of an endpoint operation. Needed only when endpoint semantic is not enough, like wordpress:post:delete One of: [delete]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.apiVersion": {
@@ -29,7 +27,6 @@
 		"camel.source.endpoint.criteria": {
 			"name": "camel.source.endpoint.criteria",
 			"description": "The criteria to use with complex searches.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.force": {
@@ -41,31 +38,26 @@
 		"camel.source.endpoint.id": {
 			"name": "camel.source.endpoint.id",
 			"description": "The entity ID. Should be passed when the operation performed requires a specific entity, e.g. deleting a post",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Password from authorized user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.searchCriteria": {
 			"name": "camel.source.endpoint.searchCriteria",
 			"description": "Search criteria",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.url": {
 			"name": "camel.source.endpoint.url",
 			"description": "The Wordpress API URL from your site, e.g. http:\/\/myblog.com\/wp-json\/",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.user": {
 			"name": "camel.source.endpoint.user",
 			"description": "Authorized user to perform writing operations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -77,13 +69,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -107,7 +97,6 @@
 		"camel.component.wordpress.criteria": {
 			"name": "camel.component.wordpress.criteria",
 			"description": "The criteria to use with complex searches.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.wordpress.force": {
@@ -119,31 +108,26 @@
 		"camel.component.wordpress.id": {
 			"name": "camel.component.wordpress.id",
 			"description": "The entity ID. Should be passed when the operation performed requires a specific entity, e.g. deleting a post",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.wordpress.password": {
 			"name": "camel.component.wordpress.password",
 			"description": "Password from authorized user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.wordpress.searchCriteria": {
 			"name": "camel.component.wordpress.searchCriteria",
 			"description": "Search criteria",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.wordpress.url": {
 			"name": "camel.component.wordpress.url",
 			"description": "The Wordpress API URL from your site, e.g. http:\/\/myblog.com\/wp-json\/",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.wordpress.user": {
 			"name": "camel.component.wordpress.user",
 			"description": "Authorized user to perform writing operations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.wordpress.bridgeErrorHandler": {
@@ -161,7 +145,6 @@
 		"camel.component.wordpress.configuration": {
 			"name": "camel.component.wordpress.configuration",
 			"description": "Wordpress component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

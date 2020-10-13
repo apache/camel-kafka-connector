@@ -11,19 +11,16 @@
 		"camel.source.path.topic": {
 			"name": "camel.source.path.topic",
 			"description": "The NSQ topic",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.servers": {
 			"name": "camel.source.endpoint.servers",
 			"description": "The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.userAgent": {
 			"name": "camel.source.endpoint.userAgent",
 			"description": "A String to identify the kind of client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.autoFinish": {
@@ -41,7 +38,6 @@
 		"camel.source.endpoint.channel": {
 			"name": "camel.source.endpoint.channel",
 			"description": "The NSQ channel",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.lookupInterval": {
@@ -77,13 +73,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -107,13 +101,11 @@
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.nsq.servers": {
 			"name": "camel.component.nsq.servers",
 			"description": "The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.nsq.bridgeErrorHandler": {

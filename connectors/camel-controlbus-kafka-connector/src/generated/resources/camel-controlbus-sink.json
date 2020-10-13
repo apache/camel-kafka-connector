@@ -11,19 +11,16 @@
 		"camel.sink.path.command": {
 			"name": "camel.sink.path.command",
 			"description": "Command can be either route or language One of: [route] [language]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.language": {
 			"name": "camel.sink.path.language",
 			"description": "Allows you to specify the name of a Language to use for evaluating the message body. If there is any result from the evaluation, then the result is put in the message body. One of: [bean] [constant] [el] [exchangeProperty] [file] [groovy] [header] [jsonpath] [mvel] [ognl] [ref] [simple] [spel] [sql] [terser] [tokenize] [xpath] [xquery] [xtokenize]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.action": {
 			"name": "camel.sink.endpoint.action",
 			"description": "To denote an action that can be either: start, stop, or status. To either start or stop a route, or to get the status of the route as output in the message body. You can use suspend and resume from Camel 2.11.1 onwards to either suspend or resume a route. And from Camel 2.11.1 onwards you can use stats to get performance statics returned in XML format; the routeId option can be used to define which route to get the performance stats for, if routeId is not defined, then you get statistics for the entire CamelContext. The restart action will restart the route. One of: [start] [stop] [suspend] [resume] [restart] [status] [stats]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.async": {
@@ -53,7 +50,6 @@
 		"camel.sink.endpoint.routeId": {
 			"name": "camel.sink.endpoint.routeId",
 			"description": "To specify a route by its id. The special keyword current indicates the current route.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

@@ -11,7 +11,6 @@
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
 			"description": "The path the endpoint refers to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.recursive": {
@@ -29,7 +28,6 @@
 		"camel.sink.endpoint.timeout": {
 			"name": "camel.sink.endpoint.timeout",
 			"description": "To set the maximum time an action could take to complete.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.uris": {
@@ -47,7 +45,6 @@
 		"camel.sink.endpoint.timeToLive": {
 			"name": "camel.sink.endpoint.timeToLive",
 			"description": "To set the lifespan of a key in milliseconds.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -65,25 +62,21 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The password to use for basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.userName": {
 			"name": "camel.sink.endpoint.userName",
 			"description": "The user name to use for basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.configuration": {
 			"name": "camel.component.etcd-stats.configuration",
 			"description": "Component configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.recursive": {
@@ -101,7 +94,6 @@
 		"camel.component.etcd-stats.timeout": {
 			"name": "camel.component.etcd-stats.timeout",
 			"description": "To set the maximum time an action could take to complete.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.uris": {
@@ -119,7 +111,6 @@
 		"camel.component.etcd-stats.timeToLive": {
 			"name": "camel.component.etcd-stats.timeToLive",
 			"description": "To set the lifespan of a key in milliseconds.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.basicPropertyBinding": {
@@ -131,13 +122,11 @@
 		"camel.component.etcd-stats.password": {
 			"name": "camel.component.etcd-stats.password",
 			"description": "The password to use for basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.sslContextParameters": {
 			"name": "camel.component.etcd-stats.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.etcd-stats.useGlobalSslContextParameters": {
@@ -149,7 +138,6 @@
 		"camel.component.etcd-stats.userName": {
 			"name": "camel.component.etcd-stats.userName",
 			"description": "The user name to use for basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

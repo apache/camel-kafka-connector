@@ -11,25 +11,21 @@
 		"camel.source.path.name": {
 			"name": "camel.source.path.name",
 			"description": "Instance name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.dataStoreClass": {
 			"name": "camel.source.endpoint.dataStoreClass",
 			"description": "The type of the dataStore",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.keyClass": {
 			"name": "camel.source.endpoint.keyClass",
 			"description": "The type class of the key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.valueClass": {
 			"name": "camel.source.endpoint.valueClass",
 			"description": "The type of the value",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -47,79 +43,66 @@
 		"camel.source.endpoint.endKey": {
 			"name": "camel.source.endpoint.endKey",
 			"description": "The End Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.endTime": {
 			"name": "camel.source.endpoint.endTime",
 			"description": "The End Time",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.fields": {
 			"name": "camel.source.endpoint.fields",
 			"description": "The Fields",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.keyRangeFrom": {
 			"name": "camel.source.endpoint.keyRangeFrom",
 			"description": "The Key Range From",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.keyRangeTo": {
 			"name": "camel.source.endpoint.keyRangeTo",
 			"description": "The Key Range To",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.limit": {
 			"name": "camel.source.endpoint.limit",
 			"description": "The Limit",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startKey": {
 			"name": "camel.source.endpoint.startKey",
 			"description": "The Start Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startTime": {
 			"name": "camel.source.endpoint.startTime",
 			"description": "The Start Time",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.timeRangeFrom": {
 			"name": "camel.source.endpoint.timeRangeFrom",
 			"description": "The Time Range From",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.timeRangeTo": {
 			"name": "camel.source.endpoint.timeRangeTo",
 			"description": "The Time Range To",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.timestamp": {
 			"name": "camel.source.endpoint.timestamp",
 			"description": "The Timestamp",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -131,7 +114,6 @@
 		"camel.source.endpoint.hadoopConfiguration": {
 			"name": "camel.source.endpoint.hadoopConfiguration",
 			"description": "Hadoop Configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.synchronous": {

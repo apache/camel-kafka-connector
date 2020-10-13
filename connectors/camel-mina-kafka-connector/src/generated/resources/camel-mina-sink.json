@@ -11,19 +11,16 @@
 		"camel.sink.path.protocol": {
 			"name": "camel.sink.path.protocol",
 			"description": "Protocol to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Hostname to use. Use localhost or 0.0.0.0 for local server as consumer. For producer use the hostname or ip address of the remote server.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port number",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.disconnect": {
@@ -113,7 +110,6 @@
 		"camel.sink.endpoint.codec": {
 			"name": "camel.sink.endpoint.codec",
 			"description": "To use a custom minda codec implementation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.decoderMaxLineLength": {
@@ -131,13 +127,11 @@
 		"camel.sink.endpoint.encoding": {
 			"name": "camel.sink.endpoint.encoding",
 			"description": "You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.filters": {
 			"name": "camel.sink.endpoint.filters",
 			"description": "You can set a list of Mina IoFilters to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.textline": {
@@ -149,7 +143,6 @@
 		"camel.sink.endpoint.textlineDelimiter": {
 			"name": "camel.sink.endpoint.textlineDelimiter",
 			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoStartTls": {
@@ -161,7 +154,6 @@
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure SSL security.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.disconnect": {
@@ -221,7 +213,6 @@
 		"camel.component.mina.configuration": {
 			"name": "camel.component.mina.configuration",
 			"description": "To use the shared mina configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.maximumPoolSize": {
@@ -251,7 +242,6 @@
 		"camel.component.mina.codec": {
 			"name": "camel.component.mina.codec",
 			"description": "To use a custom minda codec implementation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.decoderMaxLineLength": {
@@ -269,13 +259,11 @@
 		"camel.component.mina.encoding": {
 			"name": "camel.component.mina.encoding",
 			"description": "You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.filters": {
 			"name": "camel.component.mina.filters",
 			"description": "You can set a list of Mina IoFilters to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.textline": {
@@ -287,7 +275,6 @@
 		"camel.component.mina.textlineDelimiter": {
 			"name": "camel.component.mina.textlineDelimiter",
 			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.autoStartTls": {
@@ -299,7 +286,6 @@
 		"camel.component.mina.sslContextParameters": {
 			"name": "camel.component.mina.sslContextParameters",
 			"description": "To configure SSL security.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.useGlobalSslContextParameters": {

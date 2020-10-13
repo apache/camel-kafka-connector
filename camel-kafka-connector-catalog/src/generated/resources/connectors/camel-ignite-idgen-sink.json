@@ -11,13 +11,11 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "The sequence name.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.batchSize": {
 			"name": "camel.sink.endpoint.batchSize",
 			"description": "The batch size.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.initialValue": {
@@ -35,7 +33,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to invoke on the Ignite ID Generator. Superseded by the IgniteConstants.IGNITE_IDGEN_OPERATION header in the IN message. Possible values: ADD_AND_GET, GET, GET_AND_ADD, GET_AND_INCREMENT, INCREMENT_AND_GET. One of: [ADD_AND_GET] [GET] [GET_AND_ADD] [GET_AND_INCREMENT] [INCREMENT_AND_GET]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue": {
@@ -65,19 +62,16 @@
 		"camel.component.ignite-idgen.configurationResource": {
 			"name": "camel.component.ignite-idgen.configurationResource",
 			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-idgen.ignite": {
 			"name": "camel.component.ignite-idgen.ignite",
 			"description": "To use an existing Ignite instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-idgen.igniteConfiguration": {
 			"name": "camel.component.ignite-idgen.igniteConfiguration",
 			"description": "Allows the user to set a programmatic ignite configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-idgen.lazyStartProducer": {

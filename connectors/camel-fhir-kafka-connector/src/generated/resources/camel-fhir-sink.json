@@ -11,19 +11,16 @@
 		"camel.sink.path.apiName": {
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.encoding": {
 			"name": "camel.sink.endpoint.encoding",
 			"description": "Encoding to use for all request One of: [JSON] [XML]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.fhirVersion": {
@@ -35,7 +32,6 @@
 		"camel.sink.endpoint.inBody": {
 			"name": "camel.sink.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.log": {
@@ -53,7 +49,6 @@
 		"camel.sink.endpoint.serverUrl": {
 			"name": "camel.sink.endpoint.serverUrl",
 			"description": "The FHIR server base URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -71,13 +66,11 @@
 		"camel.sink.endpoint.client": {
 			"name": "camel.sink.endpoint.client",
 			"description": "To use the custom client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientFactory": {
 			"name": "camel.sink.endpoint.clientFactory",
 			"description": "To use the custom client factory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.compress": {
@@ -101,7 +94,6 @@
 		"camel.sink.endpoint.fhirContext": {
 			"name": "camel.sink.endpoint.fhirContext",
 			"description": "FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.forceConformanceCheck": {
@@ -113,7 +105,6 @@
 		"camel.sink.endpoint.sessionCookie": {
 			"name": "camel.sink.endpoint.sessionCookie",
 			"description": "HTTP session cookie to add to every request",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.socketTimeout": {
@@ -125,7 +116,6 @@
 		"camel.sink.endpoint.summary": {
 			"name": "camel.sink.endpoint.summary",
 			"description": "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -143,49 +133,41 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "The proxy host",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPassword": {
 			"name": "camel.sink.endpoint.proxyPassword",
 			"description": "The proxy password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "The proxy port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyUser": {
 			"name": "camel.sink.endpoint.proxyUser",
 			"description": "The proxy username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.accessToken": {
 			"name": "camel.sink.endpoint.accessToken",
 			"description": "OAuth access token",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Username to use for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Username to use for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.encoding": {
 			"name": "camel.component.fhir.encoding",
 			"description": "Encoding to use for all request One of: [JSON] [XML]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.fhirVersion": {
@@ -209,7 +191,6 @@
 		"camel.component.fhir.serverUrl": {
 			"name": "camel.component.fhir.serverUrl",
 			"description": "The FHIR server base URL",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.lazyStartProducer": {
@@ -227,13 +208,11 @@
 		"camel.component.fhir.client": {
 			"name": "camel.component.fhir.client",
 			"description": "To use the custom client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.clientFactory": {
 			"name": "camel.component.fhir.clientFactory",
 			"description": "To use the custom client factory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.compress": {
@@ -245,7 +224,6 @@
 		"camel.component.fhir.configuration": {
 			"name": "camel.component.fhir.configuration",
 			"description": "To use the shared configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.connectionTimeout": {
@@ -263,7 +241,6 @@
 		"camel.component.fhir.fhirContext": {
 			"name": "camel.component.fhir.fhirContext",
 			"description": "FhirContext is an expensive object to create. To avoid creating multiple instances, it can be set directly.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.forceConformanceCheck": {
@@ -275,7 +252,6 @@
 		"camel.component.fhir.sessionCookie": {
 			"name": "camel.component.fhir.sessionCookie",
 			"description": "HTTP session cookie to add to every request",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.socketTimeout": {
@@ -287,7 +263,6 @@
 		"camel.component.fhir.summary": {
 			"name": "camel.component.fhir.summary",
 			"description": "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.validationMode": {
@@ -299,43 +274,36 @@
 		"camel.component.fhir.proxyHost": {
 			"name": "camel.component.fhir.proxyHost",
 			"description": "The proxy host",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.proxyPassword": {
 			"name": "camel.component.fhir.proxyPassword",
 			"description": "The proxy password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.proxyPort": {
 			"name": "camel.component.fhir.proxyPort",
 			"description": "The proxy port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.proxyUser": {
 			"name": "camel.component.fhir.proxyUser",
 			"description": "The proxy username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.accessToken": {
 			"name": "camel.component.fhir.accessToken",
 			"description": "OAuth access token",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.password": {
 			"name": "camel.component.fhir.password",
 			"description": "Username to use for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.fhir.username": {
 			"name": "camel.component.fhir.username",
 			"description": "Username to use for basic authentication",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

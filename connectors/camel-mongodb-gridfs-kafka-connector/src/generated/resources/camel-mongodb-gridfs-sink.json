@@ -11,7 +11,6 @@
 		"camel.sink.path.connectionBean": {
 			"name": "camel.sink.path.connectionBean",
 			"description": "Name of com.mongodb.client.MongoClient to use.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.bucket": {
@@ -23,19 +22,16 @@
 		"camel.sink.endpoint.database": {
 			"name": "camel.sink.endpoint.database",
 			"description": "Sets the name of the MongoDB database to target",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.readPreference": {
 			"name": "camel.sink.endpoint.readPreference",
 			"description": "Sets a MongoDB ReadPreference on the Mongo connection. Read preferences set directly on the connection will be overridden by this setting. The com.mongodb.ReadPreference#valueOf(String) utility method is used to resolve the passed readPreference value. Some examples for the possible values are nearest, primary or secondary etc.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.writeConcern": {
 			"name": "camel.sink.endpoint.writeConcern",
 			"description": "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,7 +43,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "Sets the operation this endpoint will execute against GridFs.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

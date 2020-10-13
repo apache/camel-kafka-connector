@@ -11,13 +11,11 @@
 		"camel.sink.path.clusterName": {
 			"name": "camel.sink.path.clusterName",
 			"description": "The name of the JGroups cluster the component should connect to.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.channelProperties": {
 			"name": "camel.sink.endpoint.channelProperties",
 			"description": "Specifies configuration properties of the JChannel used by the endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -41,13 +39,11 @@
 		"camel.component.jgroups.channel": {
 			"name": "camel.component.jgroups.channel",
 			"description": "Channel to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jgroups.channelProperties": {
 			"name": "camel.component.jgroups.channelProperties",
 			"description": "Specifies configuration properties of the JChannel used by the endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jgroups.lazyStartProducer": {

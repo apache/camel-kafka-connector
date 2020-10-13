@@ -17,19 +17,16 @@
 		"camel.sink.path.destinationName": {
 			"name": "camel.sink.path.destinationName",
 			"description": "Name of the queue or topic to use as destination",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.clientId": {
 			"name": "camel.sink.endpoint.clientId",
 			"description": "Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.connectionFactory": {
 			"name": "camel.sink.endpoint.connectionFactory",
 			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.disableReplyTo": {
@@ -41,13 +38,11 @@
 		"camel.sink.endpoint.durableSubscriptionName": {
 			"name": "camel.sink.endpoint.durableSubscriptionName",
 			"description": "The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.jmsMessageType": {
 			"name": "camel.sink.endpoint.jmsMessageType",
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.testConnectionOnStartup": {
@@ -65,7 +60,6 @@
 		"camel.sink.endpoint.deliveryMode": {
 			"name": "camel.sink.endpoint.deliveryMode",
 			"description": "Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.deliveryPersistent": {
@@ -113,7 +107,6 @@
 		"camel.sink.endpoint.replyToMaxConcurrentConsumers": {
 			"name": "camel.sink.endpoint.replyToMaxConcurrentConsumers",
 			"description": "Specifies the maximum number of concurrent consumers when using request\/reply over JMS. See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.replyToOnTimeoutMaxConcurrentConsumers": {
@@ -125,13 +118,11 @@
 		"camel.sink.endpoint.replyToOverride": {
 			"name": "camel.sink.endpoint.replyToOverride",
 			"description": "Provides an explicit ReplyTo destination in the JMS message, which overrides the setting of replyTo. It is useful if you want to forward the message to a remote Queue and receive the reply message from the ReplyTo destination.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.replyToType": {
 			"name": "camel.sink.endpoint.replyToType",
 			"description": "Allows for explicitly specifying which kind of strategy to use for replyTo queues when doing request\/reply over JMS. Possible values are: Temporary, Shared, or Exclusive. By default Camel will use temporary queues. However if replyTo has been configured, then Shared is used by default. This option allows you to use exclusive queues instead of shared ones. See Camel JMS documentation for more details, and especially the notes about the implications if running in a clustered environment, and the fact that Shared reply queues has lower performance than its alternatives Temporary and Exclusive. One of: [Temporary] [Shared] [Exclusive]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.requestTimeout": {
@@ -149,7 +140,6 @@
 		"camel.sink.endpoint.allowAdditionalHeaders": {
 			"name": "camel.sink.endpoint.allowAdditionalHeaders",
 			"description": "This option is used to allow additional headers which may have values that are invalid according to JMS specification. For example some message systems such as WMQ do this with header names using prefix JMS_IBM_MQMD_ containing values with byte array or other invalid types. You can specify multiple header names separated by comma, and use as suffix for wildcard matching.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.allowNullBody": {
@@ -167,7 +157,6 @@
 		"camel.sink.endpoint.correlationProperty": {
 			"name": "camel.sink.endpoint.correlationProperty",
 			"description": "When using InOut exchange pattern use this JMS property instead of JMSCorrelationID JMS property to correlate messages. If set messages will be correlated solely on the value of this property JMSCorrelationID property will be ignored and not set by Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.disableTimeToLive": {
@@ -191,13 +180,11 @@
 		"camel.sink.endpoint.replyToCacheLevelName": {
 			"name": "camel.sink.endpoint.replyToCacheLevelName",
 			"description": "Sets the cache level by name for the reply consumer when doing request\/reply over JMS. This option only applies when using fixed reply queues (not temporary). Camel will by default use: CACHE_CONSUMER for exclusive or shared w\/ replyToSelectorName. And CACHE_SESSION for shared without replyToSelectorName. Some JMS brokers such as IBM WebSphere may require to set the replyToCacheLevelName=CACHE_NONE to work. Note: If using temporary queues then CACHE_NONE is not allowed, and you must use a higher value such as CACHE_CONSUMER or CACHE_SESSION. One of: [CACHE_AUTO] [CACHE_CONNECTION] [CACHE_CONSUMER] [CACHE_NONE] [CACHE_SESSION]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.replyToDestinationSelectorName": {
 			"name": "camel.sink.endpoint.replyToDestinationSelectorName",
 			"description": "Sets the JMS Selector using the fixed name to be used so you can filter out your own replies from the others when using a shared queue (that is, if you are not using a temporary reply queue).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.streamMessageTypeEnabled": {
@@ -239,25 +226,21 @@
 		"camel.sink.endpoint.destinationResolver": {
 			"name": "camel.sink.endpoint.destinationResolver",
 			"description": "A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver (for example, to lookup the real destination in a JNDI registry).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.errorHandler": {
 			"name": "camel.sink.endpoint.errorHandler",
 			"description": "Specifies a org.springframework.util.ErrorHandler to be invoked in case of any uncaught exceptions thrown while processing a Message. By default these exceptions will be logged at the WARN level, if no errorHandler has been configured. You can configure logging level and whether stack traces should be logged using errorHandlerLoggingLevel and errorHandlerLogStackTrace options. This makes it much easier to configure, than having to code a custom errorHandler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.exceptionListener": {
 			"name": "camel.sink.endpoint.exceptionListener",
 			"description": "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.idleConsumerLimit": {
@@ -281,7 +264,6 @@
 		"camel.sink.endpoint.jmsKeyFormatStrategy": {
 			"name": "camel.sink.endpoint.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation. One of: [default] [passthrough]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.mapJmsMessage": {
@@ -299,13 +281,11 @@
 		"camel.sink.endpoint.messageConverter": {
 			"name": "camel.sink.endpoint.messageConverter",
 			"description": "To use a custom Spring org.springframework.jms.support.converter.MessageConverter so you can be in control how to map to\/from a javax.jms.Message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.messageCreatedStrategy": {
 			"name": "camel.sink.endpoint.messageCreatedStrategy",
 			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.messageIdEnabled": {
@@ -317,7 +297,6 @@
 		"camel.sink.endpoint.messageListenerContainerFactory": {
 			"name": "camel.sink.endpoint.messageListenerContainerFactory",
 			"description": "Registry ID of the MessageListenerContainerFactory used to determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use to consume messages. Setting this will automatically set consumerType to Custom.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.messageTimestampEnabled": {
@@ -389,13 +368,11 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Password to use with the ConnectionFactory. You can also configure username\/password directly on the ConnectionFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Username to use with the ConnectionFactory. You can also configure username\/password directly on the ConnectionFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.transacted": {
@@ -419,13 +396,11 @@
 		"camel.sink.endpoint.transactionManager": {
 			"name": "camel.sink.endpoint.transactionManager",
 			"description": "The Spring transaction manager to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.transactionName": {
 			"name": "camel.sink.endpoint.transactionName",
 			"description": "The name of the transaction to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.transactionTimeout": {
@@ -437,13 +412,11 @@
 		"camel.component.jms.clientId": {
 			"name": "camel.component.jms.clientId",
 			"description": "Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.connectionFactory": {
 			"name": "camel.component.jms.connectionFactory",
 			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.disableReplyTo": {
@@ -455,13 +428,11 @@
 		"camel.component.jms.durableSubscriptionName": {
 			"name": "camel.component.jms.durableSubscriptionName",
 			"description": "The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.jmsMessageType": {
 			"name": "camel.component.jms.jmsMessageType",
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.testConnectionOnStartup": {
@@ -479,7 +450,6 @@
 		"camel.component.jms.deliveryMode": {
 			"name": "camel.component.jms.deliveryMode",
 			"description": "Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.deliveryPersistent": {
@@ -527,7 +497,6 @@
 		"camel.component.jms.replyToMaxConcurrentConsumers": {
 			"name": "camel.component.jms.replyToMaxConcurrentConsumers",
 			"description": "Specifies the maximum number of concurrent consumers when using request\/reply over JMS. See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.replyToOnTimeoutMaxConcurrentConsumers": {
@@ -539,13 +508,11 @@
 		"camel.component.jms.replyToOverride": {
 			"name": "camel.component.jms.replyToOverride",
 			"description": "Provides an explicit ReplyTo destination in the JMS message, which overrides the setting of replyTo. It is useful if you want to forward the message to a remote Queue and receive the reply message from the ReplyTo destination.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.replyToType": {
 			"name": "camel.component.jms.replyToType",
 			"description": "Allows for explicitly specifying which kind of strategy to use for replyTo queues when doing request\/reply over JMS. Possible values are: Temporary, Shared, or Exclusive. By default Camel will use temporary queues. However if replyTo has been configured, then Shared is used by default. This option allows you to use exclusive queues instead of shared ones. See Camel JMS documentation for more details, and especially the notes about the implications if running in a clustered environment, and the fact that Shared reply queues has lower performance than its alternatives Temporary and Exclusive. One of: [Temporary] [Shared] [Exclusive]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.requestTimeout": {
@@ -563,7 +530,6 @@
 		"camel.component.jms.allowAdditionalHeaders": {
 			"name": "camel.component.jms.allowAdditionalHeaders",
 			"description": "This option is used to allow additional headers which may have values that are invalid according to JMS specification. For example some message systems such as WMQ do this with header names using prefix JMS_IBM_MQMD_ containing values with byte array or other invalid types. You can specify multiple header names separated by comma, and use as suffix for wildcard matching.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.allowNullBody": {
@@ -581,7 +547,6 @@
 		"camel.component.jms.correlationProperty": {
 			"name": "camel.component.jms.correlationProperty",
 			"description": "When using InOut exchange pattern use this JMS property instead of JMSCorrelationID JMS property to correlate messages. If set messages will be correlated solely on the value of this property JMSCorrelationID property will be ignored and not set by Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.disableTimeToLive": {
@@ -605,13 +570,11 @@
 		"camel.component.jms.replyToCacheLevelName": {
 			"name": "camel.component.jms.replyToCacheLevelName",
 			"description": "Sets the cache level by name for the reply consumer when doing request\/reply over JMS. This option only applies when using fixed reply queues (not temporary). Camel will by default use: CACHE_CONSUMER for exclusive or shared w\/ replyToSelectorName. And CACHE_SESSION for shared without replyToSelectorName. Some JMS brokers such as IBM WebSphere may require to set the replyToCacheLevelName=CACHE_NONE to work. Note: If using temporary queues then CACHE_NONE is not allowed, and you must use a higher value such as CACHE_CONSUMER or CACHE_SESSION. One of: [CACHE_AUTO] [CACHE_CONNECTION] [CACHE_CONSUMER] [CACHE_NONE] [CACHE_SESSION]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.replyToDestinationSelectorName": {
 			"name": "camel.component.jms.replyToDestinationSelectorName",
 			"description": "Sets the JMS Selector using the fixed name to be used so you can filter out your own replies from the others when using a shared queue (that is, if you are not using a temporary reply queue).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.streamMessageTypeEnabled": {
@@ -665,25 +628,21 @@
 		"camel.component.jms.configuration": {
 			"name": "camel.component.jms.configuration",
 			"description": "To use a shared JMS configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.destinationResolver": {
 			"name": "camel.component.jms.destinationResolver",
 			"description": "A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver (for example, to lookup the real destination in a JNDI registry).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.errorHandler": {
 			"name": "camel.component.jms.errorHandler",
 			"description": "Specifies a org.springframework.util.ErrorHandler to be invoked in case of any uncaught exceptions thrown while processing a Message. By default these exceptions will be logged at the WARN level, if no errorHandler has been configured. You can configure logging level and whether stack traces should be logged using errorHandlerLoggingLevel and errorHandlerLogStackTrace options. This makes it much easier to configure, than having to code a custom errorHandler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.exceptionListener": {
 			"name": "camel.component.jms.exceptionListener",
 			"description": "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.idleConsumerLimit": {
@@ -707,7 +666,6 @@
 		"camel.component.jms.jmsKeyFormatStrategy": {
 			"name": "camel.component.jms.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation. One of: [default] [passthrough]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.mapJmsMessage": {
@@ -725,13 +683,11 @@
 		"camel.component.jms.messageConverter": {
 			"name": "camel.component.jms.messageConverter",
 			"description": "To use a custom Spring org.springframework.jms.support.converter.MessageConverter so you can be in control how to map to\/from a javax.jms.Message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.messageCreatedStrategy": {
 			"name": "camel.component.jms.messageCreatedStrategy",
 			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.messageIdEnabled": {
@@ -743,7 +699,6 @@
 		"camel.component.jms.messageListenerContainerFactory": {
 			"name": "camel.component.jms.messageListenerContainerFactory",
 			"description": "Registry ID of the MessageListenerContainerFactory used to determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use to consume messages. Setting this will automatically set consumerType to Custom.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.messageTimestampEnabled": {
@@ -761,7 +716,6 @@
 		"camel.component.jms.queueBrowseStrategy": {
 			"name": "camel.component.jms.queueBrowseStrategy",
 			"description": "To use a custom QueueBrowseStrategy when browsing queues",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.receiveTimeout": {
@@ -815,19 +769,16 @@
 		"camel.component.jms.headerFilterStrategy": {
 			"name": "camel.component.jms.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.password": {
 			"name": "camel.component.jms.password",
 			"description": "Password to use with the ConnectionFactory. You can also configure username\/password directly on the ConnectionFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.username": {
 			"name": "camel.component.jms.username",
 			"description": "Username to use with the ConnectionFactory. You can also configure username\/password directly on the ConnectionFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.transacted": {
@@ -851,13 +802,11 @@
 		"camel.component.jms.transactionManager": {
 			"name": "camel.component.jms.transactionManager",
 			"description": "The Spring transaction manager to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.transactionName": {
 			"name": "camel.component.jms.transactionName",
 			"description": "The name of the transaction to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jms.transactionTimeout": {

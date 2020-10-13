@@ -11,7 +11,6 @@
 		"camel.sink.path.label": {
 			"name": "camel.sink.path.label",
 			"description": "Logical name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -29,13 +28,11 @@
 		"camel.sink.endpoint.mskClient": {
 			"name": "camel.sink.endpoint.mskClient",
 			"description": "To use a existing configured AWS MSK as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform One of: [listClusters] [createCluster] [deleteCluster] [describeCluster]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.pojoRequest": {
@@ -47,13 +44,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the MSK client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the MSK client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -65,7 +60,6 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which MSK client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
@@ -89,13 +83,11 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-msk.autoDiscoverClient": {
@@ -107,7 +99,6 @@
 		"camel.component.aws2-msk.configuration": {
 			"name": "camel.component.aws2-msk.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-msk.lazyStartProducer": {
@@ -119,13 +110,11 @@
 		"camel.component.aws2-msk.mskClient": {
 			"name": "camel.component.aws2-msk.mskClient",
 			"description": "To use a existing configured AWS MSK as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-msk.operation": {
 			"name": "camel.component.aws2-msk.operation",
 			"description": "The operation to perform One of: [listClusters] [createCluster] [deleteCluster] [describeCluster]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.aws2-msk.pojoRequest": {
@@ -137,13 +126,11 @@
 		"camel.component.aws2-msk.proxyHost": {
 			"name": "camel.component.aws2-msk.proxyHost",
 			"description": "To define a proxy host when instantiating the MSK client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-msk.proxyPort": {
 			"name": "camel.component.aws2-msk.proxyPort",
 			"description": "To define a proxy port when instantiating the MSK client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-msk.proxyProtocol": {
@@ -155,7 +142,6 @@
 		"camel.component.aws2-msk.region": {
 			"name": "camel.component.aws2-msk.region",
 			"description": "The region in which MSK client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-msk.trustAllCertificates": {
@@ -173,13 +159,11 @@
 		"camel.component.aws2-msk.accessKey": {
 			"name": "camel.component.aws2-msk.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-msk.secretKey": {
 			"name": "camel.component.aws2-msk.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

@@ -11,19 +11,16 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Hostname",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Host port number",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.channelName": {
 			"name": "camel.sink.path.channelName",
 			"description": "The channelName represents a topic that can be subscribed to by the Camel endpoints.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.allowedOrigins": {
@@ -35,7 +32,6 @@
 		"camel.sink.endpoint.baseResource": {
 			"name": "camel.sink.endpoint.baseResource",
 			"description": "The root directory for the web resources or classpath. Use the protocol file: or classpath: depending if you want that the component loads the resource from file system or classpath. Classpath is required for OSGI deployment where the resources are packaged in the jar",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.crossOriginFilterOn": {
@@ -47,13 +43,11 @@
 		"camel.sink.endpoint.filterPath": {
 			"name": "camel.sink.endpoint.filterPath",
 			"description": "The filterPath will be used by the CrossOriginFilter, if the crosssOriginFilterOn is true",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.interval": {
 			"name": "camel.sink.endpoint.interval",
 			"description": "The client side poll timeout in milliseconds. How long a client will wait between reconnects",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.jsonCommented": {
@@ -125,37 +119,31 @@
 		"camel.component.cometds.extensions": {
 			"name": "camel.component.cometds.extensions",
 			"description": "To use a list of custom BayeuxServer.Extension that allows modifying incoming and outgoing requests.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cometds.securityPolicy": {
 			"name": "camel.component.cometds.securityPolicy",
 			"description": "To use a custom configured SecurityPolicy to control authorization",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cometds.sslContextParameters": {
 			"name": "camel.component.cometds.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cometds.sslKeyPassword": {
 			"name": "camel.component.cometds.sslKeyPassword",
 			"description": "The password for the keystore when using SSL.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cometds.sslKeystore": {
 			"name": "camel.component.cometds.sslKeystore",
 			"description": "The path to the keystore.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cometds.sslPassword": {
 			"name": "camel.component.cometds.sslPassword",
 			"description": "The password when using SSL.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cometds.useGlobalSslContextParameters": {

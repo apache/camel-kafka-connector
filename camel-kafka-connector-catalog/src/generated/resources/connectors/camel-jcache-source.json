@@ -11,31 +11,26 @@
 		"camel.source.path.cacheName": {
 			"name": "camel.source.path.cacheName",
 			"description": "The name of the cache",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.cacheConfiguration": {
 			"name": "camel.source.endpoint.cacheConfiguration",
 			"description": "A Configuration for the Cache",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.cacheConfigurationProperties": {
 			"name": "camel.source.endpoint.cacheConfigurationProperties",
 			"description": "The Properties for the javax.cache.spi.CachingProvider to create the CacheManager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.cachingProvider": {
 			"name": "camel.source.endpoint.cachingProvider",
 			"description": "The fully qualified class name of the javax.cache.spi.CachingProvider",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.configurationUri": {
 			"name": "camel.source.endpoint.configurationUri",
 			"description": "An implementation specific URI for the CacheManager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.managementEnabled": {
@@ -77,7 +72,6 @@
 		"camel.source.endpoint.filteredEvents": {
 			"name": "camel.source.endpoint.filteredEvents",
 			"description": "Events a consumer should filter (multiple events can be separated by comma). If using filteredEvents option, then eventFilters one will be ignored One of: [CREATED] [UPDATED] [REMOVED] [EXPIRED]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.oldValueRequired": {
@@ -95,19 +89,16 @@
 		"camel.source.endpoint.eventFilters": {
 			"name": "camel.source.endpoint.eventFilters",
 			"description": "The CacheEntryEventFilter. If using eventFilters option, then filteredEvents one will be ignored",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -119,13 +110,11 @@
 		"camel.source.endpoint.cacheLoaderFactory": {
 			"name": "camel.source.endpoint.cacheLoaderFactory",
 			"description": "The CacheLoader factory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.cacheWriterFactory": {
 			"name": "camel.source.endpoint.cacheWriterFactory",
 			"description": "The CacheWriter factory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.createCacheIfNotExists": {
@@ -137,7 +126,6 @@
 		"camel.source.endpoint.expiryPolicyFactory": {
 			"name": "camel.source.endpoint.expiryPolicyFactory",
 			"description": "The ExpiryPolicy factory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.lookupProviders": {
@@ -149,31 +137,26 @@
 		"camel.component.jcache.cacheConfiguration": {
 			"name": "camel.component.jcache.cacheConfiguration",
 			"description": "A Configuration for the Cache",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jcache.cacheConfigurationProperties": {
 			"name": "camel.component.jcache.cacheConfigurationProperties",
 			"description": "Properties to configure jcache",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jcache.cacheConfigurationPropertiesRef": {
 			"name": "camel.component.jcache.cacheConfigurationPropertiesRef",
 			"description": "References to an existing Properties or Map to lookup in the registry to use for configuring jcache.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jcache.cachingProvider": {
 			"name": "camel.component.jcache.cachingProvider",
 			"description": "The fully qualified class name of the javax.cache.spi.CachingProvider",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jcache.configurationUri": {
 			"name": "camel.component.jcache.configurationUri",
 			"description": "An implementation specific URI for the CacheManager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jcache.bridgeErrorHandler": {

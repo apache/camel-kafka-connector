@@ -11,19 +11,16 @@
 		"camel.sink.path.resourceName": {
 			"name": "camel.sink.path.resourceName",
 			"description": "The distributed resource name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.atomix": {
 			"name": "camel.sink.endpoint.atomix",
 			"description": "The Atomix instance to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.configurationUri": {
 			"name": "camel.sink.endpoint.configurationUri",
 			"description": "The Atomix configuration uri.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.defaultAction": {
@@ -35,7 +32,6 @@
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
 			"description": "The key to use if none is set in the header or to listen for events for a specific key.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,13 +43,11 @@
 		"camel.sink.endpoint.nodes": {
 			"name": "camel.sink.endpoint.nodes",
 			"description": "The address of the nodes composing the cluster.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resultHeader": {
 			"name": "camel.sink.endpoint.resultHeader",
 			"description": "The header that wil carry the result.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.transportClassName": {
@@ -65,7 +59,6 @@
 		"camel.sink.endpoint.ttl": {
 			"name": "camel.sink.endpoint.ttl",
 			"description": "The resource ttl.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -77,13 +70,11 @@
 		"camel.sink.endpoint.defaultResourceConfig": {
 			"name": "camel.sink.endpoint.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.defaultResourceOptions": {
 			"name": "camel.sink.endpoint.defaultResourceOptions",
 			"description": "The local default resource options.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.ephemeral": {
@@ -95,19 +86,16 @@
 		"camel.sink.endpoint.readConsistency": {
 			"name": "camel.sink.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resourceConfigs": {
 			"name": "camel.sink.endpoint.resourceConfigs",
 			"description": "Cluster wide resources configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resourceOptions": {
 			"name": "camel.sink.endpoint.resourceOptions",
 			"description": "Local resources configurations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -119,19 +107,16 @@
 		"camel.component.atomix-multimap.atomix": {
 			"name": "camel.component.atomix-multimap.atomix",
 			"description": "The Atomix instance to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.configuration": {
 			"name": "camel.component.atomix-multimap.configuration",
 			"description": "The shared component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.configurationUri": {
 			"name": "camel.component.atomix-multimap.configurationUri",
 			"description": "The path to the AtomixClient configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.defaultAction": {
@@ -143,7 +128,6 @@
 		"camel.component.atomix-multimap.key": {
 			"name": "camel.component.atomix-multimap.key",
 			"description": "The key to use if none is set in the header or to listen for events for a specific key.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.lazyStartProducer": {
@@ -155,13 +139,11 @@
 		"camel.component.atomix-multimap.nodes": {
 			"name": "camel.component.atomix-multimap.nodes",
 			"description": "The nodes the AtomixClient should connect to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.resultHeader": {
 			"name": "camel.component.atomix-multimap.resultHeader",
 			"description": "The header that wil carry the result.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.transportClassName": {
@@ -173,7 +155,6 @@
 		"camel.component.atomix-multimap.ttl": {
 			"name": "camel.component.atomix-multimap.ttl",
 			"description": "The resource ttl.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.basicPropertyBinding": {
@@ -185,13 +166,11 @@
 		"camel.component.atomix-multimap.defaultResourceConfig": {
 			"name": "camel.component.atomix-multimap.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.defaultResourceOptions": {
 			"name": "camel.component.atomix-multimap.defaultResourceOptions",
 			"description": "The local default resource options.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.ephemeral": {
@@ -203,19 +182,16 @@
 		"camel.component.atomix-multimap.readConsistency": {
 			"name": "camel.component.atomix-multimap.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.resourceConfigs": {
 			"name": "camel.component.atomix-multimap.resourceConfigs",
 			"description": "Cluster wide resources configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-multimap.resourceOptions": {
 			"name": "camel.component.atomix-multimap.resourceOptions",
 			"description": "Local resources configurations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

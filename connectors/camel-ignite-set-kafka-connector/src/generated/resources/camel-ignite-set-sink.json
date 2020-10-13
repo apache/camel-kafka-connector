@@ -11,13 +11,11 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "The set name.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.configuration": {
 			"name": "camel.sink.endpoint.configuration",
 			"description": "The collection configuration. Default: empty configuration. You can also conveniently set inner properties by using configuration.xyz=123 options.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -29,7 +27,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to invoke on the Ignite Set. Superseded by the IgniteConstants.IGNITE_SETS_OPERATION header in the IN message. Possible values: CONTAINS, ADD, SIZE, REMOVE, ITERATOR, CLEAR, RETAIN_ALL, ARRAY.The set operation to perform. One of: [CONTAINS] [ADD] [SIZE] [REMOVE] [ITERATOR] [CLEAR] [RETAIN_ALL] [ARRAY]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue": {
@@ -59,19 +56,16 @@
 		"camel.component.ignite-set.configurationResource": {
 			"name": "camel.component.ignite-set.configurationResource",
 			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-set.ignite": {
 			"name": "camel.component.ignite-set.ignite",
 			"description": "To use an existing Ignite instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-set.igniteConfiguration": {
 			"name": "camel.component.ignite-set.igniteConfiguration",
 			"description": "Allows the user to set a programmatic ignite configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-set.lazyStartProducer": {

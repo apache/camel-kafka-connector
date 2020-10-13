@@ -11,31 +11,26 @@
 		"camel.sink.path.metricsType": {
 			"name": "camel.sink.path.metricsType",
 			"description": "Type of metrics One of: [gauge] [counter] [histogram] [meter] [timer]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.metricsName": {
 			"name": "camel.sink.path.metricsName",
 			"description": "Name of metrics",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.action": {
 			"name": "camel.sink.endpoint.action",
 			"description": "Action when using timer type One of: [start] [stop]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.decrement": {
 			"name": "camel.sink.endpoint.decrement",
 			"description": "Decrement value when using counter type",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.increment": {
 			"name": "camel.sink.endpoint.increment",
 			"description": "Increment value when using counter type",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,19 +42,16 @@
 		"camel.sink.endpoint.mark": {
 			"name": "camel.sink.endpoint.mark",
 			"description": "Mark when using meter type",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.subject": {
 			"name": "camel.sink.endpoint.subject",
 			"description": "Subject value when using gauge type",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.value": {
 			"name": "camel.sink.endpoint.value",
 			"description": "Value value when using histogram type",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -89,7 +81,6 @@
 		"camel.component.metrics.metricRegistry": {
 			"name": "camel.component.metrics.metricRegistry",
 			"description": "To use a custom configured MetricRegistry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

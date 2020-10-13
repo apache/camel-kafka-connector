@@ -11,13 +11,11 @@
 		"camel.source.path.beanId": {
 			"name": "camel.source.path.beanId",
 			"description": "To lookup an existing configured CxfEndpoint. Must used bean: as prefix.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.path.address": {
 			"name": "camel.source.path.address",
 			"description": "The service publish address.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.dataFormat": {
@@ -29,7 +27,6 @@
 		"camel.source.endpoint.wrappedStyle": {
 			"name": "camel.source.endpoint.wrappedStyle",
 			"description": "The WSDL style that describes how parameters are represented in the SOAP body. If the value is false, CXF will chose the document-literal unwrapped style, If the value is true, CXF will chose the document-literal wrapped style",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -41,19 +38,16 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.allowStreaming": {
 			"name": "camel.source.endpoint.allowStreaming",
 			"description": "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -65,7 +59,6 @@
 		"camel.source.endpoint.bus": {
 			"name": "camel.source.endpoint.bus",
 			"description": "To use a custom configured CXF Bus.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.continuationTimeout": {
@@ -77,13 +70,11 @@
 		"camel.source.endpoint.cxfBinding": {
 			"name": "camel.source.endpoint.cxfBinding",
 			"description": "To use a custom CxfBinding to control the binding between Camel Message and CXF Message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.cxfConfigurer": {
 			"name": "camel.source.endpoint.cxfConfigurer",
 			"description": "This option could apply the implementation of org.apache.camel.component.cxf.CxfEndpointConfigurer which supports to configure the CXF endpoint in programmatic way. User can configure the CXF server and client by implementing configure{ServerClient} method of CxfEndpointConfigurer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.defaultBus": {
@@ -95,7 +86,6 @@
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.mergeProtocolHeaders": {
@@ -113,7 +103,6 @@
 		"camel.source.endpoint.properties": {
 			"name": "camel.source.endpoint.properties",
 			"description": "To set additional CXF options using the key\/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.skipPayloadMessagePartCheck": {
@@ -149,49 +138,41 @@
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "This option is used to set the basic authentication information of password for the CXF client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "This option is used to set the basic authentication information of username for the CXF client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bindingId": {
 			"name": "camel.source.endpoint.bindingId",
 			"description": "The bindingId for the service model to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.portName": {
 			"name": "camel.source.endpoint.portName",
 			"description": "The endpoint name this service is implementing, it maps to the wsdl:portname. In the format of ns:PORT_NAME where ns is a namespace prefix valid at this scope.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.publishedEndpointUrl": {
 			"name": "camel.source.endpoint.publishedEndpointUrl",
 			"description": "This option can override the endpointUrl that published from the WSDL which can be accessed with service address url plus wsd",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.serviceClass": {
 			"name": "camel.source.endpoint.serviceClass",
 			"description": "The class name of the SEI (Service Endpoint Interface) class which could have JSR181 annotation or not.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.serviceName": {
 			"name": "camel.source.endpoint.serviceName",
 			"description": "The service name this service is implementing, it maps to the wsdl:servicename.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.wsdlURL": {
 			"name": "camel.source.endpoint.wsdlURL",
 			"description": "The location of the WSDL. Can be on the classpath, file system, or be hosted remotely.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cxf.bridgeErrorHandler": {
@@ -203,7 +184,6 @@
 		"camel.component.cxf.allowStreaming": {
 			"name": "camel.component.cxf.allowStreaming",
 			"description": "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cxf.basicPropertyBinding": {
@@ -215,7 +195,6 @@
 		"camel.component.cxf.headerFilterStrategy": {
 			"name": "camel.component.cxf.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.cxf.useGlobalSslContextParameters": {

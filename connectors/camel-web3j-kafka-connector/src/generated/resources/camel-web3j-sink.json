@@ -11,19 +11,16 @@
 		"camel.sink.path.nodeAddress": {
 			"name": "camel.sink.path.nodeAddress",
 			"description": "Sets the node address used to communicate",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.addresses": {
 			"name": "camel.sink.endpoint.addresses",
 			"description": "Contract address or a list of addresses.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.fromAddress": {
 			"name": "camel.sink.endpoint.fromAddress",
 			"description": "The address the transaction is send from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.fromBlock": {
@@ -41,13 +38,11 @@
 		"camel.sink.endpoint.gasLimit": {
 			"name": "camel.sink.endpoint.gasLimit",
 			"description": "The maximum gas allowed in this block.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.privateFor": {
 			"name": "camel.sink.endpoint.privateFor",
 			"description": "A transaction privateFor nodes with public keys in a Quorum network",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.quorumAPI": {
@@ -59,7 +54,6 @@
 		"camel.sink.endpoint.toAddress": {
 			"name": "camel.sink.endpoint.toAddress",
 			"description": "The address the transaction is directed to.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.toBlock": {
@@ -71,19 +65,16 @@
 		"camel.sink.endpoint.topics": {
 			"name": "camel.sink.endpoint.topics",
 			"description": "Topics are order-dependent. Each topic can also be a list of topics. Specify multiple topics separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.web3j": {
 			"name": "camel.sink.endpoint.web3j",
 			"description": "The preconfigured Web3j object.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.address": {
 			"name": "camel.sink.endpoint.address",
 			"description": "Contract address.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.atBlock": {
@@ -95,61 +86,51 @@
 		"camel.sink.endpoint.blockHash": {
 			"name": "camel.sink.endpoint.blockHash",
 			"description": "Hash of the block where this transaction was in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientId": {
 			"name": "camel.sink.endpoint.clientId",
 			"description": "A random hexadecimal(32 bytes) ID identifying the client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.data": {
 			"name": "camel.sink.endpoint.data",
 			"description": "The compiled code of a contract OR the hash of the invoked method signature and encoded parameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.databaseName": {
 			"name": "camel.sink.endpoint.databaseName",
 			"description": "The local database name.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.filterId": {
 			"name": "camel.sink.endpoint.filterId",
 			"description": "The filter id to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.gasPrice": {
 			"name": "camel.sink.endpoint.gasPrice",
 			"description": "Gas price used for each paid gas.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.hashrate": {
 			"name": "camel.sink.endpoint.hashrate",
 			"description": "A hexadecimal string representation (32 bytes) of the hash rate.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.headerPowHash": {
 			"name": "camel.sink.endpoint.headerPowHash",
 			"description": "The header's pow-hash (256 bits) used for submitting a proof-of-work solution.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.index": {
 			"name": "camel.sink.endpoint.index",
 			"description": "The transactions\/uncle index position in the block.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyName": {
 			"name": "camel.sink.endpoint.keyName",
 			"description": "The key name in the database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -161,13 +142,11 @@
 		"camel.sink.endpoint.mixDigest": {
 			"name": "camel.sink.endpoint.mixDigest",
 			"description": "The mix digest (256 bits) used for submitting a proof-of-work solution.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.nonce": {
 			"name": "camel.sink.endpoint.nonce",
 			"description": "The nonce found (64 bits) used for submitting a proof-of-work solution.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.operation": {
@@ -179,49 +158,41 @@
 		"camel.sink.endpoint.position": {
 			"name": "camel.sink.endpoint.position",
 			"description": "The transaction index position withing a block.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.priority": {
 			"name": "camel.sink.endpoint.priority",
 			"description": "The priority of a whisper message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sha3HashOfDataToSign": {
 			"name": "camel.sink.endpoint.sha3HashOfDataToSign",
 			"description": "Message to sign by calculating an Ethereum specific signature.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.signedTransactionData": {
 			"name": "camel.sink.endpoint.signedTransactionData",
 			"description": "The signed transaction data for a new message call transaction or a contract creation for signed transactions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sourceCode": {
 			"name": "camel.sink.endpoint.sourceCode",
 			"description": "The source code to compile.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.transactionHash": {
 			"name": "camel.sink.endpoint.transactionHash",
 			"description": "The information about a transaction requested by transaction hash.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.ttl": {
 			"name": "camel.sink.endpoint.ttl",
 			"description": "The time to live in seconds of a whisper message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.value": {
 			"name": "camel.sink.endpoint.value",
 			"description": "The value sent within a transaction.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -239,19 +210,16 @@
 		"camel.component.web3j.addresses": {
 			"name": "camel.component.web3j.addresses",
 			"description": "Contract address or a list of addresses.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.configuration": {
 			"name": "camel.component.web3j.configuration",
 			"description": "Default configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.fromAddress": {
 			"name": "camel.component.web3j.fromAddress",
 			"description": "The address the transaction is send from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.fromBlock": {
@@ -269,13 +237,11 @@
 		"camel.component.web3j.gasLimit": {
 			"name": "camel.component.web3j.gasLimit",
 			"description": "The maximum gas allowed in this block.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.privateFor": {
 			"name": "camel.component.web3j.privateFor",
 			"description": "A transaction privateFor nodes with public keys in a Quorum network",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.quorumAPI": {
@@ -287,7 +253,6 @@
 		"camel.component.web3j.toAddress": {
 			"name": "camel.component.web3j.toAddress",
 			"description": "The address the transaction is directed to.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.toBlock": {
@@ -299,19 +264,16 @@
 		"camel.component.web3j.topics": {
 			"name": "camel.component.web3j.topics",
 			"description": "Topics are order-dependent. Each topic can also be a list of topics. Specify multiple topics separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.web3j": {
 			"name": "camel.component.web3j.web3j",
 			"description": "The preconfigured Web3j object.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.address": {
 			"name": "camel.component.web3j.address",
 			"description": "Contract address.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.atBlock": {
@@ -323,61 +285,51 @@
 		"camel.component.web3j.blockHash": {
 			"name": "camel.component.web3j.blockHash",
 			"description": "Hash of the block where this transaction was in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.clientId": {
 			"name": "camel.component.web3j.clientId",
 			"description": "A random hexadecimal(32 bytes) ID identifying the client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.data": {
 			"name": "camel.component.web3j.data",
 			"description": "The compiled code of a contract OR the hash of the invoked method signature and encoded parameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.databaseName": {
 			"name": "camel.component.web3j.databaseName",
 			"description": "The local database name.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.filterId": {
 			"name": "camel.component.web3j.filterId",
 			"description": "The filter id to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.gasPrice": {
 			"name": "camel.component.web3j.gasPrice",
 			"description": "Gas price used for each paid gas.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.hashrate": {
 			"name": "camel.component.web3j.hashrate",
 			"description": "A hexadecimal string representation (32 bytes) of the hash rate.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.headerPowHash": {
 			"name": "camel.component.web3j.headerPowHash",
 			"description": "The header's pow-hash (256 bits) used for submitting a proof-of-work solution.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.index": {
 			"name": "camel.component.web3j.index",
 			"description": "The transactions\/uncle index position in the block.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.keyName": {
 			"name": "camel.component.web3j.keyName",
 			"description": "The key name in the database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.lazyStartProducer": {
@@ -389,13 +341,11 @@
 		"camel.component.web3j.mixDigest": {
 			"name": "camel.component.web3j.mixDigest",
 			"description": "The mix digest (256 bits) used for submitting a proof-of-work solution.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.nonce": {
 			"name": "camel.component.web3j.nonce",
 			"description": "The nonce found (64 bits) used for submitting a proof-of-work solution.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.operation": {
@@ -407,49 +357,41 @@
 		"camel.component.web3j.position": {
 			"name": "camel.component.web3j.position",
 			"description": "The transaction index position withing a block.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.priority": {
 			"name": "camel.component.web3j.priority",
 			"description": "The priority of a whisper message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.sha3HashOfDataToSign": {
 			"name": "camel.component.web3j.sha3HashOfDataToSign",
 			"description": "Message to sign by calculating an Ethereum specific signature.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.signedTransactionData": {
 			"name": "camel.component.web3j.signedTransactionData",
 			"description": "The signed transaction data for a new message call transaction or a contract creation for signed transactions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.sourceCode": {
 			"name": "camel.component.web3j.sourceCode",
 			"description": "The source code to compile.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.transactionHash": {
 			"name": "camel.component.web3j.transactionHash",
 			"description": "The information about a transaction requested by transaction hash.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.ttl": {
 			"name": "camel.component.web3j.ttl",
 			"description": "The time to live in seconds of a whisper message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.value": {
 			"name": "camel.component.web3j.value",
 			"description": "The value sent within a transaction.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.web3j.basicPropertyBinding": {

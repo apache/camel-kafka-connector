@@ -11,7 +11,6 @@
 		"camel.sink.path.label": {
 			"name": "camel.sink.path.label",
 			"description": "Logical name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -23,13 +22,11 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.amazonEc2Client": {
 			"name": "camel.sink.endpoint.amazonEc2Client",
 			"description": "To use a existing configured AmazonEC2Client as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -41,7 +38,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform. It can be createAndRunInstances, startInstances, stopInstances, terminateInstances, describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances, createTags or deleteTags One of: [createAndRunInstances] [startInstances] [stopInstances] [terminateInstances] [describeInstances] [describeInstancesStatus] [rebootInstances] [monitorInstances] [unmonitorInstances] [createTags] [deleteTags]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.pojoRequest": {
@@ -53,13 +49,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the EC2 client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the EC2 client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -71,13 +65,11 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which EC2 client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
@@ -107,19 +99,16 @@
 		"camel.component.aws2-ec2.accessKey": {
 			"name": "camel.component.aws2-ec2.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ec2.amazonEc2Client": {
 			"name": "camel.component.aws2-ec2.amazonEc2Client",
 			"description": "To use a existing configured AmazonEC2Client as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ec2.configuration": {
 			"name": "camel.component.aws2-ec2.configuration",
 			"description": "The component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ec2.lazyStartProducer": {
@@ -131,7 +120,6 @@
 		"camel.component.aws2-ec2.operation": {
 			"name": "camel.component.aws2-ec2.operation",
 			"description": "The operation to perform. It can be createAndRunInstances, startInstances, stopInstances, terminateInstances, describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances, createTags or deleteTags One of: [createAndRunInstances] [startInstances] [stopInstances] [terminateInstances] [describeInstances] [describeInstancesStatus] [rebootInstances] [monitorInstances] [unmonitorInstances] [createTags] [deleteTags]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.aws2-ec2.pojoRequest": {
@@ -143,13 +131,11 @@
 		"camel.component.aws2-ec2.proxyHost": {
 			"name": "camel.component.aws2-ec2.proxyHost",
 			"description": "To define a proxy host when instantiating the EC2 client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ec2.proxyPort": {
 			"name": "camel.component.aws2-ec2.proxyPort",
 			"description": "To define a proxy port when instantiating the EC2 client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ec2.proxyProtocol": {
@@ -161,13 +147,11 @@
 		"camel.component.aws2-ec2.region": {
 			"name": "camel.component.aws2-ec2.region",
 			"description": "The region in which EC2 client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ec2.secretKey": {
 			"name": "camel.component.aws2-ec2.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ec2.trustAllCertificates": {

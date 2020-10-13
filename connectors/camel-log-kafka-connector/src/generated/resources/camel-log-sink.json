@@ -11,7 +11,6 @@
 		"camel.sink.path.loggerName": {
 			"name": "camel.sink.path.loggerName",
 			"description": "Name of the logging category to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.groupActiveOnly": {
@@ -23,19 +22,16 @@
 		"camel.sink.endpoint.groupDelay": {
 			"name": "camel.sink.endpoint.groupDelay",
 			"description": "Set the initial delay for stats (in millis)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.groupInterval": {
 			"name": "camel.sink.endpoint.groupInterval",
 			"description": "If specified will group message stats by this time interval (in millis)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.groupSize": {
 			"name": "camel.sink.endpoint.groupSize",
 			"description": "An integer that specifies a group size for throughput logging.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -53,13 +49,11 @@
 		"camel.sink.endpoint.logMask": {
 			"name": "camel.sink.endpoint.logMask",
 			"description": "If true, mask sensitive information like password or passphrase in the log.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.marker": {
 			"name": "camel.sink.endpoint.marker",
 			"description": "An optional Marker name to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -71,7 +65,6 @@
 		"camel.sink.endpoint.exchangeFormatter": {
 			"name": "camel.sink.endpoint.exchangeFormatter",
 			"description": "To use a custom exchange formatter",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -197,7 +190,6 @@
 		"camel.component.log.exchangeFormatter": {
 			"name": "camel.component.log.exchangeFormatter",
 			"description": "Sets a custom ExchangeFormatter to convert the Exchange to a String suitable for logging. If not specified, we default to DefaultExchangeFormatter.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

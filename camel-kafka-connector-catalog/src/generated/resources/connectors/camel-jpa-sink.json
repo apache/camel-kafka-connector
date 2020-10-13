@@ -11,7 +11,6 @@
 		"camel.sink.path.entityType": {
 			"name": "camel.sink.path.entityType",
 			"description": "Entity class name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.joinTransaction": {
@@ -29,13 +28,11 @@
 		"camel.sink.endpoint.namedQuery": {
 			"name": "camel.sink.endpoint.namedQuery",
 			"description": "To use a named query.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.nativeQuery": {
 			"name": "camel.sink.endpoint.nativeQuery",
 			"description": "To use a custom native query. You may want to use the option resultClass also when using native queries.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.persistenceUnit": {
@@ -47,13 +44,11 @@
 		"camel.sink.endpoint.query": {
 			"name": "camel.sink.endpoint.query",
 			"description": "To use a custom query.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resultClass": {
 			"name": "camel.sink.endpoint.resultClass",
 			"description": "Defines the type of the returned payload (we will call entityManager.createNativeQuery(nativeQuery, resultClass) instead of entityManager.createNativeQuery(nativeQuery)). Without this option, we will return an object array. Only has an affect when using in conjunction with native query when consuming data.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.findEntity": {
@@ -83,7 +78,6 @@
 		"camel.sink.endpoint.useExecuteUpdate": {
 			"name": "camel.sink.endpoint.useExecuteUpdate",
 			"description": "To configure whether to use executeUpdate() when producer executes a query. When you use INSERT, UPDATE or DELETE statement as a named query, you need to specify this option to 'true'.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.usePersist": {
@@ -107,7 +101,6 @@
 		"camel.sink.endpoint.entityManagerProperties": {
 			"name": "camel.sink.endpoint.entityManagerProperties",
 			"description": "Additional properties for the entity manager to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sharedEntityManager": {
@@ -125,7 +118,6 @@
 		"camel.component.jpa.entityManagerFactory": {
 			"name": "camel.component.jpa.entityManagerFactory",
 			"description": "To use the EntityManagerFactory. This is strongly recommended to configure.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jpa.joinTransaction": {
@@ -143,7 +135,6 @@
 		"camel.component.jpa.transactionManager": {
 			"name": "camel.component.jpa.transactionManager",
 			"description": "To use the PlatformTransactionManager for managing transactions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jpa.lazyStartProducer": {

@@ -11,7 +11,6 @@
 		"camel.sink.path.clusterName": {
 			"name": "camel.sink.path.clusterName",
 			"description": "Name of the cluster",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.connectionTimeout": {
@@ -41,19 +40,16 @@
 		"camel.sink.endpoint.from": {
 			"name": "camel.sink.endpoint.from",
 			"description": "Starting index of the response.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.hostAddresses": {
 			"name": "camel.sink.endpoint.hostAddresses",
 			"description": "Comma separated list with ip:port formatted remote transport addresses to use.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.indexName": {
 			"name": "camel.sink.endpoint.indexName",
 			"description": "The name of the index to act against",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -71,7 +67,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "What operation to perform One of: [Index] [Update] [Bulk] [BulkIndex] [GetById] [MultiGet] [MultiSearch] [Delete] [DeleteIndex] [Search] [Exists] [Ping]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.scrollKeepAliveMs": {
@@ -83,7 +78,6 @@
 		"camel.sink.endpoint.size": {
 			"name": "camel.sink.endpoint.size",
 			"description": "Size of the response.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sniffAfterFailureDelay": {
@@ -143,7 +137,6 @@
 		"camel.component.elasticsearch-rest.client": {
 			"name": "camel.component.elasticsearch-rest.client",
 			"description": "To use an existing configured Elasticsearch client, instead of creating a client per endpoint. This allow to customize the client with specific settings.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elasticsearch-rest.connectionTimeout": {
@@ -161,7 +154,6 @@
 		"camel.component.elasticsearch-rest.hostAddresses": {
 			"name": "camel.component.elasticsearch-rest.hostAddresses",
 			"description": "Comma separated list with ip:port formatted remote transport addresses to use. The ip and port options must be left blank for hostAddresses to be considered instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elasticsearch-rest.maxRetryTimeout": {
@@ -197,13 +189,11 @@
 		"camel.component.elasticsearch-rest.password": {
 			"name": "camel.component.elasticsearch-rest.password",
 			"description": "Password for authenticate",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elasticsearch-rest.user": {
 			"name": "camel.component.elasticsearch-rest.user",
 			"description": "Basic authenticate user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

@@ -11,7 +11,6 @@
 		"camel.source.path.endpointUri": {
 			"name": "camel.source.path.endpointUri",
 			"description": "The delegate uri. Must belong to a component that supports webhooks.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -29,37 +28,31 @@
 		"camel.source.endpoint.webhookBasePath": {
 			"name": "camel.source.endpoint.webhookBasePath",
 			"description": "The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.webhookComponentName": {
 			"name": "camel.source.endpoint.webhookComponentName",
 			"description": "The Camel Rest component to use for the REST transport, such as netty-http.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.webhookExternalUrl": {
 			"name": "camel.source.endpoint.webhookExternalUrl",
 			"description": "The URL of the current service as seen by the webhook provider",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.webhookPath": {
 			"name": "camel.source.endpoint.webhookPath",
 			"description": "The path where the webhook endpoint will be exposed (relative to basePath, if any)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -89,25 +82,21 @@
 		"camel.component.webhook.webhookBasePath": {
 			"name": "camel.component.webhook.webhookBasePath",
 			"description": "The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.webhook.webhookComponentName": {
 			"name": "camel.component.webhook.webhookComponentName",
 			"description": "The Camel Rest component to use for the REST transport, such as netty-http.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.webhook.webhookExternalUrl": {
 			"name": "camel.component.webhook.webhookExternalUrl",
 			"description": "The URL of the current service as seen by the webhook provider",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.webhook.webhookPath": {
 			"name": "camel.component.webhook.webhookPath",
 			"description": "The path where the webhook endpoint will be exposed (relative to basePath, if any)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.webhook.basicPropertyBinding": {
@@ -119,7 +108,6 @@
 		"camel.component.webhook.configuration": {
 			"name": "camel.component.webhook.configuration",
 			"description": "Set the default configuration for the webhook meta-component.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

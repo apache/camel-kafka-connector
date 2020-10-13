@@ -11,7 +11,6 @@
 		"camel.sink.path.hostName": {
 			"name": "camel.sink.path.hostName",
 			"description": "HDFS host to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
@@ -23,7 +22,6 @@
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
 			"description": "The directory path to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.connectOnStartup": {
@@ -53,13 +51,11 @@
 		"camel.sink.endpoint.namedNodes": {
 			"name": "camel.sink.endpoint.namedNodes",
 			"description": "A comma separated list of named nodes (e.g. srv11.example.com:8020,srv12.example.com:8020)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.owner": {
 			"name": "camel.sink.endpoint.owner",
 			"description": "The file owner must match this owner for the consumer to pickup the file. Otherwise the file is skipped.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.valueType": {
@@ -149,7 +145,6 @@
 		"camel.sink.endpoint.splitStrategy": {
 			"name": "camel.sink.endpoint.splitStrategy",
 			"description": "In the current version of Hadoop opening a file in append mode is disabled since it's not very reliable. So, for the moment, it's only possible to create new files. The Camel HDFS endpoint tries to solve this problem in this way: If the split strategy option has been defined, the hdfs path will be used as a directory and files will be created using the configured UuidGenerator. Every time a splitting condition is met, a new file is created. The splitStrategy option is defined as a string with the following syntax: splitStrategy=ST:value,ST:value,... where ST can be: BYTES a new file is created, and the old is closed when the number of written bytes is more than value MESSAGES a new file is created, and the old is closed when the number of written messages is more than value IDLE a new file is created, and the old is closed when no writing happened in the last value milliseconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -161,19 +156,16 @@
 		"camel.sink.endpoint.kerberosConfigFileLocation": {
 			"name": "camel.sink.endpoint.kerberosConfigFileLocation",
 			"description": "The location of the kerb5.conf file (https:\/\/web.mit.edu\/kerberos\/krb5-1.12\/doc\/admin\/conf_files\/krb5_conf.html)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.kerberosKeytabLocation": {
 			"name": "camel.sink.endpoint.kerberosKeytabLocation",
 			"description": "The location of the keytab file used to authenticate with the kerberos nodes (contains pairs of kerberos principals and encrypted keys (which are derived from the Kerberos password))",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.kerberosUsername": {
 			"name": "camel.sink.endpoint.kerberosUsername",
 			"description": "The username used to authenticate with the kerberos nodes",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.hdfs.lazyStartProducer": {
@@ -191,13 +183,11 @@
 		"camel.component.hdfs.jAASConfiguration": {
 			"name": "camel.component.hdfs.jAASConfiguration",
 			"description": "To use the given configuration for security with JAAS.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.hdfs.kerberosConfigFile": {
 			"name": "camel.component.hdfs.kerberosConfigFile",
 			"description": "To use kerberos authentication, set the value of the 'java.security.krb5.conf' environment variable to an existing file. If the environment variable is already set, warn if different than the specified parameter",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

@@ -11,7 +11,6 @@
 		"camel.sink.path.httpURI": {
 			"name": "camel.sink.path.httpURI",
 			"description": "The url of the HTTP endpoint to use.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.useStreaming": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.cookieHandler": {
 			"name": "camel.sink.endpoint.cookieHandler",
 			"description": "Configure a cookie handler to maintain a HTTP session",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keepAlive": {
@@ -41,7 +39,6 @@
 		"camel.sink.endpoint.options": {
 			"name": "camel.sink.endpoint.options",
 			"description": "Sets additional channel options. The options that can be used are defined in org.xnio.Options. To configure from endpoint uri, then prefix each option with option., such as option.close-abort=true&option.send-buffer=8192",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.preserveHostHeader": {
@@ -77,7 +74,6 @@
 		"camel.sink.endpoint.accessLogReceiver": {
 			"name": "camel.sink.endpoint.accessLogReceiver",
 			"description": "Which Undertow AccessLogReceiver should be used Will use JBossLoggingAccessLogReceiver if not specified",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -89,7 +85,6 @@
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -101,31 +96,26 @@
 		"camel.sink.endpoint.undertowHttpBinding": {
 			"name": "camel.sink.endpoint.undertowHttpBinding",
 			"description": "To use a custom UndertowHttpBinding to control the mapping between Camel message and undertow.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.allowedRoles": {
 			"name": "camel.sink.endpoint.allowedRoles",
 			"description": "Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.securityConfiguration": {
 			"name": "camel.sink.endpoint.securityConfiguration",
 			"description": "OConfiguration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider. Configuration is UndertowSecurityProvider specific. Each provider decides whether accepts configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.securityProvider": {
 			"name": "camel.sink.endpoint.securityProvider",
 			"description": "Security provider allows plug in the provider, which will be used to secure requests. SPI approach could be used too (endpoint then finds security provider using SPI).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sendTimeout": {
@@ -137,7 +127,6 @@
 		"camel.sink.endpoint.sendToAll": {
 			"name": "camel.sink.endpoint.sendToAll",
 			"description": "To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the UndertowConstants.SEND_TO_ALL header on the message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.lazyStartProducer": {
@@ -155,37 +144,31 @@
 		"camel.component.undertow.hostOptions": {
 			"name": "camel.component.undertow.hostOptions",
 			"description": "To configure common options, such as thread pools",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.undertowHttpBinding": {
 			"name": "camel.component.undertow.undertowHttpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.allowedRoles": {
 			"name": "camel.component.undertow.allowedRoles",
 			"description": "Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.securityConfiguration": {
 			"name": "camel.component.undertow.securityConfiguration",
 			"description": "Configuration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider. Configuration is UndertowSecurityProvider specific. Each provider decides, whether it accepts configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.securityProvider": {
 			"name": "camel.component.undertow.securityProvider",
 			"description": "Security provider allows plug in the provider, which will be used to secure requests. SPI approach could be used too (component then finds security provider using SPI).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.sslContextParameters": {
 			"name": "camel.component.undertow.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.useGlobalSslContextParameters": {

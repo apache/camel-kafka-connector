@@ -29,7 +29,6 @@
 		"camel.source.endpoint.allowedOriginPattern": {
 			"name": "camel.source.endpoint.allowedOriginPattern",
 			"description": "Regex pattern to match the origin header sent by WebSocket clients",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -41,25 +40,21 @@
 		"camel.source.endpoint.router": {
 			"name": "camel.source.endpoint.router",
 			"description": "To use an existing vertx router for the HTTP server",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.serverOptions": {
 			"name": "camel.source.endpoint.serverOptions",
 			"description": "Sets customized options for configuring the HTTP server hosting the WebSocket for the consumer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -77,7 +72,6 @@
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-websocket.bridgeErrorHandler": {
@@ -95,13 +89,11 @@
 		"camel.component.vertx-websocket.vertx": {
 			"name": "camel.component.vertx-websocket.vertx",
 			"description": "To use an existing vertx instead of creating a new instance",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-websocket.vertxOptions": {
 			"name": "camel.component.vertx-websocket.vertxOptions",
 			"description": "To provide a custom set of vertx options for configuring vertx",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-websocket.useGlobalSslContextParameters": {

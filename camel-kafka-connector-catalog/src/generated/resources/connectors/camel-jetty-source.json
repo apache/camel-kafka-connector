@@ -11,7 +11,6 @@
 		"camel.source.path.httpUri": {
 			"name": "camel.source.path.httpUri",
 			"description": "The url of the HTTP endpoint to call.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.disableStreamCache": {
@@ -23,13 +22,11 @@
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpBinding": {
 			"name": "camel.source.endpoint.httpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.async": {
@@ -77,7 +74,6 @@
 		"camel.source.endpoint.httpMethodRestrict": {
 			"name": "camel.source.endpoint.httpMethodRestrict",
 			"description": "Used to only allow consuming if the HttpMethod matches, such as GET\/POST\/PUT etc. Multiple methods can be specified separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.matchOnUriPrefix": {
@@ -95,7 +91,6 @@
 		"camel.source.endpoint.responseBufferSize": {
 			"name": "camel.source.endpoint.responseBufferSize",
 			"description": "To use a custom buffer size on the javax.servlet.ServletResponse.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sendDateHeader": {
@@ -125,7 +120,6 @@
 		"camel.source.endpoint.useContinuation": {
 			"name": "camel.source.endpoint.useContinuation",
 			"description": "Whether or not to use Jetty continuations for the Jetty Server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.eagerCheckContentAvailable": {
@@ -137,37 +131,31 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.filterInitParameters": {
 			"name": "camel.source.endpoint.filterInitParameters",
 			"description": "Configuration of the filter init parameters. These parameters will be applied to the filter list before starting the jetty server.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.filters": {
 			"name": "camel.source.endpoint.filters",
 			"description": "Allows using a custom filters which is putted into a list and can be find in the Registry. Multiple values can be separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.handlers": {
 			"name": "camel.source.endpoint.handlers",
 			"description": "Specifies a comma-delimited set of Handler instances to lookup in your Registry. These handlers are added to the Jetty servlet context (for example, to add security). Important: You can not use different handlers with different Jetty endpoints using the same port number. The handlers is associated to the port number. If you need different handlers, then use different port numbers.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.multipartFilter": {
 			"name": "camel.source.endpoint.multipartFilter",
 			"description": "Allows using a custom multipart filter. Note: setting multipartFilterRef forces the value of enableMultipartFilter to true.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.optionsEnabled": {
@@ -215,7 +203,6 @@
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.bridgeErrorHandler": {
@@ -239,37 +226,31 @@
 		"camel.component.jetty.maxThreads": {
 			"name": "camel.component.jetty.maxThreads",
 			"description": "To set a value for maximum number of threads in server thread pool. Notice that both a min and max size must be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.minThreads": {
 			"name": "camel.component.jetty.minThreads",
 			"description": "To set a value for minimum number of threads in server thread pool. Notice that both a min and max size must be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.requestBufferSize": {
 			"name": "camel.component.jetty.requestBufferSize",
 			"description": "Allows to configure a custom value of the request buffer size on the Jetty connectors.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.requestHeaderSize": {
 			"name": "camel.component.jetty.requestHeaderSize",
 			"description": "Allows to configure a custom value of the request header size on the Jetty connectors.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.responseBufferSize": {
 			"name": "camel.component.jetty.responseBufferSize",
 			"description": "Allows to configure a custom value of the response buffer size on the Jetty connectors.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.responseHeaderSize": {
 			"name": "camel.component.jetty.responseHeaderSize",
 			"description": "Allows to configure a custom value of the response header size on the Jetty connectors.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.sendServerVersion": {
@@ -293,7 +274,6 @@
 		"camel.component.jetty.threadPool": {
 			"name": "camel.component.jetty.threadPool",
 			"description": "To use a custom thread pool for the server. This option should only be used in special circumstances.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.allowJavaSerializedObject": {
@@ -311,97 +291,81 @@
 		"camel.component.jetty.errorHandler": {
 			"name": "camel.component.jetty.errorHandler",
 			"description": "This option is used to set the ErrorHandler that Jetty server uses.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.httpBinding": {
 			"name": "camel.component.jetty.httpBinding",
 			"description": "Not to be used - use JettyHttpBinding instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.httpConfiguration": {
 			"name": "camel.component.jetty.httpConfiguration",
 			"description": "Jetty component does not use HttpConfiguration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.jettyHttpBinding": {
 			"name": "camel.component.jetty.jettyHttpBinding",
 			"description": "To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which are used to customize how a response should be written for the producer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.mbContainer": {
 			"name": "camel.component.jetty.mbContainer",
 			"description": "To use a existing configured org.eclipse.jetty.jmx.MBeanContainer if JMX is enabled that Jetty uses for registering mbeans.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.headerFilterStrategy": {
 			"name": "camel.component.jetty.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.proxyHost": {
 			"name": "camel.component.jetty.proxyHost",
 			"description": "To use a http proxy to configure the hostname.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.proxyPort": {
 			"name": "camel.component.jetty.proxyPort",
 			"description": "To use a http proxy to configure the port number.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.keystore": {
 			"name": "camel.component.jetty.keystore",
 			"description": "Specifies the location of the Java keystore file, which contains the Jetty server's own X.509 certificate in a key entry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.socketConnectorProperties": {
 			"name": "camel.component.jetty.socketConnectorProperties",
 			"description": "A map which contains general HTTP connector properties. Uses the same principle as sslSocketConnectorProperties.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.socketConnectors": {
 			"name": "camel.component.jetty.socketConnectors",
 			"description": "A map which contains per port number specific HTTP connectors. Uses the same principle as sslSocketConnectors.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.sslContextParameters": {
 			"name": "camel.component.jetty.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.sslKeyPassword": {
 			"name": "camel.component.jetty.sslKeyPassword",
 			"description": "The key password, which is used to access the certificate's key entry in the keystore (this is the same password that is supplied to the keystore command's -keypass option).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.sslPassword": {
 			"name": "camel.component.jetty.sslPassword",
 			"description": "The ssl password, which is required to access the keystore file (this is the same password that is supplied to the keystore command's -storepass option).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.sslSocketConnectorProperties": {
 			"name": "camel.component.jetty.sslSocketConnectorProperties",
 			"description": "A map which contains general SSL connector properties.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.sslSocketConnectors": {
 			"name": "camel.component.jetty.sslSocketConnectors",
 			"description": "A map which contains per port number specific SSL connectors.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jetty.useGlobalSslContextParameters": {

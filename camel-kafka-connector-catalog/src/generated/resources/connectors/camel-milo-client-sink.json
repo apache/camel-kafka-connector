@@ -11,13 +11,11 @@
 		"camel.sink.path.endpointUri": {
 			"name": "camel.sink.path.endpointUri",
 			"description": "The OPC UA server endpoint",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.clientId": {
 			"name": "camel.sink.endpoint.clientId",
 			"description": "A virtual client id to force the creation of a new connection instance",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.defaultAwaitWrites": {
@@ -29,25 +27,21 @@
 		"camel.sink.endpoint.discoveryEndpointSuffix": {
 			"name": "camel.sink.endpoint.discoveryEndpointSuffix",
 			"description": "A suffix for endpoint URI when discovering",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.discoveryEndpointUri": {
 			"name": "camel.sink.endpoint.discoveryEndpointUri",
 			"description": "An alternative discovery URI",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.method": {
 			"name": "camel.sink.endpoint.method",
 			"description": "The method definition (see Method ID)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.node": {
 			"name": "camel.sink.endpoint.node",
 			"description": "The node definition (see Node ID)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.samplingInterval": {
@@ -77,7 +71,6 @@
 		"camel.sink.endpoint.allowedSecurityPolicies": {
 			"name": "camel.sink.endpoint.allowedSecurityPolicies",
 			"description": "A set of allowed security policy URIs. Default is to accept all and use the highest.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.applicationName": {
@@ -95,49 +88,41 @@
 		"camel.sink.endpoint.channelLifetime": {
 			"name": "camel.sink.endpoint.channelLifetime",
 			"description": "Channel lifetime in milliseconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyAlias": {
 			"name": "camel.sink.endpoint.keyAlias",
 			"description": "The name of the key in the keystore file",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyPassword": {
 			"name": "camel.sink.endpoint.keyPassword",
 			"description": "The key password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyStorePassword": {
 			"name": "camel.sink.endpoint.keyStorePassword",
 			"description": "The keystore password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyStoreType": {
 			"name": "camel.sink.endpoint.keyStoreType",
 			"description": "The key store type",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyStoreUrl": {
 			"name": "camel.sink.endpoint.keyStoreUrl",
 			"description": "The URL where the key should be loaded from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.maxPendingPublishRequests": {
 			"name": "camel.sink.endpoint.maxPendingPublishRequests",
 			"description": "The maximum number of pending publish requests",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.maxResponseMessageSize": {
 			"name": "camel.sink.endpoint.maxResponseMessageSize",
 			"description": "The maximum number of bytes a response message may have",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.overrideHost": {
@@ -161,43 +146,36 @@
 		"camel.sink.endpoint.requestTimeout": {
 			"name": "camel.sink.endpoint.requestTimeout",
 			"description": "Request timeout in milliseconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sessionName": {
 			"name": "camel.sink.endpoint.sessionName",
 			"description": "Session name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sessionTimeout": {
 			"name": "camel.sink.endpoint.sessionTimeout",
 			"description": "Session timeout in milliseconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.clientId": {
 			"name": "camel.component.milo-client.clientId",
 			"description": "A virtual client id to force the creation of a new connection instance",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.configuration": {
 			"name": "camel.component.milo-client.configuration",
 			"description": "All default options for client configurations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.discoveryEndpointSuffix": {
 			"name": "camel.component.milo-client.discoveryEndpointSuffix",
 			"description": "A suffix for endpoint URI when discovering",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.discoveryEndpointUri": {
 			"name": "camel.component.milo-client.discoveryEndpointUri",
 			"description": "An alternative discovery URI",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.lazyStartProducer": {
@@ -215,7 +193,6 @@
 		"camel.component.milo-client.allowedSecurityPolicies": {
 			"name": "camel.component.milo-client.allowedSecurityPolicies",
 			"description": "A set of allowed security policy URIs. Default is to accept all and use the highest.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.applicationName": {
@@ -233,49 +210,41 @@
 		"camel.component.milo-client.channelLifetime": {
 			"name": "camel.component.milo-client.channelLifetime",
 			"description": "Channel lifetime in milliseconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.keyAlias": {
 			"name": "camel.component.milo-client.keyAlias",
 			"description": "The name of the key in the keystore file",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.keyPassword": {
 			"name": "camel.component.milo-client.keyPassword",
 			"description": "The key password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.keyStorePassword": {
 			"name": "camel.component.milo-client.keyStorePassword",
 			"description": "The keystore password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.keyStoreType": {
 			"name": "camel.component.milo-client.keyStoreType",
 			"description": "The key store type",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.keyStoreUrl": {
 			"name": "camel.component.milo-client.keyStoreUrl",
 			"description": "The URL where the key should be loaded from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.maxPendingPublishRequests": {
 			"name": "camel.component.milo-client.maxPendingPublishRequests",
 			"description": "The maximum number of pending publish requests",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.maxResponseMessageSize": {
 			"name": "camel.component.milo-client.maxResponseMessageSize",
 			"description": "The maximum number of bytes a response message may have",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.overrideHost": {
@@ -299,19 +268,16 @@
 		"camel.component.milo-client.requestTimeout": {
 			"name": "camel.component.milo-client.requestTimeout",
 			"description": "Request timeout in milliseconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.sessionName": {
 			"name": "camel.component.milo-client.sessionName",
 			"description": "Session name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-client.sessionTimeout": {
 			"name": "camel.component.milo-client.sessionTimeout",
 			"description": "Session timeout in milliseconds",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

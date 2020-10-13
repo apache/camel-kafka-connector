@@ -11,19 +11,16 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Hostname of the FTP server",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port of the FTP server",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.path.directoryName": {
 			"name": "camel.sink.path.directoryName",
 			"description": "The starting directory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.chmod": {
@@ -41,7 +38,6 @@
 		"camel.sink.endpoint.fileName": {
 			"name": "camel.sink.endpoint.fileName",
 			"description": "Use Expression such as File Language to dynamically set the filename. For consumers, it's used as a filename filter. For producers, it's used to evaluate the filename to write. If an expression is set, it take precedence over the CamelFileName header. (Note: The header itself can also be an Expression). The expression options support both String and Expression types. If the expression is a String type, it is always evaluated using the File Language. If the expression is an Expression type, the specified Expression type is used - this allows you, for instance, to use OGNL expressions. For the consumer, you can use it to filter filenames, so you can for instance consume today's file using the File Language syntax: mydata-${date:now:yyyyMMdd}.txt. The producers support the CamelOverruleFileName header which takes precedence over any existing CamelFileName header; the CamelOverruleFileName is a header that is used only once, and makes it easier as this avoids to temporary store CamelFileName and have to restore it afterwards.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.flatten": {
@@ -83,7 +79,6 @@
 		"camel.sink.endpoint.moveExistingFileStrategy": {
 			"name": "camel.sink.endpoint.moveExistingFileStrategy",
 			"description": "Strategy (Custom Strategy) used to move file with special naming token to use when fileExist=Move is configured. By default, there is an implementation used if no custom strategy is provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -119,43 +114,36 @@
 		"camel.sink.endpoint.knownHostsFile": {
 			"name": "camel.sink.endpoint.knownHostsFile",
 			"description": "Sets the known_hosts file, so that the jsch endpoint can do host key verification. You can prefix with classpath: to load the file from classpath instead of file system.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Password to use for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.preferredAuthentications": {
 			"name": "camel.sink.endpoint.preferredAuthentications",
 			"description": "Set a comma separated list of authentications that will be used in order of preference. Possible authentication methods are defined by JCraft JSCH. Some examples include: gssapi-with-mic,publickey,keyboard-interactive,password If not specified the JSCH and\/or system defaults will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.privateKeyBytes": {
 			"name": "camel.sink.endpoint.privateKeyBytes",
 			"description": "Set the private key bytes to that the endpoint can do private key verification. This must be used only if privateKeyFile wasn't set. Otherwise the file will have the priority.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.privateKeyFile": {
 			"name": "camel.sink.endpoint.privateKeyFile",
 			"description": "Set the private key file to that the endpoint can do private key verification. You can prefix with classpath: to load the file from classpath instead of file system.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.privateKeyFilePassphrase": {
 			"name": "camel.sink.endpoint.privateKeyFilePassphrase",
 			"description": "Set the private key file passphrase to that the endpoint can do private key verification.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Username to use for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.useUserKnownHostsFile": {
@@ -167,7 +155,6 @@
 		"camel.sink.endpoint.ciphers": {
 			"name": "camel.sink.endpoint.ciphers",
 			"description": "Set a comma separated list of ciphers that will be used in order of preference. Possible cipher names are defined by JCraft JSCH. Some examples include: aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc. If not specified the default list from JSCH will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.scp.lazyStartProducer": {

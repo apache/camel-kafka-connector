@@ -11,25 +11,21 @@
 		"camel.sink.path.cacheName": {
 			"name": "camel.sink.path.cacheName",
 			"description": "The name of the cache",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.defaultOperation": {
 			"name": "camel.sink.endpoint.defaultOperation",
 			"description": "To specify a default operation to use, if no operation header has been provided. One of: [put] [delete] [get] [update] [query] [getAll] [clear] [putIfAbsent] [allAll] [removeAll] [retainAll] [evict] [evictAll] [valueCount] [containsKey] [containsValue] [keySet] [removevalue] [increment] [decrement] [setvalue] [destroy] [compareAndSet] [getAndAdd] [add] [offer] [peek] [poll] [remainingCapacity] [drainTo] [removeIf] [take] [publish] [readOnceHeal] [readOnceTail] [capacity]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.hazelcastInstance": {
 			"name": "camel.sink.endpoint.hazelcastInstance",
 			"description": "The hazelcast instance reference which can be used for hazelcast endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.hazelcastInstanceName": {
 			"name": "camel.sink.endpoint.hazelcastInstanceName",
 			"description": "The hazelcast instance reference name which can be used for hazelcast endpoint. If you don't specify the instance reference, camel use the default hazelcast instance from the camel-hazelcast instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -65,7 +61,6 @@
 		"camel.component.hazelcast-multimap.hazelcastInstance": {
 			"name": "camel.component.hazelcast-multimap.hazelcastInstance",
 			"description": "The hazelcast instance reference which can be used for hazelcast endpoint. If you don't specify the instance reference, camel use the default hazelcast instance from the camel-hazelcast instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.hazelcast-multimap.hazelcastMode": {

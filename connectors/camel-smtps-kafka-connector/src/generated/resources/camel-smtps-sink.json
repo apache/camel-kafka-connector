@@ -11,25 +11,21 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "The mail server host name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "The port number of the mail server",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.bcc": {
 			"name": "camel.sink.endpoint.bcc",
 			"description": "Sets the BCC email address. Separate multiple email addresses with comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.cc": {
 			"name": "camel.sink.endpoint.cc",
 			"description": "Sets the CC email address. Separate multiple email addresses with comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.from": {
@@ -47,31 +43,26 @@
 		"camel.sink.endpoint.replyTo": {
 			"name": "camel.sink.endpoint.replyTo",
 			"description": "The Reply-To recipients (the receivers of the response mail). Separate multiple email addresses with a comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.subject": {
 			"name": "camel.sink.endpoint.subject",
 			"description": "The Subject of the message being sent. Note: Setting the subject in the header takes precedence over this option.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.to": {
 			"name": "camel.sink.endpoint.to",
 			"description": "Sets the To email address. Separate multiple email addresses with comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.javaMailSender": {
 			"name": "camel.sink.endpoint.javaMailSender",
 			"description": "To use a custom org.apache.camel.component.mail.JavaMailSender for sending emails.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.additionalJavaMailProperties": {
 			"name": "camel.sink.endpoint.additionalJavaMailProperties",
 			"description": "Sets additional java mail properties, that will append\/override any default properties that is set based on all the other options. This is useful if you need to add some special options but want to keep the others as is.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.alternativeBodyHeader": {
@@ -83,13 +74,11 @@
 		"camel.sink.endpoint.attachmentsContentTransferEncodingResolver": {
 			"name": "camel.sink.endpoint.attachmentsContentTransferEncodingResolver",
 			"description": "To use a custom AttachmentsContentTransferEncodingResolver to resolve what content-type-encoding to use for attachments.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.authenticator": {
 			"name": "camel.sink.endpoint.authenticator",
 			"description": "The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -101,7 +90,6 @@
 		"camel.sink.endpoint.binding": {
 			"name": "camel.sink.endpoint.binding",
 			"description": "Sets the binding used to convert from a Camel message to and from a Mail message",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.connectionTimeout": {
@@ -119,7 +107,6 @@
 		"camel.sink.endpoint.contentTypeResolver": {
 			"name": "camel.sink.endpoint.contentTypeResolver",
 			"description": "Resolver to determine Content-Type for file attachments.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.debugMode": {
@@ -131,7 +118,6 @@
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter headers.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.ignoreUnsupportedCharset": {
@@ -149,13 +135,11 @@
 		"camel.sink.endpoint.javaMailProperties": {
 			"name": "camel.sink.endpoint.javaMailProperties",
 			"description": "Sets the java mail options. Will clear any default properties and only use the properties provided for this method.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.session": {
 			"name": "camel.sink.endpoint.session",
 			"description": "Specifies the mail session that camel should use for all mail interactions. Useful in scenarios where mail sessions are created and managed by some other resource, such as a JavaEE container. When using a custom mail session, then the hostname and port from the mail session will be used (if configured on the session).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -173,31 +157,26 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The password for login. See also setAuthenticator(MailAuthenticator).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "The username for login. See also setAuthenticator(MailAuthenticator).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.bcc": {
 			"name": "camel.component.smtps.bcc",
 			"description": "Sets the BCC email address. Separate multiple email addresses with comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.cc": {
 			"name": "camel.component.smtps.cc",
 			"description": "Sets the CC email address. Separate multiple email addresses with comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.from": {
@@ -215,31 +194,26 @@
 		"camel.component.smtps.replyTo": {
 			"name": "camel.component.smtps.replyTo",
 			"description": "The Reply-To recipients (the receivers of the response mail). Separate multiple email addresses with a comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.subject": {
 			"name": "camel.component.smtps.subject",
 			"description": "The Subject of the message being sent. Note: Setting the subject in the header takes precedence over this option.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.to": {
 			"name": "camel.component.smtps.to",
 			"description": "Sets the To email address. Separate multiple email addresses with comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.javaMailSender": {
 			"name": "camel.component.smtps.javaMailSender",
 			"description": "To use a custom org.apache.camel.component.mail.JavaMailSender for sending emails.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.additionalJavaMailProperties": {
 			"name": "camel.component.smtps.additionalJavaMailProperties",
 			"description": "Sets additional java mail properties, that will append\/override any default properties that is set based on all the other options. This is useful if you need to add some special options but want to keep the others as is.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.alternativeBodyHeader": {
@@ -251,13 +225,11 @@
 		"camel.component.smtps.attachmentsContentTransferEncodingResolver": {
 			"name": "camel.component.smtps.attachmentsContentTransferEncodingResolver",
 			"description": "To use a custom AttachmentsContentTransferEncodingResolver to resolve what content-type-encoding to use for attachments.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.authenticator": {
 			"name": "camel.component.smtps.authenticator",
 			"description": "The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.basicPropertyBinding": {
@@ -269,7 +241,6 @@
 		"camel.component.smtps.configuration": {
 			"name": "camel.component.smtps.configuration",
 			"description": "Sets the Mail configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.connectionTimeout": {
@@ -287,7 +258,6 @@
 		"camel.component.smtps.contentTypeResolver": {
 			"name": "camel.component.smtps.contentTypeResolver",
 			"description": "Resolver to determine Content-Type for file attachments.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.debugMode": {
@@ -311,13 +281,11 @@
 		"camel.component.smtps.javaMailProperties": {
 			"name": "camel.component.smtps.javaMailProperties",
 			"description": "Sets the java mail options. Will clear any default properties and only use the properties provided for this method.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.session": {
 			"name": "camel.component.smtps.session",
 			"description": "Specifies the mail session that camel should use for all mail interactions. Useful in scenarios where mail sessions are created and managed by some other resource, such as a JavaEE container. When using a custom mail session, then the hostname and port from the mail session will be used (if configured on the session).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.useInlineAttachments": {
@@ -329,19 +297,16 @@
 		"camel.component.smtps.headerFilterStrategy": {
 			"name": "camel.component.smtps.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.password": {
 			"name": "camel.component.smtps.password",
 			"description": "The password for login. See also setAuthenticator(MailAuthenticator).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.sslContextParameters": {
 			"name": "camel.component.smtps.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.smtps.useGlobalSslContextParameters": {
@@ -353,7 +318,6 @@
 		"camel.component.smtps.username": {
 			"name": "camel.component.smtps.username",
 			"description": "The username for login. See also setAuthenticator(MailAuthenticator).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

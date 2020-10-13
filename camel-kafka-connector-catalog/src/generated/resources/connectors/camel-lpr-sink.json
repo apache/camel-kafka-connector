@@ -11,19 +11,16 @@
 		"camel.sink.path.hostname": {
 			"name": "camel.sink.path.hostname",
 			"description": "Hostname of the printer",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port number of the printer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.path.printername": {
 			"name": "camel.sink.path.printername",
 			"description": "Name of the printer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.copies": {
@@ -35,13 +32,11 @@
 		"camel.sink.endpoint.docFlavor": {
 			"name": "camel.sink.endpoint.docFlavor",
 			"description": "Sets DocFlavor to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.flavor": {
 			"name": "camel.sink.endpoint.flavor",
 			"description": "Sets DocFlavor to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,13 +54,11 @@
 		"camel.sink.endpoint.mediaTray": {
 			"name": "camel.sink.endpoint.mediaTray",
 			"description": "Sets MediaTray supported by the javax.print.DocFlavor API, for example upper,middle etc.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.mimeType": {
 			"name": "camel.sink.endpoint.mimeType",
 			"description": "Sets mimeTypes supported by the javax.print.DocFlavor API",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.orientation": {
@@ -77,7 +70,6 @@
 		"camel.sink.endpoint.printerPrefix": {
 			"name": "camel.sink.endpoint.printerPrefix",
 			"description": "Sets the prefix name of the printer, it is useful when the printer name does not start with \/\/hostname\/printer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sendToPrinter": {

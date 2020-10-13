@@ -11,13 +11,11 @@
 		"camel.source.path.projectId": {
 			"name": "camel.source.path.projectId",
 			"description": "Project Id",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.destinationName": {
 			"name": "camel.source.path.destinationName",
 			"description": "Destination Name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.ackMode": {
@@ -35,7 +33,6 @@
 		"camel.source.endpoint.loggerId": {
 			"name": "camel.source.endpoint.loggerId",
 			"description": "Logger ID to use when a match to the parent route required",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.maxMessagesPerPoll": {
@@ -59,13 +56,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -83,7 +78,6 @@
 		"camel.component.google-pubsub.endpoint": {
 			"name": "camel.component.google-pubsub.endpoint",
 			"description": "Endpoint to use with local Pub\/Sub emulator.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-pubsub.bridgeErrorHandler": {
@@ -101,7 +95,6 @@
 		"camel.component.google-pubsub.publisherTerminationTimeout": {
 			"name": "camel.component.google-pubsub.publisherTerminationTimeout",
 			"description": "How many milliseconds should a producer be allowed to terminate.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

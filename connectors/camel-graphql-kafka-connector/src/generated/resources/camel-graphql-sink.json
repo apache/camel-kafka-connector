@@ -11,7 +11,6 @@
 		"camel.sink.path.httpUri": {
 			"name": "camel.sink.path.httpUri",
 			"description": "The GraphQL server URI.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -23,31 +22,26 @@
 		"camel.sink.endpoint.operationName": {
 			"name": "camel.sink.endpoint.operationName",
 			"description": "The query or mutation name.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "The proxy host in the format hostname:port.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.query": {
 			"name": "camel.sink.endpoint.query",
 			"description": "The query text.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.queryFile": {
 			"name": "camel.sink.endpoint.queryFile",
 			"description": "The query file name located in the classpath.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.variables": {
 			"name": "camel.sink.endpoint.variables",
 			"description": "The JsonObject instance containing the operation variables.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -65,19 +59,16 @@
 		"camel.sink.endpoint.accessToken": {
 			"name": "camel.sink.endpoint.accessToken",
 			"description": "The access token sent in the Authorization header.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The password for Basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "The username for Basic authentication.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.graphql.lazyStartProducer": {

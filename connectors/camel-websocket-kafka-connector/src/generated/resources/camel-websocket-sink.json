@@ -23,7 +23,6 @@
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",
 			"description": "Name of the websocket channel to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.maxBinaryMessageSize": {
@@ -47,7 +46,6 @@
 		"camel.sink.endpoint.sendToAll": {
 			"name": "camel.sink.endpoint.sendToAll",
 			"description": "To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the WebsocketConstants.SEND_TO_ALL header on the message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -71,7 +69,6 @@
 		"camel.sink.endpoint.maxTextMessageSize": {
 			"name": "camel.sink.endpoint.maxTextMessageSize",
 			"description": "Can be used to set the size in characters that the websocket created by the websocketServlet may be accept before closing.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.minVersion": {
@@ -89,7 +86,6 @@
 		"camel.sink.endpoint.allowedOrigins": {
 			"name": "camel.sink.endpoint.allowedOrigins",
 			"description": "The CORS allowed origins. Use to allow all.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.crossOriginFilterOn": {
@@ -101,7 +97,6 @@
 		"camel.sink.endpoint.filterPath": {
 			"name": "camel.sink.endpoint.filterPath",
 			"description": "Context path for filtering CORS",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.enableJmx": {
@@ -113,7 +108,6 @@
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.websocket.host": {
@@ -149,43 +143,36 @@
 		"camel.component.websocket.maxThreads": {
 			"name": "camel.component.websocket.maxThreads",
 			"description": "To set a value for maximum number of threads in server thread pool. MaxThreads\/minThreads or threadPool fields are required due to switch to Jetty9. The default values for maxThreads is 1 2 noCores.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.websocket.minThreads": {
 			"name": "camel.component.websocket.minThreads",
 			"description": "To set a value for minimum number of threads in server thread pool. MaxThreads\/minThreads or threadPool fields are required due to switch to Jetty9. The default values for minThreads is 1.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.websocket.threadPool": {
 			"name": "camel.component.websocket.threadPool",
 			"description": "To use a custom thread pool for the server. MaxThreads\/minThreads or threadPool fields are required due to switch to Jetty9.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.websocket.sslContextParameters": {
 			"name": "camel.component.websocket.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.websocket.sslKeyPassword": {
 			"name": "camel.component.websocket.sslKeyPassword",
 			"description": "The password for the keystore when using SSL.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.websocket.sslKeystore": {
 			"name": "camel.component.websocket.sslKeystore",
 			"description": "The path to the keystore.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.websocket.sslPassword": {
 			"name": "camel.component.websocket.sslPassword",
 			"description": "The password when using SSL.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.websocket.useGlobalSslContextParameters": {

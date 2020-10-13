@@ -11,43 +11,36 @@
 		"camel.sink.path.localPath": {
 			"name": "camel.sink.path.localPath",
 			"description": "Local repository path",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.branchName": {
 			"name": "camel.sink.endpoint.branchName",
 			"description": "The branch name to work on",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Remote repository password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.remoteName": {
 			"name": "camel.sink.endpoint.remoteName",
 			"description": "The remote repository name to use in particular operation like pull",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.remotePath": {
 			"name": "camel.sink.endpoint.remotePath",
 			"description": "The remote repository path",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tagName": {
 			"name": "camel.sink.endpoint.tagName",
 			"description": "The tag name to work on",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Remote repository username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.allowEmpty": {
@@ -65,7 +58,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do on the repository One of: [clone] [init] [add] [remove] [commit] [commitAll] [createBranch] [deleteBranch] [createTag] [deleteTag] [status] [log] [push] [pull] [showBranches] [cherryPick] [remoteAdd] [remoteList]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

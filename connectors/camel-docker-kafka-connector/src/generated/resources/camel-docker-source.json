@@ -11,13 +11,11 @@
 		"camel.source.path.operation": {
 			"name": "camel.source.path.operation",
 			"description": "Which operation to use One of: [events] [stats] [auth] [info] [ping] [version] [imagebuild] [imagecreate] [imageinspect] [imagelist] [imagepull] [imagepushimageremove] [imagesearch] [imagetag] [containerattach] [containercommit] [containercopyfile] [containercreate] [containerdiffinspectcontainer] [containerkill] [containerlist] [containerlog] [containerpause] [containerrestart] [containerremove] [containerstartcontainerstop] [containertop] [containerunpause] [containerwait] [execcreate] [execstart]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.email": {
 			"name": "camel.source.endpoint.email",
 			"description": "Email address associated with the user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.host": {
@@ -35,7 +33,6 @@
 		"camel.source.endpoint.requestTimeout": {
 			"name": "camel.source.endpoint.requestTimeout",
 			"description": "Request timeout for response (in seconds)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -47,13 +44,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -95,7 +90,6 @@
 		"camel.source.endpoint.parameters": {
 			"name": "camel.source.endpoint.parameters",
 			"description": "Additional configuration parameters as key\/value pairs",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.serverAddress": {
@@ -119,13 +113,11 @@
 		"camel.source.endpoint.certPath": {
 			"name": "camel.source.endpoint.certPath",
 			"description": "Location containing the SSL certificate chain",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Password to authenticate with",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.secure": {
@@ -143,19 +135,16 @@
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "User name to authenticate with",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.configuration": {
 			"name": "camel.component.docker.configuration",
 			"description": "To use the shared docker configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.email": {
 			"name": "camel.component.docker.email",
 			"description": "Email address associated with the user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.host": {
@@ -173,7 +162,6 @@
 		"camel.component.docker.requestTimeout": {
 			"name": "camel.component.docker.requestTimeout",
 			"description": "Request timeout for response (in seconds)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.bridgeErrorHandler": {
@@ -221,7 +209,6 @@
 		"camel.component.docker.parameters": {
 			"name": "camel.component.docker.parameters",
 			"description": "Additional configuration parameters as key\/value pairs",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.serverAddress": {
@@ -239,13 +226,11 @@
 		"camel.component.docker.certPath": {
 			"name": "camel.component.docker.certPath",
 			"description": "Location containing the SSL certificate chain",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.password": {
 			"name": "camel.component.docker.password",
 			"description": "Password to authenticate with",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.secure": {
@@ -263,7 +248,6 @@
 		"camel.component.docker.username": {
 			"name": "camel.component.docker.username",
 			"description": "User name to authenticate with",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

@@ -11,7 +11,6 @@
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",
 			"description": "The name of the template to load from classpath or file system",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.allowStAX": {
@@ -23,13 +22,11 @@
 		"camel.sink.endpoint.headerName": {
 			"name": "camel.sink.endpoint.headerName",
 			"description": "To use a Camel Message header as the input source instead of Message body.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.namespacePrefixes": {
 			"name": "camel.sink.endpoint.namespacePrefixes",
 			"description": "Allows to control which namespace prefixes to use for a set of namespace mappings",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resultsFormat": {
@@ -41,7 +38,6 @@
 		"camel.sink.endpoint.resultType": {
 			"name": "camel.sink.endpoint.resultType",
 			"description": "What output result to use defined as a class",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.stripsAllWhiteSpace": {
@@ -65,37 +61,31 @@
 		"camel.sink.endpoint.configuration": {
 			"name": "camel.sink.endpoint.configuration",
 			"description": "To use a custom Saxon configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.configurationProperties": {
 			"name": "camel.sink.endpoint.configurationProperties",
 			"description": "To set custom Saxon configuration properties",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.moduleURIResolver": {
 			"name": "camel.sink.endpoint.moduleURIResolver",
 			"description": "To use the custom ModuleURIResolver",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.parameters": {
 			"name": "camel.sink.endpoint.parameters",
 			"description": "Additional parameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.properties": {
 			"name": "camel.sink.endpoint.properties",
 			"description": "Properties to configure the serialization parameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.staticQueryContext": {
 			"name": "camel.sink.endpoint.staticQueryContext",
 			"description": "To use a custom Saxon StaticQueryContext",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -119,19 +109,16 @@
 		"camel.component.xquery.configuration": {
 			"name": "camel.component.xquery.configuration",
 			"description": "To use a custom Saxon configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xquery.configurationProperties": {
 			"name": "camel.component.xquery.configurationProperties",
 			"description": "To set custom Saxon configuration properties",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xquery.moduleURIResolver": {
 			"name": "camel.component.xquery.moduleURIResolver",
 			"description": "To use the custom ModuleURIResolver",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

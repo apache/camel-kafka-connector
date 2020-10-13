@@ -11,13 +11,11 @@
 		"camel.source.path.address": {
 			"name": "camel.source.path.address",
 			"description": "Sets the event bus address used to communicate",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.pubSub": {
 			"name": "camel.source.endpoint.pubSub",
 			"description": "Whether to use publish\/subscribe instead of point to point when sending to a vertx endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -29,13 +27,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -53,13 +49,11 @@
 		"camel.component.vertx.host": {
 			"name": "camel.component.vertx.host",
 			"description": "Hostname for creating an embedded clustered EventBus",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx.port": {
 			"name": "camel.component.vertx.port",
 			"description": "Port for creating an embedded clustered EventBus",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx.timeout": {
@@ -71,13 +65,11 @@
 		"camel.component.vertx.vertx": {
 			"name": "camel.component.vertx.vertx",
 			"description": "To use the given vertx EventBus instead of creating a new embedded EventBus",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx.vertxOptions": {
 			"name": "camel.component.vertx.vertxOptions",
 			"description": "Options to use for creating vertx",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx.bridgeErrorHandler": {
@@ -95,7 +87,6 @@
 		"camel.component.vertx.vertxFactory": {
 			"name": "camel.component.vertx.vertxFactory",
 			"description": "To use a custom VertxFactory implementation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

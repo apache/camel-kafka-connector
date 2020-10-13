@@ -11,19 +11,16 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Host name or IP address",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.clusterId": {
 			"name": "camel.sink.endpoint.clusterId",
 			"description": "Cluster ID https:\/\/drill.apache.org\/docs\/using-the-jdbc-driver\/#determining-the-cluster-id",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.directory": {
 			"name": "camel.sink.endpoint.directory",
 			"description": "Drill directory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {

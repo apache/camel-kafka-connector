@@ -11,7 +11,6 @@
 		"camel.sink.path.label": {
 			"name": "camel.sink.path.label",
 			"description": "Logical name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autodetectSourceLanguage": {
@@ -47,13 +46,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the Translate client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the Translate client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -65,25 +62,21 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which Translate client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sourceLanguage": {
 			"name": "camel.sink.endpoint.sourceLanguage",
 			"description": "Source language to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.targetLanguage": {
 			"name": "camel.sink.endpoint.targetLanguage",
 			"description": "Target language to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.translateClient": {
 			"name": "camel.sink.endpoint.translateClient",
 			"description": "To use a existing configured AWS Translate as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
@@ -107,13 +100,11 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.autodetectSourceLanguage": {
@@ -131,7 +122,6 @@
 		"camel.component.aws2-translate.configuration": {
 			"name": "camel.component.aws2-translate.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.lazyStartProducer": {
@@ -155,13 +145,11 @@
 		"camel.component.aws2-translate.proxyHost": {
 			"name": "camel.component.aws2-translate.proxyHost",
 			"description": "To define a proxy host when instantiating the Translate client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.proxyPort": {
 			"name": "camel.component.aws2-translate.proxyPort",
 			"description": "To define a proxy port when instantiating the Translate client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.proxyProtocol": {
@@ -173,25 +161,21 @@
 		"camel.component.aws2-translate.region": {
 			"name": "camel.component.aws2-translate.region",
 			"description": "The region in which Translate client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.sourceLanguage": {
 			"name": "camel.component.aws2-translate.sourceLanguage",
 			"description": "Source language to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.targetLanguage": {
 			"name": "camel.component.aws2-translate.targetLanguage",
 			"description": "Target language to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.translateClient": {
 			"name": "camel.component.aws2-translate.translateClient",
 			"description": "To use a existing configured AWS Translate as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.trustAllCertificates": {
@@ -209,13 +193,11 @@
 		"camel.component.aws2-translate.accessKey": {
 			"name": "camel.component.aws2-translate.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-translate.secretKey": {
 			"name": "camel.component.aws2-translate.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

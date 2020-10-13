@@ -11,7 +11,6 @@
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",
 			"description": "Path to the template. The following is supported by the default URIResolver. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the resource using these protocols (classpath is default). ref will lookup the resource in the registry. bean will call a method on a bean to be used as the resource. For bean you can specify the method name after dot, eg bean:myBean.myMethod",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.allowStAX": {
@@ -53,7 +52,6 @@
 		"camel.sink.endpoint.transformDirection": {
 			"name": "camel.sink.endpoint.transformDirection",
 			"description": "Transform direction. Either XML2JSON or JSON2XML One of: [XML2JSON] [JSON2XML]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.transformerCacheSize": {
@@ -71,31 +69,26 @@
 		"camel.sink.endpoint.entityResolver": {
 			"name": "camel.sink.endpoint.entityResolver",
 			"description": "To use a custom org.xml.sax.EntityResolver with javax.xml.transform.sax.SAXSource.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.errorListener": {
 			"name": "camel.sink.endpoint.errorListener",
 			"description": "Allows to configure to use a custom javax.xml.transform.ErrorListener. Beware when doing this then the default error listener which captures any errors or fatal errors and store information on the Exchange as properties is not in use. So only use this option for special use-cases.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resultHandlerFactory": {
 			"name": "camel.sink.endpoint.resultHandlerFactory",
 			"description": "Allows you to use a custom org.apache.camel.builder.xml.ResultHandlerFactory which is capable of using custom org.apache.camel.builder.xml.ResultHandler types.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.saxonConfiguration": {
 			"name": "camel.sink.endpoint.saxonConfiguration",
 			"description": "To use a custom Saxon configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.saxonExtensionFunctions": {
 			"name": "camel.sink.endpoint.saxonExtensionFunctions",
 			"description": "Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add camel-saxon to the classpath. The function is looked up in the registry, where you can comma to separate multiple values to lookup.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -107,25 +100,21 @@
 		"camel.sink.endpoint.transformerFactory": {
 			"name": "camel.sink.endpoint.transformerFactory",
 			"description": "To use a custom XSLT transformer factory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.transformerFactoryClass": {
 			"name": "camel.sink.endpoint.transformerFactoryClass",
 			"description": "To use a custom XSLT transformer factory, specified as a FQN class name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.transformerFactoryConfigurationStrategy": {
 			"name": "camel.sink.endpoint.transformerFactoryConfigurationStrategy",
 			"description": "A configuration strategy to apply on freshly created instances of TransformerFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.uriResolver": {
 			"name": "camel.sink.endpoint.uriResolver",
 			"description": "To use a custom javax.xml.transform.URIResolver",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xj.contentCache": {
@@ -149,43 +138,36 @@
 		"camel.component.xj.saxonConfiguration": {
 			"name": "camel.component.xj.saxonConfiguration",
 			"description": "To use a custom Saxon configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xj.saxonConfigurationProperties": {
 			"name": "camel.component.xj.saxonConfigurationProperties",
 			"description": "To set custom Saxon configuration properties",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xj.saxonExtensionFunctions": {
 			"name": "camel.component.xj.saxonExtensionFunctions",
 			"description": "Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add camel-saxon to the classpath. The function is looked up in the registry, where you can comma to separate multiple values to lookup.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xj.transformerFactoryClass": {
 			"name": "camel.component.xj.transformerFactoryClass",
 			"description": "To use a custom XSLT transformer factory, specified as a FQN class name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xj.transformerFactoryConfigurationStrategy": {
 			"name": "camel.component.xj.transformerFactoryConfigurationStrategy",
 			"description": "A configuration strategy to apply on freshly created instances of TransformerFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xj.uriResolver": {
 			"name": "camel.component.xj.uriResolver",
 			"description": "To use a custom UriResolver. Should not be used together with the option 'uriResolverFactory'.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.xj.uriResolverFactory": {
 			"name": "camel.component.xj.uriResolverFactory",
 			"description": "To use a custom UriResolver which depends on a dynamic endpoint resource URI. Should not be used together with the option 'uriResolver'.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

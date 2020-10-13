@@ -11,13 +11,11 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "SMS Provider HOST with scheme",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.defaultFrom": {
 			"name": "camel.sink.endpoint.defaultFrom",
 			"description": "This is the sender name. The maximum length is 11 characters.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.defaultMaxNumberOfParts": {
@@ -35,7 +33,6 @@
 		"camel.sink.endpoint.productToken": {
 			"name": "camel.sink.endpoint.productToken",
 			"description": "The unique token to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.testConnectionOnStartup": {

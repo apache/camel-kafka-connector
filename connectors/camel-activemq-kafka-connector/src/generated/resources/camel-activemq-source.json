@@ -17,19 +17,16 @@
 		"camel.source.path.destinationName": {
 			"name": "camel.source.path.destinationName",
 			"description": "Name of the queue or topic to use as destination",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.clientId": {
 			"name": "camel.source.endpoint.clientId",
 			"description": "Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.connectionFactory": {
 			"name": "camel.source.endpoint.connectionFactory",
 			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.disableReplyTo": {
@@ -41,13 +38,11 @@
 		"camel.source.endpoint.durableSubscriptionName": {
 			"name": "camel.source.endpoint.durableSubscriptionName",
 			"description": "The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.jmsMessageType": {
 			"name": "camel.source.endpoint.jmsMessageType",
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.testConnectionOnStartup": {
@@ -77,7 +72,6 @@
 		"camel.source.endpoint.cacheLevel": {
 			"name": "camel.source.endpoint.cacheLevel",
 			"description": "Sets the cache level by ID for the underlying JMS resources. See cacheLevelName option for more details.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.cacheLevelName": {
@@ -95,13 +89,11 @@
 		"camel.source.endpoint.maxConcurrentConsumers": {
 			"name": "camel.source.endpoint.maxConcurrentConsumers",
 			"description": "Specifies the maximum number of concurrent consumers when consuming from JMS (not for request\/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads. When doing request\/reply over JMS then the option replyToMaxConcurrentConsumers is used to control number of concurrent consumers on the reply message listener.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.replyTo": {
 			"name": "camel.source.endpoint.replyTo",
 			"description": "Provides an explicit ReplyTo destination, which overrides any incoming value of Message.getJMSReplyTo().",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.replyToDeliveryPersistent": {
@@ -113,7 +105,6 @@
 		"camel.source.endpoint.selector": {
 			"name": "camel.source.endpoint.selector",
 			"description": "Sets the JMS selector to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.subscriptionDurable": {
@@ -125,7 +116,6 @@
 		"camel.source.endpoint.subscriptionName": {
 			"name": "camel.source.endpoint.subscriptionName",
 			"description": "Set the name of a subscription to create. To be applied in case of a topic (pub-sub domain) with a shared or durable subscription. The subscription name needs to be unique within this client's JMS client id. Default is the class name of the specified message listener. Note: Only 1 concurrent consumer (which is the default of this message listener container) is allowed for each subscription, except for a shared subscription (which requires JMS 2.0).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.subscriptionShared": {
@@ -155,7 +145,6 @@
 		"camel.source.endpoint.defaultTaskExecutorType": {
 			"name": "camel.source.endpoint.defaultTaskExecutorType",
 			"description": "Specifies what default TaskExecutor type to use in the DefaultMessageListenerContainer, for both consumer endpoints and the ReplyTo consumer of producer endpoints. Possible values: SimpleAsync (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's ThreadPoolTaskExecutor with optimal values - cached threadpool-like). If not set, it defaults to the previous behaviour, which uses a cached thread pool for consumer endpoints and SimpleAsync for reply consumers. The use of ThreadPool is recommended to reduce thread trash in elastic configurations with dynamically increasing and decreasing concurrent consumers. One of: [ThreadPool] [SimpleAsync]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.eagerLoadingOfProperties": {
@@ -173,13 +162,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exposeListenerSession": {
@@ -197,7 +184,6 @@
 		"camel.source.endpoint.taskExecutor": {
 			"name": "camel.source.endpoint.taskExecutor",
 			"description": "Allows you to specify a custom task executor for consuming messages.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.allowSerializedHeaders": {
@@ -233,25 +219,21 @@
 		"camel.source.endpoint.destinationResolver": {
 			"name": "camel.source.endpoint.destinationResolver",
 			"description": "A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver (for example, to lookup the real destination in a JNDI registry).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.errorHandler": {
 			"name": "camel.source.endpoint.errorHandler",
 			"description": "Specifies a org.springframework.util.ErrorHandler to be invoked in case of any uncaught exceptions thrown while processing a Message. By default these exceptions will be logged at the WARN level, if no errorHandler has been configured. You can configure logging level and whether stack traces should be logged using errorHandlerLoggingLevel and errorHandlerLogStackTrace options. This makes it much easier to configure, than having to code a custom errorHandler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exceptionListener": {
 			"name": "camel.source.endpoint.exceptionListener",
 			"description": "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.idleConsumerLimit": {
@@ -275,7 +257,6 @@
 		"camel.source.endpoint.jmsKeyFormatStrategy": {
 			"name": "camel.source.endpoint.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation. One of: [default] [passthrough]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.mapJmsMessage": {
@@ -293,13 +274,11 @@
 		"camel.source.endpoint.messageConverter": {
 			"name": "camel.source.endpoint.messageConverter",
 			"description": "To use a custom Spring org.springframework.jms.support.converter.MessageConverter so you can be in control how to map to\/from a javax.jms.Message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.messageCreatedStrategy": {
 			"name": "camel.source.endpoint.messageCreatedStrategy",
 			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.messageIdEnabled": {
@@ -311,7 +290,6 @@
 		"camel.source.endpoint.messageListenerContainerFactory": {
 			"name": "camel.source.endpoint.messageListenerContainerFactory",
 			"description": "Registry ID of the MessageListenerContainerFactory used to determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use to consume messages. Setting this will automatically set consumerType to Custom.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.messageTimestampEnabled": {
@@ -395,13 +373,11 @@
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Password to use with the ConnectionFactory. You can also configure username\/password directly on the ConnectionFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "Username to use with the ConnectionFactory. You can also configure username\/password directly on the ConnectionFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.transacted": {
@@ -425,13 +401,11 @@
 		"camel.source.endpoint.transactionManager": {
 			"name": "camel.source.endpoint.transactionManager",
 			"description": "The Spring transaction manager to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.transactionName": {
 			"name": "camel.source.endpoint.transactionName",
 			"description": "The name of the transaction to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.transactionTimeout": {
@@ -443,19 +417,16 @@
 		"camel.component.activemq.brokerURL": {
 			"name": "camel.component.activemq.brokerURL",
 			"description": "Sets the broker URL to use to connect to ActiveMQ. If none configured then localhost:61616 is used by default (however can be overridden by configuration from environment variables)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.clientId": {
 			"name": "camel.component.activemq.clientId",
 			"description": "Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.connectionFactory": {
 			"name": "camel.component.activemq.connectionFactory",
 			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.disableReplyTo": {
@@ -467,13 +438,11 @@
 		"camel.component.activemq.durableSubscriptionName": {
 			"name": "camel.component.activemq.durableSubscriptionName",
 			"description": "The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.jmsMessageType": {
 			"name": "camel.component.activemq.jmsMessageType",
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.testConnectionOnStartup": {
@@ -515,7 +484,6 @@
 		"camel.component.activemq.cacheLevel": {
 			"name": "camel.component.activemq.cacheLevel",
 			"description": "Sets the cache level by ID for the underlying JMS resources. See cacheLevelName option for more details.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.cacheLevelName": {
@@ -533,13 +501,11 @@
 		"camel.component.activemq.maxConcurrentConsumers": {
 			"name": "camel.component.activemq.maxConcurrentConsumers",
 			"description": "Specifies the maximum number of concurrent consumers when consuming from JMS (not for request\/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads. When doing request\/reply over JMS then the option replyToMaxConcurrentConsumers is used to control number of concurrent consumers on the reply message listener.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.replyTo": {
 			"name": "camel.component.activemq.replyTo",
 			"description": "Provides an explicit ReplyTo destination, which overrides any incoming value of Message.getJMSReplyTo().",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.replyToDeliveryPersistent": {
@@ -551,7 +517,6 @@
 		"camel.component.activemq.selector": {
 			"name": "camel.component.activemq.selector",
 			"description": "Sets the JMS selector to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.subscriptionDurable": {
@@ -563,7 +528,6 @@
 		"camel.component.activemq.subscriptionName": {
 			"name": "camel.component.activemq.subscriptionName",
 			"description": "Set the name of a subscription to create. To be applied in case of a topic (pub-sub domain) with a shared or durable subscription. The subscription name needs to be unique within this client's JMS client id. Default is the class name of the specified message listener. Note: Only 1 concurrent consumer (which is the default of this message listener container) is allowed for each subscription, except for a shared subscription (which requires JMS 2.0).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.subscriptionShared": {
@@ -593,7 +557,6 @@
 		"camel.component.activemq.defaultTaskExecutorType": {
 			"name": "camel.component.activemq.defaultTaskExecutorType",
 			"description": "Specifies what default TaskExecutor type to use in the DefaultMessageListenerContainer, for both consumer endpoints and the ReplyTo consumer of producer endpoints. Possible values: SimpleAsync (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's ThreadPoolTaskExecutor with optimal values - cached threadpool-like). If not set, it defaults to the previous behaviour, which uses a cached thread pool for consumer endpoints and SimpleAsync for reply consumers. The use of ThreadPool is recommended to reduce thread trash in elastic configurations with dynamically increasing and decreasing concurrent consumers. One of: [ThreadPool] [SimpleAsync]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.eagerLoadingOfProperties": {
@@ -623,7 +586,6 @@
 		"camel.component.activemq.taskExecutor": {
 			"name": "camel.component.activemq.taskExecutor",
 			"description": "Allows you to specify a custom task executor for consuming messages.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.allowAutoWiredConnectionFactory": {
@@ -671,25 +633,21 @@
 		"camel.component.activemq.configuration": {
 			"name": "camel.component.activemq.configuration",
 			"description": "To use a shared JMS configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.destinationResolver": {
 			"name": "camel.component.activemq.destinationResolver",
 			"description": "A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver (for example, to lookup the real destination in a JNDI registry).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.errorHandler": {
 			"name": "camel.component.activemq.errorHandler",
 			"description": "Specifies a org.springframework.util.ErrorHandler to be invoked in case of any uncaught exceptions thrown while processing a Message. By default these exceptions will be logged at the WARN level, if no errorHandler has been configured. You can configure logging level and whether stack traces should be logged using errorHandlerLoggingLevel and errorHandlerLogStackTrace options. This makes it much easier to configure, than having to code a custom errorHandler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.exceptionListener": {
 			"name": "camel.component.activemq.exceptionListener",
 			"description": "Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.idleConsumerLimit": {
@@ -713,7 +671,6 @@
 		"camel.component.activemq.jmsKeyFormatStrategy": {
 			"name": "camel.component.activemq.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation. One of: [default] [passthrough]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.mapJmsMessage": {
@@ -731,13 +688,11 @@
 		"camel.component.activemq.messageConverter": {
 			"name": "camel.component.activemq.messageConverter",
 			"description": "To use a custom Spring org.springframework.jms.support.converter.MessageConverter so you can be in control how to map to\/from a javax.jms.Message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.messageCreatedStrategy": {
 			"name": "camel.component.activemq.messageCreatedStrategy",
 			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.messageIdEnabled": {
@@ -749,7 +704,6 @@
 		"camel.component.activemq.messageListenerContainerFactory": {
 			"name": "camel.component.activemq.messageListenerContainerFactory",
 			"description": "Registry ID of the MessageListenerContainerFactory used to determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use to consume messages. Setting this will automatically set consumerType to Custom.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.messageTimestampEnabled": {
@@ -767,7 +721,6 @@
 		"camel.component.activemq.queueBrowseStrategy": {
 			"name": "camel.component.activemq.queueBrowseStrategy",
 			"description": "To use a custom QueueBrowseStrategy when browsing queues",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.receiveTimeout": {
@@ -827,7 +780,6 @@
 		"camel.component.activemq.headerFilterStrategy": {
 			"name": "camel.component.activemq.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.errorHandlerLoggingLevel": {
@@ -845,13 +797,11 @@
 		"camel.component.activemq.password": {
 			"name": "camel.component.activemq.password",
 			"description": "Password to use with the ConnectionFactory. You can also configure username\/password directly on the ConnectionFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.username": {
 			"name": "camel.component.activemq.username",
 			"description": "Username to use with the ConnectionFactory. You can also configure username\/password directly on the ConnectionFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.transacted": {
@@ -875,13 +825,11 @@
 		"camel.component.activemq.transactionManager": {
 			"name": "camel.component.activemq.transactionManager",
 			"description": "The Spring transaction manager to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.transactionName": {
 			"name": "camel.component.activemq.transactionName",
 			"description": "The name of the transaction to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.transactionTimeout": {

@@ -11,7 +11,6 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "Component name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.depth": {
@@ -35,19 +34,16 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "Which operation to perform, one of: sendTransfer, getNewAddress, getTransfers One of: [sendTransfer] [getNewAddress] [getTransfers]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.tag": {
 			"name": "camel.sink.endpoint.tag",
 			"description": "TAG",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.url": {
 			"name": "camel.sink.endpoint.url",
 			"description": "Node url",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

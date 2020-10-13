@@ -11,43 +11,36 @@
 		"camel.sink.path.transport": {
 			"name": "camel.sink.path.transport",
 			"description": "Transport to use, can be either http or netty One of: [http] [netty]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port number to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Hostname to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.messageName": {
 			"name": "camel.sink.path.messageName",
 			"description": "The name of the message to send.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.protocol": {
 			"name": "camel.sink.endpoint.protocol",
 			"description": "Avro protocol to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.protocolClassName": {
 			"name": "camel.sink.endpoint.protocolClassName",
 			"description": "Avro protocol to use defined by the FQN class name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.protocolLocation": {
 			"name": "camel.sink.endpoint.protocolLocation",
 			"description": "Avro protocol location",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.reflectionProtocol": {
@@ -65,7 +58,6 @@
 		"camel.sink.endpoint.uriAuthority": {
 			"name": "camel.sink.endpoint.uriAuthority",
 			"description": "Authority to use (username and password)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -89,19 +81,16 @@
 		"camel.component.avro.protocol": {
 			"name": "camel.component.avro.protocol",
 			"description": "Avro protocol to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.avro.protocolClassName": {
 			"name": "camel.component.avro.protocolClassName",
 			"description": "Avro protocol to use defined by the FQN class name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.avro.protocolLocation": {
 			"name": "camel.component.avro.protocolLocation",
 			"description": "Avro protocol location",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.avro.reflectionProtocol": {
@@ -119,7 +108,6 @@
 		"camel.component.avro.uriAuthority": {
 			"name": "camel.component.avro.uriAuthority",
 			"description": "Authority to use (username and password)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.avro.lazyStartProducer": {
@@ -137,7 +125,6 @@
 		"camel.component.avro.configuration": {
 			"name": "camel.component.avro.configuration",
 			"description": "To use a shared AvroConfiguration to configure options once",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

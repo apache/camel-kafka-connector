@@ -11,13 +11,11 @@
 		"camel.source.path.destinationName": {
 			"name": "camel.source.path.destinationName",
 			"description": "The destination name. Only queues are supported, names may be prefixed by 'queue:'.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.aggregationStrategy": {
 			"name": "camel.source.endpoint.aggregationStrategy",
 			"description": "The aggregation strategy to use, which merges all the batched messages into a single message",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.allowNullBody": {
@@ -41,7 +39,6 @@
 		"camel.source.endpoint.completionPredicate": {
 			"name": "camel.source.endpoint.completionPredicate",
 			"description": "The completion predicate, which causes batches to be completed when the predicate evaluates as true. The predicate can also be configured using the simple language using the string syntax. You may want to set the option eagerCheckCompletion to true to let the predicate match the incoming message, as otherwise it matches the aggregated message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.completionSize": {
@@ -95,13 +92,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.asyncStartListener": {
@@ -119,13 +114,11 @@
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.jmsKeyFormatStrategy": {
 			"name": "camel.source.endpoint.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.keepAliveDelay": {
@@ -137,7 +130,6 @@
 		"camel.source.endpoint.messageCreatedStrategy": {
 			"name": "camel.source.endpoint.messageCreatedStrategy",
 			"description": "To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of javax.jms.Message objects when Camel is sending a JMS message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.recoveryInterval": {
@@ -155,7 +147,6 @@
 		"camel.source.endpoint.timeoutCheckerExecutorService": {
 			"name": "camel.source.endpoint.timeoutCheckerExecutorService",
 			"description": "If using the completionInterval option a background thread is created to trigger the completion interval. Set this option to provide a custom thread pool to be used rather than creating a new thread for every consumer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms-batch.bridgeErrorHandler": {
@@ -179,7 +170,6 @@
 		"camel.component.sjms-batch.connectionFactory": {
 			"name": "camel.component.sjms-batch.connectionFactory",
 			"description": "A ConnectionFactory is required to enable the SjmsBatchComponent.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.sjms-batch.recoveryInterval": {
@@ -191,7 +181,6 @@
 		"camel.component.sjms-batch.headerFilterStrategy": {
 			"name": "camel.component.sjms-batch.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

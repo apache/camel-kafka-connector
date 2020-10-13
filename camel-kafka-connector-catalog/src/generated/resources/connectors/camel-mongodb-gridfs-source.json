@@ -11,7 +11,6 @@
 		"camel.source.path.connectionBean": {
 			"name": "camel.source.path.connectionBean",
 			"description": "Name of com.mongodb.client.MongoClient to use.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.bucket": {
@@ -23,19 +22,16 @@
 		"camel.source.endpoint.database": {
 			"name": "camel.source.endpoint.database",
 			"description": "Sets the name of the MongoDB database to target",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.readPreference": {
 			"name": "camel.source.endpoint.readPreference",
 			"description": "Sets a MongoDB ReadPreference on the Mongo connection. Read preferences set directly on the connection will be overridden by this setting. The com.mongodb.ReadPreference#valueOf(String) utility method is used to resolve the passed readPreference value. Some examples for the possible values are nearest, primary or secondary etc.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.writeConcern": {
 			"name": "camel.source.endpoint.writeConcern",
 			"description": "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -77,7 +73,6 @@
 		"camel.source.endpoint.query": {
 			"name": "camel.source.endpoint.query",
 			"description": "Additional query parameters (in JSON) that are used to configure the query used for finding files in the GridFsConsumer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.queryStrategy": {
@@ -89,13 +84,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {

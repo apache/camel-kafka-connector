@@ -11,25 +11,21 @@
 		"camel.sink.path.protocol": {
 			"name": "camel.sink.path.protocol",
 			"description": "The protocol to use which is either http, https or proxy - a consumer only option. One of: [http] [https]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "The local hostname such as localhost, or 0.0.0.0 when being a consumer. The remote HTTP server hostname when using producer.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "The host port number",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
 			"description": "Resource path",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.bridgeEndpoint": {
@@ -83,7 +79,6 @@
 		"camel.sink.endpoint.cookieHandler": {
 			"name": "camel.sink.endpoint.cookieHandler",
 			"description": "Configure a cookie handler to maintain a HTTP session",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -95,7 +90,6 @@
 		"camel.sink.endpoint.requestTimeout": {
 			"name": "camel.sink.endpoint.requestTimeout",
 			"description": "Allows to use a timeout for the Netty producer when calling a remote server. By default no timeout is in use. The value is in milli seconds, so eg 30000 is 30 seconds. The requestTimeout is using Netty's ReadTimeoutHandler to trigger the timeout.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.throwExceptionOnFailure": {
@@ -107,7 +101,6 @@
 		"camel.sink.endpoint.clientInitializerFactory": {
 			"name": "camel.sink.endpoint.clientInitializerFactory",
 			"description": "To use a custom ClientInitializerFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyChannelCreation": {
@@ -149,7 +142,6 @@
 		"camel.sink.endpoint.producerPoolMinIdle": {
 			"name": "camel.sink.endpoint.producerPoolMinIdle",
 			"description": "Sets the minimum number of instances allowed in the producer pool before the evictor thread (if active) spawns new objects.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.useRelativePath": {
@@ -173,13 +165,11 @@
 		"camel.sink.endpoint.channelGroup": {
 			"name": "camel.sink.endpoint.channelGroup",
 			"description": "To use a explicit ChannelGroup.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.configuration": {
 			"name": "camel.sink.endpoint.configuration",
 			"description": "To use a custom configured NettyHttpConfiguration for configuring this endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.disableStreamCache": {
@@ -191,7 +181,6 @@
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter headers.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.nativeTransport": {
@@ -203,13 +192,11 @@
 		"camel.sink.endpoint.nettyHttpBinding": {
 			"name": "camel.sink.endpoint.nettyHttpBinding",
 			"description": "To use a custom org.apache.camel.component.netty.http.NettyHttpBinding for binding to\/from Netty and Camel Message API.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.options": {
 			"name": "camel.sink.endpoint.options",
 			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.receiveBufferSize": {
@@ -221,7 +208,6 @@
 		"camel.sink.endpoint.receiveBufferSizePredictor": {
 			"name": "camel.sink.endpoint.receiveBufferSizePredictor",
 			"description": "Configures the buffer size predictor. See details at Jetty documentation and this mail thread.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sendBufferSize": {
@@ -251,25 +237,21 @@
 		"camel.sink.endpoint.workerCount": {
 			"name": "camel.sink.endpoint.workerCount",
 			"description": "When netty works on nio mode, it uses default workerCount parameter from Netty (which is cpu_core_threads x 2). User can use this option to override the default workerCount from Netty.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.workerGroup": {
 			"name": "camel.sink.endpoint.workerGroup",
 			"description": "To use a explicit EventLoopGroup as the boss thread pool. For example to share a thread pool with multiple consumers or producers. By default each consumer or producer has their own worker pool with 2 x cpu count core threads.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.decoders": {
 			"name": "camel.sink.endpoint.decoders",
 			"description": "A list of decoders to be used. You can use a String which have values separated by comma, and have the values be looked up in the Registry. Just remember to prefix the value with # so Camel knows it should lookup.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.encoders": {
 			"name": "camel.sink.endpoint.encoders",
 			"description": "A list of encoders to be used. You can use a String which have values separated by comma, and have the values be looked up in the Registry. Just remember to prefix the value with # so Camel knows it should lookup.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.enabledProtocols": {
@@ -281,31 +263,26 @@
 		"camel.sink.endpoint.keyStoreFile": {
 			"name": "camel.sink.endpoint.keyStoreFile",
 			"description": "Client side certificate keystore to be used for encryption",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyStoreFormat": {
 			"name": "camel.sink.endpoint.keyStoreFormat",
 			"description": "Keystore format to be used for payload encryption. Defaults to JKS if not set",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyStoreResource": {
 			"name": "camel.sink.endpoint.keyStoreResource",
 			"description": "Client side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.passphrase": {
 			"name": "camel.sink.endpoint.passphrase",
 			"description": "Password setting to use in order to encrypt\/decrypt payloads sent using SSH",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.securityProvider": {
 			"name": "camel.sink.endpoint.securityProvider",
 			"description": "Security provider to be used for payload encryption. Defaults to SunX509 if not set.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.ssl": {
@@ -323,31 +300,26 @@
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslHandler": {
 			"name": "camel.sink.endpoint.sslHandler",
 			"description": "Reference to a class that could be used to return an SSL Handler",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustStoreFile": {
 			"name": "camel.sink.endpoint.trustStoreFile",
 			"description": "Server side certificate keystore to be used for encryption",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustStoreResource": {
 			"name": "camel.sink.endpoint.trustStoreResource",
 			"description": "Server side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.configuration": {
 			"name": "camel.component.netty-http.configuration",
 			"description": "To use the NettyConfiguration as configuration when creating endpoints.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.disconnect": {
@@ -401,19 +373,16 @@
 		"camel.component.netty-http.requestTimeout": {
 			"name": "camel.component.netty-http.requestTimeout",
 			"description": "Allows to use a timeout for the Netty producer when calling a remote server. By default no timeout is in use. The value is in milli seconds, so eg 30000 is 30 seconds. The requestTimeout is using Netty's ReadTimeoutHandler to trigger the timeout.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.clientInitializerFactory": {
 			"name": "camel.component.netty-http.clientInitializerFactory",
 			"description": "To use a custom ClientInitializerFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.correlationManager": {
 			"name": "camel.component.netty-http.correlationManager",
 			"description": "To use a custom correlation manager to manage how request and reply messages are mapped when using request\/reply with the netty producer. This should only be used if you have a way to map requests together with replies such as if there is correlation ids in both the request and reply messages. This can be used if you want to multiplex concurrent messages on the same channel (aka connection) in netty. When doing this you must have a way to correlate the request and reply messages so you can store the right reply on the inflight Camel Exchange before its continued routed. We recommend extending the TimeoutCorrelationManagerSupport when you build custom correlation managers. This provides support for timeout and other complexities you otherwise would need to implement as well. See also the producerPoolEnabled option for more details.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.lazyChannelCreation": {
@@ -449,7 +418,6 @@
 		"camel.component.netty-http.producerPoolMinIdle": {
 			"name": "camel.component.netty-http.producerPoolMinIdle",
 			"description": "Sets the minimum number of instances allowed in the producer pool before the evictor thread (if active) spawns new objects.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.udpConnectionlessSending": {
@@ -479,13 +447,11 @@
 		"camel.component.netty-http.channelGroup": {
 			"name": "camel.component.netty-http.channelGroup",
 			"description": "To use a explicit ChannelGroup.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.headerFilterStrategy": {
 			"name": "camel.component.netty-http.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter headers.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.nativeTransport": {
@@ -497,13 +463,11 @@
 		"camel.component.netty-http.nettyHttpBinding": {
 			"name": "camel.component.netty-http.nettyHttpBinding",
 			"description": "To use a custom org.apache.camel.component.netty.http.NettyHttpBinding for binding to\/from Netty and Camel Message API.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.options": {
 			"name": "camel.component.netty-http.options",
 			"description": "Allows to configure additional netty options using option. as prefix. For example option.child.keepAlive=false to set the netty option child.keepAlive=false. See the Netty documentation for possible options that can be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.receiveBufferSize": {
@@ -515,7 +479,6 @@
 		"camel.component.netty-http.receiveBufferSizePredictor": {
 			"name": "camel.component.netty-http.receiveBufferSizePredictor",
 			"description": "Configures the buffer size predictor. See details at Jetty documentation and this mail thread.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.sendBufferSize": {
@@ -539,13 +502,11 @@
 		"camel.component.netty-http.workerCount": {
 			"name": "camel.component.netty-http.workerCount",
 			"description": "When netty works on nio mode, it uses default workerCount parameter from Netty (which is cpu_core_threads x 2). User can use this option to override the default workerCount from Netty.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.workerGroup": {
 			"name": "camel.component.netty-http.workerGroup",
 			"description": "To use a explicit EventLoopGroup as the boss thread pool. For example to share a thread pool with multiple consumers or producers. By default each consumer or producer has their own worker pool with 2 x cpu count core threads.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.allowDefaultCodec": {
@@ -569,7 +530,6 @@
 		"camel.component.netty-http.decoders": {
 			"name": "camel.component.netty-http.decoders",
 			"description": "A list of decoders to be used. You can use a String which have values separated by comma, and have the values be looked up in the Registry. Just remember to prefix the value with # so Camel knows it should lookup.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.delimiter": {
@@ -581,13 +541,11 @@
 		"camel.component.netty-http.encoders": {
 			"name": "camel.component.netty-http.encoders",
 			"description": "A list of encoders to be used. You can use a String which have values separated by comma, and have the values be looked up in the Registry. Just remember to prefix the value with # so Camel knows it should lookup.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.encoding": {
 			"name": "camel.component.netty-http.encoding",
 			"description": "The encoding (a charset name) to use for the textline codec. If not provided, Camel will use the JVM default Charset.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.textline": {
@@ -605,37 +563,31 @@
 		"camel.component.netty-http.keyStoreFile": {
 			"name": "camel.component.netty-http.keyStoreFile",
 			"description": "Client side certificate keystore to be used for encryption",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.keyStoreFormat": {
 			"name": "camel.component.netty-http.keyStoreFormat",
 			"description": "Keystore format to be used for payload encryption. Defaults to JKS if not set",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.keyStoreResource": {
 			"name": "camel.component.netty-http.keyStoreResource",
 			"description": "Client side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.passphrase": {
 			"name": "camel.component.netty-http.passphrase",
 			"description": "Password setting to use in order to encrypt\/decrypt payloads sent using SSH",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.securityConfiguration": {
 			"name": "camel.component.netty-http.securityConfiguration",
 			"description": "Refers to a org.apache.camel.component.netty.http.NettyHttpSecurityConfiguration for configuring secure web resources.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.securityProvider": {
 			"name": "camel.component.netty-http.securityProvider",
 			"description": "Security provider to be used for payload encryption. Defaults to SunX509 if not set.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.ssl": {
@@ -653,25 +605,21 @@
 		"camel.component.netty-http.sslContextParameters": {
 			"name": "camel.component.netty-http.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.sslHandler": {
 			"name": "camel.component.netty-http.sslHandler",
 			"description": "Reference to a class that could be used to return an SSL Handler",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.trustStoreFile": {
 			"name": "camel.component.netty-http.trustStoreFile",
 			"description": "Server side certificate keystore to be used for encryption",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.trustStoreResource": {
 			"name": "camel.component.netty-http.trustStoreResource",
 			"description": "Server side certificate keystore to be used for encryption. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.netty-http.useGlobalSslContextParameters": {

@@ -11,31 +11,26 @@
 		"camel.sink.path.topic": {
 			"name": "camel.sink.path.topic",
 			"description": "Name of the topic to use. On the consumer you can use comma to separate multiple topics. A producer can only send a message to a single topic.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.additionalProperties": {
 			"name": "camel.sink.endpoint.additionalProperties",
 			"description": "Sets additional properties for either kafka consumer or kafka producer in case they can't be set directly on the camel configurations (e.g: new Kafka properties that are not reflected yet in Camel configurations), the properties have to be prefixed with additionalProperties.. E.g: additionalProperties.transactional.id=12345&additionalProperties.schema.registry.url=http:\/\/localhost:8811\/avro",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.brokers": {
 			"name": "camel.sink.endpoint.brokers",
 			"description": "URL of the Kafka brokers to use. The format is host1:port1,host2:port2, and the list can be a subset of brokers or a VIP pointing to a subset of brokers. This option is known as bootstrap.servers in the Kafka documentation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientId": {
 			"name": "camel.sink.endpoint.clientId",
 			"description": "The client id is a user-specified string sent in each request to help trace calls. It should logically identify the application making the request.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.reconnectBackoffMaxMs": {
@@ -77,13 +72,11 @@
 		"camel.sink.endpoint.kafkaHeaderSerializer": {
 			"name": "camel.sink.endpoint.kafkaHeaderSerializer",
 			"description": "To use a custom KafkaHeaderSerializer to serialize kafka headers values",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
 			"description": "The record key (or null if no key is specified). If this option has been configured then it take precedence over header KafkaConstants#KEY",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keySerializerClass": {
@@ -131,7 +124,6 @@
 		"camel.sink.endpoint.metricReporters": {
 			"name": "camel.sink.endpoint.metricReporters",
 			"description": "A list of classes to use as metrics reporters. Implementing the MetricReporter interface allows plugging in classes that will be notified of new metric creation. The JmxReporter is always included to register JMX statistics.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.metricsSampleWindowMs": {
@@ -155,7 +147,6 @@
 		"camel.sink.endpoint.partitionKey": {
 			"name": "camel.sink.endpoint.partitionKey",
 			"description": "The partition to which the record will be sent (or null if no partition was specified). If this option has been configured then it take precedence over header KafkaConstants#PARTITION_KEY",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.producerBatchSize": {
@@ -227,7 +218,6 @@
 		"camel.sink.endpoint.workerPool": {
 			"name": "camel.sink.endpoint.workerPool",
 			"description": "To use a custom worker pool for continue routing Exchange after kafka server has acknowledge the message that was sent to it from KafkaProducer using asynchronous non-blocking processing. If using this option then you must handle the lifecycle of the thread pool to shut the pool down when no longer needed.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.workerPoolCoreSize": {
@@ -257,13 +247,11 @@
 		"camel.sink.endpoint.schemaRegistryURL": {
 			"name": "camel.sink.endpoint.schemaRegistryURL",
 			"description": "URL of the Confluent Platform schema registry servers to use. The format is host1:port1,host2:port2. This is known as schema.registry.url in the Confluent Platform documentation. This option is only available in the Confluent Platform (not standard Apache Kafka)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.interceptorClasses": {
 			"name": "camel.sink.endpoint.interceptorClasses",
 			"description": "Sets interceptors for producer or consumers. Producer interceptors have to be classes implementing org.apache.kafka.clients.producer.ProducerInterceptor Consumer interceptors have to be classes implementing org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if you use Producer interceptor on a consumer it will throw a class cast exception in runtime",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.kerberosBeforeReloginMinTime": {
@@ -299,13 +287,11 @@
 		"camel.sink.endpoint.saslJaasConfig": {
 			"name": "camel.sink.endpoint.saslJaasConfig",
 			"description": "Expose the kafka sasl.jaas.config parameter Example: org.apache.kafka.common.security.plain.PlainLoginModule required username=USERNAME password=PASSWORD;",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.saslKerberosServiceName": {
 			"name": "camel.sink.endpoint.saslKerberosServiceName",
 			"description": "The Kerberos principal name that Kafka runs as. This can be defined either in Kafka's JAAS config or in Kafka's config.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.saslMechanism": {
@@ -323,13 +309,11 @@
 		"camel.sink.endpoint.sslCipherSuites": {
 			"name": "camel.sink.endpoint.sslCipherSuites",
 			"description": "A list of cipher suites. This is a named combination of authentication, encryption, MAC and key exchange algorithm used to negotiate the security settings for a network connection using TLS or SSL network protocol.By default all the available cipher suites are supported.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "SSL configuration using a Camel SSLContextParameters object. If configured it's applied before the other SSL endpoint parameters. NOTE: Kafka only supports loading keystore from file locations, so prefix the location with file: in the KeyStoreParameters.resource option.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslEnabledProtocols": {
@@ -353,19 +337,16 @@
 		"camel.sink.endpoint.sslKeyPassword": {
 			"name": "camel.sink.endpoint.sslKeyPassword",
 			"description": "The password of the private key in the key store file. This is optional for client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslKeystoreLocation": {
 			"name": "camel.sink.endpoint.sslKeystoreLocation",
 			"description": "The location of the key store file. This is optional for client and can be used for two-way authentication for client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslKeystorePassword": {
 			"name": "camel.sink.endpoint.sslKeystorePassword",
 			"description": "The store password for the key store file.This is optional for client and only needed if ssl.keystore.location is configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslKeystoreType": {
@@ -383,7 +364,6 @@
 		"camel.sink.endpoint.sslProvider": {
 			"name": "camel.sink.endpoint.sslProvider",
 			"description": "The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslTrustmanagerAlgorithm": {
@@ -395,13 +375,11 @@
 		"camel.sink.endpoint.sslTruststoreLocation": {
 			"name": "camel.sink.endpoint.sslTruststoreLocation",
 			"description": "The location of the trust store file.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslTruststorePassword": {
 			"name": "camel.sink.endpoint.sslTruststorePassword",
 			"description": "The password for the trust store file.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslTruststoreType": {
@@ -413,31 +391,26 @@
 		"camel.component.kafka.additionalProperties": {
 			"name": "camel.component.kafka.additionalProperties",
 			"description": "Sets additional properties for either kafka consumer or kafka producer in case they can't be set directly on the camel configurations (e.g: new Kafka properties that are not reflected yet in Camel configurations), the properties have to be prefixed with additionalProperties.. E.g: additionalProperties.transactional.id=12345&additionalProperties.schema.registry.url=http:\/\/localhost:8811\/avro",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.brokers": {
 			"name": "camel.component.kafka.brokers",
 			"description": "URL of the Kafka brokers to use. The format is host1:port1,host2:port2, and the list can be a subset of brokers or a VIP pointing to a subset of brokers. This option is known as bootstrap.servers in the Kafka documentation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.clientId": {
 			"name": "camel.component.kafka.clientId",
 			"description": "The client id is a user-specified string sent in each request to help trace calls. It should logically identify the application making the request.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.configuration": {
 			"name": "camel.component.kafka.configuration",
 			"description": "Allows to pre-configure the Kafka component with common options that the endpoints will reuse.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.headerFilterStrategy": {
 			"name": "camel.component.kafka.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.reconnectBackoffMaxMs": {
@@ -479,13 +452,11 @@
 		"camel.component.kafka.kafkaHeaderSerializer": {
 			"name": "camel.component.kafka.kafkaHeaderSerializer",
 			"description": "To use a custom KafkaHeaderSerializer to serialize kafka headers values",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.key": {
 			"name": "camel.component.kafka.key",
 			"description": "The record key (or null if no key is specified). If this option has been configured then it take precedence over header KafkaConstants#KEY",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.keySerializerClass": {
@@ -533,7 +504,6 @@
 		"camel.component.kafka.metricReporters": {
 			"name": "camel.component.kafka.metricReporters",
 			"description": "A list of classes to use as metrics reporters. Implementing the MetricReporter interface allows plugging in classes that will be notified of new metric creation. The JmxReporter is always included to register JMX statistics.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.metricsSampleWindowMs": {
@@ -557,7 +527,6 @@
 		"camel.component.kafka.partitionKey": {
 			"name": "camel.component.kafka.partitionKey",
 			"description": "The partition to which the record will be sent (or null if no partition was specified). If this option has been configured then it take precedence over header KafkaConstants#PARTITION_KEY",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.producerBatchSize": {
@@ -629,7 +598,6 @@
 		"camel.component.kafka.workerPool": {
 			"name": "camel.component.kafka.workerPool",
 			"description": "To use a custom worker pool for continue routing Exchange after kafka server has acknowledge the message that was sent to it from KafkaProducer using asynchronous non-blocking processing. If using this option then you must handle the lifecycle of the thread pool to shut the pool down when no longer needed.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.workerPoolCoreSize": {
@@ -653,13 +621,11 @@
 		"camel.component.kafka.schemaRegistryURL": {
 			"name": "camel.component.kafka.schemaRegistryURL",
 			"description": "URL of the Confluent Platform schema registry servers to use. The format is host1:port1,host2:port2. This is known as schema.registry.url in the Confluent Platform documentation. This option is only available in the Confluent Platform (not standard Apache Kafka)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.interceptorClasses": {
 			"name": "camel.component.kafka.interceptorClasses",
 			"description": "Sets interceptors for producer or consumers. Producer interceptors have to be classes implementing org.apache.kafka.clients.producer.ProducerInterceptor Consumer interceptors have to be classes implementing org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if you use Producer interceptor on a consumer it will throw a class cast exception in runtime",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.kerberosBeforeReloginMinTime": {
@@ -695,13 +661,11 @@
 		"camel.component.kafka.saslJaasConfig": {
 			"name": "camel.component.kafka.saslJaasConfig",
 			"description": "Expose the kafka sasl.jaas.config parameter Example: org.apache.kafka.common.security.plain.PlainLoginModule required username=USERNAME password=PASSWORD;",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.saslKerberosServiceName": {
 			"name": "camel.component.kafka.saslKerberosServiceName",
 			"description": "The Kerberos principal name that Kafka runs as. This can be defined either in Kafka's JAAS config or in Kafka's config.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.saslMechanism": {
@@ -719,13 +683,11 @@
 		"camel.component.kafka.sslCipherSuites": {
 			"name": "camel.component.kafka.sslCipherSuites",
 			"description": "A list of cipher suites. This is a named combination of authentication, encryption, MAC and key exchange algorithm used to negotiate the security settings for a network connection using TLS or SSL network protocol.By default all the available cipher suites are supported.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslContextParameters": {
 			"name": "camel.component.kafka.sslContextParameters",
 			"description": "SSL configuration using a Camel SSLContextParameters object. If configured it's applied before the other SSL endpoint parameters. NOTE: Kafka only supports loading keystore from file locations, so prefix the location with file: in the KeyStoreParameters.resource option.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslEnabledProtocols": {
@@ -749,19 +711,16 @@
 		"camel.component.kafka.sslKeyPassword": {
 			"name": "camel.component.kafka.sslKeyPassword",
 			"description": "The password of the private key in the key store file. This is optional for client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslKeystoreLocation": {
 			"name": "camel.component.kafka.sslKeystoreLocation",
 			"description": "The location of the key store file. This is optional for client and can be used for two-way authentication for client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslKeystorePassword": {
 			"name": "camel.component.kafka.sslKeystorePassword",
 			"description": "The store password for the key store file.This is optional for client and only needed if ssl.keystore.location is configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslKeystoreType": {
@@ -779,7 +738,6 @@
 		"camel.component.kafka.sslProvider": {
 			"name": "camel.component.kafka.sslProvider",
 			"description": "The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslTrustmanagerAlgorithm": {
@@ -791,13 +749,11 @@
 		"camel.component.kafka.sslTruststoreLocation": {
 			"name": "camel.component.kafka.sslTruststoreLocation",
 			"description": "The location of the trust store file.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslTruststorePassword": {
 			"name": "camel.component.kafka.sslTruststorePassword",
 			"description": "The password for the trust store file.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslTruststoreType": {

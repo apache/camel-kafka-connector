@@ -11,7 +11,6 @@
 		"camel.source.path.contextPath": {
 			"name": "camel.source.path.contextPath",
 			"description": "The context-path to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.chunked": {
@@ -29,13 +28,11 @@
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpBinding": {
 			"name": "camel.source.endpoint.httpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.async": {
@@ -53,7 +50,6 @@
 		"camel.source.endpoint.httpMethodRestrict": {
 			"name": "camel.source.endpoint.httpMethodRestrict",
 			"description": "Used to only allow consuming if the HttpMethod matches, such as GET\/POST\/PUT etc. Multiple methods can be specified separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.matchOnUriPrefix": {
@@ -71,7 +67,6 @@
 		"camel.source.endpoint.responseBufferSize": {
 			"name": "camel.source.endpoint.responseBufferSize",
 			"description": "To use a custom buffer size on the javax.servlet.ServletResponse.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.servletName": {
@@ -101,19 +96,16 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.fileNameExtWhitelist": {
 			"name": "camel.source.endpoint.fileNameExtWhitelist",
 			"description": "Whitelist of accepted filename extensions for accepting uploaded files. Multiple extensions can be separated by comma, such as txt,xml.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.optionsEnabled": {
@@ -179,13 +171,11 @@
 		"camel.component.servlet.fileNameExtWhitelist": {
 			"name": "camel.component.servlet.fileNameExtWhitelist",
 			"description": "Whitelist of accepted filename extensions for accepting uploaded files. Multiple extensions can be separated by comma, such as txt,xml.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servlet.httpRegistry": {
 			"name": "camel.component.servlet.httpRegistry",
 			"description": "To use a custom org.apache.camel.component.servlet.HttpRegistry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servlet.allowJavaSerializedObject": {
@@ -203,19 +193,16 @@
 		"camel.component.servlet.httpBinding": {
 			"name": "camel.component.servlet.httpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servlet.httpConfiguration": {
 			"name": "camel.component.servlet.httpConfiguration",
 			"description": "To use the shared HttpConfiguration as base configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.servlet.headerFilterStrategy": {
 			"name": "camel.component.servlet.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

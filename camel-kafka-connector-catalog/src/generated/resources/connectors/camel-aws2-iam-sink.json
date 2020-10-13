@@ -11,7 +11,6 @@
 		"camel.sink.path.label": {
 			"name": "camel.sink.path.label",
 			"description": "Logical name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.iamClient": {
 			"name": "camel.sink.endpoint.iamClient",
 			"description": "To use a existing configured AWS IAM as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -35,7 +33,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.pojoRequest": {
@@ -47,13 +44,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the IAM client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the IAM client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -89,13 +84,11 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-iam.autoDiscoverClient": {
@@ -107,13 +100,11 @@
 		"camel.component.aws2-iam.configuration": {
 			"name": "camel.component.aws2-iam.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-iam.iamClient": {
 			"name": "camel.component.aws2-iam.iamClient",
 			"description": "To use a existing configured AWS IAM as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-iam.lazyStartProducer": {
@@ -125,7 +116,6 @@
 		"camel.component.aws2-iam.operation": {
 			"name": "camel.component.aws2-iam.operation",
 			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.aws2-iam.pojoRequest": {
@@ -137,13 +127,11 @@
 		"camel.component.aws2-iam.proxyHost": {
 			"name": "camel.component.aws2-iam.proxyHost",
 			"description": "To define a proxy host when instantiating the IAM client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-iam.proxyPort": {
 			"name": "camel.component.aws2-iam.proxyPort",
 			"description": "To define a proxy port when instantiating the IAM client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-iam.proxyProtocol": {
@@ -173,13 +161,11 @@
 		"camel.component.aws2-iam.accessKey": {
 			"name": "camel.component.aws2-iam.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-iam.secretKey": {
 			"name": "camel.component.aws2-iam.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

@@ -11,7 +11,6 @@
 		"camel.source.path.topic": {
 			"name": "camel.source.path.topic",
 			"description": "The topic name.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.propagateIncomingBodyIfNoReturnValue": {
@@ -35,19 +34,16 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.clusterGroupExpression": {
 			"name": "camel.source.endpoint.clusterGroupExpression",
 			"description": "The cluster group expression.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -65,19 +61,16 @@
 		"camel.component.ignite-messaging.configurationResource": {
 			"name": "camel.component.ignite-messaging.configurationResource",
 			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-messaging.ignite": {
 			"name": "camel.component.ignite-messaging.ignite",
 			"description": "To use an existing Ignite instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-messaging.igniteConfiguration": {
 			"name": "camel.component.ignite-messaging.igniteConfiguration",
 			"description": "Allows the user to set a programmatic ignite configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-messaging.bridgeErrorHandler": {

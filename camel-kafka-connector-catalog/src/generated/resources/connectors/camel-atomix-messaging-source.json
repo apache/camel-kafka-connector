@@ -11,13 +11,11 @@
 		"camel.source.path.resourceName": {
 			"name": "camel.source.path.resourceName",
 			"description": "The distributed resource name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.atomix": {
 			"name": "camel.source.endpoint.atomix",
 			"description": "The Atomix instance to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.broadcastType": {
@@ -29,13 +27,11 @@
 		"camel.source.endpoint.channelName": {
 			"name": "camel.source.endpoint.channelName",
 			"description": "The messaging channel name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.configurationUri": {
 			"name": "camel.source.endpoint.configurationUri",
 			"description": "The Atomix configuration uri.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.defaultAction": {
@@ -47,19 +43,16 @@
 		"camel.source.endpoint.memberName": {
 			"name": "camel.source.endpoint.memberName",
 			"description": "The Atomix Group member name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.nodes": {
 			"name": "camel.source.endpoint.nodes",
 			"description": "The address of the nodes composing the cluster.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.resultHeader": {
 			"name": "camel.source.endpoint.resultHeader",
 			"description": "The header that wil carry the result.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.transportClassName": {
@@ -77,13 +70,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -95,13 +86,11 @@
 		"camel.source.endpoint.defaultResourceConfig": {
 			"name": "camel.source.endpoint.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.defaultResourceOptions": {
 			"name": "camel.source.endpoint.defaultResourceOptions",
 			"description": "The local default resource options.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.ephemeral": {
@@ -113,19 +102,16 @@
 		"camel.source.endpoint.readConsistency": {
 			"name": "camel.source.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.resourceConfigs": {
 			"name": "camel.source.endpoint.resourceConfigs",
 			"description": "Cluster wide resources configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.resourceOptions": {
 			"name": "camel.source.endpoint.resourceOptions",
 			"description": "Local resources configurations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.synchronous": {
@@ -137,7 +123,6 @@
 		"camel.component.atomix-messaging.atomix": {
 			"name": "camel.component.atomix-messaging.atomix",
 			"description": "The Atomix instance to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.broadcastType": {
@@ -149,19 +134,16 @@
 		"camel.component.atomix-messaging.channelName": {
 			"name": "camel.component.atomix-messaging.channelName",
 			"description": "The messaging channel name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.configuration": {
 			"name": "camel.component.atomix-messaging.configuration",
 			"description": "The shared component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.configurationUri": {
 			"name": "camel.component.atomix-messaging.configurationUri",
 			"description": "The path to the AtomixClient configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.defaultAction": {
@@ -173,19 +155,16 @@
 		"camel.component.atomix-messaging.memberName": {
 			"name": "camel.component.atomix-messaging.memberName",
 			"description": "The Atomix Group member name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.nodes": {
 			"name": "camel.component.atomix-messaging.nodes",
 			"description": "The nodes the AtomixClient should connect to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.resultHeader": {
 			"name": "camel.component.atomix-messaging.resultHeader",
 			"description": "The header that wil carry the result.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.transportClassName": {
@@ -209,13 +188,11 @@
 		"camel.component.atomix-messaging.defaultResourceConfig": {
 			"name": "camel.component.atomix-messaging.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.defaultResourceOptions": {
 			"name": "camel.component.atomix-messaging.defaultResourceOptions",
 			"description": "The local default resource options.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.ephemeral": {
@@ -227,19 +204,16 @@
 		"camel.component.atomix-messaging.readConsistency": {
 			"name": "camel.component.atomix-messaging.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.resourceConfigs": {
 			"name": "camel.component.atomix-messaging.resourceConfigs",
 			"description": "Cluster wide resources configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.atomix-messaging.resourceOptions": {
 			"name": "camel.component.atomix-messaging.resourceOptions",
 			"description": "Local resources configurations",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

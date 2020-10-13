@@ -11,7 +11,6 @@
 		"camel.source.path.action": {
 			"name": "camel.source.path.action",
 			"description": "The action to do. One of: [sendMessage] [getMessage] [uploadFile] [downloadFile]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.connectionTimeout": {
@@ -47,13 +46,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -107,7 +104,6 @@
 		"camel.source.endpoint.authorizationToken": {
 			"name": "camel.source.endpoint.authorizationToken",
 			"description": "The authorization token for using the bot. if uri path does not contain authorization token, this token will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.soroush.bridgeErrorHandler": {
@@ -125,7 +121,6 @@
 		"camel.component.soroush.authorizationToken": {
 			"name": "camel.component.soroush.authorizationToken",
 			"description": "The default Soroush authorization token to be used when the information is not provided in the endpoints.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

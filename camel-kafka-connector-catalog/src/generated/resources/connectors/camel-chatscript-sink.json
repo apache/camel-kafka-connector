@@ -11,7 +11,6 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Hostname or IP of the server on which CS server is running",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
@@ -23,13 +22,11 @@
 		"camel.sink.path.botName": {
 			"name": "camel.sink.path.botName",
 			"description": "Name of the Bot in CS to converse with",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.chatUserName": {
 			"name": "camel.sink.endpoint.chatUserName",
 			"description": "Username who initializes the CS conversation. To be set when chat is initialized from camel route",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {

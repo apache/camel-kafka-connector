@@ -11,31 +11,26 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "Name of component",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.hostname": {
 			"name": "camel.sink.endpoint.hostname",
 			"description": "The hostname of the asterisk server",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Login password",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Login username",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.action": {
 			"name": "camel.sink.endpoint.action",
 			"description": "What action to perform such as getting queue status, sip peers or extension state. One of: [QUEUE_STATUS] [SIP_PEERS] [EXTENSION_STATE]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {

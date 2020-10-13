@@ -11,13 +11,11 @@
 		"camel.sink.path.bucketNameOrArn": {
 			"name": "camel.sink.path.bucketNameOrArn",
 			"description": "Bucket name or ARN",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.amazonS3Client": {
 			"name": "camel.sink.endpoint.amazonS3Client",
 			"description": "Reference to a com.amazonaws.services.s3.AmazonS3 in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoCreateBucket": {
@@ -35,7 +33,6 @@
 		"camel.sink.endpoint.endpointConfiguration": {
 			"name": "camel.sink.endpoint.endpointConfiguration",
 			"description": "Amazon AWS Endpoint Configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.pathStyleAccess": {
@@ -47,19 +44,16 @@
 		"camel.sink.endpoint.policy": {
 			"name": "camel.sink.endpoint.policy",
 			"description": "The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the S3 client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "Specify a proxy port to be used inside the client definition.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -71,7 +65,6 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.useIAMCredentials": {
@@ -83,7 +76,6 @@
 		"camel.sink.endpoint.encryptionMaterials": {
 			"name": "camel.sink.endpoint.encryptionMaterials",
 			"description": "The encryption materials to use in case of Symmetric\/Asymmetric client usage",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.useEncryption": {
@@ -101,7 +93,6 @@
 		"camel.sink.endpoint.keyName": {
 			"name": "camel.sink.endpoint.keyName",
 			"description": "Setting the key name for an element in the bucket through endpoint parameter",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -119,7 +110,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [deleteBucket] [listBuckets] [downloadLink]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.partSize": {
@@ -131,19 +121,16 @@
 		"camel.sink.endpoint.serverSideEncryption": {
 			"name": "camel.sink.endpoint.serverSideEncryption",
 			"description": "Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys. For example use AES256.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.storageClass": {
 			"name": "camel.sink.endpoint.storageClass",
 			"description": "The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.awsKMSKeyId": {
 			"name": "camel.sink.endpoint.awsKMSKeyId",
 			"description": "Define the id of KMS key to use in case KMS is enabled",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.useAwsKMS": {
@@ -197,19 +184,16 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.amazonS3Client": {
 			"name": "camel.component.aws-s3.amazonS3Client",
 			"description": "Reference to a com.amazonaws.services.s3.AmazonS3 in the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.autoCreateBucket": {
@@ -227,13 +211,11 @@
 		"camel.component.aws-s3.configuration": {
 			"name": "camel.component.aws-s3.configuration",
 			"description": "The component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.endpointConfiguration": {
 			"name": "camel.component.aws-s3.endpointConfiguration",
 			"description": "Amazon AWS Endpoint Configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.pathStyleAccess": {
@@ -245,19 +227,16 @@
 		"camel.component.aws-s3.policy": {
 			"name": "camel.component.aws-s3.policy",
 			"description": "The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.proxyHost": {
 			"name": "camel.component.aws-s3.proxyHost",
 			"description": "To define a proxy host when instantiating the S3 client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.proxyPort": {
 			"name": "camel.component.aws-s3.proxyPort",
 			"description": "Specify a proxy port to be used inside the client definition.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.proxyProtocol": {
@@ -269,7 +248,6 @@
 		"camel.component.aws-s3.region": {
 			"name": "camel.component.aws-s3.region",
 			"description": "The region in which S3 client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.useIAMCredentials": {
@@ -281,7 +259,6 @@
 		"camel.component.aws-s3.encryptionMaterials": {
 			"name": "camel.component.aws-s3.encryptionMaterials",
 			"description": "The encryption materials to use in case of Symmetric\/Asymmetric client usage",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.useEncryption": {
@@ -299,7 +276,6 @@
 		"camel.component.aws-s3.keyName": {
 			"name": "camel.component.aws-s3.keyName",
 			"description": "Setting the key name for an element in the bucket through endpoint parameter",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.lazyStartProducer": {
@@ -317,7 +293,6 @@
 		"camel.component.aws-s3.operation": {
 			"name": "camel.component.aws-s3.operation",
 			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [deleteBucket] [listBuckets] [downloadLink]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.partSize": {
@@ -329,19 +304,16 @@
 		"camel.component.aws-s3.serverSideEncryption": {
 			"name": "camel.component.aws-s3.serverSideEncryption",
 			"description": "Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys. For example use AES256.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.storageClass": {
 			"name": "camel.component.aws-s3.storageClass",
 			"description": "The storage class to set in the com.amazonaws.services.s3.model.PutObjectRequest request.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.awsKMSKeyId": {
 			"name": "camel.component.aws-s3.awsKMSKeyId",
 			"description": "Define the id of KMS key to use in case KMS is enabled",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.useAwsKMS": {
@@ -389,13 +361,11 @@
 		"camel.component.aws-s3.accessKey": {
 			"name": "camel.component.aws-s3.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-s3.secretKey": {
 			"name": "camel.component.aws-s3.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

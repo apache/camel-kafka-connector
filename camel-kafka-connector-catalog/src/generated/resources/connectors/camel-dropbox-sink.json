@@ -11,55 +11,46 @@
 		"camel.sink.path.operation": {
 			"name": "camel.sink.path.operation",
 			"description": "The specific action (typically is a CRUD action) to perform on Dropbox remote folder. One of: [put] [del] [search] [get] [move]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.accessToken": {
 			"name": "camel.sink.endpoint.accessToken",
 			"description": "The access token to make API requests for a specific Dropbox user",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.client": {
 			"name": "camel.sink.endpoint.client",
 			"description": "To use an existing DbxClient instance as DropBox client.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientIdentifier": {
 			"name": "camel.sink.endpoint.clientIdentifier",
 			"description": "Name of the app registered to make API requests",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.localPath": {
 			"name": "camel.sink.endpoint.localPath",
 			"description": "Optional folder or file to upload on Dropbox from the local filesystem. If this option has not been configured then the message body is used as the content to upload.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.newRemotePath": {
 			"name": "camel.sink.endpoint.newRemotePath",
 			"description": "Destination file or folder",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.query": {
 			"name": "camel.sink.endpoint.query",
 			"description": "A space-separated list of sub-strings to search for. A file matches only if it contains all the sub-strings. If this option is not set, all files will be matched.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.remotePath": {
 			"name": "camel.sink.endpoint.remotePath",
 			"description": "Original file or folder to move",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.uploadMode": {
 			"name": "camel.sink.endpoint.uploadMode",
 			"description": "Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. One of: [add] [force]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {

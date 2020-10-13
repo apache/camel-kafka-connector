@@ -53,7 +53,6 @@
 		"camel.sink.endpoint.prefix": {
 			"name": "camel.sink.endpoint.prefix",
 			"description": "Prefix the metric name with this string and an underscore.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.slope": {
@@ -65,7 +64,6 @@
 		"camel.sink.endpoint.spoofHostname": {
 			"name": "camel.sink.endpoint.spoofHostname",
 			"description": "Spoofing information IP:hostname",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tmax": {
@@ -89,7 +87,6 @@
 		"camel.sink.endpoint.units": {
 			"name": "camel.sink.endpoint.units",
 			"description": "Any unit of measurement that qualifies the metric, e.g. widgets, litres, bytes. Do not include a prefix such as k (kilo) or m (milli), other tools may scale the units later. The value should be unscaled.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.wireFormat31x": {
@@ -143,7 +140,6 @@
 		"camel.component.ganglia.prefix": {
 			"name": "camel.component.ganglia.prefix",
 			"description": "Prefix the metric name with this string and an underscore.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ganglia.slope": {
@@ -155,7 +151,6 @@
 		"camel.component.ganglia.spoofHostname": {
 			"name": "camel.component.ganglia.spoofHostname",
 			"description": "Spoofing information IP:hostname",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ganglia.tmax": {
@@ -179,7 +174,6 @@
 		"camel.component.ganglia.units": {
 			"name": "camel.component.ganglia.units",
 			"description": "Any unit of measurement that qualifies the metric, e.g. widgets, litres, bytes. Do not include a prefix such as k (kilo) or m (milli), other tools may scale the units later. The value should be unscaled.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ganglia.wireFormat31x": {
@@ -197,7 +191,6 @@
 		"camel.component.ganglia.configuration": {
 			"name": "camel.component.ganglia.configuration",
 			"description": "To use the shared configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

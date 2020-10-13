@@ -11,7 +11,6 @@
 		"camel.sink.path.label": {
 			"name": "camel.sink.path.label",
 			"description": "Logical name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.ecsClient": {
 			"name": "camel.sink.endpoint.ecsClient",
 			"description": "To use a existing configured AWS ECS as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -35,7 +33,6 @@
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.pojoRequest": {
@@ -47,13 +44,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the ECS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the ECS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -65,7 +60,6 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
@@ -89,13 +83,11 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ecs.autoDiscoverClient": {
@@ -107,13 +99,11 @@
 		"camel.component.aws2-ecs.configuration": {
 			"name": "camel.component.aws2-ecs.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ecs.ecsClient": {
 			"name": "camel.component.aws2-ecs.ecsClient",
 			"description": "To use a existing configured AWS ECS as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ecs.lazyStartProducer": {
@@ -125,7 +115,6 @@
 		"camel.component.aws2-ecs.operation": {
 			"name": "camel.component.aws2-ecs.operation",
 			"description": "The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.aws2-ecs.pojoRequest": {
@@ -137,13 +126,11 @@
 		"camel.component.aws2-ecs.proxyHost": {
 			"name": "camel.component.aws2-ecs.proxyHost",
 			"description": "To define a proxy host when instantiating the ECS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ecs.proxyPort": {
 			"name": "camel.component.aws2-ecs.proxyPort",
 			"description": "To define a proxy port when instantiating the ECS client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ecs.proxyProtocol": {
@@ -155,7 +142,6 @@
 		"camel.component.aws2-ecs.region": {
 			"name": "camel.component.aws2-ecs.region",
 			"description": "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ecs.trustAllCertificates": {
@@ -173,13 +159,11 @@
 		"camel.component.aws2-ecs.accessKey": {
 			"name": "camel.component.aws2-ecs.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-ecs.secretKey": {
 			"name": "camel.component.aws2-ecs.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

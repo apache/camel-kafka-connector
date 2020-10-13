@@ -11,13 +11,11 @@
 		"camel.source.path.protocol": {
 			"name": "camel.source.path.protocol",
 			"description": "The protocol to use for communicating with the database. One of: [http] [https]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.hostname": {
 			"name": "camel.source.path.hostname",
 			"description": "Hostname of the running couchdb instance",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.port": {
@@ -29,7 +27,6 @@
 		"camel.source.path.database": {
 			"name": "camel.source.path.database",
 			"description": "Name of the database to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.createDatabase": {
@@ -59,7 +56,6 @@
 		"camel.source.endpoint.since": {
 			"name": "camel.source.endpoint.since",
 			"description": "Start tracking changes immediately after the given update sequence. The default, null, will start monitoring from the latest sequence.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.style": {
@@ -77,13 +73,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -101,13 +95,11 @@
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Password for authenticated databases",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "Username in case of authenticated databases",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.couchdb.bridgeErrorHandler": {

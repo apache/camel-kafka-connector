@@ -11,43 +11,36 @@
 		"camel.sink.path.apiName": {
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [ACL] [LIST] [CALENDARS] [CHANNELS] [COLORS] [FREEBUSY] [EVENTS] [SETTINGS]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation One of: [calendarImport] [clear] [delete] [get] [insert] [instances] [list] [move] [patch] [query] [quickAdd] [stop] [update] [watch]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.applicationName": {
 			"name": "camel.sink.endpoint.applicationName",
 			"description": "Google calendar application name. Example would be camel-google-calendar\/1.0",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientId": {
 			"name": "camel.sink.endpoint.clientId",
 			"description": "Client ID of the calendar application",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.emailAddress": {
 			"name": "camel.sink.endpoint.emailAddress",
 			"description": "The emailAddress of the Google Service Account.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.inBody": {
 			"name": "camel.sink.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.p12FileName": {
 			"name": "camel.sink.endpoint.p12FileName",
 			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.scopes": {
@@ -59,7 +52,6 @@
 		"camel.sink.endpoint.user": {
 			"name": "camel.sink.endpoint.user",
 			"description": "The email address of the user the application is trying to impersonate in the service account flow",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -83,49 +75,41 @@
 		"camel.sink.endpoint.accessToken": {
 			"name": "camel.sink.endpoint.accessToken",
 			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientSecret": {
 			"name": "camel.sink.endpoint.clientSecret",
 			"description": "Client secret of the calendar application",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.refreshToken": {
 			"name": "camel.sink.endpoint.refreshToken",
 			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.applicationName": {
 			"name": "camel.component.google-calendar.applicationName",
 			"description": "Google calendar application name. Example would be camel-google-calendar\/1.0",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.clientId": {
 			"name": "camel.component.google-calendar.clientId",
 			"description": "Client ID of the calendar application",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.configuration": {
 			"name": "camel.component.google-calendar.configuration",
 			"description": "To use the shared configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.emailAddress": {
 			"name": "camel.component.google-calendar.emailAddress",
 			"description": "The emailAddress of the Google Service Account.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.p12FileName": {
 			"name": "camel.component.google-calendar.p12FileName",
 			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.scopes": {
@@ -137,7 +121,6 @@
 		"camel.component.google-calendar.user": {
 			"name": "camel.component.google-calendar.user",
 			"description": "The email address of the user the application is trying to impersonate in the service account flow",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.lazyStartProducer": {
@@ -155,25 +138,21 @@
 		"camel.component.google-calendar.clientFactory": {
 			"name": "camel.component.google-calendar.clientFactory",
 			"description": "To use the GoogleCalendarClientFactory as factory for creating the client. Will by default use BatchGoogleCalendarClientFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.accessToken": {
 			"name": "camel.component.google-calendar.accessToken",
 			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.clientSecret": {
 			"name": "camel.component.google-calendar.clientSecret",
 			"description": "Client secret of the calendar application",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-calendar.refreshToken": {
 			"name": "camel.component.google-calendar.refreshToken",
 			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

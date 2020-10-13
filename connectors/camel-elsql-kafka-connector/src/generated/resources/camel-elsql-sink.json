@@ -11,13 +11,11 @@
 		"camel.sink.path.elsqlName": {
 			"name": "camel.sink.path.elsqlName",
 			"description": "The name of the elsql to use (is NAMED in the elsql file)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",
 			"description": "The resource file which contains the elsql SQL statements to use. You can specify multiple resources separated by comma. The resources are loaded on the classpath by default, you can prefix with file: to load from file system. Notice you can set this option on the component and then you do not have to configure this on the endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.allowNamedParameters": {
@@ -29,31 +27,26 @@
 		"camel.sink.endpoint.databaseVendor": {
 			"name": "camel.sink.endpoint.databaseVendor",
 			"description": "To use a vendor specific com.opengamma.elsql.ElSqlConfig One of: [Default] [Postgres] [HSql] [MySql] [Oracle] [SqlServer2008] [Veritca]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.dataSource": {
 			"name": "camel.sink.endpoint.dataSource",
 			"description": "Sets the DataSource to use to communicate with the database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.dataSourceRef": {
 			"name": "camel.sink.endpoint.dataSourceRef",
 			"description": "Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database.",
-			"defaultValue": "null",
 			"priority": "LOW"
 		},
 		"camel.sink.endpoint.outputClass": {
 			"name": "camel.sink.endpoint.outputClass",
 			"description": "Specify the full package and class name to use as conversion when outputType=SelectOne.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.outputHeader": {
 			"name": "camel.sink.endpoint.outputHeader",
 			"description": "Store the query result in a header instead of the message body. By default, outputHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If outputHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.outputType": {
@@ -107,13 +100,11 @@
 		"camel.sink.endpoint.elSqlConfig": {
 			"name": "camel.sink.endpoint.elSqlConfig",
 			"description": "To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.parametersCount": {
 			"name": "camel.sink.endpoint.parametersCount",
 			"description": "If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.placeholder": {
@@ -125,7 +116,6 @@
 		"camel.sink.endpoint.prepareStatementStrategy": {
 			"name": "camel.sink.endpoint.prepareStatementStrategy",
 			"description": "Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -137,7 +127,6 @@
 		"camel.sink.endpoint.templateOptions": {
 			"name": "camel.sink.endpoint.templateOptions",
 			"description": "Configures the Spring JdbcTemplate with the key\/values from the Map",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.usePlaceholder": {
@@ -149,19 +138,16 @@
 		"camel.component.elsql.databaseVendor": {
 			"name": "camel.component.elsql.databaseVendor",
 			"description": "To use a vendor specific com.opengamma.elsql.ElSqlConfig One of: [Default] [Postgres] [HSql] [MySql] [Oracle] [SqlServer2008] [Veritca]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elsql.dataSource": {
 			"name": "camel.component.elsql.dataSource",
 			"description": "Sets the DataSource to use to communicate with the database.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elsql.resourceUri": {
 			"name": "camel.component.elsql.resourceUri",
 			"description": "The resource file which contains the elsql SQL statements to use. You can specify multiple resources separated by comma. The resources are loaded on the classpath by default, you can prefix with file: to load from file system. Notice you can set this option on the component and then you do not have to configure this on the endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.elsql.lazyStartProducer": {
@@ -179,7 +165,6 @@
 		"camel.component.elsql.elSqlConfig": {
 			"name": "camel.component.elsql.elSqlConfig",
 			"description": "To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

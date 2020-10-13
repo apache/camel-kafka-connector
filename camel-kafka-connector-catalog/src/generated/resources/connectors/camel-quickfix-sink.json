@@ -11,7 +11,6 @@
 		"camel.sink.path.configurationName": {
 			"name": "camel.sink.path.configurationName",
 			"description": "The configFile is the name of the QuickFIX\/J configuration to use for the FIX engine (located as a resource found in your classpath).",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyCreateEngine": {
@@ -23,7 +22,6 @@
 		"camel.sink.endpoint.sessionID": {
 			"name": "camel.sink.endpoint.sessionID",
 			"description": "The optional sessionID identifies a specific FIX session. The format of the sessionID is: (BeginString):(SenderCompID)\/(SenderSubID)\/(SenderLocationID)-(TargetCompID)\/(TargetSubID)\/(TargetLocationID)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -65,19 +63,16 @@
 		"camel.component.quickfix.logFactory": {
 			"name": "camel.component.quickfix.logFactory",
 			"description": "To use the given LogFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quickfix.messageFactory": {
 			"name": "camel.component.quickfix.messageFactory",
 			"description": "To use the given MessageFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.quickfix.messageStoreFactory": {
 			"name": "camel.component.quickfix.messageStoreFactory",
 			"description": "To use the given MessageStoreFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

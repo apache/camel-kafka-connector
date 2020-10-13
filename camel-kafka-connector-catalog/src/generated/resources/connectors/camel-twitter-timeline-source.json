@@ -11,13 +11,11 @@
 		"camel.source.path.timelineType": {
 			"name": "camel.source.path.timelineType",
 			"description": "The timeline type to produce\/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [UNKNOWN]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.user": {
 			"name": "camel.source.endpoint.user",
 			"description": "The username when using timelineType=user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -47,13 +45,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.extendedMode": {
@@ -65,31 +61,26 @@
 		"camel.source.endpoint.latitude": {
 			"name": "camel.source.endpoint.latitude",
 			"description": "Used by the geography search to search by latitude. You need to configure all the following options: longitude, latitude, radius, and distanceMetric.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.locations": {
 			"name": "camel.source.endpoint.locations",
 			"description": "Bounding boxes, created by pairs of lat\/lons. Can be used for filter. A pair is defined as lat,lon. And multiple paris can be separated by semi colon.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.longitude": {
 			"name": "camel.source.endpoint.longitude",
 			"description": "Used by the geography search to search by longitude. You need to configure all the following options: longitude, latitude, radius, and distanceMetric.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.radius": {
 			"name": "camel.source.endpoint.radius",
 			"description": "Used by the geography search to search by radius. You need to configure all the following options: longitude, latitude, radius, and distanceMetric.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -119,7 +110,6 @@
 		"camel.source.endpoint.lang": {
 			"name": "camel.source.endpoint.lang",
 			"description": "The lang string ISO_639-1 which will be used for searching",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.numberOfPages": {
@@ -137,49 +127,41 @@
 		"camel.source.endpoint.userIds": {
 			"name": "camel.source.endpoint.userIds",
 			"description": "To filter by user ids for filter. Multiple values can be separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpProxyHost": {
 			"name": "camel.source.endpoint.httpProxyHost",
 			"description": "The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpProxyPassword": {
 			"name": "camel.source.endpoint.httpProxyPassword",
 			"description": "The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpProxyPort": {
 			"name": "camel.source.endpoint.httpProxyPort",
 			"description": "The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.httpProxyUser": {
 			"name": "camel.source.endpoint.httpProxyUser",
 			"description": "The http proxy user which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffErrorThreshold": {
 			"name": "camel.source.endpoint.backoffErrorThreshold",
 			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffIdleThreshold": {
 			"name": "camel.source.endpoint.backoffIdleThreshold",
 			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffMultiplier": {
 			"name": "camel.source.endpoint.backoffMultiplier",
 			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.delay": {
@@ -215,7 +197,6 @@
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
 			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.scheduler": {
@@ -227,7 +208,6 @@
 		"camel.source.endpoint.schedulerProperties": {
 			"name": "camel.source.endpoint.schedulerProperties",
 			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startScheduler": {
@@ -251,25 +231,21 @@
 		"camel.source.endpoint.accessToken": {
 			"name": "camel.source.endpoint.accessToken",
 			"description": "The access token. Can also be configured on the TwitterComponent level instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.accessTokenSecret": {
 			"name": "camel.source.endpoint.accessTokenSecret",
 			"description": "The access secret. Can also be configured on the TwitterComponent level instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.consumerKey": {
 			"name": "camel.source.endpoint.consumerKey",
 			"description": "The consumer key. Can also be configured on the TwitterComponent level instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.consumerSecret": {
 			"name": "camel.source.endpoint.consumerSecret",
 			"description": "The consumer secret. Can also be configured on the TwitterComponent level instead.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sortById": {
@@ -293,49 +269,41 @@
 		"camel.component.twitter-timeline.httpProxyHost": {
 			"name": "camel.component.twitter-timeline.httpProxyHost",
 			"description": "The http proxy host which can be used for the camel-twitter.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.twitter-timeline.httpProxyPassword": {
 			"name": "camel.component.twitter-timeline.httpProxyPassword",
 			"description": "The http proxy password which can be used for the camel-twitter.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.twitter-timeline.httpProxyPort": {
 			"name": "camel.component.twitter-timeline.httpProxyPort",
 			"description": "The http proxy port which can be used for the camel-twitter.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.twitter-timeline.httpProxyUser": {
 			"name": "camel.component.twitter-timeline.httpProxyUser",
 			"description": "The http proxy user which can be used for the camel-twitter.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.twitter-timeline.accessToken": {
 			"name": "camel.component.twitter-timeline.accessToken",
 			"description": "The access token",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.twitter-timeline.accessTokenSecret": {
 			"name": "camel.component.twitter-timeline.accessTokenSecret",
 			"description": "The access token secret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.twitter-timeline.consumerKey": {
 			"name": "camel.component.twitter-timeline.consumerKey",
 			"description": "The consumer key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.twitter-timeline.consumerSecret": {
 			"name": "camel.component.twitter-timeline.consumerSecret",
 			"description": "The consumer secret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

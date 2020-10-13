@@ -11,13 +11,11 @@
 		"camel.source.path.groupName": {
 			"name": "camel.source.path.groupName",
 			"description": "The name of the cluster group to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.consumerEndpointUri": {
 			"name": "camel.source.path.consumerEndpointUri",
 			"description": "The consumer endpoint to use in master\/slave mode",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -29,13 +27,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -83,19 +79,16 @@
 		"camel.component.zookeeper-master.containerIdFactory": {
 			"name": "camel.component.zookeeper-master.containerIdFactory",
 			"description": "To use a custom ContainerIdFactory for creating container ids.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.zookeeper-master.curator": {
 			"name": "camel.component.zookeeper-master.curator",
 			"description": "To use a custom configured CuratorFramework as connection to zookeeper ensemble.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.zookeeper-master.zooKeeperPassword": {
 			"name": "camel.component.zookeeper-master.zooKeeperPassword",
 			"description": "The password to use when connecting to the zookeeper ensemble",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

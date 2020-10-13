@@ -11,7 +11,6 @@
 		"camel.source.path.httpURI": {
 			"name": "camel.source.path.httpURI",
 			"description": "The url of the HTTP endpoint to use.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.useStreaming": {
@@ -35,7 +34,6 @@
 		"camel.source.endpoint.httpMethodRestrict": {
 			"name": "camel.source.endpoint.httpMethodRestrict",
 			"description": "Used to only allow consuming if the HttpMethod matches, such as GET\/POST\/PUT etc. Multiple methods can be specified separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.matchOnUriPrefix": {
@@ -59,25 +57,21 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.handlers": {
 			"name": "camel.source.endpoint.handlers",
 			"description": "Specifies a comma-delimited set of io.undertow.server.HttpHandler instances to lookup in your Registry. These handlers are added to the Undertow handler chain (for example, to add security). Important: You can not use different handlers with different Undertow endpoints using the same port number. The handlers is associated to the port number. If you need different handlers, then use different port numbers.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.accessLogReceiver": {
 			"name": "camel.source.endpoint.accessLogReceiver",
 			"description": "Which Undertow AccessLogReceiver should be used Will use JBossLoggingAccessLogReceiver if not specified",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -89,7 +83,6 @@
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.synchronous": {
@@ -101,31 +94,26 @@
 		"camel.source.endpoint.undertowHttpBinding": {
 			"name": "camel.source.endpoint.undertowHttpBinding",
 			"description": "To use a custom UndertowHttpBinding to control the mapping between Camel message and undertow.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.allowedRoles": {
 			"name": "camel.source.endpoint.allowedRoles",
 			"description": "Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.securityConfiguration": {
 			"name": "camel.source.endpoint.securityConfiguration",
 			"description": "OConfiguration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider. Configuration is UndertowSecurityProvider specific. Each provider decides whether accepts configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.securityProvider": {
 			"name": "camel.source.endpoint.securityProvider",
 			"description": "Security provider allows plug in the provider, which will be used to secure requests. SPI approach could be used too (endpoint then finds security provider using SPI).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.fireWebSocketChannelEvents": {
@@ -155,37 +143,31 @@
 		"camel.component.undertow.hostOptions": {
 			"name": "camel.component.undertow.hostOptions",
 			"description": "To configure common options, such as thread pools",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.undertowHttpBinding": {
 			"name": "camel.component.undertow.undertowHttpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.allowedRoles": {
 			"name": "camel.component.undertow.allowedRoles",
 			"description": "Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.securityConfiguration": {
 			"name": "camel.component.undertow.securityConfiguration",
 			"description": "Configuration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider. Configuration is UndertowSecurityProvider specific. Each provider decides, whether it accepts configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.securityProvider": {
 			"name": "camel.component.undertow.securityProvider",
 			"description": "Security provider allows plug in the provider, which will be used to secure requests. SPI approach could be used too (component then finds security provider using SPI).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.sslContextParameters": {
 			"name": "camel.component.undertow.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.undertow.useGlobalSslContextParameters": {

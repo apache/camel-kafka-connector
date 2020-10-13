@@ -29,7 +29,6 @@
 		"camel.sink.endpoint.clientOptions": {
 			"name": "camel.sink.endpoint.clientOptions",
 			"description": "Sets customized options for configuring the WebSocket client used in the producer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,7 +58,6 @@
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-websocket.lazyStartProducer": {
@@ -77,13 +75,11 @@
 		"camel.component.vertx-websocket.vertx": {
 			"name": "camel.component.vertx-websocket.vertx",
 			"description": "To use an existing vertx instead of creating a new instance",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-websocket.vertxOptions": {
 			"name": "camel.component.vertx-websocket.vertxOptions",
 			"description": "To provide a custom set of vertx options for configuring vertx",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.vertx-websocket.useGlobalSslContextParameters": {

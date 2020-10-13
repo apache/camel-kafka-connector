@@ -11,13 +11,11 @@
 		"camel.source.path.host": {
 			"name": "camel.source.path.host",
 			"description": "Name of the javax.jcr.Repository to lookup from the Camel registry to be used.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.base": {
 			"name": "camel.source.path.base",
 			"description": "Get the base node when accessing the repository",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.deep": {
@@ -29,13 +27,11 @@
 		"camel.source.endpoint.eventTypes": {
 			"name": "camel.source.endpoint.eventTypes",
 			"description": "eventTypes (a combination of one or more event types encoded as a bit mask value such as javax.jcr.observation.Event.NODE_ADDED, javax.jcr.observation.Event.NODE_REMOVED, etc.).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.nodeTypeNames": {
 			"name": "camel.source.endpoint.nodeTypeNames",
 			"description": "When a comma separated nodeTypeName list string is set, only events whose associated parent node has one of the node types (or a subtype of one of the node types) in this list will be received.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.noLocal": {
@@ -47,7 +43,6 @@
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Password for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sessionLiveCheckInterval": {
@@ -65,19 +60,16 @@
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "Username for login",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.uuids": {
 			"name": "camel.source.endpoint.uuids",
 			"description": "When a comma separated uuid list string is set, only events whose associated parent node has one of the identifiers in the comma separated uuid list will be received.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.workspaceName": {
 			"name": "camel.source.endpoint.workspaceName",
 			"description": "The workspace to access. If it's not specified then the default one will be used",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -89,13 +81,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {

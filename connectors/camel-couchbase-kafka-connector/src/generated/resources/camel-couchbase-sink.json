@@ -11,13 +11,11 @@
 		"camel.sink.path.protocol": {
 			"name": "camel.sink.path.protocol",
 			"description": "The protocol to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.hostname": {
 			"name": "camel.sink.path.hostname",
 			"description": "The hostname to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.port": {
@@ -29,25 +27,21 @@
 		"camel.sink.endpoint.bucket": {
 			"name": "camel.sink.endpoint.bucket",
 			"description": "The bucket to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.collection": {
 			"name": "camel.sink.endpoint.collection",
 			"description": "The collection to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
 			"description": "The key to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.scope": {
 			"name": "camel.sink.endpoint.scope",
 			"description": "The scope to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoStartIdForInserts": {
@@ -95,13 +89,11 @@
 		"camel.sink.endpoint.startingIdForInsertsFrom": {
 			"name": "camel.sink.endpoint.startingIdForInsertsFrom",
 			"description": "Define the starting Id where we are doing an insert operation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.additionalHosts": {
 			"name": "camel.sink.endpoint.additionalHosts",
 			"description": "The additional hosts",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -125,13 +117,11 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The password to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "The username to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.couchbase.lazyStartProducer": {

@@ -11,13 +11,11 @@
 		"camel.sink.path.operation": {
 			"name": "camel.sink.path.operation",
 			"description": "Which operation to use One of: [events] [stats] [auth] [info] [ping] [version] [imagebuild] [imagecreate] [imageinspect] [imagelist] [imagepull] [imagepushimageremove] [imagesearch] [imagetag] [containerattach] [containercommit] [containercopyfile] [containercreate] [containerdiffinspectcontainer] [containerkill] [containerlist] [containerlog] [containerpause] [containerrestart] [containerremove] [containerstartcontainerstop] [containertop] [containerunpause] [containerwait] [execcreate] [execstart]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.email": {
 			"name": "camel.sink.endpoint.email",
 			"description": "Email address associated with the user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.host": {
@@ -35,7 +33,6 @@
 		"camel.sink.endpoint.requestTimeout": {
 			"name": "camel.sink.endpoint.requestTimeout",
 			"description": "Request timeout for response (in seconds)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -83,7 +80,6 @@
 		"camel.sink.endpoint.parameters": {
 			"name": "camel.sink.endpoint.parameters",
 			"description": "Additional configuration parameters as key\/value pairs",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.serverAddress": {
@@ -107,13 +103,11 @@
 		"camel.sink.endpoint.certPath": {
 			"name": "camel.sink.endpoint.certPath",
 			"description": "Location containing the SSL certificate chain",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Password to authenticate with",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secure": {
@@ -131,19 +125,16 @@
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "User name to authenticate with",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.configuration": {
 			"name": "camel.component.docker.configuration",
 			"description": "To use the shared docker configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.email": {
 			"name": "camel.component.docker.email",
 			"description": "Email address associated with the user",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.host": {
@@ -161,7 +152,6 @@
 		"camel.component.docker.requestTimeout": {
 			"name": "camel.component.docker.requestTimeout",
 			"description": "Request timeout for response (in seconds)",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.lazyStartProducer": {
@@ -209,7 +199,6 @@
 		"camel.component.docker.parameters": {
 			"name": "camel.component.docker.parameters",
 			"description": "Additional configuration parameters as key\/value pairs",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.serverAddress": {
@@ -227,13 +216,11 @@
 		"camel.component.docker.certPath": {
 			"name": "camel.component.docker.certPath",
 			"description": "Location containing the SSL certificate chain",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.password": {
 			"name": "camel.component.docker.password",
 			"description": "Password to authenticate with",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.docker.secure": {
@@ -251,7 +238,6 @@
 		"camel.component.docker.username": {
 			"name": "camel.component.docker.username",
 			"description": "User name to authenticate with",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

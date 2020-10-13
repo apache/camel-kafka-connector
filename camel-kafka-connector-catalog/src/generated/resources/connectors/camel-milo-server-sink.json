@@ -11,7 +11,6 @@
 		"camel.sink.path.itemId": {
 			"name": "camel.sink.path.itemId",
 			"description": "ID of the item",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -35,25 +34,21 @@
 		"camel.component.milo-server.applicationName": {
 			"name": "camel.component.milo-server.applicationName",
 			"description": "The application name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.applicationUri": {
 			"name": "camel.component.milo-server.applicationUri",
 			"description": "The application URI",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.bindAddresses": {
 			"name": "camel.component.milo-server.bindAddresses",
 			"description": "Set the addresses of the local addresses the server should bind to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.buildInfo": {
 			"name": "camel.component.milo-server.buildInfo",
 			"description": "Server build info",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.namespaceUri": {
@@ -65,19 +60,16 @@
 		"camel.component.milo-server.path": {
 			"name": "camel.component.milo-server.path",
 			"description": "The path to be appended to the end of the endpoint url. (doesn't need to start with '\/')",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.port": {
 			"name": "camel.component.milo-server.port",
 			"description": "The TCP port the server binds to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.productUri": {
 			"name": "camel.component.milo-server.productUri",
 			"description": "The product URI",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.lazyStartProducer": {
@@ -95,25 +87,21 @@
 		"camel.component.milo-server.certificate": {
 			"name": "camel.component.milo-server.certificate",
 			"description": "Server certificate",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.certificateManager": {
 			"name": "camel.component.milo-server.certificateManager",
 			"description": "Server certificate manager",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.certificateValidator": {
 			"name": "camel.component.milo-server.certificateValidator",
 			"description": "Validator for client certificates",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.defaultCertificateValidator": {
 			"name": "camel.component.milo-server.defaultCertificateValidator",
 			"description": "Validator for client certificates using default file based approach",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.enableAnonymousAuthentication": {
@@ -125,25 +113,21 @@
 		"camel.component.milo-server.securityPolicies": {
 			"name": "camel.component.milo-server.securityPolicies",
 			"description": "Security policies",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.securityPoliciesById": {
 			"name": "camel.component.milo-server.securityPoliciesById",
 			"description": "Security policies by URI or name. Multiple policies can be separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.userAuthenticationCredentials": {
 			"name": "camel.component.milo-server.userAuthenticationCredentials",
 			"description": "Set user password combinations in the form of user1:pwd1,user2:pwd2 Usernames and passwords will be URL decoded",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.milo-server.usernameSecurityPolicyUri": {
 			"name": "camel.component.milo-server.usernameSecurityPolicyUri",
 			"description": "Set the UserTokenPolicy used when One of: [None] [Basic128Rsa15] [Basic256] [Basic256Sha256] [Aes128_Sha256_RsaOaep] [Aes256_Sha256_RsaPss]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

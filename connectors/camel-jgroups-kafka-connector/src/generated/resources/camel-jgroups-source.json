@@ -11,13 +11,11 @@
 		"camel.source.path.clusterName": {
 			"name": "camel.source.path.clusterName",
 			"description": "The name of the JGroups cluster the component should connect to.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.channelProperties": {
 			"name": "camel.source.endpoint.channelProperties",
 			"description": "Specifies configuration properties of the JChannel used by the endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -35,13 +33,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -59,13 +55,11 @@
 		"camel.component.jgroups.channel": {
 			"name": "camel.component.jgroups.channel",
 			"description": "Channel to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jgroups.channelProperties": {
 			"name": "camel.component.jgroups.channelProperties",
 			"description": "Specifies configuration properties of the JChannel used by the endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jgroups.bridgeErrorHandler": {

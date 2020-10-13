@@ -11,13 +11,11 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "Name of data format",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.operation": {
 			"name": "camel.sink.path.operation",
 			"description": "Operation to use either marshal or unmarshal One of: [marshal] [unmarshal]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {

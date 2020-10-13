@@ -11,7 +11,6 @@
 		"camel.sink.path.httpUri": {
 			"name": "camel.sink.path.httpUri",
 			"description": "The url of the HTTP endpoint to call.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.disableStreamCache": {
@@ -23,13 +22,11 @@
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpBinding": {
 			"name": "camel.sink.endpoint.httpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.bridgeEndpoint": {
@@ -65,13 +62,11 @@
 		"camel.sink.endpoint.customHostHeader": {
 			"name": "camel.sink.endpoint.customHostHeader",
 			"description": "To use custom host header for producer. When not set in query will be ignored. When set will override host header derived from url.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpMethod": {
 			"name": "camel.sink.endpoint.httpMethod",
 			"description": "Configure the HTTP method to use. The HttpMethod header cannot override this option if set. One of: [GET] [POST] [PUT] [DELETE] [HEAD] [OPTIONS] [TRACE] [PATCH]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.ignoreResponseBody": {
@@ -107,13 +102,11 @@
 		"camel.sink.endpoint.cookieHandler": {
 			"name": "camel.sink.endpoint.cookieHandler",
 			"description": "Configure a cookie handler to maintain a HTTP session",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.cookieStore": {
 			"name": "camel.sink.endpoint.cookieStore",
 			"description": "To use a custom CookieStore. By default the BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy). If a cookieHandler is set then the cookie store is also forced to be a noop cookie store as cookie handling is then performed by the cookieHandler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.deleteWithBody": {
@@ -143,13 +136,11 @@
 		"camel.sink.endpoint.clientBuilder": {
 			"name": "camel.sink.endpoint.clientBuilder",
 			"description": "Provide access to the http client request parameters used on new RequestConfig instances used by producers or consumers of this endpoint.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientConnectionManager": {
 			"name": "camel.sink.endpoint.clientConnectionManager",
 			"description": "To use a custom HttpClientConnectionManager to manage connections",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.connectionsPerRoute": {
@@ -161,25 +152,21 @@
 		"camel.sink.endpoint.httpClient": {
 			"name": "camel.sink.endpoint.httpClient",
 			"description": "Sets a custom HttpClient to be used by the producer",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpClientConfigurer": {
 			"name": "camel.sink.endpoint.httpClientConfigurer",
 			"description": "Register a custom configuration strategy for new HttpClient instances created by producers or consumers such as to configure authentication mechanisms etc.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpClientOptions": {
 			"name": "camel.sink.endpoint.httpClientOptions",
 			"description": "To configure the HttpClient using the key\/values from the Map.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.httpContext": {
 			"name": "camel.sink.endpoint.httpContext",
 			"description": "To use a custom HttpContext instance",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.mapHttpMessageBody": {
@@ -221,67 +208,56 @@
 		"camel.sink.endpoint.proxyAuthDomain": {
 			"name": "camel.sink.endpoint.proxyAuthDomain",
 			"description": "Proxy authentication domain to use with NTML",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthHost": {
 			"name": "camel.sink.endpoint.proxyAuthHost",
 			"description": "Proxy authentication host",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthMethod": {
 			"name": "camel.sink.endpoint.proxyAuthMethod",
 			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthNtHost": {
 			"name": "camel.sink.endpoint.proxyAuthNtHost",
 			"description": "Proxy authentication domain (workstation name) to use with NTML",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthPassword": {
 			"name": "camel.sink.endpoint.proxyAuthPassword",
 			"description": "Proxy authentication password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthPort": {
 			"name": "camel.sink.endpoint.proxyAuthPort",
 			"description": "Proxy authentication port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthScheme": {
 			"name": "camel.sink.endpoint.proxyAuthScheme",
 			"description": "Proxy authentication scheme to use One of: [http] [https]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyAuthUsername": {
 			"name": "camel.sink.endpoint.proxyAuthUsername",
 			"description": "Proxy authentication username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "Proxy hostname to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "Proxy port to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.authDomain": {
 			"name": "camel.sink.endpoint.authDomain",
 			"description": "Authentication domain to use with NTML",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.authenticationPreemptive": {
@@ -293,49 +269,41 @@
 		"camel.sink.endpoint.authHost": {
 			"name": "camel.sink.endpoint.authHost",
 			"description": "Authentication host to use with NTML",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.authMethod": {
 			"name": "camel.sink.endpoint.authMethod",
 			"description": "Authentication methods allowed to use as a comma separated list of values Basic, Digest or NTLM.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.authMethodPriority": {
 			"name": "camel.sink.endpoint.authMethodPriority",
 			"description": "Which authentication method to prioritize to use, either as Basic, Digest or NTLM. One of: [Basic] [Digest] [NTLM]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.authPassword": {
 			"name": "camel.sink.endpoint.authPassword",
 			"description": "Authentication password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.authUsername": {
 			"name": "camel.sink.endpoint.authUsername",
 			"description": "Authentication username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters. Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent. If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.x509HostnameVerifier": {
 			"name": "camel.sink.endpoint.x509HostnameVerifier",
 			"description": "To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.cookieStore": {
 			"name": "camel.component.https.cookieStore",
 			"description": "To use a custom org.apache.http.client.CookieStore. By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store. Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie shouldn't be stored as we are just bridging (eg acting as a proxy).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.lazyStartProducer": {
@@ -359,7 +327,6 @@
 		"camel.component.https.clientConnectionManager": {
 			"name": "camel.component.https.clientConnectionManager",
 			"description": "To use a custom and shared HttpClientConnectionManager to manage connections. If this has been configured then this is always used for all endpoints created by this component.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.connectionsPerRoute": {
@@ -371,31 +338,26 @@
 		"camel.component.https.connectionTimeToLive": {
 			"name": "camel.component.https.connectionTimeToLive",
 			"description": "The time for connection to live, the time unit is millisecond, the default value is always keep alive.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.httpBinding": {
 			"name": "camel.component.https.httpBinding",
 			"description": "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.httpClientConfigurer": {
 			"name": "camel.component.https.httpClientConfigurer",
 			"description": "To use the custom HttpClientConfigurer to perform configuration of the HttpClient that will be used.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.httpConfiguration": {
 			"name": "camel.component.https.httpConfiguration",
 			"description": "To use the shared HttpConfiguration as base configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.httpContext": {
 			"name": "camel.component.https.httpContext",
 			"description": "To use a custom org.apache.http.protocol.HttpContext when executing requests.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.maxTotalConnections": {
@@ -407,55 +369,46 @@
 		"camel.component.https.headerFilterStrategy": {
 			"name": "camel.component.https.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.proxyAuthDomain": {
 			"name": "camel.component.https.proxyAuthDomain",
 			"description": "Proxy authentication domain to use",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.proxyAuthHost": {
 			"name": "camel.component.https.proxyAuthHost",
 			"description": "Proxy authentication host",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.proxyAuthMethod": {
 			"name": "camel.component.https.proxyAuthMethod",
 			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.proxyAuthNtHost": {
 			"name": "camel.component.https.proxyAuthNtHost",
 			"description": "Proxy authentication domain (workstation name) to use with NTML",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.proxyAuthPassword": {
 			"name": "camel.component.https.proxyAuthPassword",
 			"description": "Proxy authentication password",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.proxyAuthPort": {
 			"name": "camel.component.https.proxyAuthPort",
 			"description": "Proxy authentication port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.proxyAuthUsername": {
 			"name": "camel.component.https.proxyAuthUsername",
 			"description": "Proxy authentication username",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.sslContextParameters": {
 			"name": "camel.component.https.sslContextParameters",
 			"description": "To configure security using SSLContextParameters. Important: Only one instance of org.apache.camel.support.jsse.SSLContextParameters is supported per HttpComponent. If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.useGlobalSslContextParameters": {
@@ -467,7 +420,6 @@
 		"camel.component.https.x509HostnameVerifier": {
 			"name": "camel.component.https.x509HostnameVerifier",
 			"description": "To use a custom X509HostnameVerifier such as DefaultHostnameVerifier or NoopHostnameVerifier.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.https.connectionRequestTimeout": {

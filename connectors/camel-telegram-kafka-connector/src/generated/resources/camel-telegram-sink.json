@@ -11,13 +11,11 @@
 		"camel.sink.path.type": {
 			"name": "camel.sink.path.type",
 			"description": "The endpoint type. Currently, only the 'bots' type is supported. One of: [bots]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.chatId": {
 			"name": "camel.sink.endpoint.chatId",
 			"description": "The identifier of the chat that will receive the produced messages. Chat ids can be first obtained from incoming messages (eg. when a telegram user starts a conversation with a bot, its client sends automatically a '\/start' message containing the chat id). It is an optional parameter, as the chat id can be set dynamically for each outgoing message (using body or headers).",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -29,7 +27,6 @@
 		"camel.sink.endpoint.baseUri": {
 			"name": "camel.sink.endpoint.baseUri",
 			"description": "Can be used to set an alternative base URI, e.g. when you want to test the component against a mock Telegram API",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -47,7 +44,6 @@
 		"camel.sink.endpoint.clientConfig": {
 			"name": "camel.sink.endpoint.clientConfig",
 			"description": "To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -59,13 +55,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "HTTP proxy host which could be used when sending out the message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "HTTP proxy port which could be used when sending out the message.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyType": {
@@ -77,7 +71,6 @@
 		"camel.sink.endpoint.authorizationToken": {
 			"name": "camel.sink.endpoint.authorizationToken",
 			"description": "The authorization token for using the bot (ask the BotFather)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.component.telegram.lazyStartProducer": {
@@ -101,19 +94,16 @@
 		"camel.component.telegram.client": {
 			"name": "camel.component.telegram.client",
 			"description": "To use a custom AsyncHttpClient",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.telegram.clientConfig": {
 			"name": "camel.component.telegram.clientConfig",
 			"description": "To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.telegram.authorizationToken": {
 			"name": "camel.component.telegram.authorizationToken",
 			"description": "The default Telegram authorization token to be used when the information is not provided in the endpoints.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

@@ -11,13 +11,11 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "Name has no purpose",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.app": {
 			"name": "camel.sink.endpoint.app",
 			"description": "Splunk app",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.connectionTimeout": {
@@ -35,7 +33,6 @@
 		"camel.sink.endpoint.owner": {
 			"name": "camel.sink.endpoint.owner",
 			"description": "Splunk owner",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.port": {
@@ -53,13 +50,11 @@
 		"camel.sink.endpoint.eventHost": {
 			"name": "camel.sink.endpoint.eventHost",
 			"description": "Override the default Splunk event host field",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.index": {
 			"name": "camel.sink.endpoint.index",
 			"description": "Splunk index to write to",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -77,19 +72,16 @@
 		"camel.sink.endpoint.source": {
 			"name": "camel.sink.endpoint.source",
 			"description": "Splunk source argument",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sourceType": {
 			"name": "camel.sink.endpoint.sourceType",
 			"description": "Splunk sourcetype argument",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.tcpReceiverPort": {
 			"name": "camel.sink.endpoint.tcpReceiverPort",
 			"description": "Splunk tcp receiver port",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -107,7 +99,6 @@
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Password for Splunk",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslProtocol": {
@@ -119,7 +110,6 @@
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Username for Splunk",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.useSunHttpsHandler": {
@@ -143,7 +133,6 @@
 		"camel.component.splunk.splunkConfigurationFactory": {
 			"name": "camel.component.splunk.splunkConfigurationFactory",
 			"description": "To use the SplunkConfigurationFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

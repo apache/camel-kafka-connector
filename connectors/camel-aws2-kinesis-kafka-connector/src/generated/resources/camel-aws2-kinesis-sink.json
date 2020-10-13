@@ -11,13 +11,11 @@
 		"camel.sink.path.streamName": {
 			"name": "camel.sink.path.streamName",
 			"description": "Name of the stream",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.amazonKinesisClient": {
 			"name": "camel.sink.endpoint.amazonKinesisClient",
 			"description": "Amazon Kinesis client to use for all requests for this endpoint",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -29,13 +27,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the Kinesis client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the Kinesis client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -47,7 +43,6 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which Kinesis Firehose client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
@@ -77,19 +72,16 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-kinesis.amazonKinesisClient": {
 			"name": "camel.component.aws2-kinesis.amazonKinesisClient",
 			"description": "Amazon Kinesis client to use for all requests for this endpoint",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-kinesis.autoDiscoverClient": {
@@ -101,19 +93,16 @@
 		"camel.component.aws2-kinesis.configuration": {
 			"name": "camel.component.aws2-kinesis.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-kinesis.proxyHost": {
 			"name": "camel.component.aws2-kinesis.proxyHost",
 			"description": "To define a proxy host when instantiating the Kinesis client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-kinesis.proxyPort": {
 			"name": "camel.component.aws2-kinesis.proxyPort",
 			"description": "To define a proxy port when instantiating the Kinesis client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-kinesis.proxyProtocol": {
@@ -125,7 +114,6 @@
 		"camel.component.aws2-kinesis.region": {
 			"name": "camel.component.aws2-kinesis.region",
 			"description": "The region in which Kinesis Firehose client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-kinesis.trustAllCertificates": {
@@ -149,13 +137,11 @@
 		"camel.component.aws2-kinesis.accessKey": {
 			"name": "camel.component.aws2-kinesis.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-kinesis.secretKey": {
 			"name": "camel.component.aws2-kinesis.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

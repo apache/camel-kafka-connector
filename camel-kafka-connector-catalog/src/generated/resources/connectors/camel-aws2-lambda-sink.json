@@ -11,7 +11,6 @@
 		"camel.sink.path.function": {
 			"name": "camel.sink.path.function",
 			"description": "Name of the Lambda function.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -41,7 +40,6 @@
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
@@ -53,7 +51,6 @@
 		"camel.sink.endpoint.awsLambdaClient": {
 			"name": "camel.sink.endpoint.awsLambdaClient",
 			"description": "To use a existing configured AwsLambdaClient as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -71,13 +68,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the Lambda client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the Lambda client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -89,13 +84,11 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-lambda.autoDiscoverClient": {
@@ -107,7 +100,6 @@
 		"camel.component.aws2-lambda.configuration": {
 			"name": "camel.component.aws2-lambda.configuration",
 			"description": "Component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-lambda.lazyStartProducer": {
@@ -131,7 +123,6 @@
 		"camel.component.aws2-lambda.region": {
 			"name": "camel.component.aws2-lambda.region",
 			"description": "The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-lambda.trustAllCertificates": {
@@ -143,7 +134,6 @@
 		"camel.component.aws2-lambda.awsLambdaClient": {
 			"name": "camel.component.aws2-lambda.awsLambdaClient",
 			"description": "To use a existing configured AwsLambdaClient as client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-lambda.basicPropertyBinding": {
@@ -155,13 +145,11 @@
 		"camel.component.aws2-lambda.proxyHost": {
 			"name": "camel.component.aws2-lambda.proxyHost",
 			"description": "To define a proxy host when instantiating the Lambda client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-lambda.proxyPort": {
 			"name": "camel.component.aws2-lambda.proxyPort",
 			"description": "To define a proxy port when instantiating the Lambda client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-lambda.proxyProtocol": {
@@ -173,13 +161,11 @@
 		"camel.component.aws2-lambda.accessKey": {
 			"name": "camel.component.aws2-lambda.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws2-lambda.secretKey": {
 			"name": "camel.component.aws2-lambda.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

@@ -11,37 +11,31 @@
 		"camel.sink.path.apiName": {
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [COLLABORATIONS] [COMMENTS] [EVENT_LOGS] [FILES] [FOLDERS] [GROUPS] [EVENTS] [SEARCH] [TASKS] [USERS]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.clientId": {
 			"name": "camel.sink.endpoint.clientId",
 			"description": "Box application client ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.enterpriseId": {
 			"name": "camel.sink.endpoint.enterpriseId",
 			"description": "The enterprise ID to use for an App Enterprise.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.inBody": {
 			"name": "camel.sink.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.userId": {
 			"name": "camel.sink.endpoint.userId",
 			"description": "The user ID to use for an App User.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,7 +53,6 @@
 		"camel.sink.endpoint.httpParams": {
 			"name": "camel.sink.endpoint.httpParams",
 			"description": "Custom HTTP params for settings like proxy host",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -77,13 +70,11 @@
 		"camel.sink.endpoint.accessTokenCache": {
 			"name": "camel.sink.endpoint.accessTokenCache",
 			"description": "Custom Access Token Cache for storing and retrieving access tokens.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.clientSecret": {
 			"name": "camel.sink.endpoint.clientSecret",
 			"description": "Box application client secret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.encryptionAlgorithm": {
@@ -101,61 +92,51 @@
 		"camel.sink.endpoint.privateKeyFile": {
 			"name": "camel.sink.endpoint.privateKeyFile",
 			"description": "The private key for generating the JWT signature.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.privateKeyPassword": {
 			"name": "camel.sink.endpoint.privateKeyPassword",
 			"description": "The password for the private key.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.publicKeyId": {
 			"name": "camel.sink.endpoint.publicKeyId",
 			"description": "The ID for public key for validating the JWT signature.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.userName": {
 			"name": "camel.sink.endpoint.userName",
 			"description": "Box user name, MUST be provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.userPassword": {
 			"name": "camel.sink.endpoint.userPassword",
 			"description": "Box user password, MUST be provided if authSecureStorage is not set, or returns null on first call",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.clientId": {
 			"name": "camel.component.box.clientId",
 			"description": "Box application client ID",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.configuration": {
 			"name": "camel.component.box.configuration",
 			"description": "To use the shared configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.enterpriseId": {
 			"name": "camel.component.box.enterpriseId",
 			"description": "The enterprise ID to use for an App Enterprise.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.userId": {
 			"name": "camel.component.box.userId",
 			"description": "The user ID to use for an App User.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.lazyStartProducer": {
@@ -173,7 +154,6 @@
 		"camel.component.box.httpParams": {
 			"name": "camel.component.box.httpParams",
 			"description": "Custom HTTP params for settings like proxy host",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.authenticationType": {
@@ -185,13 +165,11 @@
 		"camel.component.box.accessTokenCache": {
 			"name": "camel.component.box.accessTokenCache",
 			"description": "Custom Access Token Cache for storing and retrieving access tokens.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.clientSecret": {
 			"name": "camel.component.box.clientSecret",
 			"description": "Box application client secret",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.encryptionAlgorithm": {
@@ -209,37 +187,31 @@
 		"camel.component.box.privateKeyFile": {
 			"name": "camel.component.box.privateKeyFile",
 			"description": "The private key for generating the JWT signature.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.privateKeyPassword": {
 			"name": "camel.component.box.privateKeyPassword",
 			"description": "The password for the private key.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.publicKeyId": {
 			"name": "camel.component.box.publicKeyId",
 			"description": "The ID for public key for validating the JWT signature.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.sslContextParameters": {
 			"name": "camel.component.box.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.userName": {
 			"name": "camel.component.box.userName",
 			"description": "Box user name, MUST be provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.box.userPassword": {
 			"name": "camel.component.box.userPassword",
 			"description": "Box user password, MUST be provided if authSecureStorage is not set, or returns null on first call",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

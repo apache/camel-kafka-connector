@@ -11,7 +11,6 @@
 		"camel.sink.path.dataSourceName": {
 			"name": "camel.sink.path.dataSourceName",
 			"description": "Name of DataSource to lookup in the Registry. If the name is dataSource or default, then Camel will attempt to lookup a default DataSource from the registry, meaning if there is a only one instance of DataSource found, then this DataSource will be used.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.allowNamedParameters": {
@@ -29,7 +28,6 @@
 		"camel.sink.endpoint.outputClass": {
 			"name": "camel.sink.endpoint.outputClass",
 			"description": "Specify the full package and class name to use as conversion when outputType=SelectOne or SelectList.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.outputType": {
@@ -41,13 +39,11 @@
 		"camel.sink.endpoint.parameters": {
 			"name": "camel.sink.endpoint.parameters",
 			"description": "Optional parameters to the java.sql.Statement. For example to set maxRows, fetchSize etc.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.readSize": {
 			"name": "camel.sink.endpoint.readSize",
 			"description": "The default maximum number of rows that can be read by a polling query. The default value is 0.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resetAutoCommit": {
@@ -89,13 +85,11 @@
 		"camel.sink.endpoint.beanRowMapper": {
 			"name": "camel.sink.endpoint.beanRowMapper",
 			"description": "To use a custom org.apache.camel.component.jdbc.BeanRowMapper when using outputClass. The default implementation will lower case the row names and skip underscores, and dashes. For example CUST_ID is mapped as custId.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.prepareStatementStrategy": {
 			"name": "camel.sink.endpoint.prepareStatementStrategy",
 			"description": "Allows the plugin to use a custom org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to control preparation of the query and prepared statement.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {
@@ -107,7 +101,6 @@
 		"camel.component.jdbc.dataSource": {
 			"name": "camel.component.jdbc.dataSource",
 			"description": "To use the DataSource instance instead of looking up the data source by name from the registry.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.jdbc.lazyStartProducer": {

@@ -11,19 +11,16 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "The Thrift server host name. This is localhost or 0.0.0.0 (if not defined) when being a consumer or remote server host name when using producer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "The Thrift server port",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.service": {
 			"name": "camel.sink.path.service",
 			"description": "Fully qualified service name from the thrift descriptor file (package dot service definition name)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.compressionType": {
@@ -47,7 +44,6 @@
 		"camel.sink.endpoint.method": {
 			"name": "camel.sink.endpoint.method",
 			"description": "The Thrift invoked method name",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -71,7 +67,6 @@
 		"camel.sink.endpoint.sslParameters": {
 			"name": "camel.sink.endpoint.sslParameters",
 			"description": "Configuration parameters for SSL\/TLS security negotiation",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.thrift.lazyStartProducer": {

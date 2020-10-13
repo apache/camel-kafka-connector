@@ -11,19 +11,16 @@
 		"camel.source.path.protocol": {
 			"name": "camel.source.path.protocol",
 			"description": "Protocol to use",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.host": {
 			"name": "camel.source.path.host",
 			"description": "Hostname to use. Use localhost or 0.0.0.0 for local server as consumer. For producer use the hostname or ip address of the remote server.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "Port number",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.disconnect": {
@@ -77,13 +74,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.noReplyLogLevel": {
@@ -131,7 +126,6 @@
 		"camel.source.endpoint.codec": {
 			"name": "camel.source.endpoint.codec",
 			"description": "To use a custom minda codec implementation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.decoderMaxLineLength": {
@@ -149,13 +143,11 @@
 		"camel.source.endpoint.encoding": {
 			"name": "camel.source.endpoint.encoding",
 			"description": "You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.filters": {
 			"name": "camel.source.endpoint.filters",
 			"description": "You can set a list of Mina IoFilters to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.textline": {
@@ -167,7 +159,6 @@
 		"camel.source.endpoint.textlineDelimiter": {
 			"name": "camel.source.endpoint.textlineDelimiter",
 			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.autoStartTls": {
@@ -179,7 +170,6 @@
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "To configure SSL security.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.disconnect": {
@@ -245,7 +235,6 @@
 		"camel.component.mina.configuration": {
 			"name": "camel.component.mina.configuration",
 			"description": "To use the shared mina configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.maximumPoolSize": {
@@ -275,7 +264,6 @@
 		"camel.component.mina.codec": {
 			"name": "camel.component.mina.codec",
 			"description": "To use a custom minda codec implementation.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.decoderMaxLineLength": {
@@ -293,13 +281,11 @@
 		"camel.component.mina.encoding": {
 			"name": "camel.component.mina.encoding",
 			"description": "You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol. If not provided, Camel will use the JVM default Charset",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.filters": {
 			"name": "camel.component.mina.filters",
 			"description": "You can set a list of Mina IoFilters to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.textline": {
@@ -311,7 +297,6 @@
 		"camel.component.mina.textlineDelimiter": {
 			"name": "camel.component.mina.textlineDelimiter",
 			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.autoStartTls": {
@@ -323,7 +308,6 @@
 		"camel.component.mina.sslContextParameters": {
 			"name": "camel.component.mina.sslContextParameters",
 			"description": "To configure SSL security.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.mina.useGlobalSslContextParameters": {

@@ -11,43 +11,36 @@
 		"camel.sink.path.type": {
 			"name": "camel.sink.path.type",
 			"description": "What git operation to execute One of: [CLOSEPULLREQUEST] [PULLREQUESTCOMMENT] [COMMIT] [PULLREQUEST] [TAG] [PULLREQUESTSTATE] [PULLREQUESTFILES] [GETCOMMITFILE] [CREATEISSUE]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.oauthToken": {
 			"name": "camel.sink.endpoint.oauthToken",
 			"description": "GitHub OAuth token, required unless username & password are provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "GitHub password, required unless oauthToken is provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.repoName": {
 			"name": "camel.sink.endpoint.repoName",
 			"description": "GitHub repository name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.repoOwner": {
 			"name": "camel.sink.endpoint.repoOwner",
 			"description": "GitHub repository owner (organization)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "GitHub username, required unless oauthToken is provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.encoding": {
 			"name": "camel.sink.endpoint.encoding",
 			"description": "To use the given encoding when getting a git commit file",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,13 +52,11 @@
 		"camel.sink.endpoint.state": {
 			"name": "camel.sink.endpoint.state",
 			"description": "To set git commit status state One of: [error] [failure] [pending] [success]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.targetUrl": {
 			"name": "camel.sink.endpoint.targetUrl",
 			"description": "To set git commit status target url",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

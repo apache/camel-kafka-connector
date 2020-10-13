@@ -11,19 +11,16 @@
 		"camel.source.path.host": {
 			"name": "camel.source.path.host",
 			"description": "The host where Redis server is running.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "Redis server port number",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.channels": {
 			"name": "camel.source.endpoint.channels",
 			"description": "List of topic names or name patterns to subscribe to. Multiple names can be separated by comma.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.command": {
@@ -35,19 +32,16 @@
 		"camel.source.endpoint.connectionFactory": {
 			"name": "camel.source.endpoint.connectionFactory",
 			"description": "Reference to a pre-configured RedisConnectionFactory instance to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.redisTemplate": {
 			"name": "camel.source.endpoint.redisTemplate",
 			"description": "Reference to a pre-configured RedisTemplate instance to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.serializer": {
 			"name": "camel.source.endpoint.serializer",
 			"description": "Reference to a pre-configured RedisSerializer instance to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -59,19 +53,16 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.listenerContainer": {
 			"name": "camel.source.endpoint.listenerContainer",
 			"description": "Reference to a pre-configured RedisMessageListenerContainer instance to use.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {

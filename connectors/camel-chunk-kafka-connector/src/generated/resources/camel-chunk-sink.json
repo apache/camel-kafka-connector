@@ -11,7 +11,6 @@
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",
 			"description": "Path to the resource. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the resource using these protocols (classpath is default). ref will lookup the resource in the registry. bean will call a method on a bean to be used as the resource. For bean you can specify the method name after dot, eg bean:myBean.myMethod.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.allowContextMapAll": {
@@ -35,13 +34,11 @@
 		"camel.sink.endpoint.encoding": {
 			"name": "camel.sink.endpoint.encoding",
 			"description": "Define the encoding of the body",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.extension": {
 			"name": "camel.sink.endpoint.extension",
 			"description": "Define the file extension of the template",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -53,19 +50,16 @@
 		"camel.sink.endpoint.themeFolder": {
 			"name": "camel.sink.endpoint.themeFolder",
 			"description": "Define the themes folder to scan",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.themeLayer": {
 			"name": "camel.sink.endpoint.themeLayer",
 			"description": "Define the theme layer to elaborate",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.themeSubfolder": {
 			"name": "camel.sink.endpoint.themeSubfolder",
 			"description": "Define the themes subfolder to scan",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

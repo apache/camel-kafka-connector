@@ -11,13 +11,11 @@
 		"camel.sink.path.application": {
 			"name": "camel.sink.path.application",
 			"description": "Application name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.artifactId": {
 			"name": "camel.sink.endpoint.artifactId",
 			"description": "Model Artifact",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -29,13 +27,11 @@
 		"camel.sink.endpoint.model": {
 			"name": "camel.sink.endpoint.model",
 			"description": "Model",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.translator": {
 			"name": "camel.sink.endpoint.translator",
 			"description": "Translator",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {

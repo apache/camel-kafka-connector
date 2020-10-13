@@ -11,7 +11,6 @@
 		"camel.source.path.cacheName": {
 			"name": "camel.source.path.cacheName",
 			"description": "The cache name.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.propagateIncomingBodyIfNoReturnValue": {
@@ -59,13 +58,11 @@
 		"camel.source.endpoint.query": {
 			"name": "camel.source.endpoint.query",
 			"description": "The Query to execute, only needed for operations that require it, and for the Continuous Query Consumer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.remoteFilter": {
 			"name": "camel.source.endpoint.remoteFilter",
 			"description": "The remote filter, only used by the Continuous Query Consumer.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.timeInterval": {
@@ -77,13 +74,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -101,19 +96,16 @@
 		"camel.component.ignite-cache.configurationResource": {
 			"name": "camel.component.ignite-cache.configurationResource",
 			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-cache.ignite": {
 			"name": "camel.component.ignite-cache.ignite",
 			"description": "To use an existing Ignite instance.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-cache.igniteConfiguration": {
 			"name": "camel.component.ignite-cache.igniteConfiguration",
 			"description": "Allows the user to set a programmatic ignite configuration.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.ignite-cache.bridgeErrorHandler": {

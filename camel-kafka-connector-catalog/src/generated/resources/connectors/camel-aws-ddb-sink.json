@@ -11,13 +11,11 @@
 		"camel.sink.path.tableName": {
 			"name": "camel.sink.path.tableName",
 			"description": "The name of the table currently worked with.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.amazonDDBClient": {
 			"name": "camel.sink.endpoint.amazonDDBClient",
 			"description": "To use the AmazonDynamoDB as the client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
@@ -35,13 +33,11 @@
 		"camel.sink.endpoint.keyAttributeName": {
 			"name": "camel.sink.endpoint.keyAttributeName",
 			"description": "Attribute name when creating table",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyAttributeType": {
 			"name": "camel.sink.endpoint.keyAttributeType",
 			"description": "Attribute type when creating table",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -59,13 +55,11 @@
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the DDB client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the DDB client. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
@@ -77,19 +71,16 @@
 		"camel.sink.endpoint.readCapacity": {
 			"name": "camel.sink.endpoint.readCapacity",
 			"description": "The provisioned throughput to reserve for reading resources from your table",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which DDB client needs to work",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.writeCapacity": {
 			"name": "camel.sink.endpoint.writeCapacity",
 			"description": "The provisioned throughput to reserved for writing resources to your table",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
@@ -107,19 +98,16 @@
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.amazonDDBClient": {
 			"name": "camel.component.aws-ddb.amazonDDBClient",
 			"description": "To use the AmazonDynamoDB as the client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.autoDiscoverClient": {
@@ -131,7 +119,6 @@
 		"camel.component.aws-ddb.configuration": {
 			"name": "camel.component.aws-ddb.configuration",
 			"description": "The component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.consistentRead": {
@@ -143,13 +130,11 @@
 		"camel.component.aws-ddb.keyAttributeName": {
 			"name": "camel.component.aws-ddb.keyAttributeName",
 			"description": "Attribute name when creating table",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.keyAttributeType": {
 			"name": "camel.component.aws-ddb.keyAttributeType",
 			"description": "Attribute type when creating table",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.lazyStartProducer": {
@@ -167,13 +152,11 @@
 		"camel.component.aws-ddb.proxyHost": {
 			"name": "camel.component.aws-ddb.proxyHost",
 			"description": "To define a proxy host when instantiating the DDB client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.proxyPort": {
 			"name": "camel.component.aws-ddb.proxyPort",
 			"description": "To define a proxy port when instantiating the DDB client. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.proxyProtocol": {
@@ -185,19 +168,16 @@
 		"camel.component.aws-ddb.readCapacity": {
 			"name": "camel.component.aws-ddb.readCapacity",
 			"description": "The provisioned throughput to reserve for reading resources from your table",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.region": {
 			"name": "camel.component.aws-ddb.region",
 			"description": "The region in which DDB client needs to work",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.writeCapacity": {
 			"name": "camel.component.aws-ddb.writeCapacity",
 			"description": "The provisioned throughput to reserved for writing resources to your table",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.basicPropertyBinding": {
@@ -209,13 +189,11 @@
 		"camel.component.aws-ddb.accessKey": {
 			"name": "camel.component.aws-ddb.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-ddb.secretKey": {
 			"name": "camel.component.aws-ddb.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

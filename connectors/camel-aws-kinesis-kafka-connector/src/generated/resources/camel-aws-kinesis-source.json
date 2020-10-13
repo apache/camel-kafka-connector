@@ -11,13 +11,11 @@
 		"camel.source.path.streamName": {
 			"name": "camel.source.path.streamName",
 			"description": "Name of the stream",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.amazonKinesisClient": {
 			"name": "camel.source.endpoint.amazonKinesisClient",
 			"description": "Amazon Kinesis client to use for all requests for this endpoint",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.autoDiscoverClient": {
@@ -29,13 +27,11 @@
 		"camel.source.endpoint.proxyHost": {
 			"name": "camel.source.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the Kinesis client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.proxyPort": {
 			"name": "camel.source.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the Kinesis client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.proxyProtocol": {
@@ -47,7 +43,6 @@
 		"camel.source.endpoint.region": {
 			"name": "camel.source.endpoint.region",
 			"description": "The region in which Kinesis client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1)You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -77,7 +72,6 @@
 		"camel.source.endpoint.sequenceNumber": {
 			"name": "camel.source.endpoint.sequenceNumber",
 			"description": "The sequence number to start polling from. Required if iteratorType is set to AFTER_SEQUENCE_NUMBER or AT_SEQUENCE_NUMBER",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.shardClosed": {
@@ -89,25 +83,21 @@
 		"camel.source.endpoint.shardId": {
 			"name": "camel.source.endpoint.shardId",
 			"description": "Defines which shardId in the Kinesis stream to get records from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
@@ -125,19 +115,16 @@
 		"camel.source.endpoint.backoffErrorThreshold": {
 			"name": "camel.source.endpoint.backoffErrorThreshold",
 			"description": "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffIdleThreshold": {
 			"name": "camel.source.endpoint.backoffIdleThreshold",
 			"description": "The number of subsequent idle polls that should happen before the backoffMultipler should kick-in.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.backoffMultiplier": {
 			"name": "camel.source.endpoint.backoffMultiplier",
 			"description": "To let the scheduled polling consumer backoff if there has been a number of subsequent idles\/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and\/or backoffErrorThreshold must also be configured.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.delay": {
@@ -173,7 +160,6 @@
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
 			"description": "Allows for configuring a custom\/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.scheduler": {
@@ -185,7 +171,6 @@
 		"camel.source.endpoint.schedulerProperties": {
 			"name": "camel.source.endpoint.schedulerProperties",
 			"description": "To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.startScheduler": {
@@ -209,19 +194,16 @@
 		"camel.source.endpoint.accessKey": {
 			"name": "camel.source.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.secretKey": {
 			"name": "camel.source.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.amazonKinesisClient": {
 			"name": "camel.component.aws-kinesis.amazonKinesisClient",
 			"description": "Amazon Kinesis client to use for all requests for this endpoint",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.autoDiscoverClient": {
@@ -233,19 +215,16 @@
 		"camel.component.aws-kinesis.configuration": {
 			"name": "camel.component.aws-kinesis.configuration",
 			"description": "The component configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.proxyHost": {
 			"name": "camel.component.aws-kinesis.proxyHost",
 			"description": "To define a proxy host when instantiating the Kinesis client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.proxyPort": {
 			"name": "camel.component.aws-kinesis.proxyPort",
 			"description": "To define a proxy port when instantiating the Kinesis client",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.proxyProtocol": {
@@ -257,7 +236,6 @@
 		"camel.component.aws-kinesis.region": {
 			"name": "camel.component.aws-kinesis.region",
 			"description": "The region in which Kinesis client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1)You'll need to use the name Regions.EU_WEST_1.name()",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.bridgeErrorHandler": {
@@ -281,7 +259,6 @@
 		"camel.component.aws-kinesis.sequenceNumber": {
 			"name": "camel.component.aws-kinesis.sequenceNumber",
 			"description": "The sequence number to start polling from. Required if iteratorType is set to AFTER_SEQUENCE_NUMBER or AT_SEQUENCE_NUMBER",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.shardClosed": {
@@ -293,7 +270,6 @@
 		"camel.component.aws-kinesis.shardId": {
 			"name": "camel.component.aws-kinesis.shardId",
 			"description": "Defines which shardId in the Kinesis stream to get records from",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.basicPropertyBinding": {
@@ -305,13 +281,11 @@
 		"camel.component.aws-kinesis.accessKey": {
 			"name": "camel.component.aws-kinesis.accessKey",
 			"description": "Amazon AWS Access Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.aws-kinesis.secretKey": {
 			"name": "camel.component.aws-kinesis.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

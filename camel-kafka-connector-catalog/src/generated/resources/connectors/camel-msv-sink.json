@@ -11,7 +11,6 @@
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",
 			"description": "URL to a local resource on the classpath, or a reference to lookup a bean in the Registry, or a full URL to a remote resource or resource on the file system which contains the XSD to validate against.",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.failOnNullBody": {
@@ -29,7 +28,6 @@
 		"camel.sink.endpoint.headerName": {
 			"name": "camel.sink.endpoint.headerName",
 			"description": "To validate against a header instead of the message body.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -47,25 +45,21 @@
 		"camel.sink.endpoint.errorHandler": {
 			"name": "camel.sink.endpoint.errorHandler",
 			"description": "To use a custom org.apache.camel.processor.validation.ValidatorErrorHandler. The default error handler captures the errors and throws an exception.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resourceResolver": {
 			"name": "camel.sink.endpoint.resourceResolver",
 			"description": "To use a custom LSResourceResolver. Do not use together with resourceResolverFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.resourceResolverFactory": {
 			"name": "camel.sink.endpoint.resourceResolverFactory",
 			"description": "To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI. The default resource resolver factory resturns a resource resolver which can read files from the class path and file system. Do not use together with resourceResolver.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.schemaFactory": {
 			"name": "camel.sink.endpoint.schemaFactory",
 			"description": "To use a custom javax.xml.validation.SchemaFactory",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.schemaLanguage": {
@@ -101,13 +95,11 @@
 		"camel.component.msv.resourceResolverFactory": {
 			"name": "camel.component.msv.resourceResolverFactory",
 			"description": "To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.component.msv.schemaFactory": {
 			"name": "camel.component.msv.schemaFactory",
 			"description": "To use the javax.xml.validation.SchemaFactory.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		}
 	}

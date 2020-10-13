@@ -11,25 +11,21 @@
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",
 			"description": "Instance name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.dataStoreClass": {
 			"name": "camel.sink.endpoint.dataStoreClass",
 			"description": "The type of the dataStore",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.keyClass": {
 			"name": "camel.sink.endpoint.keyClass",
 			"description": "The type class of the key",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.valueClass": {
 			"name": "camel.sink.endpoint.valueClass",
 			"description": "The type of the value",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.flushOnEveryOperation": {
@@ -53,7 +49,6 @@
 		"camel.sink.endpoint.hadoopConfiguration": {
 			"name": "camel.sink.endpoint.hadoopConfiguration",
 			"description": "Hadoop Configuration",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.synchronous": {

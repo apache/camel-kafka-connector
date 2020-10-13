@@ -11,43 +11,36 @@
 		"camel.source.path.type": {
 			"name": "camel.source.path.type",
 			"description": "What git operation to execute One of: [CLOSEPULLREQUEST] [PULLREQUESTCOMMENT] [COMMIT] [PULLREQUEST] [TAG] [PULLREQUESTSTATE] [PULLREQUESTFILES] [GETCOMMITFILE] [CREATEISSUE]",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.path.branchName": {
 			"name": "camel.source.path.branchName",
 			"description": "Name of branch",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.oauthToken": {
 			"name": "camel.source.endpoint.oauthToken",
 			"description": "GitHub OAuth token, required unless username & password are provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "GitHub password, required unless oauthToken is provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.repoName": {
 			"name": "camel.source.endpoint.repoName",
 			"description": "GitHub repository name",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.repoOwner": {
 			"name": "camel.source.endpoint.repoOwner",
 			"description": "GitHub repository owner (organization)",
-			"defaultValue": "null",
 			"priority": "HIGH"
 		},
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",
 			"description": "GitHub username, required unless oauthToken is provided",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
@@ -59,13 +52,11 @@
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"defaultValue": "null",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
