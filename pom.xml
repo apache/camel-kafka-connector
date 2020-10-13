@@ -55,6 +55,7 @@
         <module>connectors</module>
         <module>camel-kafka-connector-catalog</module>
         <module>tests</module>
+        <module>distribution</module>
     </modules>
 
     <developers>
