@@ -141,7 +141,7 @@
                <executions>
                    <execution>
                    <id>copy-resources</id>
-                   <phase>install</phase>
+                   <phase>process-resources</phase>
                    <goals>
                        <goal>copy-resources</goal>
                    </goals>
