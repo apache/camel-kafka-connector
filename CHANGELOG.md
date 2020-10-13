@@ -4,8 +4,19 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.4...HEAD)
 
+**Closed issues:**
+
+- Provide API on Camel Kafka Connector to add/remove connectors dynamically [\#573](https://github.com/apache/camel-kafka-connector/issues/573)
+- Create an AWS2-Translate example [\#564](https://github.com/apache/camel-kafka-connector/issues/564)
+- Create examples with dataformat in camel-kafka-connector-examples repo [\#509](https://github.com/apache/camel-kafka-connector/issues/509)
+- Add integration test for archetype [\#462](https://github.com/apache/camel-kafka-connector/issues/462)
+
 **Merged pull requests:**
 
+- Camel-Kafka-kafka-connector is back [\#575](https://github.com/apache/camel-kafka-connector/pull/575) ([oscerd](https://github.com/oscerd))
+- 573 allow to add remove elements from catalog dynamically through api [\#574](https://github.com/apache/camel-kafka-connector/pull/574) ([apupier](https://github.com/apupier))
+- Add back AWS\*-connectors [\#572](https://github.com/apache/camel-kafka-connector/pull/572) ([oscerd](https://github.com/oscerd))
+- Improve Catalog and cleanup [\#571](https://github.com/apache/camel-kafka-connector/pull/571) ([oscerd](https://github.com/oscerd))
 - github action: add trigger on workflow\_dispatch [\#568](https://github.com/apache/camel-kafka-connector/pull/568) ([lburgazzoli](https://github.com/lburgazzoli))
 - GH actions: Fixed deploy action [\#567](https://github.com/apache/camel-kafka-connector/pull/567) ([oscerd](https://github.com/oscerd))
 - Do not use the wrapper test client on the AWS v2 service classes [\#562](https://github.com/apache/camel-kafka-connector/pull/562) ([orpiske](https://github.com/orpiske))
