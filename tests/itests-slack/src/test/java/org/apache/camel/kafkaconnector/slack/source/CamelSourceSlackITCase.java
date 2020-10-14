@@ -86,8 +86,8 @@ public class CamelSourceSlackITCase extends AbstractKafkaTest {
                 .withChannel(slackChannel)
                 .withMaxResults(1)
                 .withToken(token)
-                .withTransformsConfig("SlackTransformer")
-                    .withEntry("type", "org.apache.camel.kafkaconnector.slack.source.SlackTransformer")
+                .withTransformsConfig("SlackTransforms")
+                    .withEntry("type", "org.apache.camel.kafkaconnector.slack.transformers.SlackTransforms")
                     .end();
 
         factory.log();
