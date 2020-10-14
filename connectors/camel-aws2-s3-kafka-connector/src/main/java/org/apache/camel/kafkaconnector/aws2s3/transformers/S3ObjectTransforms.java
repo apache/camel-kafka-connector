@@ -25,7 +25,7 @@ import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.transforms.Transformation;
 import software.amazon.awssdk.core.ResponseInputStream;
 
-public class S3ObjectTransformers<R extends ConnectRecord<R>> implements Transformation<R> {
+public class S3ObjectTransforms<R extends ConnectRecord<R>> implements Transformation<R> {
 
     public static final ConfigDef CONFIG_DEF = new ConfigDef().define("test", ConfigDef.Type.STRING, "test", ConfigDef.Importance.MEDIUM,
                                                                       "Transform the content of a bucket into a string ");
