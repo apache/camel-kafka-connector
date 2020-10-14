@@ -9,7 +9,7 @@ image:https://github.com/apache/camel-kafka-connector/workflows/master%20build/b
 *The project is WIP!*
 ====
 
-This is a "Camel Kafka connector adapter" that aims to provide a user friendly way to use all Apache Camel components in Kafka Connect.
+This is a "Camel Kafka connector adapter" that aims to provide a user-friendly way to use all Apache Camel components in Kafka Connect.
 For more information about Kafka Connect take a look http://kafka.apache.org/documentation/#connect[here].
 
 === Build the project
