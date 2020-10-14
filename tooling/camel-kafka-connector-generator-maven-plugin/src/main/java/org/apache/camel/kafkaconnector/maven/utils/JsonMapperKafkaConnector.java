@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorModel;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
+import org.apache.camel.util.json.JsonArray;
 import org.apache.camel.util.json.JsonObject;
 
 public final class JsonMapperKafkaConnector {
@@ -41,6 +42,15 @@ public final class JsonMapperKafkaConnector {
         JsonObject wrapper = new JsonObject();
         wrapper.put("connector", obj);
         wrapper.put("properties", asJsonObject(model.getOptions()));
+        if (model.getConverters().size() > 0) {
+        	wrapper.put("converters", new JsonArray(model.getConverters()));
+        }
+        if (model.getTransforms().size() > 0) {
+        	wrapper.put("transforms", new JsonArray(model.getTransforms()));
+        }
+        if (model.getAggregationStrategies().size() > 0) {
+        	wrapper.put("aggregationStrategies", new JsonArray(model.getAggregationStrategies()));
+        }
         return wrapper;
     }
 
