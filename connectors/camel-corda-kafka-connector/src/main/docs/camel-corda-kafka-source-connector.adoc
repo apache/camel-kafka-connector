@@ -53,7 +53,7 @@ The camel-corda source connector supports 27 options, which are listed below.
 | *camel.component.corda.flowLogicArguments* | Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC. | null | MEDIUM
 | *camel.component.corda.flowLogicClass* | Start the given flow with the given arguments, returning an Observable with a single observation of the result of running the flow. The flowLogicClass must be annotated with net.corda.core.flows.StartableByRPC. | null | MEDIUM
 | *camel.component.corda.queryCriteria* | QueryCriteria assumes underlying schema tables are correctly indexed for performance. | null | MEDIUM
-| *camel.component.corda.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.corda.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.corda.password* | Password for login | null | MEDIUM
 | *camel.component.corda.username* | Username for login | null | MEDIUM
 |===

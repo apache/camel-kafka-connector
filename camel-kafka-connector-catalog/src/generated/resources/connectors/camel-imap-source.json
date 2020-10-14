@@ -452,7 +452,7 @@
 			"name": "camel.component.imap.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.imap.configuration": {
 			"name": "camel.component.imap.configuration",

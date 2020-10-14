@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.nsq.CamelNsqSourceConnector
 ----
 
 
-The camel-nsq source connector supports 21 options, which are listed below.
+The camel-nsq source connector supports 22 options, which are listed below.
 
 
 
@@ -35,6 +35,7 @@ The camel-nsq source connector supports 21 options, which are listed below.
 | *camel.source.endpoint.autoFinish* | Automatically finish the NSQ Message when it is retrieved from the queue and before the Exchange is processed | "true" | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.channel* | The NSQ channel | null | MEDIUM
+| *camel.source.endpoint.customNSQLookup* | A Custom NSQ lookup implementation | null | MEDIUM
 | *camel.source.endpoint.lookupInterval* | The lookup interval | 5000L | MEDIUM
 | *camel.source.endpoint.lookupServerPort* | The NSQ lookup server port | 4161 | MEDIUM
 | *camel.source.endpoint.messageTimeout* | The NSQ consumer timeout period for messages retrieved from the queue. A value of -1 is the server default | -1L | MEDIUM
@@ -48,7 +49,7 @@ The camel-nsq source connector supports 21 options, which are listed below.
 | *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
 | *camel.component.nsq.servers* | The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer). | null | MEDIUM
 | *camel.component.nsq.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.nsq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.nsq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.nsq.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
 |===
 

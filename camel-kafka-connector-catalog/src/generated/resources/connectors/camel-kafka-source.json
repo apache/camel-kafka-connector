@@ -311,7 +311,6 @@
 		"camel.source.endpoint.sslEnabledProtocols": {
 			"name": "camel.source.endpoint.sslEnabledProtocols",
 			"description": "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.",
-			"defaultValue": "\"TLSv1.2\"",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sslEndpointAlgorithm": {
@@ -335,7 +334,6 @@
 		"camel.source.endpoint.sslProtocol": {
 			"name": "camel.source.endpoint.sslProtocol",
 			"description": "The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs, but their usage is discouraged due to known security vulnerabilities.",
-			"defaultValue": "\"TLSv1.2\"",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.sslProvider": {
@@ -570,7 +568,7 @@
 			"name": "camel.component.kafka.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.kafka.schemaRegistryURL": {
 			"name": "camel.component.kafka.schemaRegistryURL",
@@ -647,7 +645,6 @@
 		"camel.component.kafka.sslEnabledProtocols": {
 			"name": "camel.component.kafka.sslEnabledProtocols",
 			"description": "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.",
-			"defaultValue": "\"TLSv1.2\"",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslEndpointAlgorithm": {
@@ -671,7 +668,6 @@
 		"camel.component.kafka.sslProtocol": {
 			"name": "camel.component.kafka.sslProtocol",
 			"description": "The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs, but their usage is discouraged due to known security vulnerabilities.",
-			"defaultValue": "\"TLSv1.2\"",
 			"priority": "MEDIUM"
 		},
 		"camel.component.kafka.sslProvider": {

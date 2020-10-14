@@ -10,7 +10,7 @@
 	"properties": {
 		"camel.sink.path.configurationName": {
 			"name": "camel.sink.path.configurationName",
-			"description": "The configFile is the name of the QuickFIX\/J configuration to use for the FIX engine (located as a resource found in your classpath).",
+			"description": "Path to the quickfix configuration file. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the configuration file using these protocols (classpath is default). ref will lookup the configuration file in the registry. bean will call a method on a bean to be used as the configuration. For bean you can specify the method name after dot, eg bean:myBean.myMethod",
 			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.lazyCreateEngine": {
@@ -58,7 +58,7 @@
 			"name": "camel.component.quickfix.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.quickfix.logFactory": {
 			"name": "camel.component.quickfix.logFactory",

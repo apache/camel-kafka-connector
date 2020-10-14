@@ -18,6 +18,11 @@
 			"description": "Option to provide a custom MessageFilter. For example when you want to process your headers or attachments by your own.",
 			"priority": "MEDIUM"
 		},
+		"camel.sink.endpoint.messageIdStrategy": {
+			"name": "camel.sink.endpoint.messageIdStrategy",
+			"description": "Option to provide a custom MessageIdStrategy to control generation of WS-Addressing unique message ids.",
+			"priority": "MEDIUM"
+		},
 		"camel.sink.endpoint.allowResponseAttachmentOverride": {
 			"name": "camel.sink.endpoint.allowResponseAttachmentOverride",
 			"description": "Option to override soap response attachments in in\/out exchange with attachments from the actual service layer. If the invoked service appends or rewrites the soap attachments this option when set to true, allows the modified soap attachments to be overwritten in in\/out message attachments",
@@ -32,12 +37,12 @@
 		},
 		"camel.sink.endpoint.faultAction": {
 			"name": "camel.sink.endpoint.faultAction",
-			"description": "Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method.",
+			"description": "Signifies the value for the faultAction response WS-Addressing Fault Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.faultTo": {
 			"name": "camel.sink.endpoint.faultTo",
-			"description": "Signifies the value for the faultAction response WS-Addressing FaultTo header that is provided by the method.",
+			"description": "Signifies the value for the faultAction response WS-Addressing FaultTo header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -51,11 +56,6 @@
 			"description": "Option to provide a custom WebServiceMessageFactory. For example when you want Apache Axiom to handle web service messages instead of SAAJ.",
 			"priority": "MEDIUM"
 		},
-		"camel.sink.endpoint.messageIdStrategy": {
-			"name": "camel.sink.endpoint.messageIdStrategy",
-			"description": "Option to provide a custom MessageIdStrategy to control generation of unique message ids.",
-			"priority": "MEDIUM"
-		},
 		"camel.sink.endpoint.messageSender": {
 			"name": "camel.sink.endpoint.messageSender",
 			"description": "Option to provide a custom WebServiceMessageSender. For example to perform authentication or use alternative transports",
@@ -63,12 +63,12 @@
 		},
 		"camel.sink.endpoint.outputAction": {
 			"name": "camel.sink.endpoint.outputAction",
-			"description": "Signifies the value for the response WS-Addressing Action header that is provided by the method.",
+			"description": "Signifies the value for the response WS-Addressing Action header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.replyTo": {
 			"name": "camel.sink.endpoint.replyTo",
-			"description": "Signifies the value for the replyTo response WS-Addressing ReplyTo header that is provided by the method.",
+			"description": "Signifies the value for the replyTo response WS-Addressing ReplyTo header that is provided by the method. See org.springframework.ws.soap.addressing.server.annotation.Action annotation for more details.",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.soapAction": {
@@ -118,7 +118,7 @@
 			"name": "camel.component.spring-ws.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.spring-ws.useGlobalSslContextParameters": {
 			"name": "camel.component.spring-ws.useGlobalSslContextParameters",

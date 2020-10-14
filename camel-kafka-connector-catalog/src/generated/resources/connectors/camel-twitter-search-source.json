@@ -259,7 +259,7 @@
 			"name": "camel.component.twitter-search.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.twitter-search.httpProxyHost": {
 			"name": "camel.component.twitter-search.httpProxyHost",
