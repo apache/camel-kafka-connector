@@ -4,15 +4,26 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.4...HEAD)
 
+**Implemented enhancements:**
+
+- Better handling of property with no default values using `ConfigDef.NO\_DEFAULT\_VALUE` [\#563](https://github.com/apache/camel-kafka-connector/issues/563)
+- camel-kafka-connector-generator-maven-plugin: prevent the ovewrite of exixting classes unless they are @Generated annotated [\#146](https://github.com/apache/camel-kafka-connector/issues/146)
+
 **Closed issues:**
 
 - Provide API on Camel Kafka Connector to add/remove connectors dynamically [\#573](https://github.com/apache/camel-kafka-connector/issues/573)
 - Create an AWS2-Translate example [\#564](https://github.com/apache/camel-kafka-connector/issues/564)
+- Create a source distribution module [\#524](https://github.com/apache/camel-kafka-connector/issues/524)
 - Create examples with dataformat in camel-kafka-connector-examples repo [\#509](https://github.com/apache/camel-kafka-connector/issues/509)
 - Add integration test for archetype [\#462](https://github.com/apache/camel-kafka-connector/issues/462)
 
 **Merged pull requests:**
 
+- Issue/563 [\#585](https://github.com/apache/camel-kafka-connector/pull/585) ([valdar](https://github.com/valdar))
+- JMS example: Added missing steps [\#584](https://github.com/apache/camel-kafka-connector/pull/584) ([oscerd](https://github.com/oscerd))
+- Added new test for Azure Storage Blob sink [\#582](https://github.com/apache/camel-kafka-connector/pull/582) ([orpiske](https://github.com/orpiske))
+- ISSUE-524 Create a source distribution module [\#577](https://github.com/apache/camel-kafka-connector/pull/577) ([cunningt](https://github.com/cunningt))
+- ISSUE-146 Prevent the overwrite of existing classes unless they are @Generated annotated [\#576](https://github.com/apache/camel-kafka-connector/pull/576) ([cunningt](https://github.com/cunningt))
 - Camel-Kafka-kafka-connector is back [\#575](https://github.com/apache/camel-kafka-connector/pull/575) ([oscerd](https://github.com/oscerd))
 - 573 allow to add remove elements from catalog dynamically through api [\#574](https://github.com/apache/camel-kafka-connector/pull/574) ([apupier](https://github.com/apupier))
 - Add back AWS\*-connectors [\#572](https://github.com/apache/camel-kafka-connector/pull/572) ([oscerd](https://github.com/oscerd))
