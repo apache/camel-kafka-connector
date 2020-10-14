@@ -502,5 +502,8 @@
 			"description": "Amazon AWS Secret Key",
 			"priority": "MEDIUM"
 		}
-	}
+	},
+	"transforms": [
+		"org.apache.camel.kafkaconnector.aws2sqs.transformers.SQSKeySetterTransforms"
+	]
 }

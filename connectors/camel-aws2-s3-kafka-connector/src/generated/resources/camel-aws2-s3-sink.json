@@ -345,5 +345,8 @@
 	},
 	"converters": [
 		"org.apache.camel.kafkaconnector.aws2s3.converters.S3ObjectConverter"
+	],
+	"transforms": [
+		"org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms"
 	]
 }
