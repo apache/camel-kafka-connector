@@ -47,7 +47,7 @@ class CamelKafkaConnectorCatalogTest {
     }
 
     @Test
-    void testOptions() throws Exception {
+    void testAws2S3Options() throws Exception {
         Map<String, CamelKafkaConnectorModel> p = catalog.getConnectorsModel();
         CamelKafkaConnectorModel model = p.get("camel-aws2-s3-sink");
         assertEquals("org.apache.camel.kafkaconnector", model.getGroupId());
@@ -59,6 +59,39 @@ class CamelKafkaConnectorCatalogTest {
         assertEquals("camel.sink.endpoint.autoCreateBucket", model.getOptions().get(2).getName());
         assertEquals(model.getConverters().size(), 1);
         assertEquals(model.getTransforms().size(), 1);
+        assertNull(model.getAggregationStrategies());
+    }
+    
+    @Test
+    void testAws2SnsOptions() throws Exception {
+        Map<String, CamelKafkaConnectorModel> p = catalog.getConnectorsModel();
+        CamelKafkaConnectorModel model = p.get("camel-aws2-sns-sink");
+        assertEquals("org.apache.camel.kafkaconnector", model.getGroupId());
+        assertEquals("sink", model.getType());
+        assertEquals("org.apache.camel.kafkaconnector.aws2sns.CamelAws2snsSinkConnector", model.getConnectorClass());
+        assertEquals(42, model.getOptions().size());
+        assertEquals("camel.sink.path.topicNameOrArn", model.getOptions().get(0).getName());
+        assertEquals("camel.sink.endpoint.amazonSNSClient", model.getOptions().get(1).getName());
+        assertEquals("camel.sink.endpoint.autoCreateTopic", model.getOptions().get(2).getName());
+        assertEquals("true", model.getOptions().get(2).getDefaultValue());
+        assertNull(model.getOptions().get(1).getDefaultValue());
+        assertNull(model.getConverters());
+        assertNull(model.getTransforms());
+        assertNull(model.getAggregationStrategies());
+    }
+    
+    @Test
+    void testCouchbaseOptions() throws Exception {
+        Map<String, CamelKafkaConnectorModel> p = catalog.getConnectorsModel();
+        CamelKafkaConnectorModel model = p.get("camel-couchbase-source");
+        assertEquals("org.apache.camel.kafkaconnector", model.getGroupId());
+        assertEquals("source", model.getType());
+        assertEquals("org.apache.camel.kafkaconnector.couchbase.CamelCouchbaseSourceConnector", model.getConnectorClass());
+        assertEquals(42, model.getOptions().size());
+        assertEquals("camel.source.path.protocol", model.getOptions().get(0).getName());
+        assertNull(model.getOptions().get(0).getDefaultValue());
+        assertNull(model.getConverters());
+        assertNull(model.getTransforms());
         assertNull(model.getAggregationStrategies());
     }
 
