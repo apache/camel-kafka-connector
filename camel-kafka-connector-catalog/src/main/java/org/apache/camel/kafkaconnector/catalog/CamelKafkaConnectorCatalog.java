@@ -39,12 +39,13 @@ import org.slf4j.LoggerFactory;
 
 public class CamelKafkaConnectorCatalog {
 
-    static List<String> connectorsName = new ArrayList<>();
-    static Map<String, CamelKafkaConnectorModel> connectorsModel = new HashMap<>();
     private static final Logger LOG = LoggerFactory.getLogger(CamelKafkaConnectorCatalog.class);
     private static final String CONNECTORS_DIR = "connectors";
     private static final String DESCRIPTORS_DIR = "descriptors";
     private static final String CONNECTORS_PROPERTIES = "connectors.properties";
+
+    private List<String> connectorsName = new ArrayList<>();
+    private Map<String, CamelKafkaConnectorModel> connectorsModel = new HashMap<>();
 
     public CamelKafkaConnectorCatalog() {
         initCatalog();
