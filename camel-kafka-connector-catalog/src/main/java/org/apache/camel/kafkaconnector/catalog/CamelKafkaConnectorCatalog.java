@@ -111,6 +111,15 @@ public class CamelKafkaConnectorCatalog {
         model.setType((String)wrapper.get("type"));
         model.setVersion((String)wrapper.get("version"));
         model.setOptions(getConnectorOptionModel(obj));
+        if (obj.get("aggregationStrategies") != null) {
+            model.setAggregationStrategies((List<String>) obj.get("aggregationStrategies"));
+        }
+        if (obj.get("converters") != null) {
+            model.setConverters((List<String>) obj.get("converters"));
+        }
+        if (obj.get("transforms") != null) {
+            model.setTransforms((List<String>) obj.get("transforms"));
+        }
         return model;
     }
 
