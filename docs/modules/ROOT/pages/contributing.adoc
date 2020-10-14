@@ -190,7 +190,7 @@ To build the project using `mvnd` instead of Maven, use the following command:
 
 [source,bash]
 ----
-mvnd -DskipIntegrationTests=true clean install
+mvnd -Darchetype.test.skip -DskipIntegrationTests=true clean install
 ----
 
 *Troubleshooting*:
