@@ -68,5 +68,8 @@
 			"description": "The incoming webhook URL",
 			"priority": "MEDIUM"
 		}
-	}
+	},
+	"transforms": [
+		"org.apache.camel.kafkaconnector.slack.transformers.SlackTransforms"
+	]
 }
