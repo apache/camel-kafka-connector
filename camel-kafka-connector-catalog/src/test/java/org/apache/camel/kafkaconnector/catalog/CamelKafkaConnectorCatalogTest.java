@@ -58,7 +58,7 @@ class CamelKafkaConnectorCatalogTest {
         assertEquals("camel.sink.endpoint.amazonS3Client", model.getOptions().get(1).getName());
         assertEquals("camel.sink.endpoint.autoCreateBucket", model.getOptions().get(2).getName());
         assertEquals(model.getConverters().size(), 1);
-        assertNull(model.getTransforms());
+        assertEquals(model.getTransforms().size(), 1);
         assertNull(model.getAggregationStrategies());
     }
 
