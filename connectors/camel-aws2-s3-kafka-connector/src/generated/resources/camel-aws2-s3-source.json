@@ -474,5 +474,8 @@
 			"description": "Amazon AWS Secret Key",
 			"priority": "MEDIUM"
 		}
-	}
+	},
+	"converters": [
+		"org.apache.camel.kafkaconnector.aws2s3.converters.S3ObjectConverter"
+	]
 }
