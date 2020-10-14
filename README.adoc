@@ -6,7 +6,9 @@ image:https://github.com/apache/camel-kafka-connector/workflows/master%20build/b
 === Introduction
 [NOTE]
 ====
-*The project is WIP!*
+This project is still in its infancy. Is it relatively stable and leverages more than a decade of Apache Camel
+experience and maturity. At the same time, it is in constant evolution. Almost every week new features are implemented
+and current ones adjusted to integrate better with both Camel and Kafka Connect.
 ====
 
 This is a "Camel Kafka connector adapter" that aims to provide a user-friendly way to use all Apache Camel components in Kafka Connect.
