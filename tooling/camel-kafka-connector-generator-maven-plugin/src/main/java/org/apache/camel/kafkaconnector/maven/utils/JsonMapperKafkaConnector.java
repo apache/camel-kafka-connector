@@ -43,13 +43,13 @@ public final class JsonMapperKafkaConnector {
         wrapper.put("connector", obj);
         wrapper.put("properties", asJsonObject(model.getOptions()));
         if (model.getConverters().size() > 0) {
-        	wrapper.put("converters", new JsonArray(model.getConverters()));
+            wrapper.put("converters", new JsonArray(model.getConverters()));
         }
         if (model.getTransforms().size() > 0) {
-        	wrapper.put("transforms", new JsonArray(model.getTransforms()));
+            wrapper.put("transforms", new JsonArray(model.getTransforms()));
         }
         if (model.getAggregationStrategies().size() > 0) {
-        	wrapper.put("aggregationStrategies", new JsonArray(model.getAggregationStrategies()));
+            wrapper.put("aggregationStrategies", new JsonArray(model.getAggregationStrategies()));
         }
         return wrapper;
     }
