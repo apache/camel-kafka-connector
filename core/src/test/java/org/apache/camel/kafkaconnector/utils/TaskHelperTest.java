@@ -35,6 +35,7 @@ import org.slf4j.ext.LoggerWrapper;
 import static org.apache.camel.util.CollectionHelper.mapOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -89,7 +90,7 @@ public class TaskHelperTest {
         assertEquals("#class:my.package.MyOtherClass", result.get("camel.component.x.objectProperty"));
         assertEquals("loadedValue", result.get("camel.component.x.objectProperty.anotherField"));
         assertEquals("loadedValue", result.get("camel.component.x.normalProperty"));
-        assertTrue(!result.containsKey("camel.component.x.objectProperty.field"));
+        assertFalse(result.containsKey("camel.component.x.objectProperty.field"));
     }
 
     @Test
