@@ -69,30 +69,6 @@ public final class TaskHelper {
         return rcc.asEndpointUri(componentSchema, filteredProps, false);
     }
 
-    public static String buildUrl(Map<String, String> props, String componentSchema, String endpointPropertiesPrefix, String pathPropertiesPrefix) {
-        final String urlPath = createUrlPathFromProperties(props, pathPropertiesPrefix);
-        final String endpointOptions = createEndpointOptionsFromProperties(props, endpointPropertiesPrefix);
-
-        return componentSchema + ":" + urlPath + endpointOptions;
-    }
-
-    public static String createEndpointOptionsFromProperties(Map<String, String> props, String prefix) {
-        return props.keySet().stream()
-                .filter(k -> k.startsWith(prefix))
-                .map(k -> k.replace(prefix, "") + "=" + props.get(k))
-                .reduce((o1, o2) -> o1 + "&" + o2)
-                .map(result -> result.isEmpty() ? "" : "?" + result)
-                .orElse("");
-    }
-
-    public static String createUrlPathFromProperties(Map<String, String> props, String prefix) {
-        return props.keySet().stream()
-                .filter(k -> k.startsWith(prefix))
-                .map(props::get)
-                .reduce((p1, p2) -> p1 + ":" + p2)
-                .orElse("");
-    }
-
     public static Map<String, String> mergeProperties(Map<String, String> defaultProps, Map<String, String> loadedProps) {
         if (loadedProps == null && defaultProps == null) {
             return Collections.emptyMap();
@@ -108,10 +84,6 @@ public final class TaskHelper {
                     .forEach(k -> result.put(k, defaultProps.get(k)));
             return result;
         }
-    }
-
-    private static String getStringPrefix(String s) {
-        return s.lastIndexOf(".") > 0 ? s.substring(0, s.lastIndexOf(".")) : "";
     }
 
     private static Boolean stringStartWithOneOfPrefixes(String s, Set<String> prefixes) {
