@@ -42,7 +42,7 @@ public class TaskHelperTest {
 
     @Test
     public void testMergePropertiesNull() {
-        Map result = TaskHelper.mergeProperties(null, null);
+        Map<String, String> result = TaskHelper.mergeProperties(null, null);
 
         assertEquals(Collections.EMPTY_MAP, result);
     }
@@ -61,7 +61,7 @@ public class TaskHelperTest {
             }
         };
 
-        Map result = TaskHelper.mergeProperties(defaults, loaded);
+        Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
 
         assertTrue(result.containsKey("property"));
         assertTrue(result.containsKey("anotherProperty"));
@@ -83,7 +83,7 @@ public class TaskHelperTest {
             }
         };
 
-        Map result = TaskHelper.mergeProperties(defaults, loaded);
+        Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
 
         assertTrue(result.containsKey("property"));
         assertEquals("loadedValue", result.get("property"));
@@ -107,7 +107,7 @@ public class TaskHelperTest {
             }
         };
 
-        Map result = TaskHelper.mergeProperties(defaults, loaded);
+        Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
 
         assertEquals("defaultValue", result.get("property"));
         assertEquals("#class:my.package.MyOtherClass", result.get("camel.component.x.objectProperty"));
