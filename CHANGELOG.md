@@ -11,14 +11,31 @@
 
 **Closed issues:**
 
+- Camel Kafka connector extensible is broken with mvnd [\#598](https://github.com/apache/camel-kafka-connector/issues/598)
+- Rename all transformers, converters, aggregationStrategies to reflect the maning convention we have [\#590](https://github.com/apache/camel-kafka-connector/issues/590)
+- Strimzi 0.20: Lets test early with Release candidate [\#581](https://github.com/apache/camel-kafka-connector/issues/581)
+- Slack Connector: Add the slack transformer from itest to the slack connector ootb [\#580](https://github.com/apache/camel-kafka-connector/issues/580)
 - Provide API on Camel Kafka Connector to add/remove connectors dynamically [\#573](https://github.com/apache/camel-kafka-connector/issues/573)
+- Improve README [\#569](https://github.com/apache/camel-kafka-connector/issues/569)
 - Create an AWS2-Translate example [\#564](https://github.com/apache/camel-kafka-connector/issues/564)
+- Add converters, transforms and aggregationStrategies to catalog [\#559](https://github.com/apache/camel-kafka-connector/issues/559)
+- Improve Catalog and cleanup [\#537](https://github.com/apache/camel-kafka-connector/issues/537)
 - Create a source distribution module [\#524](https://github.com/apache/camel-kafka-connector/issues/524)
 - Create examples with dataformat in camel-kafka-connector-examples repo [\#509](https://github.com/apache/camel-kafka-connector/issues/509)
+- Examples instructions for Openshift too [\#465](https://github.com/apache/camel-kafka-connector/issues/465)
 - Add integration test for archetype [\#462](https://github.com/apache/camel-kafka-connector/issues/462)
 
 **Merged pull requests:**
 
+- Updated the mvnd command on the readme [\#599](https://github.com/apache/camel-kafka-connector/pull/599) ([orpiske](https://github.com/orpiske))
+- Camel-kafka-connector-catalog: Adding some more tests [\#596](https://github.com/apache/camel-kafka-connector/pull/596) ([oscerd](https://github.com/oscerd))
+- Slack transforms [\#595](https://github.com/apache/camel-kafka-connector/pull/595) ([oscerd](https://github.com/oscerd))
+- Rename all transformers, converters, aggregationStrategies to reflect the maning convention we have [\#593](https://github.com/apache/camel-kafka-connector/pull/593) ([oscerd](https://github.com/oscerd))
+- Improve readme [\#591](https://github.com/apache/camel-kafka-connector/pull/591) ([orpiske](https://github.com/orpiske))
+- Add converters, transforms and aggregationStrategies to catalog [\#589](https://github.com/apache/camel-kafka-connector/pull/589) ([oscerd](https://github.com/oscerd))
+- Avoid usage of static for Camel Kafka Connector catalog [\#588](https://github.com/apache/camel-kafka-connector/pull/588) ([apupier](https://github.com/apupier))
+- Added GH actions to run the camel-master build using the Strimzi Next profile [\#587](https://github.com/apache/camel-kafka-connector/pull/587) ([orpiske](https://github.com/orpiske))
+- Changes to documents - change version from 0.3.0-SNAPSHOT, give the right location of the properties file within docs/examples [\#586](https://github.com/apache/camel-kafka-connector/pull/586) ([cunningt](https://github.com/cunningt))
 - Issue/563 [\#585](https://github.com/apache/camel-kafka-connector/pull/585) ([valdar](https://github.com/valdar))
 - JMS example: Added missing steps [\#584](https://github.com/apache/camel-kafka-connector/pull/584) ([oscerd](https://github.com/oscerd))
 - Added new test for Azure Storage Blob sink [\#582](https://github.com/apache/camel-kafka-connector/pull/582) ([orpiske](https://github.com/orpiske))
