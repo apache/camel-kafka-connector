@@ -27,13 +27,13 @@ import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.catalog.RuntimeCamelCatalog;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.ext.LoggerWrapper;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -144,58 +144,36 @@ public class TaskHelperTest {
         assertEquals("cql:localhost:8080/test", result);
     }
 
-    private CamelSourceConnectorConfig getSourceConnectorConfig(String logLevel) {
-        return new CamelSourceConnectorConfig(CamelSourceConnectorConfig.conf(),
-            Collections.singletonMap(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF, logLevel));
-    }
-
     @Test
     public void testlogRecordContent() {
-        String partName = "abc123";
-        Logger logger = new MyLogger(LoggerFactory.getLogger(TaskHelperTest.class), null);
-        SourceRecord record = new SourceRecord(Collections.singletonMap("partition", partName),
+        final String partName = "abc123";
+        final MyLogger logger = new MyLogger(LoggerFactory.getLogger(TaskHelperTest.class), null);
+        final SourceRecord record = new SourceRecord(
+            Collections.singletonMap("partition", partName),
             Collections.singletonMap("offset", "0"), null, null, null, null);
-        Queue<String> logEvents = ((MyLogger)logger).getEvents();
 
-        String offLevel = LoggingLevel.OFF.toString();
-        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(offLevel));
-        assertNull(logEvents.poll());
+        TaskHelper.logRecordContent(logger, LoggingLevel.OFF, record);
+        assertNull(logger.getEvents().poll());
 
-        String traceLevel = LoggingLevel.TRACE.toString();
-        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(traceLevel));
-        assertTrue(logEvents.peek().contains(traceLevel) && logEvents.poll().contains(partName));
+        TaskHelper.logRecordContent(logger, LoggingLevel.TRACE, record);
+        assertThat(logger.getEvents().peek()).isNotNull().contains(LoggingLevel.TRACE.toString());
+        assertThat(logger.getEvents().poll()).isNotNull().contains(partName);
 
-        String debugLevel = LoggingLevel.DEBUG.toString();
-        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(debugLevel));
-        assertTrue(logEvents.peek().contains(debugLevel) && logEvents.poll().contains(partName));
+        TaskHelper.logRecordContent(logger,  LoggingLevel.DEBUG, record);
+        assertThat(logger.getEvents().peek()).isNotNull().contains(LoggingLevel.DEBUG.toString());
+        assertThat(logger.getEvents().poll()).isNotNull().contains(partName);
 
-        String infoLevel = LoggingLevel.INFO.toString();
-        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(infoLevel));
-        assertTrue(logEvents.peek().contains(infoLevel) && logEvents.poll().contains(partName));
+        TaskHelper.logRecordContent(logger,  LoggingLevel.INFO, record);
+        assertThat(logger.getEvents().peek()).isNotNull().contains(LoggingLevel.INFO.toString());
+        assertThat(logger.getEvents().poll()).isNotNull().contains(partName);
 
-        String warnLevel = LoggingLevel.WARN.toString();
-        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(warnLevel));
-        assertTrue(logEvents.peek().contains(warnLevel) && logEvents.poll().contains(partName));
+        TaskHelper.logRecordContent(logger,  LoggingLevel.WARN, record);
+        assertThat(logger.getEvents().peek()).isNotNull().contains(LoggingLevel.WARN.toString());
+        assertThat(logger.getEvents().poll()).isNotNull().contains(partName);
 
-        String errorLevel = LoggingLevel.ERROR.toString();
-        TaskHelper.logRecordContent(logger,  record, getSourceConnectorConfig(errorLevel));
-        assertTrue(logEvents.peek().contains(errorLevel) && logEvents.poll().contains(partName));
-
-        TaskHelper.logRecordContent(null, record, getSourceConnectorConfig(debugLevel));
-        assertNull(logEvents.poll());
-
-        TaskHelper.logRecordContent(logger,  null, getSourceConnectorConfig(debugLevel));
-        assertNull(logEvents.poll());
-
-        TaskHelper.logRecordContent(logger,  record, null);
-        assertNull(logEvents.poll());
-
-        String invalidLevel = "NOLOG";
-        TaskHelper.logRecordContent(logger, record, getSourceConnectorConfig(invalidLevel));
-        assertTrue(logEvents.poll().contains(warnLevel));
-
-        TaskHelper.logRecordContent(logger, record, getSourceConnectorConfig(null));
-        assertTrue(logEvents.poll().contains(warnLevel));
+        TaskHelper.logRecordContent(logger,  LoggingLevel.ERROR, record);
+        assertThat(logger.getEvents().peek()).isNotNull().contains(LoggingLevel.ERROR.toString());
+        assertThat(logger.getEvents().poll()).isNotNull().contains(partName);
     }
 
     class MyLogger extends LoggerWrapper {

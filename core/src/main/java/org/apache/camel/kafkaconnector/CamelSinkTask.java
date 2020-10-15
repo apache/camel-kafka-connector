@@ -25,6 +25,7 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExtendedCamelContext;
+import org.apache.camel.LoggingLevel;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
@@ -55,8 +56,8 @@ public class CamelSinkTask extends SinkTask {
 
     private CamelKafkaConnectMain cms;
     private ProducerTemplate producer;
-    private CamelSinkConnectorConfig config;
     private Endpoint localEndpoint;
+    private LoggingLevel loggingLevel = LoggingLevel.OFF;
 
     @Override
     public String version() {
@@ -68,7 +69,14 @@ public class CamelSinkTask extends SinkTask {
         try {
             LOG.info("Starting CamelSinkTask connector task");
             Map<String, String> actualProps = TaskHelper.mergeProperties(getDefaultConfig(), props);
-            config = getCamelSinkConnectorConfig(actualProps);
+            CamelSinkConnectorConfig config = getCamelSinkConnectorConfig(actualProps);
+
+            try {
+                String levelStr = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF);
+                loggingLevel = LoggingLevel.valueOf(levelStr.toUpperCase());
+            } catch (Exception e) {
+                LOG.debug("Invalid value for " + CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF + "property");
+            }
 
             String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
             final String marshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF);
@@ -124,7 +132,7 @@ public class CamelSinkTask extends SinkTask {
     @Override
     public void put(Collection<SinkRecord> sinkRecords) {
         for (SinkRecord record : sinkRecords) {
-            TaskHelper.logRecordContent(LOG, record, config);
+            TaskHelper.logRecordContent(LOG, loggingLevel, record);
 
             Exchange exchange = new DefaultExchange(producer.getCamelContext());
             exchange.getMessage().setBody(record.value());

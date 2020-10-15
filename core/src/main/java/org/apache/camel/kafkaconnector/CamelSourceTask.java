@@ -27,6 +27,7 @@ import java.util.Map;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExtendedCamelContext;
+import org.apache.camel.LoggingLevel;
 import org.apache.camel.PollingConsumer;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
@@ -52,12 +53,12 @@ public class CamelSourceTask extends SourceTask {
     private static final String LOCAL_URL = "direct:end";
 
     private CamelKafkaConnectMain cms;
-    private CamelSourceConnectorConfig config;
     private PollingConsumer consumer;
     private String[] topics;
     private Long maxBatchPollSize;
     private Long maxPollDuration;
     private String camelMessageHeaderKey;
+    private LoggingLevel loggingLevel = LoggingLevel.OFF;
 
     @Override
     public String version() {
@@ -69,7 +70,14 @@ public class CamelSourceTask extends SourceTask {
         try {
             LOG.info("Starting CamelSourceTask connector task");
             Map<String, String> actualProps = TaskHelper.mergeProperties(getDefaultConfig(), props);
-            config = getCamelSourceConnectorConfig(actualProps);
+            CamelSourceConnectorConfig config = getCamelSourceConnectorConfig(actualProps);
+
+            try {
+                String levelStr = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF);
+                loggingLevel = LoggingLevel.valueOf(levelStr.toLowerCase());
+            } catch (Exception e) {
+                LOG.debug("Invalid value for " + CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF + "property");
+            }
 
             maxBatchPollSize = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF);
             maxPollDuration = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_POLL_DURATION_CONF);
@@ -156,7 +164,7 @@ public class CamelSourceTask extends SourceTask {
                     setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
                 }
 
-                TaskHelper.logRecordContent(LOG, record, config);
+                TaskHelper.logRecordContent(LOG, loggingLevel, record);
                 records.add(record);
             }
             collectedRecords++;
