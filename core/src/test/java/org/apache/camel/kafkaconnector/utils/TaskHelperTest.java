@@ -18,7 +18,6 @@ package org.apache.camel.kafkaconnector.utils;
 
 import java.net.URISyntaxException;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -33,6 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.ext.LoggerWrapper;
 
+import static org.apache.camel.util.CollectionHelper.mapOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -49,18 +49,8 @@ public class TaskHelperTest {
 
     @Test
     public void testMergePropertiesDefaultAreAdded() {
-        Map<String, String> defaults = new HashMap<String, String>() {
-            {
-                put("property", "defaultValue");
-            }
-        };
-
-        Map<String, String> loaded = new HashMap<String, String>() {
-            {
-                put("anotherProperty", "loadedValue");
-            }
-        };
-
+        Map<String, String> defaults = mapOf("property", "defaultValue");
+        Map<String, String> loaded = mapOf("anotherProperty", "loadedValue");
         Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
 
         assertTrue(result.containsKey("property"));
@@ -71,18 +61,8 @@ public class TaskHelperTest {
 
     @Test
     public void testMergePropertiesLoadedHavePrecedence() {
-        Map<String, String> defaults = new HashMap<String, String>() {
-            {
-                put("property", "defaultValue");
-            }
-        };
-
-        Map<String, String> loaded = new HashMap<String, String>() {
-            {
-                put("property", "loadedValue");
-            }
-        };
-
+        Map<String, String> defaults = mapOf("property", "defaultValue");
+        Map<String, String> loaded = mapOf("property", "loadedValue");
         Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
 
         assertTrue(result.containsKey("property"));
@@ -91,21 +71,17 @@ public class TaskHelperTest {
 
     @Test
     public void testMergePropertiesLoadedHavePrecedenceWithPrefixFiltering() {
-        Map<String, String> defaults = new HashMap<String, String>() {
-            {
-                put("property", "defaultValue");
-                put("camel.component.x.objectProperty", "#class:my.package.MyClass");
-                put("camel.component.x.objectProperty.field", "defaultValue");
-            }
-        };
+        Map<String, String> defaults = mapOf(
+            "property", "defaultValue",
+            "camel.component.x.objectProperty", "#class:my.package.MyClass",
+            "camel.component.x.objectProperty.field", "defaultValue"
+        );
 
-        Map<String, String> loaded = new HashMap<String, String>() {
-            {
-                put("camel.component.x.objectProperty", "#class:my.package.MyOtherClass");
-                put("camel.component.x.objectProperty.anotherField", "loadedValue");
-                put("camel.component.x.normalProperty", "loadedValue");
-            }
-        };
+        Map<String, String> loaded = mapOf(
+            "camel.component.x.objectProperty", "#class:my.package.MyOtherClass",
+            "camel.component.x.objectProperty.anotherField", "loadedValue",
+            "camel.component.x.normalProperty", "loadedValue"
+        );
 
         Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
 
@@ -120,24 +96,20 @@ public class TaskHelperTest {
     public void testBuildUrlWithRuntimeCatalog() throws URISyntaxException {
         DefaultCamelContext dcc = new DefaultCamelContext();
         RuntimeCamelCatalog rcc = dcc.adapt(ExtendedCamelContext.class).getRuntimeCamelCatalog();
-        Map<String, String> props = new HashMap<String, String>() {
-            {
-                put("camel.source.path.name", "test");
-                put("camel.source.endpoint.synchronous", "true");
-            }
-        };
+        Map<String, String> props = mapOf(
+            "camel.source.path.name", "test",
+            "camel.source.endpoint.synchronous", "true"
+        );
 
         String result = TaskHelper.buildUrl(rcc, props, "direct", "camel.source.endpoint.", "camel.source.path.");
 
         assertEquals("direct:test?synchronous=true", result);
 
-        props = new HashMap<String, String>() {
-            {
-                put("camel.source.path.port", "8080");
-                put("camel.source.path.keyspace", "test");
-                put("camel.source.path.hosts", "localhost");
-            }
-        };
+        props = mapOf(
+            "camel.source.path.port", "8080",
+            "camel.source.path.keyspace", "test",
+            "camel.source.path.hosts", "localhost"
+        );
 
         result = TaskHelper.buildUrl(rcc, props, "cql", "camel.source.endpoint.", "camel.source.path.");
 
