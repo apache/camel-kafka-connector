@@ -176,8 +176,8 @@ public class TaskHelperTest {
         assertThat(logger.getEvents().poll()).isNotNull().contains(partName);
     }
 
-    class MyLogger extends LoggerWrapper {
-        private Queue<String> events = new ConcurrentLinkedQueue<String>();
+    static class MyLogger extends LoggerWrapper {
+        private final Queue<String> events = new ConcurrentLinkedQueue<>();
 
         public MyLogger(Logger logger, String fqcn) {
             super(logger, fqcn);
@@ -188,9 +188,7 @@ public class TaskHelperTest {
         }
 
         private void log(LoggingLevel level, String msg) {
-            StringBuilder sb = new StringBuilder()
-                .append(level).append(" ").append(msg);
-            events.add(sb.toString());
+            events.add(level + " " + msg);
         }
 
         @Override
