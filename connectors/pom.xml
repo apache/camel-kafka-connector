@@ -112,6 +112,7 @@
                         <param>debezium-postgres</param>
                         <param>debezium-sqlserver</param>
                         <param>digitalocean</param>
+                        <param>hipchat</param>
                         <param>mock</param>
                         <param>ref</param>
                         <param>robotframework</param>
@@ -359,7 +360,6 @@
         <module>camel-hazelcast-topic-kafka-connector</module>
         <module>camel-hbase-kafka-connector</module>
         <module>camel-hdfs-kafka-connector</module>
-        <module>camel-hipchat-kafka-connector</module>
         <module>camel-http-kafka-connector</module>
         <module>camel-https-kafka-connector</module>
         <module>camel-iec60870-client-kafka-connector</module>
