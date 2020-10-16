@@ -27,6 +27,7 @@
 
 **Merged pull requests:**
 
+- Improve CKC core [\#601](https://github.com/apache/camel-kafka-connector/pull/601) ([lburgazzoli](https://github.com/lburgazzoli))
 - Updated the mvnd command on the readme [\#599](https://github.com/apache/camel-kafka-connector/pull/599) ([orpiske](https://github.com/orpiske))
 - Camel-kafka-connector-catalog: Adding some more tests [\#596](https://github.com/apache/camel-kafka-connector/pull/596) ([oscerd](https://github.com/oscerd))
 - Slack transforms [\#595](https://github.com/apache/camel-kafka-connector/pull/595) ([oscerd](https://github.com/oscerd))
@@ -87,7 +88,6 @@
 - Upgrade Maven Wrapper to 0.5.6 [\#495](https://github.com/apache/camel-kafka-connector/pull/495) ([oscerd](https://github.com/oscerd))
 - Deploy on ASF Snapshot [\#493](https://github.com/apache/camel-kafka-connector/pull/493) ([oscerd](https://github.com/oscerd))
 - Issue 490 [\#491](https://github.com/apache/camel-kafka-connector/pull/491) ([oscerd](https://github.com/oscerd))
-- Fixes changelog to run only on master [\#488](https://github.com/apache/camel-kafka-connector/pull/488) ([oscerd](https://github.com/oscerd))
 - Removed bean-validator kafka connector [\#483](https://github.com/apache/camel-kafka-connector/pull/483) ([oscerd](https://github.com/oscerd))
 - Re-introduce camel-bean-kafka-connector [\#482](https://github.com/apache/camel-kafka-connector/pull/482) ([oscerd](https://github.com/oscerd))
 - Bean connector removed [\#481](https://github.com/apache/camel-kafka-connector/pull/481) ([oscerd](https://github.com/oscerd))
@@ -157,7 +157,6 @@
 - Point to correct branch in github workflows [\#384](https://github.com/apache/camel-kafka-connector/pull/384) ([oscerd](https://github.com/oscerd))
 - Camel 3.4.3 [\#382](https://github.com/apache/camel-kafka-connector/pull/382) ([oscerd](https://github.com/oscerd))
 - Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
-- Make the camel-kafka-connector archetype use the parent POM [\#364](https://github.com/apache/camel-kafka-connector/pull/364) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#353](https://github.com/apache/camel-kafka-connector/pull/353) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#351](https://github.com/apache/camel-kafka-connector/pull/351) ([oscerd](https://github.com/oscerd))
 - 0.4.1-SNAPSHOT [\#349](https://github.com/apache/camel-kafka-connector/pull/349) ([oscerd](https://github.com/oscerd))
@@ -242,6 +241,7 @@
 - Minor AWS tests cleanups [\#368](https://github.com/apache/camel-kafka-connector/pull/368) ([orpiske](https://github.com/orpiske))
 - Building endpoint uris should for secret options automatic use RAW\(\) … [\#366](https://github.com/apache/camel-kafka-connector/pull/366) ([davsclaus](https://github.com/davsclaus))
 - Cutting down connectors [\#365](https://github.com/apache/camel-kafka-connector/pull/365) ([oscerd](https://github.com/oscerd))
+- Make the camel-kafka-connector archetype use the parent POM [\#364](https://github.com/apache/camel-kafka-connector/pull/364) ([oscerd](https://github.com/oscerd))
 - Make the camel-kafka-connector archetype use the parent POM [\#363](https://github.com/apache/camel-kafka-connector/pull/363) ([oscerd](https://github.com/oscerd))
 - AWS SDK v2 integration tests: Kinesis [\#358](https://github.com/apache/camel-kafka-connector/pull/358) ([orpiske](https://github.com/orpiske))
 - Use latest Strimzi's docker images [\#357](https://github.com/apache/camel-kafka-connector/pull/357) ([oscerd](https://github.com/oscerd))
