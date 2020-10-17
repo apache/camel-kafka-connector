@@ -18,7 +18,7 @@
 name: Sync Camel Kafka Connector camel-master Branch with Strimzi next
 
 env:
-  MAVEN_ARGS: -V -ntp -Pstrimzinext
+  MAVEN_ARGS: -V -ntp
 
 on:
   schedule:
@@ -87,6 +87,7 @@ jobs:
           ./mvnw ${MAVEN_ARGS} \
             -Dcheckstyle.failOnViolation=true \
             -Psourcecheck \
+            -Pstrimzinext \
             -DskipIntegrationTests=false \
             -Dhttp.keepAlive=false \
             -Dmaven.wagon.http.pool=false \
