@@ -69,7 +69,7 @@ public class CamelSourceTask extends SourceTask {
     public void start(Map<String, String> props) {
         try {
             LOG.info("Starting CamelSourceTask connector task");
-            Map<String, String> actualProps = TaskHelper.mergeProperties(getDefaultConfig(), props);
+            Map<String, String> actualProps = TaskHelper.combineDefaultAndLoadedProperties(getDefaultConfig(), props);
             CamelSourceConnectorConfig config = getCamelSourceConnectorConfig(actualProps);
 
             try {

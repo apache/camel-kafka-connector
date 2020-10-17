@@ -43,7 +43,7 @@ public class TaskHelperTest {
 
     @Test
     public void testMergePropertiesNull() {
-        Map<String, String> result = TaskHelper.mergeProperties(null, null);
+        Map<String, String> result = TaskHelper.combineDefaultAndLoadedProperties(null, null);
 
         assertEquals(Collections.EMPTY_MAP, result);
     }
@@ -52,7 +52,7 @@ public class TaskHelperTest {
     public void testMergePropertiesDefaultAreAdded() {
         Map<String, String> defaults = mapOf("property", "defaultValue");
         Map<String, String> loaded = mapOf("anotherProperty", "loadedValue");
-        Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
+        Map<String, String> result = TaskHelper.combineDefaultAndLoadedProperties(defaults, loaded);
 
         assertTrue(result.containsKey("property"));
         assertTrue(result.containsKey("anotherProperty"));
@@ -64,7 +64,7 @@ public class TaskHelperTest {
     public void testMergePropertiesLoadedHavePrecedence() {
         Map<String, String> defaults = mapOf("property", "defaultValue");
         Map<String, String> loaded = mapOf("property", "loadedValue");
-        Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
+        Map<String, String> result = TaskHelper.combineDefaultAndLoadedProperties(defaults, loaded);
 
         assertTrue(result.containsKey("property"));
         assertEquals("loadedValue", result.get("property"));
@@ -84,13 +84,31 @@ public class TaskHelperTest {
             "camel.component.x.normalProperty", "loadedValue"
         );
 
-        Map<String, String> result = TaskHelper.mergeProperties(defaults, loaded);
+        Map<String, String> result = TaskHelper.combineDefaultAndLoadedProperties(defaults, loaded);
 
         assertEquals("defaultValue", result.get("property"));
         assertEquals("#class:my.package.MyOtherClass", result.get("camel.component.x.objectProperty"));
         assertEquals("loadedValue", result.get("camel.component.x.objectProperty.anotherField"));
         assertEquals("loadedValue", result.get("camel.component.x.normalProperty"));
         assertFalse(result.containsKey("camel.component.x.objectProperty.field"));
+    }
+
+    @Test
+    public void testMergePropertiesLoadedAndDefaultMergesIfNoPrefixFiltering() {
+        Map<String, String> defaults = mapOf(
+                "camel.component.x.objectProperty", "#class:my.package.MyClass",
+                "camel.component.x.objectProperty.field", "defaultValue"
+        );
+
+        Map<String, String> loaded = mapOf(
+                "camel.component.x.objectProperty.anotherField", "loadedValue"
+        );
+
+        Map<String, String> result = TaskHelper.combineDefaultAndLoadedProperties(defaults, loaded);
+
+        assertEquals("#class:my.package.MyClass", result.get("camel.component.x.objectProperty"));
+        assertEquals("defaultValue", result.get("camel.component.x.objectProperty.field"));
+        assertEquals("loadedValue", result.get("camel.component.x.objectProperty.anotherField"));
     }
 
     @Test
