@@ -50,6 +50,12 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.camel.kafkaconnector</groupId>
+            <artifactId>connectors</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core-catalog</artifactId>
             <version>${camel.version}</version>
@@ -102,6 +108,22 @@
                                     <directory>src/generated/resources</directory>
                                 </resource>
                             </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.camel.kafkaconnector</groupId>
+                <artifactId>camel-kafka-connector-catalog-descriptor-maven-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>update-descriptor-files</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                        <configuration>
+
                         </configuration>
                     </execution>
                 </executions>
