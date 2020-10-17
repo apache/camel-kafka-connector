@@ -23,11 +23,11 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
@@ -35,7 +35,7 @@ import org.apache.maven.project.MavenProject;
 /**
  * Updates connector.properties file
  */
-@Mojo(name = "list-descriptor-files", threadSafe = true)
+@Mojo(name = "update-descriptor-files", threadSafe = true)
 public class CollectConnectorDescriptorMojo extends AbstractMojo {
 
     /**
@@ -53,41 +53,29 @@ public class CollectConnectorDescriptorMojo extends AbstractMojo {
     /**
      * The directory for catalog descriptors
      */
-    @Parameter(defaultValue = "${project.directory}/../../camel-kafka-connector-catalog/src/generated/resources/descriptors")
+    @Parameter(defaultValue = "${project.directory}/../src/generated/resources/descriptors")
     protected File catalogDescriptorDir;
 
     /**
-     * The connectors project name parameter.
-     */
-    @Parameter(property = "connectors-project-name", defaultValue = "connectors", readonly = true)
-    protected String connectorsProjectName;
-
-    /**
      * Execute goal.
-     *
-     * @throws MojoExecutionException execution of the main class or one of the
-     *             threads it generated failed.
-     * @throws MojoFailureException something bad happened...
      */
     @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        if (!project.getArtifactId().equals(connectorsProjectName)) {
-            getLog()
-                .debug("Skipping project " + project.getArtifactId() + " since it is not " + connectorsProjectName + " can be configured with <connectors-project-name> option.");
-            return;
-        }
+    public void execute() {
         try {
             executeComponentsReadme();
         } catch (IOException e) {
-            e.printStackTrace();
+            getLog().error("An error occurred while running camel-kakfa-connector-descriptor-maven-plugin:update-descriptor-files", e);
         }
     }
 
-    protected void executeComponentsReadme() throws MojoExecutionException, MojoFailureException, IOException {
-
+    protected void executeComponentsReadme() throws IOException {
+        getLog().info("About to scan all projects in" + connectorsDir + " in order to gather descriptors files");
         if (connectorsDir != null && connectorsDir.isDirectory()) {
             File[] files = connectorsDir.listFiles();
+            getLog().info("Found " + (files != null ? String.valueOf(files.length) : "0") + "directories:");
             if (files != null) {
+                Arrays.sort(files);
+                Stream.of(files).filter(f -> f.isDirectory()).forEach(f -> getLog().info(f.getPath()));
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < files.length; i++) {
                     File file = files[i];
@@ -119,6 +107,7 @@ public class CollectConnectorDescriptorMojo extends AbstractMojo {
                     }
                 }
                 File file = FileUtils.getFile(catalogDescriptorDir, "connectors.properties");
+                getLog().info("About to write descriptor to: " + catalogDescriptorDir);
                 file.createNewFile();
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                     writer.write(sb.toString());
