@@ -83,6 +83,11 @@
 			"description": "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.",
 			"priority": "MEDIUM"
 		},
+		"camel.source.endpoint.regex": {
+			"name": "camel.source.endpoint.regex",
+			"description": "Filters the results to return only blobs whose names match the specified regular expression. May be null to return all if both prefix and regex are set, regex takes the priority and prefix is ignored.",
+			"priority": "MEDIUM"
+		},
 		"camel.source.endpoint.serviceClient": {
 			"name": "camel.source.endpoint.serviceClient",
 			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).",
@@ -189,6 +194,11 @@
 		"camel.component.azure-storage-blob.prefix": {
 			"name": "camel.component.azure-storage-blob.prefix",
 			"description": "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.",
+			"priority": "MEDIUM"
+		},
+		"camel.component.azure-storage-blob.regex": {
+			"name": "camel.component.azure-storage-blob.regex",
+			"description": "Filters the results to return only blobs whose names match the specified regular expression. May be null to return all if both prefix and regex are set, regex takes the priority and prefix is ignored.",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.serviceClient": {
