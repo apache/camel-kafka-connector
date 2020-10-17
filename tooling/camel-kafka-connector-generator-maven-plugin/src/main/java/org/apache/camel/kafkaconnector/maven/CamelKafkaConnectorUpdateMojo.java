@@ -591,7 +591,10 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         } else {
             getLog().debug("No changes to website doc file: " + docFileWebsite);
         }
+
+        // generate json descriptor src/generated/resources/<connector-name>.json
         writeJson(listOptions, getMainDepArtifactId(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList, transformsList, aggregationStrategiesList);
+        // generate descriptor src/generated/descriptors/connector-{sink,source}.properties
         writeDescriptors(connectorDir, ct);
     }
 
