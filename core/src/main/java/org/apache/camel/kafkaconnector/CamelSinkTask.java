@@ -68,7 +68,7 @@ public class CamelSinkTask extends SinkTask {
     public void start(Map<String, String> props) {
         try {
             LOG.info("Starting CamelSinkTask connector task");
-            Map<String, String> actualProps = TaskHelper.mergeProperties(getDefaultConfig(), props);
+            Map<String, String> actualProps = TaskHelper.combineDefaultAndLoadedProperties(getDefaultConfig(), props);
             CamelSinkConnectorConfig config = getCamelSinkConnectorConfig(actualProps);
 
             try {

@@ -35,6 +35,18 @@ public final class TaskHelper {
     private TaskHelper() {
     }
 
+    /**
+     * Try to build a url of a Camel {@link org.apache.camel.Endpoint}.
+     *
+     * @param rcc RuntimeCamelCatalog used to build the url.
+     * @param props properties used to build the url in the form of a key -> value {@link Map}.
+     * @param componentSchema the schema name of the Camel {@link org.apache.camel.Component} used to build the Camel {@link org.apache.camel.Endpoint} url.
+     * @param endpointPropertiesPrefix prefix of all the Camel {@link org.apache.camel.Endpoint} properties.
+     * @param pathPropertiesPrefix prefix of all the properties used in the Camel {@link org.apache.camel.Endpoint} path.
+     *
+     * @return A String representing the built url.
+     * @throws {@link URISyntaxException} in case of uri build failure.
+     */
     public static String buildUrl(RuntimeCamelCatalog rcc, Map<String, String> props, String componentSchema, String endpointPropertiesPrefix, String pathPropertiesPrefix) throws URISyntaxException {
         ComponentModel cm = null;
         if (componentSchema != null) {
@@ -65,7 +77,39 @@ public final class TaskHelper {
         return rcc.asEndpointUri(componentSchema, filteredProps, false);
     }
 
-    public static Map<String, String> mergeProperties(Map<String, String> defaultProps, Map<String, String> loadedProps) {
+    /**
+     * Combines default properties with loaded properties with the following logic:
+     * 1) loaded properties overwrite default properties.
+     * 2) default properties that starts with a loaded property are removed.
+     *
+     * Example:
+     * default properties:
+     *   defaultProperty=defaultValue
+     *   overwrittenDefaultProperty=defaultValue
+     *   camel.component.x.objectProperty=#class:my.package.MyClass
+     *   camel.component.x.objectProperty.removedDefaultField=defaultValue
+     *   camel.component.x.defaultProperty=defaultValue
+     *
+     * loaded properties:
+     *   overwrittenDefaultProperty=loadedValue
+     *   camel.component.x.objectProperty=#class:my.package.MyOtherClass
+     *   camel.component.x.objectProperty.loadedField=loadedValue
+     *   camel.component.x.loadedProperty=loadedValue
+     *
+     * will result in:
+     *   defaultProperty=defaultValue
+     *   overwrittenDefaultProperty=loadedValue
+     *   camel.component.x.objectProperty=#class:my.package.MyOtherClass
+     *   camel.component.x.objectProperty.anotherField=loadedValue
+     *   camel.component.x.loadedProperty=loadedValue
+     *   camel.component.x.defaultProperty=defaultValue
+     *
+     * See org.apache.camel.kafkaconnector.utils.TaskHelperTests for some examples.
+     *
+     * @param defaultProps RuntimeCamelCatalog used to build the url.
+     * @param loadedProps properties used to build the url in the form of a key -> value {@link Map}.
+     */
+    public static Map<String, String> combineDefaultAndLoadedProperties(Map<String, String> defaultProps, Map<String, String> loadedProps) {
         if (loadedProps == null && defaultProps == null) {
             return Collections.emptyMap();
         } else if (loadedProps == null) {
