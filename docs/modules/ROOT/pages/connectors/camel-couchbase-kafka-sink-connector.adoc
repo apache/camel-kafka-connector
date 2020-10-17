@@ -32,7 +32,7 @@ The camel-couchbase sink connector supports 23 options, which are listed below.
 | *camel.sink.path.protocol* | The protocol to use | null | HIGH
 | *camel.sink.path.hostname* | The hostname to use | null | HIGH
 | *camel.sink.path.port* | The port number to use | 8091 | MEDIUM
-| *camel.sink.endpoint.bucket* | The bucket to use | null | MEDIUM
+| *camel.sink.endpoint.bucket* | The bucket to use | null | HIGH
 | *camel.sink.endpoint.collection* | The collection to use | null | MEDIUM
 | *camel.sink.endpoint.key* | The key to use | null | MEDIUM
 | *camel.sink.endpoint.scope* | The scope to use | null | MEDIUM

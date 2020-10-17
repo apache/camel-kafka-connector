@@ -216,6 +216,7 @@
         <module>camel-arangodb-kafka-connector</module>
         <module>camel-as2-kafka-connector</module>
         <module>camel-asterisk-kafka-connector</module>
+        <module>camel-atlasmap-kafka-connector</module>
         <module>camel-atmos-kafka-connector</module>
         <module>camel-atmosphere-websocket-kafka-connector</module>
         <module>camel-atom-kafka-connector</module>

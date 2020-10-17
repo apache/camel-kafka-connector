@@ -27,7 +27,7 @@
 		"camel.sink.endpoint.bucket": {
 			"name": "camel.sink.endpoint.bucket",
 			"description": "The bucket to use",
-			"priority": "MEDIUM"
+			"priority": "HIGH"
 		},
 		"camel.sink.endpoint.collection": {
 			"name": "camel.sink.endpoint.collection",
