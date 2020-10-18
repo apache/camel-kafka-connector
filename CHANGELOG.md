@@ -27,6 +27,9 @@
 
 **Merged pull requests:**
 
+- Apply the Strimzi next profile only to the connector build [\#608](https://github.com/apache/camel-kafka-connector/pull/608) ([orpiske](https://github.com/orpiske))
+- Reneamed a method to better understanding, added a test and javadoc a… [\#607](https://github.com/apache/camel-kafka-connector/pull/607) ([valdar](https://github.com/valdar))
+- Catalog improve [\#606](https://github.com/apache/camel-kafka-connector/pull/606) ([valdar](https://github.com/valdar))
 - Improve CKC core [\#601](https://github.com/apache/camel-kafka-connector/pull/601) ([lburgazzoli](https://github.com/lburgazzoli))
 - Updated the mvnd command on the readme [\#599](https://github.com/apache/camel-kafka-connector/pull/599) ([orpiske](https://github.com/orpiske))
 - Camel-kafka-connector-catalog: Adding some more tests [\#596](https://github.com/apache/camel-kafka-connector/pull/596) ([oscerd](https://github.com/oscerd))
