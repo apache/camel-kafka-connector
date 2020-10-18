@@ -1,0 +1,85 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.atlasmap.CamelAtlasmapSinkConnector",
+		"artifactId": "camel-atlasmap-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-atlasmap-sink",
+		"type": "sink",
+		"version": "0.6.0-SNAPSHOT"
+	},
+	"properties": {
+		"camel.sink.path.resourceUri": {
+			"name": "camel.sink.path.resourceUri",
+			"description": "Path to the resource. You can prefix with: classpath, file, http, ref, or bean. classpath, file and http loads the resource using these protocols (classpath is default). ref will lookup the resource in the registry. bean will call a method on a bean to be used as the resource. For bean you can specify the method name after dot, eg bean:myBean.myMethod.",
+			"priority": "HIGH"
+		},
+		"camel.sink.endpoint.allowContextMapAll": {
+			"name": "camel.sink.endpoint.allowContextMapAll",
+			"description": "Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.contentCache": {
+			"name": "camel.sink.endpoint.contentCache",
+			"description": "Sets whether to use resource content cache or not",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.sourceMapName": {
+			"name": "camel.sink.endpoint.sourceMapName",
+			"description": "The Exchange property name for a source message map which hold java.util.Map&lt;String, Message&gt; where the key is AtlasMap Document ID. AtlasMap consumes Message bodies as source documents, as well as message headers as source properties where the scope equals to Document ID.",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.targetMapMode": {
+			"name": "camel.sink.endpoint.targetMapMode",
+			"description": "TargetMapMode enum value to specify how multiple target documents are delivered if exist. 'MAP': Stores them into a java.util.Map, and the java.util.Map is set to an exchange property if 'targetMapName' is specified, otherwise message body. 'MESSAGE_HEADER': Stores them into message headers. 'EXCHANGE_PROPERTY': Stores them into exchange properties. ) One of: [MAP] [MESSAGE_HEADER] [EXCHANGE_PROPERTY]",
+			"defaultValue": "\"MAP\"",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.targetMapName": {
+			"name": "camel.sink.endpoint.targetMapName",
+			"description": "The Exchange property name for a target document map which hold java.util.Map&lt;String, Object&gt; where the key is AtlasMap Document ID. AtlasMap populates multiple target documents into this map.",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.basicPropertyBinding": {
+			"name": "camel.sink.endpoint.basicPropertyBinding",
+			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.propertiesFile": {
+			"name": "camel.sink.endpoint.propertiesFile",
+			"description": "The URI of the properties file which is used for AtlasContextFactory initialization.",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atlasmap.lazyStartProducer": {
+			"name": "camel.component.atlasmap.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atlasmap.atlasContextFactory": {
+			"name": "camel.component.atlasmap.atlasContextFactory",
+			"description": "To use the AtlasContextFactory otherwise a new engine is created.",
+			"priority": "MEDIUM"
+		},
+		"camel.component.atlasmap.basicPropertyBinding": {
+			"name": "camel.component.atlasmap.basicPropertyBinding",
+			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+			"defaultValue": "false",
+			"priority": "LOW"
+		}
+	}
+}
