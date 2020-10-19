@@ -16,12 +16,12 @@
 		"camel.sink.endpoint.iconEmoji": {
 			"name": "camel.sink.endpoint.iconEmoji",
 			"description": "Use a Slack emoji as an avatar",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.sink.endpoint.iconUrl": {
 			"name": "camel.sink.endpoint.iconUrl",
 			"description": "The avatar that the component will use when sending message to a channel or user.",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -32,7 +32,7 @@
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "This is the username that the bot will have when sending messages to a channel or user.",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.sink.endpoint.webhookUrl": {
 			"name": "camel.sink.endpoint.webhookUrl",
@@ -61,7 +61,7 @@
 			"name": "camel.component.slack.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.slack.webhookUrl": {
 			"name": "camel.component.slack.webhookUrl",

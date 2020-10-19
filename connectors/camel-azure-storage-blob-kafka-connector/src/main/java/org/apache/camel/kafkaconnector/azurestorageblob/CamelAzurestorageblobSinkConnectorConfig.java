@@ -36,7 +36,7 @@ public class CamelAzurestorageblobSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
     public static final Boolean CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_BLOB_NAME_CONF = "camel.sink.endpoint.blobName";
-    public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_BLOB_NAME_DOC = "The blob name, required for consumer. However on producer, is only required for the operations on the blob level";
+    public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_BLOB_NAME_DOC = "The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_BLOB_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_BLOB_OFFSET_CONF = "camel.sink.endpoint.blobOffset";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_BLOB_OFFSET_DOC = "Set the blob offset for the upload or download operations, default is 0";
@@ -69,7 +69,7 @@ public class CamelAzurestorageblobSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_PREFIX_DOC = "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_PREFIX_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_CONF = "camel.sink.endpoint.serviceClient";
-    public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_DOC = "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).";
+    public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_DOC = "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_TIMEOUT_CONF = "camel.sink.endpoint.timeout";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_ENDPOINT_TIMEOUT_DOC = "An optional timeout value beyond which a RuntimeException will be raised.";
@@ -117,7 +117,7 @@ public class CamelAzurestorageblobSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
     public static final Boolean CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BLOB_NAME_CONF = "camel.component.azure-storage-blob.blobName";
-    public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BLOB_NAME_DOC = "The blob name, required for consumer. However on producer, is only required for the operations on the blob level";
+    public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BLOB_NAME_DOC = "The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BLOB_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BLOB_OFFSET_CONF = "camel.component.azure-storage-blob.blobOffset";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BLOB_OFFSET_DOC = "Set the blob offset for the upload or download operations, default is 0";
@@ -150,7 +150,7 @@ public class CamelAzurestorageblobSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_PREFIX_DOC = "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_PREFIX_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_CONF = "camel.component.azure-storage-blob.serviceClient";
-    public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_DOC = "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).";
+    public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_DOC = "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_DEFAULT = null;
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_TIMEOUT_CONF = "camel.component.azure-storage-blob.timeout";
     public static final String CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_TIMEOUT_DOC = "An optional timeout value beyond which a RuntimeException will be raised.";
@@ -258,7 +258,7 @@ public class CamelAzurestorageblobSinkConnectorConfig
         conf.define(CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_PAGE_BLOB_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_PAGE_BLOB_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_PAGE_BLOB_SIZE_DOC);
-        conf.define(CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_DOC);
         return conf;
     }

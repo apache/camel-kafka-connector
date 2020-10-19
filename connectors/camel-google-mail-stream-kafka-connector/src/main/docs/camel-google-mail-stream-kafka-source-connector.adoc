@@ -29,17 +29,14 @@ The camel-google-mail-stream source connector supports 44 options, which are lis
 [width="100%",cols="2,5,^1,2",options="header"]
 |===
 | Name | Description | Default | Priority
-| *camel.source.path.index* | Specifies an index for the endpoint | null | MEDIUM
-| *camel.source.endpoint.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
+| *camel.source.path.index* | Currently not in use | null | HIGH
 | *camel.source.endpoint.applicationName* | Google mail application name. Example would be camel-google-mail/1.0 | null | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.source.endpoint.clientId* | Client ID of the mail application | null | MEDIUM
-| *camel.source.endpoint.clientSecret* | Client secret of the mail application | null | MEDIUM
 | *camel.source.endpoint.labels* | Comma separated list of labels to take into account | null | MEDIUM
 | *camel.source.endpoint.markAsRead* | Mark the message as read once it has been consumed | false | MEDIUM
 | *camel.source.endpoint.maxResults* | Max results to be returned | 10L | MEDIUM
 | *camel.source.endpoint.query* | The query to execute on gmail box | "is:unread" | MEDIUM
-| *camel.source.endpoint.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
@@ -60,19 +57,22 @@ The camel-google-mail-stream source connector supports 44 options, which are lis
 | *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
 | *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
-| *camel.component.google-mail-stream.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
+| *camel.source.endpoint.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
+| *camel.source.endpoint.clientSecret* | Client secret of the mail application | null | MEDIUM
+| *camel.source.endpoint.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
 | *camel.component.google-mail-stream.applicationName* | Google mail application name. Example would be camel-google-mail/1.0 | null | MEDIUM
 | *camel.component.google-mail-stream.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
 | *camel.component.google-mail-stream.clientId* | Client ID of the mail application | null | MEDIUM
-| *camel.component.google-mail-stream.clientSecret* | Client secret of the mail application | null | MEDIUM
 | *camel.component.google-mail-stream.labels* | Comma separated list of labels to take into account | null | MEDIUM
 | *camel.component.google-mail-stream.markAsRead* | Mark the message as read once it has been consumed | false | MEDIUM
 | *camel.component.google-mail-stream.maxResults* | Max results to be returned | 10L | MEDIUM
 | *camel.component.google-mail-stream.query* | The query to execute on gmail box | "is:unread" | MEDIUM
-| *camel.component.google-mail-stream.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
-| *camel.component.google-mail-stream.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.google-mail-stream.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.google-mail-stream.clientFactory* | The client Factory | null | MEDIUM
 | *camel.component.google-mail-stream.configuration* | The configuration | null | MEDIUM
+| *camel.component.google-mail-stream.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | MEDIUM
+| *camel.component.google-mail-stream.clientSecret* | Client secret of the mail application | null | MEDIUM
+| *camel.component.google-mail-stream.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | MEDIUM
 |===
 
 

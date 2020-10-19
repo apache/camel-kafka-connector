@@ -45,6 +45,11 @@
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
 			"priority": "MEDIUM"
 		},
+		"camel.sink.endpoint.replyTo": {
+			"name": "camel.sink.endpoint.replyTo",
+			"description": "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).",
+			"priority": "MEDIUM"
+		},
 		"camel.sink.endpoint.testConnectionOnStartup": {
 			"name": "camel.sink.endpoint.testConnectionOnStartup",
 			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
@@ -59,7 +64,7 @@
 		},
 		"camel.sink.endpoint.deliveryMode": {
 			"name": "camel.sink.endpoint.deliveryMode",
-			"description": "Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
+			"description": "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.deliveryPersistent": {
@@ -440,6 +445,11 @@
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
 			"priority": "MEDIUM"
 		},
+		"camel.component.activemq.replyTo": {
+			"name": "camel.component.activemq.replyTo",
+			"description": "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).",
+			"priority": "MEDIUM"
+		},
 		"camel.component.activemq.testConnectionOnStartup": {
 			"name": "camel.component.activemq.testConnectionOnStartup",
 			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
@@ -466,7 +476,7 @@
 		},
 		"camel.component.activemq.deliveryMode": {
 			"name": "camel.component.activemq.deliveryMode",
-			"description": "Specifies the delivery mode to be used. Possibles values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
+			"description": "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
 			"priority": "MEDIUM"
 		},
 		"camel.component.activemq.deliveryPersistent": {
@@ -640,7 +650,7 @@
 			"name": "camel.component.activemq.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.activemq.configuration": {
 			"name": "camel.component.activemq.configuration",

@@ -44,7 +44,7 @@ The camel-cmis source connector supports 17 options, which are listed below.
 | *camel.source.endpoint.password* | Password for the cmis repository | null | MEDIUM
 | *camel.source.endpoint.username* | Username for the cmis repository | null | MEDIUM
 | *camel.component.cmis.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.cmis.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.cmis.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.cmis.sessionFacadeFactory* | To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade instances | null | MEDIUM
 |===
 

@@ -188,7 +188,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_CONF = "camel.sink.endpoint.sslEnabledProtocols";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DOC = "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.";
-    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2";
+    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENABLED_PROTOCOLS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_CONF = "camel.sink.endpoint.sslEndpointAlgorithm";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DOC = "The endpoint identification algorithm to validate server hostname using server certificate.";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_ENDPOINT_ALGORITHM_DEFAULT = "https";
@@ -209,7 +209,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_KEYSTORE_TYPE_DEFAULT = "JKS";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROTOCOL_CONF = "camel.sink.endpoint.sslProtocol";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROTOCOL_DOC = "The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs, but their usage is discouraged due to known security vulnerabilities.";
-    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROTOCOL_DEFAULT = "TLSv1.2";
+    public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROTOCOL_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROVIDER_CONF = "camel.sink.endpoint.sslProvider";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROVIDER_DOC = "The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.";
     public static final String CAMEL_SINK_KAFKA_ENDPOINT_SSL_PROVIDER_DEFAULT = null;
@@ -386,7 +386,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_CONF = "camel.component.kafka.sslEnabledProtocols";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DOC = "The list of protocols enabled for SSL connections. TLSv1.2, TLSv1.1 and TLSv1 are enabled by default.";
-    public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DEFAULT = "TLSv1.2";
+    public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENABLED_PROTOCOLS_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_CONF = "camel.component.kafka.sslEndpointAlgorithm";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DOC = "The endpoint identification algorithm to validate server hostname using server certificate.";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_ENDPOINT_ALGORITHM_DEFAULT = "https";
@@ -407,7 +407,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_KEYSTORE_TYPE_DEFAULT = "JKS";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROTOCOL_CONF = "camel.component.kafka.sslProtocol";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROTOCOL_DOC = "The SSL protocol used to generate the SSLContext. Default setting is TLS, which is fine for most cases. Allowed values in recent JVMs are TLS, TLSv1.1 and TLSv1.2. SSL, SSLv2 and SSLv3 may be supported in older JVMs, but their usage is discouraged due to known security vulnerabilities.";
-    public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROTOCOL_DEFAULT = "TLSv1.2";
+    public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROTOCOL_DEFAULT = null;
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROVIDER_CONF = "camel.component.kafka.sslProvider";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROVIDER_DOC = "The name of the security provider used for SSL connections. Default value is the default security provider of the JVM.";
     public static final String CAMEL_SINK_KAFKA_COMPONENT_SSL_PROVIDER_DEFAULT = null;
@@ -545,7 +545,7 @@ public class CamelKafkaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_CORE_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_CORE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_CORE_SIZE_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_MAX_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_MAX_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_WORKER_POOL_MAX_SIZE_DOC);
-        conf.define(CAMEL_SINK_KAFKA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAFKA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_KAFKA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_KAFKA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_KAFKA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLCONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLDOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_INTERCEPTOR_CLASSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_INTERCEPTOR_CLASSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_INTERCEPTOR_CLASSES_DOC);
         conf.define(CAMEL_SINK_KAFKA_COMPONENT_KERBEROS_BEFORE_RELOGIN_MIN_TIME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_KAFKA_COMPONENT_KERBEROS_BEFORE_RELOGIN_MIN_TIME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_KAFKA_COMPONENT_KERBEROS_BEFORE_RELOGIN_MIN_TIME_DOC);

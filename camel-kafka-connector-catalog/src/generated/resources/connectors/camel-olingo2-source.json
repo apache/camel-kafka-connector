@@ -281,7 +281,7 @@
 			"name": "camel.component.olingo2.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.olingo2.httpAsyncClientBuilder": {
 			"name": "camel.component.olingo2.httpAsyncClientBuilder",

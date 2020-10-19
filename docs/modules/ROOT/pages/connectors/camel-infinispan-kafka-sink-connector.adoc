@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.infinispan.CamelInfinispanSinkCo
 ----
 
 
-The camel-infinispan sink connector supports 27 options, which are listed below.
+The camel-infinispan sink connector supports 47 options, which are listed below.
 
 
 
@@ -32,8 +32,18 @@ The camel-infinispan sink connector supports 27 options, which are listed below.
 | *camel.sink.path.cacheName* | The name of the cache to use. Use current to use the existing cache name from the currently configured cached manager. Or use default for the default cache manager name. | null | HIGH
 | *camel.sink.endpoint.hosts* | Specifies the host of the cache on Infinispan instance | null | MEDIUM
 | *camel.sink.endpoint.queryBuilder* | Specifies the query builder. | null | MEDIUM
+| *camel.sink.endpoint.secure* | Define if we are connecting to a secured Infinispan instance | false | MEDIUM
+| *camel.sink.endpoint.defaultValue* | Set a specific default value for some producer operations | null | MEDIUM
+| *camel.sink.endpoint.key* | Set a specific key for producer operations | null | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.sink.endpoint.oldValue* | Set a specific old value for some producer operations | null | MEDIUM
 | *camel.sink.endpoint.operation* | The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC] | "PUT" | MEDIUM
+| *camel.sink.endpoint.value* | Set a specific value for producer operations | null | MEDIUM
+| *camel.sink.endpoint.password* | Define the password to access the infinispan instance | null | MEDIUM
+| *camel.sink.endpoint.saslMechanism* | Define the SASL Mechanism to access the infinispan instance | null | MEDIUM
+| *camel.sink.endpoint.securityRealm* | Define the security realm to access the infinispan instance | null | MEDIUM
+| *camel.sink.endpoint.securityServerName* | Define the security server name to access the infinispan instance | null | MEDIUM
+| *camel.sink.endpoint.username* | Define the username to access the infinispan instance | null | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
 | *camel.sink.endpoint.cacheContainer* | Specifies the cache Container to connect | null | MEDIUM
 | *camel.sink.endpoint.cacheContainerConfiguration* | The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration; | null | MEDIUM
@@ -46,9 +56,19 @@ The camel-infinispan sink connector supports 27 options, which are listed below.
 | *camel.component.infinispan.configuration* | Component configuration | null | MEDIUM
 | *camel.component.infinispan.hosts* | Specifies the host of the cache on Infinispan instance | null | MEDIUM
 | *camel.component.infinispan.queryBuilder* | Specifies the query builder. | null | MEDIUM
+| *camel.component.infinispan.secure* | Define if we are connecting to a secured Infinispan instance | false | MEDIUM
+| *camel.component.infinispan.defaultValue* | Set a specific default value for some producer operations | null | MEDIUM
+| *camel.component.infinispan.key* | Set a specific key for producer operations | null | MEDIUM
 | *camel.component.infinispan.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
+| *camel.component.infinispan.oldValue* | Set a specific old value for some producer operations | null | MEDIUM
 | *camel.component.infinispan.operation* | The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC] | "PUT" | MEDIUM
-| *camel.component.infinispan.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.infinispan.value* | Set a specific value for producer operations | null | MEDIUM
+| *camel.component.infinispan.password* | Define the password to access the infinispan instance | null | MEDIUM
+| *camel.component.infinispan.saslMechanism* | Define the SASL Mechanism to access the infinispan instance | null | MEDIUM
+| *camel.component.infinispan.securityRealm* | Define the security realm to access the infinispan instance | null | MEDIUM
+| *camel.component.infinispan.securityServerName* | Define the security server name to access the infinispan instance | null | MEDIUM
+| *camel.component.infinispan.username* | Define the username to access the infinispan instance | null | MEDIUM
+| *camel.component.infinispan.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.infinispan.cacheContainer* | Specifies the cache Container to connect | null | MEDIUM
 | *camel.component.infinispan.cacheContainer Configuration* | The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration; | null | MEDIUM
 | *camel.component.infinispan.configurationProperties* | Implementation specific properties for the CacheManager | null | MEDIUM
