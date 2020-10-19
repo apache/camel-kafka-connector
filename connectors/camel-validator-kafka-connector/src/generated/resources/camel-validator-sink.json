@@ -90,7 +90,7 @@
 			"name": "camel.component.validator.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.validator.resourceResolverFactory": {
 			"name": "camel.component.validator.resourceResolverFactory",

@@ -45,7 +45,7 @@ The camel-atmos source connector supports 21 options, which are listed below.
 | *camel.source.endpoint.secretKey* | The secret key to pass to the Atmos client (should be base64 encoded) | null | MEDIUM
 | *camel.source.endpoint.sslValidation* | Atmos SSL validation | false | MEDIUM
 | *camel.component.atmos.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.atmos.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.atmos.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.atmos.uri* | The URI of the server for the Atmos client to connect to | null | MEDIUM
 | *camel.component.atmos.fullTokenId* | The token id to pass to the Atmos client | null | MEDIUM
 | *camel.component.atmos.secretKey* | The secret key to pass to the Atmos client (should be base64 encoded) | null | MEDIUM

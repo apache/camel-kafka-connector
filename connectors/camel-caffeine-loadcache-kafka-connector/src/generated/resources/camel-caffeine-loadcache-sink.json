@@ -18,11 +18,6 @@
 			"description": "To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence.",
 			"priority": "MEDIUM"
 		},
-		"camel.sink.endpoint.cache": {
-			"name": "camel.sink.endpoint.cache",
-			"description": "To configure an already instantiated cache to be used",
-			"priority": "MEDIUM"
-		},
 		"camel.sink.endpoint.cacheLoader": {
 			"name": "camel.sink.endpoint.cacheLoader",
 			"description": "To configure a CacheLoader in case of a LoadCache use",
@@ -118,11 +113,6 @@
 			"description": "To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence.",
 			"priority": "MEDIUM"
 		},
-		"camel.component.caffeine-loadcache.cache": {
-			"name": "camel.component.caffeine-loadcache.cache",
-			"description": "To configure an already instantiated cache to be used",
-			"priority": "MEDIUM"
-		},
 		"camel.component.caffeine-loadcache.cacheLoader": {
 			"name": "camel.component.caffeine-loadcache.cacheLoader",
 			"description": "To configure a CacheLoader in case of a LoadCache use",
@@ -195,7 +185,7 @@
 			"name": "camel.component.caffeine-loadcache.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.caffeine-loadcache.configuration": {
 			"name": "camel.component.caffeine-loadcache.configuration",

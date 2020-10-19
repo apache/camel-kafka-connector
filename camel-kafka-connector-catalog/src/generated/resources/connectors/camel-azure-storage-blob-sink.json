@@ -26,7 +26,7 @@
 		},
 		"camel.sink.endpoint.blobName": {
 			"name": "camel.sink.endpoint.blobName",
-			"description": "The blob name, required for consumer. However on producer, is only required for the operations on the blob level",
+			"description": "The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.blobOffset": {
@@ -85,7 +85,7 @@
 		},
 		"camel.sink.endpoint.serviceClient": {
 			"name": "camel.sink.endpoint.serviceClient",
-			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
+			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.timeout": {
@@ -177,7 +177,7 @@
 		},
 		"camel.component.azure-storage-blob.blobName": {
 			"name": "camel.component.azure-storage-blob.blobName",
-			"description": "The blob name, required for consumer. However on producer, is only required for the operations on the blob level",
+			"description": "The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.blobOffset": {
@@ -236,7 +236,7 @@
 		},
 		"camel.component.azure-storage-blob.serviceClient": {
 			"name": "camel.component.azure-storage-blob.serviceClient",
-			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through getBlobContainerClient(String), and operations on a blob are available on BlobClient through getBlobContainerClient(String).getBlobClient(String).",
+			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).",
 			"priority": "MEDIUM"
 		},
 		"camel.component.azure-storage-blob.timeout": {
@@ -307,7 +307,7 @@
 			"name": "camel.component.azure-storage-blob.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.azure-storage-blob.accessKey": {
 			"name": "camel.component.azure-storage-blob.accessKey",

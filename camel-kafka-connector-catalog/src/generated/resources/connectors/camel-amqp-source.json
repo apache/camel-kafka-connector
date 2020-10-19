@@ -45,6 +45,11 @@
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
 			"priority": "MEDIUM"
 		},
+		"camel.source.endpoint.replyTo": {
+			"name": "camel.source.endpoint.replyTo",
+			"description": "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).",
+			"priority": "MEDIUM"
+		},
 		"camel.source.endpoint.testConnectionOnStartup": {
 			"name": "camel.source.endpoint.testConnectionOnStartup",
 			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
@@ -89,11 +94,6 @@
 		"camel.source.endpoint.maxConcurrentConsumers": {
 			"name": "camel.source.endpoint.maxConcurrentConsumers",
 			"description": "Specifies the maximum number of concurrent consumers when consuming from JMS (not for request\/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads. When doing request\/reply over JMS then the option replyToMaxConcurrentConsumers is used to control number of concurrent consumers on the reply message listener.",
-			"priority": "MEDIUM"
-		},
-		"camel.source.endpoint.replyTo": {
-			"name": "camel.source.endpoint.replyTo",
-			"description": "Provides an explicit ReplyTo destination, which overrides any incoming value of Message.getJMSReplyTo().",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.replyToDeliveryPersistent": {
@@ -446,6 +446,11 @@
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
 			"priority": "MEDIUM"
 		},
+		"camel.component.amqp.replyTo": {
+			"name": "camel.component.amqp.replyTo",
+			"description": "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).",
+			"priority": "MEDIUM"
+		},
 		"camel.component.amqp.testConnectionOnStartup": {
 			"name": "camel.component.amqp.testConnectionOnStartup",
 			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
@@ -490,11 +495,6 @@
 		"camel.component.amqp.maxConcurrentConsumers": {
 			"name": "camel.component.amqp.maxConcurrentConsumers",
 			"description": "Specifies the maximum number of concurrent consumers when consuming from JMS (not for request\/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads. When doing request\/reply over JMS then the option replyToMaxConcurrentConsumers is used to control number of concurrent consumers on the reply message listener.",
-			"priority": "MEDIUM"
-		},
-		"camel.component.amqp.replyTo": {
-			"name": "camel.component.amqp.replyTo",
-			"description": "Provides an explicit ReplyTo destination, which overrides any incoming value of Message.getJMSReplyTo().",
 			"priority": "MEDIUM"
 		},
 		"camel.component.amqp.replyToDeliveryPersistent": {
@@ -617,7 +617,7 @@
 			"name": "camel.component.amqp.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.amqp.configuration": {
 			"name": "camel.component.amqp.configuration",

@@ -73,7 +73,7 @@ The camel-aws-ddbstream source connector supports 47 options, which are listed b
 | *camel.component.aws-ddbstream.proxyProtocol* | To define a proxy protocol when instantiating the DDBStreams client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
 | *camel.component.aws-ddbstream.region* | The region in which DDBStreams client needs to work | null | MEDIUM
 | *camel.component.aws-ddbstream.sequenceNumber Provider* | Provider for the sequence number when using one of the two ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. | null | MEDIUM
-| *camel.component.aws-ddbstream.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-ddbstream.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-ddbstream.accessKey* | Amazon AWS Access Key | null | MEDIUM
 | *camel.component.aws-ddbstream.secretKey* | Amazon AWS Secret Key | null | MEDIUM
 |===

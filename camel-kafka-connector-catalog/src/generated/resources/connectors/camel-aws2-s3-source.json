@@ -139,7 +139,7 @@
 		},
 		"camel.source.endpoint.includeBody": {
 			"name": "camel.source.endpoint.includeBody",
-			"description": "If it is true, the exchange body will be set to a stream to the contents of the file. If false, the headers will be set with the S3 object metadata, but the body will be null. This option is strongly related to autocloseBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
+			"description": "If it is true, the S3Object exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata. This option is strongly related to autocloseBody option. In case of setting includeBody to true because the S3Object stream will be consumed then it will also be closed in case of includeBody false then it will be up to the caller to close the S3Object stream. However setting autocloseBody to true when includeBody is false it will schedule to close the S3Object stream automatically on exchange completion.",
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
@@ -180,7 +180,7 @@
 		},
 		"camel.source.endpoint.autocloseBody": {
 			"name": "camel.source.endpoint.autocloseBody",
-			"description": "If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion. This option is strongly related to includeBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
+			"description": "If this option is true and includeBody is false, then the S3Object.close() method will be called on exchange completion. This option is strongly related to includeBody option. In case of setting includeBody to false and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
@@ -431,7 +431,7 @@
 		},
 		"camel.component.aws2-s3.includeBody": {
 			"name": "camel.component.aws2-s3.includeBody",
-			"description": "If it is true, the exchange body will be set to a stream to the contents of the file. If false, the headers will be set with the S3 object metadata, but the body will be null. This option is strongly related to autocloseBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
+			"description": "If it is true, the S3Object exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata. This option is strongly related to autocloseBody option. In case of setting includeBody to true because the S3Object stream will be consumed then it will also be closed in case of includeBody false then it will be up to the caller to close the S3Object stream. However setting autocloseBody to true when includeBody is false it will schedule to close the S3Object stream automatically on exchange completion.",
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
@@ -454,7 +454,7 @@
 		},
 		"camel.component.aws2-s3.autocloseBody": {
 			"name": "camel.component.aws2-s3.autocloseBody",
-			"description": "If this option is true and includeBody is true, then the S3Object.close() method will be called on exchange completion. This option is strongly related to includeBody option. In case of setting includeBody to true and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
+			"description": "If this option is true and includeBody is false, then the S3Object.close() method will be called on exchange completion. This option is strongly related to includeBody option. In case of setting includeBody to false and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically.",
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
@@ -462,7 +462,7 @@
 			"name": "camel.component.aws2-s3.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.aws2-s3.accessKey": {
 			"name": "camel.component.aws2-s3.accessKey",

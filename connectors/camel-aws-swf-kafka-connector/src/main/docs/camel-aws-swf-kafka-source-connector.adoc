@@ -64,7 +64,7 @@ The camel-aws-swf source connector supports 43 options, which are listed below.
 | *camel.component.aws-swf.activityThreadPoolSize* | Maximum number of threads in work pool for activity. | 100 | MEDIUM
 | *camel.component.aws-swf.activityTypeExecution Options* | Activity execution options | null | MEDIUM
 | *camel.component.aws-swf.activityTypeRegistration Options* | Activity registration options | null | MEDIUM
-| *camel.component.aws-swf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
+| *camel.component.aws-swf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
 | *camel.component.aws-swf.clientConfiguration Parameters* | To configure the ClientConfiguration using the key/values from the Map. | null | MEDIUM
 | *camel.component.aws-swf.startWorkflowOptions Parameters* | To configure the StartWorkflowOptions using the key/values from the Map. | null | MEDIUM
 | *camel.component.aws-swf.sWClientParameters* | To configure the AmazonSimpleWorkflowClient using the key/values from the Map. | null | MEDIUM

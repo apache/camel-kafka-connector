@@ -45,6 +45,12 @@
 			"defaultValue": "false",
 			"priority": "MEDIUM"
 		},
+		"camel.source.endpoint.splitResult": {
+			"name": "camel.source.endpoint.splitResult",
+			"description": "When consumer return an array or collection this will generate one exchange per element, and their routes will be executed once for each exchange. Set this value to false to use a single exchange for the entire list or array.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -187,11 +193,17 @@
 			"defaultValue": "false",
 			"priority": "MEDIUM"
 		},
+		"camel.component.google-sheets.splitResult": {
+			"name": "camel.component.google-sheets.splitResult",
+			"description": "When consumer return an array or collection this will generate one exchange per element, and their routes will be executed once for each exchange. Set this value to false to use a single exchange for the entire list or array.",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
 		"camel.component.google-sheets.basicPropertyBinding": {
 			"name": "camel.component.google-sheets.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.google-sheets.clientFactory": {
 			"name": "camel.component.google-sheets.clientFactory",

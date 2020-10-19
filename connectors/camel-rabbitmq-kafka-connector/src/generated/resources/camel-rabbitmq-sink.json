@@ -136,6 +136,16 @@
 			"defaultValue": "\"\/\"",
 			"priority": "MEDIUM"
 		},
+		"camel.sink.endpoint.additionalHeaders": {
+			"name": "camel.sink.endpoint.additionalHeaders",
+			"description": "Map of additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true",
+			"priority": "MEDIUM"
+		},
+		"camel.sink.endpoint.additionalProperties": {
+			"name": "camel.sink.endpoint.additionalProperties",
+			"description": "Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties. The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored.",
+			"priority": "MEDIUM"
+		},
 		"camel.sink.endpoint.allowCustomHeaders": {
 			"name": "camel.sink.endpoint.allowCustomHeaders",
 			"description": "Allow pass custom values to header",
@@ -405,6 +415,16 @@
 			"defaultValue": "\"\/\"",
 			"priority": "MEDIUM"
 		},
+		"camel.component.rabbitmq.additionalHeaders": {
+			"name": "camel.component.rabbitmq.additionalHeaders",
+			"description": "Map of additional headers. These headers will be set only when the 'allowCustomHeaders' is set to true",
+			"priority": "MEDIUM"
+		},
+		"camel.component.rabbitmq.additionalProperties": {
+			"name": "camel.component.rabbitmq.additionalProperties",
+			"description": "Map of additional properties. These are standard RabbitMQ properties as defined in com.rabbitmq.client.AMQP.BasicProperties The map keys should be from org.apache.camel.component.rabbitmq.RabbitMQConstants. Any other keys will be ignored. When the message already contains these headers they will be given precedence over these properties.",
+			"priority": "MEDIUM"
+		},
 		"camel.component.rabbitmq.allowNullHeaders": {
 			"name": "camel.component.rabbitmq.allowNullHeaders",
 			"description": "Allow pass null values to header",
@@ -478,7 +498,7 @@
 			"name": "camel.component.rabbitmq.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.rabbitmq.clientProperties": {
 			"name": "camel.component.rabbitmq.clientProperties",

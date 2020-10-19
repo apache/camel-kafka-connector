@@ -11,12 +11,7 @@
 		"camel.source.path.apiName": {
 			"name": "camel.source.path.apiName",
 			"description": "Sets the apiName.",
-			"priority": "MEDIUM"
-		},
-		"camel.source.endpoint.accessToken": {
-			"name": "camel.source.endpoint.accessToken",
-			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
-			"priority": "MEDIUM"
+			"priority": "HIGH"
 		},
 		"camel.source.endpoint.applicationName": {
 			"name": "camel.source.endpoint.applicationName",
@@ -34,11 +29,6 @@
 			"description": "Client ID of the sheets application",
 			"priority": "MEDIUM"
 		},
-		"camel.source.endpoint.clientSecret": {
-			"name": "camel.source.endpoint.clientSecret",
-			"description": "Client secret of the sheets application",
-			"priority": "MEDIUM"
-		},
 		"camel.source.endpoint.includeGridData": {
 			"name": "camel.source.endpoint.includeGridData",
 			"description": "True if grid data should be returned.",
@@ -54,17 +44,11 @@
 		"camel.source.endpoint.maxResults": {
 			"name": "camel.source.endpoint.maxResults",
 			"description": "Specify the maximum number of returned results. This will limit the number of rows in a returned value range data set or the number of returned value ranges in a batch request.",
-			"defaultValue": "0",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.range": {
 			"name": "camel.source.endpoint.range",
 			"description": "Specifies the range of rows and columns in a sheet to get data from.",
-			"priority": "MEDIUM"
-		},
-		"camel.source.endpoint.refreshToken": {
-			"name": "camel.source.endpoint.refreshToken",
-			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"priority": "MEDIUM"
 		},
 		"camel.source.endpoint.scopes": {
@@ -201,9 +185,19 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
-		"camel.component.google-sheets-stream.accessToken": {
-			"name": "camel.component.google-sheets-stream.accessToken",
+		"camel.source.endpoint.accessToken": {
+			"name": "camel.source.endpoint.accessToken",
 			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.clientSecret": {
+			"name": "camel.source.endpoint.clientSecret",
+			"description": "Client secret of the sheets application",
+			"priority": "MEDIUM"
+		},
+		"camel.source.endpoint.refreshToken": {
+			"name": "camel.source.endpoint.refreshToken",
+			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-sheets-stream.applicationName": {
@@ -220,11 +214,6 @@
 		"camel.component.google-sheets-stream.clientId": {
 			"name": "camel.component.google-sheets-stream.clientId",
 			"description": "Client ID of the sheets application",
-			"priority": "MEDIUM"
-		},
-		"camel.component.google-sheets-stream.clientSecret": {
-			"name": "camel.component.google-sheets-stream.clientSecret",
-			"description": "Client secret of the sheets application",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-sheets-stream.configuration": {
@@ -247,17 +236,11 @@
 		"camel.component.google-sheets-stream.maxResults": {
 			"name": "camel.component.google-sheets-stream.maxResults",
 			"description": "Specify the maximum number of returned results. This will limit the number of rows in a returned value range data set or the number of returned value ranges in a batch request.",
-			"defaultValue": "0",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-sheets-stream.range": {
 			"name": "camel.component.google-sheets-stream.range",
 			"description": "Specifies the range of rows and columns in a sheet to get data from.",
-			"priority": "MEDIUM"
-		},
-		"camel.component.google-sheets-stream.refreshToken": {
-			"name": "camel.component.google-sheets-stream.refreshToken",
-			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"priority": "MEDIUM"
 		},
 		"camel.component.google-sheets-stream.scopes": {
@@ -286,11 +269,26 @@
 			"name": "camel.component.google-sheets-stream.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.google-sheets-stream.clientFactory": {
 			"name": "camel.component.google-sheets-stream.clientFactory",
 			"description": "To use the GoogleSheetsClientFactory as factory for creating the client. Will by default use BatchGoogleSheetsClientFactory",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-sheets-stream.accessToken": {
+			"name": "camel.component.google-sheets-stream.accessToken",
+			"description": "OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-sheets-stream.clientSecret": {
+			"name": "camel.component.google-sheets-stream.clientSecret",
+			"description": "Client secret of the sheets application",
+			"priority": "MEDIUM"
+		},
+		"camel.component.google-sheets-stream.refreshToken": {
+			"name": "camel.component.google-sheets-stream.refreshToken",
+			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
 			"priority": "MEDIUM"
 		}
 	}

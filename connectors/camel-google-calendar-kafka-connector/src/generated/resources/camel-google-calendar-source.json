@@ -233,7 +233,7 @@
 			"name": "camel.component.google-calendar.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.google-calendar.clientFactory": {
 			"name": "camel.component.google-calendar.clientFactory",

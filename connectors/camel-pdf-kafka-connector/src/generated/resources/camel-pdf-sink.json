@@ -22,7 +22,7 @@
 		"camel.sink.endpoint.fontSize": {
 			"name": "camel.sink.endpoint.fontSize",
 			"description": "Font size in pixels",
-			"defaultValue": "14F",
+			"defaultValue": "14.0F",
 			"priority": "MEDIUM"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
@@ -89,7 +89,7 @@
 			"name": "camel.component.pdf.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		}
 	}
 }

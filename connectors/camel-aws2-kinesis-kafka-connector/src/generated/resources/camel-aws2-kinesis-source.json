@@ -24,6 +24,12 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
+		"camel.source.endpoint.cborEnabled": {
+			"name": "camel.source.endpoint.cborEnabled",
+			"description": "This option will set the CBOR_ENABLED property during the execution",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
 		"camel.source.endpoint.proxyHost": {
 			"name": "camel.source.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the Kinesis client",
@@ -218,6 +224,12 @@
 			"defaultValue": "true",
 			"priority": "MEDIUM"
 		},
+		"camel.component.aws2-kinesis.cborEnabled": {
+			"name": "camel.component.aws2-kinesis.cborEnabled",
+			"description": "This option will set the CBOR_ENABLED property during the execution",
+			"defaultValue": "true",
+			"priority": "MEDIUM"
+		},
 		"camel.component.aws2-kinesis.configuration": {
 			"name": "camel.component.aws2-kinesis.configuration",
 			"description": "Component configuration",
@@ -288,7 +300,7 @@
 			"name": "camel.component.aws2-kinesis.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.aws2-kinesis.accessKey": {
 			"name": "camel.component.aws2-kinesis.accessKey",

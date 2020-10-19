@@ -10,7 +10,7 @@
 	"properties": {
 		"camel.sink.path.apiName": {
 			"name": "camel.sink.path.apiName",
-			"description": "What kind of operation to perform One of: [capabilities] [create] [delete] [history] [load-page] [meta] [patch] [read] [search] [transaction] [update] [validate]",
+			"description": "What kind of operation to perform One of: [CAPABILITIES] [CREATE] [DELETE] [HISTORY] [LOAD_PAGE] [META] [OPERATION] [PATCH] [READ] [SEARCH] [TRANSACTION] [UPDATE] [VALIDATE]",
 			"priority": "HIGH"
 		},
 		"camel.sink.path.methodName": {
@@ -203,7 +203,7 @@
 			"name": "camel.component.fhir.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.fhir.client": {
 			"name": "camel.component.fhir.client",

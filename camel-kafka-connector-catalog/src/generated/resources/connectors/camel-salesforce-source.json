@@ -485,7 +485,7 @@
 			"name": "camel.component.salesforce.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "LOW"
 		},
 		"camel.component.salesforce.httpProxyExcludedAddresses": {
 			"name": "camel.component.salesforce.httpProxyExcludedAddresses",
