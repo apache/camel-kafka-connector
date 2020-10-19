@@ -116,6 +116,17 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
+        <repository>
+            <id>apache.staging.camel.3.6.0</id>
+            <url>https://repository.apache.org/content/repositories/orgapachecamel-1254</url>
+            <name>apache.staging.camel.3.6.0</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -127,6 +138,17 @@
             </snapshots>
             <releases>
                 <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+        <pluginRepository>
+            <id>apache.staging.camel.3.6.0</id>
+            <url>https://repository.apache.org/content/repositories/orgapachecamel-1254</url>
+            <name>apache.staging.camel-quarkus.3.6.0</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
             </releases>
         </pluginRepository>
     </pluginRepositories>
