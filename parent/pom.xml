@@ -512,8 +512,8 @@
             </activation>
             <properties>
                 <kafka.version>2.6.0</kafka.version>
-                <itest.zookeeper.container.image>strimzi/kafka:0.20.0-rc1-kafka-2.6.0</itest.zookeeper.container.image>
-                <itest.strimzi.container.image>strimzi/kafka:0.20.0-rc1-kafka-2.6.0</itest.strimzi.container.image>
+                <itest.zookeeper.container.image>strimzi/kafka:0.20.0-rc2-kafka-2.6.0</itest.zookeeper.container.image>
+                <itest.strimzi.container.image>strimzi/kafka:0.20.0-rc2-kafka-2.6.0</itest.strimzi.container.image>
                 <kafka.instance.type>local-strimzi-container</kafka.instance.type>
             </properties>
         </profile>
