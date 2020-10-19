@@ -82,7 +82,6 @@
 - Added a camel-kafka-connector-catalog collecting all the JSON metadata [\#516](https://github.com/apache/camel-kafka-connector/pull/516) ([oscerd](https://github.com/oscerd))
 - Generate a Json Metadata file for each connector [\#512](https://github.com/apache/camel-kafka-connector/pull/512) ([oscerd](https://github.com/oscerd))
 - Opted the project in for HAcktoberfest 2020. [\#511](https://github.com/apache/camel-kafka-connector/pull/511) ([valdar](https://github.com/valdar))
-- Add an integration test for the archetype [\#510](https://github.com/apache/camel-kafka-connector/pull/510) ([cunningt](https://github.com/cunningt))
 - \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
 - Removed folder added for error and regen docs [\#504](https://github.com/apache/camel-kafka-connector/pull/504) ([oscerd](https://github.com/oscerd))
 - Throttles strimzi startup to prevent resource reuse errors [\#503](https://github.com/apache/camel-kafka-connector/pull/503) ([orpiske](https://github.com/orpiske))
