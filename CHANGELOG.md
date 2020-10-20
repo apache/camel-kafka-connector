@@ -11,6 +11,8 @@
 
 **Closed issues:**
 
+- Remove camel-hipchat from camel-master [\#603](https://github.com/apache/camel-kafka-connector/issues/603)
+- Add a file watch connector example  [\#600](https://github.com/apache/camel-kafka-connector/issues/600)
 - Camel Kafka connector extensible is broken with mvnd [\#598](https://github.com/apache/camel-kafka-connector/issues/598)
 - Rename all transformers, converters, aggregationStrategies to reflect the maning convention we have [\#590](https://github.com/apache/camel-kafka-connector/issues/590)
 - Strimzi 0.20: Lets test early with Release candidate [\#581](https://github.com/apache/camel-kafka-connector/issues/581)
@@ -27,6 +29,8 @@
 
 **Merged pull requests:**
 
+- Added Release to 0.4.4 to Camel compatibility matrix [\#614](https://github.com/apache/camel-kafka-connector/pull/614) ([oscerd](https://github.com/oscerd))
+- JDK naming Jenkinsfiles [\#610](https://github.com/apache/camel-kafka-connector/pull/610) ([oscerd](https://github.com/oscerd))
 - Apply the Strimzi next profile only to the connector build [\#608](https://github.com/apache/camel-kafka-connector/pull/608) ([orpiske](https://github.com/orpiske))
 - Reneamed a method to better understanding, added a test and javadoc a… [\#607](https://github.com/apache/camel-kafka-connector/pull/607) ([valdar](https://github.com/valdar))
 - Catalog improve [\#606](https://github.com/apache/camel-kafka-connector/pull/606) ([valdar](https://github.com/valdar))
@@ -82,6 +86,7 @@
 - Added a camel-kafka-connector-catalog collecting all the JSON metadata [\#516](https://github.com/apache/camel-kafka-connector/pull/516) ([oscerd](https://github.com/oscerd))
 - Generate a Json Metadata file for each connector [\#512](https://github.com/apache/camel-kafka-connector/pull/512) ([oscerd](https://github.com/oscerd))
 - Opted the project in for HAcktoberfest 2020. [\#511](https://github.com/apache/camel-kafka-connector/pull/511) ([valdar](https://github.com/valdar))
+- Add an integration test for the archetype [\#510](https://github.com/apache/camel-kafka-connector/pull/510) ([cunningt](https://github.com/cunningt))
 - \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
 - Removed folder added for error and regen docs [\#504](https://github.com/apache/camel-kafka-connector/pull/504) ([oscerd](https://github.com/oscerd))
 - Throttles strimzi startup to prevent resource reuse errors [\#503](https://github.com/apache/camel-kafka-connector/pull/503) ([orpiske](https://github.com/orpiske))
