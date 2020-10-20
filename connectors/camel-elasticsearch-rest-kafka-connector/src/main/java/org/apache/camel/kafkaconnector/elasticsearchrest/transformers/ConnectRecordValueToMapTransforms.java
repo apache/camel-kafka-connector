@@ -14,8 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package org.apache.camel.kafkaconnector.elasticsearch.sink.transform;
+package org.apache.camel.kafkaconnector.elasticsearchrest.transformers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +26,7 @@ import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.transforms.Transformation;
 import org.apache.kafka.connect.transforms.util.SimpleConfig;
 
-public class ConnectRecordValueToMapTransformer<R extends ConnectRecord<R>> implements Transformation<R> {
+public class ConnectRecordValueToMapTransforms<R extends ConnectRecord<R>> implements Transformation<R> {
     public static final String FIELD_KEY_CONFIG = "key";
 
     public static final ConfigDef CONFIG_DEF = new ConfigDef()
