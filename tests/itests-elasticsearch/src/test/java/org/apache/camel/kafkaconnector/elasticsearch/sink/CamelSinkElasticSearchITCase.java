@@ -146,8 +146,8 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
                     .withClusterName(ElasticSearchCommon.DEFAULT_ELASTICSEARCH_CLUSTER)
                     .withHostAddress(elasticSearch.getHttpHostAddress())
                     .withIndexName(ElasticSearchCommon.DEFAULT_ELASTICSEARCH_INDEX)
-                    .withTransformsConfig("ElasticSearchTransformer")
-                        .withEntry("type", "org.apache.camel.kafkaconnector.elasticsearch.sink.transform.ConnectRecordValueToMapTransformer")
+                    .withTransformsConfig("ElasticSearchTransforms")
+                        .withEntry("type", "org.apache.camel.kafkaconnector.elasticsearchrest.transformers.ConnectRecordValueToMapTransforms")
                         .withEntry("key", transformKey)
                         .end();
 
