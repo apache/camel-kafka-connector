@@ -196,5 +196,8 @@
 			"description": "Basic authenticate user",
 			"priority": "MEDIUM"
 		}
-	}
+	},
+	"transforms": [
+		"org.apache.camel.kafkaconnector.elasticsearchrest.transformers.ConnectRecordValueToMapTransforms"
+	]
 }

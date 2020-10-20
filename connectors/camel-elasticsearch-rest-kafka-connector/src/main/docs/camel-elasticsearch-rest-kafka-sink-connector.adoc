@@ -72,9 +72,16 @@ The camel-elasticsearch-rest sink connector has no converters out of the box.
 
 
 
-The camel-elasticsearch-rest sink connector has no transforms out of the box.
+The camel-elasticsearch-rest sink connector supports 0 transforms out of the box, which are listed below.
 
 
+
+[source,java]
+----
+
+org.apache.camel.kafkaconnector.elasticsearchrest.transformers.ConnectRecordValueToMapTransforms
+
+----
 
 
 
