@@ -11,6 +11,7 @@
 
 **Closed issues:**
 
+- Move ConnectRecordValueToMapTransformer of Elastisearch IT test in the connector [\#615](https://github.com/apache/camel-kafka-connector/issues/615)
 - Remove camel-hipchat from camel-master [\#603](https://github.com/apache/camel-kafka-connector/issues/603)
 - Add a file watch connector example  [\#600](https://github.com/apache/camel-kafka-connector/issues/600)
 - Camel Kafka connector extensible is broken with mvnd [\#598](https://github.com/apache/camel-kafka-connector/issues/598)
@@ -29,7 +30,11 @@
 
 **Merged pull requests:**
 
+- Removed Camel 3.6.0 staging repository [\#620](https://github.com/apache/camel-kafka-connector/pull/620) ([oscerd](https://github.com/oscerd))
+- Move ConnectRecordValueToMapTransformer of Elastisearch IT test in the connector [\#618](https://github.com/apache/camel-kafka-connector/pull/618) ([oscerd](https://github.com/oscerd))
+- Swap arguments so they are in the correct order: expected value, actual [\#616](https://github.com/apache/camel-kafka-connector/pull/616) ([apupier](https://github.com/apupier))
 - Added Release to 0.4.4 to Camel compatibility matrix [\#614](https://github.com/apache/camel-kafka-connector/pull/614) ([oscerd](https://github.com/oscerd))
+- Staging 3.6.0 and camel master [\#612](https://github.com/apache/camel-kafka-connector/pull/612) ([oscerd](https://github.com/oscerd))
 - JDK naming Jenkinsfiles [\#610](https://github.com/apache/camel-kafka-connector/pull/610) ([oscerd](https://github.com/oscerd))
 - Apply the Strimzi next profile only to the connector build [\#608](https://github.com/apache/camel-kafka-connector/pull/608) ([orpiske](https://github.com/orpiske))
 - Reneamed a method to better understanding, added a test and javadoc a… [\#607](https://github.com/apache/camel-kafka-connector/pull/607) ([valdar](https://github.com/valdar))
@@ -123,8 +128,6 @@
 - Cut down the connectors number [\#445](https://github.com/apache/camel-kafka-connector/pull/445) ([oscerd](https://github.com/oscerd))
 - Transformers package renaming [\#444](https://github.com/apache/camel-kafka-connector/pull/444) ([oscerd](https://github.com/oscerd))
 - Define a default naming for converters, transforms and aggregation packages [\#443](https://github.com/apache/camel-kafka-connector/pull/443) ([oscerd](https://github.com/oscerd))
-- Remove useless connector [\#441](https://github.com/apache/camel-kafka-connector/pull/441) ([oscerd](https://github.com/oscerd))
-- AWS SQS tests w/ SDK v2 [\#438](https://github.com/apache/camel-kafka-connector/pull/438) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.4.4](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.4) (2020-10-10)
 
