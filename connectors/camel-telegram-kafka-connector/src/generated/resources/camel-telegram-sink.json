@@ -11,100 +11,118 @@
 		"camel.sink.path.type": {
 			"name": "camel.sink.path.type",
 			"description": "The endpoint type. Currently, only the 'bots' type is supported. One of: [bots]",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.chatId": {
 			"name": "camel.sink.endpoint.chatId",
 			"description": "The identifier of the chat that will receive the produced messages. Chat ids can be first obtained from incoming messages (eg. when a telegram user starts a conversation with a bot, its client sends automatically a '\/start' message containing the chat id). It is an optional parameter, as the chat id can be set dynamically for each outgoing message (using body or headers).",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.baseUri": {
 			"name": "camel.sink.endpoint.baseUri",
 			"description": "Can be used to set an alternative base URI, e.g. when you want to test the component against a mock Telegram API",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.bufferSize": {
 			"name": "camel.sink.endpoint.bufferSize",
 			"description": "The initial in-memory buffer size used when transferring data between Camel and AHC Client.",
 			"defaultValue": "4096",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.clientConfig": {
 			"name": "camel.sink.endpoint.clientConfig",
 			"description": "To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "HTTP proxy host which could be used when sending out the message.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "HTTP proxy port which could be used when sending out the message.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyType": {
 			"name": "camel.sink.endpoint.proxyType",
 			"description": "HTTP proxy type which could be used when sending out the message. One of: [HTTP] [SOCKS4] [SOCKS5]",
 			"defaultValue": "\"HTTP\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.authorizationToken": {
 			"name": "camel.sink.endpoint.authorizationToken",
 			"description": "The authorization token for using the bot (ask the BotFather)",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.component.telegram.lazyStartProducer": {
 			"name": "camel.component.telegram.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.telegram.baseUri": {
 			"name": "camel.component.telegram.baseUri",
 			"description": "Can be used to set an alternative base URI, e.g. when you want to test the component against a mock Telegram API",
 			"defaultValue": "\"https:\/\/api.telegram.org\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.telegram.basicPropertyBinding": {
 			"name": "camel.component.telegram.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.telegram.client": {
 			"name": "camel.component.telegram.client",
 			"description": "To use a custom AsyncHttpClient",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.telegram.clientConfig": {
 			"name": "camel.component.telegram.clientConfig",
 			"description": "To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.telegram.authorizationToken": {
 			"name": "camel.component.telegram.authorizationToken",
 			"description": "The default Telegram authorization token to be used when the information is not provided in the endpoints.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

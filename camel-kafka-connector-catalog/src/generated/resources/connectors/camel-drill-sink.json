@@ -11,59 +11,69 @@
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Host name or IP address",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.clusterId": {
 			"name": "camel.sink.endpoint.clusterId",
 			"description": "Cluster ID https:\/\/drill.apache.org\/docs\/using-the-jdbc-driver\/#determining-the-cluster-id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.directory": {
 			"name": "camel.sink.endpoint.directory",
 			"description": "Drill directory",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.mode": {
 			"name": "camel.sink.endpoint.mode",
 			"description": "Connection mode: zk: Zookeeper drillbit: Drillbit direct connection https:\/\/drill.apache.org\/docs\/using-the-jdbc-driver\/ One of: [ZK] [DRILLBIT]",
 			"defaultValue": "\"ZK\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.port": {
 			"name": "camel.sink.endpoint.port",
 			"description": "Port number",
 			"defaultValue": "\"2181\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.drill.lazyStartProducer": {
 			"name": "camel.component.drill.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.drill.basicPropertyBinding": {
 			"name": "camel.component.drill.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		}
 	}
 }

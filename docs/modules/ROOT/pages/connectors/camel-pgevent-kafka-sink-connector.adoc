@@ -26,21 +26,21 @@ The camel-pgevent sink connector supports 12 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.host* | To connect using hostname and port to the database. | "localhost" | MEDIUM
-| *camel.sink.path.port* | To connect using hostname and port to the database. | "5432" | MEDIUM
-| *camel.sink.path.database* | The database name. The database name can take any characters because it is sent as a quoted identifier. It is part of the endpoint URI, so diacritical marks and non-Latin letters have to be URL encoded. | null | HIGH
-| *camel.sink.path.channel* | The channel name | null | HIGH
-| *camel.sink.endpoint.datasource* | To connect using the given javax.sql.DataSource instead of using hostname and port. | null | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.pass* | Password for login | null | MEDIUM
-| *camel.sink.endpoint.user* | Username for login | "postgres" | MEDIUM
-| *camel.component.pgevent.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.pgevent.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.host* | To connect using hostname and port to the database. | "localhost" | false | MEDIUM
+| *camel.sink.path.port* | To connect using hostname and port to the database. | "5432" | false | MEDIUM
+| *camel.sink.path.database* | The database name. The database name can take any characters because it is sent as a quoted identifier. It is part of the endpoint URI, so diacritical marks and non-Latin letters have to be URL encoded. | null | true | HIGH
+| *camel.sink.path.channel* | The channel name | null | true | HIGH
+| *camel.sink.endpoint.datasource* | To connect using the given javax.sql.DataSource instead of using hostname and port. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.pass* | Password for login | null | false | MEDIUM
+| *camel.sink.endpoint.user* | Username for login | "postgres" | false | MEDIUM
+| *camel.component.pgevent.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.pgevent.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

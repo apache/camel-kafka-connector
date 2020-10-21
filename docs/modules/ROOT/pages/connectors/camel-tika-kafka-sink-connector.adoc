@@ -26,19 +26,19 @@ The camel-tika sink connector supports 10 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.operation* | Operation type One of: [parse] [detect] | null | HIGH
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.tikaConfig* | Tika Config | null | MEDIUM
-| *camel.sink.endpoint.tikaConfigUri* | Tika Config Url | null | MEDIUM
-| *camel.sink.endpoint.tikaParseOutputEncoding* | Tika Parse Output Encoding | null | MEDIUM
-| *camel.sink.endpoint.tikaParseOutputFormat* | Tika Output Format. Supported output formats. xml: Returns Parsed Content as XML. html: Returns Parsed Content as HTML. text: Returns Parsed Content as Text. textMain: Uses the boilerpipe library to automatically extract the main content from a web page. One of: [xml] [html] [text] [textMain] | "xml" | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.tika.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.tika.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.operation* | Operation type One of: [parse] [detect] | null | true | HIGH
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.tikaConfig* | Tika Config | null | false | MEDIUM
+| *camel.sink.endpoint.tikaConfigUri* | Tika Config Url | null | false | MEDIUM
+| *camel.sink.endpoint.tikaParseOutputEncoding* | Tika Parse Output Encoding | null | false | MEDIUM
+| *camel.sink.endpoint.tikaParseOutputFormat* | Tika Output Format. Supported output formats. xml: Returns Parsed Content as XML. html: Returns Parsed Content as HTML. text: Returns Parsed Content as Text. textMain: Uses the boilerpipe library to automatically extract the main content from a web page. One of: [xml] [html] [text] [textMain] | "xml" | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.tika.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.tika.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

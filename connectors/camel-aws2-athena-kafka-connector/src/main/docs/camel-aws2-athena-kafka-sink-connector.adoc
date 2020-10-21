@@ -26,70 +26,70 @@ The camel-aws2-athena sink connector supports 61 options, which are listed below
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.label* | Logical name | null | HIGH
-| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
-| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key. | null | MEDIUM
-| *camel.sink.endpoint.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | MEDIUM
-| *camel.sink.endpoint.database* | The Athena database to use. | null | MEDIUM
-| *camel.sink.endpoint.delay* | Milliseconds before the next poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 2000L | MEDIUM
-| *camel.sink.endpoint.encryptionOption* | The encryption type to use when storing query results in S3. One of SSE_S3, SSE_KMS, or CSE_KMS. One of: [SSE_S3] [SSE_KMS] [CSE_KMS] [null] | null | MEDIUM
-| *camel.sink.endpoint.includeTrace* | Include useful trace information at the beginning of queries as an SQL comment (prefixed with --). | false | MEDIUM
-| *camel.sink.endpoint.initialDelay* | Milliseconds before the first poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 1000L | MEDIUM
-| *camel.sink.endpoint.kmsKey* | For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID. | null | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.maxAttempts* | Maximum number of times to attempt a query. Set to 1 to disable retries. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 1 | MEDIUM
-| *camel.sink.endpoint.maxResults* | Max number of results to return for the given operation (if supported by the Athena API endpoint). If not set, will use the Athena API default for the given operation. | null | MEDIUM
-| *camel.sink.endpoint.nextToken* | Pagination token to use in the case where the response from the previous request was truncated. | null | MEDIUM
-| *camel.sink.endpoint.operation* | The Athena API function to call. One of: [getQueryExecution] [getQueryResults] [listQueryExecutions] [startQueryExecution] | "startQueryExecution" | MEDIUM
-| *camel.sink.endpoint.outputLocation* | The location in Amazon S3 where query results are stored, such as s3://path/to/query/bucket/. Ensure this value ends with a forward slash ('/'). | null | MEDIUM
-| *camel.sink.endpoint.outputType* | How query results should be returned. One of StreamList (default - return a GetQueryResultsIterable that can page through all results), SelectList (returns at most 1,000 rows at a time, plus a NextToken value as a header than can be used for manual pagination of results), S3Pointer (return an S3 path pointing to the results). One of: [StreamList] [SelectList] [S3Pointer] | "StreamList" | MEDIUM
-| *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the Athena client. | null | MEDIUM
-| *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the Athena client. | null | MEDIUM
-| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Athena client. One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
-| *camel.sink.endpoint.queryExecutionId* | The unique ID identifying the query execution. | null | MEDIUM
-| *camel.sink.endpoint.queryString* | The SQL query to run. Except for simple queries, prefer setting this as the body of the Exchange or as a header using Athena2Constants.QUERY_STRING to avoid having to deal with URL encoding issues. | null | MEDIUM
-| *camel.sink.endpoint.region* | The region in which Athena client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1). You'll need to use the name Region.EU_WEST_1.id(). | null | MEDIUM
-| *camel.sink.endpoint.resetWaitTimeoutOnRetry* | Reset the waitTimeout countdown in the event of a query retry. If set to true, potential max time spent waiting for queries is equal to waitTimeout x maxAttempts. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | true | MEDIUM
-| *camel.sink.endpoint.retry* | Optional comma separated list of error types to retry the query for. Use 'retryable' to retry all retryable failure conditions (e.g. generic errors and resources exhausted), 'generic' to retry 'GENERIC_INTERNAL_ERROR' failures, 'exhausted' to retry queries that have exhausted resource limits, 'always' to always retry regardless of failure condition, or 'never' or null to never retry (default). See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. One of: [never] [always] [retryable] [exhausted] [generic] | "never" | MEDIUM
-| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key. | null | MEDIUM
-| *camel.sink.endpoint.waitTimeout* | Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 0L | MEDIUM
-| *camel.sink.endpoint.workGroup* | The workgroup to use for running the query. | null | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.aws2-athena.accessKey* | Amazon AWS Access Key. | null | MEDIUM
-| *camel.component.aws2-athena.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | MEDIUM
-| *camel.component.aws2-athena.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | MEDIUM
-| *camel.component.aws2-athena.configuration* | The component configuration. | null | MEDIUM
-| *camel.component.aws2-athena.database* | The Athena database to use. | null | MEDIUM
-| *camel.component.aws2-athena.delay* | Milliseconds before the next poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 2000L | MEDIUM
-| *camel.component.aws2-athena.encryptionOption* | The encryption type to use when storing query results in S3. One of SSE_S3, SSE_KMS, or CSE_KMS. One of: [SSE_S3] [SSE_KMS] [CSE_KMS] [null] | null | MEDIUM
-| *camel.component.aws2-athena.includeTrace* | Include useful trace information at the beginning of queries as an SQL comment (prefixed with --). | false | MEDIUM
-| *camel.component.aws2-athena.initialDelay* | Milliseconds before the first poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 1000L | MEDIUM
-| *camel.component.aws2-athena.kmsKey* | For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID. | null | MEDIUM
-| *camel.component.aws2-athena.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.aws2-athena.maxAttempts* | Maximum number of times to attempt a query. Set to 1 to disable retries. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 1 | MEDIUM
-| *camel.component.aws2-athena.maxResults* | Max number of results to return for the given operation (if supported by the Athena API endpoint). If not set, will use the Athena API default for the given operation. | null | MEDIUM
-| *camel.component.aws2-athena.nextToken* | Pagination token to use in the case where the response from the previous request was truncated. | null | MEDIUM
-| *camel.component.aws2-athena.operation* | The Athena API function to call. One of: [getQueryExecution] [getQueryResults] [listQueryExecutions] [startQueryExecution] | "startQueryExecution" | MEDIUM
-| *camel.component.aws2-athena.outputLocation* | The location in Amazon S3 where query results are stored, such as s3://path/to/query/bucket/. Ensure this value ends with a forward slash ('/'). | null | MEDIUM
-| *camel.component.aws2-athena.outputType* | How query results should be returned. One of StreamList (default - return a GetQueryResultsIterable that can page through all results), SelectList (returns at most 1,000 rows at a time, plus a NextToken value as a header than can be used for manual pagination of results), S3Pointer (return an S3 path pointing to the results). One of: [StreamList] [SelectList] [S3Pointer] | "StreamList" | MEDIUM
-| *camel.component.aws2-athena.proxyHost* | To define a proxy host when instantiating the Athena client. | null | MEDIUM
-| *camel.component.aws2-athena.proxyPort* | To define a proxy port when instantiating the Athena client. | null | MEDIUM
-| *camel.component.aws2-athena.proxyProtocol* | To define a proxy protocol when instantiating the Athena client. One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
-| *camel.component.aws2-athena.queryExecutionId* | The unique ID identifying the query execution. | null | MEDIUM
-| *camel.component.aws2-athena.queryString* | The SQL query to run. Except for simple queries, prefer setting this as the body of the Exchange or as a header using Athena2Constants.QUERY_STRING to avoid having to deal with URL encoding issues. | null | MEDIUM
-| *camel.component.aws2-athena.region* | The region in which Athena client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1). You'll need to use the name Region.EU_WEST_1.id(). | null | MEDIUM
-| *camel.component.aws2-athena.resetWaitTimeoutOn Retry* | Reset the waitTimeout countdown in the event of a query retry. If set to true, potential max time spent waiting for queries is equal to waitTimeout x maxAttempts. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | true | MEDIUM
-| *camel.component.aws2-athena.retry* | Optional comma separated list of error types to retry the query for. Use 'retryable' to retry all retryable failure conditions (e.g. generic errors and resources exhausted), 'generic' to retry 'GENERIC_INTERNAL_ERROR' failures, 'exhausted' to retry queries that have exhausted resource limits, 'always' to always retry regardless of failure condition, or 'never' or null to never retry (default). See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. One of: [never] [always] [retryable] [exhausted] [generic] | "never" | MEDIUM
-| *camel.component.aws2-athena.secretKey* | Amazon AWS Secret Key. | null | MEDIUM
-| *camel.component.aws2-athena.waitTimeout* | Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 0L | MEDIUM
-| *camel.component.aws2-athena.workGroup* | The workgroup to use for running the query. | null | MEDIUM
-| *camel.component.aws2-athena.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.aws2-athena.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.label* | Logical name | null | true | HIGH
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | false | MEDIUM
+| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key. | null | false | MEDIUM
+| *camel.sink.endpoint.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | false | MEDIUM
+| *camel.sink.endpoint.database* | The Athena database to use. | null | false | MEDIUM
+| *camel.sink.endpoint.delay* | Milliseconds before the next poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 2000L | false | MEDIUM
+| *camel.sink.endpoint.encryptionOption* | The encryption type to use when storing query results in S3. One of SSE_S3, SSE_KMS, or CSE_KMS. One of: [SSE_S3] [SSE_KMS] [CSE_KMS] [null] | null | false | MEDIUM
+| *camel.sink.endpoint.includeTrace* | Include useful trace information at the beginning of queries as an SQL comment (prefixed with --). | false | false | MEDIUM
+| *camel.sink.endpoint.initialDelay* | Milliseconds before the first poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 1000L | false | MEDIUM
+| *camel.sink.endpoint.kmsKey* | For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.maxAttempts* | Maximum number of times to attempt a query. Set to 1 to disable retries. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 1 | false | MEDIUM
+| *camel.sink.endpoint.maxResults* | Max number of results to return for the given operation (if supported by the Athena API endpoint). If not set, will use the Athena API default for the given operation. | null | false | MEDIUM
+| *camel.sink.endpoint.nextToken* | Pagination token to use in the case where the response from the previous request was truncated. | null | false | MEDIUM
+| *camel.sink.endpoint.operation* | The Athena API function to call. One of: [getQueryExecution] [getQueryResults] [listQueryExecutions] [startQueryExecution] | "startQueryExecution" | false | MEDIUM
+| *camel.sink.endpoint.outputLocation* | The location in Amazon S3 where query results are stored, such as s3://path/to/query/bucket/. Ensure this value ends with a forward slash ('/'). | null | false | MEDIUM
+| *camel.sink.endpoint.outputType* | How query results should be returned. One of StreamList (default - return a GetQueryResultsIterable that can page through all results), SelectList (returns at most 1,000 rows at a time, plus a NextToken value as a header than can be used for manual pagination of results), S3Pointer (return an S3 path pointing to the results). One of: [StreamList] [SelectList] [S3Pointer] | "StreamList" | false | MEDIUM
+| *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the Athena client. | null | false | MEDIUM
+| *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the Athena client. | null | false | MEDIUM
+| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Athena client. One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
+| *camel.sink.endpoint.queryExecutionId* | The unique ID identifying the query execution. | null | false | MEDIUM
+| *camel.sink.endpoint.queryString* | The SQL query to run. Except for simple queries, prefer setting this as the body of the Exchange or as a header using Athena2Constants.QUERY_STRING to avoid having to deal with URL encoding issues. | null | false | MEDIUM
+| *camel.sink.endpoint.region* | The region in which Athena client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1). You'll need to use the name Region.EU_WEST_1.id(). | null | false | MEDIUM
+| *camel.sink.endpoint.resetWaitTimeoutOnRetry* | Reset the waitTimeout countdown in the event of a query retry. If set to true, potential max time spent waiting for queries is equal to waitTimeout x maxAttempts. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | true | false | MEDIUM
+| *camel.sink.endpoint.retry* | Optional comma separated list of error types to retry the query for. Use 'retryable' to retry all retryable failure conditions (e.g. generic errors and resources exhausted), 'generic' to retry 'GENERIC_INTERNAL_ERROR' failures, 'exhausted' to retry queries that have exhausted resource limits, 'always' to always retry regardless of failure condition, or 'never' or null to never retry (default). See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. One of: [never] [always] [retryable] [exhausted] [generic] | "never" | false | MEDIUM
+| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key. | null | false | MEDIUM
+| *camel.sink.endpoint.waitTimeout* | Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 0L | false | MEDIUM
+| *camel.sink.endpoint.workGroup* | The workgroup to use for running the query. | null | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.aws2-athena.accessKey* | Amazon AWS Access Key. | null | false | MEDIUM
+| *camel.component.aws2-athena.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | false | MEDIUM
+| *camel.component.aws2-athena.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | false | MEDIUM
+| *camel.component.aws2-athena.configuration* | The component configuration. | null | false | MEDIUM
+| *camel.component.aws2-athena.database* | The Athena database to use. | null | false | MEDIUM
+| *camel.component.aws2-athena.delay* | Milliseconds before the next poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 2000L | false | MEDIUM
+| *camel.component.aws2-athena.encryptionOption* | The encryption type to use when storing query results in S3. One of SSE_S3, SSE_KMS, or CSE_KMS. One of: [SSE_S3] [SSE_KMS] [CSE_KMS] [null] | null | false | MEDIUM
+| *camel.component.aws2-athena.includeTrace* | Include useful trace information at the beginning of queries as an SQL comment (prefixed with --). | false | false | MEDIUM
+| *camel.component.aws2-athena.initialDelay* | Milliseconds before the first poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 1000L | false | MEDIUM
+| *camel.component.aws2-athena.kmsKey* | For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID. | null | false | MEDIUM
+| *camel.component.aws2-athena.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.aws2-athena.maxAttempts* | Maximum number of times to attempt a query. Set to 1 to disable retries. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 1 | false | MEDIUM
+| *camel.component.aws2-athena.maxResults* | Max number of results to return for the given operation (if supported by the Athena API endpoint). If not set, will use the Athena API default for the given operation. | null | false | MEDIUM
+| *camel.component.aws2-athena.nextToken* | Pagination token to use in the case where the response from the previous request was truncated. | null | false | MEDIUM
+| *camel.component.aws2-athena.operation* | The Athena API function to call. One of: [getQueryExecution] [getQueryResults] [listQueryExecutions] [startQueryExecution] | "startQueryExecution" | false | MEDIUM
+| *camel.component.aws2-athena.outputLocation* | The location in Amazon S3 where query results are stored, such as s3://path/to/query/bucket/. Ensure this value ends with a forward slash ('/'). | null | false | MEDIUM
+| *camel.component.aws2-athena.outputType* | How query results should be returned. One of StreamList (default - return a GetQueryResultsIterable that can page through all results), SelectList (returns at most 1,000 rows at a time, plus a NextToken value as a header than can be used for manual pagination of results), S3Pointer (return an S3 path pointing to the results). One of: [StreamList] [SelectList] [S3Pointer] | "StreamList" | false | MEDIUM
+| *camel.component.aws2-athena.proxyHost* | To define a proxy host when instantiating the Athena client. | null | false | MEDIUM
+| *camel.component.aws2-athena.proxyPort* | To define a proxy port when instantiating the Athena client. | null | false | MEDIUM
+| *camel.component.aws2-athena.proxyProtocol* | To define a proxy protocol when instantiating the Athena client. One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
+| *camel.component.aws2-athena.queryExecutionId* | The unique ID identifying the query execution. | null | false | MEDIUM
+| *camel.component.aws2-athena.queryString* | The SQL query to run. Except for simple queries, prefer setting this as the body of the Exchange or as a header using Athena2Constants.QUERY_STRING to avoid having to deal with URL encoding issues. | null | false | MEDIUM
+| *camel.component.aws2-athena.region* | The region in which Athena client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1). You'll need to use the name Region.EU_WEST_1.id(). | null | false | MEDIUM
+| *camel.component.aws2-athena.resetWaitTimeoutOn Retry* | Reset the waitTimeout countdown in the event of a query retry. If set to true, potential max time spent waiting for queries is equal to waitTimeout x maxAttempts. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | true | false | MEDIUM
+| *camel.component.aws2-athena.retry* | Optional comma separated list of error types to retry the query for. Use 'retryable' to retry all retryable failure conditions (e.g. generic errors and resources exhausted), 'generic' to retry 'GENERIC_INTERNAL_ERROR' failures, 'exhausted' to retry queries that have exhausted resource limits, 'always' to always retry regardless of failure condition, or 'never' or null to never retry (default). See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. One of: [never] [always] [retryable] [exhausted] [generic] | "never" | false | MEDIUM
+| *camel.component.aws2-athena.secretKey* | Amazon AWS Secret Key. | null | false | MEDIUM
+| *camel.component.aws2-athena.waitTimeout* | Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 0L | false | MEDIUM
+| *camel.component.aws2-athena.workGroup* | The workgroup to use for running the query. | null | false | MEDIUM
+| *camel.component.aws2-athena.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws2-athena.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | false | MEDIUM
 |===
 
 

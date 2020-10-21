@@ -24,6 +24,7 @@ public class CamelKafkaConnectorOptionModel {
     private String priority;
     private String name;
     private String defaultValue;
+    private String required;
 
     public String getName() {
         return name;
@@ -62,4 +63,12 @@ public class CamelKafkaConnectorOptionModel {
         // ensure the option name starts with lower-case
         return Character.toLowerCase(text.charAt(0)) + text.substring(1);
     }
+
+	public String getRequired() {
+		return required;
+	}
+
+	public void setRequired(String required) {
+		this.required = required;
+	}
 }

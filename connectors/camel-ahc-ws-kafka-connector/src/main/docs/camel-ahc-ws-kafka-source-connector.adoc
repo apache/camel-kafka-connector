@@ -26,35 +26,35 @@ The camel-ahc-ws source connector supports 26 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.httpUri* | The URI to use such as \http://hostname:port/path | null | HIGH
-| *camel.source.endpoint.bridgeEndpoint* | If the option is true, then the Exchange.HTTP_URI header is ignored, and use the endpoint's URI for request. You may also set the throwExceptionOnFailure to be false to let the AhcProducer send all the fault response back. | false | MEDIUM
-| *camel.source.endpoint.bufferSize* | The initial in-memory buffer size used when transferring data between Camel and AHC Client. | 4096 | MEDIUM
-| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
-| *camel.source.endpoint.throwExceptionOnFailure* | Option to disable throwing the AhcOperationFailedException in case of failed responses from the remote server. This allows you to get all responses regardless of the HTTP status code. | true | MEDIUM
-| *camel.source.endpoint.transferException* | If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type (for example using Jetty or Servlet Camel components). On the producer side the exception will be deserialized and thrown as is, instead of the AhcOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.sendMessageOnError* | Whether to send an message if the web-socket listener received an error. | false | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.binding* | To use a custom AhcBinding which allows to control how to bind between AHC and Camel. | null | MEDIUM
-| *camel.source.endpoint.clientConfig* | To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance. | null | MEDIUM
-| *camel.source.endpoint.clientConfigOptions* | To configure the AsyncHttpClientConfig using the key/values from the Map. | null | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.clientConfigRealmOptions* | To configure the AsyncHttpClientConfig Realm using the key/values from the Map. | null | MEDIUM
-| *camel.source.endpoint.sslContextParameters* | Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. See Using the JSSE Configuration Utility. Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level. | null | MEDIUM
-| *camel.component.ahc-ws.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.ahc-ws.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | MEDIUM
-| *camel.component.ahc-ws.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.ahc-ws.binding* | To use a custom AhcBinding which allows to control how to bind between AHC and Camel. | null | MEDIUM
-| *camel.component.ahc-ws.client* | To use a custom AsyncHttpClient | null | MEDIUM
-| *camel.component.ahc-ws.clientConfig* | To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance. | null | MEDIUM
-| *camel.component.ahc-ws.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | MEDIUM
-| *camel.component.ahc-ws.sslContextParameters* | Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level. | null | MEDIUM
-| *camel.component.ahc-ws.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.source.path.httpUri* | The URI to use such as \http://hostname:port/path | null | true | HIGH
+| *camel.source.endpoint.bridgeEndpoint* | If the option is true, then the Exchange.HTTP_URI header is ignored, and use the endpoint's URI for request. You may also set the throwExceptionOnFailure to be false to let the AhcProducer send all the fault response back. | false | false | MEDIUM
+| *camel.source.endpoint.bufferSize* | The initial in-memory buffer size used when transferring data between Camel and AHC Client. | 4096 | false | MEDIUM
+| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
+| *camel.source.endpoint.throwExceptionOnFailure* | Option to disable throwing the AhcOperationFailedException in case of failed responses from the remote server. This allows you to get all responses regardless of the HTTP status code. | true | false | MEDIUM
+| *camel.source.endpoint.transferException* | If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type (for example using Jetty or Servlet Camel components). On the producer side the exception will be deserialized and thrown as is, instead of the AhcOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.sendMessageOnError* | Whether to send an message if the web-socket listener received an error. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.binding* | To use a custom AhcBinding which allows to control how to bind between AHC and Camel. | null | false | MEDIUM
+| *camel.source.endpoint.clientConfig* | To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance. | null | false | MEDIUM
+| *camel.source.endpoint.clientConfigOptions* | To configure the AsyncHttpClientConfig using the key/values from the Map. | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.clientConfigRealmOptions* | To configure the AsyncHttpClientConfig Realm using the key/values from the Map. | null | false | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. See Using the JSSE Configuration Utility. Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level. | null | false | MEDIUM
+| *camel.component.ahc-ws.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.ahc-ws.allowJavaSerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
+| *camel.component.ahc-ws.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.ahc-ws.binding* | To use a custom AhcBinding which allows to control how to bind between AHC and Camel. | null | false | MEDIUM
+| *camel.component.ahc-ws.client* | To use a custom AsyncHttpClient | null | false | MEDIUM
+| *camel.component.ahc-ws.clientConfig* | To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance. | null | false | MEDIUM
+| *camel.component.ahc-ws.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
+| *camel.component.ahc-ws.sslContextParameters* | Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level. | null | false | MEDIUM
+| *camel.component.ahc-ws.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
 |===
 
 

@@ -11,52 +11,61 @@
 		"camel.sink.path.eventBusRef": {
 			"name": "camel.sink.path.eventBusRef",
 			"description": "To lookup the Guava EventBus from the registry with the given name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.eventClass": {
 			"name": "camel.sink.endpoint.eventClass",
 			"description": "If used on the consumer side of the route, will filter events received from the EventBus to the instances of the class and superclasses of eventClass. Null value of this option is equal to setting it to the java.lang.Object i.e. the consumer will capture all messages incoming to the event bus. This option cannot be used together with listenerInterface option.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.listenerInterface": {
 			"name": "camel.sink.endpoint.listenerInterface",
 			"description": "The interface with method(s) marked with the Subscribe annotation. Dynamic proxy will be created over the interface so it could be registered as the EventBus listener. Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.guava-eventbus.eventBus": {
 			"name": "camel.component.guava-eventbus.eventBus",
 			"description": "To use the given Guava EventBus instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.guava-eventbus.lazyStartProducer": {
 			"name": "camel.component.guava-eventbus.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.guava-eventbus.basicPropertyBinding": {
 			"name": "camel.component.guava-eventbus.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		}
 	}
 }

@@ -11,177 +11,211 @@
 		"camel.source.path.connectionURL": {
 			"name": "camel.source.path.connectionURL",
 			"description": "The URL to the jBPM server.",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.path.eventListenerType": {
 			"name": "camel.source.path.eventListenerType",
 			"description": "Sets the event listener type to attach to",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.attachmentId": {
 			"name": "camel.source.endpoint.attachmentId",
 			"description": "attachId to use when retrieving attachments",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.contentId": {
 			"name": "camel.source.endpoint.contentId",
 			"description": "contentId to use when retrieving attachments",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.deploymentId": {
 			"name": "camel.source.endpoint.deploymentId",
 			"description": "The id of the deployment",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.emitterSendItems": {
 			"name": "camel.source.endpoint.emitterSendItems",
 			"description": "Sets if event produced by emitter should be sent as single items or complete collection",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.event": {
 			"name": "camel.source.endpoint.event",
 			"description": "the data associated with this event when signalEvent operation is performed",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.eventType": {
 			"name": "camel.source.endpoint.eventType",
 			"description": "the type of event to use when signalEvent operation is performed",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.identifier": {
 			"name": "camel.source.endpoint.identifier",
 			"description": "identifier the global identifier",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.maxNumber": {
 			"name": "camel.source.endpoint.maxNumber",
 			"description": "the maximum number of rules that should be fired",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.page": {
 			"name": "camel.source.endpoint.page",
 			"description": "The page to use when retrieving user tasks",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.pageSize": {
 			"name": "camel.source.endpoint.pageSize",
 			"description": "The page size to use when retrieving user tasks",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.processId": {
 			"name": "camel.source.endpoint.processId",
 			"description": "the id of the process that should be acted upon",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.processInstanceId": {
 			"name": "camel.source.endpoint.processInstanceId",
 			"description": "the id of the process instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.targetUserId": {
 			"name": "camel.source.endpoint.targetUserId",
 			"description": "The targetUserId used when delegating a task",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.task": {
 			"name": "camel.source.endpoint.task",
 			"description": "The task instance to use with task operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.taskId": {
 			"name": "camel.source.endpoint.taskId",
 			"description": "the id of the task",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.timeout": {
 			"name": "camel.source.endpoint.timeout",
 			"description": "A timeout value",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.userId": {
 			"name": "camel.source.endpoint.userId",
 			"description": "userId to use with task operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.value": {
 			"name": "camel.source.endpoint.value",
 			"description": "the value to assign to the global identifier",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.workItemId": {
 			"name": "camel.source.endpoint.workItemId",
 			"description": "the id of the work item",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.entities": {
 			"name": "camel.source.endpoint.entities",
 			"description": "The potentialOwners when nominateTask operation is performed",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.extraJaxbClasses": {
 			"name": "camel.source.endpoint.extraJaxbClasses",
 			"description": "To load additional classes when working with XML",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.parameters": {
 			"name": "camel.source.endpoint.parameters",
 			"description": "the variables that should be set for various operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.statuses": {
 			"name": "camel.source.endpoint.statuses",
 			"description": "The list of status to use when filtering tasks",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "Password for authentication",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.userName": {
 			"name": "camel.source.endpoint.userName",
 			"description": "Username for authentication",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jbpm.bridgeErrorHandler": {
 			"name": "camel.component.jbpm.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jbpm.basicPropertyBinding": {
 			"name": "camel.component.jbpm.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		}
 	}
 }

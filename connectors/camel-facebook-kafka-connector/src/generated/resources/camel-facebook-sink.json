@@ -11,701 +11,833 @@
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What operation to perform",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.achievementURL": {
 			"name": "camel.sink.endpoint.achievementURL",
 			"description": "The unique URL of the achievement",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.albumId": {
 			"name": "camel.sink.endpoint.albumId",
 			"description": "The album ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.albumUpdate": {
 			"name": "camel.sink.endpoint.albumUpdate",
 			"description": "The facebook Album to be created or updated",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.appId": {
 			"name": "camel.sink.endpoint.appId",
 			"description": "The ID of the Facebook Application",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.center": {
 			"name": "camel.sink.endpoint.center",
 			"description": "Location latitude and longitude",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.checkinId": {
 			"name": "camel.sink.endpoint.checkinId",
 			"description": "The checkin ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.checkinUpdate": {
 			"name": "camel.sink.endpoint.checkinUpdate",
 			"description": "The checkin to be created. Deprecated, instead create a Post with an attached location",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.sink.endpoint.clientURL": {
 			"name": "camel.sink.endpoint.clientURL",
 			"description": "Facebook4J API client URL",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.clientVersion": {
 			"name": "camel.sink.endpoint.clientVersion",
 			"description": "Facebook4J client API version",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.commentId": {
 			"name": "camel.sink.endpoint.commentId",
 			"description": "The comment ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.commentUpdate": {
 			"name": "camel.sink.endpoint.commentUpdate",
 			"description": "The facebook Comment to be created or updated",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.debugEnabled": {
 			"name": "camel.sink.endpoint.debugEnabled",
 			"description": "Enables deubg output. Effective only with the embedded logger",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.description": {
 			"name": "camel.sink.endpoint.description",
 			"description": "The description text",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.distance": {
 			"name": "camel.sink.endpoint.distance",
 			"description": "Distance in meters",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.domainId": {
 			"name": "camel.sink.endpoint.domainId",
 			"description": "The domain ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.domainName": {
 			"name": "camel.sink.endpoint.domainName",
 			"description": "The domain name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.domainNames": {
 			"name": "camel.sink.endpoint.domainNames",
 			"description": "The domain names",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.eventId": {
 			"name": "camel.sink.endpoint.eventId",
 			"description": "The event ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.eventUpdate": {
 			"name": "camel.sink.endpoint.eventUpdate",
 			"description": "The event to be created or updated",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.friendId": {
 			"name": "camel.sink.endpoint.friendId",
 			"description": "The friend ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.friendlistId": {
 			"name": "camel.sink.endpoint.friendlistId",
 			"description": "The friend list ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.friendlistName": {
 			"name": "camel.sink.endpoint.friendlistName",
 			"description": "The friend list Name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.friendUserId": {
 			"name": "camel.sink.endpoint.friendUserId",
 			"description": "The friend user ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.groupId": {
 			"name": "camel.sink.endpoint.groupId",
 			"description": "The group ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.gzipEnabled": {
 			"name": "camel.sink.endpoint.gzipEnabled",
 			"description": "Use Facebook GZIP encoding",
 			"defaultValue": "\"true\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpConnectionTimeout": {
 			"name": "camel.sink.endpoint.httpConnectionTimeout",
 			"description": "Http connection timeout in milliseconds",
 			"defaultValue": "\"20000\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpDefaultMaxPerRoute": {
 			"name": "camel.sink.endpoint.httpDefaultMaxPerRoute",
 			"description": "HTTP maximum connections per route",
 			"defaultValue": "\"2\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpMaxTotalConnections": {
 			"name": "camel.sink.endpoint.httpMaxTotalConnections",
 			"description": "HTTP maximum total connections",
 			"defaultValue": "\"20\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpReadTimeout": {
 			"name": "camel.sink.endpoint.httpReadTimeout",
 			"description": "Http read timeout in milliseconds",
 			"defaultValue": "\"120000\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpRetryCount": {
 			"name": "camel.sink.endpoint.httpRetryCount",
 			"description": "Number of HTTP retries",
 			"defaultValue": "\"0\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpRetryIntervalSeconds": {
 			"name": "camel.sink.endpoint.httpRetryIntervalSeconds",
 			"description": "HTTP retry interval in seconds",
 			"defaultValue": "\"5\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpStreamingReadTimeout": {
 			"name": "camel.sink.endpoint.httpStreamingReadTimeout",
 			"description": "HTTP streaming read timeout in milliseconds",
 			"defaultValue": "\"40000\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.ids": {
 			"name": "camel.sink.endpoint.ids",
 			"description": "The ids of users",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.inBody": {
 			"name": "camel.sink.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.includeRead": {
 			"name": "camel.sink.endpoint.includeRead",
 			"description": "Enables notifications that the user has already read in addition to unread ones",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.isHidden": {
 			"name": "camel.sink.endpoint.isHidden",
 			"description": "Whether hidden",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.jsonStoreEnabled": {
 			"name": "camel.sink.endpoint.jsonStoreEnabled",
 			"description": "If set to true, raw JSON forms will be stored in DataObjectFactory",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.link": {
 			"name": "camel.sink.endpoint.link",
 			"description": "Link URL",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.linkId": {
 			"name": "camel.sink.endpoint.linkId",
 			"description": "Link ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.locale": {
 			"name": "camel.sink.endpoint.locale",
 			"description": "Desired FQL locale",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.mbeanEnabled": {
 			"name": "camel.sink.endpoint.mbeanEnabled",
 			"description": "If set to true, Facebook4J mbean will be registerd",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.message": {
 			"name": "camel.sink.endpoint.message",
 			"description": "The message text",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.messageId": {
 			"name": "camel.sink.endpoint.messageId",
 			"description": "The message ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.metric": {
 			"name": "camel.sink.endpoint.metric",
 			"description": "The metric name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.milestoneId": {
 			"name": "camel.sink.endpoint.milestoneId",
 			"description": "The milestone id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.name": {
 			"name": "camel.sink.endpoint.name",
 			"description": "Test user name, must be of the form 'first last'",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.noteId": {
 			"name": "camel.sink.endpoint.noteId",
 			"description": "The note ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.notificationId": {
 			"name": "camel.sink.endpoint.notificationId",
 			"description": "The notification ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.objectId": {
 			"name": "camel.sink.endpoint.objectId",
 			"description": "The insight object ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.offerId": {
 			"name": "camel.sink.endpoint.offerId",
 			"description": "The offer id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.optionDescription": {
 			"name": "camel.sink.endpoint.optionDescription",
 			"description": "The question's answer option description",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.pageId": {
 			"name": "camel.sink.endpoint.pageId",
 			"description": "The page id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.permissionName": {
 			"name": "camel.sink.endpoint.permissionName",
 			"description": "The permission name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.permissions": {
 			"name": "camel.sink.endpoint.permissions",
 			"description": "Test user permissions in the format perm1,perm2,...",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.photoId": {
 			"name": "camel.sink.endpoint.photoId",
 			"description": "The photo ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.pictureId": {
 			"name": "camel.sink.endpoint.pictureId",
 			"description": "The picture id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.pictureId2": {
 			"name": "camel.sink.endpoint.pictureId2",
 			"description": "The picture2 id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.pictureSize": {
 			"name": "camel.sink.endpoint.pictureSize",
 			"description": "The picture size One of: [square] [small] [normal] [large] [thumbnail] [album]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.placeId": {
 			"name": "camel.sink.endpoint.placeId",
 			"description": "The place ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.postId": {
 			"name": "camel.sink.endpoint.postId",
 			"description": "The post ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.postUpdate": {
 			"name": "camel.sink.endpoint.postUpdate",
 			"description": "The post to create or update",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.prettyDebugEnabled": {
 			"name": "camel.sink.endpoint.prettyDebugEnabled",
 			"description": "Prettify JSON debug output if set to true",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.queries": {
 			"name": "camel.sink.endpoint.queries",
 			"description": "FQL queries",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.query": {
 			"name": "camel.sink.endpoint.query",
 			"description": "FQL query or search terms for search endpoints",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.questionId": {
 			"name": "camel.sink.endpoint.questionId",
 			"description": "The question id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.reading": {
 			"name": "camel.sink.endpoint.reading",
 			"description": "Optional reading parameters. See Reading Options(#reading)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.readingOptions": {
 			"name": "camel.sink.endpoint.readingOptions",
 			"description": "To configure Reading using key\/value pairs from the Map.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.restBaseURL": {
 			"name": "camel.sink.endpoint.restBaseURL",
 			"description": "API base URL",
 			"defaultValue": "\"https:\/\/graph.facebook.com\/\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.scoreValue": {
 			"name": "camel.sink.endpoint.scoreValue",
 			"description": "The numeric score with value",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.size": {
 			"name": "camel.sink.endpoint.size",
 			"description": "The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.source": {
 			"name": "camel.sink.endpoint.source",
 			"description": "The media content from either a java.io.File or java.io.Inputstream",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.subject": {
 			"name": "camel.sink.endpoint.subject",
 			"description": "The note of the subject",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.tabId": {
 			"name": "camel.sink.endpoint.tabId",
 			"description": "The tab id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.tagUpdate": {
 			"name": "camel.sink.endpoint.tagUpdate",
 			"description": "Photo tag information",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.testUser1": {
 			"name": "camel.sink.endpoint.testUser1",
 			"description": "Test user 1",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.testUser2": {
 			"name": "camel.sink.endpoint.testUser2",
 			"description": "Test user 2",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.testUserId": {
 			"name": "camel.sink.endpoint.testUserId",
 			"description": "The ID of the test user",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.title": {
 			"name": "camel.sink.endpoint.title",
 			"description": "The title text",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.toUserId": {
 			"name": "camel.sink.endpoint.toUserId",
 			"description": "The ID of the user to tag",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.toUserIds": {
 			"name": "camel.sink.endpoint.toUserIds",
 			"description": "The IDs of the users to tag",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.userId": {
 			"name": "camel.sink.endpoint.userId",
 			"description": "The Facebook user ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.userId1": {
 			"name": "camel.sink.endpoint.userId1",
 			"description": "The ID of a user 1",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.userId2": {
 			"name": "camel.sink.endpoint.userId2",
 			"description": "The ID of a user 2",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.userIds": {
 			"name": "camel.sink.endpoint.userIds",
 			"description": "The IDs of users to invite to event",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.userLocale": {
 			"name": "camel.sink.endpoint.userLocale",
 			"description": "The test user locale",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.useSSL": {
 			"name": "camel.sink.endpoint.useSSL",
 			"description": "Use SSL",
 			"defaultValue": "\"true\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.videoBaseURL": {
 			"name": "camel.sink.endpoint.videoBaseURL",
 			"description": "Video API base URL",
 			"defaultValue": "\"https:\/\/graph-video.facebook.com\/\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.videoId": {
 			"name": "camel.sink.endpoint.videoId",
 			"description": "The video ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpProxyHost": {
 			"name": "camel.sink.endpoint.httpProxyHost",
 			"description": "HTTP proxy server host name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpProxyPassword": {
 			"name": "camel.sink.endpoint.httpProxyPassword",
 			"description": "HTTP proxy server password",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpProxyPort": {
 			"name": "camel.sink.endpoint.httpProxyPort",
 			"description": "HTTP proxy server port",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.httpProxyUser": {
 			"name": "camel.sink.endpoint.httpProxyUser",
 			"description": "HTTP proxy server user name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.oAuthAccessToken": {
 			"name": "camel.sink.endpoint.oAuthAccessToken",
 			"description": "The user access token",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.oAuthAccessTokenURL": {
 			"name": "camel.sink.endpoint.oAuthAccessTokenURL",
 			"description": "OAuth access token URL",
 			"defaultValue": "\"https:\/\/graph.facebook.com\/oauth\/access_token\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.oAuthAppId": {
 			"name": "camel.sink.endpoint.oAuthAppId",
 			"description": "The application Id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.oAuthAppSecret": {
 			"name": "camel.sink.endpoint.oAuthAppSecret",
 			"description": "The application Secret",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.oAuthAuthorizationURL": {
 			"name": "camel.sink.endpoint.oAuthAuthorizationURL",
 			"description": "OAuth authorization URL",
 			"defaultValue": "\"https:\/\/www.facebook.com\/dialog\/oauth\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.oAuthPermissions": {
 			"name": "camel.sink.endpoint.oAuthPermissions",
 			"description": "Default OAuth permissions. Comma separated permission names. See https:\/\/developers.facebook.com\/docs\/reference\/login\/#permissions for the detail",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.clientURL": {
 			"name": "camel.component.facebook.clientURL",
 			"description": "Facebook4J API client URL",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.clientVersion": {
 			"name": "camel.component.facebook.clientVersion",
 			"description": "Facebook4J client API version",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.debugEnabled": {
 			"name": "camel.component.facebook.debugEnabled",
 			"description": "Enables deubg output. Effective only with the embedded logger",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.gzipEnabled": {
 			"name": "camel.component.facebook.gzipEnabled",
 			"description": "Use Facebook GZIP encoding",
 			"defaultValue": "\"true\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpConnectionTimeout": {
 			"name": "camel.component.facebook.httpConnectionTimeout",
 			"description": "Http connection timeout in milliseconds",
 			"defaultValue": "\"20000\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpDefaultMaxPerRoute": {
 			"name": "camel.component.facebook.httpDefaultMaxPerRoute",
 			"description": "HTTP maximum connections per route",
 			"defaultValue": "\"2\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpMaxTotalConnections": {
 			"name": "camel.component.facebook.httpMaxTotalConnections",
 			"description": "HTTP maximum total connections",
 			"defaultValue": "\"20\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpReadTimeout": {
 			"name": "camel.component.facebook.httpReadTimeout",
 			"description": "Http read timeout in milliseconds",
 			"defaultValue": "\"120000\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpRetryCount": {
 			"name": "camel.component.facebook.httpRetryCount",
 			"description": "Number of HTTP retries",
 			"defaultValue": "\"0\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpRetryIntervalSeconds": {
 			"name": "camel.component.facebook.httpRetryIntervalSeconds",
 			"description": "HTTP retry interval in seconds",
 			"defaultValue": "\"5\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpStreamingReadTimeout": {
 			"name": "camel.component.facebook.httpStreamingReadTimeout",
 			"description": "HTTP streaming read timeout in milliseconds",
 			"defaultValue": "\"40000\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.jsonStoreEnabled": {
 			"name": "camel.component.facebook.jsonStoreEnabled",
 			"description": "If set to true, raw JSON forms will be stored in DataObjectFactory",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.mbeanEnabled": {
 			"name": "camel.component.facebook.mbeanEnabled",
 			"description": "If set to true, Facebook4J mbean will be registerd",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.prettyDebugEnabled": {
 			"name": "camel.component.facebook.prettyDebugEnabled",
 			"description": "Prettify JSON debug output if set to true",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.restBaseURL": {
 			"name": "camel.component.facebook.restBaseURL",
 			"description": "API base URL",
 			"defaultValue": "\"https:\/\/graph.facebook.com\/\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.useSSL": {
 			"name": "camel.component.facebook.useSSL",
 			"description": "Use SSL",
 			"defaultValue": "\"true\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.videoBaseURL": {
 			"name": "camel.component.facebook.videoBaseURL",
 			"description": "Video API base URL",
 			"defaultValue": "\"https:\/\/graph-video.facebook.com\/\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.lazyStartProducer": {
 			"name": "camel.component.facebook.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.basicPropertyBinding": {
 			"name": "camel.component.facebook.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.facebook.configuration": {
 			"name": "camel.component.facebook.configuration",
 			"description": "To use the shared configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpProxyHost": {
 			"name": "camel.component.facebook.httpProxyHost",
 			"description": "HTTP proxy server host name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpProxyPassword": {
 			"name": "camel.component.facebook.httpProxyPassword",
 			"description": "HTTP proxy server password",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpProxyPort": {
 			"name": "camel.component.facebook.httpProxyPort",
 			"description": "HTTP proxy server port",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.httpProxyUser": {
 			"name": "camel.component.facebook.httpProxyUser",
 			"description": "HTTP proxy server user name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.oAuthAccessToken": {
 			"name": "camel.component.facebook.oAuthAccessToken",
 			"description": "The user access token",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.oAuthAccessTokenURL": {
 			"name": "camel.component.facebook.oAuthAccessTokenURL",
 			"description": "OAuth access token URL",
 			"defaultValue": "\"https:\/\/graph.facebook.com\/oauth\/access_token\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.oAuthAppId": {
 			"name": "camel.component.facebook.oAuthAppId",
 			"description": "The application Id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.oAuthAppSecret": {
 			"name": "camel.component.facebook.oAuthAppSecret",
 			"description": "The application Secret",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.oAuthAuthorizationURL": {
 			"name": "camel.component.facebook.oAuthAuthorizationURL",
 			"description": "OAuth authorization URL",
 			"defaultValue": "\"https:\/\/www.facebook.com\/dialog\/oauth\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.facebook.oAuthPermissions": {
 			"name": "camel.component.facebook.oAuthPermissions",
 			"description": "Default OAuth permissions. Comma separated permission names. See https:\/\/developers.facebook.com\/docs\/reference\/login\/#permissions for the detail",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

@@ -11,164 +11,193 @@
 		"camel.sink.path.label": {
 			"name": "camel.sink.path.label",
 			"description": "Logical name",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
 			"name": "camel.sink.endpoint.autoDiscoverClient",
 			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform One of: [assumeRole] [getSessionToken] [getFederationToken]",
 			"defaultValue": "\"assumeRole\"",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.pojoRequest": {
 			"name": "camel.sink.endpoint.pojoRequest",
 			"description": "If we want to use a POJO request as body or not",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the STS client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the STS client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
 			"name": "camel.sink.endpoint.proxyProtocol",
 			"description": "To define a proxy protocol when instantiating the STS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which STS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
 			"defaultValue": "\"aws-global\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.stsClient": {
 			"name": "camel.sink.endpoint.stsClient",
 			"description": "To use a existing configured AWS STS as client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
 			"name": "camel.sink.endpoint.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.autoDiscoverClient": {
 			"name": "camel.component.aws2-sts.autoDiscoverClient",
 			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.configuration": {
 			"name": "camel.component.aws2-sts.configuration",
 			"description": "Component configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.lazyStartProducer": {
 			"name": "camel.component.aws2-sts.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.operation": {
 			"name": "camel.component.aws2-sts.operation",
 			"description": "The operation to perform One of: [assumeRole] [getSessionToken] [getFederationToken]",
 			"defaultValue": "\"assumeRole\"",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.component.aws2-sts.pojoRequest": {
 			"name": "camel.component.aws2-sts.pojoRequest",
 			"description": "If we want to use a POJO request as body or not",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.proxyHost": {
 			"name": "camel.component.aws2-sts.proxyHost",
 			"description": "To define a proxy host when instantiating the STS client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.proxyPort": {
 			"name": "camel.component.aws2-sts.proxyPort",
 			"description": "To define a proxy port when instantiating the STS client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.proxyProtocol": {
 			"name": "camel.component.aws2-sts.proxyProtocol",
 			"description": "To define a proxy protocol when instantiating the STS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.region": {
 			"name": "camel.component.aws2-sts.region",
 			"description": "The region in which STS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
 			"defaultValue": "\"aws-global\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.stsClient": {
 			"name": "camel.component.aws2-sts.stsClient",
 			"description": "To use a existing configured AWS STS as client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.trustAllCertificates": {
 			"name": "camel.component.aws2-sts.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.basicPropertyBinding": {
 			"name": "camel.component.aws2-sts.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.accessKey": {
 			"name": "camel.component.aws2-sts.accessKey",
 			"description": "Amazon AWS Access Key",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-sts.secretKey": {
 			"name": "camel.component.aws2-sts.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

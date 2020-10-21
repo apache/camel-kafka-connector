@@ -26,34 +26,34 @@ The camel-azure-queue sink connector supports 25 options, which are listed below
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.containerAndQueueUri* | Container Queue compact Uri | null | HIGH
-| *camel.sink.endpoint.azureQueueClient* | The queue service client | null | MEDIUM
-| *camel.sink.endpoint.credentials* | Set the storage credentials, required in most cases | null | MEDIUM
-| *camel.sink.endpoint.validateClientURI* | Whether to validate the Azure client URI | true | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.messageTimeToLive* | Message Time To Live in seconds | null | MEDIUM
-| *camel.sink.endpoint.messageVisibilityDelay* | Message Visibility Delay in seconds | null | MEDIUM
-| *camel.sink.endpoint.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | MEDIUM
-| *camel.sink.endpoint.queuePrefix* | Set a prefix which can be used for listing the queues | null | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.credentialsAccountKey* | Set the storage account key used during authentication phase | null | MEDIUM
-| *camel.sink.endpoint.credentialsAccountName* | Set the storage account name used during authentication phase | null | MEDIUM
-| *camel.component.azure-queue.azureQueueClient* | The queue service client | null | MEDIUM
-| *camel.component.azure-queue.credentials* | Set the storage credentials, required in most cases | null | MEDIUM
-| *camel.component.azure-queue.validateClientURI* | Whether to validate the Azure client URI | true | MEDIUM
-| *camel.component.azure-queue.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.azure-queue.messageTimeToLive* | Message Time To Live in seconds | null | MEDIUM
-| *camel.component.azure-queue.messageVisibilityDelay* | Message Visibility Delay in seconds | null | MEDIUM
-| *camel.component.azure-queue.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | MEDIUM
-| *camel.component.azure-queue.queuePrefix* | Set a prefix which can be used for listing the queues | null | MEDIUM
-| *camel.component.azure-queue.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.azure-queue.configuration* | The Queue Service configuration | null | MEDIUM
-| *camel.component.azure-queue.credentialsAccountKey* | Set the storage account key used during authentication phase | null | MEDIUM
-| *camel.component.azure-queue.credentialsAccountName* | Set the storage account name used during authentication phase | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.containerAndQueueUri* | Container Queue compact Uri | null | true | HIGH
+| *camel.sink.endpoint.azureQueueClient* | The queue service client | null | false | MEDIUM
+| *camel.sink.endpoint.credentials* | Set the storage credentials, required in most cases | null | false | MEDIUM
+| *camel.sink.endpoint.validateClientURI* | Whether to validate the Azure client URI | true | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.messageTimeToLive* | Message Time To Live in seconds | null | false | MEDIUM
+| *camel.sink.endpoint.messageVisibilityDelay* | Message Visibility Delay in seconds | null | false | MEDIUM
+| *camel.sink.endpoint.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | false | MEDIUM
+| *camel.sink.endpoint.queuePrefix* | Set a prefix which can be used for listing the queues | null | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
+| *camel.sink.endpoint.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM
+| *camel.component.azure-queue.azureQueueClient* | The queue service client | null | false | MEDIUM
+| *camel.component.azure-queue.credentials* | Set the storage credentials, required in most cases | null | false | MEDIUM
+| *camel.component.azure-queue.validateClientURI* | Whether to validate the Azure client URI | true | false | MEDIUM
+| *camel.component.azure-queue.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.azure-queue.messageTimeToLive* | Message Time To Live in seconds | null | false | MEDIUM
+| *camel.component.azure-queue.messageVisibilityDelay* | Message Visibility Delay in seconds | null | false | MEDIUM
+| *camel.component.azure-queue.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | false | MEDIUM
+| *camel.component.azure-queue.queuePrefix* | Set a prefix which can be used for listing the queues | null | false | MEDIUM
+| *camel.component.azure-queue.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.azure-queue.configuration* | The Queue Service configuration | null | false | MEDIUM
+| *camel.component.azure-queue.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
+| *camel.component.azure-queue.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM
 |===
 
 

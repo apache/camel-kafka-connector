@@ -11,111 +11,131 @@
 		"camel.source.path.kind": {
 			"name": "camel.source.path.kind",
 			"description": "Kind of stream to use such as System.in or System.out. One of: [in] [out] [err] [header] [file]",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.encoding": {
 			"name": "camel.source.endpoint.encoding",
 			"description": "You can configure the encoding (is a charset name) to use text-based streams (for example, message body is a String object). If not provided, Camel uses the JVM default Charset.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.fileName": {
 			"name": "camel.source.endpoint.fileName",
 			"description": "When using the stream:file URI format, this option specifies the filename to stream to\/from.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.fileWatcher": {
 			"name": "camel.source.endpoint.fileWatcher",
 			"description": "To use JVM file watcher to listen for file change events to support re-loading files that may be overwritten, somewhat like tail --retry",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.groupLines": {
 			"name": "camel.source.endpoint.groupLines",
 			"description": "To group X number of lines in the consumer. For example to group 10 lines and therefore only spit out an Exchange with 10 lines, instead of 1 Exchange per line.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.groupStrategy": {
 			"name": "camel.source.endpoint.groupStrategy",
 			"description": "Allows to use a custom GroupStrategy to control how to group lines.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.initialPromptDelay": {
 			"name": "camel.source.endpoint.initialPromptDelay",
 			"description": "Initial delay in milliseconds before showing the message prompt. This delay occurs only once. Can be used during system startup to avoid message prompts being written while other logging is done to the system out.",
 			"defaultValue": "2000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.promptDelay": {
 			"name": "camel.source.endpoint.promptDelay",
 			"description": "Optional delay in milliseconds before showing the message prompt.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.promptMessage": {
 			"name": "camel.source.endpoint.promptMessage",
 			"description": "Message prompt to use when reading from stream:in; for example, you could set this to Enter a command:",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.retry": {
 			"name": "camel.source.endpoint.retry",
 			"description": "Will retry opening the stream if it's overwritten, somewhat like tail --retry If reading from files then you should also enable the fileWatcher option, to make it work reliable.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.scanStream": {
 			"name": "camel.source.endpoint.scanStream",
 			"description": "To be used for continuously reading a stream such as the unix tail command.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.scanStreamDelay": {
 			"name": "camel.source.endpoint.scanStreamDelay",
 			"description": "Delay in milliseconds between read attempts when using scanStream.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.readTimeout": {
 			"name": "camel.source.endpoint.readTimeout",
 			"description": "Sets the read timeout to a specified timeout, in milliseconds. A non-zero value specifies the timeout when reading from Input stream when a connection is established to a resource. If the timeout expires before there is data available for read, a java.net.SocketTimeoutException is raised. A timeout of zero is interpreted as an infinite timeout.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.stream.bridgeErrorHandler": {
 			"name": "camel.component.stream.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.stream.basicPropertyBinding": {
 			"name": "camel.component.stream.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		}
 	}
 }

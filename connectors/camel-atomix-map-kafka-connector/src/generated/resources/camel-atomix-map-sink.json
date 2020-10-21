@@ -11,188 +11,223 @@
 		"camel.sink.path.resourceName": {
 			"name": "camel.sink.path.resourceName",
 			"description": "The distributed resource name",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.atomix": {
 			"name": "camel.sink.endpoint.atomix",
 			"description": "The Atomix instance to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.configurationUri": {
 			"name": "camel.sink.endpoint.configurationUri",
 			"description": "The Atomix configuration uri.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.defaultAction": {
 			"name": "camel.sink.endpoint.defaultAction",
 			"description": "The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES]",
 			"defaultValue": "\"PUT\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
 			"description": "The key to use if none is set in the header or to listen for events for a specific key.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.nodes": {
 			"name": "camel.sink.endpoint.nodes",
 			"description": "The address of the nodes composing the cluster.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.resultHeader": {
 			"name": "camel.sink.endpoint.resultHeader",
 			"description": "The header that wil carry the result.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.transportClassName": {
 			"name": "camel.sink.endpoint.transportClassName",
 			"description": "The class name (fqn) of the Atomix transport",
 			"defaultValue": "\"io.atomix.catalyst.transport.netty.NettyTransport\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.ttl": {
 			"name": "camel.sink.endpoint.ttl",
 			"description": "The resource ttl.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.defaultResourceConfig": {
 			"name": "camel.sink.endpoint.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.defaultResourceOptions": {
 			"name": "camel.sink.endpoint.defaultResourceOptions",
 			"description": "The local default resource options.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.ephemeral": {
 			"name": "camel.sink.endpoint.ephemeral",
 			"description": "Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.readConsistency": {
 			"name": "camel.sink.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.resourceConfigs": {
 			"name": "camel.sink.endpoint.resourceConfigs",
 			"description": "Cluster wide resources configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.resourceOptions": {
 			"name": "camel.sink.endpoint.resourceOptions",
 			"description": "Local resources configurations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.atomix": {
 			"name": "camel.component.atomix-map.atomix",
 			"description": "The Atomix instance to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.configuration": {
 			"name": "camel.component.atomix-map.configuration",
 			"description": "The shared component configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.configurationUri": {
 			"name": "camel.component.atomix-map.configurationUri",
 			"description": "The path to the AtomixClient configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.defaultAction": {
 			"name": "camel.component.atomix-map.defaultAction",
 			"description": "The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES]",
 			"defaultValue": "\"PUT\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.key": {
 			"name": "camel.component.atomix-map.key",
 			"description": "The key to use if none is set in the header or to listen for events for a specific key.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.nodes": {
 			"name": "camel.component.atomix-map.nodes",
 			"description": "The nodes the AtomixClient should connect to",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.resultHeader": {
 			"name": "camel.component.atomix-map.resultHeader",
 			"description": "The header that wil carry the result.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.transportClassName": {
 			"name": "camel.component.atomix-map.transportClassName",
 			"description": "The class name (fqn) of the Atomix transport",
 			"defaultValue": "\"io.atomix.catalyst.transport.netty.NettyTransport\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.ttl": {
 			"name": "camel.component.atomix-map.ttl",
 			"description": "The resource ttl.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.lazyStartProducer": {
 			"name": "camel.component.atomix-map.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.basicPropertyBinding": {
 			"name": "camel.component.atomix-map.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.atomix-map.defaultResourceConfig": {
 			"name": "camel.component.atomix-map.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.defaultResourceOptions": {
 			"name": "camel.component.atomix-map.defaultResourceOptions",
 			"description": "The local default resource options.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.ephemeral": {
 			"name": "camel.component.atomix-map.ephemeral",
 			"description": "Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.readConsistency": {
 			"name": "camel.component.atomix-map.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.resourceConfigs": {
 			"name": "camel.component.atomix-map.resourceConfigs",
 			"description": "Cluster wide resources configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-map.resourceOptions": {
 			"name": "camel.component.atomix-map.resourceOptions",
 			"description": "Local resources configurations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

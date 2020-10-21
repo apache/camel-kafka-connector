@@ -26,22 +26,22 @@ The camel-nitrite source connector supports 13 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.database* | Path to database file. Will be created if not exists. | null | HIGH
-| *camel.source.endpoint.collection* | Name of Nitrite collection. Cannot be used in combination with repositoryClass option. | null | MEDIUM
-| *camel.source.endpoint.repositoryClass* | Class of Nitrite ObjectRepository. Cannot be used in combination with collection option. | null | MEDIUM
-| *camel.source.endpoint.repositoryName* | Optional name of ObjectRepository. Can be only used in combination with repositoryClass, otherwise have no effect | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.password* | Password for Nitrite database. Required, if option username specified. | null | MEDIUM
-| *camel.source.endpoint.username* | Username for Nitrite database. Database is not secured if option not specified. | null | MEDIUM
-| *camel.component.nitrite.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.nitrite.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.source.path.database* | Path to database file. Will be created if not exists. | null | true | HIGH
+| *camel.source.endpoint.collection* | Name of Nitrite collection. Cannot be used in combination with repositoryClass option. | null | false | MEDIUM
+| *camel.source.endpoint.repositoryClass* | Class of Nitrite ObjectRepository. Cannot be used in combination with collection option. | null | false | MEDIUM
+| *camel.source.endpoint.repositoryName* | Optional name of ObjectRepository. Can be only used in combination with repositoryClass, otherwise have no effect | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.password* | Password for Nitrite database. Required, if option username specified. | null | false | MEDIUM
+| *camel.source.endpoint.username* | Username for Nitrite database. Database is not secured if option not specified. | null | false | MEDIUM
+| *camel.component.nitrite.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.nitrite.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

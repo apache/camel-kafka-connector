@@ -11,125 +11,147 @@
 		"camel.source.path.topic": {
 			"name": "camel.source.path.topic",
 			"description": "The NSQ topic",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.servers": {
 			"name": "camel.source.endpoint.servers",
 			"description": "The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.userAgent": {
 			"name": "camel.source.endpoint.userAgent",
 			"description": "A String to identify the kind of client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.autoFinish": {
 			"name": "camel.source.endpoint.autoFinish",
 			"description": "Automatically finish the NSQ Message when it is retrieved from the queue and before the Exchange is processed",
 			"defaultValue": "\"true\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.channel": {
 			"name": "camel.source.endpoint.channel",
 			"description": "The NSQ channel",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.customNSQLookup": {
 			"name": "camel.source.endpoint.customNSQLookup",
 			"description": "A Custom NSQ lookup implementation",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.lookupInterval": {
 			"name": "camel.source.endpoint.lookupInterval",
 			"description": "The lookup interval",
 			"defaultValue": "5000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.lookupServerPort": {
 			"name": "camel.source.endpoint.lookupServerPort",
 			"description": "The NSQ lookup server port",
 			"defaultValue": "4161",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.messageTimeout": {
 			"name": "camel.source.endpoint.messageTimeout",
 			"description": "The NSQ consumer timeout period for messages retrieved from the queue. A value of -1 is the server default",
 			"defaultValue": "-1L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.poolSize": {
 			"name": "camel.source.endpoint.poolSize",
 			"description": "Consumer pool size",
 			"defaultValue": "10",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.requeueInterval": {
 			"name": "camel.source.endpoint.requeueInterval",
 			"description": "The requeue interval in milliseconds. A value of -1 is the server default",
 			"defaultValue": "-1L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.secure": {
 			"name": "camel.source.endpoint.secure",
 			"description": "Set secure option indicating TLS is required",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sslContextParameters": {
 			"name": "camel.source.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.nsq.servers": {
 			"name": "camel.component.nsq.servers",
 			"description": "The hostnames of one or more nsqlookupd servers (consumer) or nsqd servers (producer).",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.nsq.bridgeErrorHandler": {
 			"name": "camel.component.nsq.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.nsq.basicPropertyBinding": {
 			"name": "camel.component.nsq.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.nsq.useGlobalSslContextParameters": {
 			"name": "camel.component.nsq.useGlobalSslContextParameters",
 			"description": "Enable usage of global SSL context parameters.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

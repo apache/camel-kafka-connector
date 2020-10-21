@@ -26,25 +26,25 @@ The camel-platform-http source connector supports 16 options, which are listed b
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.path* | The path under which this endpoint serves the HTTP requests | null | HIGH
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.consumes* | The content type this endpoint accepts as an input, such as application/xml or application/json. null or &#42;/&#42; mean no restriction. | null | MEDIUM
-| *camel.source.endpoint.httpMethodRestrict* | A comma separated list of HTTP methods to serve, e.g. GET,POST . If no methods are specified, all methods will be served. | null | MEDIUM
-| *camel.source.endpoint.matchOnUriPrefix* | Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found. | false | MEDIUM
-| *camel.source.endpoint.produces* | The content type this endpoint produces, such as application/xml or application/json. | null | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.fileNameExtWhitelist* | A comma or whitespace separated list of file extensions. Uploads having these extensions will be stored locally. Null value or asterisk () will allow all files. | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter headers to and from Camel message. | null | MEDIUM
-| *camel.source.endpoint.platformHttpEngine* | An HTTP Server engine implementation to serve the requests of this endpoint. | null | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.platform-http.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.platform-http.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.platform-http.engine* | An HTTP Server engine implementation to serve the requests | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.source.path.path* | The path under which this endpoint serves the HTTP requests | null | true | HIGH
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.consumes* | The content type this endpoint accepts as an input, such as application/xml or application/json. null or &#42;/&#42; mean no restriction. | null | false | MEDIUM
+| *camel.source.endpoint.httpMethodRestrict* | A comma separated list of HTTP methods to serve, e.g. GET,POST . If no methods are specified, all methods will be served. | null | false | MEDIUM
+| *camel.source.endpoint.matchOnUriPrefix* | Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found. | false | false | MEDIUM
+| *camel.source.endpoint.produces* | The content type this endpoint produces, such as application/xml or application/json. | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.fileNameExtWhitelist* | A comma or whitespace separated list of file extensions. Uploads having these extensions will be stored locally. Null value or asterisk () will allow all files. | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter headers to and from Camel message. | null | false | MEDIUM
+| *camel.source.endpoint.platformHttpEngine* | An HTTP Server engine implementation to serve the requests of this endpoint. | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.platform-http.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.platform-http.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.platform-http.engine* | An HTTP Server engine implementation to serve the requests | null | false | MEDIUM
 |===
 
 

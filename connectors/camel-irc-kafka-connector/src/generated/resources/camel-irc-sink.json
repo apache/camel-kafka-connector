@@ -11,177 +11,208 @@
 		"camel.sink.path.hostname": {
 			"name": "camel.sink.path.hostname",
 			"description": "Hostname for the IRC chat server",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port number for the IRC chat server. If no port is configured then a default port of either 6667, 6668 or 6669 is used.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.autoRejoin": {
 			"name": "camel.sink.endpoint.autoRejoin",
 			"description": "Whether to auto re-join when being kicked",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.channels": {
 			"name": "camel.sink.endpoint.channels",
 			"description": "Comma separated list of IRC channels.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.commandTimeout": {
 			"name": "camel.sink.endpoint.commandTimeout",
 			"description": "Delay in milliseconds before sending commands after the connection is established.",
 			"defaultValue": "5000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.keys": {
 			"name": "camel.sink.endpoint.keys",
 			"description": "Comma separated list of keys for channels.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.namesOnJoin": {
 			"name": "camel.sink.endpoint.namesOnJoin",
 			"description": "Sends NAMES command to channel after joining it. onReply has to be true in order to process the result which will have the header value irc.num = '353'.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.nickname": {
 			"name": "camel.sink.endpoint.nickname",
 			"description": "The nickname used in chat.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.persistent": {
 			"name": "camel.sink.endpoint.persistent",
 			"description": "Use persistent messages.",
 			"defaultValue": "true",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.sink.endpoint.realname": {
 			"name": "camel.sink.endpoint.realname",
 			"description": "The IRC user's actual name.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.colors": {
 			"name": "camel.sink.endpoint.colors",
 			"description": "Whether or not the server supports color codes.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onJoin": {
 			"name": "camel.sink.endpoint.onJoin",
 			"description": "Handle user join events.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onKick": {
 			"name": "camel.sink.endpoint.onKick",
 			"description": "Handle kick events.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onMode": {
 			"name": "camel.sink.endpoint.onMode",
 			"description": "Handle mode change events.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onNick": {
 			"name": "camel.sink.endpoint.onNick",
 			"description": "Handle nickname change events.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onPart": {
 			"name": "camel.sink.endpoint.onPart",
 			"description": "Handle user part events.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onPrivmsg": {
 			"name": "camel.sink.endpoint.onPrivmsg",
 			"description": "Handle private message events.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onQuit": {
 			"name": "camel.sink.endpoint.onQuit",
 			"description": "Handle user quit events.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onReply": {
 			"name": "camel.sink.endpoint.onReply",
 			"description": "Whether or not to handle general responses to commands or informational messages.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.onTopic": {
 			"name": "camel.sink.endpoint.onTopic",
 			"description": "Handle topic change events.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.nickPassword": {
 			"name": "camel.sink.endpoint.nickPassword",
 			"description": "Your IRC server nickname password.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The IRC server password.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "Used for configuring security using SSL. Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. Note that this setting overrides the trustManager option.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.trustManager": {
 			"name": "camel.sink.endpoint.trustManager",
 			"description": "The trust manager used to verify the SSL server's certificate.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "The IRC server user name.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.irc.lazyStartProducer": {
 			"name": "camel.component.irc.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.irc.basicPropertyBinding": {
 			"name": "camel.component.irc.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.irc.useGlobalSslContextParameters": {
 			"name": "camel.component.irc.useGlobalSslContextParameters",
 			"description": "Enable usage of global SSL context parameters.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

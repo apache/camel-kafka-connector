@@ -26,24 +26,24 @@ The camel-oaipmh sink connector supports 15 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.baseUrl* | Base URL of the repository to which the request is made through the OAI-PMH protocol | null | HIGH
-| *camel.sink.endpoint.from* | Specifies a lower bound for datestamp-based selective harvesting. UTC DateTime value | null | MEDIUM
-| *camel.sink.endpoint.identifier* | Identifier of the requested resources. Applicable only with certain verbs | null | MEDIUM
-| *camel.sink.endpoint.metadataPrefix* | Specifies the metadataPrefix of the format that should be included in the metadata part of the returned records. | "oai_dc" | MEDIUM
-| *camel.sink.endpoint.set* | Specifies membership as a criteria for set-based selective harvesting | null | MEDIUM
-| *camel.sink.endpoint.until* | Specifies an upper bound for datestamp-based selective harvesting. UTC DateTime value. | null | MEDIUM
-| *camel.sink.endpoint.verb* | Request name supported by OAI-PMh protocol | "ListRecords" | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.onlyFirst* | Returns the response of a single request. Otherwise it will make requests until there is no more data to return. | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.ignoreSSLWarnings* | Ignore SSL certificate warnings | false | MEDIUM
-| *camel.sink.endpoint.ssl* | Causes the defined url to make an https request | false | MEDIUM
-| *camel.component.oaipmh.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.oaipmh.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.baseUrl* | Base URL of the repository to which the request is made through the OAI-PMH protocol | null | true | HIGH
+| *camel.sink.endpoint.from* | Specifies a lower bound for datestamp-based selective harvesting. UTC DateTime value | null | false | MEDIUM
+| *camel.sink.endpoint.identifier* | Identifier of the requested resources. Applicable only with certain verbs | null | false | MEDIUM
+| *camel.sink.endpoint.metadataPrefix* | Specifies the metadataPrefix of the format that should be included in the metadata part of the returned records. | "oai_dc" | false | MEDIUM
+| *camel.sink.endpoint.set* | Specifies membership as a criteria for set-based selective harvesting | null | false | MEDIUM
+| *camel.sink.endpoint.until* | Specifies an upper bound for datestamp-based selective harvesting. UTC DateTime value. | null | false | MEDIUM
+| *camel.sink.endpoint.verb* | Request name supported by OAI-PMh protocol | "ListRecords" | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.onlyFirst* | Returns the response of a single request. Otherwise it will make requests until there is no more data to return. | false | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.ignoreSSLWarnings* | Ignore SSL certificate warnings | false | false | MEDIUM
+| *camel.sink.endpoint.ssl* | Causes the defined url to make an https request | false | false | MEDIUM
+| *camel.component.oaipmh.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.oaipmh.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

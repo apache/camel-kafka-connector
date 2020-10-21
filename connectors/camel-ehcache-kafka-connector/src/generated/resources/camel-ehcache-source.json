@@ -11,163 +11,193 @@
 		"camel.source.path.cacheName": {
 			"name": "camel.source.path.cacheName",
 			"description": "the cache name",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.cacheManager": {
 			"name": "camel.source.endpoint.cacheManager",
 			"description": "The cache manager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.cacheManagerConfiguration": {
 			"name": "camel.source.endpoint.cacheManagerConfiguration",
 			"description": "The cache manager configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.configurationUri": {
 			"name": "camel.source.endpoint.configurationUri",
 			"description": "URI pointing to the Ehcache XML configuration file's location",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.createCacheIfNotExist": {
 			"name": "camel.source.endpoint.createCacheIfNotExist",
 			"description": "Configure if a cache need to be created if it does exist or can't be pre-configured.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.eventFiring": {
 			"name": "camel.source.endpoint.eventFiring",
 			"description": "Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS]",
 			"defaultValue": "\"ASYNCHRONOUS\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.eventOrdering": {
 			"name": "camel.source.endpoint.eventOrdering",
 			"description": "Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED]",
 			"defaultValue": "\"ORDERED\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.eventTypes": {
 			"name": "camel.source.endpoint.eventTypes",
 			"description": "Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.configuration": {
 			"name": "camel.source.endpoint.configuration",
 			"description": "The default cache configuration to be used to create caches.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.configurations": {
 			"name": "camel.source.endpoint.configurations",
 			"description": "A map of cache configuration to be used to create caches.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.keyType": {
 			"name": "camel.source.endpoint.keyType",
 			"description": "The cache key type, default java.lang.Object",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.valueType": {
 			"name": "camel.source.endpoint.valueType",
 			"description": "The cache value type, default java.lang.Object",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.cacheManager": {
 			"name": "camel.component.ehcache.cacheManager",
 			"description": "The cache manager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.cacheManagerConfiguration": {
 			"name": "camel.component.ehcache.cacheManagerConfiguration",
 			"description": "The cache manager configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.configurationUri": {
 			"name": "camel.component.ehcache.configurationUri",
 			"description": "URI pointing to the Ehcache XML configuration file's location",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.createCacheIfNotExist": {
 			"name": "camel.component.ehcache.createCacheIfNotExist",
 			"description": "Configure if a cache need to be created if it does exist or can't be pre-configured.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.bridgeErrorHandler": {
 			"name": "camel.component.ehcache.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.eventFiring": {
 			"name": "camel.component.ehcache.eventFiring",
 			"description": "Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS]",
 			"defaultValue": "\"ASYNCHRONOUS\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.eventOrdering": {
 			"name": "camel.component.ehcache.eventOrdering",
 			"description": "Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED]",
 			"defaultValue": "\"ORDERED\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.eventTypes": {
 			"name": "camel.component.ehcache.eventTypes",
 			"description": "Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.basicPropertyBinding": {
 			"name": "camel.component.ehcache.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.ehcache.configuration": {
 			"name": "camel.component.ehcache.configuration",
 			"description": "The default cache configuration to be used to create caches.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.configurations": {
 			"name": "camel.component.ehcache.configurations",
 			"description": "A map of cache configuration to be used to create caches.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.keyType": {
 			"name": "camel.component.ehcache.keyType",
 			"description": "The cache key type, default java.lang.Object",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ehcache.valueType": {
 			"name": "camel.component.ehcache.valueType",
 			"description": "The cache value type, default java.lang.Object",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

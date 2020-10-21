@@ -11,173 +11,206 @@
 		"camel.sink.path.connectionURL": {
 			"name": "camel.sink.path.connectionURL",
 			"description": "The URL to the jBPM server.",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.eventListenerType": {
 			"name": "camel.sink.path.eventListenerType",
 			"description": "Sets the event listener type to attach to",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.attachmentId": {
 			"name": "camel.sink.endpoint.attachmentId",
 			"description": "attachId to use when retrieving attachments",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.contentId": {
 			"name": "camel.sink.endpoint.contentId",
 			"description": "contentId to use when retrieving attachments",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.deploymentId": {
 			"name": "camel.sink.endpoint.deploymentId",
 			"description": "The id of the deployment",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.emitterSendItems": {
 			"name": "camel.sink.endpoint.emitterSendItems",
 			"description": "Sets if event produced by emitter should be sent as single items or complete collection",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.event": {
 			"name": "camel.sink.endpoint.event",
 			"description": "the data associated with this event when signalEvent operation is performed",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.eventType": {
 			"name": "camel.sink.endpoint.eventType",
 			"description": "the type of event to use when signalEvent operation is performed",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.identifier": {
 			"name": "camel.sink.endpoint.identifier",
 			"description": "identifier the global identifier",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.maxNumber": {
 			"name": "camel.sink.endpoint.maxNumber",
 			"description": "the maximum number of rules that should be fired",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.page": {
 			"name": "camel.sink.endpoint.page",
 			"description": "The page to use when retrieving user tasks",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.pageSize": {
 			"name": "camel.sink.endpoint.pageSize",
 			"description": "The page size to use when retrieving user tasks",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.processId": {
 			"name": "camel.sink.endpoint.processId",
 			"description": "the id of the process that should be acted upon",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.processInstanceId": {
 			"name": "camel.sink.endpoint.processInstanceId",
 			"description": "the id of the process instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.targetUserId": {
 			"name": "camel.sink.endpoint.targetUserId",
 			"description": "The targetUserId used when delegating a task",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.task": {
 			"name": "camel.sink.endpoint.task",
 			"description": "The task instance to use with task operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.taskId": {
 			"name": "camel.sink.endpoint.taskId",
 			"description": "the id of the task",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.timeout": {
 			"name": "camel.sink.endpoint.timeout",
 			"description": "A timeout value",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.userId": {
 			"name": "camel.sink.endpoint.userId",
 			"description": "userId to use with task operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.value": {
 			"name": "camel.sink.endpoint.value",
 			"description": "the value to assign to the global identifier",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.workItemId": {
 			"name": "camel.sink.endpoint.workItemId",
 			"description": "the id of the work item",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform",
 			"defaultValue": "\"startProcess\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.entities": {
 			"name": "camel.sink.endpoint.entities",
 			"description": "The potentialOwners when nominateTask operation is performed",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.extraJaxbClasses": {
 			"name": "camel.sink.endpoint.extraJaxbClasses",
 			"description": "To load additional classes when working with XML",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.parameters": {
 			"name": "camel.sink.endpoint.parameters",
 			"description": "the variables that should be set for various operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.statuses": {
 			"name": "camel.sink.endpoint.statuses",
 			"description": "The list of status to use when filtering tasks",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Password for authentication",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.userName": {
 			"name": "camel.sink.endpoint.userName",
 			"description": "Username for authentication",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jbpm.lazyStartProducer": {
 			"name": "camel.component.jbpm.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jbpm.basicPropertyBinding": {
 			"name": "camel.component.jbpm.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		}
 	}
 }

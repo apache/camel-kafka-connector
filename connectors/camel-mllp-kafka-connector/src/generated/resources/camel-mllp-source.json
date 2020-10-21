@@ -11,188 +11,220 @@
 		"camel.source.path.hostname": {
 			"name": "camel.source.path.hostname",
 			"description": "Hostname or IP for connection for the TCP connection. The default value is null, which means any local IP address",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
 			"description": "Port number for the TCP connection",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.autoAck": {
 			"name": "camel.source.endpoint.autoAck",
 			"description": "Enable\/Disable the automatic generation of a MLLP Acknowledgement MLLP Consumers only",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bufferWrites": {
 			"name": "camel.source.endpoint.bufferWrites",
 			"description": "Enable\/Disable the buffering of HL7 payloads before writing to the socket.",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.source.endpoint.hl7Headers": {
 			"name": "camel.source.endpoint.hl7Headers",
 			"description": "Enable\/Disable the automatic generation of message headers from the HL7 Message MLLP Consumers only",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.requireEndOfData": {
 			"name": "camel.source.endpoint.requireEndOfData",
 			"description": "Enable\/Disable strict compliance to the MLLP standard. The MLLP standard specifies START_OF_BLOCKhl7 payloadEND_OF_BLOCKEND_OF_DATA, however, some systems do not send the final END_OF_DATA byte. This setting controls whether or not the final END_OF_DATA byte is required or optional.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.stringPayload": {
 			"name": "camel.source.endpoint.stringPayload",
 			"description": "Enable\/Disable converting the payload to a String. If enabled, HL7 Payloads received from external systems will be validated converted to a String. If the charsetName property is set, that character set will be used for the conversion. If the charsetName property is not set, the value of MSH-18 will be used to determine th appropriate character set. If MSH-18 is not set, then the default ISO-8859-1 character set will be use.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.validatePayload": {
 			"name": "camel.source.endpoint.validatePayload",
 			"description": "Enable\/Disable the validation of HL7 Payloads If enabled, HL7 Payloads received from external systems will be validated (see Hl7Util.generateInvalidPayloadExceptionMessage for details on the validation). If and invalid payload is detected, a MllpInvalidMessageException (for consumers) or a MllpInvalidAcknowledgementException will be thrown.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to receive incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. If disabled, the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions by logging them at WARN or ERROR level and ignored.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"defaultValue": "\"InOut\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used (this component only supports synchronous operations).",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.charsetName": {
 			"name": "camel.source.endpoint.charsetName",
 			"description": "Set the CamelCharsetName property on the exchange",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.backlog": {
 			"name": "camel.source.endpoint.backlog",
 			"description": "The maximum queue length for incoming connection indications (a request to connect) is set to the backlog parameter. If a connection indication arrives when the queue is full, the connection is refused.",
 			"defaultValue": "\"5\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.lenientBind": {
 			"name": "camel.source.endpoint.lenientBind",
 			"description": "TCP Server Only - Allow the endpoint to start before the TCP ServerSocket is bound. In some environments, it may be desirable to allow the endpoint to start before the TCP ServerSocket is bound.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.maxConcurrentConsumers": {
 			"name": "camel.source.endpoint.maxConcurrentConsumers",
 			"description": "The maximum number of concurrent MLLP Consumer connections that will be allowed. If a new connection is received and the maximum is number are already established, the new connection will be reset immediately.",
 			"defaultValue": "5",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.receiveBufferSize": {
 			"name": "camel.source.endpoint.receiveBufferSize",
 			"description": "Sets the SO_RCVBUF option to the specified value (in bytes)",
 			"defaultValue": "\"8192\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.reuseAddress": {
 			"name": "camel.source.endpoint.reuseAddress",
 			"description": "Enable\/disable the SO_REUSEADDR socket option.",
 			"defaultValue": "\"false\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sendBufferSize": {
 			"name": "camel.source.endpoint.sendBufferSize",
 			"description": "Sets the SO_SNDBUF option to the specified value (in bytes)",
 			"defaultValue": "\"8192\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.acceptTimeout": {
 			"name": "camel.source.endpoint.acceptTimeout",
 			"description": "Timeout (in milliseconds) while waiting for a TCP connection TCP Server Only",
 			"defaultValue": "60000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bindRetryInterval": {
 			"name": "camel.source.endpoint.bindRetryInterval",
 			"description": "TCP Server Only - The number of milliseconds to wait between bind attempts",
 			"defaultValue": "5000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bindTimeout": {
 			"name": "camel.source.endpoint.bindTimeout",
 			"description": "TCP Server Only - The number of milliseconds to retry binding to a server port",
 			"defaultValue": "30000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.idleTimeout": {
 			"name": "camel.source.endpoint.idleTimeout",
 			"description": "The approximate idle time allowed before the Client TCP Connection will be reset. A null value or a value less than or equal to zero will disable the idle timeout.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.maxReceiveTimeouts": {
 			"name": "camel.source.endpoint.maxReceiveTimeouts",
 			"description": "The maximum number of timeouts (specified by receiveTimeout) allowed before the TCP Connection will be reset.",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.source.endpoint.readTimeout": {
 			"name": "camel.source.endpoint.readTimeout",
 			"description": "The SO_TIMEOUT value (in milliseconds) used after the start of an MLLP frame has been received",
 			"defaultValue": "5000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.receiveTimeout": {
 			"name": "camel.source.endpoint.receiveTimeout",
 			"description": "The SO_TIMEOUT value (in milliseconds) used when waiting for the start of an MLLP frame",
 			"defaultValue": "15000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.mllp.bridgeErrorHandler": {
 			"name": "camel.component.mllp.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.mllp.basicPropertyBinding": {
 			"name": "camel.component.mllp.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.mllp.defaultCharset": {
 			"name": "camel.component.mllp.defaultCharset",
 			"description": "Set the default character set to use for byte to\/from String conversions.",
 			"defaultValue": "\"ISO-8859-1\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.mllp.logPhi": {
 			"name": "camel.component.mllp.logPhi",
 			"description": "Set the component to log PHI data.",
 			"defaultValue": "\"true\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.mllp.logPhiMaxBytes": {
 			"name": "camel.component.mllp.logPhiMaxBytes",
 			"description": "Set the maximum number of bytes of PHI that will be logged in a log entry.",
 			"defaultValue": "\"5120\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

@@ -11,224 +11,267 @@
 		"camel.source.path.type": {
 			"name": "camel.source.path.type",
 			"description": "Activity or workflow One of: [activity] [workflow]",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.amazonSWClient": {
 			"name": "camel.source.endpoint.amazonSWClient",
 			"description": "To use the given AmazonSimpleWorkflowClient as client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.dataConverter": {
 			"name": "camel.source.endpoint.dataConverter",
 			"description": "An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter to use for serializing\/deserializing the data.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.domainName": {
 			"name": "camel.source.endpoint.domainName",
 			"description": "The workflow domain to use.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.eventName": {
 			"name": "camel.source.endpoint.eventName",
 			"description": "The workflow or activity event name to use.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.region": {
 			"name": "camel.source.endpoint.region",
 			"description": "Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.version": {
 			"name": "camel.source.endpoint.version",
 			"description": "The workflow or activity event version to use.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.activityList": {
 			"name": "camel.source.endpoint.activityList",
 			"description": "The list name to consume activities from.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.activityThreadPoolSize": {
 			"name": "camel.source.endpoint.activityThreadPoolSize",
 			"description": "Maximum number of threads in work pool for activity.",
 			"defaultValue": "100",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.activityTypeExecutionOptions": {
 			"name": "camel.source.endpoint.activityTypeExecutionOptions",
 			"description": "Activity execution options",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.activityTypeRegistrationOptions": {
 			"name": "camel.source.endpoint.activityTypeRegistrationOptions",
 			"description": "Activity registration options",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.clientConfigurationParameters": {
 			"name": "camel.source.endpoint.clientConfigurationParameters",
 			"description": "To configure the ClientConfiguration using the key\/values from the Map.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.startWorkflowOptionsParameters": {
 			"name": "camel.source.endpoint.startWorkflowOptionsParameters",
 			"description": "To configure the StartWorkflowOptions using the key\/values from the Map.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sWClientParameters": {
 			"name": "camel.source.endpoint.sWClientParameters",
 			"description": "To configure the AmazonSimpleWorkflowClient using the key\/values from the Map.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.accessKey": {
 			"name": "camel.source.endpoint.accessKey",
 			"description": "Amazon AWS Access Key.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.secretKey": {
 			"name": "camel.source.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.workflowList": {
 			"name": "camel.source.endpoint.workflowList",
 			"description": "The list name to consume workflows from.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.workflowTypeRegistrationOptions": {
 			"name": "camel.source.endpoint.workflowTypeRegistrationOptions",
 			"description": "Workflow registration options",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.amazonSWClient": {
 			"name": "camel.component.aws-swf.amazonSWClient",
 			"description": "To use the given AmazonSimpleWorkflowClient as client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.configuration": {
 			"name": "camel.component.aws-swf.configuration",
 			"description": "The component configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.dataConverter": {
 			"name": "camel.component.aws-swf.dataConverter",
 			"description": "An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter to use for serializing\/deserializing the data.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.domainName": {
 			"name": "camel.component.aws-swf.domainName",
 			"description": "The workflow domain to use.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.eventName": {
 			"name": "camel.component.aws-swf.eventName",
 			"description": "The workflow or activity event name to use.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.region": {
 			"name": "camel.component.aws-swf.region",
 			"description": "Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.version": {
 			"name": "camel.component.aws-swf.version",
 			"description": "The workflow or activity event version to use.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.bridgeErrorHandler": {
 			"name": "camel.component.aws-swf.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.activityList": {
 			"name": "camel.component.aws-swf.activityList",
 			"description": "The list name to consume activities from.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.activityThreadPoolSize": {
 			"name": "camel.component.aws-swf.activityThreadPoolSize",
 			"description": "Maximum number of threads in work pool for activity.",
 			"defaultValue": "100",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.activityTypeExecutionOptions": {
 			"name": "camel.component.aws-swf.activityTypeExecutionOptions",
 			"description": "Activity execution options",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.activityTypeRegistrationOptions": {
 			"name": "camel.component.aws-swf.activityTypeRegistrationOptions",
 			"description": "Activity registration options",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.basicPropertyBinding": {
 			"name": "camel.component.aws-swf.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.aws-swf.clientConfigurationParameters": {
 			"name": "camel.component.aws-swf.clientConfigurationParameters",
 			"description": "To configure the ClientConfiguration using the key\/values from the Map.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.startWorkflowOptionsParameters": {
 			"name": "camel.component.aws-swf.startWorkflowOptionsParameters",
 			"description": "To configure the StartWorkflowOptions using the key\/values from the Map.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.sWClientParameters": {
 			"name": "camel.component.aws-swf.sWClientParameters",
 			"description": "To configure the AmazonSimpleWorkflowClient using the key\/values from the Map.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.accessKey": {
 			"name": "camel.component.aws-swf.accessKey",
 			"description": "Amazon AWS Access Key.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.secretKey": {
 			"name": "camel.component.aws-swf.secretKey",
 			"description": "Amazon AWS Secret Key.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.workflowList": {
 			"name": "camel.component.aws-swf.workflowList",
 			"description": "The list name to consume workflows from.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws-swf.workflowTypeRegistrationOptions": {
 			"name": "camel.component.aws-swf.workflowTypeRegistrationOptions",
 			"description": "Workflow registration options",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

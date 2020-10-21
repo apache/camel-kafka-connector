@@ -26,33 +26,33 @@ The camel-etcd-keys sink connector supports 24 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.path* | The path the endpoint refers to | null | MEDIUM
-| *camel.sink.endpoint.recursive* | To apply an action recursively. | false | MEDIUM
-| *camel.sink.endpoint.servicePath* | The path to look for for service discovery | "/services/" | MEDIUM
-| *camel.sink.endpoint.timeout* | To set the maximum time an action could take to complete. | null | MEDIUM
-| *camel.sink.endpoint.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.timeToLive* | To set the lifespan of a key in milliseconds. | null | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.password* | The password to use for basic authentication. | null | MEDIUM
-| *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters. | null | MEDIUM
-| *camel.sink.endpoint.userName* | The user name to use for basic authentication. | null | MEDIUM
-| *camel.component.etcd-keys.configuration* | Component configuration. | null | MEDIUM
-| *camel.component.etcd-keys.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.etcd-keys.recursive* | To apply an action recursively. | false | MEDIUM
-| *camel.component.etcd-keys.servicePath* | The path to look for for service discovery | "/services/" | MEDIUM
-| *camel.component.etcd-keys.timeout* | To set the maximum time an action could take to complete. | null | MEDIUM
-| *camel.component.etcd-keys.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | MEDIUM
-| *camel.component.etcd-keys.timeToLive* | To set the lifespan of a key in milliseconds. | null | MEDIUM
-| *camel.component.etcd-keys.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.etcd-keys.password* | The password to use for basic authentication. | null | MEDIUM
-| *camel.component.etcd-keys.sslContextParameters* | To configure security using SSLContextParameters. | null | MEDIUM
-| *camel.component.etcd-keys.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | MEDIUM
-| *camel.component.etcd-keys.userName* | The user name to use for basic authentication. | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.path* | The path the endpoint refers to | null | false | MEDIUM
+| *camel.sink.endpoint.recursive* | To apply an action recursively. | false | false | MEDIUM
+| *camel.sink.endpoint.servicePath* | The path to look for for service discovery | "/services/" | false | MEDIUM
+| *camel.sink.endpoint.timeout* | To set the maximum time an action could take to complete. | null | false | MEDIUM
+| *camel.sink.endpoint.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.timeToLive* | To set the lifespan of a key in milliseconds. | null | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.password* | The password to use for basic authentication. | null | false | MEDIUM
+| *camel.sink.endpoint.sslContextParameters* | To configure security using SSLContextParameters. | null | false | MEDIUM
+| *camel.sink.endpoint.userName* | The user name to use for basic authentication. | null | false | MEDIUM
+| *camel.component.etcd-keys.configuration* | Component configuration. | null | false | MEDIUM
+| *camel.component.etcd-keys.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.etcd-keys.recursive* | To apply an action recursively. | false | false | MEDIUM
+| *camel.component.etcd-keys.servicePath* | The path to look for for service discovery | "/services/" | false | MEDIUM
+| *camel.component.etcd-keys.timeout* | To set the maximum time an action could take to complete. | null | false | MEDIUM
+| *camel.component.etcd-keys.uris* | To set the URIs the client connects. | "http://localhost:2379,http://localhost:4001" | false | MEDIUM
+| *camel.component.etcd-keys.timeToLive* | To set the lifespan of a key in milliseconds. | null | false | MEDIUM
+| *camel.component.etcd-keys.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.etcd-keys.password* | The password to use for basic authentication. | null | false | MEDIUM
+| *camel.component.etcd-keys.sslContextParameters* | To configure security using SSLContextParameters. | null | false | MEDIUM
+| *camel.component.etcd-keys.useGlobalSslContext Parameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
+| *camel.component.etcd-keys.userName* | The user name to use for basic authentication. | null | false | MEDIUM
 |===
 
 
