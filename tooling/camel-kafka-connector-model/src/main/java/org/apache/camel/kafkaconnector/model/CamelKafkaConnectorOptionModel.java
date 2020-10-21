@@ -64,11 +64,11 @@ public class CamelKafkaConnectorOptionModel {
         return Character.toLowerCase(text.charAt(0)) + text.substring(1);
     }
 
-	public String getRequired() {
-		return required;
-	}
+    public String getRequired() {
+        return required;
+    }
 
-	public void setRequired(String required) {
-		this.required = required;
-	}
+    public void setRequired(String required) {
+        this.required = required;
+    }
 }
