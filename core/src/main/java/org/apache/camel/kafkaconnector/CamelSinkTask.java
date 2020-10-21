@@ -31,7 +31,7 @@ import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.utils.CamelKafkaConnectMain;
 import org.apache.camel.kafkaconnector.utils.TaskHelper;
 import org.apache.camel.support.DefaultExchange;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.camel.util.StringHelper;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
@@ -176,7 +176,7 @@ public class CamelSinkTask extends SinkTask {
     }
 
     private static void mapHeader(Header header, String prefix, Map<String, Object> destination) {
-        final String key = StringUtils.removeStart(header.key(), prefix);
+        final String key = StringHelper.after(header.key(), prefix, header.key());
         final Schema schema = header.schema();
 
         if (schema.type().equals(Schema.BYTES_SCHEMA.type()) && Objects.equals(schema.name(), Decimal.LOGICAL_NAME)) {
