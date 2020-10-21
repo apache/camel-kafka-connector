@@ -26,53 +26,53 @@ The camel-crypto sink connector supports 44 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.cryptoOperation* | Set the Crypto operation from that supplied after the crypto scheme in the endpoint uri e.g. crypto:sign sets sign as the operation. One of: [sign] [verify] | null | HIGH
-| *camel.sink.path.name* | The logical name of this operation. | null | HIGH
-| *camel.sink.endpoint.algorithm* | Sets the JCE name of the Algorithm that should be used for the signer. | "SHA256withRSA" | MEDIUM
-| *camel.sink.endpoint.alias* | Sets the alias used to query the KeyStore for keys and {link java.security.cert.Certificate Certificates} to be used in signing and verifying exchanges. This value can be provided at runtime via the message header org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS | null | MEDIUM
-| *camel.sink.endpoint.certificateName* | Sets the reference name for a PrivateKey that can be found in the registry. | null | MEDIUM
-| *camel.sink.endpoint.keystore* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | MEDIUM
-| *camel.sink.endpoint.keystoreName* | Sets the reference name for a Keystore that can be found in the registry. | null | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.privateKey* | Set the PrivateKey that should be used to sign the exchange | null | MEDIUM
-| *camel.sink.endpoint.privateKeyName* | Sets the reference name for a PrivateKey that can be found in the registry. | null | MEDIUM
-| *camel.sink.endpoint.provider* | Set the id of the security provider that provides the configured Signature algorithm. | null | MEDIUM
-| *camel.sink.endpoint.publicKeyName* | references that should be resolved when the context changes | null | MEDIUM
-| *camel.sink.endpoint.secureRandomName* | Sets the reference name for a SecureRandom that can be found in the registry. | null | MEDIUM
-| *camel.sink.endpoint.signatureHeaderName* | Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature' | null | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.bufferSize* | Set the size of the buffer used to read in the Exchange payload data. | "2048" | MEDIUM
-| *camel.sink.endpoint.certificate* | Set the Certificate that should be used to verify the signature in the exchange based on its payload. | null | MEDIUM
-| *camel.sink.endpoint.clearHeaders* | Determines if the Signature specific headers be cleared after signing and verification. Defaults to true, and should only be made otherwise at your extreme peril as vital private information such as Keys and passwords may escape if unset. | true | MEDIUM
-| *camel.sink.endpoint.keyStoreParameters* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges based on the given KeyStoreParameters. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | MEDIUM
-| *camel.sink.endpoint.publicKey* | Set the PublicKey that should be used to verify the signature in the exchange. | null | MEDIUM
-| *camel.sink.endpoint.secureRandom* | Set the SecureRandom used to initialize the Signature service | null | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.password* | Sets the password used to access an aliased PrivateKey in the KeyStore. | null | MEDIUM
-| *camel.component.crypto.algorithm* | Sets the JCE name of the Algorithm that should be used for the signer. | "SHA256withRSA" | MEDIUM
-| *camel.component.crypto.alias* | Sets the alias used to query the KeyStore for keys and {link java.security.cert.Certificate Certificates} to be used in signing and verifying exchanges. This value can be provided at runtime via the message header org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS | null | MEDIUM
-| *camel.component.crypto.certificateName* | Sets the reference name for a PrivateKey that can be found in the registry. | null | MEDIUM
-| *camel.component.crypto.keystore* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | MEDIUM
-| *camel.component.crypto.keystoreName* | Sets the reference name for a Keystore that can be found in the registry. | null | MEDIUM
-| *camel.component.crypto.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.crypto.privateKey* | Set the PrivateKey that should be used to sign the exchange | null | MEDIUM
-| *camel.component.crypto.privateKeyName* | Sets the reference name for a PrivateKey that can be found in the registry. | null | MEDIUM
-| *camel.component.crypto.provider* | Set the id of the security provider that provides the configured Signature algorithm. | null | MEDIUM
-| *camel.component.crypto.publicKeyName* | references that should be resolved when the context changes | null | MEDIUM
-| *camel.component.crypto.secureRandomName* | Sets the reference name for a SecureRandom that can be found in the registry. | null | MEDIUM
-| *camel.component.crypto.signatureHeaderName* | Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature' | null | MEDIUM
-| *camel.component.crypto.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.crypto.bufferSize* | Set the size of the buffer used to read in the Exchange payload data. | "2048" | MEDIUM
-| *camel.component.crypto.certificate* | Set the Certificate that should be used to verify the signature in the exchange based on its payload. | null | MEDIUM
-| *camel.component.crypto.clearHeaders* | Determines if the Signature specific headers be cleared after signing and verification. Defaults to true, and should only be made otherwise at your extreme peril as vital private information such as Keys and passwords may escape if unset. | true | MEDIUM
-| *camel.component.crypto.configuration* | To use the shared DigitalSignatureConfiguration as configuration | null | MEDIUM
-| *camel.component.crypto.keyStoreParameters* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges based on the given KeyStoreParameters. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | MEDIUM
-| *camel.component.crypto.publicKey* | Set the PublicKey that should be used to verify the signature in the exchange. | null | MEDIUM
-| *camel.component.crypto.secureRandom* | Set the SecureRandom used to initialize the Signature service | null | MEDIUM
-| *camel.component.crypto.password* | Sets the password used to access an aliased PrivateKey in the KeyStore. | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.cryptoOperation* | Set the Crypto operation from that supplied after the crypto scheme in the endpoint uri e.g. crypto:sign sets sign as the operation. One of: [sign] [verify] | null | true | HIGH
+| *camel.sink.path.name* | The logical name of this operation. | null | true | HIGH
+| *camel.sink.endpoint.algorithm* | Sets the JCE name of the Algorithm that should be used for the signer. | "SHA256withRSA" | false | MEDIUM
+| *camel.sink.endpoint.alias* | Sets the alias used to query the KeyStore for keys and {link java.security.cert.Certificate Certificates} to be used in signing and verifying exchanges. This value can be provided at runtime via the message header org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS | null | false | MEDIUM
+| *camel.sink.endpoint.certificateName* | Sets the reference name for a PrivateKey that can be found in the registry. | null | false | MEDIUM
+| *camel.sink.endpoint.keystore* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | false | MEDIUM
+| *camel.sink.endpoint.keystoreName* | Sets the reference name for a Keystore that can be found in the registry. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.privateKey* | Set the PrivateKey that should be used to sign the exchange | null | false | MEDIUM
+| *camel.sink.endpoint.privateKeyName* | Sets the reference name for a PrivateKey that can be found in the registry. | null | false | MEDIUM
+| *camel.sink.endpoint.provider* | Set the id of the security provider that provides the configured Signature algorithm. | null | false | MEDIUM
+| *camel.sink.endpoint.publicKeyName* | references that should be resolved when the context changes | null | false | MEDIUM
+| *camel.sink.endpoint.secureRandomName* | Sets the reference name for a SecureRandom that can be found in the registry. | null | false | MEDIUM
+| *camel.sink.endpoint.signatureHeaderName* | Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature' | null | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.bufferSize* | Set the size of the buffer used to read in the Exchange payload data. | "2048" | false | MEDIUM
+| *camel.sink.endpoint.certificate* | Set the Certificate that should be used to verify the signature in the exchange based on its payload. | null | false | MEDIUM
+| *camel.sink.endpoint.clearHeaders* | Determines if the Signature specific headers be cleared after signing and verification. Defaults to true, and should only be made otherwise at your extreme peril as vital private information such as Keys and passwords may escape if unset. | true | false | MEDIUM
+| *camel.sink.endpoint.keyStoreParameters* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges based on the given KeyStoreParameters. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | false | MEDIUM
+| *camel.sink.endpoint.publicKey* | Set the PublicKey that should be used to verify the signature in the exchange. | null | false | MEDIUM
+| *camel.sink.endpoint.secureRandom* | Set the SecureRandom used to initialize the Signature service | null | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.password* | Sets the password used to access an aliased PrivateKey in the KeyStore. | null | false | MEDIUM
+| *camel.component.crypto.algorithm* | Sets the JCE name of the Algorithm that should be used for the signer. | "SHA256withRSA" | false | MEDIUM
+| *camel.component.crypto.alias* | Sets the alias used to query the KeyStore for keys and {link java.security.cert.Certificate Certificates} to be used in signing and verifying exchanges. This value can be provided at runtime via the message header org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS | null | false | MEDIUM
+| *camel.component.crypto.certificateName* | Sets the reference name for a PrivateKey that can be found in the registry. | null | false | MEDIUM
+| *camel.component.crypto.keystore* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | false | MEDIUM
+| *camel.component.crypto.keystoreName* | Sets the reference name for a Keystore that can be found in the registry. | null | false | MEDIUM
+| *camel.component.crypto.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.crypto.privateKey* | Set the PrivateKey that should be used to sign the exchange | null | false | MEDIUM
+| *camel.component.crypto.privateKeyName* | Sets the reference name for a PrivateKey that can be found in the registry. | null | false | MEDIUM
+| *camel.component.crypto.provider* | Set the id of the security provider that provides the configured Signature algorithm. | null | false | MEDIUM
+| *camel.component.crypto.publicKeyName* | references that should be resolved when the context changes | null | false | MEDIUM
+| *camel.component.crypto.secureRandomName* | Sets the reference name for a SecureRandom that can be found in the registry. | null | false | MEDIUM
+| *camel.component.crypto.signatureHeaderName* | Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature' | null | false | MEDIUM
+| *camel.component.crypto.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.crypto.bufferSize* | Set the size of the buffer used to read in the Exchange payload data. | "2048" | false | MEDIUM
+| *camel.component.crypto.certificate* | Set the Certificate that should be used to verify the signature in the exchange based on its payload. | null | false | MEDIUM
+| *camel.component.crypto.clearHeaders* | Determines if the Signature specific headers be cleared after signing and verification. Defaults to true, and should only be made otherwise at your extreme peril as vital private information such as Keys and passwords may escape if unset. | true | false | MEDIUM
+| *camel.component.crypto.configuration* | To use the shared DigitalSignatureConfiguration as configuration | null | false | MEDIUM
+| *camel.component.crypto.keyStoreParameters* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges based on the given KeyStoreParameters. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | false | MEDIUM
+| *camel.component.crypto.publicKey* | Set the PublicKey that should be used to verify the signature in the exchange. | null | false | MEDIUM
+| *camel.component.crypto.secureRandom* | Set the SecureRandom used to initialize the Signature service | null | false | MEDIUM
+| *camel.component.crypto.password* | Sets the password used to access an aliased PrivateKey in the KeyStore. | null | false | MEDIUM
 |===
 
 

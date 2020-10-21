@@ -26,31 +26,31 @@ The camel-avro sink connector supports 22 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.transport* | Transport to use, can be either http or netty One of: [http] [netty] | null | HIGH
-| *camel.sink.path.port* | Port number to use | null | HIGH
-| *camel.sink.path.host* | Hostname to use | null | HIGH
-| *camel.sink.path.messageName* | The name of the message to send. | null | MEDIUM
-| *camel.sink.endpoint.protocol* | Avro protocol to use | null | MEDIUM
-| *camel.sink.endpoint.protocolClassName* | Avro protocol to use defined by the FQN class name | null | MEDIUM
-| *camel.sink.endpoint.protocolLocation* | Avro protocol location | null | MEDIUM
-| *camel.sink.endpoint.reflectionProtocol* | If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected | false | MEDIUM
-| *camel.sink.endpoint.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | MEDIUM
-| *camel.sink.endpoint.uriAuthority* | Authority to use (username and password) | null | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.avro.protocol* | Avro protocol to use | null | MEDIUM
-| *camel.component.avro.protocolClassName* | Avro protocol to use defined by the FQN class name | null | MEDIUM
-| *camel.component.avro.protocolLocation* | Avro protocol location | null | MEDIUM
-| *camel.component.avro.reflectionProtocol* | If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected | false | MEDIUM
-| *camel.component.avro.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | MEDIUM
-| *camel.component.avro.uriAuthority* | Authority to use (username and password) | null | MEDIUM
-| *camel.component.avro.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.avro.configuration* | To use a shared AvroConfiguration to configure options once | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.transport* | Transport to use, can be either http or netty One of: [http] [netty] | null | true | HIGH
+| *camel.sink.path.port* | Port number to use | null | true | HIGH
+| *camel.sink.path.host* | Hostname to use | null | true | HIGH
+| *camel.sink.path.messageName* | The name of the message to send. | null | false | MEDIUM
+| *camel.sink.endpoint.protocol* | Avro protocol to use | null | false | MEDIUM
+| *camel.sink.endpoint.protocolClassName* | Avro protocol to use defined by the FQN class name | null | false | MEDIUM
+| *camel.sink.endpoint.protocolLocation* | Avro protocol location | null | false | MEDIUM
+| *camel.sink.endpoint.reflectionProtocol* | If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected | false | false | MEDIUM
+| *camel.sink.endpoint.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | false | MEDIUM
+| *camel.sink.endpoint.uriAuthority* | Authority to use (username and password) | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.avro.protocol* | Avro protocol to use | null | false | MEDIUM
+| *camel.component.avro.protocolClassName* | Avro protocol to use defined by the FQN class name | null | false | MEDIUM
+| *camel.component.avro.protocolLocation* | Avro protocol location | null | false | MEDIUM
+| *camel.component.avro.reflectionProtocol* | If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected | false | false | MEDIUM
+| *camel.component.avro.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | false | MEDIUM
+| *camel.component.avro.uriAuthority* | Authority to use (username and password) | null | false | MEDIUM
+| *camel.component.avro.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.avro.configuration* | To use a shared AvroConfiguration to configure options once | null | false | MEDIUM
 |===
 
 

@@ -11,219 +11,257 @@
 		"camel.sink.path.persistence": {
 			"name": "camel.sink.path.persistence",
 			"description": "Whether the topic is persistent or non-persistent One of: [persistent] [non-persistent]",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.tenant": {
 			"name": "camel.sink.path.tenant",
 			"description": "The tenant",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.namespace": {
 			"name": "camel.sink.path.namespace",
 			"description": "The namespace",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.topic": {
 			"name": "camel.sink.path.topic",
 			"description": "The topic",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.batcherBuilder": {
 			"name": "camel.sink.endpoint.batcherBuilder",
 			"description": "Control batching method used by the producer.",
 			"defaultValue": "\"DEFAULT\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.batchingEnabled": {
 			"name": "camel.sink.endpoint.batchingEnabled",
 			"description": "Control whether automatic batching of messages is enabled for the producer.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.batchingMaxMessages": {
 			"name": "camel.sink.endpoint.batchingMaxMessages",
 			"description": "The maximum size to batch messages.",
 			"defaultValue": "1000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.batchingMaxPublishDelayMicros": {
 			"name": "camel.sink.endpoint.batchingMaxPublishDelayMicros",
 			"description": "The maximum time period within which the messages sent will be batched if batchingEnabled is true.",
 			"defaultValue": "1000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.blockIfQueueFull": {
 			"name": "camel.sink.endpoint.blockIfQueueFull",
 			"description": "Whether to block the producing thread if pending messages queue is full or to throw a ProducerQueueIsFullError",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.compressionType": {
 			"name": "camel.sink.endpoint.compressionType",
 			"description": "Compression type to use One of: [NONE] [LZ4] [ZLIB] [ZSTD] [SNAPPY]",
 			"defaultValue": "\"NONE\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.initialSequenceId": {
 			"name": "camel.sink.endpoint.initialSequenceId",
 			"description": "The first message published will have a sequence Id of initialSequenceId 1.",
 			"defaultValue": "-1L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.maxPendingMessages": {
 			"name": "camel.sink.endpoint.maxPendingMessages",
 			"description": "Size of the pending massages queue. When the queue is full, by default, any further sends will fail unless blockIfQueueFull=true",
 			"defaultValue": "1000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.maxPendingMessagesAcrossPartitions": {
 			"name": "camel.sink.endpoint.maxPendingMessagesAcrossPartitions",
 			"description": "The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition.",
 			"defaultValue": "50000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.messageRouter": {
 			"name": "camel.sink.endpoint.messageRouter",
 			"description": "Custom Message Router to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.messageRoutingMode": {
 			"name": "camel.sink.endpoint.messageRoutingMode",
 			"description": "Message Routing Mode to use One of: [SinglePartition] [RoundRobinPartition] [CustomPartition]",
 			"defaultValue": "\"RoundRobinPartition\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.producerName": {
 			"name": "camel.sink.endpoint.producerName",
 			"description": "Name of the producer. If unset, lets Pulsar select a unique identifier.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.sendTimeoutMs": {
 			"name": "camel.sink.endpoint.sendTimeoutMs",
 			"description": "Send timeout in milliseconds",
 			"defaultValue": "30000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.configuration": {
 			"name": "camel.component.pulsar.configuration",
 			"description": "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.batcherBuilder": {
 			"name": "camel.component.pulsar.batcherBuilder",
 			"description": "Control batching method used by the producer.",
 			"defaultValue": "\"DEFAULT\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.batchingEnabled": {
 			"name": "camel.component.pulsar.batchingEnabled",
 			"description": "Control whether automatic batching of messages is enabled for the producer.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.batchingMaxMessages": {
 			"name": "camel.component.pulsar.batchingMaxMessages",
 			"description": "The maximum size to batch messages.",
 			"defaultValue": "1000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.batchingMaxPublishDelayMicros": {
 			"name": "camel.component.pulsar.batchingMaxPublishDelayMicros",
 			"description": "The maximum time period within which the messages sent will be batched if batchingEnabled is true.",
 			"defaultValue": "1000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.blockIfQueueFull": {
 			"name": "camel.component.pulsar.blockIfQueueFull",
 			"description": "Whether to block the producing thread if pending messages queue is full or to throw a ProducerQueueIsFullError",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.compressionType": {
 			"name": "camel.component.pulsar.compressionType",
 			"description": "Compression type to use One of: [NONE] [LZ4] [ZLIB] [ZSTD] [SNAPPY]",
 			"defaultValue": "\"NONE\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.initialSequenceId": {
 			"name": "camel.component.pulsar.initialSequenceId",
 			"description": "The first message published will have a sequence Id of initialSequenceId 1.",
 			"defaultValue": "-1L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.lazyStartProducer": {
 			"name": "camel.component.pulsar.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.maxPendingMessages": {
 			"name": "camel.component.pulsar.maxPendingMessages",
 			"description": "Size of the pending massages queue. When the queue is full, by default, any further sends will fail unless blockIfQueueFull=true",
 			"defaultValue": "1000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.maxPendingMessagesAcrossPartitions": {
 			"name": "camel.component.pulsar.maxPendingMessagesAcrossPartitions",
 			"description": "The maximum number of pending messages for partitioned topics. The maxPendingMessages value will be reduced if (number of partitions maxPendingMessages) exceeds this value. Partitioned topics have a pending message queue for each partition.",
 			"defaultValue": "50000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.messageRouter": {
 			"name": "camel.component.pulsar.messageRouter",
 			"description": "Custom Message Router to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.messageRoutingMode": {
 			"name": "camel.component.pulsar.messageRoutingMode",
 			"description": "Message Routing Mode to use One of: [SinglePartition] [RoundRobinPartition] [CustomPartition]",
 			"defaultValue": "\"RoundRobinPartition\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.producerName": {
 			"name": "camel.component.pulsar.producerName",
 			"description": "Name of the producer. If unset, lets Pulsar select a unique identifier.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.sendTimeoutMs": {
 			"name": "camel.component.pulsar.sendTimeoutMs",
 			"description": "Send timeout in milliseconds",
 			"defaultValue": "30000",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.autoConfiguration": {
 			"name": "camel.component.pulsar.autoConfiguration",
 			"description": "The pulsar auto configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.pulsar.basicPropertyBinding": {
 			"name": "camel.component.pulsar.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.pulsar.pulsarClient": {
 			"name": "camel.component.pulsar.pulsarClient",
 			"description": "The pulsar client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

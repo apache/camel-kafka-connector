@@ -68,6 +68,7 @@ public final class JsonMapperKafkaConnector {
             obj.put("defaultValue", model.getDefaultValue());
         }
         obj.put("priority", model.getPriority());
+        obj.put("required", model.getRequired());
         return obj;
     }
 }

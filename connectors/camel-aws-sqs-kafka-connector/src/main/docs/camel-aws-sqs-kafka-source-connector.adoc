@@ -26,98 +26,98 @@ The camel-aws-sqs source connector supports 89 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.queueNameOrArn* | Queue name or ARN | null | HIGH
-| *camel.source.endpoint.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | MEDIUM
-| *camel.source.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | MEDIUM
-| *camel.source.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | MEDIUM
-| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
-| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | MEDIUM
-| *camel.source.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | MEDIUM
-| *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
-| *camel.source.endpoint.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | MEDIUM
-| *camel.source.endpoint.region* | Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM
-| *camel.source.endpoint.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | MEDIUM
-| *camel.source.endpoint.defaultVisibilityTimeout* | The default visibility timeout (in seconds) | null | MEDIUM
-| *camel.source.endpoint.deleteAfterRead* | Delete message from SQS after it has been read | true | MEDIUM
-| *camel.source.endpoint.deleteIfFiltered* | Whether or not to send the DeleteMessage to the SQS queue if an exchange fails to get through a filter. If 'false' and exchange does not make it through a Camel filter upstream in the route, then don't send DeleteMessage. | true | MEDIUM
-| *camel.source.endpoint.extendMessageVisibility* | If enabled then a scheduled background task will keep extending the message visibility on SQS. This is needed if it takes a long time to process the message. If set to true defaultVisibilityTimeout must be set. See details at Amazon docs. | false | MEDIUM
-| *camel.source.endpoint.kmsDataKeyReusePeriodSeconds* | The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). | null | MEDIUM
-| *camel.source.endpoint.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. | null | MEDIUM
-| *camel.source.endpoint.maxMessagesPerPoll* | Gets the maximum number of messages as a limit to poll at each polling. Is default unlimited, but use 0 or negative number to disable it as unlimited. | null | MEDIUM
-| *camel.source.endpoint.messageAttributeNames* | A list of message attribute names to receive when consuming. Multiple names can be separated by comma. | null | MEDIUM
-| *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | MEDIUM
-| *camel.source.endpoint.serverSideEncryptionEnabled* | Define if Server Side Encryption is enabled or not on the queue | false | MEDIUM
-| *camel.source.endpoint.visibilityTimeout* | The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only make sense if its different from defaultVisibilityTimeout. It changes the queue visibility timeout attribute permanently. | null | MEDIUM
-| *camel.source.endpoint.waitTimeSeconds* | Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response. | null | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | MEDIUM
-| *camel.source.endpoint.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the SQS client | null | MEDIUM
-| *camel.source.endpoint.proxyPort* | To define a proxy port when instantiating the SQS client | null | MEDIUM
-| *camel.source.endpoint.maximumMessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | MEDIUM
-| *camel.source.endpoint.messageRetentionPeriod* | The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue. | null | MEDIUM
-| *camel.source.endpoint.policy* | The policy for this queue | null | MEDIUM
-| *camel.source.endpoint.receiveMessageWaitTime Seconds* | If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait. | null | MEDIUM
-| *camel.source.endpoint.redrivePolicy* | Specify the policy that send message to DeadLetter queue. See detail at Amazon docs. | null | MEDIUM
-| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | MEDIUM
-| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | MEDIUM
-| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | MEDIUM
-| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 500L | MEDIUM
-| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | MEDIUM
-| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | MEDIUM
-| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
-| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
-| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
-| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
-| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
-| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
-| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
-| *camel.source.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
-| *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
-| *camel.component.aws-sqs.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | MEDIUM
-| *camel.component.aws-sqs.amazonSQSClient* | To use the AmazonSQS as client | null | MEDIUM
-| *camel.component.aws-sqs.autoCreateQueue* | Setting the autocreation of the queue | true | MEDIUM
-| *camel.component.aws-sqs.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
-| *camel.component.aws-sqs.configuration* | The component configuration | null | MEDIUM
-| *camel.component.aws-sqs.protocol* | The underlying protocol used to communicate with SQS | "https" | MEDIUM
-| *camel.component.aws-sqs.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
-| *camel.component.aws-sqs.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | MEDIUM
-| *camel.component.aws-sqs.region* | Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM
-| *camel.component.aws-sqs.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | MEDIUM
-| *camel.component.aws-sqs.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.aws-sqs.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | MEDIUM
-| *camel.component.aws-sqs.defaultVisibilityTimeout* | The default visibility timeout (in seconds) | null | MEDIUM
-| *camel.component.aws-sqs.deleteAfterRead* | Delete message from SQS after it has been read | true | MEDIUM
-| *camel.component.aws-sqs.deleteIfFiltered* | Whether or not to send the DeleteMessage to the SQS queue if an exchange fails to get through a filter. If 'false' and exchange does not make it through a Camel filter upstream in the route, then don't send DeleteMessage. | true | MEDIUM
-| *camel.component.aws-sqs.extendMessageVisibility* | If enabled then a scheduled background task will keep extending the message visibility on SQS. This is needed if it takes a long time to process the message. If set to true defaultVisibilityTimeout must be set. See details at Amazon docs. | false | MEDIUM
-| *camel.component.aws-sqs.kmsDataKeyReusePeriod Seconds* | The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). | null | MEDIUM
-| *camel.component.aws-sqs.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. | null | MEDIUM
-| *camel.component.aws-sqs.messageAttributeNames* | A list of message attribute names to receive when consuming. Multiple names can be separated by comma. | null | MEDIUM
-| *camel.component.aws-sqs.serverSideEncryption Enabled* | Define if Server Side Encryption is enabled or not on the queue | false | MEDIUM
-| *camel.component.aws-sqs.visibilityTimeout* | The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only make sense if its different from defaultVisibilityTimeout. It changes the queue visibility timeout attribute permanently. | null | MEDIUM
-| *camel.component.aws-sqs.waitTimeSeconds* | Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response. | null | MEDIUM
-| *camel.component.aws-sqs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.aws-sqs.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | MEDIUM
-| *camel.component.aws-sqs.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | MEDIUM
-| *camel.component.aws-sqs.proxyHost* | To define a proxy host when instantiating the SQS client | null | MEDIUM
-| *camel.component.aws-sqs.proxyPort* | To define a proxy port when instantiating the SQS client | null | MEDIUM
-| *camel.component.aws-sqs.maximumMessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | MEDIUM
-| *camel.component.aws-sqs.messageRetentionPeriod* | The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue. | null | MEDIUM
-| *camel.component.aws-sqs.policy* | The policy for this queue | null | MEDIUM
-| *camel.component.aws-sqs.receiveMessageWaitTime Seconds* | If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait. | null | MEDIUM
-| *camel.component.aws-sqs.redrivePolicy* | Specify the policy that send message to DeadLetter queue. See detail at Amazon docs. | null | MEDIUM
-| *camel.component.aws-sqs.accessKey* | Amazon AWS Access Key | null | MEDIUM
-| *camel.component.aws-sqs.secretKey* | Amazon AWS Secret Key | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.source.path.queueNameOrArn* | Queue name or ARN | null | true | HIGH
+| *camel.source.endpoint.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | false | MEDIUM
+| *camel.source.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
+| *camel.source.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
+| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
+| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | false | MEDIUM
+| *camel.source.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
+| *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
+| *camel.source.endpoint.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
+| *camel.source.endpoint.region* | Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | false | MEDIUM
+| *camel.source.endpoint.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | false | MEDIUM
+| *camel.source.endpoint.defaultVisibilityTimeout* | The default visibility timeout (in seconds) | null | false | MEDIUM
+| *camel.source.endpoint.deleteAfterRead* | Delete message from SQS after it has been read | true | false | MEDIUM
+| *camel.source.endpoint.deleteIfFiltered* | Whether or not to send the DeleteMessage to the SQS queue if an exchange fails to get through a filter. If 'false' and exchange does not make it through a Camel filter upstream in the route, then don't send DeleteMessage. | true | false | MEDIUM
+| *camel.source.endpoint.extendMessageVisibility* | If enabled then a scheduled background task will keep extending the message visibility on SQS. This is needed if it takes a long time to process the message. If set to true defaultVisibilityTimeout must be set. See details at Amazon docs. | false | false | MEDIUM
+| *camel.source.endpoint.kmsDataKeyReusePeriodSeconds* | The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). | null | false | MEDIUM
+| *camel.source.endpoint.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. | null | false | MEDIUM
+| *camel.source.endpoint.maxMessagesPerPoll* | Gets the maximum number of messages as a limit to poll at each polling. Is default unlimited, but use 0 or negative number to disable it as unlimited. | null | false | MEDIUM
+| *camel.source.endpoint.messageAttributeNames* | A list of message attribute names to receive when consuming. Multiple names can be separated by comma. | null | false | MEDIUM
+| *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
+| *camel.source.endpoint.serverSideEncryptionEnabled* | Define if Server Side Encryption is enabled or not on the queue | false | false | MEDIUM
+| *camel.source.endpoint.visibilityTimeout* | The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only make sense if its different from defaultVisibilityTimeout. It changes the queue visibility timeout attribute permanently. | null | false | MEDIUM
+| *camel.source.endpoint.waitTimeSeconds* | Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response. | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | false | MEDIUM
+| *camel.source.endpoint.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the SQS client | null | false | MEDIUM
+| *camel.source.endpoint.proxyPort* | To define a proxy port when instantiating the SQS client | null | false | MEDIUM
+| *camel.source.endpoint.maximumMessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | false | MEDIUM
+| *camel.source.endpoint.messageRetentionPeriod* | The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue. | null | false | MEDIUM
+| *camel.source.endpoint.policy* | The policy for this queue | null | false | MEDIUM
+| *camel.source.endpoint.receiveMessageWaitTime Seconds* | If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait. | null | false | MEDIUM
+| *camel.source.endpoint.redrivePolicy* | Specify the policy that send message to DeadLetter queue. See detail at Amazon docs. | null | false | MEDIUM
+| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
+| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
+| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | false | MEDIUM
+| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 500L | false | MEDIUM
+| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | false | MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | false | MEDIUM
+| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | false | MEDIUM
+| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | false | MEDIUM
+| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | false | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | false | MEDIUM
+| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | false | MEDIUM
+| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | false | MEDIUM
+| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | false | MEDIUM
+| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
+| *camel.source.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
+| *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
+| *camel.component.aws-sqs.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | false | MEDIUM
+| *camel.component.aws-sqs.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
+| *camel.component.aws-sqs.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
+| *camel.component.aws-sqs.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
+| *camel.component.aws-sqs.configuration* | The component configuration | null | false | MEDIUM
+| *camel.component.aws-sqs.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
+| *camel.component.aws-sqs.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
+| *camel.component.aws-sqs.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
+| *camel.component.aws-sqs.region* | Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | false | MEDIUM
+| *camel.component.aws-sqs.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | false | MEDIUM
+| *camel.component.aws-sqs.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.aws-sqs.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | false | MEDIUM
+| *camel.component.aws-sqs.defaultVisibilityTimeout* | The default visibility timeout (in seconds) | null | false | MEDIUM
+| *camel.component.aws-sqs.deleteAfterRead* | Delete message from SQS after it has been read | true | false | MEDIUM
+| *camel.component.aws-sqs.deleteIfFiltered* | Whether or not to send the DeleteMessage to the SQS queue if an exchange fails to get through a filter. If 'false' and exchange does not make it through a Camel filter upstream in the route, then don't send DeleteMessage. | true | false | MEDIUM
+| *camel.component.aws-sqs.extendMessageVisibility* | If enabled then a scheduled background task will keep extending the message visibility on SQS. This is needed if it takes a long time to process the message. If set to true defaultVisibilityTimeout must be set. See details at Amazon docs. | false | false | MEDIUM
+| *camel.component.aws-sqs.kmsDataKeyReusePeriod Seconds* | The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). Default: 300 (5 minutes). | null | false | MEDIUM
+| *camel.component.aws-sqs.kmsMasterKeyId* | The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. | null | false | MEDIUM
+| *camel.component.aws-sqs.messageAttributeNames* | A list of message attribute names to receive when consuming. Multiple names can be separated by comma. | null | false | MEDIUM
+| *camel.component.aws-sqs.serverSideEncryption Enabled* | Define if Server Side Encryption is enabled or not on the queue | false | false | MEDIUM
+| *camel.component.aws-sqs.visibilityTimeout* | The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only make sense if its different from defaultVisibilityTimeout. It changes the queue visibility timeout attribute permanently. | null | false | MEDIUM
+| *camel.component.aws-sqs.waitTimeSeconds* | Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response. | null | false | MEDIUM
+| *camel.component.aws-sqs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws-sqs.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | false | MEDIUM
+| *camel.component.aws-sqs.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | false | MEDIUM
+| *camel.component.aws-sqs.proxyHost* | To define a proxy host when instantiating the SQS client | null | false | MEDIUM
+| *camel.component.aws-sqs.proxyPort* | To define a proxy port when instantiating the SQS client | null | false | MEDIUM
+| *camel.component.aws-sqs.maximumMessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | false | MEDIUM
+| *camel.component.aws-sqs.messageRetentionPeriod* | The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue. | null | false | MEDIUM
+| *camel.component.aws-sqs.policy* | The policy for this queue | null | false | MEDIUM
+| *camel.component.aws-sqs.receiveMessageWaitTime Seconds* | If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait. | null | false | MEDIUM
+| *camel.component.aws-sqs.redrivePolicy* | Specify the policy that send message to DeadLetter queue. See detail at Amazon docs. | null | false | MEDIUM
+| *camel.component.aws-sqs.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
+| *camel.component.aws-sqs.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 |===
 
 

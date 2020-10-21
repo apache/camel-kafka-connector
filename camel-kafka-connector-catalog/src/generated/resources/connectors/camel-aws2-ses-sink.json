@@ -11,178 +11,211 @@
 		"camel.sink.path.from": {
 			"name": "camel.sink.path.from",
 			"description": "The sender's email address.",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.amazonSESClient": {
 			"name": "camel.sink.endpoint.amazonSESClient",
 			"description": "To use the AmazonSimpleEmailService as the client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
 			"name": "camel.sink.endpoint.autoDiscoverClient",
 			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the SES client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyPort": {
 			"name": "camel.sink.endpoint.proxyPort",
 			"description": "To define a proxy port when instantiating the SES client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.proxyProtocol": {
 			"name": "camel.sink.endpoint.proxyProtocol",
 			"description": "To define a proxy protocol when instantiating the SES client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
 			"description": "The region in which SES client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.replyToAddresses": {
 			"name": "camel.sink.endpoint.replyToAddresses",
 			"description": "List of reply-to email address(es) for the message, override it using 'CamelAwsSesReplyToAddresses' header.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.returnPath": {
 			"name": "camel.sink.endpoint.returnPath",
 			"description": "The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.subject": {
 			"name": "camel.sink.endpoint.subject",
 			"description": "The subject which is used if the message header 'CamelAwsSesSubject' is not present.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.to": {
 			"name": "camel.sink.endpoint.to",
 			"description": "List of destination email address. Can be overriden with 'CamelAwsSesTo' header.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.trustAllCertificates": {
 			"name": "camel.sink.endpoint.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.amazonSESClient": {
 			"name": "camel.component.aws2-ses.amazonSESClient",
 			"description": "To use the AmazonSimpleEmailService as the client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.autoDiscoverClient": {
 			"name": "camel.component.aws2-ses.autoDiscoverClient",
 			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.configuration": {
 			"name": "camel.component.aws2-ses.configuration",
 			"description": "component configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.lazyStartProducer": {
 			"name": "camel.component.aws2-ses.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.proxyHost": {
 			"name": "camel.component.aws2-ses.proxyHost",
 			"description": "To define a proxy host when instantiating the SES client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.proxyPort": {
 			"name": "camel.component.aws2-ses.proxyPort",
 			"description": "To define a proxy port when instantiating the SES client",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.proxyProtocol": {
 			"name": "camel.component.aws2-ses.proxyProtocol",
 			"description": "To define a proxy protocol when instantiating the SES client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.region": {
 			"name": "camel.component.aws2-ses.region",
 			"description": "The region in which SES client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id()",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.replyToAddresses": {
 			"name": "camel.component.aws2-ses.replyToAddresses",
 			"description": "List of reply-to email address(es) for the message, override it using 'CamelAwsSesReplyToAddresses' header.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.returnPath": {
 			"name": "camel.component.aws2-ses.returnPath",
 			"description": "The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.subject": {
 			"name": "camel.component.aws2-ses.subject",
 			"description": "The subject which is used if the message header 'CamelAwsSesSubject' is not present.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.to": {
 			"name": "camel.component.aws2-ses.to",
 			"description": "List of destination email address. Can be overriden with 'CamelAwsSesTo' header.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.trustAllCertificates": {
 			"name": "camel.component.aws2-ses.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.basicPropertyBinding": {
 			"name": "camel.component.aws2-ses.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.accessKey": {
 			"name": "camel.component.aws2-ses.accessKey",
 			"description": "Amazon AWS Access Key",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.aws2-ses.secretKey": {
 			"name": "camel.component.aws2-ses.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

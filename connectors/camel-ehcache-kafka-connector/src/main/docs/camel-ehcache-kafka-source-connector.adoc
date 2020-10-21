@@ -26,39 +26,39 @@ The camel-ehcache source connector supports 30 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.cacheName* | the cache name | null | HIGH
-| *camel.source.endpoint.cacheManager* | The cache manager | null | MEDIUM
-| *camel.source.endpoint.cacheManagerConfiguration* | The cache manager configuration | null | MEDIUM
-| *camel.source.endpoint.configurationUri* | URI pointing to the Ehcache XML configuration file's location | null | MEDIUM
-| *camel.source.endpoint.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.eventFiring* | Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS] | "ASYNCHRONOUS" | MEDIUM
-| *camel.source.endpoint.eventOrdering* | Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED] | "ORDERED" | MEDIUM
-| *camel.source.endpoint.eventTypes* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.configuration* | The default cache configuration to be used to create caches. | null | MEDIUM
-| *camel.source.endpoint.configurations* | A map of cache configuration to be used to create caches. | null | MEDIUM
-| *camel.source.endpoint.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
-| *camel.component.ehcache.cacheManager* | The cache manager | null | MEDIUM
-| *camel.component.ehcache.cacheManagerConfiguration* | The cache manager configuration | null | MEDIUM
-| *camel.component.ehcache.configurationUri* | URI pointing to the Ehcache XML configuration file's location | null | MEDIUM
-| *camel.component.ehcache.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | MEDIUM
-| *camel.component.ehcache.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.ehcache.eventFiring* | Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS] | "ASYNCHRONOUS" | MEDIUM
-| *camel.component.ehcache.eventOrdering* | Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED] | "ORDERED" | MEDIUM
-| *camel.component.ehcache.eventTypes* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | MEDIUM
-| *camel.component.ehcache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.ehcache.configuration* | The default cache configuration to be used to create caches. | null | MEDIUM
-| *camel.component.ehcache.configurations* | A map of cache configuration to be used to create caches. | null | MEDIUM
-| *camel.component.ehcache.keyType* | The cache key type, default java.lang.Object | null | MEDIUM
-| *camel.component.ehcache.valueType* | The cache value type, default java.lang.Object | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.source.path.cacheName* | the cache name | null | true | HIGH
+| *camel.source.endpoint.cacheManager* | The cache manager | null | false | MEDIUM
+| *camel.source.endpoint.cacheManagerConfiguration* | The cache manager configuration | null | false | MEDIUM
+| *camel.source.endpoint.configurationUri* | URI pointing to the Ehcache XML configuration file's location | null | false | MEDIUM
+| *camel.source.endpoint.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.eventFiring* | Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS] | "ASYNCHRONOUS" | false | MEDIUM
+| *camel.source.endpoint.eventOrdering* | Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED] | "ORDERED" | false | MEDIUM
+| *camel.source.endpoint.eventTypes* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.configuration* | The default cache configuration to be used to create caches. | null | false | MEDIUM
+| *camel.source.endpoint.configurations* | A map of cache configuration to be used to create caches. | null | false | MEDIUM
+| *camel.source.endpoint.keyType* | The cache key type, default java.lang.Object | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.valueType* | The cache value type, default java.lang.Object | null | false | MEDIUM
+| *camel.component.ehcache.cacheManager* | The cache manager | null | false | MEDIUM
+| *camel.component.ehcache.cacheManagerConfiguration* | The cache manager configuration | null | false | MEDIUM
+| *camel.component.ehcache.configurationUri* | URI pointing to the Ehcache XML configuration file's location | null | false | MEDIUM
+| *camel.component.ehcache.createCacheIfNotExist* | Configure if a cache need to be created if it does exist or can't be pre-configured. | true | false | MEDIUM
+| *camel.component.ehcache.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.ehcache.eventFiring* | Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS] | "ASYNCHRONOUS" | false | MEDIUM
+| *camel.component.ehcache.eventOrdering* | Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED] | "ORDERED" | false | MEDIUM
+| *camel.component.ehcache.eventTypes* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | false | MEDIUM
+| *camel.component.ehcache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.ehcache.configuration* | The default cache configuration to be used to create caches. | null | false | MEDIUM
+| *camel.component.ehcache.configurations* | A map of cache configuration to be used to create caches. | null | false | MEDIUM
+| *camel.component.ehcache.keyType* | The cache key type, default java.lang.Object | null | false | MEDIUM
+| *camel.component.ehcache.valueType* | The cache value type, default java.lang.Object | null | false | MEDIUM
 |===
 
 

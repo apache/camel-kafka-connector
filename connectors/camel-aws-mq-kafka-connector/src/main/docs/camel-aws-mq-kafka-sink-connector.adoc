@@ -26,34 +26,34 @@ The camel-aws-mq sink connector supports 25 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.label* | Logical name | null | HIGH
-| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
-| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | MEDIUM
-| *camel.sink.endpoint.amazonMqClient* | To use a existing configured AmazonMQClient as client | null | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.operation* | The operation to perform. It can be listBrokers,createBroker,deleteBroker One of: [listBrokers] [createBroker] [deleteBroker] [rebootBroker] [updateBroker] [describeBroker] | null | HIGH
-| *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the MQ client | null | MEDIUM
-| *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the MQ client | null | MEDIUM
-| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the MQ client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
-| *camel.sink.endpoint.region* | The region in which MQ client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM
-| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.aws-mq.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | MEDIUM
-| *camel.component.aws-mq.accessKey* | Amazon AWS Access Key | null | MEDIUM
-| *camel.component.aws-mq.amazonMqClient* | To use a existing configured AmazonMQClient as client | null | MEDIUM
-| *camel.component.aws-mq.configuration* | The Component configuration | null | MEDIUM
-| *camel.component.aws-mq.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.aws-mq.operation* | The operation to perform. It can be listBrokers,createBroker,deleteBroker One of: [listBrokers] [createBroker] [deleteBroker] [rebootBroker] [updateBroker] [describeBroker] | null | HIGH
-| *camel.component.aws-mq.proxyHost* | To define a proxy host when instantiating the MQ client | null | MEDIUM
-| *camel.component.aws-mq.proxyPort* | To define a proxy port when instantiating the MQ client | null | MEDIUM
-| *camel.component.aws-mq.proxyProtocol* | To define a proxy protocol when instantiating the MQ client One of: [HTTP] [HTTPS] | "HTTPS" | MEDIUM
-| *camel.component.aws-mq.region* | The region in which MQ client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | MEDIUM
-| *camel.component.aws-mq.secretKey* | Amazon AWS Secret Key | null | MEDIUM
-| *camel.component.aws-mq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.label* | Logical name | null | true | HIGH
+| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
+| *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
+| *camel.sink.endpoint.amazonMqClient* | To use a existing configured AmazonMQClient as client | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to perform. It can be listBrokers,createBroker,deleteBroker One of: [listBrokers] [createBroker] [deleteBroker] [rebootBroker] [updateBroker] [describeBroker] | null | true | HIGH
+| *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the MQ client | null | false | MEDIUM
+| *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the MQ client | null | false | MEDIUM
+| *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the MQ client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
+| *camel.sink.endpoint.region* | The region in which MQ client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | false | MEDIUM
+| *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.aws-mq.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
+| *camel.component.aws-mq.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
+| *camel.component.aws-mq.amazonMqClient* | To use a existing configured AmazonMQClient as client | null | false | MEDIUM
+| *camel.component.aws-mq.configuration* | The Component configuration | null | false | MEDIUM
+| *camel.component.aws-mq.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.aws-mq.operation* | The operation to perform. It can be listBrokers,createBroker,deleteBroker One of: [listBrokers] [createBroker] [deleteBroker] [rebootBroker] [updateBroker] [describeBroker] | null | true | HIGH
+| *camel.component.aws-mq.proxyHost* | To define a proxy host when instantiating the MQ client | null | false | MEDIUM
+| *camel.component.aws-mq.proxyPort* | To define a proxy port when instantiating the MQ client | null | false | MEDIUM
+| *camel.component.aws-mq.proxyProtocol* | To define a proxy protocol when instantiating the MQ client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
+| *camel.component.aws-mq.region* | The region in which MQ client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | false | MEDIUM
+| *camel.component.aws-mq.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
+| *camel.component.aws-mq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

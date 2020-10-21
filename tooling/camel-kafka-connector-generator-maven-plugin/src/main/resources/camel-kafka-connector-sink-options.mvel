@@ -27,10 +27,10 @@ The @{title} sink connector supports @{options.size()} options, which are listed
 @end{}
 
 @if{!options.isEmpty()}
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-@foreach{row : options}| *@{row.getShortName(50)}* | @{util.escape(row.description)} | @{row.defaultValue == "ConfigDef.NO_DEFAULT_VALUE" ? "none" : row.defaultValue} | @{row.priority}
+| Name | Description | Default | Required | Priority
+@foreach{row : options}| *@{row.getShortName(50)}* | @{util.escape(row.description)} | @{row.defaultValue == "ConfigDef.NO_DEFAULT_VALUE" ? "none" : row.defaultValue} | @{row.required} | @{row.priority}
 @end{}|===
 @end{}
 

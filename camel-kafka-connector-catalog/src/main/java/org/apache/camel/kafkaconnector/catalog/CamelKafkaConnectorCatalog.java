@@ -135,6 +135,7 @@ public class CamelKafkaConnectorCatalog {
             singleModel.setPriority((String)object.get("priority"));
             singleModel.setDescription((String)object.get("description"));
             singleModel.setName((String)object.get("name"));
+            singleModel.setRequired((String)object.get("required"));
             model.add(singleModel);
         }
         return model;

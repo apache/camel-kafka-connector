@@ -11,246 +11,293 @@
 		"camel.sink.path.cacheName": {
 			"name": "camel.sink.path.cacheName",
 			"description": "The name of the cache to use. Use current to use the existing cache name from the currently configured cached manager. Or use default for the default cache manager name.",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.hosts": {
 			"name": "camel.sink.endpoint.hosts",
 			"description": "Specifies the host of the cache on Infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.queryBuilder": {
 			"name": "camel.sink.endpoint.queryBuilder",
 			"description": "Specifies the query builder.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.secure": {
 			"name": "camel.sink.endpoint.secure",
 			"description": "Define if we are connecting to a secured Infinispan instance",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.defaultValue": {
 			"name": "camel.sink.endpoint.defaultValue",
 			"description": "Set a specific default value for some producer operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
 			"description": "Set a specific key for producer operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.oldValue": {
 			"name": "camel.sink.endpoint.oldValue",
 			"description": "Set a specific old value for some producer operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
 			"defaultValue": "\"PUT\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.value": {
 			"name": "camel.sink.endpoint.value",
 			"description": "Set a specific value for producer operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Define the password to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.saslMechanism": {
 			"name": "camel.sink.endpoint.saslMechanism",
 			"description": "Define the SASL Mechanism to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.securityRealm": {
 			"name": "camel.sink.endpoint.securityRealm",
 			"description": "Define the security realm to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.securityServerName": {
 			"name": "camel.sink.endpoint.securityServerName",
 			"description": "Define the security server name to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Define the username to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.cacheContainer": {
 			"name": "camel.sink.endpoint.cacheContainer",
 			"description": "Specifies the cache Container to connect",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.cacheContainerConfiguration": {
 			"name": "camel.sink.endpoint.cacheContainerConfiguration",
 			"description": "The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.configurationProperties": {
 			"name": "camel.sink.endpoint.configurationProperties",
 			"description": "Implementation specific properties for the CacheManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.configurationUri": {
 			"name": "camel.sink.endpoint.configurationUri",
 			"description": "An implementation specific URI for the CacheManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.flags": {
 			"name": "camel.sink.endpoint.flags",
 			"description": "A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.remappingFunction": {
 			"name": "camel.sink.endpoint.remappingFunction",
 			"description": "Set a specific remappingFunction to use in a compute operation",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.resultHeader": {
 			"name": "camel.sink.endpoint.resultHeader",
 			"description": "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.configuration": {
 			"name": "camel.component.infinispan.configuration",
 			"description": "Component configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.hosts": {
 			"name": "camel.component.infinispan.hosts",
 			"description": "Specifies the host of the cache on Infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.queryBuilder": {
 			"name": "camel.component.infinispan.queryBuilder",
 			"description": "Specifies the query builder.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.secure": {
 			"name": "camel.component.infinispan.secure",
 			"description": "Define if we are connecting to a secured Infinispan instance",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.defaultValue": {
 			"name": "camel.component.infinispan.defaultValue",
 			"description": "Set a specific default value for some producer operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.key": {
 			"name": "camel.component.infinispan.key",
 			"description": "Set a specific key for producer operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.lazyStartProducer": {
 			"name": "camel.component.infinispan.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.oldValue": {
 			"name": "camel.component.infinispan.oldValue",
 			"description": "Set a specific old value for some producer operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.operation": {
 			"name": "camel.component.infinispan.operation",
 			"description": "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
 			"defaultValue": "\"PUT\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.value": {
 			"name": "camel.component.infinispan.value",
 			"description": "Set a specific value for producer operations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.password": {
 			"name": "camel.component.infinispan.password",
 			"description": "Define the password to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.saslMechanism": {
 			"name": "camel.component.infinispan.saslMechanism",
 			"description": "Define the SASL Mechanism to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.securityRealm": {
 			"name": "camel.component.infinispan.securityRealm",
 			"description": "Define the security realm to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.securityServerName": {
 			"name": "camel.component.infinispan.securityServerName",
 			"description": "Define the security server name to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.username": {
 			"name": "camel.component.infinispan.username",
 			"description": "Define the username to access the infinispan instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.basicPropertyBinding": {
 			"name": "camel.component.infinispan.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.infinispan.cacheContainer": {
 			"name": "camel.component.infinispan.cacheContainer",
 			"description": "Specifies the cache Container to connect",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.cacheContainerConfiguration": {
 			"name": "camel.component.infinispan.cacheContainerConfiguration",
 			"description": "The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.configurationProperties": {
 			"name": "camel.component.infinispan.configurationProperties",
 			"description": "Implementation specific properties for the CacheManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.configurationUri": {
 			"name": "camel.component.infinispan.configurationUri",
 			"description": "An implementation specific URI for the CacheManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.flags": {
 			"name": "camel.component.infinispan.flags",
 			"description": "A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.remappingFunction": {
 			"name": "camel.component.infinispan.remappingFunction",
 			"description": "Set a specific remappingFunction to use in a compute operation",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.infinispan.resultHeader": {
 			"name": "camel.component.infinispan.resultHeader",
 			"description": "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

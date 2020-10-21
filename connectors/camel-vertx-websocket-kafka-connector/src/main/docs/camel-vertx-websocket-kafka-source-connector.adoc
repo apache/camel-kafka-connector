@@ -26,27 +26,27 @@ The camel-vertx-websocket source connector supports 18 options, which are listed
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.host* | The host that the consumer should bind to or the host of the remote websocket destination that the producer should connect to | "0.0.0.0" | MEDIUM
-| *camel.source.path.port* | The port that the consumer should bind to or port of the remote websocket destination that the producer should connect to | 0 | MEDIUM
-| *camel.source.path.path* | The path that the consumer should bind to or path of the remote websocket destination that the producer should connect to | "/" | HIGH
-| *camel.source.endpoint.allowedOriginPattern* | Regex pattern to match the origin header sent by WebSocket clients | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.router* | To use an existing vertx router for the HTTP server | null | MEDIUM
-| *camel.source.endpoint.serverOptions* | Sets customized options for configuring the HTTP server hosting the WebSocket for the consumer | null | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | MEDIUM
-| *camel.component.vertx-websocket.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.vertx-websocket.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.vertx-websocket.router* | To provide a custom vertx router to use on the WebSocket server | null | MEDIUM
-| *camel.component.vertx-websocket.vertx* | To use an existing vertx instead of creating a new instance | null | MEDIUM
-| *camel.component.vertx-websocket.vertxOptions* | To provide a custom set of vertx options for configuring vertx | null | MEDIUM
-| *camel.component.vertx-websocket.useGlobalSsl ContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.source.path.host* | The host that the consumer should bind to or the host of the remote websocket destination that the producer should connect to | "0.0.0.0" | false | MEDIUM
+| *camel.source.path.port* | The port that the consumer should bind to or port of the remote websocket destination that the producer should connect to | 0 | false | MEDIUM
+| *camel.source.path.path* | The path that the consumer should bind to or path of the remote websocket destination that the producer should connect to | "/" | true | HIGH
+| *camel.source.endpoint.allowedOriginPattern* | Regex pattern to match the origin header sent by WebSocket clients | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.router* | To use an existing vertx router for the HTTP server | null | false | MEDIUM
+| *camel.source.endpoint.serverOptions* | Sets customized options for configuring the HTTP server hosting the WebSocket for the consumer | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM
+| *camel.component.vertx-websocket.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.vertx-websocket.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.vertx-websocket.router* | To provide a custom vertx router to use on the WebSocket server | null | false | MEDIUM
+| *camel.component.vertx-websocket.vertx* | To use an existing vertx instead of creating a new instance | null | false | MEDIUM
+| *camel.component.vertx-websocket.vertxOptions* | To provide a custom set of vertx options for configuring vertx | null | false | MEDIUM
+| *camel.component.vertx-websocket.useGlobalSsl ContextParameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
 |===
 
 

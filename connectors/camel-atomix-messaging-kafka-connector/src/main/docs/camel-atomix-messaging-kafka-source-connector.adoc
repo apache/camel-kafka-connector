@@ -26,48 +26,48 @@ The camel-atomix-messaging source connector supports 39 options, which are liste
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.resourceName* | The distributed resource name | null | HIGH
-| *camel.source.endpoint.atomix* | The Atomix instance to use | null | MEDIUM
-| *camel.source.endpoint.broadcastType* | The broadcast type. One of: [ALL] [RANDOM] | "ALL" | MEDIUM
-| *camel.source.endpoint.channelName* | The messaging channel name | null | MEDIUM
-| *camel.source.endpoint.configurationUri* | The Atomix configuration uri. | null | MEDIUM
-| *camel.source.endpoint.defaultAction* | The default action. One of: [DIRECT] [BROADCAST] | "DIRECT" | MEDIUM
-| *camel.source.endpoint.memberName* | The Atomix Group member name | null | MEDIUM
-| *camel.source.endpoint.nodes* | The address of the nodes composing the cluster. | null | MEDIUM
-| *camel.source.endpoint.resultHeader* | The header that wil carry the result. | null | MEDIUM
-| *camel.source.endpoint.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.defaultResourceConfig* | The cluster wide default resource configuration. | null | MEDIUM
-| *camel.source.endpoint.defaultResourceOptions* | The local default resource options. | null | MEDIUM
-| *camel.source.endpoint.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | MEDIUM
-| *camel.source.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | MEDIUM
-| *camel.source.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
-| *camel.source.endpoint.resourceOptions* | Local resources configurations | null | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.atomix-messaging.atomix* | The Atomix instance to use | null | MEDIUM
-| *camel.component.atomix-messaging.broadcastType* | The broadcast type. One of: [ALL] [RANDOM] | "ALL" | MEDIUM
-| *camel.component.atomix-messaging.channelName* | The messaging channel name | null | MEDIUM
-| *camel.component.atomix-messaging.configuration* | The shared component configuration | null | MEDIUM
-| *camel.component.atomix-messaging.configurationUri* | The path to the AtomixClient configuration | null | MEDIUM
-| *camel.component.atomix-messaging.defaultAction* | The default action. One of: [DIRECT] [BROADCAST] | "DIRECT" | MEDIUM
-| *camel.component.atomix-messaging.memberName* | The Atomix Group member name | null | MEDIUM
-| *camel.component.atomix-messaging.nodes* | The nodes the AtomixClient should connect to | null | MEDIUM
-| *camel.component.atomix-messaging.resultHeader* | The header that wil carry the result. | null | MEDIUM
-| *camel.component.atomix-messaging.transportClass Name* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | MEDIUM
-| *camel.component.atomix-messaging.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.atomix-messaging.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.atomix-messaging.defaultResource Config* | The cluster wide default resource configuration. | null | MEDIUM
-| *camel.component.atomix-messaging.defaultResource Options* | The local default resource options. | null | MEDIUM
-| *camel.component.atomix-messaging.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | MEDIUM
-| *camel.component.atomix-messaging.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | MEDIUM
-| *camel.component.atomix-messaging.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
-| *camel.component.atomix-messaging.resourceOptions* | Local resources configurations | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.source.path.resourceName* | The distributed resource name | null | true | HIGH
+| *camel.source.endpoint.atomix* | The Atomix instance to use | null | false | MEDIUM
+| *camel.source.endpoint.broadcastType* | The broadcast type. One of: [ALL] [RANDOM] | "ALL" | false | MEDIUM
+| *camel.source.endpoint.channelName* | The messaging channel name | null | false | MEDIUM
+| *camel.source.endpoint.configurationUri* | The Atomix configuration uri. | null | false | MEDIUM
+| *camel.source.endpoint.defaultAction* | The default action. One of: [DIRECT] [BROADCAST] | "DIRECT" | false | MEDIUM
+| *camel.source.endpoint.memberName* | The Atomix Group member name | null | false | MEDIUM
+| *camel.source.endpoint.nodes* | The address of the nodes composing the cluster. | null | false | MEDIUM
+| *camel.source.endpoint.resultHeader* | The header that wil carry the result. | null | false | MEDIUM
+| *camel.source.endpoint.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.defaultResourceConfig* | The cluster wide default resource configuration. | null | false | MEDIUM
+| *camel.source.endpoint.defaultResourceOptions* | The local default resource options. | null | false | MEDIUM
+| *camel.source.endpoint.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | false | MEDIUM
+| *camel.source.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
+| *camel.source.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
+| *camel.source.endpoint.resourceOptions* | Local resources configurations | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.atomix-messaging.atomix* | The Atomix instance to use | null | false | MEDIUM
+| *camel.component.atomix-messaging.broadcastType* | The broadcast type. One of: [ALL] [RANDOM] | "ALL" | false | MEDIUM
+| *camel.component.atomix-messaging.channelName* | The messaging channel name | null | false | MEDIUM
+| *camel.component.atomix-messaging.configuration* | The shared component configuration | null | false | MEDIUM
+| *camel.component.atomix-messaging.configurationUri* | The path to the AtomixClient configuration | null | false | MEDIUM
+| *camel.component.atomix-messaging.defaultAction* | The default action. One of: [DIRECT] [BROADCAST] | "DIRECT" | false | MEDIUM
+| *camel.component.atomix-messaging.memberName* | The Atomix Group member name | null | false | MEDIUM
+| *camel.component.atomix-messaging.nodes* | The nodes the AtomixClient should connect to | null | false | MEDIUM
+| *camel.component.atomix-messaging.resultHeader* | The header that wil carry the result. | null | false | MEDIUM
+| *camel.component.atomix-messaging.transportClass Name* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | false | MEDIUM
+| *camel.component.atomix-messaging.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.atomix-messaging.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.atomix-messaging.defaultResource Config* | The cluster wide default resource configuration. | null | false | MEDIUM
+| *camel.component.atomix-messaging.defaultResource Options* | The local default resource options. | null | false | MEDIUM
+| *camel.component.atomix-messaging.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | false | MEDIUM
+| *camel.component.atomix-messaging.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
+| *camel.component.atomix-messaging.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
+| *camel.component.atomix-messaging.resourceOptions* | Local resources configurations | null | false | MEDIUM
 |===
 
 

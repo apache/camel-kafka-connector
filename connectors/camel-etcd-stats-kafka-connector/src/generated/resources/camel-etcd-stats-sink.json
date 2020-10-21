@@ -11,134 +11,158 @@
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
 			"description": "The path the endpoint refers to",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.recursive": {
 			"name": "camel.sink.endpoint.recursive",
 			"description": "To apply an action recursively.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.servicePath": {
 			"name": "camel.sink.endpoint.servicePath",
 			"description": "The path to look for for service discovery",
 			"defaultValue": "\"\/services\/\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.timeout": {
 			"name": "camel.sink.endpoint.timeout",
 			"description": "To set the maximum time an action could take to complete.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.uris": {
 			"name": "camel.sink.endpoint.uris",
 			"description": "To set the URIs the client connects.",
 			"defaultValue": "\"http:\/\/localhost:2379,http:\/\/localhost:4001\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.timeToLive": {
 			"name": "camel.sink.endpoint.timeToLive",
 			"description": "To set the lifespan of a key in milliseconds.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The password to use for basic authentication.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.userName": {
 			"name": "camel.sink.endpoint.userName",
 			"description": "The user name to use for basic authentication.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.configuration": {
 			"name": "camel.component.etcd-stats.configuration",
 			"description": "Component configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.recursive": {
 			"name": "camel.component.etcd-stats.recursive",
 			"description": "To apply an action recursively.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.servicePath": {
 			"name": "camel.component.etcd-stats.servicePath",
 			"description": "The path to look for for service discovery",
 			"defaultValue": "\"\/services\/\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.timeout": {
 			"name": "camel.component.etcd-stats.timeout",
 			"description": "To set the maximum time an action could take to complete.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.uris": {
 			"name": "camel.component.etcd-stats.uris",
 			"description": "To set the URIs the client connects.",
 			"defaultValue": "\"http:\/\/localhost:2379,http:\/\/localhost:4001\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.lazyStartProducer": {
 			"name": "camel.component.etcd-stats.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.timeToLive": {
 			"name": "camel.component.etcd-stats.timeToLive",
 			"description": "To set the lifespan of a key in milliseconds.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.basicPropertyBinding": {
 			"name": "camel.component.etcd-stats.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.password": {
 			"name": "camel.component.etcd-stats.password",
 			"description": "The password to use for basic authentication.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.sslContextParameters": {
 			"name": "camel.component.etcd-stats.sslContextParameters",
 			"description": "To configure security using SSLContextParameters.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.useGlobalSslContextParameters": {
 			"name": "camel.component.etcd-stats.useGlobalSslContextParameters",
 			"description": "Enable usage of global SSL context parameters.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.etcd-stats.userName": {
 			"name": "camel.component.etcd-stats.userName",
 			"description": "The user name to use for basic authentication.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

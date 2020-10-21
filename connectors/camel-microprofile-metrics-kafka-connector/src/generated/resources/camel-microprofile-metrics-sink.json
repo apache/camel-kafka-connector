@@ -11,102 +11,121 @@
 		"camel.sink.path.metricType": {
 			"name": "camel.sink.path.metricType",
 			"description": "Metric type One of: [concurrent gauge] [counter] [gauge] [meter] [histogram] [timer] [simple timer] [invalid]",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.metricName": {
 			"name": "camel.sink.path.metricName",
 			"description": "Metric name",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.action": {
 			"name": "camel.sink.endpoint.action",
 			"description": "Action to use when using the timer type",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.counterIncrement": {
 			"name": "camel.sink.endpoint.counterIncrement",
 			"description": "Increment value when using the counter type",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.description": {
 			"name": "camel.sink.endpoint.description",
 			"description": "Metric description",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.displayName": {
 			"name": "camel.sink.endpoint.displayName",
 			"description": "Metric display name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.gaugeDecrement": {
 			"name": "camel.sink.endpoint.gaugeDecrement",
 			"description": "Decrement metric value when using concurrent gauge type",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.gaugeIncrement": {
 			"name": "camel.sink.endpoint.gaugeIncrement",
 			"description": "Increment metric value when using the concurrent gauge type",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.gaugeValue": {
 			"name": "camel.sink.endpoint.gaugeValue",
 			"description": "Decrement metric value when using concurrent gauge type",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.mark": {
 			"name": "camel.sink.endpoint.mark",
 			"description": "Mark value to set when using the meter type",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.metricUnit": {
 			"name": "camel.sink.endpoint.metricUnit",
 			"description": "Metric unit. See org.eclipse.microprofile.metrics.MetricUnits",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.tags": {
 			"name": "camel.sink.endpoint.tags",
 			"description": "Comma delimited list of tags associated with the metric in the format tagName=tagValue",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.value": {
 			"name": "camel.sink.endpoint.value",
 			"description": "Value to set when using the histogram type",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.microprofile-metrics.lazyStartProducer": {
 			"name": "camel.component.microprofile-metrics.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.microprofile-metrics.basicPropertyBinding": {
 			"name": "camel.component.microprofile-metrics.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.microprofile-metrics.metricRegistry": {
 			"name": "camel.component.microprofile-metrics.metricRegistry",
 			"description": "Use a custom MetricRegistry.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

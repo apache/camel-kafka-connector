@@ -26,33 +26,33 @@ The camel-gora source connector supports 24 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.name* | Instance name | null | HIGH
-| *camel.source.endpoint.dataStoreClass* | The type of the dataStore | null | MEDIUM
-| *camel.source.endpoint.keyClass* | The type class of the key | null | MEDIUM
-| *camel.source.endpoint.valueClass* | The type of the value | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.concurrentConsumers* | Number of concurrent consumers | 1 | MEDIUM
-| *camel.source.endpoint.endKey* | The End Key | null | MEDIUM
-| *camel.source.endpoint.endTime* | The End Time | null | MEDIUM
-| *camel.source.endpoint.fields* | The Fields | null | MEDIUM
-| *camel.source.endpoint.keyRangeFrom* | The Key Range From | null | MEDIUM
-| *camel.source.endpoint.keyRangeTo* | The Key Range To | null | MEDIUM
-| *camel.source.endpoint.limit* | The Limit | null | MEDIUM
-| *camel.source.endpoint.startKey* | The Start Key | null | MEDIUM
-| *camel.source.endpoint.startTime* | The Start Time | null | MEDIUM
-| *camel.source.endpoint.timeRangeFrom* | The Time Range From | null | MEDIUM
-| *camel.source.endpoint.timeRangeTo* | The Time Range To | null | MEDIUM
-| *camel.source.endpoint.timestamp* | The Timestamp | null | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.hadoopConfiguration* | Hadoop Configuration | null | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.gora.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.gora.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.source.path.name* | Instance name | null | true | HIGH
+| *camel.source.endpoint.dataStoreClass* | The type of the dataStore | null | false | MEDIUM
+| *camel.source.endpoint.keyClass* | The type class of the key | null | false | MEDIUM
+| *camel.source.endpoint.valueClass* | The type of the value | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.concurrentConsumers* | Number of concurrent consumers | 1 | false | MEDIUM
+| *camel.source.endpoint.endKey* | The End Key | null | false | MEDIUM
+| *camel.source.endpoint.endTime* | The End Time | null | false | MEDIUM
+| *camel.source.endpoint.fields* | The Fields | null | false | MEDIUM
+| *camel.source.endpoint.keyRangeFrom* | The Key Range From | null | false | MEDIUM
+| *camel.source.endpoint.keyRangeTo* | The Key Range To | null | false | MEDIUM
+| *camel.source.endpoint.limit* | The Limit | null | false | MEDIUM
+| *camel.source.endpoint.startKey* | The Start Key | null | false | MEDIUM
+| *camel.source.endpoint.startTime* | The Start Time | null | false | MEDIUM
+| *camel.source.endpoint.timeRangeFrom* | The Time Range From | null | false | MEDIUM
+| *camel.source.endpoint.timeRangeTo* | The Time Range To | null | false | MEDIUM
+| *camel.source.endpoint.timestamp* | The Timestamp | null | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.hadoopConfiguration* | Hadoop Configuration | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.gora.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.gora.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

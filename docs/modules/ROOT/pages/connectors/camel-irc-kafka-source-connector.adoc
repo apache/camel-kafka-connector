@@ -26,42 +26,42 @@ The camel-irc source connector supports 33 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.hostname* | Hostname for the IRC chat server | null | HIGH
-| *camel.source.path.port* | Port number for the IRC chat server. If no port is configured then a default port of either 6667, 6668 or 6669 is used. | null | MEDIUM
-| *camel.source.endpoint.autoRejoin* | Whether to auto re-join when being kicked | true | MEDIUM
-| *camel.source.endpoint.channels* | Comma separated list of IRC channels. | null | MEDIUM
-| *camel.source.endpoint.commandTimeout* | Delay in milliseconds before sending commands after the connection is established. | 5000L | MEDIUM
-| *camel.source.endpoint.keys* | Comma separated list of keys for channels. | null | MEDIUM
-| *camel.source.endpoint.namesOnJoin* | Sends NAMES command to channel after joining it. onReply has to be true in order to process the result which will have the header value irc.num = '353'. | false | MEDIUM
-| *camel.source.endpoint.nickname* | The nickname used in chat. | null | MEDIUM
-| *camel.source.endpoint.persistent* | Use persistent messages. | true | LOW
-| *camel.source.endpoint.realname* | The IRC user's actual name. | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.colors* | Whether or not the server supports color codes. | true | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.onJoin* | Handle user join events. | true | MEDIUM
-| *camel.source.endpoint.onKick* | Handle kick events. | true | MEDIUM
-| *camel.source.endpoint.onMode* | Handle mode change events. | true | MEDIUM
-| *camel.source.endpoint.onNick* | Handle nickname change events. | true | MEDIUM
-| *camel.source.endpoint.onPart* | Handle user part events. | true | MEDIUM
-| *camel.source.endpoint.onPrivmsg* | Handle private message events. | true | MEDIUM
-| *camel.source.endpoint.onQuit* | Handle user quit events. | true | MEDIUM
-| *camel.source.endpoint.onReply* | Whether or not to handle general responses to commands or informational messages. | false | MEDIUM
-| *camel.source.endpoint.onTopic* | Handle topic change events. | true | MEDIUM
-| *camel.source.endpoint.nickPassword* | Your IRC server nickname password. | null | MEDIUM
-| *camel.source.endpoint.password* | The IRC server password. | null | MEDIUM
-| *camel.source.endpoint.sslContextParameters* | Used for configuring security using SSL. Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. Note that this setting overrides the trustManager option. | null | MEDIUM
-| *camel.source.endpoint.trustManager* | The trust manager used to verify the SSL server's certificate. | null | MEDIUM
-| *camel.source.endpoint.username* | The IRC server user name. | null | MEDIUM
-| *camel.component.irc.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.irc.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.irc.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.source.path.hostname* | Hostname for the IRC chat server | null | true | HIGH
+| *camel.source.path.port* | Port number for the IRC chat server. If no port is configured then a default port of either 6667, 6668 or 6669 is used. | null | false | MEDIUM
+| *camel.source.endpoint.autoRejoin* | Whether to auto re-join when being kicked | true | false | MEDIUM
+| *camel.source.endpoint.channels* | Comma separated list of IRC channels. | null | false | MEDIUM
+| *camel.source.endpoint.commandTimeout* | Delay in milliseconds before sending commands after the connection is established. | 5000L | false | MEDIUM
+| *camel.source.endpoint.keys* | Comma separated list of keys for channels. | null | false | MEDIUM
+| *camel.source.endpoint.namesOnJoin* | Sends NAMES command to channel after joining it. onReply has to be true in order to process the result which will have the header value irc.num = '353'. | false | false | MEDIUM
+| *camel.source.endpoint.nickname* | The nickname used in chat. | null | false | MEDIUM
+| *camel.source.endpoint.persistent* | Use persistent messages. | true | false | LOW
+| *camel.source.endpoint.realname* | The IRC user's actual name. | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.colors* | Whether or not the server supports color codes. | true | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.onJoin* | Handle user join events. | true | false | MEDIUM
+| *camel.source.endpoint.onKick* | Handle kick events. | true | false | MEDIUM
+| *camel.source.endpoint.onMode* | Handle mode change events. | true | false | MEDIUM
+| *camel.source.endpoint.onNick* | Handle nickname change events. | true | false | MEDIUM
+| *camel.source.endpoint.onPart* | Handle user part events. | true | false | MEDIUM
+| *camel.source.endpoint.onPrivmsg* | Handle private message events. | true | false | MEDIUM
+| *camel.source.endpoint.onQuit* | Handle user quit events. | true | false | MEDIUM
+| *camel.source.endpoint.onReply* | Whether or not to handle general responses to commands or informational messages. | false | false | MEDIUM
+| *camel.source.endpoint.onTopic* | Handle topic change events. | true | false | MEDIUM
+| *camel.source.endpoint.nickPassword* | Your IRC server nickname password. | null | false | MEDIUM
+| *camel.source.endpoint.password* | The IRC server password. | null | false | MEDIUM
+| *camel.source.endpoint.sslContextParameters* | Used for configuring security using SSL. Reference to a org.apache.camel.support.jsse.SSLContextParameters in the Registry. This reference overrides any configured SSLContextParameters at the component level. Note that this setting overrides the trustManager option. | null | false | MEDIUM
+| *camel.source.endpoint.trustManager* | The trust manager used to verify the SSL server's certificate. | null | false | MEDIUM
+| *camel.source.endpoint.username* | The IRC server user name. | null | false | MEDIUM
+| *camel.component.irc.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.irc.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.irc.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
 |===
 
 

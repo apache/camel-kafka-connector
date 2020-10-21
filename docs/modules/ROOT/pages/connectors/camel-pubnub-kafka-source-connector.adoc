@@ -26,26 +26,26 @@ The camel-pubnub source connector supports 17 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.channel* | The channel used for subscribing/publishing events | null | HIGH
-| *camel.source.endpoint.uuid* | UUID to be used as a device identifier, a default UUID is generated if not passed. | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.withPresence* | Also subscribe to related presence information | false | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.pubnub* | Reference to a Pubnub client in the registry. | null | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.authKey* | If Access Manager is utilized, client will use this authKey in all restricted requests. | null | MEDIUM
-| *camel.source.endpoint.cipherKey* | If cipher is passed, all communications to/from PubNub will be encrypted. | null | MEDIUM
-| *camel.source.endpoint.publishKey* | The publish key obtained from your PubNub account. Required when publishing messages. | null | MEDIUM
-| *camel.source.endpoint.secretKey* | The secret key used for message signing. | null | MEDIUM
-| *camel.source.endpoint.secure* | Use SSL for secure transmission. | true | MEDIUM
-| *camel.source.endpoint.subscribeKey* | The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events | null | MEDIUM
-| *camel.component.pubnub.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.pubnub.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.source.path.channel* | The channel used for subscribing/publishing events | null | true | HIGH
+| *camel.source.endpoint.uuid* | UUID to be used as a device identifier, a default UUID is generated if not passed. | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.withPresence* | Also subscribe to related presence information | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.pubnub* | Reference to a Pubnub client in the registry. | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.authKey* | If Access Manager is utilized, client will use this authKey in all restricted requests. | null | false | MEDIUM
+| *camel.source.endpoint.cipherKey* | If cipher is passed, all communications to/from PubNub will be encrypted. | null | false | MEDIUM
+| *camel.source.endpoint.publishKey* | The publish key obtained from your PubNub account. Required when publishing messages. | null | false | MEDIUM
+| *camel.source.endpoint.secretKey* | The secret key used for message signing. | null | false | MEDIUM
+| *camel.source.endpoint.secure* | Use SSL for secure transmission. | true | false | MEDIUM
+| *camel.source.endpoint.subscribeKey* | The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events | null | false | MEDIUM
+| *camel.component.pubnub.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.pubnub.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

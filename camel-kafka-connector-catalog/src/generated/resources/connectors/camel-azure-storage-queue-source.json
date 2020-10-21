@@ -11,161 +11,191 @@
 		"camel.source.path.accountName": {
 			"name": "camel.source.path.accountName",
 			"description": "Azure account name to be used for authentication with azure queue services",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.path.queueName": {
 			"name": "camel.source.path.queueName",
 			"description": "The queue resource name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.autoDiscoverClient": {
 			"name": "camel.source.endpoint.autoDiscoverClient",
 			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.serviceClient": {
 			"name": "camel.source.endpoint.serviceClient",
 			"description": "Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.maxMessages": {
 			"name": "camel.source.endpoint.maxMessages",
 			"description": "Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. If left empty only 1 message will be retrieved, the allowed range is 1 to 32 messages.",
 			"defaultValue": "\"1\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.messageId": {
 			"name": "camel.source.endpoint.messageId",
 			"description": "The ID of the message to be deleted or updated.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.popReceipt": {
 			"name": "camel.source.endpoint.popReceipt",
 			"description": "Unique identifier that must match for the message to be deleted or updated.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.timeout": {
 			"name": "camel.source.endpoint.timeout",
 			"description": "An optional timeout applied to the operation. If a response is not returned before the timeout concludes a RuntimeException will be thrown.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.timeToLive": {
 			"name": "camel.source.endpoint.timeToLive",
 			"description": "How long the message will stay alive in the queue. If unset the value will default to 7 days, if -1 is passed the message will not expire. The time to live must be -1 or any positive number. The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S -- parses as 20.345 seconds, P2D -- parses as 2 days However, in case you are using EndpointDsl\/ComponentDsl, you can do something like Duration.ofSeconds() since these Java APIs are typesafe.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.visibilityTimeout": {
 			"name": "camel.source.endpoint.visibilityTimeout",
 			"description": "The timeout period for how long the message is invisible in the queue. The timeout must be between 1 seconds and 7 days. The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S -- parses as 20.345 seconds, P2D -- parses as 2 days However, in case you are using EndpointDsl\/ComponentDsl, you can do something like Duration.ofSeconds() since these Java APIs are typesafe.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.accessKey": {
 			"name": "camel.source.endpoint.accessKey",
 			"description": "Access key for the associated azure account name to be used for authentication with azure queue services",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.credentials": {
 			"name": "camel.source.endpoint.credentials",
 			"description": "StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.autoDiscoverClient": {
 			"name": "camel.component.azure-storage-queue.autoDiscoverClient",
 			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.configuration": {
 			"name": "camel.component.azure-storage-queue.configuration",
 			"description": "The component configurations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.serviceClient": {
 			"name": "camel.component.azure-storage-queue.serviceClient",
 			"description": "Service client to a storage account to interact with the queue service. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. This client contains all the operations for interacting with a queue account in Azure Storage. Operations allowed by the client are creating, listing, and deleting queues, retrieving and updating properties of the account, and retrieving statistics of the account.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.bridgeErrorHandler": {
 			"name": "camel.component.azure-storage-queue.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.basicPropertyBinding": {
 			"name": "camel.component.azure-storage-queue.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.maxMessages": {
 			"name": "camel.component.azure-storage-queue.maxMessages",
 			"description": "Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. If left empty only 1 message will be retrieved, the allowed range is 1 to 32 messages.",
 			"defaultValue": "\"1\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.messageId": {
 			"name": "camel.component.azure-storage-queue.messageId",
 			"description": "The ID of the message to be deleted or updated.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.popReceipt": {
 			"name": "camel.component.azure-storage-queue.popReceipt",
 			"description": "Unique identifier that must match for the message to be deleted or updated.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.timeout": {
 			"name": "camel.component.azure-storage-queue.timeout",
 			"description": "An optional timeout applied to the operation. If a response is not returned before the timeout concludes a RuntimeException will be thrown.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.timeToLive": {
 			"name": "camel.component.azure-storage-queue.timeToLive",
 			"description": "How long the message will stay alive in the queue. If unset the value will default to 7 days, if -1 is passed the message will not expire. The time to live must be -1 or any positive number. The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S -- parses as 20.345 seconds, P2D -- parses as 2 days However, in case you are using EndpointDsl\/ComponentDsl, you can do something like Duration.ofSeconds() since these Java APIs are typesafe.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.visibilityTimeout": {
 			"name": "camel.component.azure-storage-queue.visibilityTimeout",
 			"description": "The timeout period for how long the message is invisible in the queue. The timeout must be between 1 seconds and 7 days. The format should be in this form: PnDTnHnMn.nS., e.g: PT20.345S -- parses as 20.345 seconds, P2D -- parses as 2 days However, in case you are using EndpointDsl\/ComponentDsl, you can do something like Duration.ofSeconds() since these Java APIs are typesafe.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.accessKey": {
 			"name": "camel.component.azure-storage-queue.accessKey",
 			"description": "Access key for the associated azure account name to be used for authentication with azure queue services",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.azure-storage-queue.credentials": {
 			"name": "camel.component.azure-storage-queue.credentials",
 			"description": "StorageSharedKeyCredential can be injected to create the azure client, this holds the important authentication information",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

@@ -26,35 +26,35 @@ The camel-wordpress source connector supports 26 options, which are listed below
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.operation* | The endpoint operation. One of: [post] [user] | null | HIGH
-| *camel.source.path.operationDetail* | The second part of an endpoint operation. Needed only when endpoint semantic is not enough, like wordpress:post:delete One of: [delete] | null | MEDIUM
-| *camel.source.endpoint.apiVersion* | The Wordpress REST API version | "2" | MEDIUM
-| *camel.source.endpoint.criteria* | The criteria to use with complex searches. | null | MEDIUM
-| *camel.source.endpoint.force* | Whether to bypass trash and force deletion. | false | MEDIUM
-| *camel.source.endpoint.id* | The entity ID. Should be passed when the operation performed requires a specific entity, e.g. deleting a post | null | MEDIUM
-| *camel.source.endpoint.password* | Password from authorized user | null | MEDIUM
-| *camel.source.endpoint.searchCriteria* | Search criteria | null | MEDIUM
-| *camel.source.endpoint.url* | The Wordpress API URL from your site, e.g. \http://myblog.com/wp-json/ | null | HIGH
-| *camel.source.endpoint.user* | Authorized user to perform writing operations | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.wordpress.apiVersion* | The Wordpress REST API version | "2" | MEDIUM
-| *camel.component.wordpress.configuration* | Wordpress configuration | null | MEDIUM
-| *camel.component.wordpress.criteria* | The criteria to use with complex searches. | null | MEDIUM
-| *camel.component.wordpress.force* | Whether to bypass trash and force deletion. | false | MEDIUM
-| *camel.component.wordpress.id* | The entity ID. Should be passed when the operation performed requires a specific entity, e.g. deleting a post | null | MEDIUM
-| *camel.component.wordpress.password* | Password from authorized user | null | MEDIUM
-| *camel.component.wordpress.searchCriteria* | Search criteria | null | MEDIUM
-| *camel.component.wordpress.url* | The Wordpress API URL from your site, e.g. \http://myblog.com/wp-json/ | null | HIGH
-| *camel.component.wordpress.user* | Authorized user to perform writing operations | null | MEDIUM
-| *camel.component.wordpress.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.wordpress.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.source.path.operation* | The endpoint operation. One of: [post] [user] | null | true | HIGH
+| *camel.source.path.operationDetail* | The second part of an endpoint operation. Needed only when endpoint semantic is not enough, like wordpress:post:delete One of: [delete] | null | false | MEDIUM
+| *camel.source.endpoint.apiVersion* | The Wordpress REST API version | "2" | false | MEDIUM
+| *camel.source.endpoint.criteria* | The criteria to use with complex searches. | null | false | MEDIUM
+| *camel.source.endpoint.force* | Whether to bypass trash and force deletion. | false | false | MEDIUM
+| *camel.source.endpoint.id* | The entity ID. Should be passed when the operation performed requires a specific entity, e.g. deleting a post | null | false | MEDIUM
+| *camel.source.endpoint.password* | Password from authorized user | null | false | MEDIUM
+| *camel.source.endpoint.searchCriteria* | Search criteria | null | false | MEDIUM
+| *camel.source.endpoint.url* | The Wordpress API URL from your site, e.g. \http://myblog.com/wp-json/ | null | true | HIGH
+| *camel.source.endpoint.user* | Authorized user to perform writing operations | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.wordpress.apiVersion* | The Wordpress REST API version | "2" | false | MEDIUM
+| *camel.component.wordpress.configuration* | Wordpress configuration | null | false | MEDIUM
+| *camel.component.wordpress.criteria* | The criteria to use with complex searches. | null | false | MEDIUM
+| *camel.component.wordpress.force* | Whether to bypass trash and force deletion. | false | false | MEDIUM
+| *camel.component.wordpress.id* | The entity ID. Should be passed when the operation performed requires a specific entity, e.g. deleting a post | null | false | MEDIUM
+| *camel.component.wordpress.password* | Password from authorized user | null | false | MEDIUM
+| *camel.component.wordpress.searchCriteria* | Search criteria | null | false | MEDIUM
+| *camel.component.wordpress.url* | The Wordpress API URL from your site, e.g. \http://myblog.com/wp-json/ | null | true | HIGH
+| *camel.component.wordpress.user* | Authorized user to perform writing operations | null | false | MEDIUM
+| *camel.component.wordpress.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.wordpress.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

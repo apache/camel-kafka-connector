@@ -26,44 +26,44 @@ The camel-atomix-map sink connector supports 35 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.resourceName* | The distributed resource name | null | HIGH
-| *camel.sink.endpoint.atomix* | The Atomix instance to use | null | MEDIUM
-| *camel.sink.endpoint.configurationUri* | The Atomix configuration uri. | null | MEDIUM
-| *camel.sink.endpoint.defaultAction* | The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES] | "PUT" | MEDIUM
-| *camel.sink.endpoint.key* | The key to use if none is set in the header or to listen for events for a specific key. | null | MEDIUM
-| *camel.sink.endpoint.nodes* | The address of the nodes composing the cluster. | null | MEDIUM
-| *camel.sink.endpoint.resultHeader* | The header that wil carry the result. | null | MEDIUM
-| *camel.sink.endpoint.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | MEDIUM
-| *camel.sink.endpoint.ttl* | The resource ttl. | null | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.defaultResourceConfig* | The cluster wide default resource configuration. | null | MEDIUM
-| *camel.sink.endpoint.defaultResourceOptions* | The local default resource options. | null | MEDIUM
-| *camel.sink.endpoint.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | MEDIUM
-| *camel.sink.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | MEDIUM
-| *camel.sink.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
-| *camel.sink.endpoint.resourceOptions* | Local resources configurations | null | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.atomix-map.atomix* | The Atomix instance to use | null | MEDIUM
-| *camel.component.atomix-map.configuration* | The shared component configuration | null | MEDIUM
-| *camel.component.atomix-map.configurationUri* | The path to the AtomixClient configuration | null | MEDIUM
-| *camel.component.atomix-map.defaultAction* | The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES] | "PUT" | MEDIUM
-| *camel.component.atomix-map.key* | The key to use if none is set in the header or to listen for events for a specific key. | null | MEDIUM
-| *camel.component.atomix-map.nodes* | The nodes the AtomixClient should connect to | null | MEDIUM
-| *camel.component.atomix-map.resultHeader* | The header that wil carry the result. | null | MEDIUM
-| *camel.component.atomix-map.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | MEDIUM
-| *camel.component.atomix-map.ttl* | The resource ttl. | null | MEDIUM
-| *camel.component.atomix-map.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.atomix-map.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.atomix-map.defaultResourceConfig* | The cluster wide default resource configuration. | null | MEDIUM
-| *camel.component.atomix-map.defaultResourceOptions* | The local default resource options. | null | MEDIUM
-| *camel.component.atomix-map.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | MEDIUM
-| *camel.component.atomix-map.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | MEDIUM
-| *camel.component.atomix-map.resourceConfigs* | Cluster wide resources configuration. | null | MEDIUM
-| *camel.component.atomix-map.resourceOptions* | Local resources configurations | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.resourceName* | The distributed resource name | null | true | HIGH
+| *camel.sink.endpoint.atomix* | The Atomix instance to use | null | false | MEDIUM
+| *camel.sink.endpoint.configurationUri* | The Atomix configuration uri. | null | false | MEDIUM
+| *camel.sink.endpoint.defaultAction* | The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES] | "PUT" | false | MEDIUM
+| *camel.sink.endpoint.key* | The key to use if none is set in the header or to listen for events for a specific key. | null | false | MEDIUM
+| *camel.sink.endpoint.nodes* | The address of the nodes composing the cluster. | null | false | MEDIUM
+| *camel.sink.endpoint.resultHeader* | The header that wil carry the result. | null | false | MEDIUM
+| *camel.sink.endpoint.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | false | MEDIUM
+| *camel.sink.endpoint.ttl* | The resource ttl. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.defaultResourceConfig* | The cluster wide default resource configuration. | null | false | MEDIUM
+| *camel.sink.endpoint.defaultResourceOptions* | The local default resource options. | null | false | MEDIUM
+| *camel.sink.endpoint.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | false | MEDIUM
+| *camel.sink.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
+| *camel.sink.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
+| *camel.sink.endpoint.resourceOptions* | Local resources configurations | null | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.atomix-map.atomix* | The Atomix instance to use | null | false | MEDIUM
+| *camel.component.atomix-map.configuration* | The shared component configuration | null | false | MEDIUM
+| *camel.component.atomix-map.configurationUri* | The path to the AtomixClient configuration | null | false | MEDIUM
+| *camel.component.atomix-map.defaultAction* | The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES] | "PUT" | false | MEDIUM
+| *camel.component.atomix-map.key* | The key to use if none is set in the header or to listen for events for a specific key. | null | false | MEDIUM
+| *camel.component.atomix-map.nodes* | The nodes the AtomixClient should connect to | null | false | MEDIUM
+| *camel.component.atomix-map.resultHeader* | The header that wil carry the result. | null | false | MEDIUM
+| *camel.component.atomix-map.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | false | MEDIUM
+| *camel.component.atomix-map.ttl* | The resource ttl. | null | false | MEDIUM
+| *camel.component.atomix-map.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.atomix-map.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.atomix-map.defaultResourceConfig* | The cluster wide default resource configuration. | null | false | MEDIUM
+| *camel.component.atomix-map.defaultResourceOptions* | The local default resource options. | null | false | MEDIUM
+| *camel.component.atomix-map.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | false | MEDIUM
+| *camel.component.atomix-map.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
+| *camel.component.atomix-map.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
+| *camel.component.atomix-map.resourceOptions* | Local resources configurations | null | false | MEDIUM
 |===
 
 

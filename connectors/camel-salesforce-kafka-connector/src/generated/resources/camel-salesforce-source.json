@@ -11,607 +11,723 @@
 		"camel.source.path.topicName": {
 			"name": "camel.source.path.topicName",
 			"description": "The name of the topic\/channel to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.apexMethod": {
 			"name": "camel.source.endpoint.apexMethod",
 			"description": "APEX method name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.apexQueryParams": {
 			"name": "camel.source.endpoint.apexQueryParams",
 			"description": "Query params for APEX method",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.apexUrl": {
 			"name": "camel.source.endpoint.apexUrl",
 			"description": "APEX method URL",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.apiVersion": {
 			"name": "camel.source.endpoint.apiVersion",
 			"description": "Salesforce API version.",
 			"defaultValue": "\"34.0\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.backoffIncrement": {
 			"name": "camel.source.endpoint.backoffIncrement",
 			"description": "Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.",
 			"defaultValue": "1000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.batchId": {
 			"name": "camel.source.endpoint.batchId",
 			"description": "Bulk API Batch ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.contentType": {
 			"name": "camel.source.endpoint.contentType",
 			"description": "Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.defaultReplayId": {
 			"name": "camel.source.endpoint.defaultReplayId",
 			"description": "Default replayId setting if no value is found in initialReplayIdMap",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.format": {
 			"name": "camel.source.endpoint.format",
 			"description": "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.httpClient": {
 			"name": "camel.source.endpoint.httpClient",
 			"description": "Custom Jetty Http Client to use to connect to Salesforce.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.includeDetails": {
 			"name": "camel.source.endpoint.includeDetails",
 			"description": "Include details in Salesforce1 Analytics report, defaults to false.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.initialReplayIdMap": {
 			"name": "camel.source.endpoint.initialReplayIdMap",
 			"description": "Replay IDs to start from per channel name.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.instanceId": {
 			"name": "camel.source.endpoint.instanceId",
 			"description": "Salesforce1 Analytics report execution instance ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.jobId": {
 			"name": "camel.source.endpoint.jobId",
 			"description": "Bulk API Job ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.limit": {
 			"name": "camel.source.endpoint.limit",
 			"description": "Limit on number of returned records. Applicable to some of the API, check the Salesforce documentation.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.maxBackoff": {
 			"name": "camel.source.endpoint.maxBackoff",
 			"description": "Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect.",
 			"defaultValue": "30000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.notFoundBehaviour": {
 			"name": "camel.source.endpoint.notFoundBehaviour",
 			"description": "Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL]",
 			"defaultValue": "\"EXCEPTION\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.notifyForFields": {
 			"name": "camel.source.endpoint.notifyForFields",
 			"description": "Notify for fields, options are ALL, REFERENCED, SELECT, WHERE One of: [ALL] [REFERENCED] [SELECT] [WHERE]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.notifyForOperationCreate": {
 			"name": "camel.source.endpoint.notifyForOperationCreate",
 			"description": "Notify for create operation, defaults to false (API version = 29.0)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.notifyForOperationDelete": {
 			"name": "camel.source.endpoint.notifyForOperationDelete",
 			"description": "Notify for delete operation, defaults to false (API version = 29.0)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.notifyForOperations": {
 			"name": "camel.source.endpoint.notifyForOperations",
 			"description": "Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API version 29.0) One of: [ALL] [CREATE] [EXTENDED] [UPDATE]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.notifyForOperationUndelete": {
 			"name": "camel.source.endpoint.notifyForOperationUndelete",
 			"description": "Notify for un-delete operation, defaults to false (API version = 29.0)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.notifyForOperationUpdate": {
 			"name": "camel.source.endpoint.notifyForOperationUpdate",
 			"description": "Notify for update operation, defaults to false (API version = 29.0)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.objectMapper": {
 			"name": "camel.source.endpoint.objectMapper",
 			"description": "Custom Jackson ObjectMapper to use when serializing\/deserializing Salesforce objects.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.rawPayload": {
 			"name": "camel.source.endpoint.rawPayload",
 			"description": "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.reportId": {
 			"name": "camel.source.endpoint.reportId",
 			"description": "Salesforce1 Analytics report Id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.reportMetadata": {
 			"name": "camel.source.endpoint.reportMetadata",
 			"description": "Salesforce1 Analytics report metadata for filtering",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.resultId": {
 			"name": "camel.source.endpoint.resultId",
 			"description": "Bulk API Result ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectBlobFieldName": {
 			"name": "camel.source.endpoint.sObjectBlobFieldName",
 			"description": "SObject blob field name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectClass": {
 			"name": "camel.source.endpoint.sObjectClass",
 			"description": "Fully qualified SObject class name, usually generated using camel-salesforce-maven-plugin",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectFields": {
 			"name": "camel.source.endpoint.sObjectFields",
 			"description": "SObject fields to retrieve",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectId": {
 			"name": "camel.source.endpoint.sObjectId",
 			"description": "SObject ID if required by API",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectIdName": {
 			"name": "camel.source.endpoint.sObjectIdName",
 			"description": "SObject external ID field name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectIdValue": {
 			"name": "camel.source.endpoint.sObjectIdValue",
 			"description": "SObject external ID field value",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectName": {
 			"name": "camel.source.endpoint.sObjectName",
 			"description": "SObject name if required or supported by API",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectQuery": {
 			"name": "camel.source.endpoint.sObjectQuery",
 			"description": "Salesforce SOQL query string",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.sObjectSearch": {
 			"name": "camel.source.endpoint.sObjectSearch",
 			"description": "Salesforce SOSL search string",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.updateTopic": {
 			"name": "camel.source.endpoint.updateTopic",
 			"description": "Whether to update an existing Push Topic when using the Streaming API, defaults to false",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.replayId": {
 			"name": "camel.source.endpoint.replayId",
 			"description": "The replayId value to use when subscribing",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.apexMethod": {
 			"name": "camel.component.salesforce.apexMethod",
 			"description": "APEX method name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.apexQueryParams": {
 			"name": "camel.component.salesforce.apexQueryParams",
 			"description": "Query params for APEX method",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.apexUrl": {
 			"name": "camel.component.salesforce.apexUrl",
 			"description": "APEX method URL",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.apiVersion": {
 			"name": "camel.component.salesforce.apiVersion",
 			"description": "Salesforce API version.",
 			"defaultValue": "\"34.0\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.backoffIncrement": {
 			"name": "camel.component.salesforce.backoffIncrement",
 			"description": "Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.",
 			"defaultValue": "1000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.batchId": {
 			"name": "camel.component.salesforce.batchId",
 			"description": "Bulk API Batch ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.contentType": {
 			"name": "camel.component.salesforce.contentType",
 			"description": "Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.defaultReplayId": {
 			"name": "camel.component.salesforce.defaultReplayId",
 			"description": "Default replayId setting if no value is found in initialReplayIdMap",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.format": {
 			"name": "camel.component.salesforce.format",
 			"description": "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpClient": {
 			"name": "camel.component.salesforce.httpClient",
 			"description": "Custom Jetty Http Client to use to connect to Salesforce.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpClientConnectionTimeout": {
 			"name": "camel.component.salesforce.httpClientConnectionTimeout",
 			"description": "Connection timeout used by the HttpClient when connecting to the Salesforce server.",
 			"defaultValue": "60000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpClientIdleTimeout": {
 			"name": "camel.component.salesforce.httpClientIdleTimeout",
 			"description": "Timeout used by the HttpClient when waiting for response from the Salesforce server.",
 			"defaultValue": "10000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpMaxContentLength": {
 			"name": "camel.component.salesforce.httpMaxContentLength",
 			"description": "Max content length of an HTTP response.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.includeDetails": {
 			"name": "camel.component.salesforce.includeDetails",
 			"description": "Include details in Salesforce1 Analytics report, defaults to false.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.initialReplayIdMap": {
 			"name": "camel.component.salesforce.initialReplayIdMap",
 			"description": "Replay IDs to start from per channel name.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.instanceId": {
 			"name": "camel.component.salesforce.instanceId",
 			"description": "Salesforce1 Analytics report execution instance ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.jobId": {
 			"name": "camel.component.salesforce.jobId",
 			"description": "Bulk API Job ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.limit": {
 			"name": "camel.component.salesforce.limit",
 			"description": "Limit on number of returned records. Applicable to some of the API, check the Salesforce documentation.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.maxBackoff": {
 			"name": "camel.component.salesforce.maxBackoff",
 			"description": "Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect.",
 			"defaultValue": "30000L",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.notFoundBehaviour": {
 			"name": "camel.component.salesforce.notFoundBehaviour",
 			"description": "Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL]",
 			"defaultValue": "\"EXCEPTION\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.notifyForFields": {
 			"name": "camel.component.salesforce.notifyForFields",
 			"description": "Notify for fields, options are ALL, REFERENCED, SELECT, WHERE One of: [ALL] [REFERENCED] [SELECT] [WHERE]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.notifyForOperationCreate": {
 			"name": "camel.component.salesforce.notifyForOperationCreate",
 			"description": "Notify for create operation, defaults to false (API version = 29.0)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.notifyForOperationDelete": {
 			"name": "camel.component.salesforce.notifyForOperationDelete",
 			"description": "Notify for delete operation, defaults to false (API version = 29.0)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.notifyForOperations": {
 			"name": "camel.component.salesforce.notifyForOperations",
 			"description": "Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API version 29.0) One of: [ALL] [CREATE] [EXTENDED] [UPDATE]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.notifyForOperationUndelete": {
 			"name": "camel.component.salesforce.notifyForOperationUndelete",
 			"description": "Notify for un-delete operation, defaults to false (API version = 29.0)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.notifyForOperationUpdate": {
 			"name": "camel.component.salesforce.notifyForOperationUpdate",
 			"description": "Notify for update operation, defaults to false (API version = 29.0)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.objectMapper": {
 			"name": "camel.component.salesforce.objectMapper",
 			"description": "Custom Jackson ObjectMapper to use when serializing\/deserializing Salesforce objects.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.packages": {
 			"name": "camel.component.salesforce.packages",
 			"description": "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters\/header values. Multiple packages can be separated by comma.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.rawPayload": {
 			"name": "camel.component.salesforce.rawPayload",
 			"description": "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.reportId": {
 			"name": "camel.component.salesforce.reportId",
 			"description": "Salesforce1 Analytics report Id",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.reportMetadata": {
 			"name": "camel.component.salesforce.reportMetadata",
 			"description": "Salesforce1 Analytics report metadata for filtering",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.resultId": {
 			"name": "camel.component.salesforce.resultId",
 			"description": "Bulk API Result ID",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectBlobFieldName": {
 			"name": "camel.component.salesforce.sObjectBlobFieldName",
 			"description": "SObject blob field name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectClass": {
 			"name": "camel.component.salesforce.sObjectClass",
 			"description": "Fully qualified SObject class name, usually generated using camel-salesforce-maven-plugin",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectFields": {
 			"name": "camel.component.salesforce.sObjectFields",
 			"description": "SObject fields to retrieve",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectId": {
 			"name": "camel.component.salesforce.sObjectId",
 			"description": "SObject ID if required by API",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectIdName": {
 			"name": "camel.component.salesforce.sObjectIdName",
 			"description": "SObject external ID field name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectIdValue": {
 			"name": "camel.component.salesforce.sObjectIdValue",
 			"description": "SObject external ID field value",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectName": {
 			"name": "camel.component.salesforce.sObjectName",
 			"description": "SObject name if required or supported by API",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectQuery": {
 			"name": "camel.component.salesforce.sObjectQuery",
 			"description": "Salesforce SOQL query string",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sObjectSearch": {
 			"name": "camel.component.salesforce.sObjectSearch",
 			"description": "Salesforce SOSL search string",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.updateTopic": {
 			"name": "camel.component.salesforce.updateTopic",
 			"description": "Whether to update an existing Push Topic when using the Streaming API, defaults to false",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.config": {
 			"name": "camel.component.salesforce.config",
 			"description": "Global endpoint configuration - use to set values that are common to all endpoints",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpClientProperties": {
 			"name": "camel.component.salesforce.httpClientProperties",
 			"description": "Used to set any properties that can be configured on the underlying HTTP client. Have a look at properties of SalesforceHttpClient and the Jetty HttpClient for all available options.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.longPollingTransportProperties": {
 			"name": "camel.component.salesforce.longPollingTransportProperties",
 			"description": "Used to set any properties that can be configured on the LongPollingTransport used by the BayeuxClient (CometD) used by the streaming api",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.bridgeErrorHandler": {
 			"name": "camel.component.salesforce.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.basicPropertyBinding": {
 			"name": "camel.component.salesforce.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyExcludedAddresses": {
 			"name": "camel.component.salesforce.httpProxyExcludedAddresses",
 			"description": "A list of addresses for which HTTP proxy server should not be used.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyHost": {
 			"name": "camel.component.salesforce.httpProxyHost",
 			"description": "Hostname of the HTTP proxy server to use.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyIncludedAddresses": {
 			"name": "camel.component.salesforce.httpProxyIncludedAddresses",
 			"description": "A list of addresses for which HTTP proxy server should be used.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyPort": {
 			"name": "camel.component.salesforce.httpProxyPort",
 			"description": "Port number of the HTTP proxy server to use.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxySocks4": {
 			"name": "camel.component.salesforce.httpProxySocks4",
 			"description": "If set to true the configures the HTTP proxy to use as a SOCKS4 proxy.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.authenticationType": {
 			"name": "camel.component.salesforce.authenticationType",
 			"description": "Explicit authentication method to be used, one of USERNAME_PASSWORD, REFRESH_TOKEN or JWT. Salesforce component can auto-determine the authentication method to use from the properties set, set this property to eliminate any ambiguity. One of: [USERNAME_PASSWORD] [REFRESH_TOKEN] [JWT]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.clientId": {
 			"name": "camel.component.salesforce.clientId",
 			"description": "OAuth Consumer Key of the connected app configured in the Salesforce instance setup. Typically a connected app needs to be configured but one can be provided by installing a package.",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.component.salesforce.clientSecret": {
 			"name": "camel.component.salesforce.clientSecret",
 			"description": "OAuth Consumer Secret of the connected app configured in the Salesforce instance setup.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyAuthUri": {
 			"name": "camel.component.salesforce.httpProxyAuthUri",
 			"description": "Used in authentication against the HTTP proxy server, needs to match the URI of the proxy server in order for the httpProxyUsername and httpProxyPassword to be used for authentication.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyPassword": {
 			"name": "camel.component.salesforce.httpProxyPassword",
 			"description": "Password to use to authenticate against the HTTP proxy server.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyRealm": {
 			"name": "camel.component.salesforce.httpProxyRealm",
 			"description": "Realm of the proxy server, used in preemptive Basic\/Digest authentication methods against the HTTP proxy server.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxySecure": {
 			"name": "camel.component.salesforce.httpProxySecure",
 			"description": "If set to false disables the use of TLS when accessing the HTTP proxy.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyUseDigestAuth": {
 			"name": "camel.component.salesforce.httpProxyUseDigestAuth",
 			"description": "If set to true Digest authentication will be used when authenticating to the HTTP proxy, otherwise Basic authorization method will be used",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyUsername": {
 			"name": "camel.component.salesforce.httpProxyUsername",
 			"description": "Username to use to authenticate against the HTTP proxy server.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.instanceUrl": {
 			"name": "camel.component.salesforce.instanceUrl",
 			"description": "URL of the Salesforce instance used after authentication, by default received from Salesforce on successful authentication",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.keystore": {
 			"name": "camel.component.salesforce.keystore",
 			"description": "KeyStore parameters to use in OAuth JWT flow. The KeyStore should contain only one entry with private key and certificate. Salesforce does not verify the certificate chain, so this can easily be a selfsigned certificate. Make sure that you upload the certificate to the corresponding connected app.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.lazyLogin": {
 			"name": "camel.component.salesforce.lazyLogin",
 			"description": "If set to true prevents the component from authenticating to Salesforce with the start of the component. You would generally set this to the (default) false and authenticate early and be immediately aware of any authentication issues.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.loginConfig": {
 			"name": "camel.component.salesforce.loginConfig",
 			"description": "All authentication configuration in one nested bean, all properties set there can be set directly on the component as well",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.loginUrl": {
 			"name": "camel.component.salesforce.loginUrl",
 			"description": "URL of the Salesforce instance used for authentication, by default set to https:\/\/login.salesforce.com",
 			"defaultValue": "\"https:\/\/login.salesforce.com\"",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.component.salesforce.password": {
 			"name": "camel.component.salesforce.password",
 			"description": "Password used in OAuth flow to gain access to access token. It's easy to get started with password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows. Make sure that you append security token to the end of the password if using one.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.refreshToken": {
 			"name": "camel.component.salesforce.refreshToken",
 			"description": "Refresh token already obtained in the refresh token OAuth flow. One needs to setup a web application and configure a callback URL to receive the refresh token, or configure using the builtin callback at https:\/\/login.salesforce.com\/services\/oauth2\/success or https:\/\/test.salesforce.com\/services\/oauth2\/success and then retrive the refresh_token from the URL at the end of the flow. Note that in development organizations Salesforce allows hosting the callback web application at localhost.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.sslContextParameters": {
 			"name": "camel.component.salesforce.sslContextParameters",
 			"description": "SSL parameters to use, see SSLContextParameters class for all available options.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.useGlobalSslContextParameters": {
 			"name": "camel.component.salesforce.useGlobalSslContextParameters",
 			"description": "Enable usage of global SSL context parameters",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.salesforce.userName": {
 			"name": "camel.component.salesforce.userName",
 			"description": "Username used in OAuth flow to gain access to access token. It's easy to get started with password OAuth flow, but in general one should avoid it as it is deemed less secure than other flows.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

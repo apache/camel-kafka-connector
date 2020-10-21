@@ -26,143 +26,143 @@ The camel-facebook source connector supports 134 options, which are listed below
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.methodName* | What operation to perform | null | HIGH
-| *camel.source.endpoint.achievementURL* | The unique URL of the achievement | null | MEDIUM
-| *camel.source.endpoint.albumId* | The album ID | null | MEDIUM
-| *camel.source.endpoint.albumUpdate* | The facebook Album to be created or updated | null | MEDIUM
-| *camel.source.endpoint.appId* | The ID of the Facebook Application | null | MEDIUM
-| *camel.source.endpoint.center* | Location latitude and longitude | null | MEDIUM
-| *camel.source.endpoint.checkinId* | The checkin ID | null | MEDIUM
-| *camel.source.endpoint.checkinUpdate* | The checkin to be created. Deprecated, instead create a Post with an attached location | null | LOW
-| *camel.source.endpoint.clientURL* | Facebook4J API client URL | null | MEDIUM
-| *camel.source.endpoint.clientVersion* | Facebook4J client API version | null | MEDIUM
-| *camel.source.endpoint.commentId* | The comment ID | null | MEDIUM
-| *camel.source.endpoint.commentUpdate* | The facebook Comment to be created or updated | null | MEDIUM
-| *camel.source.endpoint.debugEnabled* | Enables deubg output. Effective only with the embedded logger | "false" | MEDIUM
-| *camel.source.endpoint.description* | The description text | null | MEDIUM
-| *camel.source.endpoint.distance* | Distance in meters | null | MEDIUM
-| *camel.source.endpoint.domainId* | The domain ID | null | MEDIUM
-| *camel.source.endpoint.domainName* | The domain name | null | MEDIUM
-| *camel.source.endpoint.domainNames* | The domain names | null | MEDIUM
-| *camel.source.endpoint.eventId* | The event ID | null | MEDIUM
-| *camel.source.endpoint.eventUpdate* | The event to be created or updated | null | MEDIUM
-| *camel.source.endpoint.friendId* | The friend ID | null | MEDIUM
-| *camel.source.endpoint.friendlistId* | The friend list ID | null | MEDIUM
-| *camel.source.endpoint.friendlistName* | The friend list Name | null | MEDIUM
-| *camel.source.endpoint.friendUserId* | The friend user ID | null | MEDIUM
-| *camel.source.endpoint.groupId* | The group ID | null | MEDIUM
-| *camel.source.endpoint.gzipEnabled* | Use Facebook GZIP encoding | "true" | MEDIUM
-| *camel.source.endpoint.httpConnectionTimeout* | Http connection timeout in milliseconds | "20000" | MEDIUM
-| *camel.source.endpoint.httpDefaultMaxPerRoute* | HTTP maximum connections per route | "2" | MEDIUM
-| *camel.source.endpoint.httpMaxTotalConnections* | HTTP maximum total connections | "20" | MEDIUM
-| *camel.source.endpoint.httpReadTimeout* | Http read timeout in milliseconds | "120000" | MEDIUM
-| *camel.source.endpoint.httpRetryCount* | Number of HTTP retries | "0" | MEDIUM
-| *camel.source.endpoint.httpRetryIntervalSeconds* | HTTP retry interval in seconds | "5" | MEDIUM
-| *camel.source.endpoint.httpStreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | MEDIUM
-| *camel.source.endpoint.ids* | The ids of users | null | MEDIUM
-| *camel.source.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | MEDIUM
-| *camel.source.endpoint.includeRead* | Enables notifications that the user has already read in addition to unread ones | null | MEDIUM
-| *camel.source.endpoint.isHidden* | Whether hidden | null | MEDIUM
-| *camel.source.endpoint.jsonStoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | MEDIUM
-| *camel.source.endpoint.link* | Link URL | null | MEDIUM
-| *camel.source.endpoint.linkId* | Link ID | null | MEDIUM
-| *camel.source.endpoint.locale* | Desired FQL locale | null | MEDIUM
-| *camel.source.endpoint.mbeanEnabled* | If set to true, Facebook4J mbean will be registerd | "false" | MEDIUM
-| *camel.source.endpoint.message* | The message text | null | MEDIUM
-| *camel.source.endpoint.messageId* | The message ID | null | MEDIUM
-| *camel.source.endpoint.metric* | The metric name | null | MEDIUM
-| *camel.source.endpoint.milestoneId* | The milestone id | null | MEDIUM
-| *camel.source.endpoint.name* | Test user name, must be of the form 'first last' | null | MEDIUM
-| *camel.source.endpoint.noteId* | The note ID | null | MEDIUM
-| *camel.source.endpoint.notificationId* | The notification ID | null | MEDIUM
-| *camel.source.endpoint.objectId* | The insight object ID | null | MEDIUM
-| *camel.source.endpoint.offerId* | The offer id | null | MEDIUM
-| *camel.source.endpoint.optionDescription* | The question's answer option description | null | MEDIUM
-| *camel.source.endpoint.pageId* | The page id | null | MEDIUM
-| *camel.source.endpoint.permissionName* | The permission name | null | MEDIUM
-| *camel.source.endpoint.permissions* | Test user permissions in the format perm1,perm2,... | null | MEDIUM
-| *camel.source.endpoint.photoId* | The photo ID | null | MEDIUM
-| *camel.source.endpoint.pictureId* | The picture id | null | MEDIUM
-| *camel.source.endpoint.pictureId2* | The picture2 id | null | MEDIUM
-| *camel.source.endpoint.pictureSize* | The picture size One of: [square] [small] [normal] [large] [thumbnail] [album] | null | MEDIUM
-| *camel.source.endpoint.placeId* | The place ID | null | MEDIUM
-| *camel.source.endpoint.postId* | The post ID | null | MEDIUM
-| *camel.source.endpoint.postUpdate* | The post to create or update | null | MEDIUM
-| *camel.source.endpoint.prettyDebugEnabled* | Prettify JSON debug output if set to true | "false" | MEDIUM
-| *camel.source.endpoint.queries* | FQL queries | null | MEDIUM
-| *camel.source.endpoint.query* | FQL query or search terms for search endpoints | null | MEDIUM
-| *camel.source.endpoint.questionId* | The question id | null | MEDIUM
-| *camel.source.endpoint.reading* | Optional reading parameters. See Reading Options(#reading) | null | MEDIUM
-| *camel.source.endpoint.readingOptions* | To configure Reading using key/value pairs from the Map. | null | MEDIUM
-| *camel.source.endpoint.restBaseURL* | API base URL | "https://graph.facebook.com/" | MEDIUM
-| *camel.source.endpoint.scoreValue* | The numeric score with value | null | MEDIUM
-| *camel.source.endpoint.size* | The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album] | null | MEDIUM
-| *camel.source.endpoint.source* | The media content from either a java.io.File or java.io.Inputstream | null | MEDIUM
-| *camel.source.endpoint.subject* | The note of the subject | null | MEDIUM
-| *camel.source.endpoint.tabId* | The tab id | null | MEDIUM
-| *camel.source.endpoint.tagUpdate* | Photo tag information | null | MEDIUM
-| *camel.source.endpoint.testUser1* | Test user 1 | null | MEDIUM
-| *camel.source.endpoint.testUser2* | Test user 2 | null | MEDIUM
-| *camel.source.endpoint.testUserId* | The ID of the test user | null | MEDIUM
-| *camel.source.endpoint.title* | The title text | null | MEDIUM
-| *camel.source.endpoint.toUserId* | The ID of the user to tag | null | MEDIUM
-| *camel.source.endpoint.toUserIds* | The IDs of the users to tag | null | MEDIUM
-| *camel.source.endpoint.userId* | The Facebook user ID | null | MEDIUM
-| *camel.source.endpoint.userId1* | The ID of a user 1 | null | MEDIUM
-| *camel.source.endpoint.userId2* | The ID of a user 2 | null | MEDIUM
-| *camel.source.endpoint.userIds* | The IDs of users to invite to event | null | MEDIUM
-| *camel.source.endpoint.userLocale* | The test user locale | null | MEDIUM
-| *camel.source.endpoint.useSSL* | Use SSL | "true" | MEDIUM
-| *camel.source.endpoint.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | MEDIUM
-| *camel.source.endpoint.videoId* | The video ID | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.httpProxyHost* | HTTP proxy server host name | null | MEDIUM
-| *camel.source.endpoint.httpProxyPassword* | HTTP proxy server password | null | MEDIUM
-| *camel.source.endpoint.httpProxyPort* | HTTP proxy server port | null | MEDIUM
-| *camel.source.endpoint.httpProxyUser* | HTTP proxy server user name | null | MEDIUM
-| *camel.source.endpoint.oAuthAccessToken* | The user access token | null | MEDIUM
-| *camel.source.endpoint.oAuthAccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | MEDIUM
-| *camel.source.endpoint.oAuthAppId* | The application Id | null | MEDIUM
-| *camel.source.endpoint.oAuthAppSecret* | The application Secret | null | MEDIUM
-| *camel.source.endpoint.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | MEDIUM
-| *camel.source.endpoint.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | MEDIUM
-| *camel.component.facebook.clientURL* | Facebook4J API client URL | null | MEDIUM
-| *camel.component.facebook.clientVersion* | Facebook4J client API version | null | MEDIUM
-| *camel.component.facebook.debugEnabled* | Enables deubg output. Effective only with the embedded logger | "false" | MEDIUM
-| *camel.component.facebook.gzipEnabled* | Use Facebook GZIP encoding | "true" | MEDIUM
-| *camel.component.facebook.httpConnectionTimeout* | Http connection timeout in milliseconds | "20000" | MEDIUM
-| *camel.component.facebook.httpDefaultMaxPerRoute* | HTTP maximum connections per route | "2" | MEDIUM
-| *camel.component.facebook.httpMaxTotalConnections* | HTTP maximum total connections | "20" | MEDIUM
-| *camel.component.facebook.httpReadTimeout* | Http read timeout in milliseconds | "120000" | MEDIUM
-| *camel.component.facebook.httpRetryCount* | Number of HTTP retries | "0" | MEDIUM
-| *camel.component.facebook.httpRetryIntervalSeconds* | HTTP retry interval in seconds | "5" | MEDIUM
-| *camel.component.facebook.httpStreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | MEDIUM
-| *camel.component.facebook.jsonStoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | MEDIUM
-| *camel.component.facebook.mbeanEnabled* | If set to true, Facebook4J mbean will be registerd | "false" | MEDIUM
-| *camel.component.facebook.prettyDebugEnabled* | Prettify JSON debug output if set to true | "false" | MEDIUM
-| *camel.component.facebook.restBaseURL* | API base URL | "https://graph.facebook.com/" | MEDIUM
-| *camel.component.facebook.useSSL* | Use SSL | "true" | MEDIUM
-| *camel.component.facebook.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | MEDIUM
-| *camel.component.facebook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.facebook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.facebook.configuration* | To use the shared configuration | null | MEDIUM
-| *camel.component.facebook.httpProxyHost* | HTTP proxy server host name | null | MEDIUM
-| *camel.component.facebook.httpProxyPassword* | HTTP proxy server password | null | MEDIUM
-| *camel.component.facebook.httpProxyPort* | HTTP proxy server port | null | MEDIUM
-| *camel.component.facebook.httpProxyUser* | HTTP proxy server user name | null | MEDIUM
-| *camel.component.facebook.oAuthAccessToken* | The user access token | null | MEDIUM
-| *camel.component.facebook.oAuthAccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | MEDIUM
-| *camel.component.facebook.oAuthAppId* | The application Id | null | MEDIUM
-| *camel.component.facebook.oAuthAppSecret* | The application Secret | null | MEDIUM
-| *camel.component.facebook.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | MEDIUM
-| *camel.component.facebook.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.source.path.methodName* | What operation to perform | null | true | HIGH
+| *camel.source.endpoint.achievementURL* | The unique URL of the achievement | null | false | MEDIUM
+| *camel.source.endpoint.albumId* | The album ID | null | false | MEDIUM
+| *camel.source.endpoint.albumUpdate* | The facebook Album to be created or updated | null | false | MEDIUM
+| *camel.source.endpoint.appId* | The ID of the Facebook Application | null | false | MEDIUM
+| *camel.source.endpoint.center* | Location latitude and longitude | null | false | MEDIUM
+| *camel.source.endpoint.checkinId* | The checkin ID | null | false | MEDIUM
+| *camel.source.endpoint.checkinUpdate* | The checkin to be created. Deprecated, instead create a Post with an attached location | null | false | LOW
+| *camel.source.endpoint.clientURL* | Facebook4J API client URL | null | false | MEDIUM
+| *camel.source.endpoint.clientVersion* | Facebook4J client API version | null | false | MEDIUM
+| *camel.source.endpoint.commentId* | The comment ID | null | false | MEDIUM
+| *camel.source.endpoint.commentUpdate* | The facebook Comment to be created or updated | null | false | MEDIUM
+| *camel.source.endpoint.debugEnabled* | Enables deubg output. Effective only with the embedded logger | "false" | false | MEDIUM
+| *camel.source.endpoint.description* | The description text | null | false | MEDIUM
+| *camel.source.endpoint.distance* | Distance in meters | null | false | MEDIUM
+| *camel.source.endpoint.domainId* | The domain ID | null | false | MEDIUM
+| *camel.source.endpoint.domainName* | The domain name | null | false | MEDIUM
+| *camel.source.endpoint.domainNames* | The domain names | null | false | MEDIUM
+| *camel.source.endpoint.eventId* | The event ID | null | false | MEDIUM
+| *camel.source.endpoint.eventUpdate* | The event to be created or updated | null | false | MEDIUM
+| *camel.source.endpoint.friendId* | The friend ID | null | false | MEDIUM
+| *camel.source.endpoint.friendlistId* | The friend list ID | null | false | MEDIUM
+| *camel.source.endpoint.friendlistName* | The friend list Name | null | false | MEDIUM
+| *camel.source.endpoint.friendUserId* | The friend user ID | null | false | MEDIUM
+| *camel.source.endpoint.groupId* | The group ID | null | false | MEDIUM
+| *camel.source.endpoint.gzipEnabled* | Use Facebook GZIP encoding | "true" | false | MEDIUM
+| *camel.source.endpoint.httpConnectionTimeout* | Http connection timeout in milliseconds | "20000" | false | MEDIUM
+| *camel.source.endpoint.httpDefaultMaxPerRoute* | HTTP maximum connections per route | "2" | false | MEDIUM
+| *camel.source.endpoint.httpMaxTotalConnections* | HTTP maximum total connections | "20" | false | MEDIUM
+| *camel.source.endpoint.httpReadTimeout* | Http read timeout in milliseconds | "120000" | false | MEDIUM
+| *camel.source.endpoint.httpRetryCount* | Number of HTTP retries | "0" | false | MEDIUM
+| *camel.source.endpoint.httpRetryIntervalSeconds* | HTTP retry interval in seconds | "5" | false | MEDIUM
+| *camel.source.endpoint.httpStreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | false | MEDIUM
+| *camel.source.endpoint.ids* | The ids of users | null | false | MEDIUM
+| *camel.source.endpoint.inBody* | Sets the name of a parameter to be passed in the exchange In Body | null | false | MEDIUM
+| *camel.source.endpoint.includeRead* | Enables notifications that the user has already read in addition to unread ones | null | false | MEDIUM
+| *camel.source.endpoint.isHidden* | Whether hidden | null | false | MEDIUM
+| *camel.source.endpoint.jsonStoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | false | MEDIUM
+| *camel.source.endpoint.link* | Link URL | null | false | MEDIUM
+| *camel.source.endpoint.linkId* | Link ID | null | false | MEDIUM
+| *camel.source.endpoint.locale* | Desired FQL locale | null | false | MEDIUM
+| *camel.source.endpoint.mbeanEnabled* | If set to true, Facebook4J mbean will be registerd | "false" | false | MEDIUM
+| *camel.source.endpoint.message* | The message text | null | false | MEDIUM
+| *camel.source.endpoint.messageId* | The message ID | null | false | MEDIUM
+| *camel.source.endpoint.metric* | The metric name | null | false | MEDIUM
+| *camel.source.endpoint.milestoneId* | The milestone id | null | false | MEDIUM
+| *camel.source.endpoint.name* | Test user name, must be of the form 'first last' | null | false | MEDIUM
+| *camel.source.endpoint.noteId* | The note ID | null | false | MEDIUM
+| *camel.source.endpoint.notificationId* | The notification ID | null | false | MEDIUM
+| *camel.source.endpoint.objectId* | The insight object ID | null | false | MEDIUM
+| *camel.source.endpoint.offerId* | The offer id | null | false | MEDIUM
+| *camel.source.endpoint.optionDescription* | The question's answer option description | null | false | MEDIUM
+| *camel.source.endpoint.pageId* | The page id | null | false | MEDIUM
+| *camel.source.endpoint.permissionName* | The permission name | null | false | MEDIUM
+| *camel.source.endpoint.permissions* | Test user permissions in the format perm1,perm2,... | null | false | MEDIUM
+| *camel.source.endpoint.photoId* | The photo ID | null | false | MEDIUM
+| *camel.source.endpoint.pictureId* | The picture id | null | false | MEDIUM
+| *camel.source.endpoint.pictureId2* | The picture2 id | null | false | MEDIUM
+| *camel.source.endpoint.pictureSize* | The picture size One of: [square] [small] [normal] [large] [thumbnail] [album] | null | false | MEDIUM
+| *camel.source.endpoint.placeId* | The place ID | null | false | MEDIUM
+| *camel.source.endpoint.postId* | The post ID | null | false | MEDIUM
+| *camel.source.endpoint.postUpdate* | The post to create or update | null | false | MEDIUM
+| *camel.source.endpoint.prettyDebugEnabled* | Prettify JSON debug output if set to true | "false" | false | MEDIUM
+| *camel.source.endpoint.queries* | FQL queries | null | false | MEDIUM
+| *camel.source.endpoint.query* | FQL query or search terms for search endpoints | null | false | MEDIUM
+| *camel.source.endpoint.questionId* | The question id | null | false | MEDIUM
+| *camel.source.endpoint.reading* | Optional reading parameters. See Reading Options(#reading) | null | false | MEDIUM
+| *camel.source.endpoint.readingOptions* | To configure Reading using key/value pairs from the Map. | null | false | MEDIUM
+| *camel.source.endpoint.restBaseURL* | API base URL | "https://graph.facebook.com/" | false | MEDIUM
+| *camel.source.endpoint.scoreValue* | The numeric score with value | null | false | MEDIUM
+| *camel.source.endpoint.size* | The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album] | null | false | MEDIUM
+| *camel.source.endpoint.source* | The media content from either a java.io.File or java.io.Inputstream | null | false | MEDIUM
+| *camel.source.endpoint.subject* | The note of the subject | null | false | MEDIUM
+| *camel.source.endpoint.tabId* | The tab id | null | false | MEDIUM
+| *camel.source.endpoint.tagUpdate* | Photo tag information | null | false | MEDIUM
+| *camel.source.endpoint.testUser1* | Test user 1 | null | false | MEDIUM
+| *camel.source.endpoint.testUser2* | Test user 2 | null | false | MEDIUM
+| *camel.source.endpoint.testUserId* | The ID of the test user | null | false | MEDIUM
+| *camel.source.endpoint.title* | The title text | null | false | MEDIUM
+| *camel.source.endpoint.toUserId* | The ID of the user to tag | null | false | MEDIUM
+| *camel.source.endpoint.toUserIds* | The IDs of the users to tag | null | false | MEDIUM
+| *camel.source.endpoint.userId* | The Facebook user ID | null | false | MEDIUM
+| *camel.source.endpoint.userId1* | The ID of a user 1 | null | false | MEDIUM
+| *camel.source.endpoint.userId2* | The ID of a user 2 | null | false | MEDIUM
+| *camel.source.endpoint.userIds* | The IDs of users to invite to event | null | false | MEDIUM
+| *camel.source.endpoint.userLocale* | The test user locale | null | false | MEDIUM
+| *camel.source.endpoint.useSSL* | Use SSL | "true" | false | MEDIUM
+| *camel.source.endpoint.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | false | MEDIUM
+| *camel.source.endpoint.videoId* | The video ID | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.httpProxyHost* | HTTP proxy server host name | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyPassword* | HTTP proxy server password | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyPort* | HTTP proxy server port | null | false | MEDIUM
+| *camel.source.endpoint.httpProxyUser* | HTTP proxy server user name | null | false | MEDIUM
+| *camel.source.endpoint.oAuthAccessToken* | The user access token | null | false | MEDIUM
+| *camel.source.endpoint.oAuthAccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | false | MEDIUM
+| *camel.source.endpoint.oAuthAppId* | The application Id | null | false | MEDIUM
+| *camel.source.endpoint.oAuthAppSecret* | The application Secret | null | false | MEDIUM
+| *camel.source.endpoint.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | false | MEDIUM
+| *camel.source.endpoint.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | false | MEDIUM
+| *camel.component.facebook.clientURL* | Facebook4J API client URL | null | false | MEDIUM
+| *camel.component.facebook.clientVersion* | Facebook4J client API version | null | false | MEDIUM
+| *camel.component.facebook.debugEnabled* | Enables deubg output. Effective only with the embedded logger | "false" | false | MEDIUM
+| *camel.component.facebook.gzipEnabled* | Use Facebook GZIP encoding | "true" | false | MEDIUM
+| *camel.component.facebook.httpConnectionTimeout* | Http connection timeout in milliseconds | "20000" | false | MEDIUM
+| *camel.component.facebook.httpDefaultMaxPerRoute* | HTTP maximum connections per route | "2" | false | MEDIUM
+| *camel.component.facebook.httpMaxTotalConnections* | HTTP maximum total connections | "20" | false | MEDIUM
+| *camel.component.facebook.httpReadTimeout* | Http read timeout in milliseconds | "120000" | false | MEDIUM
+| *camel.component.facebook.httpRetryCount* | Number of HTTP retries | "0" | false | MEDIUM
+| *camel.component.facebook.httpRetryIntervalSeconds* | HTTP retry interval in seconds | "5" | false | MEDIUM
+| *camel.component.facebook.httpStreamingReadTimeout* | HTTP streaming read timeout in milliseconds | "40000" | false | MEDIUM
+| *camel.component.facebook.jsonStoreEnabled* | If set to true, raw JSON forms will be stored in DataObjectFactory | "false" | false | MEDIUM
+| *camel.component.facebook.mbeanEnabled* | If set to true, Facebook4J mbean will be registerd | "false" | false | MEDIUM
+| *camel.component.facebook.prettyDebugEnabled* | Prettify JSON debug output if set to true | "false" | false | MEDIUM
+| *camel.component.facebook.restBaseURL* | API base URL | "https://graph.facebook.com/" | false | MEDIUM
+| *camel.component.facebook.useSSL* | Use SSL | "true" | false | MEDIUM
+| *camel.component.facebook.videoBaseURL* | Video API base URL | "https://graph-video.facebook.com/" | false | MEDIUM
+| *camel.component.facebook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.facebook.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.facebook.configuration* | To use the shared configuration | null | false | MEDIUM
+| *camel.component.facebook.httpProxyHost* | HTTP proxy server host name | null | false | MEDIUM
+| *camel.component.facebook.httpProxyPassword* | HTTP proxy server password | null | false | MEDIUM
+| *camel.component.facebook.httpProxyPort* | HTTP proxy server port | null | false | MEDIUM
+| *camel.component.facebook.httpProxyUser* | HTTP proxy server user name | null | false | MEDIUM
+| *camel.component.facebook.oAuthAccessToken* | The user access token | null | false | MEDIUM
+| *camel.component.facebook.oAuthAccessTokenURL* | OAuth access token URL | "https://graph.facebook.com/oauth/access_token" | false | MEDIUM
+| *camel.component.facebook.oAuthAppId* | The application Id | null | false | MEDIUM
+| *camel.component.facebook.oAuthAppSecret* | The application Secret | null | false | MEDIUM
+| *camel.component.facebook.oAuthAuthorizationURL* | OAuth authorization URL | "https://www.facebook.com/dialog/oauth" | false | MEDIUM
+| *camel.component.facebook.oAuthPermissions* | Default OAuth permissions. Comma separated permission names. See \https://developers.facebook.com/docs/reference/login/#permissions for the detail | null | false | MEDIUM
 |===
 
 

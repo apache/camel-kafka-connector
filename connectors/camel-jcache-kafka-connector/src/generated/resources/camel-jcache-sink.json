@@ -11,138 +11,163 @@
 		"camel.sink.path.cacheName": {
 			"name": "camel.sink.path.cacheName",
 			"description": "The name of the cache",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.cacheConfiguration": {
 			"name": "camel.sink.endpoint.cacheConfiguration",
 			"description": "A Configuration for the Cache",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.cacheConfigurationProperties": {
 			"name": "camel.sink.endpoint.cacheConfigurationProperties",
 			"description": "The Properties for the javax.cache.spi.CachingProvider to create the CacheManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.cachingProvider": {
 			"name": "camel.sink.endpoint.cachingProvider",
 			"description": "The fully qualified class name of the javax.cache.spi.CachingProvider",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.configurationUri": {
 			"name": "camel.sink.endpoint.configurationUri",
 			"description": "An implementation specific URI for the CacheManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.managementEnabled": {
 			"name": "camel.sink.endpoint.managementEnabled",
 			"description": "Whether management gathering is enabled",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.readThrough": {
 			"name": "camel.sink.endpoint.readThrough",
 			"description": "If read-through caching should be used",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.statisticsEnabled": {
 			"name": "camel.sink.endpoint.statisticsEnabled",
 			"description": "Whether statistics gathering is enabled",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.storeByValue": {
 			"name": "camel.sink.endpoint.storeByValue",
 			"description": "If cache should use store-by-value or store-by-reference semantics",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.writeThrough": {
 			"name": "camel.sink.endpoint.writeThrough",
 			"description": "If write-through caching should be used",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.action": {
 			"name": "camel.sink.endpoint.action",
 			"description": "To configure using a cache operation by default. If an operation in the message header, then the operation from the header takes precedence.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.cacheLoaderFactory": {
 			"name": "camel.sink.endpoint.cacheLoaderFactory",
 			"description": "The CacheLoader factory",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.cacheWriterFactory": {
 			"name": "camel.sink.endpoint.cacheWriterFactory",
 			"description": "The CacheWriter factory",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.createCacheIfNotExists": {
 			"name": "camel.sink.endpoint.createCacheIfNotExists",
 			"description": "Configure if a cache need to be created if it does exist or can't be pre-configured.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.expiryPolicyFactory": {
 			"name": "camel.sink.endpoint.expiryPolicyFactory",
 			"description": "The ExpiryPolicy factory",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lookupProviders": {
 			"name": "camel.sink.endpoint.lookupProviders",
 			"description": "Configure if a camel-cache should try to find implementations of jcache api in runtimes like OSGi.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jcache.cacheConfiguration": {
 			"name": "camel.component.jcache.cacheConfiguration",
 			"description": "A Configuration for the Cache",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jcache.cacheConfigurationProperties": {
 			"name": "camel.component.jcache.cacheConfigurationProperties",
 			"description": "Properties to configure jcache",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jcache.cacheConfigurationPropertiesRef": {
 			"name": "camel.component.jcache.cacheConfigurationPropertiesRef",
 			"description": "References to an existing Properties or Map to lookup in the registry to use for configuring jcache.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jcache.cachingProvider": {
 			"name": "camel.component.jcache.cachingProvider",
 			"description": "The fully qualified class name of the javax.cache.spi.CachingProvider",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jcache.configurationUri": {
 			"name": "camel.component.jcache.configurationUri",
 			"description": "An implementation specific URI for the CacheManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jcache.lazyStartProducer": {
 			"name": "camel.component.jcache.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.jcache.basicPropertyBinding": {
 			"name": "camel.component.jcache.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		}
 	}
 }

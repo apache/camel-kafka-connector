@@ -26,55 +26,55 @@ The camel-jpa source connector supports 46 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.source.path.entityType* | Entity class name | null | HIGH
-| *camel.source.endpoint.joinTransaction* | The camel-jpa component will join transaction by default. You can use this option to turn this off, for example if you use LOCAL_RESOURCE and join transaction doesn't work with your JPA provider. This option can also be set globally on the JpaComponent, instead of having to set it on all endpoints. | true | MEDIUM
-| *camel.source.endpoint.maximumResults* | Set the maximum number of results to retrieve on the Query. | -1 | MEDIUM
-| *camel.source.endpoint.namedQuery* | To use a named query. | null | MEDIUM
-| *camel.source.endpoint.nativeQuery* | To use a custom native query. You may want to use the option resultClass also when using native queries. | null | MEDIUM
-| *camel.source.endpoint.persistenceUnit* | The JPA persistence unit used by default. | "camel" | HIGH
-| *camel.source.endpoint.query* | To use a custom query. | null | MEDIUM
-| *camel.source.endpoint.resultClass* | Defines the type of the returned payload (we will call entityManager.createNativeQuery(nativeQuery, resultClass) instead of entityManager.createNativeQuery(nativeQuery)). Without this option, we will return an object array. Only has an affect when using in conjunction with native query when consuming data. | null | MEDIUM
-| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.source.endpoint.consumeDelete* | If true, the entity is deleted after it is consumed; if false, the entity is not deleted. | true | MEDIUM
-| *camel.source.endpoint.consumeLockEntity* | Specifies whether or not to set an exclusive lock on each entity bean while processing the results from polling. | true | MEDIUM
-| *camel.source.endpoint.deleteHandler* | To use a custom DeleteHandler to delete the row after the consumer is done processing the exchange | null | MEDIUM
-| *camel.source.endpoint.lockModeType* | To configure the lock mode on the consumer. One of: [READ] [WRITE] [OPTIMISTIC] [OPTIMISTIC_FORCE_INCREMENT] [PESSIMISTIC_READ] [PESSIMISTIC_WRITE] [PESSIMISTIC_FORCE_INCREMENT] [NONE] | "PESSIMISTIC_WRITE" | MEDIUM
-| *camel.source.endpoint.maxMessagesPerPoll* | An integer value to define the maximum number of messages to gather per poll. By default, no maximum is set. Can be used to avoid polling many thousands of messages when starting up the server. Set a value of 0 or negative to disable. | null | MEDIUM
-| *camel.source.endpoint.preDeleteHandler* | To use a custom Pre-DeleteHandler to delete the row after the consumer has read the entity. | null | MEDIUM
-| *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | MEDIUM
-| *camel.source.endpoint.skipLockedEntity* | To configure whether to use NOWAIT on lock and silently skip the entity. | false | MEDIUM
-| *camel.source.endpoint.transacted* | Whether to run the consumer in transacted mode, by which all messages will either commit or rollback, when the entire batch has been processed. The default behavior (false) is to commit all the previously successfully processed messages, and only rollback the last failed message. | false | MEDIUM
-| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | MEDIUM
-| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | MEDIUM
-| *camel.source.endpoint.parameters* | This key/value mapping is used for building the query parameters. It is expected to be of the generic type java.util.Map where the keys are the named parameters of a given JPA query and the values are their corresponding effective values you want to select for. When it's used for producer, Simple expression can be used as a parameter value. It allows you to retrieve parameter values from the message body, header and etc. | null | MEDIUM
-| *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.source.endpoint.entityManagerProperties* | Additional properties for the entity manager to use. | null | MEDIUM
-| *camel.source.endpoint.sharedEntityManager* | Whether to use Spring's SharedEntityManager for the consumer/producer. Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager. | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | MEDIUM
-| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | MEDIUM
-| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | MEDIUM
-| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 500L | MEDIUM
-| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | MEDIUM
-| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | MEDIUM
-| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | MEDIUM
-| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | MEDIUM
-| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | MEDIUM
-| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | MEDIUM
-| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | MEDIUM
-| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | MEDIUM
-| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | MEDIUM
-| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | MEDIUM
-| *camel.component.jpa.entityManagerFactory* | To use the EntityManagerFactory. This is strongly recommended to configure. | null | MEDIUM
-| *camel.component.jpa.joinTransaction* | The camel-jpa component will join transaction by default. You can use this option to turn this off, for example if you use LOCAL_RESOURCE and join transaction doesn't work with your JPA provider. This option can also be set globally on the JpaComponent, instead of having to set it on all endpoints. | true | MEDIUM
-| *camel.component.jpa.sharedEntityManager* | Whether to use Spring's SharedEntityManager for the consumer/producer. Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager. | false | MEDIUM
-| *camel.component.jpa.transactionManager* | To use the PlatformTransactionManager for managing transactions. | null | MEDIUM
-| *camel.component.jpa.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | MEDIUM
-| *camel.component.jpa.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.source.path.entityType* | Entity class name | null | true | HIGH
+| *camel.source.endpoint.joinTransaction* | The camel-jpa component will join transaction by default. You can use this option to turn this off, for example if you use LOCAL_RESOURCE and join transaction doesn't work with your JPA provider. This option can also be set globally on the JpaComponent, instead of having to set it on all endpoints. | true | false | MEDIUM
+| *camel.source.endpoint.maximumResults* | Set the maximum number of results to retrieve on the Query. | -1 | false | MEDIUM
+| *camel.source.endpoint.namedQuery* | To use a named query. | null | false | MEDIUM
+| *camel.source.endpoint.nativeQuery* | To use a custom native query. You may want to use the option resultClass also when using native queries. | null | false | MEDIUM
+| *camel.source.endpoint.persistenceUnit* | The JPA persistence unit used by default. | "camel" | true | HIGH
+| *camel.source.endpoint.query* | To use a custom query. | null | false | MEDIUM
+| *camel.source.endpoint.resultClass* | Defines the type of the returned payload (we will call entityManager.createNativeQuery(nativeQuery, resultClass) instead of entityManager.createNativeQuery(nativeQuery)). Without this option, we will return an object array. Only has an affect when using in conjunction with native query when consuming data. | null | false | MEDIUM
+| *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.consumeDelete* | If true, the entity is deleted after it is consumed; if false, the entity is not deleted. | true | false | MEDIUM
+| *camel.source.endpoint.consumeLockEntity* | Specifies whether or not to set an exclusive lock on each entity bean while processing the results from polling. | true | false | MEDIUM
+| *camel.source.endpoint.deleteHandler* | To use a custom DeleteHandler to delete the row after the consumer is done processing the exchange | null | false | MEDIUM
+| *camel.source.endpoint.lockModeType* | To configure the lock mode on the consumer. One of: [READ] [WRITE] [OPTIMISTIC] [OPTIMISTIC_FORCE_INCREMENT] [PESSIMISTIC_READ] [PESSIMISTIC_WRITE] [PESSIMISTIC_FORCE_INCREMENT] [NONE] | "PESSIMISTIC_WRITE" | false | MEDIUM
+| *camel.source.endpoint.maxMessagesPerPoll* | An integer value to define the maximum number of messages to gather per poll. By default, no maximum is set. Can be used to avoid polling many thousands of messages when starting up the server. Set a value of 0 or negative to disable. | null | false | MEDIUM
+| *camel.source.endpoint.preDeleteHandler* | To use a custom Pre-DeleteHandler to delete the row after the consumer has read the entity. | null | false | MEDIUM
+| *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
+| *camel.source.endpoint.skipLockedEntity* | To configure whether to use NOWAIT on lock and silently skip the entity. | false | false | MEDIUM
+| *camel.source.endpoint.transacted* | Whether to run the consumer in transacted mode, by which all messages will either commit or rollback, when the entire batch has been processed. The default behavior (false) is to commit all the previously successfully processed messages, and only rollback the last failed message. | false | false | MEDIUM
+| *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
+| *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.parameters* | This key/value mapping is used for building the query parameters. It is expected to be of the generic type java.util.Map where the keys are the named parameters of a given JPA query and the values are their corresponding effective values you want to select for. When it's used for producer, Simple expression can be used as a parameter value. It allows you to retrieve parameter values from the message body, header and etc. | null | false | MEDIUM
+| *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
+| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.source.endpoint.entityManagerProperties* | Additional properties for the entity manager to use. | null | false | MEDIUM
+| *camel.source.endpoint.sharedEntityManager* | Whether to use Spring's SharedEntityManager for the consumer/producer. Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager. | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
+| *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
+| *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | false | MEDIUM
+| *camel.source.endpoint.delay* | Milliseconds before the next poll. | 500L | false | MEDIUM
+| *camel.source.endpoint.greedy* | If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages. | false | false | MEDIUM
+| *camel.source.endpoint.initialDelay* | Milliseconds before the first poll starts. | 1000L | false | MEDIUM
+| *camel.source.endpoint.repeatCount* | Specifies a maximum limit of number of fires. So if you set it to 1, the scheduler will only fire once. If you set it to 5, it will only fire five times. A value of zero or negative means fire forever. | 0L | false | MEDIUM
+| *camel.source.endpoint.runLoggingLevel* | The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "TRACE" | false | MEDIUM
+| *camel.source.endpoint.scheduledExecutorService* | Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool. | null | false | MEDIUM
+| *camel.source.endpoint.scheduler* | To use a cron scheduler from either camel-spring or camel-quartz component. Use value spring or quartz for built in scheduler | "none" | false | MEDIUM
+| *camel.source.endpoint.schedulerProperties* | To configure additional properties when using a custom scheduler or any of the Quartz, Spring based scheduler. | null | false | MEDIUM
+| *camel.source.endpoint.startScheduler* | Whether the scheduler should be auto started. | true | false | MEDIUM
+| *camel.source.endpoint.timeUnit* | Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS] | "MILLISECONDS" | false | MEDIUM
+| *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
+| *camel.component.jpa.entityManagerFactory* | To use the EntityManagerFactory. This is strongly recommended to configure. | null | false | MEDIUM
+| *camel.component.jpa.joinTransaction* | The camel-jpa component will join transaction by default. You can use this option to turn this off, for example if you use LOCAL_RESOURCE and join transaction doesn't work with your JPA provider. This option can also be set globally on the JpaComponent, instead of having to set it on all endpoints. | true | false | MEDIUM
+| *camel.component.jpa.sharedEntityManager* | Whether to use Spring's SharedEntityManager for the consumer/producer. Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager. | false | false | MEDIUM
+| *camel.component.jpa.transactionManager* | To use the PlatformTransactionManager for managing transactions. | null | false | MEDIUM
+| *camel.component.jpa.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.component.jpa.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

@@ -26,32 +26,32 @@ The camel-couchbase sink connector supports 23 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.protocol* | The protocol to use | null | HIGH
-| *camel.sink.path.hostname* | The hostname to use | null | HIGH
-| *camel.sink.path.port* | The port number to use | 8091 | MEDIUM
-| *camel.sink.endpoint.bucket* | The bucket to use | null | MEDIUM
-| *camel.sink.endpoint.collection* | The collection to use | null | MEDIUM
-| *camel.sink.endpoint.key* | The key to use | null | MEDIUM
-| *camel.sink.endpoint.scope* | The scope to use | null | MEDIUM
-| *camel.sink.endpoint.autoStartIdForInserts* | Define if we want an autostart Id when we are doing an insert operation | false | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.operation* | The operation to do | "CCB_PUT" | MEDIUM
-| *camel.sink.endpoint.persistTo* | Where to persist the data | 0 | MEDIUM
-| *camel.sink.endpoint.producerRetryAttempts* | Define the number of retry attempts | 2 | MEDIUM
-| *camel.sink.endpoint.producerRetryPause* | Define the retry pause between different attempts | 5000 | MEDIUM
-| *camel.sink.endpoint.replicateTo* | Where to replicate the data | 0 | MEDIUM
-| *camel.sink.endpoint.startingIdForInsertsFrom* | Define the starting Id where we are doing an insert operation | null | MEDIUM
-| *camel.sink.endpoint.additionalHosts* | The additional hosts | null | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.queryTimeout* | Define the operation timeout in milliseconds | 2500L | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.password* | The password to use | null | MEDIUM
-| *camel.sink.endpoint.username* | The username to use | null | MEDIUM
-| *camel.component.couchbase.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.couchbase.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.protocol* | The protocol to use | null | true | HIGH
+| *camel.sink.path.hostname* | The hostname to use | null | true | HIGH
+| *camel.sink.path.port* | The port number to use | 8091 | false | MEDIUM
+| *camel.sink.endpoint.bucket* | The bucket to use | null | false | MEDIUM
+| *camel.sink.endpoint.collection* | The collection to use | null | false | MEDIUM
+| *camel.sink.endpoint.key* | The key to use | null | false | MEDIUM
+| *camel.sink.endpoint.scope* | The scope to use | null | false | MEDIUM
+| *camel.sink.endpoint.autoStartIdForInserts* | Define if we want an autostart Id when we are doing an insert operation | false | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.operation* | The operation to do | "CCB_PUT" | false | MEDIUM
+| *camel.sink.endpoint.persistTo* | Where to persist the data | 0 | false | MEDIUM
+| *camel.sink.endpoint.producerRetryAttempts* | Define the number of retry attempts | 2 | false | MEDIUM
+| *camel.sink.endpoint.producerRetryPause* | Define the retry pause between different attempts | 5000 | false | MEDIUM
+| *camel.sink.endpoint.replicateTo* | Where to replicate the data | 0 | false | MEDIUM
+| *camel.sink.endpoint.startingIdForInsertsFrom* | Define the starting Id where we are doing an insert operation | null | false | MEDIUM
+| *camel.sink.endpoint.additionalHosts* | The additional hosts | null | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.queryTimeout* | Define the operation timeout in milliseconds | 2500L | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.password* | The password to use | null | false | MEDIUM
+| *camel.sink.endpoint.username* | The username to use | null | false | MEDIUM
+| *camel.component.couchbase.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.couchbase.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

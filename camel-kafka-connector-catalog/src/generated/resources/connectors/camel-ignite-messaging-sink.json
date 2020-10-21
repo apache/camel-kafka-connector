@@ -11,80 +11,94 @@
 		"camel.sink.path.topic": {
 			"name": "camel.sink.path.topic",
 			"description": "The topic name.",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue": {
 			"name": "camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue",
 			"description": "Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void.",
 			"defaultValue": "true",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.treatCollectionsAsCacheObjects": {
 			"name": "camel.sink.endpoint.treatCollectionsAsCacheObjects",
 			"description": "Sets whether to treat Collections as cache objects or as Collections of items to insert\/update\/compute, etc.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.clusterGroupExpression": {
 			"name": "camel.sink.endpoint.clusterGroupExpression",
 			"description": "The cluster group expression.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.sendMode": {
 			"name": "camel.sink.endpoint.sendMode",
 			"description": "The send mode to use. Possible values: UNORDERED, ORDERED. One of: [ORDERED] [UNORDERED]",
 			"defaultValue": "\"UNORDERED\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.timeout": {
 			"name": "camel.sink.endpoint.timeout",
 			"description": "The timeout for the send operation when using ordered messages.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ignite-messaging.configurationResource": {
 			"name": "camel.component.ignite-messaging.configurationResource",
 			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ignite-messaging.ignite": {
 			"name": "camel.component.ignite-messaging.ignite",
 			"description": "To use an existing Ignite instance.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ignite-messaging.igniteConfiguration": {
 			"name": "camel.component.ignite-messaging.igniteConfiguration",
 			"description": "Allows the user to set a programmatic ignite configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ignite-messaging.lazyStartProducer": {
 			"name": "camel.component.ignite-messaging.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.ignite-messaging.basicPropertyBinding": {
 			"name": "camel.component.ignite-messaging.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		}
 	}
 }

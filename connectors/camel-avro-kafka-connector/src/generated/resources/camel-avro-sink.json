@@ -11,121 +11,143 @@
 		"camel.sink.path.transport": {
 			"name": "camel.sink.path.transport",
 			"description": "Transport to use, can be either http or netty One of: [http] [netty]",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "Port number to use",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
 			"description": "Hostname to use",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.path.messageName": {
 			"name": "camel.sink.path.messageName",
 			"description": "The name of the message to send.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.protocol": {
 			"name": "camel.sink.endpoint.protocol",
 			"description": "Avro protocol to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.protocolClassName": {
 			"name": "camel.sink.endpoint.protocolClassName",
 			"description": "Avro protocol to use defined by the FQN class name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.protocolLocation": {
 			"name": "camel.sink.endpoint.protocolLocation",
 			"description": "Avro protocol location",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.reflectionProtocol": {
 			"name": "camel.sink.endpoint.reflectionProtocol",
 			"description": "If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.singleParameter": {
 			"name": "camel.sink.endpoint.singleParameter",
 			"description": "If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.uriAuthority": {
 			"name": "camel.sink.endpoint.uriAuthority",
 			"description": "Authority to use (username and password)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.avro.protocol": {
 			"name": "camel.component.avro.protocol",
 			"description": "Avro protocol to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.avro.protocolClassName": {
 			"name": "camel.component.avro.protocolClassName",
 			"description": "Avro protocol to use defined by the FQN class name",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.avro.protocolLocation": {
 			"name": "camel.component.avro.protocolLocation",
 			"description": "Avro protocol location",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.avro.reflectionProtocol": {
 			"name": "camel.component.avro.reflectionProtocol",
 			"description": "If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.avro.singleParameter": {
 			"name": "camel.component.avro.singleParameter",
 			"description": "If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.avro.uriAuthority": {
 			"name": "camel.component.avro.uriAuthority",
 			"description": "Authority to use (username and password)",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.avro.lazyStartProducer": {
 			"name": "camel.component.avro.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.avro.basicPropertyBinding": {
 			"name": "camel.component.avro.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.avro.configuration": {
 			"name": "camel.component.avro.configuration",
 			"description": "To use a shared AvroConfiguration to configure options once",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

@@ -11,109 +11,129 @@
 		"camel.sink.path.url": {
 			"name": "camel.sink.path.url",
 			"description": "Hostname and port for the solr server",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.allowCompression": {
 			"name": "camel.sink.endpoint.allowCompression",
 			"description": "Server side must support gzip or deflate for this to have any effect",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.connectionTimeout": {
 			"name": "camel.sink.endpoint.connectionTimeout",
 			"description": "connectionTimeout on the underlying HttpConnectionManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.defaultMaxConnectionsPerHost": {
 			"name": "camel.sink.endpoint.defaultMaxConnectionsPerHost",
 			"description": "maxConnectionsPerHost on the underlying HttpConnectionManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.followRedirects": {
 			"name": "camel.sink.endpoint.followRedirects",
 			"description": "indicates whether redirects are used to get to the Solr server",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.maxRetries": {
 			"name": "camel.sink.endpoint.maxRetries",
 			"description": "Maximum number of retries to attempt in the event of transient errors",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.maxTotalConnections": {
 			"name": "camel.sink.endpoint.maxTotalConnections",
 			"description": "maxTotalConnection on the underlying HttpConnectionManager",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.requestHandler": {
 			"name": "camel.sink.endpoint.requestHandler",
 			"description": "Set the request handler to be used",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.soTimeout": {
 			"name": "camel.sink.endpoint.soTimeout",
 			"description": "Read timeout on the underlying HttpConnectionManager. This is desirable for queries, but probably not for indexing",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.streamingQueueSize": {
 			"name": "camel.sink.endpoint.streamingQueueSize",
 			"description": "Set the queue size for the StreamingUpdateSolrServer",
 			"defaultValue": "10",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.streamingThreadCount": {
 			"name": "camel.sink.endpoint.streamingThreadCount",
 			"description": "Set the number of threads for the StreamingUpdateSolrServer",
 			"defaultValue": "2",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "Sets password for basic auth plugin enabled servers",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",
 			"description": "Sets username for basic auth plugin enabled servers",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.collection": {
 			"name": "camel.sink.endpoint.collection",
 			"description": "Set the collection name which the solrCloud server could use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.zkHost": {
 			"name": "camel.sink.endpoint.zkHost",
 			"description": "Set the ZooKeeper host information which the solrCloud could use, such as zkhost=localhost:8123.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.solrs.lazyStartProducer": {
 			"name": "camel.component.solrs.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.solrs.basicPropertyBinding": {
 			"name": "camel.component.solrs.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		}
 	}
 }

@@ -26,60 +26,60 @@ The camel-milo-client sink connector supports 51 options, which are listed below
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.endpointUri* | The OPC UA server endpoint | null | HIGH
-| *camel.sink.endpoint.clientId* | A virtual client id to force the creation of a new connection instance | null | MEDIUM
-| *camel.sink.endpoint.defaultAwaitWrites* | Default await setting for writes | false | MEDIUM
-| *camel.sink.endpoint.discoveryEndpointSuffix* | A suffix for endpoint URI when discovering | null | MEDIUM
-| *camel.sink.endpoint.discoveryEndpointUri* | An alternative discovery URI | null | MEDIUM
-| *camel.sink.endpoint.method* | The method definition (see Method ID) | null | MEDIUM
-| *camel.sink.endpoint.node* | The node definition (see Node ID) | null | MEDIUM
-| *camel.sink.endpoint.samplingInterval* | The sampling interval in milliseconds | "0.0" | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.allowedSecurityPolicies* | A set of allowed security policy URIs. Default is to accept all and use the highest. | null | MEDIUM
-| *camel.sink.endpoint.applicationName* | The application name | "Apache Camel adapter for Eclipse Milo" | MEDIUM
-| *camel.sink.endpoint.applicationUri* | The application URI | "http://camel.apache.org/EclipseMilo/Client" | MEDIUM
-| *camel.sink.endpoint.channelLifetime* | Channel lifetime in milliseconds | null | MEDIUM
-| *camel.sink.endpoint.keyAlias* | The name of the key in the keystore file | null | MEDIUM
-| *camel.sink.endpoint.keyPassword* | The key password | null | MEDIUM
-| *camel.sink.endpoint.keyStorePassword* | The keystore password | null | MEDIUM
-| *camel.sink.endpoint.keyStoreType* | The key store type | null | MEDIUM
-| *camel.sink.endpoint.keyStoreUrl* | The URL where the key should be loaded from | null | MEDIUM
-| *camel.sink.endpoint.maxPendingPublishRequests* | The maximum number of pending publish requests | null | MEDIUM
-| *camel.sink.endpoint.maxResponseMessageSize* | The maximum number of bytes a response message may have | null | MEDIUM
-| *camel.sink.endpoint.overrideHost* | Override the server reported endpoint host with the host from the endpoint URI. | false | MEDIUM
-| *camel.sink.endpoint.productUri* | The product URI | "http://camel.apache.org/EclipseMilo" | MEDIUM
-| *camel.sink.endpoint.requestedPublishingInterval* | The requested publishing interval in milliseconds | "1_000.0" | MEDIUM
-| *camel.sink.endpoint.requestTimeout* | Request timeout in milliseconds | null | MEDIUM
-| *camel.sink.endpoint.sessionName* | Session name | null | MEDIUM
-| *camel.sink.endpoint.sessionTimeout* | Session timeout in milliseconds | null | MEDIUM
-| *camel.component.milo-client.clientId* | A virtual client id to force the creation of a new connection instance | null | MEDIUM
-| *camel.component.milo-client.configuration* | All default options for client configurations | null | MEDIUM
-| *camel.component.milo-client.discoveryEndpoint Suffix* | A suffix for endpoint URI when discovering | null | MEDIUM
-| *camel.component.milo-client.discoveryEndpointUri* | An alternative discovery URI | null | MEDIUM
-| *camel.component.milo-client.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.milo-client.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.milo-client.allowedSecurity Policies* | A set of allowed security policy URIs. Default is to accept all and use the highest. | null | MEDIUM
-| *camel.component.milo-client.applicationName* | The application name | "Apache Camel adapter for Eclipse Milo" | MEDIUM
-| *camel.component.milo-client.applicationUri* | The application URI | "http://camel.apache.org/EclipseMilo/Client" | MEDIUM
-| *camel.component.milo-client.channelLifetime* | Channel lifetime in milliseconds | null | MEDIUM
-| *camel.component.milo-client.keyAlias* | The name of the key in the keystore file | null | MEDIUM
-| *camel.component.milo-client.keyPassword* | The key password | null | MEDIUM
-| *camel.component.milo-client.keyStorePassword* | The keystore password | null | MEDIUM
-| *camel.component.milo-client.keyStoreType* | The key store type | null | MEDIUM
-| *camel.component.milo-client.keyStoreUrl* | The URL where the key should be loaded from | null | MEDIUM
-| *camel.component.milo-client.maxPendingPublish Requests* | The maximum number of pending publish requests | null | MEDIUM
-| *camel.component.milo-client.maxResponseMessageSize* | The maximum number of bytes a response message may have | null | MEDIUM
-| *camel.component.milo-client.overrideHost* | Override the server reported endpoint host with the host from the endpoint URI. | false | MEDIUM
-| *camel.component.milo-client.productUri* | The product URI | "http://camel.apache.org/EclipseMilo" | MEDIUM
-| *camel.component.milo-client.requestedPublishing Interval* | The requested publishing interval in milliseconds | "1_000.0" | MEDIUM
-| *camel.component.milo-client.requestTimeout* | Request timeout in milliseconds | null | MEDIUM
-| *camel.component.milo-client.sessionName* | Session name | null | MEDIUM
-| *camel.component.milo-client.sessionTimeout* | Session timeout in milliseconds | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.endpointUri* | The OPC UA server endpoint | null | true | HIGH
+| *camel.sink.endpoint.clientId* | A virtual client id to force the creation of a new connection instance | null | false | MEDIUM
+| *camel.sink.endpoint.defaultAwaitWrites* | Default await setting for writes | false | false | MEDIUM
+| *camel.sink.endpoint.discoveryEndpointSuffix* | A suffix for endpoint URI when discovering | null | false | MEDIUM
+| *camel.sink.endpoint.discoveryEndpointUri* | An alternative discovery URI | null | false | MEDIUM
+| *camel.sink.endpoint.method* | The method definition (see Method ID) | null | false | MEDIUM
+| *camel.sink.endpoint.node* | The node definition (see Node ID) | null | false | MEDIUM
+| *camel.sink.endpoint.samplingInterval* | The sampling interval in milliseconds | "0.0" | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.allowedSecurityPolicies* | A set of allowed security policy URIs. Default is to accept all and use the highest. | null | false | MEDIUM
+| *camel.sink.endpoint.applicationName* | The application name | "Apache Camel adapter for Eclipse Milo" | false | MEDIUM
+| *camel.sink.endpoint.applicationUri* | The application URI | "http://camel.apache.org/EclipseMilo/Client" | false | MEDIUM
+| *camel.sink.endpoint.channelLifetime* | Channel lifetime in milliseconds | null | false | MEDIUM
+| *camel.sink.endpoint.keyAlias* | The name of the key in the keystore file | null | false | MEDIUM
+| *camel.sink.endpoint.keyPassword* | The key password | null | false | MEDIUM
+| *camel.sink.endpoint.keyStorePassword* | The keystore password | null | false | MEDIUM
+| *camel.sink.endpoint.keyStoreType* | The key store type | null | false | MEDIUM
+| *camel.sink.endpoint.keyStoreUrl* | The URL where the key should be loaded from | null | false | MEDIUM
+| *camel.sink.endpoint.maxPendingPublishRequests* | The maximum number of pending publish requests | null | false | MEDIUM
+| *camel.sink.endpoint.maxResponseMessageSize* | The maximum number of bytes a response message may have | null | false | MEDIUM
+| *camel.sink.endpoint.overrideHost* | Override the server reported endpoint host with the host from the endpoint URI. | false | false | MEDIUM
+| *camel.sink.endpoint.productUri* | The product URI | "http://camel.apache.org/EclipseMilo" | false | MEDIUM
+| *camel.sink.endpoint.requestedPublishingInterval* | The requested publishing interval in milliseconds | "1_000.0" | false | MEDIUM
+| *camel.sink.endpoint.requestTimeout* | Request timeout in milliseconds | null | false | MEDIUM
+| *camel.sink.endpoint.sessionName* | Session name | null | false | MEDIUM
+| *camel.sink.endpoint.sessionTimeout* | Session timeout in milliseconds | null | false | MEDIUM
+| *camel.component.milo-client.clientId* | A virtual client id to force the creation of a new connection instance | null | false | MEDIUM
+| *camel.component.milo-client.configuration* | All default options for client configurations | null | false | MEDIUM
+| *camel.component.milo-client.discoveryEndpoint Suffix* | A suffix for endpoint URI when discovering | null | false | MEDIUM
+| *camel.component.milo-client.discoveryEndpointUri* | An alternative discovery URI | null | false | MEDIUM
+| *camel.component.milo-client.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.milo-client.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.milo-client.allowedSecurity Policies* | A set of allowed security policy URIs. Default is to accept all and use the highest. | null | false | MEDIUM
+| *camel.component.milo-client.applicationName* | The application name | "Apache Camel adapter for Eclipse Milo" | false | MEDIUM
+| *camel.component.milo-client.applicationUri* | The application URI | "http://camel.apache.org/EclipseMilo/Client" | false | MEDIUM
+| *camel.component.milo-client.channelLifetime* | Channel lifetime in milliseconds | null | false | MEDIUM
+| *camel.component.milo-client.keyAlias* | The name of the key in the keystore file | null | false | MEDIUM
+| *camel.component.milo-client.keyPassword* | The key password | null | false | MEDIUM
+| *camel.component.milo-client.keyStorePassword* | The keystore password | null | false | MEDIUM
+| *camel.component.milo-client.keyStoreType* | The key store type | null | false | MEDIUM
+| *camel.component.milo-client.keyStoreUrl* | The URL where the key should be loaded from | null | false | MEDIUM
+| *camel.component.milo-client.maxPendingPublish Requests* | The maximum number of pending publish requests | null | false | MEDIUM
+| *camel.component.milo-client.maxResponseMessageSize* | The maximum number of bytes a response message may have | null | false | MEDIUM
+| *camel.component.milo-client.overrideHost* | Override the server reported endpoint host with the host from the endpoint URI. | false | false | MEDIUM
+| *camel.component.milo-client.productUri* | The product URI | "http://camel.apache.org/EclipseMilo" | false | MEDIUM
+| *camel.component.milo-client.requestedPublishing Interval* | The requested publishing interval in milliseconds | "1_000.0" | false | MEDIUM
+| *camel.component.milo-client.requestTimeout* | Request timeout in milliseconds | null | false | MEDIUM
+| *camel.component.milo-client.sessionName* | Session name | null | false | MEDIUM
+| *camel.component.milo-client.sessionTimeout* | Session timeout in milliseconds | null | false | MEDIUM
 |===
 
 

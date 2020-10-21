@@ -26,32 +26,32 @@ The camel-splunk sink connector supports 23 options, which are listed below.
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.name* | Name has no purpose | null | HIGH
-| *camel.sink.endpoint.app* | Splunk app | null | MEDIUM
-| *camel.sink.endpoint.connectionTimeout* | Timeout in MS when connecting to Splunk server | 5000 | MEDIUM
-| *camel.sink.endpoint.host* | Splunk host. | "localhost" | MEDIUM
-| *camel.sink.endpoint.owner* | Splunk owner | null | MEDIUM
-| *camel.sink.endpoint.port* | Splunk port | 8089 | MEDIUM
-| *camel.sink.endpoint.scheme* | Splunk scheme | "https" | MEDIUM
-| *camel.sink.endpoint.eventHost* | Override the default Splunk event host field | null | MEDIUM
-| *camel.sink.endpoint.index* | Splunk index to write to | null | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.raw* | Should the payload be inserted raw | false | MEDIUM
-| *camel.sink.endpoint.source* | Splunk source argument | null | MEDIUM
-| *camel.sink.endpoint.sourceType* | Splunk sourcetype argument | null | MEDIUM
-| *camel.sink.endpoint.tcpReceiverPort* | Splunk tcp receiver port | null | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.sink.endpoint.password* | Password for Splunk | null | MEDIUM
-| *camel.sink.endpoint.sslProtocol* | Set the ssl protocol to use One of: [TLSv1.2] [TLSv1.1] [TLSv1] [SSLv3] | "TLSv1.2" | MEDIUM
-| *camel.sink.endpoint.username* | Username for Splunk | null | MEDIUM
-| *camel.sink.endpoint.useSunHttpsHandler* | Use sun.net.www.protocol.https.Handler Https handler to establish the Splunk Connection. Can be useful when running in application servers to avoid app. server https handling. | false | MEDIUM
-| *camel.component.splunk.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.splunk.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
-| *camel.component.splunk.splunkConfigurationFactory* | To use the SplunkConfigurationFactory | null | MEDIUM
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.name* | Name has no purpose | null | true | HIGH
+| *camel.sink.endpoint.app* | Splunk app | null | false | MEDIUM
+| *camel.sink.endpoint.connectionTimeout* | Timeout in MS when connecting to Splunk server | 5000 | false | MEDIUM
+| *camel.sink.endpoint.host* | Splunk host. | "localhost" | false | MEDIUM
+| *camel.sink.endpoint.owner* | Splunk owner | null | false | MEDIUM
+| *camel.sink.endpoint.port* | Splunk port | 8089 | false | MEDIUM
+| *camel.sink.endpoint.scheme* | Splunk scheme | "https" | false | MEDIUM
+| *camel.sink.endpoint.eventHost* | Override the default Splunk event host field | null | false | MEDIUM
+| *camel.sink.endpoint.index* | Splunk index to write to | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.raw* | Should the payload be inserted raw | false | false | MEDIUM
+| *camel.sink.endpoint.source* | Splunk source argument | null | false | MEDIUM
+| *camel.sink.endpoint.sourceType* | Splunk sourcetype argument | null | false | MEDIUM
+| *camel.sink.endpoint.tcpReceiverPort* | Splunk tcp receiver port | null | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.password* | Password for Splunk | null | false | MEDIUM
+| *camel.sink.endpoint.sslProtocol* | Set the ssl protocol to use One of: [TLSv1.2] [TLSv1.1] [TLSv1] [SSLv3] | "TLSv1.2" | false | MEDIUM
+| *camel.sink.endpoint.username* | Username for Splunk | null | false | MEDIUM
+| *camel.sink.endpoint.useSunHttpsHandler* | Use sun.net.www.protocol.https.Handler Https handler to establish the Splunk Connection. Can be useful when running in application servers to avoid app. server https handling. | false | false | MEDIUM
+| *camel.component.splunk.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.splunk.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.splunk.splunkConfigurationFactory* | To use the SplunkConfigurationFactory | null | false | MEDIUM
 |===
 
 

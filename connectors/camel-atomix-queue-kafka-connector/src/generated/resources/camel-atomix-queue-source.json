@@ -11,178 +11,211 @@
 		"camel.source.path.resourceName": {
 			"name": "camel.source.path.resourceName",
 			"description": "The distributed resource name",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.atomix": {
 			"name": "camel.source.endpoint.atomix",
 			"description": "The Atomix instance to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.configurationUri": {
 			"name": "camel.source.endpoint.configurationUri",
 			"description": "The Atomix configuration uri.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.defaultAction": {
 			"name": "camel.source.endpoint.defaultAction",
 			"description": "The default action. One of: [ADD] [OFFER] [PEEK] [POLL] [CLEAR] [CONTAINS] [IS_EMPTY] [REMOVE] [SIZE]",
 			"defaultValue": "\"ADD\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.nodes": {
 			"name": "camel.source.endpoint.nodes",
 			"description": "The address of the nodes composing the cluster.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.resultHeader": {
 			"name": "camel.source.endpoint.resultHeader",
 			"description": "The header that wil carry the result.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.transportClassName": {
 			"name": "camel.source.endpoint.transportClassName",
 			"description": "The class name (fqn) of the Atomix transport",
 			"defaultValue": "\"io.atomix.catalyst.transport.netty.NettyTransport\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.defaultResourceConfig": {
 			"name": "camel.source.endpoint.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.defaultResourceOptions": {
 			"name": "camel.source.endpoint.defaultResourceOptions",
 			"description": "The local default resource options.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.ephemeral": {
 			"name": "camel.source.endpoint.ephemeral",
 			"description": "Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.readConsistency": {
 			"name": "camel.source.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.resourceConfigs": {
 			"name": "camel.source.endpoint.resourceConfigs",
 			"description": "Cluster wide resources configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.resourceOptions": {
 			"name": "camel.source.endpoint.resourceOptions",
 			"description": "Local resources configurations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.atomix": {
 			"name": "camel.component.atomix-queue.atomix",
 			"description": "The Atomix instance to use",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.configuration": {
 			"name": "camel.component.atomix-queue.configuration",
 			"description": "The shared component configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.configurationUri": {
 			"name": "camel.component.atomix-queue.configurationUri",
 			"description": "The path to the AtomixClient configuration",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.defaultAction": {
 			"name": "camel.component.atomix-queue.defaultAction",
 			"description": "The default action. One of: [ADD] [OFFER] [PEEK] [POLL] [CLEAR] [CONTAINS] [IS_EMPTY] [REMOVE] [SIZE]",
 			"defaultValue": "\"ADD\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.nodes": {
 			"name": "camel.component.atomix-queue.nodes",
 			"description": "The nodes the AtomixClient should connect to",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.resultHeader": {
 			"name": "camel.component.atomix-queue.resultHeader",
 			"description": "The header that wil carry the result.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.transportClassName": {
 			"name": "camel.component.atomix-queue.transportClassName",
 			"description": "The class name (fqn) of the Atomix transport",
 			"defaultValue": "\"io.atomix.catalyst.transport.netty.NettyTransport\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.bridgeErrorHandler": {
 			"name": "camel.component.atomix-queue.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.basicPropertyBinding": {
 			"name": "camel.component.atomix-queue.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.defaultResourceConfig": {
 			"name": "camel.component.atomix-queue.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.defaultResourceOptions": {
 			"name": "camel.component.atomix-queue.defaultResourceOptions",
 			"description": "The local default resource options.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.ephemeral": {
 			"name": "camel.component.atomix-queue.ephemeral",
 			"description": "Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.readConsistency": {
 			"name": "camel.component.atomix-queue.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.resourceConfigs": {
 			"name": "camel.component.atomix-queue.resourceConfigs",
 			"description": "Cluster wide resources configuration.",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.atomix-queue.resourceOptions": {
 			"name": "camel.component.atomix-queue.resourceOptions",
 			"description": "Local resources configurations",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }

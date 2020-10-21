@@ -26,23 +26,23 @@ The camel-ignite-messaging sink connector supports 14 options, which are listed 
 
 
 
-[width="100%",cols="2,5,^1,2",options="header"]
+[width="100%",cols="2,5,^1,1,1",options="header"]
 |===
-| Name | Description | Default | Priority
-| *camel.sink.path.topic* | The topic name. | null | HIGH
-| *camel.sink.endpoint.propagateIncomingBodyIfNo ReturnValue* | Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void. | true | MEDIUM
-| *camel.sink.endpoint.treatCollectionsAsCacheObjects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | MEDIUM
-| *camel.sink.endpoint.clusterGroupExpression* | The cluster group expression. | null | MEDIUM
-| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.sink.endpoint.sendMode* | The send mode to use. Possible values: UNORDERED, ORDERED. One of: [ORDERED] [UNORDERED] | "UNORDERED" | MEDIUM
-| *camel.sink.endpoint.timeout* | The timeout for the send operation when using ordered messages. | null | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | MEDIUM
-| *camel.component.ignite-messaging.configuration Resource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | MEDIUM
-| *camel.component.ignite-messaging.ignite* | To use an existing Ignite instance. | null | MEDIUM
-| *camel.component.ignite-messaging.ignite Configuration* | Allows the user to set a programmatic ignite configuration. | null | MEDIUM
-| *camel.component.ignite-messaging.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | MEDIUM
-| *camel.component.ignite-messaging.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | LOW
+| Name | Description | Default | Required | Priority
+| *camel.sink.path.topic* | The topic name. | null | true | HIGH
+| *camel.sink.endpoint.propagateIncomingBodyIfNo ReturnValue* | Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void. | true | false | MEDIUM
+| *camel.sink.endpoint.treatCollectionsAsCacheObjects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | false | MEDIUM
+| *camel.sink.endpoint.clusterGroupExpression* | The cluster group expression. | null | false | MEDIUM
+| *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.sendMode* | The send mode to use. Possible values: UNORDERED, ORDERED. One of: [ORDERED] [UNORDERED] | "UNORDERED" | false | MEDIUM
+| *camel.sink.endpoint.timeout* | The timeout for the send operation when using ordered messages. | null | false | MEDIUM
+| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.component.ignite-messaging.configuration Resource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | false | MEDIUM
+| *camel.component.ignite-messaging.ignite* | To use an existing Ignite instance. | null | false | MEDIUM
+| *camel.component.ignite-messaging.ignite Configuration* | Allows the user to set a programmatic ignite configuration. | null | false | MEDIUM
+| *camel.component.ignite-messaging.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.ignite-messaging.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
 |===
 
 

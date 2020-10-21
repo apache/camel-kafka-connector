@@ -12,86 +12,101 @@
 			"name": "camel.sink.path.host",
 			"description": "The host that the consumer should bind to or the host of the remote websocket destination that the producer should connect to",
 			"defaultValue": "\"0.0.0.0\"",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",
 			"description": "The port that the consumer should bind to or port of the remote websocket destination that the producer should connect to",
 			"defaultValue": "0",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
 			"description": "The path that the consumer should bind to or path of the remote websocket destination that the producer should connect to",
 			"defaultValue": "\"\/\"",
-			"priority": "HIGH"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.sink.endpoint.clientOptions": {
 			"name": "camel.sink.endpoint.clientOptions",
 			"description": "Sets customized options for configuring the WebSocket client used in the producer",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.sendToAll": {
 			"name": "camel.sink.endpoint.sendToAll",
 			"description": "To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the VertxWebsocketConstants.SEND_TO_ALL header on the message.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
 			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.sink.endpoint.sslContextParameters": {
 			"name": "camel.sink.endpoint.sslContextParameters",
 			"description": "To configure security using SSLContextParameters",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.vertx-websocket.lazyStartProducer": {
 			"name": "camel.component.vertx-websocket.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.vertx-websocket.basicPropertyBinding": {
 			"name": "camel.component.vertx-websocket.basicPropertyBinding",
 			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
 			"defaultValue": "false",
-			"priority": "LOW"
+			"priority": "LOW",
+			"required": "false"
 		},
 		"camel.component.vertx-websocket.router": {
 			"name": "camel.component.vertx-websocket.router",
 			"description": "To provide a custom vertx router to use on the WebSocket server",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.vertx-websocket.vertx": {
 			"name": "camel.component.vertx-websocket.vertx",
 			"description": "To use an existing vertx instead of creating a new instance",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.vertx-websocket.vertxOptions": {
 			"name": "camel.component.vertx-websocket.vertxOptions",
 			"description": "To provide a custom set of vertx options for configuring vertx",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		},
 		"camel.component.vertx-websocket.useGlobalSslContextParameters": {
 			"name": "camel.component.vertx-websocket.useGlobalSslContextParameters",
 			"description": "Enable usage of global SSL context parameters.",
 			"defaultValue": "false",
-			"priority": "MEDIUM"
+			"priority": "MEDIUM",
+			"required": "false"
 		}
 	}
 }
