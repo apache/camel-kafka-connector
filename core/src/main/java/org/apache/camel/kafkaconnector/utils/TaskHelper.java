@@ -21,12 +21,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.apache.camel.CamelContext;
+import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.LoggingLevel;
-import org.apache.camel.catalog.RuntimeCamelCatalog;
-import org.apache.camel.tooling.model.BaseOptionModel;
-import org.apache.camel.tooling.model.ComponentModel;
-import org.apache.camel.tooling.model.JsonMapper;
+import org.apache.camel.spi.EndpointUriFactory;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.slf4j.Logger;
 
@@ -38,7 +38,7 @@ public final class TaskHelper {
     /**
      * Try to build a url of a Camel {@link org.apache.camel.Endpoint}.
      *
-     * @param rcc RuntimeCamelCatalog used to build the url.
+     * @param camelContext the {@link CamelContext} used to retrieve an instance of a EndpointUriFactory for the given component schema.
      * @param props properties used to build the url in the form of a key -> value {@link Map}.
      * @param componentSchema the schema name of the Camel {@link org.apache.camel.Component} used to build the Camel {@link org.apache.camel.Endpoint} url.
      * @param endpointPropertiesPrefix prefix of all the Camel {@link org.apache.camel.Endpoint} properties.
@@ -47,34 +47,25 @@ public final class TaskHelper {
      * @return A String representing the built url.
      * @throws {@link URISyntaxException} in case of uri build failure.
      */
-    public static String buildUrl(RuntimeCamelCatalog rcc, Map<String, String> props, String componentSchema, String endpointPropertiesPrefix, String pathPropertiesPrefix) throws URISyntaxException {
-        ComponentModel cm = null;
-        if (componentSchema != null) {
-            String json = rcc.componentJSonSchema(componentSchema);
-            if (json != null) {
-                cm = JsonMapper.generateComponentModel(json);
-            }
+    public static String buildUrl(CamelContext camelContext, Map<String, String> props, String componentSchema, String endpointPropertiesPrefix, String pathPropertiesPrefix) throws URISyntaxException {
+        Map<String, Object> filteredProps = props.entrySet().stream()
+            .filter(e -> e.getKey().startsWith(endpointPropertiesPrefix) || e.getKey().startsWith(pathPropertiesPrefix))
+            .collect(Collectors.toMap(
+                e -> e.getKey().replace(endpointPropertiesPrefix, "").replace(pathPropertiesPrefix, ""),
+                Map.Entry::getValue
+            ));
+
+        EndpointUriFactory factory = camelContext.adapt(ExtendedCamelContext.class).getEndpointUriFactory(componentSchema);
+        if (factory == null) {
+            throw new IllegalStateException("Unable to compute endpoint uri. Reason: uri factory for schema `" + componentSchema + "` not found");
+        }
+        if (!factory.isEnabled(componentSchema)) {
+            throw new IllegalStateException("Unable to compute endpoint uri. Reason: uri factory for schema `" + componentSchema + "` not enabled");
         }
 
-        Map<String, String> filteredProps = new HashMap<>();
-        props.keySet().stream()
-                .filter(k -> k.startsWith(endpointPropertiesPrefix) || k.startsWith(pathPropertiesPrefix))
-                .forEach(k -> filteredProps.put(k.replace(endpointPropertiesPrefix, "").replace(pathPropertiesPrefix, ""), props.get(k)));
 
-        if (cm != null) {
-            // secret options should have their values in RAW mode so we can preseve credentials/passwords etc in uri encodings
-            for (String k : filteredProps.keySet()) {
-                if (isSecretOption(rcc, cm, k)) {
-                    String value = filteredProps.get(k);
-                    if (value != null && !value.startsWith("#") && !value.startsWith("RAW(")) {
-                        value = "RAW(" + value + ")";
-                        filteredProps.put(k, value);
-                    }
-                }
-            }
-        }
 
-        return rcc.asEndpointUri(componentSchema, filteredProps, false);
+        return factory.buildUri(componentSchema, filteredProps);
     }
 
     /**
@@ -163,12 +154,4 @@ public final class TaskHelper {
                 break;
         }
     }
-
-    private static boolean isSecretOption(RuntimeCamelCatalog rcc, ComponentModel cm, String endpointName) {
-        return cm.getEndpointOptions().stream()
-                .filter(o -> o.getName().equals(endpointName))
-                .findFirst()
-                .map(BaseOptionModel::isSecret).orElse(false);
-    }
-
 }
