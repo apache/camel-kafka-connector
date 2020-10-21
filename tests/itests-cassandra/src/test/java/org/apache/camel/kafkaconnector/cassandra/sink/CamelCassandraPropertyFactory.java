@@ -30,7 +30,9 @@ final class CamelCassandraPropertyFactory extends SinkConnectorPropertyFactory<C
     }
 
     public CamelCassandraPropertyFactory withCql(String cql) {
-        return setProperty("camel.sink.endpoint.cql", cql);
+        // RAW is required as the endpoint URI builder encodes the URI
+        // TODO: remove once https://issues.apache.org/jira/browse/CAMEL-15722 get fixed
+        return setProperty("camel.sink.endpoint.cql", "RAW(" + cql + ")");
     }
 
     public CamelCassandraPropertyFactory withHosts(String hosts) {
