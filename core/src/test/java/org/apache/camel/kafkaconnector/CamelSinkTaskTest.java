@@ -670,6 +670,7 @@ public class CamelSinkTaskTest {
         props.put(TOPIC_CONF, TOPIC_NAME);
         props.put("camel.sink.endpoint.secretKey", "se+ret");
         props.put("camel.sink.endpoint.accessKey", "MoreSe+ret$");
+        props.put("camel.sink.endpoint.queueNameOrArn", "test");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "aws2-sqs");
 
         CamelSinkTask sinkTask = new CamelSinkTask();
@@ -684,6 +685,7 @@ public class CamelSinkTaskTest {
         props.put(TOPIC_CONF, TOPIC_NAME);
         props.put("camel.sink.endpoint.secretKey", "#bean:mySecretKey");
         props.put("camel.sink.endpoint.accessKey", "#property:myAccessKey");
+        props.put("camel.sink.endpoint.queueNameOrArn", "test");
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_COMPONENT_CONF, "aws2-sqs");
         props.put("myAccessKey", "MoreSe+ret$");
 

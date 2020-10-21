@@ -22,9 +22,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.LoggingLevel;
-import org.apache.camel.catalog.RuntimeCamelCatalog;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
@@ -114,13 +112,12 @@ public class TaskHelperTest {
     @Test
     public void testBuildUrlWithRuntimeCatalog() throws URISyntaxException {
         DefaultCamelContext dcc = new DefaultCamelContext();
-        RuntimeCamelCatalog rcc = dcc.adapt(ExtendedCamelContext.class).getRuntimeCamelCatalog();
         Map<String, String> props = mapOf(
             "camel.source.path.name", "test",
             "camel.source.endpoint.synchronous", "true"
         );
 
-        String result = TaskHelper.buildUrl(rcc, props, "direct", "camel.source.endpoint.", "camel.source.path.");
+        String result = TaskHelper.buildUrl(dcc, props, "direct", "camel.source.endpoint.", "camel.source.path.");
 
         assertEquals("direct:test?synchronous=true", result);
 
@@ -130,7 +127,7 @@ public class TaskHelperTest {
             "camel.source.path.hosts", "localhost"
         );
 
-        result = TaskHelper.buildUrl(rcc, props, "cql", "camel.source.endpoint.", "camel.source.path.");
+        result = TaskHelper.buildUrl(dcc, props, "cql", "camel.source.endpoint.", "camel.source.path.");
 
         assertEquals("cql:localhost:8080/test", result);
     }
