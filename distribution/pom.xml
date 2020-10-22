@@ -26,6 +26,7 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
 
+  <name>Camel-Kafka-Connector :: Distribution</name>
   <artifactId>apache-camel-kafka-connector-distribution</artifactId>
   <profiles>
     <profile>
