@@ -151,15 +151,14 @@ public class CamelKafkaConnectorCatalog {
     }
     
     public CamelKafkaConnectorOptionModel getOptionModel(String connectorName, String optionName) {
-    	List<CamelKafkaConnectorOptionModel> options = getConnectorsModel().get(connectorName).getOptions();
-    	for (Iterator iterator = options.iterator(); iterator.hasNext();) {
-			CamelKafkaConnectorOptionModel camelKafkaConnectorOptionModel = (CamelKafkaConnectorOptionModel) iterator
-					.next();
-			if (camelKafkaConnectorOptionModel.getName().equals(optionName)) {
-				return camelKafkaConnectorOptionModel;
-			}	
-		}
-    	return null;
+        List<CamelKafkaConnectorOptionModel> options = getConnectorsModel().get(connectorName).getOptions();
+        for (Iterator iterator = options.iterator(); iterator.hasNext();) {
+            CamelKafkaConnectorOptionModel camelKafkaConnectorOptionModel = (CamelKafkaConnectorOptionModel)iterator.next();
+            if (camelKafkaConnectorOptionModel.getName().equals(optionName)) {
+                return camelKafkaConnectorOptionModel;
+            }
+        }
+        return null;
     }
 
     /**
