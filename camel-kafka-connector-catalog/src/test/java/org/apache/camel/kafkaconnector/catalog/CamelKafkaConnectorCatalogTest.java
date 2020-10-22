@@ -150,5 +150,16 @@ class CamelKafkaConnectorCatalogTest {
         assertFalse(catalog.getConnectorsName().contains(connectorName), "The connector is still present in ConnectorNames list.");
         assertNull(catalog.getConnectorsModel().get(connectorName), "The connector model is still present in the ConnectorsModel map.");
     }
+    
+    @Test
+    void testAws2SnsGetSingleOption() throws Exception {
+        Map<String, CamelKafkaConnectorModel> p = catalog.getConnectorsModel();
+        CamelKafkaConnectorOptionModel existingOption = catalog.getOptionModel("camel-aws2-sns-sink", "camel.sink.path.topicNameOrArn");
+        assertNotNull(existingOption);
+        assertEquals("true", existingOption.getRequired());
+        assertEquals("Topic name or ARN", existingOption.getDescription());
+        CamelKafkaConnectorOptionModel nonExistingOption = catalog.getOptionModel("camel-aws2-sns-sink", "camel.sink.path.topiNameOrAr");
+        assertNull(nonExistingOption);
+    }
 
 }
