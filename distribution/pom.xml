@@ -50,18 +50,6 @@
                   </descriptors>
                 </configuration>
               </execution>
-              <execution>
-                <id>maven-repository</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <configuration>
-                  <descriptors>
-                    <descriptor>src/main/assemblies/repository.xml</descriptor>
-                  </descriptors>
-                </configuration>
-              </execution>
             </executions>
           </plugin>
         </plugins>
