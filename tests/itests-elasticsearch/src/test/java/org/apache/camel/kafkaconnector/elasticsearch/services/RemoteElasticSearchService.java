@@ -17,13 +17,11 @@
 
 package org.apache.camel.kafkaconnector.elasticsearch.services;
 
-import org.apache.camel.kafkaconnector.elasticsearch.clients.ElasticSearchClient;
-import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchCommon;
-
 public class RemoteElasticSearchService implements ElasticSearchService {
     private static final int ELASTIC_SEARCH_PORT = 9200;
 
-    private int getPort() {
+    @Override
+    public int getPort() {
         String strPort = System.getProperty("elasticsearch.port");
 
         if (strPort != null) {
@@ -33,13 +31,9 @@ public class RemoteElasticSearchService implements ElasticSearchService {
         return ELASTIC_SEARCH_PORT;
     }
 
-    private String getHost() {
-        return System.getProperty("elasticsearch.host");
-    }
-
     @Override
-    public String getHttpHostAddress() {
-        return getHost() + ":" + getPort();
+    public String getElasticSearchHost() {
+        return System.getProperty("elasticsearch.host");
     }
 
     @Override
@@ -50,10 +44,5 @@ public class RemoteElasticSearchService implements ElasticSearchService {
     @Override
     public void shutdown() {
         // NO-OP
-    }
-
-    @Override
-    public ElasticSearchClient getClient() {
-        return new ElasticSearchClient(getHost(), getPort(), ElasticSearchCommon.DEFAULT_ELASTICSEARCH_INDEX);
     }
 }

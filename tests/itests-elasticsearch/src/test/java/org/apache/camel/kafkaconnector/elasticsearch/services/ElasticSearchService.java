@@ -17,14 +17,19 @@
 
 package org.apache.camel.kafkaconnector.elasticsearch.services;
 
-import org.apache.camel.kafkaconnector.elasticsearch.clients.ElasticSearchClient;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 public interface ElasticSearchService extends BeforeAllCallback, AfterAllCallback {
 
-    String getHttpHostAddress();
+    int getPort();
+
+    String getElasticSearchHost();
+
+    default String getHttpHostAddress() {
+        return String.format("%s:%d", getElasticSearchHost(), getPort());
+    }
 
     /**
      * Perform any initialization necessary
@@ -35,8 +40,6 @@ public interface ElasticSearchService extends BeforeAllCallback, AfterAllCallbac
      * Shuts down the service after the test has completed
      */
     void shutdown();
-
-    ElasticSearchClient getClient();
 
     @Override
     default void beforeAll(ExtensionContext extensionContext) throws Exception {
