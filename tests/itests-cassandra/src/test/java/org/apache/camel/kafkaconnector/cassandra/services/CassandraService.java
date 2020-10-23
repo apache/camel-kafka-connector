@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.cassandra.services;
 
-import org.apache.camel.kafkaconnector.cassandra.clients.CassandraClient;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -44,9 +43,6 @@ public interface CassandraService extends BeforeAllCallback, AfterAllCallback {
      * Shuts down the service after the test has completed
      */
     void shutdown();
-
-    CassandraClient getClient();
-
 
     @Override
     default void beforeAll(ExtensionContext extensionContext) throws Exception {

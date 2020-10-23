@@ -63,7 +63,7 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        cassandraClient = cassandraService.getClient();
+        cassandraClient = new CassandraClient(cassandraService.getCassandraHost(), cassandraService.getCQL3Port());
 
         testDataDao = cassandraClient.newTestDataDao();
 
@@ -74,8 +74,6 @@ public class CamelSinkCassandraITCase extends AbstractKafkaTest {
 
     @AfterEach
     public void tearDown() {
-        cassandraClient = cassandraService.getClient();
-
         if (testDataDao != null) {
             try {
                 testDataDao.dropTable();
