@@ -17,8 +17,6 @@
 
 package org.apache.camel.kafkaconnector.elasticsearch.services;
 
-import org.apache.camel.kafkaconnector.elasticsearch.clients.ElasticSearchClient;
-import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchCommon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.elasticsearch.ElasticsearchContainer;
@@ -41,6 +39,15 @@ public class ElasticSearchLocalContainerService implements ElasticSearchService 
         container.start();
     }
 
+    @Override
+    public int getPort() {
+        return container.getMappedPort(ELASTIC_SEARCH_PORT);
+    }
+
+    @Override
+    public String getElasticSearchHost() {
+        return container.getHost();
+    }
 
     @Override
     public String getHttpHostAddress() {
@@ -56,11 +63,5 @@ public class ElasticSearchLocalContainerService implements ElasticSearchService 
     public void shutdown() {
         LOG.info("Stopping the ElasticSearch container");
         container.stop();
-    }
-
-    @Override
-    public ElasticSearchClient getClient() {
-        return new ElasticSearchClient(container.getContainerIpAddress(), container.getMappedPort(ELASTIC_SEARCH_PORT),
-                ElasticSearchCommon.DEFAULT_ELASTICSEARCH_INDEX);
     }
 }

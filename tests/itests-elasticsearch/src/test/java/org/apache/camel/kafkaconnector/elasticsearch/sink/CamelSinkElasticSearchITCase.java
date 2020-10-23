@@ -67,7 +67,9 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        client = elasticSearch.getClient();
+        client = new ElasticSearchClient(elasticSearch.getElasticSearchHost(), elasticSearch.getPort(),
+                ElasticSearchCommon.DEFAULT_ELASTICSEARCH_INDEX);
+
         received = 0;
     }
 
