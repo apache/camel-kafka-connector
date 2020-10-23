@@ -323,15 +323,18 @@
                         <configuration>
                             <algorithms>
                                 <algorithm>SHA-512</algorithm>
+                                <algorithm>SHA-256</algorithm>
+                                <algorithm>SHA-1</algorithm>
+                                <algorithm>MD5</algorithm>
                             </algorithms>
                             <csvSummary>false</csvSummary>
                             <fileSets>
                                 <fileSet>
                                     <directory>${project.build.directory}</directory>
                                     <includes>
-                                        <include>${project.artifactId}-${project.version}.jar</include>
+                                        <include>${project.artifactId}-${project.version}-sources.jar</include>
                                         <include>${project.artifactId}-${project.version}-package.zip</include>
-                                        <include>${project.artifactId}-${project.version}-package.tar*</include>
+                                        <include>${project.artifactId}-${project.version}-package.tar.gz</include>
                                     </includes>
                                 </fileSet>
                             </fileSets>
