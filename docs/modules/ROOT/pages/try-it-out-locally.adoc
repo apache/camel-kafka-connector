@@ -4,7 +4,7 @@
 [[Tryitoutlocally-RunKafka]]
 == Run Kafka
 
-First, get a locally running kafka instance by following Apache Kafka https://kafka.apache.org/quickstart[quickstart guide]. This usually boils down to:
+Install a locally running kafka instance by following Apache Kafka https://kafka.apache.org/quickstart[quickstart guide]. This usually boils down to:
 
 .Set KAFKA_HOME
 [source,bash]
@@ -80,7 +80,7 @@ For the following examples you need to fetch the `camel-kafka-connector` project
 [[Tryitoutlocally-SimpleLogger]]
 === Simple logger (sink)
 
-First thing to do, is unzip or untar the camel-log-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-log-kafka-connector/target/` a .zip file named `camel-log-kafka-connector-0.6.0-SNAPSHOT-package.zip`
+Unzip or untar the camel-log-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-log-kafka-connector/target/` a .zip file named `camel-log-kafka-connector-0.6.0-SNAPSHOT-package.zip`
 
 [source,bash]
 ----
@@ -92,13 +92,13 @@ First thing to do, is unzip or untar the camel-log-kafka-connector archive in th
 .Run the default sink, just a camel logger:
 [source,bash]
 ----
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties docs/examples/CamelSinkConnector.properties 
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties docs/examples/CamelLogSinkConnector.properties
 ----
 
 [[Tryitoutlocally-Timer]]
 === Timer (source)
 
-First thing to do, is unzip or untar the camel-timer-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-timer-kafka-connector/target/` a .zip file named `camel-timer-kafka-connector-0.6.0-SNAPSHOT-package.zip`
+Unzip or untar the camel-timer-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-timer-kafka-connector/target/` a .zip file named `camel-timer-kafka-connector-0.6.0-SNAPSHOT-package.zip`
 
 [source,bash]
 ----
@@ -112,13 +112,13 @@ This is an example of a _source_ that produces a message every second to `mytopi
 .Run the default source, just a camel timer:
 [source,bash]
 ----
-$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties docs/examples/CamelSourceConnector.properties
+$KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.properties docs/examples/CamelTimerSourceConnector.properties
 ----
 
 [[Tryitoutlocally-AwsKinesis]]
 === AWS Kinesis (source)
 
-First thing to do, is unzip or untar the camel-aws-kinesis-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-kinesis-kafka-connector/target/` a .zip file named `camel-aws-kinesis-kafka-connector-0.6.0-SNAPSHOT-package.zip`
+Unzip or untar the camel-aws-kinesis-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-kinesis-kafka-connector/target/` a .zip file named `camel-aws-kinesis-kafka-connector-0.6.0-SNAPSHOT-package.zip`
 
 [source,bash]
 ----
@@ -140,7 +140,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-AWSSQSSink]]
 === AWS SQS (sink)
 
-First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sqs-kafka-connector/target/` a .zip file named `camel-aws-sqs-kafka-connector-0.6.0-SNAPSHOT-package.zip`
+Unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sqs-kafka-connector/target/` a .zip file named `camel-aws-sqs-kafka-connector-0.6.0-SNAPSHOT-package.zip`
 
 [source,bash]
 ----
@@ -162,7 +162,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-AWSSQSSource]]
 === AWS SQS (source)
 
-First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sqs-kafka-connector/target/` a .zip file named `camel-aws-sqs-kafka-connector-0.6.0-SNAPSHOT-package.zip`
+Unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sqs-kafka-connector/target/` a .zip file named `camel-aws-sqs-kafka-connector-0.6.0-SNAPSHOT-package.zip`
 
 [source,bash]
 ----
@@ -184,7 +184,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-AWSSNSSink]]
 === AWS SNS (sink)
 
-First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sns-kafka-connector/target/` a .zip file named `camel-aws-sns-kafka-connector-0.6.0-SNAPSHOT-package.zip`
+Unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-sns-kafka-connector/target/` a .zip file named `camel-aws-sns-kafka-connector-0.6.0-SNAPSHOT-package.zip`
 
 [source,bash]
 ----
@@ -206,7 +206,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-AWSSNSSource]]
 === AWS S3 (source)
 
-First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-s3-kafka-connector/target/` a .zip file named `camel-aws-s3-kafka-connector-0.6.0-SNAPSHOT-package.zip`
+Unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-aws-s3-kafka-connector/target/` a .zip file named `camel-aws-s3-kafka-connector-0.6.0-SNAPSHOT-package.zip`
 
 [source,bash]
 ----
@@ -228,7 +228,7 @@ $KAFKA_HOME/bin/connect-standalone.sh $KAFKA_HOME/config/connect-standalone.prop
 [[Tryitoutlocally-CassandraQL]]
 === Apache Cassandra
 
-First thing to do, is unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-cql-kafka-connector/target/` a .zip file named `camel-cql-kafka-connector-0.6.0-SNAPSHOT-package.zip`
+Unzip or untar the camel-aws-sqs-kafka-connector archive in the `plugin.path` location. After building the project you should have in `connectors/camel-cql-kafka-connector/target/` a .zip file named `camel-cql-kafka-connector-0.6.0-SNAPSHOT-package.zip`
 
 [source,bash]
 ----
