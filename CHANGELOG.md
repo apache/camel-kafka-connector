@@ -13,6 +13,7 @@
 
 - Add the required field for connector options in docs and catalog [\#617](https://github.com/apache/camel-kafka-connector/issues/617)
 - Move ConnectRecordValueToMapTransformer of Elastisearch IT test in the connector [\#615](https://github.com/apache/camel-kafka-connector/issues/615)
+- Add a Telegram example  [\#613](https://github.com/apache/camel-kafka-connector/issues/613)
 - Remove camel-hipchat from camel-master [\#603](https://github.com/apache/camel-kafka-connector/issues/603)
 - Add a file watch connector example  [\#600](https://github.com/apache/camel-kafka-connector/issues/600)
 - Camel Kafka connector extensible is broken with mvnd [\#598](https://github.com/apache/camel-kafka-connector/issues/598)
@@ -23,15 +24,23 @@
 - Improve README [\#569](https://github.com/apache/camel-kafka-connector/issues/569)
 - Create an AWS2-Translate example [\#564](https://github.com/apache/camel-kafka-connector/issues/564)
 - Add converters, transforms and aggregationStrategies to catalog [\#559](https://github.com/apache/camel-kafka-connector/issues/559)
+- Add more convenience method to CamelKafkaConnectorCatalog [\#558](https://github.com/apache/camel-kafka-connector/issues/558)
 - Improve Catalog and cleanup [\#537](https://github.com/apache/camel-kafka-connector/issues/537)
 - Create a source distribution module [\#524](https://github.com/apache/camel-kafka-connector/issues/524)
 - Create examples with dataformat in camel-kafka-connector-examples repo [\#509](https://github.com/apache/camel-kafka-connector/issues/509)
 - Examples instructions for Openshift too [\#465](https://github.com/apache/camel-kafka-connector/issues/465)
 - Add integration test for archetype [\#462](https://github.com/apache/camel-kafka-connector/issues/462)
+- Provide a catalog of potential configuration properties specific to Camel Kafka Connector [\#430](https://github.com/apache/camel-kafka-connector/issues/430)
 
 **Merged pull requests:**
 
+- Early Strimzi Test: Lets test with 0.20.0 RC3 [\#631](https://github.com/apache/camel-kafka-connector/pull/631) ([oscerd](https://github.com/oscerd))
+- Added integration test for Couchbase sink [\#630](https://github.com/apache/camel-kafka-connector/pull/630) ([orpiske](https://github.com/orpiske))
+- Added convenience method to get option from connector name and option name [\#627](https://github.com/apache/camel-kafka-connector/pull/627) ([oscerd](https://github.com/oscerd))
+- Automatic changelog: Remove deprecated github action commands [\#626](https://github.com/apache/camel-kafka-connector/pull/626) ([oscerd](https://github.com/oscerd))
+- Cleanup distribution [\#625](https://github.com/apache/camel-kafka-connector/pull/625) ([oscerd](https://github.com/oscerd))
 - Add the required field for connector options in docs and catalog [\#624](https://github.com/apache/camel-kafka-connector/pull/624) ([oscerd](https://github.com/oscerd))
+- cleanup core deps and leftovers [\#623](https://github.com/apache/camel-kafka-connector/pull/623) ([lburgazzoli](https://github.com/lburgazzoli))
 - core: use EndpointUriFactory to compute endpoint urls instead of the runtime catalog [\#622](https://github.com/apache/camel-kafka-connector/pull/622) ([lburgazzoli](https://github.com/lburgazzoli))
 - Removed Camel 3.6.0 staging repository [\#620](https://github.com/apache/camel-kafka-connector/pull/620) ([oscerd](https://github.com/oscerd))
 - Move ConnectRecordValueToMapTransformer of Elastisearch IT test in the connector [\#618](https://github.com/apache/camel-kafka-connector/pull/618) ([oscerd](https://github.com/oscerd))
@@ -128,7 +137,6 @@
 - Update AWS SNS example [\#448](https://github.com/apache/camel-kafka-connector/pull/448) ([oscerd](https://github.com/oscerd))
 - Updated the AWS S3 example [\#447](https://github.com/apache/camel-kafka-connector/pull/447) ([oscerd](https://github.com/oscerd))
 - Updated the Cassandra example [\#446](https://github.com/apache/camel-kafka-connector/pull/446) ([oscerd](https://github.com/oscerd))
-- Cut down the connectors number [\#445](https://github.com/apache/camel-kafka-connector/pull/445) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.4.4](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.4) (2020-10-10)
 
@@ -416,6 +424,7 @@
 - Syslog docs [\#227](https://github.com/apache/camel-kafka-connector/pull/227) ([oscerd](https://github.com/oscerd))
 - Fixed con cong autogen [\#222](https://github.com/apache/camel-kafka-connector/pull/222) ([valdar](https://github.com/valdar))
 - Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
+- Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
 - Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
 
 ## [camel-kafka-connector-0.2.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0) (2020-05-17)
@@ -450,7 +459,6 @@
 
 **Merged pull requests:**
 
-- Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
 - Syslog connector [\#214](https://github.com/apache/camel-kafka-connector/pull/214) ([valdar](https://github.com/valdar))
 - Bump Testcontainers to version 1.14.2 [\#213](https://github.com/apache/camel-kafka-connector/pull/213) ([oscerd](https://github.com/oscerd))
 - Removes usage of fixed hostnames in integration tests [\#210](https://github.com/apache/camel-kafka-connector/pull/210) ([orpiske](https://github.com/orpiske))
