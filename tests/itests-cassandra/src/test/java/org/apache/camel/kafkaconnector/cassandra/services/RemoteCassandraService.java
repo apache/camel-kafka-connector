@@ -16,8 +16,6 @@
  */
 package org.apache.camel.kafkaconnector.cassandra.services;
 
-import org.apache.camel.kafkaconnector.cassandra.clients.CassandraClient;
-
 /**
  * A remote instance of Apache Cassandra
  */
@@ -38,14 +36,6 @@ public class RemoteCassandraService implements CassandraService {
     @Override
     public String getCassandraHost() {
         return System.getProperty("cassandra.host");
-    }
-
-    @Override
-    public CassandraClient getClient() {
-        String host = getCassandraHost();
-        int port = getCQL3Port();
-
-        return new CassandraClient(host, port);
     }
 
     @Override
