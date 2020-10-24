@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-dozer-sink",
 		"type": "sink",
-		"version": "0.6.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT"
 	},
 	"properties": {
 		"camel.sink.path.name": {

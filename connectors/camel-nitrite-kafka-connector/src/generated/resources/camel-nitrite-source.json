@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-nitrite-source",
 		"type": "source",
-		"version": "0.6.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT"
 	},
 	"properties": {
 		"camel.source.path.database": {
