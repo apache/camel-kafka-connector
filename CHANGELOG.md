@@ -1,14 +1,6 @@
 # Changelog
 
-## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
-
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.0...HEAD)
-
-**Merged pull requests:**
-
-- Update AWS SNS example [\#448](https://github.com/apache/camel-kafka-connector/pull/448) ([oscerd](https://github.com/oscerd))
-
-## [camel-kafka-connector-0.6.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.0) (2020-10-23)
+## [camel-kafka-connector-0.6.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.0) (2020-10-24)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.4...camel-kafka-connector-0.6.0)
 
@@ -146,7 +138,6 @@
 - Added 0.5.0 to the compatibility matrix [\#453](https://github.com/apache/camel-kafka-connector/pull/453) ([oscerd](https://github.com/oscerd))
 - 0.5.0 docs [\#452](https://github.com/apache/camel-kafka-connector/pull/452) ([oscerd](https://github.com/oscerd))
 - Updated SQS example [\#450](https://github.com/apache/camel-kafka-connector/pull/450) ([oscerd](https://github.com/oscerd))
-- Updated SQS example [\#449](https://github.com/apache/camel-kafka-connector/pull/449) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.4.4](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.4) (2020-10-10)
 
@@ -188,7 +179,6 @@
 - Camel 3.4.3 [\#382](https://github.com/apache/camel-kafka-connector/pull/382) ([oscerd](https://github.com/oscerd))
 - Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
 - Make the camel-kafka-connector archetype use the parent POM [\#364](https://github.com/apache/camel-kafka-connector/pull/364) ([oscerd](https://github.com/oscerd))
-- Added a camel-compatibility matrix page [\#355](https://github.com/apache/camel-kafka-connector/pull/355) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#353](https://github.com/apache/camel-kafka-connector/pull/353) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#351](https://github.com/apache/camel-kafka-connector/pull/351) ([oscerd](https://github.com/oscerd))
 - 0.4.1-SNAPSHOT [\#349](https://github.com/apache/camel-kafka-connector/pull/349) ([oscerd](https://github.com/oscerd))
@@ -277,6 +267,7 @@
 - AWS SDK v2 integration tests: Kinesis [\#358](https://github.com/apache/camel-kafka-connector/pull/358) ([orpiske](https://github.com/orpiske))
 - Use latest Strimzi's docker images [\#357](https://github.com/apache/camel-kafka-connector/pull/357) ([oscerd](https://github.com/oscerd))
 - Fixed camel compatibility matrix table [\#356](https://github.com/apache/camel-kafka-connector/pull/356) ([oscerd](https://github.com/oscerd))
+- Added a camel-compatibility matrix page [\#355](https://github.com/apache/camel-kafka-connector/pull/355) ([oscerd](https://github.com/oscerd))
 - Upgrade Archetype docs [\#354](https://github.com/apache/camel-kafka-connector/pull/354) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#352](https://github.com/apache/camel-kafka-connector/pull/352) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#350](https://github.com/apache/camel-kafka-connector/pull/350) ([oscerd](https://github.com/oscerd))
