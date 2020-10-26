@@ -27,7 +27,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <kafka.version>2.5.0</kafka.version>
+        <kafka.version>2.6.0</kafka.version>
         <camel.version>3.6.0</camel.version>
         <version.java>1.8</version.java>
         <version.guava>20.0</version.guava>
@@ -57,8 +57,8 @@
         <gmavenplus-plugin-version>1.6.2</gmavenplus-plugin-version>
         <groovy-version>2.5.8</groovy-version>
 
-        <itest.zookeeper.container.image>strimzi/kafka:0.19.0-kafka-2.5.0</itest.zookeeper.container.image>
-        <itest.strimzi.container.image>strimzi/kafka:0.19.0-kafka-2.5.0</itest.strimzi.container.image>
+        <itest.zookeeper.container.image>strimzi/kafka:0.20.0-kafka-2.6.0</itest.zookeeper.container.image>
+        <itest.strimzi.container.image>strimzi/kafka:0.20.0-kafka-2.6.0</itest.strimzi.container.image>
 
         <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
     </properties>
@@ -518,18 +518,6 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>strimzinext</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <kafka.version>2.6.0</kafka.version>
-                <itest.zookeeper.container.image>strimzi/kafka:0.20.0-rc3-kafka-2.6.0</itest.zookeeper.container.image>
-                <itest.strimzi.container.image>strimzi/kafka:0.20.0-rc3-kafka-2.6.0</itest.strimzi.container.image>
-                <kafka.instance.type>local-strimzi-container</kafka.instance.type>
-            </properties>
-        </profile>
         <profile>
             <id>sourcecheck</id>
             <build>
