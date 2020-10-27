@@ -1,5 +1,20 @@
 # Changelog
 
+## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.0...HEAD)
+
+**Closed issues:**
+
+- Bump to Strimzi 0.20.0 and Kafka 2.6.0 [\#641](https://github.com/apache/camel-kafka-connector/issues/641)
+- Add Openshift instrunctions for Telegram examples [\#636](https://github.com/apache/camel-kafka-connector/issues/636)
+
+**Merged pull requests:**
+
+- Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
+- Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
+- Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
 ## [camel-kafka-connector-0.6.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.0) (2020-10-24)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.4...camel-kafka-connector-0.6.0)
