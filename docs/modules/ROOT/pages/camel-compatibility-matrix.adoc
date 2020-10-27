@@ -12,4 +12,5 @@ In this section we report the compatibility matrix between Camel and Camel Kafka
 |0.4.0                         |3.4.2             |yes |camel-kafka-connector-0.4.x
 |0.4.4                         |3.4.4             |yes |camel-kafka-connector-0.4.x
 |0.5.0                         |3.5.0             |no  |camel-kafka-connector-0.5.x
+|0.6.0                         |3.6.0             |no  |camel-kafka-connector-0.6.x
 |=======================================================================
