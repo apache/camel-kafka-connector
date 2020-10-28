@@ -18,6 +18,7 @@
 package org.apache.camel.kafkaconnector.aws.v2.s3.source;
 
 import java.io.File;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 

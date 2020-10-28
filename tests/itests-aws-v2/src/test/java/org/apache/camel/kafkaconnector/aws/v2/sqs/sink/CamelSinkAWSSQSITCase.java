@@ -35,7 +35,6 @@ import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -51,7 +50,6 @@ import software.amazon.awssdk.services.sqs.model.Message;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Disabled("Needs the fix for CAMEL-15391 which will be available on camel 3.4.4")
 @Testcontainers
 public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     @RegisterExtension
