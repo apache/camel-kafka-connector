@@ -32,22 +32,18 @@ import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Disabled("Needs the fix for CAMEL-15391 which will be available on camel 3.4.4")
-@Testcontainers
 public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static AWSService<SqsClient> service = AWSServiceFactory.createSQSService();
@@ -69,6 +65,9 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     public void setUp() {
         awssqsClient = new AWSSQSClient(service.getClient());
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
+
+        // TODO: this is a work-around for CAMEL-15833
+        awssqsClient.createQueue(queueName);
         received = 0;
     }
 
