@@ -82,7 +82,9 @@ public class CamelSinkTask extends SinkTask {
             final String unmarshaller = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_UNMARSHAL_CONF);
             final int size = config.getInt(CamelSinkConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF);
             final long timeout = config.getLong(CamelSinkConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_TIMEOUT_CONF);
-
+            final int maxRedeliveries = config.getInt(CamelSinkConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_MAXIMUM_REDELIVERIES_CONF);
+            final long redeliveryDelay = config.getLong(CamelSinkConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_REDELIVERY_DELAY_CONF);
+            final String errorHandler = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_CONF);
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
                 remoteUrl = TaskHelper.buildUrl(camelContext,
@@ -98,6 +100,9 @@ public class CamelSinkTask extends SinkTask {
                 .withMarshallDataFormat(marshaller)
                 .withAggregationSize(size)
                 .withAggregationTimeout(timeout)
+                .withErrorHandler(errorHandler)
+                .withMaxRedeliveries(maxRedeliveries)
+                .withRedeliveryDelay(redeliveryDelay)
                 .build(camelContext);
 
 
