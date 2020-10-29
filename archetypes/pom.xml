@@ -33,5 +33,6 @@
 
     <modules>
         <module>camel-kafka-connector-extensible-archetype</module>
+        <module>camel-kafka-connector-extensible-apicurio-archetype</module>
     </modules>
 </project>
