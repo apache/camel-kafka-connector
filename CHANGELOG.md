@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Create a Camel-exec example [\#649](https://github.com/apache/camel-kafka-connector/issues/649)
 - Bump to Strimzi 0.20.0 and Kafka 2.6.0 [\#641](https://github.com/apache/camel-kafka-connector/issues/641)
 - Add Openshift instrunctions for Telegram examples [\#636](https://github.com/apache/camel-kafka-connector/issues/636)
 
@@ -123,7 +124,6 @@
 - Move model classes CamelKafkaConnectorModel and CamelKafkaConnectorOp… [\#518](https://github.com/apache/camel-kafka-connector/pull/518) ([oscerd](https://github.com/oscerd))
 - adding docs that explain the directory requirement under the plugins folder [\#517](https://github.com/apache/camel-kafka-connector/pull/517) ([codexetreme](https://github.com/codexetreme))
 - Added a camel-kafka-connector-catalog collecting all the JSON metadata [\#516](https://github.com/apache/camel-kafka-connector/pull/516) ([oscerd](https://github.com/oscerd))
-- Generate a Json Metadata file for each connector [\#512](https://github.com/apache/camel-kafka-connector/pull/512) ([oscerd](https://github.com/oscerd))
 - Opted the project in for HAcktoberfest 2020. [\#511](https://github.com/apache/camel-kafka-connector/pull/511) ([valdar](https://github.com/valdar))
 - Add an integration test for the archetype [\#510](https://github.com/apache/camel-kafka-connector/pull/510) ([cunningt](https://github.com/cunningt))
 - \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
@@ -307,7 +307,6 @@
 **Fixed bugs:**
 
 - BigDecimal values are not handled correctly in Headers serialization and deserialization [\#325](https://github.com/apache/camel-kafka-connector/issues/325)
-- Camel HDFS: does not work due to dependencies conflicts [\#263](https://github.com/apache/camel-kafka-connector/issues/263)
 - NullPointerException during shutdown when using Salesforce component [\#245](https://github.com/apache/camel-kafka-connector/issues/245)
 
 **Closed issues:**
@@ -371,6 +370,7 @@
 
 **Fixed bugs:**
 
+- Camel HDFS: does not work due to dependencies conflicts [\#263](https://github.com/apache/camel-kafka-connector/issues/263)
 - Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
 - Possible problems in CamelSinkAWSSQSITCase tests [\#215](https://github.com/apache/camel-kafka-connector/issues/215)
 
