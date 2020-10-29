@@ -1,9 +1,9 @@
-== Camel Kafka Connector
+= Camel Kafka Connector
 
 image:https://img.shields.io/badge/zulip-join_chat-brightgreen.svg["Chat on Zulip", link="https://camel.zulipchat.com"]
 image:https://github.com/apache/camel-kafka-connector/workflows/master%20build/badge.svg[Master Build, link="https://github.com/apache/camel-kafka-connector/actions?query=workflow%3A%22master+build%22"]
 
-=== Introduction
+== Introduction
 [NOTE]
 ====
 This project is still in its infancy. Is it relatively stable and leverages more than a decade of Apache Camel
@@ -14,22 +14,17 @@ and current ones adjusted to integrate better with both Camel and Kafka Connect.
 This is a "Camel Kafka connector adapter" that aims to provide a user-friendly way to use all Apache Camel components in Kafka Connect.
 For more information about Kafka Connect take a look http://kafka.apache.org/documentation/#connect[here].
 
-=== Build the project
+== Build the project
 [source,bash]
 ----
 mvn clean package
 ----
 
-=== Build the project and run integration tests
-To build the project it is sufficient to:
-[source,bash]
-----
-mvn clean install
-----
+== Run integration tests
 To run the integration tests it is required to:
 
   * have Docker version 17.05 or higher running
-  * run:
+  * then run:
 +
 [source,bash]
 ----
@@ -39,16 +34,6 @@ mvn -DskipIntegrationTests=false clean verify package
 It is also possible to point the tests to use an external services. Please check the
 link:./docs/modules/ROOT/pages/testing.adoc[testing guide].
 
+== Documentation
 
-=== Try it out locally
-
-You can use Camel Kafka connectors with local Apache Kafka installation.
-For more details see the link:./docs/modules/ROOT/pages/try-it-out-locally.adoc[local guide].
-
-=== Try it out on OpenShift with Strimzi
-
-You can also use Camel Kafka connectors on OpenShift.
-For more details see the link:./docs/modules/ROOT/pages/try-it-out-on-openshift-with-strimzi.adoc[OpenShift guide].
-
-=== Known limitations
-In order to use other Camel components you need to add them as dependencies in the project `pom.xml`.
+Read https://camel.apache.org/camel-kafka-connector/latest/index.html[official latest documentation] or the local link:./docs/modules/ROOT/pages/getting-started.adoc[Getting started guide].
