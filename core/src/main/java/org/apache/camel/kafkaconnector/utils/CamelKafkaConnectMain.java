@@ -91,6 +91,9 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private String unmarshallDataFormat;
         private int aggregationSize;
         private long aggregationTimeout;
+        private String errorHandler;
+        private int maxRedeliveries;
+        private long redeliveryDelay;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -121,6 +124,21 @@ public class CamelKafkaConnectMain extends SimpleMain {
             this.aggregationTimeout = aggregationTimeout;
             return this;
         }
+        
+        public Builder withErrorHandler(String errorHandler) {
+        	this.errorHandler = errorHandler;
+        	return this;
+        }
+        
+        public Builder withMaxRedeliveries(int maxRedeliveries) {
+            this.maxRedeliveries = maxRedeliveries;
+            return this;
+        }
+        
+        public Builder withRedeliveryDelay(long redeliveryDelay) {
+            this.redeliveryDelay = redeliveryDelay;
+            return this;
+        }
 
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
@@ -138,6 +156,20 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     //from
                     RouteDefinition rd = from(from);
                     LOG.info("Creating Camel route from({})", from);
+                    
+                    if (!ObjectHelper.isEmpty(props.get(CamelConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_CONF))) {
+                    	String errorHandler = props.get(CamelConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_CONF);
+                    	switch (errorHandler) {
+						case "no":
+							rd.errorHandler(noErrorHandler());
+							break;
+						case "default":
+							rd.errorHandler(defaultErrorHandler().maximumRedeliveries(maxRedeliveries).redeliveryDelay(redeliveryDelay));
+							break;
+						default:
+							break;
+						}
+                    }
 
                     //dataformats
                     if (!ObjectHelper.isEmpty(marshallDataFormat)) {
