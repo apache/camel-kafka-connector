@@ -126,8 +126,8 @@ public class CamelKafkaConnectMain extends SimpleMain {
         }
         
         public Builder withErrorHandler(String errorHandler) {
-        	this.errorHandler = errorHandler;
-        	return this;
+            this.errorHandler = errorHandler;
+            return this;
         }
         
         public Builder withMaxRedeliveries(int maxRedeliveries) {
@@ -158,17 +158,17 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     LOG.info("Creating Camel route from({})", from);
                     
                     if (!ObjectHelper.isEmpty(props.get(CamelConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_CONF))) {
-                    	String errorHandler = props.get(CamelConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_CONF);
-                    	switch (errorHandler) {
-						case "no":
-							rd.errorHandler(noErrorHandler());
-							break;
-						case "default":
-							rd.errorHandler(defaultErrorHandler().maximumRedeliveries(maxRedeliveries).redeliveryDelay(redeliveryDelay));
-							break;
-						default:
-							break;
-						}
+                        String errorHandler = props.get(CamelConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_CONF);
+                        switch (errorHandler) {
+                            case "no":
+                                rd.errorHandler(noErrorHandler());
+                                break;
+                            case "default":
+                                rd.errorHandler(defaultErrorHandler().maximumRedeliveries(maxRedeliveries).redeliveryDelay(redeliveryDelay));
+                                break;
+                            default:
+                                break;
+                        }
                     }
 
                     //dataformats
