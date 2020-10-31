@@ -13,6 +13,9 @@
 
 **Merged pull requests:**
 
+- Update archetypes docs to point to the latest snapshot 0.7.0 [\#654](https://github.com/apache/camel-kafka-connector/pull/654) ([oscerd](https://github.com/oscerd))
+- Error handling 1st part [\#653](https://github.com/apache/camel-kafka-connector/pull/653) ([oscerd](https://github.com/oscerd))
+- Minor fixes [\#652](https://github.com/apache/camel-kafka-connector/pull/652) ([valdar](https://github.com/valdar))
 - Provide an archetype with needed bits to use Apicurio Registry stuff [\#650](https://github.com/apache/camel-kafka-connector/pull/650) ([oscerd](https://github.com/oscerd))
 - Added 0.6.0 to camel compatibility matrix [\#648](https://github.com/apache/camel-kafka-connector/pull/648) ([oscerd](https://github.com/oscerd))
 - Aligned docs and link to 0.6.0 [\#647](https://github.com/apache/camel-kafka-connector/pull/647) ([oscerd](https://github.com/oscerd))
