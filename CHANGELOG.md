@@ -22,7 +22,6 @@
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
 - Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
-- Switches the Kafka test infra-structure [\#632](https://github.com/apache/camel-kafka-connector/pull/632) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.6.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.0) (2020-10-24)
 
@@ -62,6 +61,7 @@
 - Switches the AWS v2 test infra-structure [\#635](https://github.com/apache/camel-kafka-connector/pull/635) ([orpiske](https://github.com/orpiske))
 - Decouple the Cassandra client from the service to simplify moving the services to Camel core [\#634](https://github.com/apache/camel-kafka-connector/pull/634) ([orpiske](https://github.com/orpiske))
 - Switches the AWS v1 test infra-structure [\#633](https://github.com/apache/camel-kafka-connector/pull/633) ([orpiske](https://github.com/orpiske))
+- Switches the Kafka test infra-structure [\#632](https://github.com/apache/camel-kafka-connector/pull/632) ([orpiske](https://github.com/orpiske))
 - Early Strimzi Test: Lets test with 0.20.0 RC3 [\#631](https://github.com/apache/camel-kafka-connector/pull/631) ([oscerd](https://github.com/oscerd))
 - Added integration test for Couchbase sink [\#630](https://github.com/apache/camel-kafka-connector/pull/630) ([orpiske](https://github.com/orpiske))
 - Added convenience method to get option from connector name and option name [\#627](https://github.com/apache/camel-kafka-connector/pull/627) ([oscerd](https://github.com/oscerd))
@@ -391,6 +391,7 @@
 - Fix a javadoc issue. [\#276](https://github.com/apache/camel-kafka-connector/pull/276) ([valdar](https://github.com/valdar))
 - fix \#259: Camel-elasticsearch-rest-kafka-connector throws java.lang.N… [\#275](https://github.com/apache/camel-kafka-connector/pull/275) ([valdar](https://github.com/valdar))
 - Throw ConnectException due to failed exchanges [\#273](https://github.com/apache/camel-kafka-connector/pull/273) ([omarsmak](https://github.com/omarsmak))
+- Issue/260 [\#272](https://github.com/apache/camel-kafka-connector/pull/272) ([valdar](https://github.com/valdar))
 - Test modularization cleanups [\#271](https://github.com/apache/camel-kafka-connector/pull/271) ([orpiske](https://github.com/orpiske))
 - AWS2-S3 connector: Added the same set of converters/transformers we h… [\#268](https://github.com/apache/camel-kafka-connector/pull/268) ([oscerd](https://github.com/oscerd))
 
@@ -424,7 +425,6 @@
 
 **Merged pull requests:**
 
-- Issue/260 [\#272](https://github.com/apache/camel-kafka-connector/pull/272) ([valdar](https://github.com/valdar))
 - Docs download link [\#266](https://github.com/apache/camel-kafka-connector/pull/266) ([oscerd](https://github.com/oscerd))
 - Add AMQP examples for source and sink [\#265](https://github.com/apache/camel-kafka-connector/pull/265) ([rgannu](https://github.com/rgannu))
 - Split the tests in modules per service [\#262](https://github.com/apache/camel-kafka-connector/pull/262) ([orpiske](https://github.com/orpiske))
