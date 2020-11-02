@@ -17,11 +17,13 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.blob.sink;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
+import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.models.BlobItem;
@@ -33,8 +35,8 @@ import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -42,7 +44,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CamelSinkAzureStorageBlobITCase extends AbstractKafkaTest {
     @RegisterExtension
@@ -69,25 +70,44 @@ public class CamelSinkAzureStorageBlobITCase extends AbstractKafkaTest {
 
         blobContainerName = "test-" +  TestUtils.randomWithRange(1, 100);
         blobContainerClient = client.createBlobContainer(blobContainerName);
-        received = 0;
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if (client != null) {
+            client.deleteBlobContainer(blobContainerName);
+        }
     }
 
     private boolean canConsume() {
         return blobContainerClient.exists() && blobContainerClient.listBlobs().stream().count() > 0;
     }
 
+
     private void consume() {
         LOG.debug("Created the consumer ...");
         TestUtils.waitFor(this::canConsume);
 
-        for (BlobItem blobContainerItem : blobContainerClient.listBlobs()) {
-            String receivedFile = blobContainerItem.getName();
-            assertTrue(sentData.containsKey(receivedFile));
+        int retries = 10;
+        do {
+            received = 0;
+            for (BlobItem blobContainerItem : blobContainerClient.listBlobs()) {
+                String receivedFile = blobContainerItem.getName();
+                BlobClient blobClient = blobContainerClient.getBlobClient(receivedFile);
 
-            // TODO: check the file contents in the future
-            received++;
-        }
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                blobClient.download(outputStream);
+                String contentFile = outputStream.toString();
+
+                LOG.info("Received: \'{}\' with content: \'{}\'", receivedFile, contentFile);
+                assertEquals(sentData.get(receivedFile), contentFile, "Did not receive the same message that was sent");
+
+                received++;
+            }
+            retries--;
+        } while (received != 10 && retries > 0);
     }
+
 
     private void putRecords() {
         Map<String, String> messageParameters = new HashMap<>();
@@ -122,7 +142,6 @@ public class CamelSinkAzureStorageBlobITCase extends AbstractKafkaTest {
         assertEquals(expect, received, "Did not receive the same amount of messages that were sent");
     }
 
-    @Disabled("Disabled due to issue #409")
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws InterruptedException, ExecutionException, IOException {
