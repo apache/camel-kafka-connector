@@ -1,5 +1,6 @@
 * xref:about.adoc[What is it?]
 ** xref:basic-concepts.adoc[Basic concepts]
+** xref:basic-configuration.adoc[Basic configuration]
 ** xref:aggregation.adoc[Aggregation]
 * xref:archetypes.adoc[Archetypes]
 ** xref:archetype-connector.adoc[Extensible connector archetype]
