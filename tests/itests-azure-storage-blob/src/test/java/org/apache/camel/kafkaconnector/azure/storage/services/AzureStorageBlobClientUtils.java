@@ -46,7 +46,7 @@ public final class AzureStorageBlobClientUtils {
             endpoint = String.format("http://%s:%s/%s", host, port, accountName);
         } else {
             if (host == null || host.isEmpty()) {
-                endpoint = String.format("https://%s.queue.core.windows.net/%s", accountName, accountKey);
+                endpoint = String.format("https://%s.blob.core.windows.net/%s", accountName, accountKey);
             } else {
                 endpoint = String.format("http://%s:%s/%s", host, port, accountName);
             }
