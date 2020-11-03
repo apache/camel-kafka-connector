@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.CreateCollectionOptions;
@@ -63,7 +64,7 @@ public class CamelSourceMongoDBITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        mongoClient = mongoDBService.getClient();
+        mongoClient = MongoClients.create(mongoDBService.getReplicaSetUrl());
 
         MongoDatabase database = mongoClient.getDatabase("testDatabase");
 
