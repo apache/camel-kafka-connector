@@ -17,8 +17,6 @@
 
 package org.apache.camel.kafkaconnector.mongodb.services;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.MongoDBContainer;
@@ -43,11 +41,6 @@ public class MongoDBLocalContainerService implements MongoDBService {
     @Override
     public String getReplicaSetUrl() {    
         return "mongodb://" + container.getContainerIpAddress() + ":" + container.getMappedPort(DEFAULT_MONGODB_PORT);
-    }
-
-    @Override
-    public MongoClient getClient() {
-        return MongoClients.create(getReplicaSetUrl());
     }
 
     @Override

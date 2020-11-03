@@ -20,6 +20,7 @@ package org.apache.camel.kafkaconnector.mongodb.sink;
 import java.util.concurrent.ExecutionException;
 
 import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -60,7 +61,7 @@ public class CamelSinkMongoDBITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        mongoClient = mongoDBService.getClient();
+        mongoClient = MongoClients.create(mongoDBService.getReplicaSetUrl());
     }
 
     private void putRecords() {

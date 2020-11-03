@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.mongodb.services;
 
-import com.mongodb.client.MongoClient;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -34,8 +33,6 @@ public interface MongoDBService extends BeforeAllCallback, AfterAllCallback {
     void shutdown();
 
     String getReplicaSetUrl();
-
-    MongoClient getClient();
 
     @Override
     default void beforeAll(ExtensionContext extensionContext) throws Exception {

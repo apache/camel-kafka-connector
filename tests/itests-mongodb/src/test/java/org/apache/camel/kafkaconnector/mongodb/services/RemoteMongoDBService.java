@@ -17,9 +17,6 @@
 
 package org.apache.camel.kafkaconnector.mongodb.services;
 
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-
 public class RemoteMongoDBService implements MongoDBService {
 
     public String getReplicaSetUrl() {
@@ -34,10 +31,5 @@ public class RemoteMongoDBService implements MongoDBService {
     @Override
     public void shutdown() {
         // NO-OP
-    }
-
-    @Override
-    public MongoClient getClient() {
-        return MongoClients.create(getReplicaSetUrl());
     }
 }
