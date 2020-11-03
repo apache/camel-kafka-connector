@@ -6,6 +6,7 @@
 
 **Closed issues:**
 
+- Add an extensible connector archetype with dataformat [\#660](https://github.com/apache/camel-kafka-connector/issues/660)
 - Create a Camel-exec example [\#649](https://github.com/apache/camel-kafka-connector/issues/649)
 - Provide an archetype with needed bits to use Apicurio Registry stuff [\#646](https://github.com/apache/camel-kafka-connector/issues/646)
 - Bump to Strimzi 0.20.0 and Kafka 2.6.0 [\#641](https://github.com/apache/camel-kafka-connector/issues/641)
@@ -13,6 +14,11 @@
 
 **Merged pull requests:**
 
+- Added a dataformat archetype for extending connectors [\#661](https://github.com/apache/camel-kafka-connector/pull/661) ([oscerd](https://github.com/oscerd))
+- Update azure-tests [\#659](https://github.com/apache/camel-kafka-connector/pull/659) ([unsortedhashsets](https://github.com/unsortedhashsets))
+- Index.adoc should reflect nav.adoc [\#658](https://github.com/apache/camel-kafka-connector/pull/658) ([oscerd](https://github.com/oscerd))
+- Added a page in docs related to basic configuration of camel kafka co… [\#657](https://github.com/apache/camel-kafka-connector/pull/657) ([oscerd](https://github.com/oscerd))
+- Added specific section in documentation related to archetype [\#656](https://github.com/apache/camel-kafka-connector/pull/656) ([oscerd](https://github.com/oscerd))
 - Update archetypes docs to point to the latest snapshot 0.7.0 [\#654](https://github.com/apache/camel-kafka-connector/pull/654) ([oscerd](https://github.com/oscerd))
 - Error handling 1st part [\#653](https://github.com/apache/camel-kafka-connector/pull/653) ([oscerd](https://github.com/oscerd))
 - Minor fixes [\#652](https://github.com/apache/camel-kafka-connector/pull/652) ([valdar](https://github.com/valdar))
