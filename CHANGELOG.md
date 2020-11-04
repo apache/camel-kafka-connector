@@ -14,6 +14,7 @@
 
 **Merged pull requests:**
 
+- Decouple the MongoDB client from the service to simplify using the test infra from Camel [\#662](https://github.com/apache/camel-kafka-connector/pull/662) ([orpiske](https://github.com/orpiske))
 - Added a dataformat archetype for extending connectors [\#661](https://github.com/apache/camel-kafka-connector/pull/661) ([oscerd](https://github.com/oscerd))
 - Update azure-tests [\#659](https://github.com/apache/camel-kafka-connector/pull/659) ([unsortedhashsets](https://github.com/unsortedhashsets))
 - Index.adoc should reflect nav.adoc [\#658](https://github.com/apache/camel-kafka-connector/pull/658) ([oscerd](https://github.com/oscerd))
