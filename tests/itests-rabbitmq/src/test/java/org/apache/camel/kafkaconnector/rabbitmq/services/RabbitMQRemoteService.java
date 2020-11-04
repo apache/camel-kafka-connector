@@ -17,8 +17,6 @@
 
 package org.apache.camel.kafkaconnector.rabbitmq.services;
 
-import org.apache.camel.kafkaconnector.rabbitmq.clients.RabbitMQClient;
-
 public class RabbitMQRemoteService implements RabbitMQService {
 
 
@@ -28,8 +26,8 @@ public class RabbitMQRemoteService implements RabbitMQService {
     }
 
     @Override
-    public RabbitMQClient getClient() {
-        return null;
+    public String getAmqpUrl() {
+        return System.getProperty("rabbitmq.connection.amqp");
     }
 
     @Override
