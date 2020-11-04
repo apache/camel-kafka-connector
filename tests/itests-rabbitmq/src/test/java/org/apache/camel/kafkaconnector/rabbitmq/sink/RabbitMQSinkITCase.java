@@ -59,7 +59,7 @@ public class RabbitMQSinkITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         received = 0;
-        rabbitMQClient = rabbitmqService.getClient();
+        rabbitMQClient =  new RabbitMQClient(rabbitmqService.getAmqpUrl());
     }
 
     private boolean checkRecord(Delivery rabbitMQDelivery) {

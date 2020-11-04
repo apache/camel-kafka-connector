@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.rabbitmq.services;
 
-import org.apache.camel.kafkaconnector.rabbitmq.clients.RabbitMQClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.RabbitMQContainer;
@@ -57,8 +56,8 @@ public class RabbitMQLocalContainerService implements RabbitMQService {
     }
 
     @Override
-    public RabbitMQClient getClient() {
-        return new RabbitMQClient(container.getAmqpUrl());
+    public String getAmqpUrl() {
+        return container.getAmqpUrl();
     }
 
     @Override

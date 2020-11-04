@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.rabbitmq.services;
 
-import org.apache.camel.kafkaconnector.rabbitmq.clients.RabbitMQClient;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -32,10 +31,10 @@ public interface RabbitMQService extends BeforeAllCallback, AfterAllCallback {
     ConnectionProperties connectionProperties();
 
     /**
-     * Get the appropriate client for the service
+     * Gets the connection URI
      * @return
      */
-    RabbitMQClient getClient();
+    String getAmqpUrl();
 
     /**
      * Perform any initialization necessary
