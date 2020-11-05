@@ -19,7 +19,6 @@ package org.apache.camel.kafkaconnector.sjms2.services;
 
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,11 +40,6 @@ public class ContainerLocalService implements JMSService {
     @Override
     public Properties getConnectionProperties() {
         return container.getConnectionProperties();
-    }
-
-    @Override
-    public JMSClient getClient() {
-        return container.getClient();
     }
 
     @Override

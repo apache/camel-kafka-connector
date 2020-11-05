@@ -19,7 +19,6 @@ package org.apache.camel.kafkaconnector.sjms2.services;
 
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.images.builder.ImageFromDockerfile;
 
@@ -36,12 +35,6 @@ public abstract class JMSContainer extends GenericContainer<JMSContainer> {
      */
     public abstract Properties getConnectionProperties();
 
-
-    /**
-     * Get a client that can access the container
-     * @return
-     */
-    public abstract JMSClient getClient();
 
     /**
      * Gets the end point URL used exchanging messages through the default acceptor port

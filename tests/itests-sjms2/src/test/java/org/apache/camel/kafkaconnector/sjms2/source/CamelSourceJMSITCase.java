@@ -63,7 +63,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         received = 0;
-        jmsClient = jmsService.getClient();
+        jmsClient = JMSClient.newClient(jmsService.getDefaultEndpoint());
     }
 
     private <T> boolean checkRecord(ConsumerRecord<String, T> record) {

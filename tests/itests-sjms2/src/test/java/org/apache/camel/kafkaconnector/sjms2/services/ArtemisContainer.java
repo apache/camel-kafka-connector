@@ -19,7 +19,6 @@ package org.apache.camel.kafkaconnector.sjms2.services;
 
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.images.builder.ImageFromDockerfile;
 
@@ -139,10 +138,5 @@ public class ArtemisContainer extends JMSContainer {
         properties.put("camel.component.sjms2.connection-factory.brokerURL", getDefaultEndpoint());
 
         return properties;
-    }
-
-    @Override
-    public JMSClient getClient() {
-        return new JMSClient(org.apache.activemq.ActiveMQConnectionFactory::new, getDefaultEndpoint());
     }
 }

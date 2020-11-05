@@ -61,7 +61,7 @@ public class CamelSourceJMSWithAggregation extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         received = 0;
-        jmsClient = jmsService.getClient();
+        jmsClient = JMSClient.newClient(jmsService.getDefaultEndpoint());
 
         for (int i = 0; i < sentSize - 1; i++) {
             expectedMessage += "hello;\n";

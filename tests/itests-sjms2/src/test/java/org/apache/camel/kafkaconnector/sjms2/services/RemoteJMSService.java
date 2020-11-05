@@ -20,7 +20,6 @@ package org.apache.camel.kafkaconnector.sjms2.services;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.common.utils.PropertyUtils;
-import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 
 public class RemoteJMSService implements JMSService {
 
@@ -43,16 +42,5 @@ public class RemoteJMSService implements JMSService {
     @Override
     public String getDefaultEndpoint() {
         return System.getProperty("jms.broker.address");
-    }
-
-    @Override
-    public JMSClient getClient() {
-        String tmpConnectionFactory = System.getProperty("camel.component.sjms2.connection-factory");
-
-        String connectionFactory = tmpConnectionFactory.replace("#class:", "");
-
-        return new JMSClient(connectionFactory, getDefaultEndpoint());
-
-
     }
 }
