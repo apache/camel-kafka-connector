@@ -19,8 +19,13 @@ package org.apache.camel.kafkaconnector.catalog;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.camel.kafkaconnector.CamelSinkConnectorConfig;
+import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorModel;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
+import org.apache.kafka.common.config.ConfigDef;
+import org.apache.kafka.common.config.ConfigDef.ConfigKey;
+import org.apache.kafka.common.config.ConfigDef.Type;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -167,6 +172,24 @@ class CamelKafkaConnectorCatalogTest {
         Map<String, CamelKafkaConnectorModel> p = catalog.getConnectorsModel();
         CamelKafkaConnectorModel model = p.get("camel-aws2-s3-sink");
         assertEquals("Store and retrieve objects from AWS S3 Storage Service using AWS SDK version 2.x.", model.getDescription());
+    }
+    
+    @Test
+    void testBasicConfigurationForSink() throws Exception {
+        ConfigDef sinkConfigDef = catalog.getBasicConfigurationForSink();
+        ConfigKey marshalConfigKey = sinkConfigDef.configKeys().get(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF);
+        assertEquals(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF, marshalConfigKey.name);
+        assertEquals(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_DOC, marshalConfigKey.documentation);
+        assertEquals(Type.STRING, marshalConfigKey.type);
+    }
+    
+    @Test
+    void testBasicConfigurationForSource() throws Exception {
+        ConfigDef sourceConfigDef = catalog.getBasicConfigurationForSource();
+        ConfigKey marshalConfigKey = sourceConfigDef.configKeys().get(CamelSourceConnectorConfig.CAMEL_SOURCE_MARSHAL_CONF);
+        assertEquals(CamelSourceConnectorConfig.CAMEL_SOURCE_MARSHAL_CONF, marshalConfigKey.name);
+        assertEquals(CamelSourceConnectorConfig.CAMEL_SOURCE_MARSHAL_DOC, marshalConfigKey.documentation);
+        assertEquals(Type.STRING, marshalConfigKey.type);
     }
 
 }

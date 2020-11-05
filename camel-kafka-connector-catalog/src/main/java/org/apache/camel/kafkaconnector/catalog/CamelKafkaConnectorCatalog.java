@@ -31,10 +31,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.apache.camel.kafkaconnector.CamelSinkConnectorConfig;
+import org.apache.camel.kafkaconnector.CamelSourceConnectorConfig;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorModel;
 import org.apache.camel.kafkaconnector.model.CamelKafkaConnectorOptionModel;
 import org.apache.camel.tooling.model.JsonMapper;
 import org.apache.camel.util.json.JsonObject;
+import org.apache.kafka.common.config.ConfigDef;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -180,5 +183,13 @@ public class CamelKafkaConnectorCatalog {
     public void removeConnector(String connectorName) {
         connectorsName.remove(connectorName);
         connectorsModel.remove(connectorName);
+    }
+
+    public ConfigDef getBasicConfigurationForSink() {
+        return CamelSinkConnectorConfig.conf();
+    }
+    
+    public ConfigDef getBasicConfigurationForSource() {
+        return CamelSourceConnectorConfig.conf();
     }
 }
