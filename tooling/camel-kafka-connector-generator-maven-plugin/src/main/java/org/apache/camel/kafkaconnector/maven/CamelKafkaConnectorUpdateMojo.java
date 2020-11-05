@@ -575,7 +575,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         File docFile = new File(docFolder, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
         File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/connectors/");
         File docFileWebsite = new File(docFolderWebsite, getMainDepArtifactId() + "-kafka-" + ct.name().toLowerCase() + "-connector.adoc");
-        String changed = templateAutoConfigurationOptions(listOptions, getMainDepArtifactId(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList,
+        String changed = templateAutoConfigurationOptions(listOptions, model.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList,
                                                           transformsList, aggregationStrategiesList);
 
 
@@ -593,7 +593,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         }
 
         // generate json descriptor src/generated/resources/<connector-name>.json
-        writeJson(listOptions, getMainDepArtifactId(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList, transformsList, aggregationStrategiesList);
+        writeJson(listOptions, model.getDescription(), connectorDir, ct, packageName + "." + javaClassConnectorName, convertersList, transformsList, aggregationStrategiesList);
         // generate descriptor src/generated/descriptors/connector-{sink,source}.properties
         writeDescriptors(connectorDir, ct);
     }
@@ -685,7 +685,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         listOptions.add(optionModel);
     }
 
-    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct, String connectorClass,
+    private String templateAutoConfigurationOptions(List<CamelKafkaConnectorOptionModel> options, String componentDescription, File connectorDir, ConnectorType ct, String connectorClass,
                                                     List<String> convertersList, List<String> transformsList, List<String> aggregationStrategiesList)
         throws MojoExecutionException {
 
@@ -698,6 +698,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         model.setConverters(convertersList);
         model.setTransforms(transformsList);
         model.setAggregationStrategies(aggregationStrategiesList);
+        model.setDescription(componentDescription);
         if (getMainDepArtifactId().equalsIgnoreCase("camel-coap+tcp")) {
             model.setTitle("camel-coap-tcp");
         } else if (getMainDepArtifactId().equalsIgnoreCase("camel-coaps+tcp")) {
@@ -720,7 +721,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         }
     }
 
-    private void writeJson(List<CamelKafkaConnectorOptionModel> options, String componentName, File connectorDir, ConnectorType ct, String connectorClass,
+    private void writeJson(List<CamelKafkaConnectorOptionModel> options, String componentDescription, File connectorDir, ConnectorType ct, String connectorClass,
                            List<String> convertersList, List<String> transformsList, List<String> aggregationStrategiesList)
         throws MojoExecutionException {
 
@@ -729,6 +730,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         model.setArtifactId(getMainDepArtifactId());
         model.setGroupId(getMainDepGroupId());
         model.setVersion(getMainDepVersion());
+        model.setDescription(componentDescription);
         model.setConnectorClass(connectorClass);
         model.setType(ct.name().toLowerCase());
         model.setConverters(convertersList);

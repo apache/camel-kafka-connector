@@ -161,5 +161,12 @@ class CamelKafkaConnectorCatalogTest {
         CamelKafkaConnectorOptionModel nonExistingOption = catalog.getOptionModel("camel-aws2-sns-sink", "camel.sink.path.topiNameOrAr");
         assertNull(nonExistingOption);
     }
+    
+    @Test
+    void testConnectorContainsDescription() throws Exception {
+        Map<String, CamelKafkaConnectorModel> p = catalog.getConnectorsModel();
+        CamelKafkaConnectorModel model = p.get("camel-aws2-s3-sink");
+        assertEquals("Store and retrieve objects from AWS S3 Storage Service using AWS SDK version 2.x.", model.getDescription());
+    }
 
 }
