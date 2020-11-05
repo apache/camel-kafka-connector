@@ -114,7 +114,6 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
     private static final String CONFIG_DEF_IMPORTANCE_MEDIUM = "ConfigDef.Importance.MEDIUM";
     private static final String CONFIG_DEF_IMPORTANCE_HIGH = "ConfigDef.Importance.HIGH";
     private static final String CONFIG_DEF_IMPORTANCE_PREFIX = "ConfigDef.Importance.";
-    private static final String CONFIG_DEF_NO_DEFAULT_VALUE = "ConfigDef.NO_DEFAULT_VALUE";
 
     static {
         PRIMITIVE_TYPES_TO_CLASS_MAP = new HashMap<>();
@@ -364,12 +363,6 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
 
         writeFileIfChanged(notice, new File(connectorDir, "src/main/resources/META-INF/NOTICE.txt"), getLog());
         writeFileIfChanged(license, new File(connectorDir, "src/main/resources/META-INF/LICENSE.txt"), getLog());
-    }
-
-    private String getComponentId() {
-        String componentName = getMainDepArtifactId();
-        String componentId = componentName.replace("camel-", "");
-        return componentId;
     }
 
     private void createClasses(String sanitizedName, File connectorDir, ComponentModel model, ConnectorType ct)
