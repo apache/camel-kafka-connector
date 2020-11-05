@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-xslt-saxon-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Transform XML payloads using an XSLT template using Saxon."
 	},
 	"properties": {
 		"camel.sink.path.resourceUri": {

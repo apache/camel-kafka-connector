@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-amqp-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Messaging with AMQP protocol using Apache QPid Client."
 	},
 	"properties": {
 		"camel.sink.path.destinationType": {

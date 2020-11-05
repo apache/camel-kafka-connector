@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-twilio-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Interact with Twilio REST APIs using Twilio Java SDK."
 	},
 	"properties": {
 		"camel.sink.path.apiName": {

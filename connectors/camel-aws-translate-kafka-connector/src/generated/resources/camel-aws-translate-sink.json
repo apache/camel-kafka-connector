@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-translate-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Translate texts using AWS Translate."
 	},
 	"properties": {
 		"camel.sink.path.label": {

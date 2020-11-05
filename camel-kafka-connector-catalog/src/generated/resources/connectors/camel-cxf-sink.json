@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cxf-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Expose SOAP WebServices using Apache CXF or connect to external WebServices using CXF WS client."
 	},
 	"properties": {
 		"camel.sink.path.beanId": {

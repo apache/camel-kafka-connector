@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-spring-redis-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Send and receive messages from Redis."
 	},
 	"properties": {
 		"camel.source.path.host": {

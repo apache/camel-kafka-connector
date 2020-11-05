@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-stax-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Process XML payloads by a SAX ContentHandler."
 	},
 	"properties": {
 		"camel.sink.path.contentHandlerClass": {

@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ahc-ws-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Exchange data with external Websocket servers using Async Http Client."
 	},
 	"properties": {
 		"camel.source.path.httpUri": {

@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ftp-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Upload and download files to\/from FTP servers."
 	},
 	"properties": {
 		"camel.source.path.host": {

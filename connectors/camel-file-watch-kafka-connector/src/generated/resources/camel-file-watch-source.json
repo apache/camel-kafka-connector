@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-file-watch-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Get notified about file events in a directory using java.nio.file.WatchService."
 	},
 	"properties": {
 		"camel.source.path.path": {

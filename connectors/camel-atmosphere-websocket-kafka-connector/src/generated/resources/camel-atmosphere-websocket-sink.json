@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-atmosphere-websocket-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Expose WebSocket endpoints using the Atmosphere framework."
 	},
 	"properties": {
 		"camel.sink.path.servicePath": {

@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-imap-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Send and receive emails using imap, pop3 and smtp protocols."
 	},
 	"properties": {
 		"camel.source.path.host": {

@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-fop-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Render messages into PDF and other output formats supported by Apache FOP."
 	},
 	"properties": {
 		"camel.sink.path.outputType": {

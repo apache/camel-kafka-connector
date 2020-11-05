@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-influxdb-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Interact with InfluxDB, a time series database."
 	},
 	"properties": {
 		"camel.sink.path.connectionBean": {

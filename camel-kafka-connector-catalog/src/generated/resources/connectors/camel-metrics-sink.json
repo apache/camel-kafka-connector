@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-metrics-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Collect various metrics directly from Camel routes using the DropWizard metrics library."
 	},
 	"properties": {
 		"camel.sink.path.metricsType": {

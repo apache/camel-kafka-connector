@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-google-sheets-stream-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Poll for changes in Google Sheets."
 	},
 	"properties": {
 		"camel.source.path.apiName": {

@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-direct-vm-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Call another endpoint from any Camel Context in the same JVM synchronously."
 	},
 	"properties": {
 		"camel.source.path.name": {

@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kubernetes-nodes-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Perform operations on Kubernetes Nodes and get notified on Node changes."
 	},
 	"properties": {
 		"camel.sink.path.masterUrl": {
