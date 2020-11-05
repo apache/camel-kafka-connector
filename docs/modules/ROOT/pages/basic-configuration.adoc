@@ -10,7 +10,7 @@ For a Sink connector the basic options are:
 | Name | Description | Default | Priority
 | camel.sink.marshal | The camel dataformat name to use to marshal data to the destination | null | HIGH
 | camel.sink.unmarshal | The camel dataformat name to use to unmarshal data from the topic | null | HIGH
-| camel.sink.contentLogLevel | og level for the record's content. Valid values: TRACE, DEBUG, INFO, WARN, ERROR, OFF. | OFF | HIGH
+| camel.sink.contentLogLevel | Log level for the record's content. Valid values: TRACE, DEBUG, INFO, WARN, ERROR, OFF. | OFF | HIGH
 | camel.beans.aggregate | A reference to an aggregate bean, in the form of #class: | null | MEDIUM
 | camel.aggregation.size | The size of the aggregation, to be used in combination with camel.beans.aggregate | 10 | MEDIUM
 | camel.aggregation.timeout | The timeout of the aggregation, to be used in combination with camel.beans.aggregate | 500L | MEDIUM
@@ -26,7 +26,7 @@ For a Source connector the basic options are:
 | Name | Description | Default | Priority
 | camel.source.marshal | The camel dataformat name to use to marshal data to the destination | null | HIGH
 | camel.source.unmarshal | The camel dataformat name to use to unmarshal data from the topic | null | HIGH
-| camel.source.contentLogLevel | og level for the record's content. Valid values: TRACE, DEBUG, INFO, WARN, ERROR, OFF. | OFF | HIGH
+| camel.source.contentLogLevel | Log level for the record's content. Valid values: TRACE, DEBUG, INFO, WARN, ERROR, OFF. | OFF | HIGH
 | camel.source.maxBatchPollSize | The max number of messages retrieved in a single poll() | 1000L | MEDIUM
 | camel.source.maxPollDuration | The maximum time in milliseconds spent in a single call to poll() | 1000L | MEDIUM
 | camel.source.pollingConsumerQueueSize | The queue size for the internal hand-off queue between the polling consumer, and producers sending data into the queue. | 1000L | MEDIUM
