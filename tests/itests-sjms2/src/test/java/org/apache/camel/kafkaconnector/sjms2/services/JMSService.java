@@ -19,7 +19,6 @@ package org.apache.camel.kafkaconnector.sjms2.services;
 
 import java.util.Properties;
 
-import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -31,12 +30,6 @@ public interface JMSService extends BeforeAllCallback, AfterAllCallback {
      * @return
      */
     Properties getConnectionProperties();
-
-    /**
-     * Get the appropriate client for the service
-     * @return
-     */
-    JMSClient getClient();
 
     /**
      * Gets the default endpoint for the JMS service (ie.: amqp://host:port, or tcp://host:port, etc)

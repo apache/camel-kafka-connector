@@ -289,4 +289,49 @@ public class JMSClient {
             jmsProducer.stop();
         }
     }
+
+    private static JMSClient newLocalClient(String endpoint) {
+        String jmsClientType = System.getProperty("jms-service.transport.protocol");
+
+        if (jmsClientType == null || jmsClientType.isEmpty() || jmsClientType.equals("qpid")) {
+            return new JMSClient(org.apache.qpid.jms.JmsConnectionFactory::new, endpoint);
+        }
+
+        if (jmsClientType.equals("openwire")) {
+            return new JMSClient(org.apache.activemq.ActiveMQConnectionFactory::new, endpoint);
+        }
+
+        throw new UnsupportedOperationException("Invalid JMS transport protocol");
+    }
+
+    private static JMSClient newRemoteClient(String endpoint) {
+        String tmpConnectionFactory = System.getProperty("camel.component.sjms2.connection-factory");
+        if (tmpConnectionFactory == null) {
+            throw new UnsupportedOperationException("JMS connection factory class must be provided");
+        }
+
+        String connectionFactory = tmpConnectionFactory.replace("#class:", "");
+
+
+        String jmsClientType = System.getProperty("jms-service.transport.protocol");
+        if (jmsClientType == null || jmsClientType.isEmpty() || jmsClientType.equals("qpid")) {
+            return new JMSClient(connectionFactory, endpoint);
+        }
+
+        if (jmsClientType.equals("openwire")) {
+            return new JMSClient(connectionFactory, endpoint);
+        }
+
+        throw new UnsupportedOperationException("Invalid JMS transport protocol");
+    }
+
+    public static JMSClient newClient(String endpoint) {
+        String jmsInstanceType = System.getProperty("jms-service.instance.type");
+
+        if (jmsInstanceType == null || !jmsInstanceType.equals("remote")) {
+            return newLocalClient(endpoint);
+        }
+
+        return newRemoteClient(endpoint);
+    }
 }

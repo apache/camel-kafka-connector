@@ -158,7 +158,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
         JMSClient jmsClient = null;
 
         try {
-            jmsClient = jmsService.getClient();
+            jmsClient = JMSClient.newClient(jmsService.getDefaultEndpoint());
 
             jmsClient.start();
 
