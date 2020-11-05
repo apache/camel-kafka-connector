@@ -33,8 +33,6 @@ public class ContainerLocalService implements JMSService {
 
     public ContainerLocalService(JMSContainer container) {
         this.container = container;
-
-        container.start();
     }
 
     @Override
@@ -49,6 +47,8 @@ public class ContainerLocalService implements JMSService {
 
     @Override
     public void initialize() {
+        LOG.info("Trying to start the JMS broker container");
+        container.start();
         LOG.info("JMS broker running at address {}", container.getDefaultEndpoint());
     }
 
