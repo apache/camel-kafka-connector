@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-sjms-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Send and receive messages to\/from a JMS Queue or Topic using plain JMS 1.x API."
 	},
 	"properties": {
 		"camel.source.path.destinationType": {

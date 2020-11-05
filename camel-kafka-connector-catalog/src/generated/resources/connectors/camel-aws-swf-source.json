@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-swf-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Manage workflows in the AWS Simple Workflow service."
 	},
 	"properties": {
 		"camel.source.path.type": {

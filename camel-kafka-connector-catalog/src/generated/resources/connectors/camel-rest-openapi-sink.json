@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-rest-openapi-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Configure REST producers based on an OpenAPI specification document delegating to a component implementing the RestProducerFactory interface."
 	},
 	"properties": {
 		"camel.sink.path.specificationUri": {

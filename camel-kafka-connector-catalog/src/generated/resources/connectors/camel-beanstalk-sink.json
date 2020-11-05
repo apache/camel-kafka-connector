@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-beanstalk-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Retrieve and post-process Beanstalk jobs."
 	},
 	"properties": {
 		"camel.sink.path.connectionSettings": {

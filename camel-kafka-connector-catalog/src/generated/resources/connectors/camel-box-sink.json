@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-box-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Upload, download and manage files, folders, groups, collaborations, etc. on box.com."
 	},
 	"properties": {
 		"camel.sink.path.apiName": {

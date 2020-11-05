@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cxf-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Expose SOAP WebServices using Apache CXF or connect to external WebServices using CXF WS client."
 	},
 	"properties": {
 		"camel.source.path.beanId": {

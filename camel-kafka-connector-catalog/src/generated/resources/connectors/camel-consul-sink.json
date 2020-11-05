@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-consul-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Integrate with Consul service discovery and configuration store."
 	},
 	"properties": {
 		"camel.sink.path.apiEndpoint": {

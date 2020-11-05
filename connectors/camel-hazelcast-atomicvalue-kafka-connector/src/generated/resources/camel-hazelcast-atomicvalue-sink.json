@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-hazelcast-atomicvalue-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Increment, decrement, set, etc. Hazelcast atomic number (a grid wide number)."
 	},
 	"properties": {
 		"camel.sink.path.cacheName": {

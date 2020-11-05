@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-micrometer-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Collect various metrics directly from Camel routes using the Micrometer library."
 	},
 	"properties": {
 		"camel.sink.path.metricsType": {

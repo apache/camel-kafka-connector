@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cmis-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Read and write data from to\/from a CMIS compliant content repositories."
 	},
 	"properties": {
 		"camel.sink.path.cmsUrl": {

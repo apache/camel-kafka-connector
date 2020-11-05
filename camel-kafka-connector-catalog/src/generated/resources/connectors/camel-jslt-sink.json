@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jslt-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Query or transform JSON payloads using an JSLT."
 	},
 	"properties": {
 		"camel.sink.path.resourceUri": {

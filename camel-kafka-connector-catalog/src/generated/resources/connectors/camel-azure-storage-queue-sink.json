@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-azure-storage-queue-sink",
 		"type": "sink",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "The azure-storage-queue component is used for storing and retrieving the messages to\/from Azure Storage Queue using Azure SDK v12."
 	},
 	"properties": {
 		"camel.sink.path.accountName": {

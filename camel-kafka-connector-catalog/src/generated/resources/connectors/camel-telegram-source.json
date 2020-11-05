@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-telegram-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Send and receive messages acting as a Telegram Bot Telegram Bot API."
 	},
 	"properties": {
 		"camel.source.path.type": {

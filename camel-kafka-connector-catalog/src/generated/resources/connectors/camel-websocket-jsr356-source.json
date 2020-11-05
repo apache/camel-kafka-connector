@@ -5,7 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-websocket-jsr356-source",
 		"type": "source",
-		"version": "0.7.0-SNAPSHOT"
+		"version": "0.7.0-SNAPSHOT",
+		"description": "Expose websocket endpoints using JSR356."
 	},
 	"properties": {
 		"camel.source.path.uri": {
