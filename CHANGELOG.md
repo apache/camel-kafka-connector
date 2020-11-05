@@ -11,9 +11,11 @@
 - Provide an archetype with needed bits to use Apicurio Registry stuff [\#646](https://github.com/apache/camel-kafka-connector/issues/646)
 - Bump to Strimzi 0.20.0 and Kafka 2.6.0 [\#641](https://github.com/apache/camel-kafka-connector/issues/641)
 - Add Openshift instrunctions for Telegram examples [\#636](https://github.com/apache/camel-kafka-connector/issues/636)
+- Create example for camel-resteasy-kafka-source-connector [\#565](https://github.com/apache/camel-kafka-connector/issues/565)
 
 **Merged pull requests:**
 
+- Decouple the RabbitMQ client from the service to simplify using the test infra from Camel [\#666](https://github.com/apache/camel-kafka-connector/pull/666) ([orpiske](https://github.com/orpiske))
 - Decouple the MongoDB client from the service to simplify using the test infra from Camel [\#662](https://github.com/apache/camel-kafka-connector/pull/662) ([orpiske](https://github.com/orpiske))
 - Added a dataformat archetype for extending connectors [\#661](https://github.com/apache/camel-kafka-connector/pull/661) ([oscerd](https://github.com/oscerd))
 - Update azure-tests [\#659](https://github.com/apache/camel-kafka-connector/pull/659) ([unsortedhashsets](https://github.com/unsortedhashsets))
