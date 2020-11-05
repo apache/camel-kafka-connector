@@ -25,6 +25,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -33,6 +34,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import javax.annotation.Generated;
 import javax.xml.XMLConstants;
@@ -537,14 +539,10 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
             HashMap<String, Object> templateParams = new HashMap<>();
             templateParams.put("connectorName", StringUtils.capitalize(sanitizedName));
             templateParams.put("connectorClass", packageName + "." + javaClassConnectorName);
-            ArrayList<CamelKafkaConnectorOptionModel> mandatoryOptions = new ArrayList<>();
-            listOptions.stream().filter(o -> o.getPriority().toUpperCase().equals("HIGH")).forEach(o -> mandatoryOptions.add(o));
-            mandatoryOptions.sort((option1, option2) -> {
-                String name1 = option1.getName();
-                String name2 = option2.getName();
-                int res = String.CASE_INSENSITIVE_ORDER.compare(name1, name2);
-                return (res != 0) ? res : name1.compareTo(name2);
-            });
+            List<CamelKafkaConnectorOptionModel> mandatoryOptions = listOptions.stream()
+                    .filter(o -> "HIGH".equalsIgnoreCase(o.getPriority()))
+                    .sorted(Comparator.comparing(CamelKafkaConnectorOptionModel::getName, String.CASE_INSENSITIVE_ORDER))
+                    .collect(Collectors.toList());
             templateParams.put("options", mandatoryOptions);
             String examplePropertiesFileContent = (String)TemplateRuntime.eval(examplesPropertiestemplate, templateParams);
             writeFileIfChanged(examplePropertiesFileContent, new File(connectorDir, "src/main/docs/examples/" + javaClassConnectorName + ".properties"), getLog());
