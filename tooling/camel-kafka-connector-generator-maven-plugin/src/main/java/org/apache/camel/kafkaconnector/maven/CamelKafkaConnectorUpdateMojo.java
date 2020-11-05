@@ -27,7 +27,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -492,47 +491,38 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         String javaClassConnectorFileName = packageName.replaceAll("\\.", "\\/") + "/" + javaClassConnectorName + ".java";
         MavenUtils.writeSourceIfChanged(javaClassConnector, javaClassConnectorFileName, false, connectorDir, rm.getResourceAsFile(javaFilesHeader));
 
-        List<String> convertersList = new ArrayList<String>();
-        List<String> transformsList = new ArrayList<String>();
-        List<String> aggregationStrategiesList = new ArrayList<String>();
+        List<String> convertersList = new ArrayList<>();
+        List<String> transformsList = new ArrayList<>();
+        List<String> aggregationStrategiesList = new ArrayList<>();
         if (connectorDir != null && connectorDir.isDirectory()) {
             File[] files = connectorDir.listFiles();
             if (files != null) {
                 for (int i = 0; i < files.length; i++) {
                     File file = files[i];
                     if (file.isDirectory()) {
-                        Collection convertersElements = FileUtils.listFiles(file, new RegexFileFilter(".*Converter.java"), DirectoryFileFilter.DIRECTORY);
-                        Collection transformElements = FileUtils.listFiles(file, new RegexFileFilter(".*Transforms.java"), DirectoryFileFilter.DIRECTORY);
-                        Collection aggStrategiesElements = FileUtils.listFiles(file, new RegexFileFilter(".*AggregationStrategy.java"), DirectoryFileFilter.DIRECTORY);
-                        if (!convertersElements.isEmpty()) {
-                            for (Iterator iterator = convertersElements.iterator(); iterator.hasNext();) {
-                                File p = (File)iterator.next();
-                                String filePath = p.getCanonicalPath();
-                                String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
-                                String finalElement = StringUtils.replace(f, File.separator, ".");
-                                String finalPath = StringUtils.removeEnd(finalElement, ".java");
-                                convertersList.add(finalPath);
-                            }
+                        Collection<File> convertersElements = FileUtils.listFiles(file, new RegexFileFilter(".*Converter.java"), DirectoryFileFilter.DIRECTORY);
+                        Collection<File> transformElements = FileUtils.listFiles(file, new RegexFileFilter(".*Transforms.java"), DirectoryFileFilter.DIRECTORY);
+                        Collection<File> aggStrategiesElements = FileUtils.listFiles(file, new RegexFileFilter(".*AggregationStrategy.java"), DirectoryFileFilter.DIRECTORY);
+                        for (File p : convertersElements) {
+                            String filePath = p.getCanonicalPath();
+                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                            String finalElement = StringUtils.replace(f, File.separator, ".");
+                            String finalPath = StringUtils.removeEnd(finalElement, ".java");
+                            convertersList.add(finalPath);
                         }
-                        if (!transformElements.isEmpty()) {
-                            for (Iterator iterator = transformElements.iterator(); iterator.hasNext();) {
-                                File p = (File)iterator.next();
-                                String filePath = p.getCanonicalPath();
-                                String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
-                                String finalElement = StringUtils.replace(f, File.separator, ".");
-                                String finalPath = StringUtils.removeEnd(finalElement, ".java");
-                                transformsList.add(finalPath);
-                            }
+                        for (File p : transformElements) {
+                            String filePath = p.getCanonicalPath();
+                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                            String finalElement = StringUtils.replace(f, File.separator, ".");
+                            String finalPath = StringUtils.removeEnd(finalElement, ".java");
+                            transformsList.add(finalPath);
                         }
-                        if (!aggStrategiesElements.isEmpty()) {
-                            for (Iterator iterator = aggStrategiesElements.iterator(); iterator.hasNext();) {
-                                File p = (File)iterator.next();
-                                String filePath = p.getCanonicalPath();
-                                String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
-                                String finalElement = StringUtils.replace(f, File.separator, ".");
-                                String finalPath = StringUtils.removeEnd(finalElement, ".java");
-                                aggregationStrategiesList.add(finalPath);
-                            }
+                        for (File p : aggStrategiesElements) {
+                            String filePath = p.getCanonicalPath();
+                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                            String finalElement = StringUtils.replace(f, File.separator, ".");
+                            String finalPath = StringUtils.removeEnd(finalElement, ".java");
+                            aggregationStrategiesList.add(finalPath);
                         }
                     }
                 }
@@ -551,10 +541,10 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
                 default:
                     break;
             }
-            HashMap<String, Object> templateParams = new HashMap();
+            HashMap<String, Object> templateParams = new HashMap<>();
             templateParams.put("connectorName", StringUtils.capitalize(sanitizedName));
             templateParams.put("connectorClass", packageName + "." + javaClassConnectorName);
-            ArrayList<CamelKafkaConnectorOptionModel> mandatoryOptions = new ArrayList();
+            ArrayList<CamelKafkaConnectorOptionModel> mandatoryOptions = new ArrayList<>();
             listOptions.stream().filter(o -> o.getPriority().toUpperCase().equals("HIGH")).forEach(o -> mandatoryOptions.add(o));
             mandatoryOptions.sort((option1, option2) -> {
                 String name1 = option1.getName();
