@@ -25,7 +25,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -156,8 +155,7 @@ public class CamelKafkaConnectorCatalog {
     
     public CamelKafkaConnectorOptionModel getOptionModel(String connectorName, String optionName) {
         List<CamelKafkaConnectorOptionModel> options = getConnectorsModel().get(connectorName).getOptions();
-        for (Iterator iterator = options.iterator(); iterator.hasNext();) {
-            CamelKafkaConnectorOptionModel camelKafkaConnectorOptionModel = (CamelKafkaConnectorOptionModel)iterator.next();
+        for (CamelKafkaConnectorOptionModel camelKafkaConnectorOptionModel : options) {
             if (camelKafkaConnectorOptionModel.getName().equals(optionName)) {
                 return camelKafkaConnectorOptionModel;
             }
