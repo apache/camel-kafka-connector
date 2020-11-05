@@ -111,7 +111,11 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         LOG.debug("Putting S3 objects");
         for (int i = 0; i < expect; i++) {
             String name = "file" + i + ".test";
-            String file = this.getClass().getResource(name).getFile();
+            LOG.debug("Trying to read file {}", name);
+            URL fileResource = this.getClass().getResource(name);
+            LOG.debug("Found file at {}", fileResource.getPath());
+            String file = fileResource.getFile();
+            LOG.debug("Using file {}", file);
 
             LOG.trace("Putting file {}", file);
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
