@@ -39,6 +39,7 @@ public final class JsonMapperKafkaConnector {
         obj.put("id", model.getTitle() + "-" + model.getType());
         obj.put("type", model.getType());
         obj.put("version", model.getVersion());
+        obj.put("description", model.getDescription());
         JsonObject wrapper = new JsonObject();
         wrapper.put("connector", obj);
         wrapper.put("properties", asJsonObject(model.getOptions()));

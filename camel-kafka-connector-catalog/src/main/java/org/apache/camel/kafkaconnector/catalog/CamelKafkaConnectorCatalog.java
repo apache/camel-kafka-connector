@@ -112,6 +112,7 @@ public class CamelKafkaConnectorCatalog {
         model.setGroupId((String)wrapper.get("groupId"));
         model.setType((String)wrapper.get("type"));
         model.setVersion((String)wrapper.get("version"));
+        model.setDescription((String)wrapper.get("description"));
         model.setOptions(getConnectorOptionModel(obj));
         if (obj.get("aggregationStrategies") != null) {
             model.setAggregationStrategies((List<String>) obj.get("aggregationStrategies"));

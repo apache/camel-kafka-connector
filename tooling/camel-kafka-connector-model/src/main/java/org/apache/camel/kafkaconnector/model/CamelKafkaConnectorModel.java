@@ -29,6 +29,7 @@ public class CamelKafkaConnectorModel {
     private List<String> transforms;
     private List<String> aggregationStrategies;
     private List<CamelKafkaConnectorOptionModel> options;
+    private String componentDescription;
 
     public List<CamelKafkaConnectorOptionModel> getOptions() {
         return options;
@@ -108,5 +109,13 @@ public class CamelKafkaConnectorModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getDescription() {
+        return componentDescription;
+    }
+
+    public void setDescription(String componentDescription) {
+        this.componentDescription = componentDescription;
     }
 }
