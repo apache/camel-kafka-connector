@@ -6,6 +6,9 @@
 
 **Closed issues:**
 
+- Provide description for connector in the catalog [\#672](https://github.com/apache/camel-kafka-connector/issues/672)
+- Add SFTP examples [\#668](https://github.com/apache/camel-kafka-connector/issues/668)
+- Add Simple Language support  [\#667](https://github.com/apache/camel-kafka-connector/issues/667)
 - Add an extensible connector archetype with dataformat [\#660](https://github.com/apache/camel-kafka-connector/issues/660)
 - Create a Camel-exec example [\#649](https://github.com/apache/camel-kafka-connector/issues/649)
 - Provide an archetype with needed bits to use Apicurio Registry stuff [\#646](https://github.com/apache/camel-kafka-connector/issues/646)
@@ -15,6 +18,13 @@
 
 **Merged pull requests:**
 
+- Provide API to retrieve Basic configuration \#679 [\#683](https://github.com/apache/camel-kafka-connector/pull/683) ([apupier](https://github.com/apupier))
+- fix typo [\#680](https://github.com/apache/camel-kafka-connector/pull/680) ([apupier](https://github.com/apupier))
+- Use foreach instead of Iterator to simplify code [\#678](https://github.com/apache/camel-kafka-connector/pull/678) ([apupier](https://github.com/apupier))
+- Avoid mix of stream and non-stream; simplify comparison [\#676](https://github.com/apache/camel-kafka-connector/pull/676) ([apupier](https://github.com/apupier))
+- 672 provide description in catalog [\#675](https://github.com/apache/camel-kafka-connector/pull/675) ([apupier](https://github.com/apupier))
+- Use genericity to simplify code in CamelKafkaConnectorUpdateMojo [\#674](https://github.com/apache/camel-kafka-connector/pull/674) ([apupier](https://github.com/apupier))
+- Remove unused private code [\#673](https://github.com/apache/camel-kafka-connector/pull/673) ([apupier](https://github.com/apupier))
 - Decouple the RabbitMQ client from the service to simplify using the test infra from Camel [\#666](https://github.com/apache/camel-kafka-connector/pull/666) ([orpiske](https://github.com/orpiske))
 - Decouple the MongoDB client from the service to simplify using the test infra from Camel [\#662](https://github.com/apache/camel-kafka-connector/pull/662) ([orpiske](https://github.com/orpiske))
 - Added a dataformat archetype for extending connectors [\#661](https://github.com/apache/camel-kafka-connector/pull/661) ([oscerd](https://github.com/oscerd))
