@@ -184,6 +184,7 @@ public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
         runTest(factory);
     }
 
+    @Disabled("Due to CAMEL-15789")
     @Test
     @Timeout(90)
     public void testBasicSendReceiveUsingUrl() throws Exception {
