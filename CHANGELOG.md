@@ -19,6 +19,7 @@
 **Merged pull requests:**
 
 - Provide API to retrieve Basic configuration \#679 [\#683](https://github.com/apache/camel-kafka-connector/pull/683) ([apupier](https://github.com/apupier))
+- Minor SJMS2 test cleanups [\#681](https://github.com/apache/camel-kafka-connector/pull/681) ([orpiske](https://github.com/orpiske))
 - fix typo [\#680](https://github.com/apache/camel-kafka-connector/pull/680) ([apupier](https://github.com/apupier))
 - Use foreach instead of Iterator to simplify code [\#678](https://github.com/apache/camel-kafka-connector/pull/678) ([apupier](https://github.com/apupier))
 - Avoid mix of stream and non-stream; simplify comparison [\#676](https://github.com/apache/camel-kafka-connector/pull/676) ([apupier](https://github.com/apupier))
