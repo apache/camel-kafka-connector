@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.azurestorageblob.CamelAzurestora
 ----
 
 
-The camel-azure-storage-blob source connector supports 39 options, which are listed below.
+The camel-azure-storage-blob source connector supports 41 options, which are listed below.
 
 
 
@@ -43,6 +43,7 @@ The camel-azure-storage-blob source connector supports 39 options, which are lis
 | *camel.source.endpoint.maxResultsPerPage* | Specifies the maximum number of blobs to return, including all BlobPrefix elements. If the request does not specify maxResultsPerPage or specifies a value greater than 5,000, the server will return up to 5,000 items. | null | false | MEDIUM
 | *camel.source.endpoint.maxRetryRequests* | Specifies the maximum number of additional HTTP Get requests that will be made while reading the data from a response body. | 0 | false | MEDIUM
 | *camel.source.endpoint.prefix* | Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs. | null | false | MEDIUM
+| *camel.source.endpoint.regex* | Filters the results to return only blobs whose names match the specified regular expression. May be null to return all if both prefix and regex are set, regex takes the priority and prefix is ignored. | null | false | MEDIUM
 | *camel.source.endpoint.serviceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String). | null | false | MEDIUM
 | *camel.source.endpoint.timeout* | An optional timeout value beyond which a RuntimeException will be raised. | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
@@ -63,6 +64,7 @@ The camel-azure-storage-blob source connector supports 39 options, which are lis
 | *camel.component.azure-storage-blob.maxResultsPer Page* | Specifies the maximum number of blobs to return, including all BlobPrefix elements. If the request does not specify maxResultsPerPage or specifies a value greater than 5,000, the server will return up to 5,000 items. | null | false | MEDIUM
 | *camel.component.azure-storage-blob.maxRetry Requests* | Specifies the maximum number of additional HTTP Get requests that will be made while reading the data from a response body. | 0 | false | MEDIUM
 | *camel.component.azure-storage-blob.prefix* | Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs. | null | false | MEDIUM
+| *camel.component.azure-storage-blob.regex* | Filters the results to return only blobs whose names match the specified regular expression. May be null to return all if both prefix and regex are set, regex takes the priority and prefix is ignored. | null | false | MEDIUM
 | *camel.component.azure-storage-blob.serviceClient* | Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String). | null | false | MEDIUM
 | *camel.component.azure-storage-blob.timeout* | An optional timeout value beyond which a RuntimeException will be raised. | null | false | MEDIUM
 | *camel.component.azure-storage-blob.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM

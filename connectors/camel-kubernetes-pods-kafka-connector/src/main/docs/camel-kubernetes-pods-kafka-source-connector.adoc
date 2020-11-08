@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.kubernetespods.CamelKubernetespo
 ----
 
 
-The camel-kubernetes-pods source connector supports 31 options, which are listed below.
+The camel-kubernetes-pods source connector supports 36 options, which are listed below.
 
 
 
@@ -36,6 +36,11 @@ The camel-kubernetes-pods source connector supports 31 options, which are listed
 | *camel.source.endpoint.portName* | The port name, used for ServiceCall EIP | null | false | MEDIUM
 | *camel.source.endpoint.portProtocol* | The port protocol, used for ServiceCall EIP | "tcp" | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
+| *camel.source.endpoint.crdGroup* | The Consumer CRD Resource Group we would like to watch | null | false | MEDIUM
+| *camel.source.endpoint.crdName* | The Consumer CRD Resource name we would like to watch | null | false | MEDIUM
+| *camel.source.endpoint.crdPlural* | The Consumer CRD Resource Plural we would like to watch | null | false | MEDIUM
+| *camel.source.endpoint.crdScope* | The Consumer CRD Resource Scope we would like to watch | null | false | MEDIUM
+| *camel.source.endpoint.crdVersion* | The Consumer CRD Resource Version we would like to watch | null | false | MEDIUM
 | *camel.source.endpoint.labelKey* | The Consumer Label key when watching at some resources | null | false | MEDIUM
 | *camel.source.endpoint.labelValue* | The Consumer Label value when watching at some resources | null | false | MEDIUM
 | *camel.source.endpoint.namespace* | The namespace | null | false | MEDIUM
