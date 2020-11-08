@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.git.CamelGitSourceConnector
 ----
 
 
-The camel-git source connector supports 15 options, which are listed below.
+The camel-git source connector supports 10 options, which are listed below.
 
 
 
@@ -31,11 +31,6 @@ The camel-git source connector supports 15 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.source.path.localPath* | Local repository path | null | true | HIGH
 | *camel.source.endpoint.branchName* | The branch name to work on | null | false | MEDIUM
-| *camel.source.endpoint.password* | Remote repository password | null | false | MEDIUM
-| *camel.source.endpoint.remoteName* | The remote repository name to use in particular operation like pull | null | false | MEDIUM
-| *camel.source.endpoint.remotePath* | The remote repository path | null | false | MEDIUM
-| *camel.source.endpoint.tagName* | The tag name to work on | null | false | MEDIUM
-| *camel.source.endpoint.username* | Remote repository username | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.type* | The consumer type One of: [commit] [tag] [branch] | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.grpc.CamelGrpcSinkConnector
 ----
 
 
-The camel-grpc sink connector supports 25 options, which are listed below.
+The camel-grpc sink connector supports 26 options, which are listed below.
 
 
 
@@ -32,6 +32,7 @@ The camel-grpc sink connector supports 25 options, which are listed below.
 | *camel.sink.path.host* | The gRPC server host name. This is localhost or 0.0.0.0 when being a consumer or remote server host name when using producer. | null | true | HIGH
 | *camel.sink.path.port* | The gRPC local or remote server port | null | true | HIGH
 | *camel.sink.path.service* | Fully qualified service name from the protocol buffer descriptor file (package dot service definition name) | null | true | HIGH
+| *camel.sink.endpoint.autoDiscoverClientInterceptors* | Setting the autoDiscoverClientInterceptors mechanism, if true, the component will look for a ClientInterceptor instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.sink.endpoint.flowControlWindow* | The HTTP/2 flow control window size (MiB) | 1048576 | false | MEDIUM
 | *camel.sink.endpoint.maxMessageSize* | The maximum message size allowed to be received/sent (MiB) | 4194304 | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM

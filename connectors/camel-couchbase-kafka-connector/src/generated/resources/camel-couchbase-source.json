@@ -31,8 +31,8 @@
 		"camel.source.endpoint.bucket": {
 			"name": "camel.source.endpoint.bucket",
 			"description": "The bucket to use",
-			"priority": "MEDIUM",
-			"required": "false"
+			"priority": "HIGH",
+			"required": "true"
 		},
 		"camel.source.endpoint.collection": {
 			"name": "camel.source.endpoint.collection",

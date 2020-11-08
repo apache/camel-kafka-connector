@@ -81,6 +81,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.useIAMCredentials": {
+			"name": "camel.source.endpoint.useIAMCredentials",
+			"description": "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.attributeNames": {
 			"name": "camel.source.endpoint.attributeNames",
 			"description": "A list of attribute names to receive when consuming. Multiple names can be separated by comma.",
@@ -432,6 +439,13 @@
 		"camel.component.aws2-sqs.trustAllCertificates": {
 			"name": "camel.component.aws2-sqs.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sqs.useIAMCredentials": {
+			"name": "camel.component.aws2-sqs.useIAMCredentials",
+			"description": "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
