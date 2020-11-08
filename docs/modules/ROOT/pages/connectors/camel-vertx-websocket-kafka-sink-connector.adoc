@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.vertxwebsocket.CamelVertxwebsock
 ----
 
 
-The camel-vertx-websocket sink connector supports 15 options, which are listed below.
+The camel-vertx-websocket sink connector supports 16 options, which are listed below.
 
 
 
@@ -33,6 +33,7 @@ The camel-vertx-websocket sink connector supports 15 options, which are listed b
 | *camel.sink.path.port* | The port that the consumer should bind to or port of the remote websocket destination that the producer should connect to | 0 | false | MEDIUM
 | *camel.sink.path.path* | The path that the consumer should bind to or path of the remote websocket destination that the producer should connect to | "/" | true | HIGH
 | *camel.sink.endpoint.clientOptions* | Sets customized options for configuring the WebSocket client used in the producer | null | false | MEDIUM
+| *camel.sink.endpoint.clientSubProtocols* | Comma separated list of WebSocket subprotocols that the client should use for the Sec-WebSocket-Protocol header | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.sendToAll* | To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the VertxWebsocketConstants.SEND_TO_ALL header on the message. | false | false | MEDIUM
 | *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM

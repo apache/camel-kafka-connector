@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2sqs.CamelAws2sqsSinkConnecto
 ----
 
 
-The camel-aws2-sqs sink connector supports 56 options, which are listed below.
+The camel-aws2-sqs sink connector supports 58 options, which are listed below.
 
 
 
@@ -40,6 +40,7 @@ The camel-aws2-sqs sink connector supports 56 options, which are listed below.
 | *camel.sink.endpoint.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
 | *camel.sink.endpoint.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.sink.endpoint.useIAMCredentials* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.sink.endpoint.delaySeconds* | Delay sending messages for a number of seconds. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.messageDeduplicationIdStrategy* | Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication] | "useExchangeId" | false | MEDIUM
@@ -68,6 +69,7 @@ The camel-aws2-sqs sink connector supports 56 options, which are listed below.
 | *camel.component.aws2-sqs.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
 | *camel.component.aws2-sqs.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-sqs.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.component.aws2-sqs.useIAMCredentials* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-sqs.delaySeconds* | Delay sending messages for a number of seconds. | null | false | MEDIUM
 | *camel.component.aws2-sqs.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.aws2-sqs.messageDeduplicationId Strategy* | Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication] | "useExchangeId" | false | MEDIUM

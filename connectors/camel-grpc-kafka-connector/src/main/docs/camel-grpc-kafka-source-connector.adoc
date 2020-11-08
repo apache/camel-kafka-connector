@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.grpc.CamelGrpcSourceConnector
 ----
 
 
-The camel-grpc source connector supports 27 options, which are listed below.
+The camel-grpc source connector supports 29 options, which are listed below.
 
 
 
@@ -32,6 +32,7 @@ The camel-grpc source connector supports 27 options, which are listed below.
 | *camel.source.path.host* | The gRPC server host name. This is localhost or 0.0.0.0 when being a consumer or remote server host name when using producer. | null | true | HIGH
 | *camel.source.path.port* | The gRPC local or remote server port | null | true | HIGH
 | *camel.source.path.service* | Fully qualified service name from the protocol buffer descriptor file (package dot service definition name) | null | true | HIGH
+| *camel.source.endpoint.autoDiscoverClient Interceptors* | Setting the autoDiscoverClientInterceptors mechanism, if true, the component will look for a ClientInterceptor instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.source.endpoint.flowControlWindow* | The HTTP/2 flow control window size (MiB) | 1048576 | false | MEDIUM
 | *camel.source.endpoint.maxMessageSize* | The maximum message size allowed to be received/sent (MiB) | 4194304 | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
@@ -39,6 +40,7 @@ The camel-grpc source connector supports 27 options, which are listed below.
 | *camel.source.endpoint.forwardOnCompleted* | Determines if onCompleted events should be pushed to the Camel route. | false | false | MEDIUM
 | *camel.source.endpoint.forwardOnError* | Determines if onError events should be pushed to the Camel route. Exceptions will be set as message body. | false | false | MEDIUM
 | *camel.source.endpoint.maxConcurrentCallsPer Connection* | The maximum number of concurrent calls permitted for each incoming server connection | 2147483647 | false | MEDIUM
+| *camel.source.endpoint.routeControlledStream Observer* | Lets the route to take control over stream observer. If this value is set to true, then the response observer of gRPC call will be set with the name GrpcConstants.GRPC_RESPONSE_OBSERVER in the Exchange object. Please note that the stream observer's onNext(), onError(), onCompleted() methods should be called in the route. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM

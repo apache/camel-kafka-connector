@@ -33,6 +33,9 @@ public class CamelGrpcSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_GRPC_PATH_SERVICE_CONF = "camel.sink.path.service";
     public static final String CAMEL_SINK_GRPC_PATH_SERVICE_DOC = "Fully qualified service name from the protocol buffer descriptor file (package dot service definition name)";
     public static final String CAMEL_SINK_GRPC_PATH_SERVICE_DEFAULT = null;
+    public static final String CAMEL_SINK_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_CONF = "camel.sink.endpoint.autoDiscoverClientInterceptors";
+    public static final String CAMEL_SINK_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_DOC = "Setting the autoDiscoverClientInterceptors mechanism, if true, the component will look for a ClientInterceptor instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SINK_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_DEFAULT = true;
     public static final String CAMEL_SINK_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_CONF = "camel.sink.endpoint.flowControlWindow";
     public static final String CAMEL_SINK_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_DOC = "The HTTP/2 flow control window size (MiB)";
     public static final Integer CAMEL_SINK_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_DEFAULT = 1048576;
@@ -115,6 +118,7 @@ public class CamelGrpcSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_GRPC_PATH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRPC_PATH_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GRPC_PATH_HOST_DOC);
         conf.define(CAMEL_SINK_GRPC_PATH_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_GRPC_PATH_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GRPC_PATH_PORT_DOC);
         conf.define(CAMEL_SINK_GRPC_PATH_SERVICE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRPC_PATH_SERVICE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_GRPC_PATH_SERVICE_DOC);
+        conf.define(CAMEL_SINK_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_DOC);
         conf.define(CAMEL_SINK_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_CONF, ConfigDef.Type.INT, CAMEL_SINK_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_DOC);
         conf.define(CAMEL_SINK_GRPC_ENDPOINT_MAX_MESSAGE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_GRPC_ENDPOINT_MAX_MESSAGE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRPC_ENDPOINT_MAX_MESSAGE_SIZE_DOC);
         conf.define(CAMEL_SINK_GRPC_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GRPC_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRPC_ENDPOINT_LAZY_START_PRODUCER_DOC);

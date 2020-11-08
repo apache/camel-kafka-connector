@@ -53,6 +53,36 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.crdGroup": {
+			"name": "camel.source.endpoint.crdGroup",
+			"description": "The Consumer CRD Resource Group we would like to watch",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.crdName": {
+			"name": "camel.source.endpoint.crdName",
+			"description": "The Consumer CRD Resource name we would like to watch",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.crdPlural": {
+			"name": "camel.source.endpoint.crdPlural",
+			"description": "The Consumer CRD Resource Plural we would like to watch",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.crdScope": {
+			"name": "camel.source.endpoint.crdScope",
+			"description": "The Consumer CRD Resource Scope we would like to watch",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.crdVersion": {
+			"name": "camel.source.endpoint.crdVersion",
+			"description": "The Consumer CRD Resource Version we would like to watch",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.labelKey": {
 			"name": "camel.source.endpoint.labelKey",
 			"description": "The Consumer Label key when watching at some resources",

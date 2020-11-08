@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.pulsar.CamelPulsarSourceConnecto
 ----
 
 
-The camel-pulsar source connector supports 45 options, which are listed below.
+The camel-pulsar source connector supports 47 options, which are listed below.
 
 
 
@@ -44,6 +44,7 @@ The camel-pulsar source connector supports 45 options, which are listed below.
 | *camel.source.endpoint.maxRedeliverCount* | Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created | null | false | MEDIUM
 | *camel.source.endpoint.negativeAckRedeliveryDelay Micros* | Set the negative acknowledgement delay | 60000000L | false | MEDIUM
 | *camel.source.endpoint.numberOfConsumers* | Number of consumers - defaults to 1 | 1 | false | MEDIUM
+| *camel.source.endpoint.readCompacted* | Enable compacted topic reading. | false | false | MEDIUM
 | *camel.source.endpoint.subscriptionInitialPosition* | Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST] | "LATEST" | false | MEDIUM
 | *camel.source.endpoint.subscriptionName* | Name of the subscription to use | "subs" | false | MEDIUM
 | *camel.source.endpoint.subscriptionTopicsMode* | Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions. One of: [PersistentOnly] [NonPersistentOnly] [AllTopics] | "PersistentOnly" | false | MEDIUM
@@ -65,6 +66,7 @@ The camel-pulsar source connector supports 45 options, which are listed below.
 | *camel.component.pulsar.maxRedeliverCount* | Maximum number of times that a message will be redelivered before being sent to the dead letter queue. If this value is not set, no Dead Letter Policy will be created | null | false | MEDIUM
 | *camel.component.pulsar.negativeAckRedeliveryDelay Micros* | Set the negative acknowledgement delay | 60000000L | false | MEDIUM
 | *camel.component.pulsar.numberOfConsumers* | Number of consumers - defaults to 1 | 1 | false | MEDIUM
+| *camel.component.pulsar.readCompacted* | Enable compacted topic reading. | false | false | MEDIUM
 | *camel.component.pulsar.subscriptionInitialPosition* | Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST] | "LATEST" | false | MEDIUM
 | *camel.component.pulsar.subscriptionName* | Name of the subscription to use | "subs" | false | MEDIUM
 | *camel.component.pulsar.subscriptionTopicsMode* | Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions. One of: [PersistentOnly] [NonPersistentOnly] [AllTopics] | "PersistentOnly" | false | MEDIUM

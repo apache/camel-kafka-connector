@@ -27,6 +27,13 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.sink.endpoint.autoDiscoverClientInterceptors": {
+			"name": "camel.sink.endpoint.autoDiscoverClientInterceptors",
+			"description": "Setting the autoDiscoverClientInterceptors mechanism, if true, the component will look for a ClientInterceptor instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.flowControlWindow": {
 			"name": "camel.sink.endpoint.flowControlWindow",
 			"description": "The HTTP\/2 flow control window size (MiB)",
