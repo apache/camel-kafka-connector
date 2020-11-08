@@ -38,6 +38,9 @@ public class CamelVertxwebsocketSinkConnectorConfig
     public static final String CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_OPTIONS_CONF = "camel.sink.endpoint.clientOptions";
     public static final String CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_OPTIONS_DOC = "Sets customized options for configuring the WebSocket client used in the producer";
     public static final String CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_OPTIONS_DEFAULT = null;
+    public static final String CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_SUB_PROTOCOLS_CONF = "camel.sink.endpoint.clientSubProtocols";
+    public static final String CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_SUB_PROTOCOLS_DOC = "Comma separated list of WebSocket subprotocols that the client should use for the Sec-WebSocket-Protocol header";
+    public static final String CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_SUB_PROTOCOLS_DEFAULT = null;
     public static final String CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -89,6 +92,7 @@ public class CamelVertxwebsocketSinkConnectorConfig
         conf.define(CAMEL_SINK_VERTXWEBSOCKET_PATH_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_VERTXWEBSOCKET_PATH_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXWEBSOCKET_PATH_PORT_DOC);
         conf.define(CAMEL_SINK_VERTXWEBSOCKET_PATH_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXWEBSOCKET_PATH_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_VERTXWEBSOCKET_PATH_PATH_DOC);
         conf.define(CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_OPTIONS_DOC);
+        conf.define(CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_SUB_PROTOCOLS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_SUB_PROTOCOLS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_CLIENT_SUB_PROTOCOLS_DOC);
         conf.define(CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_SEND_TO_ALL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_SEND_TO_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_SEND_TO_ALL_DOC);
         conf.define(CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXWEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);

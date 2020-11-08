@@ -21,36 +21,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.password": {
-			"name": "camel.source.endpoint.password",
-			"description": "Remote repository password",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.remoteName": {
-			"name": "camel.source.endpoint.remoteName",
-			"description": "The remote repository name to use in particular operation like pull",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.remotePath": {
-			"name": "camel.source.endpoint.remotePath",
-			"description": "The remote repository path",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.tagName": {
-			"name": "camel.source.endpoint.tagName",
-			"description": "The tag name to work on",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.username": {
-			"name": "camel.source.endpoint.username",
-			"description": "Remote repository username",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",

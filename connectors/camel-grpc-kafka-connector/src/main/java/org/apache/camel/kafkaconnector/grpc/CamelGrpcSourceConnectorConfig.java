@@ -35,6 +35,9 @@ public class CamelGrpcSourceConnectorConfig
     public static final String CAMEL_SOURCE_GRPC_PATH_SERVICE_CONF = "camel.source.path.service";
     public static final String CAMEL_SOURCE_GRPC_PATH_SERVICE_DOC = "Fully qualified service name from the protocol buffer descriptor file (package dot service definition name)";
     public static final String CAMEL_SOURCE_GRPC_PATH_SERVICE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_CONF = "camel.source.endpoint.autoDiscoverClientInterceptors";
+    public static final String CAMEL_SOURCE_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_DOC = "Setting the autoDiscoverClientInterceptors mechanism, if true, the component will look for a ClientInterceptor instance in the registry automatically otherwise it will skip that checking.";
+    public static final Boolean CAMEL_SOURCE_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_DEFAULT = true;
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_CONF = "camel.source.endpoint.flowControlWindow";
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_DOC = "The HTTP/2 flow control window size (MiB)";
     public static final Integer CAMEL_SOURCE_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_DEFAULT = 1048576;
@@ -56,6 +59,9 @@ public class CamelGrpcSourceConnectorConfig
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_MAX_CONCURRENT_CALLS_PER_CONNECTION_CONF = "camel.source.endpoint.maxConcurrentCallsPerConnection";
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_MAX_CONCURRENT_CALLS_PER_CONNECTION_DOC = "The maximum number of concurrent calls permitted for each incoming server connection";
     public static final Integer CAMEL_SOURCE_GRPC_ENDPOINT_MAX_CONCURRENT_CALLS_PER_CONNECTION_DEFAULT = 2147483647;
+    public static final String CAMEL_SOURCE_GRPC_ENDPOINT_ROUTE_CONTROLLED_STREAM_OBSERVER_CONF = "camel.source.endpoint.routeControlledStreamObserver";
+    public static final String CAMEL_SOURCE_GRPC_ENDPOINT_ROUTE_CONTROLLED_STREAM_OBSERVER_DOC = "Lets the route to take control over stream observer. If this value is set to true, then the response observer of gRPC call will be set with the name GrpcConstants.GRPC_RESPONSE_OBSERVER in the Exchange object. Please note that the stream observer's onNext(), onError(), onCompleted() methods should be called in the route.";
+    public static final Boolean CAMEL_SOURCE_GRPC_ENDPOINT_ROUTE_CONTROLLED_STREAM_OBSERVER_DEFAULT = false;
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_EXCEPTION_HANDLER_DEFAULT = null;
@@ -123,6 +129,7 @@ public class CamelGrpcSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GRPC_PATH_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GRPC_PATH_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GRPC_PATH_HOST_DOC);
         conf.define(CAMEL_SOURCE_GRPC_PATH_PORT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GRPC_PATH_PORT_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GRPC_PATH_PORT_DOC);
         conf.define(CAMEL_SOURCE_GRPC_PATH_SERVICE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GRPC_PATH_SERVICE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GRPC_PATH_SERVICE_DOC);
+        conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_AUTO_DISCOVER_CLIENT_INTERCEPTORS_DOC);
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_FLOW_CONTROL_WINDOW_DOC);
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_MAX_MESSAGE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GRPC_ENDPOINT_MAX_MESSAGE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_MAX_MESSAGE_SIZE_DOC);
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GRPC_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
@@ -130,6 +137,7 @@ public class CamelGrpcSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_FORWARD_ON_COMPLETED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GRPC_ENDPOINT_FORWARD_ON_COMPLETED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_FORWARD_ON_COMPLETED_DOC);
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_FORWARD_ON_ERROR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GRPC_ENDPOINT_FORWARD_ON_ERROR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_FORWARD_ON_ERROR_DOC);
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_MAX_CONCURRENT_CALLS_PER_CONNECTION_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GRPC_ENDPOINT_MAX_CONCURRENT_CALLS_PER_CONNECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_MAX_CONCURRENT_CALLS_PER_CONNECTION_DOC);
+        conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_ROUTE_CONTROLLED_STREAM_OBSERVER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GRPC_ENDPOINT_ROUTE_CONTROLLED_STREAM_OBSERVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_ROUTE_CONTROLLED_STREAM_OBSERVER_DOC);
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GRPC_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GRPC_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_GRPC_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GRPC_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GRPC_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);

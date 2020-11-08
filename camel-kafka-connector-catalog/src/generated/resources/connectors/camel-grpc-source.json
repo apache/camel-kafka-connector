@@ -27,6 +27,13 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.source.endpoint.autoDiscoverClientInterceptors": {
+			"name": "camel.source.endpoint.autoDiscoverClientInterceptors",
+			"description": "Setting the autoDiscoverClientInterceptors mechanism, if true, the component will look for a ClientInterceptor instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.flowControlWindow": {
 			"name": "camel.source.endpoint.flowControlWindow",
 			"description": "The HTTP\/2 flow control window size (MiB)",
@@ -73,6 +80,13 @@
 			"name": "camel.source.endpoint.maxConcurrentCallsPerConnection",
 			"description": "The maximum number of concurrent calls permitted for each incoming server connection",
 			"defaultValue": "2147483647",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.routeControlledStreamObserver": {
+			"name": "camel.source.endpoint.routeControlledStreamObserver",
+			"description": "Lets the route to take control over stream observer. If this value is set to true, then the response observer of gRPC call will be set with the name GrpcConstants.GRPC_RESPONSE_OBSERVER in the Exchange object. Please note that the stream observer's onNext(), onError(), onCompleted() methods should be called in the route.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

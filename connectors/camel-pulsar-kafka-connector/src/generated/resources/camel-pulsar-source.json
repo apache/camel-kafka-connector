@@ -108,6 +108,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.readCompacted": {
+			"name": "camel.source.endpoint.readCompacted",
+			"description": "Enable compacted topic reading.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.subscriptionInitialPosition": {
 			"name": "camel.source.endpoint.subscriptionInitialPosition",
 			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST]",
@@ -247,6 +254,13 @@
 			"name": "camel.component.pulsar.numberOfConsumers",
 			"description": "Number of consumers - defaults to 1",
 			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.pulsar.readCompacted": {
+			"name": "camel.component.pulsar.readCompacted",
+			"description": "Enable compacted topic reading.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
