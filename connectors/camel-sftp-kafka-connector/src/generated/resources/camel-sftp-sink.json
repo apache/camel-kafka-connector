@@ -392,5 +392,8 @@
 			"priority": "LOW",
 			"required": "false"
 		}
-	}
+	},
+	"transforms": [
+		"org.apache.camel.kafkaconnector.sftp.transformers.SftpRemoteFileTransforms"
+	]
 }
