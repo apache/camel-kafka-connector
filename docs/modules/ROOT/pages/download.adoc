@@ -1,0 +1,10 @@
+[[CamelKafkaConnectorDownload-CamelKafkaConnectorDownload]]
+= Camel-Kafka-Connector Download page
+
+In this page we list the camel-kafka-connector source distribution and provide link to donwload them.
+
+[width="100%",cols="50%,10%,10%,30%",options="header",]
+|=======================================================================
+|Camel-Kafka-Connector Version |Download Link     |PGP Signature file of download |SHA1 Checksum file of download  
+|0.6.0                         |https://repository.apache.org/content/groups/public/org/apache/camel/kafkaconnector/apache-camel-kafka-connector-distribution/0.6.0/apache-camel-kafka-connector-distribution-0.6.0-source-release.zip[apache-camel-kafka-connector-distribution-0.6.0-src.zip]             |https://repository.apache.org/content/groups/public/org/apache/camel/kafkaconnector/apache-camel-kafka-connector-distribution/0.6.0/apache-camel-kafka-connector-distribution-0.6.0-source-release.zip.asc[apache-camel-kafka-connector-distribution-0.6.0-src.zip.asc] |https://repository.apache.org/content/groups/public/org/apache/camel/kafkaconnector/apache-camel-kafka-connector-distribution/0.6.0/apache-camel-kafka-connector-distribution-0.6.0-source-release.zip.sha1[apache-camel-kafka-connector-distribution-0.6.0-src.zip.sha1]
+|=======================================================================
