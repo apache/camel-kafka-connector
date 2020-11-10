@@ -6,9 +6,13 @@
 
 **Closed issues:**
 
+- Create Google Calendar Stream Source Example [\#695](https://github.com/apache/camel-kafka-connector/issues/695)
+- Provide API in Camel Connector Catalog to retrieve Camel Kafka Basic configuration [\#679](https://github.com/apache/camel-kafka-connector/issues/679)
 - Provide description for connector in the catalog [\#672](https://github.com/apache/camel-kafka-connector/issues/672)
+- Add RemoteFileTransforms to the connector directly [\#670](https://github.com/apache/camel-kafka-connector/issues/670)
 - Add SFTP examples [\#668](https://github.com/apache/camel-kafka-connector/issues/668)
 - Add Simple Language support  [\#667](https://github.com/apache/camel-kafka-connector/issues/667)
+- Create example for camel-pgevent connector [\#664](https://github.com/apache/camel-kafka-connector/issues/664)
 - Add an extensible connector archetype with dataformat [\#660](https://github.com/apache/camel-kafka-connector/issues/660)
 - Create a Camel-exec example [\#649](https://github.com/apache/camel-kafka-connector/issues/649)
 - Provide an archetype with needed bits to use Apicurio Registry stuff [\#646](https://github.com/apache/camel-kafka-connector/issues/646)
@@ -18,6 +22,11 @@
 
 **Merged pull requests:**
 
+- Added Download page [\#691](https://github.com/apache/camel-kafka-connector/pull/691) ([oscerd](https://github.com/oscerd))
+- SFTP connector: add RemoteFileTransform [\#690](https://github.com/apache/camel-kafka-connector/pull/690) ([oscerd](https://github.com/oscerd))
+- Remove hacktoberfest from label list [\#689](https://github.com/apache/camel-kafka-connector/pull/689) ([oscerd](https://github.com/oscerd))
+- Added PojoToSchemaAndStructTransform to infer POJO kafka connec schem… [\#686](https://github.com/apache/camel-kafka-connector/pull/686) ([valdar](https://github.com/valdar))
+- AWS v2 tests tweaks [\#684](https://github.com/apache/camel-kafka-connector/pull/684) ([orpiske](https://github.com/orpiske))
 - Provide API to retrieve Basic configuration \#679 [\#683](https://github.com/apache/camel-kafka-connector/pull/683) ([apupier](https://github.com/apupier))
 - Minor SJMS2 test cleanups [\#681](https://github.com/apache/camel-kafka-connector/pull/681) ([orpiske](https://github.com/orpiske))
 - fix typo [\#680](https://github.com/apache/camel-kafka-connector/pull/680) ([apupier](https://github.com/apupier))
