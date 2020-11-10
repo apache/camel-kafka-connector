@@ -17,7 +17,6 @@
 package org.apache.camel.kafkaconnector.catalog;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -60,8 +59,7 @@ public class CamelKafkaConnectorCatalog {
     }
 
     private void initCatalog() {
-        try (InputStream input = CamelKafkaConnectorCatalog.class.getResourceAsStream(File.separator + DESCRIPTORS_DIR + File.separator + CONNECTORS_PROPERTIES)) {
-
+        try (InputStream input = CamelKafkaConnectorCatalog.class.getResourceAsStream("/" + DESCRIPTORS_DIR + "/" + CONNECTORS_PROPERTIES)) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
             while (reader.ready()) {
@@ -87,7 +85,7 @@ public class CamelKafkaConnectorCatalog {
 
     private String loadConnectorAsJsonFromEmbeddedCatalog(String connectorName) {
         String result = null;
-        try (InputStream connectorModelInputSream = CamelKafkaConnectorCatalog.class.getResourceAsStream(File.separator + CONNECTORS_DIR + File.separator + connectorName + ".json")) {
+        try (InputStream connectorModelInputSream = CamelKafkaConnectorCatalog.class.getResourceAsStream("/" + CONNECTORS_DIR + "/" + connectorName + ".json")) {
             result = new BufferedReader(new InputStreamReader(connectorModelInputSream, StandardCharsets.UTF_8))
                 .lines()
                 .map(String::trim) // to change line
