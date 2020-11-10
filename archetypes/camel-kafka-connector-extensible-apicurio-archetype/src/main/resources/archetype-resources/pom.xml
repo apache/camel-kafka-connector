@@ -70,11 +70,6 @@
       <version>${resteasy.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.apicurio</groupId>
-      <artifactId>apicurio-registry-utils-converter</artifactId>
-      <version>${apicurio.registry.version}</version>
-    </dependency>
-    <dependency>
        <groupId>io.apicurio</groupId>
        <artifactId>apicurio-registry-rest-client</artifactId>
        <version>${apicurio.registry.version}</version>
