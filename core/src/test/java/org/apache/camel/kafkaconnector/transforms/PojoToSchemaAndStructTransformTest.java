@@ -19,16 +19,19 @@ package org.apache.camel.kafkaconnector.transforms;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.component.slack.helper.SlackMessage;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.Struct;
+import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PojoToSchemaAndStructTransformTest {
@@ -69,9 +72,15 @@ public class PojoToSchemaAndStructTransformTest {
         assertEquals(Schema.Type.STRUCT, transformedSchema.type());
         assertEquals(Schema.Type.ARRAY, transformedSchema.field("attachments").schema().type());
         assertEquals(Schema.STRING_SCHEMA.type(), transformedSchema.field("attachments").schema().valueSchema().field("title").schema().type());
+
         assertEquals(Struct.class, transformedCr.value().getClass());
         Struct transformedValue = (Struct)transformedCr.value();
         assertTrue(ArrayList.class.isAssignableFrom(transformedValue.get("attachments").getClass()));
+        List actualAttachments = (ArrayList)transformedValue.get("attachments");
+        assertEquals(2, actualAttachments.size());
+        assertEquals(Struct.class, actualAttachments.get(0).getClass());
+        atLeastOneFieldWithGivenValueExists(actualAttachments, "authorName", "Andrea");
+        atLeastOneFieldWithGivenValueExists(actualAttachments, "color", "green");
     }
 
     @Test
@@ -94,9 +103,34 @@ public class PojoToSchemaAndStructTransformTest {
         Schema transformedSchema = transformedCr.valueSchema();
         assertEquals(Schema.Type.STRUCT, transformedSchema.type());
         assertEquals(Schema.Type.MAP, transformedSchema.field("map").schema().type());
+
         assertEquals(Struct.class, transformedCr.value().getClass());
         Struct transformedValue = (Struct)transformedCr.value();
         assertTrue(Map.class.isAssignableFrom(transformedValue.get("map").getClass()));
+        assertTrue(((Map)transformedValue.get("map")).keySet().contains("ciao"));
+        assertTrue(((Map)transformedValue.get("map")).values().contains(9));
+    }
+
+    @Test()
+    public void testNotPojoConversion() {
+        PojoToSchemaAndStructTransform pojoToSchemaAndStructTransform = new PojoToSchemaAndStructTransform();
+        pojoToSchemaAndStructTransform.configure(Collections.emptyMap());
+
+        Map map = Collections.singletonMap("ciao", 9);
+
+        ConnectRecord cr = new SourceRecord(null, null, "testTopic",
+                Schema.STRING_SCHEMA, "testKeyValue",
+                Schema.BYTES_SCHEMA, map);
+
+        assertThrows(ConnectException.class, () -> {pojoToSchemaAndStructTransform.apply(cr);});
+    }
+
+    private void atLeastOneFieldWithGivenValueExists(List structs, String fieldName, String fieldExpectedValue) {
+        structs.stream().filter(
+                struct -> ((Struct) struct).getString(fieldName) == null ? false : true
+        ).forEach(
+                struct -> assertEquals(fieldExpectedValue, ((Struct) struct).getString(fieldName))
+        );
     }
 
     public class PojoWithMap {
