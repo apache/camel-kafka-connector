@@ -4,12 +4,19 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.0...HEAD)
 
+**Implemented enhancements:**
+
+- Review Archetype generation after new dependencies added to core [\#693](https://github.com/apache/camel-kafka-connector/issues/693)
+
 **Closed issues:**
 
+- Camel Kafka Connector Catalog throws NPE on Windows [\#697](https://github.com/apache/camel-kafka-connector/issues/697)
+- Create Camel Google Mail Stream Source example [\#696](https://github.com/apache/camel-kafka-connector/issues/696)
 - Create Google Calendar Stream Source Example [\#695](https://github.com/apache/camel-kafka-connector/issues/695)
 - Provide API in Camel Connector Catalog to retrieve Camel Kafka Basic configuration [\#679](https://github.com/apache/camel-kafka-connector/issues/679)
 - Provide description for connector in the catalog [\#672](https://github.com/apache/camel-kafka-connector/issues/672)
 - Add RemoteFileTransforms to the connector directly [\#670](https://github.com/apache/camel-kafka-connector/issues/670)
+- Added Git connector examples [\#669](https://github.com/apache/camel-kafka-connector/issues/669)
 - Add SFTP examples [\#668](https://github.com/apache/camel-kafka-connector/issues/668)
 - Add Simple Language support  [\#667](https://github.com/apache/camel-kafka-connector/issues/667)
 - Create example for camel-pgevent connector [\#664](https://github.com/apache/camel-kafka-connector/issues/664)
@@ -17,11 +24,17 @@
 - Create a Camel-exec example [\#649](https://github.com/apache/camel-kafka-connector/issues/649)
 - Provide an archetype with needed bits to use Apicurio Registry stuff [\#646](https://github.com/apache/camel-kafka-connector/issues/646)
 - Bump to Strimzi 0.20.0 and Kafka 2.6.0 [\#641](https://github.com/apache/camel-kafka-connector/issues/641)
+- Add Twittersearch examples [\#637](https://github.com/apache/camel-kafka-connector/issues/637)
 - Add Openshift instrunctions for Telegram examples [\#636](https://github.com/apache/camel-kafka-connector/issues/636)
 - Create example for camel-resteasy-kafka-source-connector [\#565](https://github.com/apache/camel-kafka-connector/issues/565)
+- Beans aggregation size and timeout [\#487](https://github.com/apache/camel-kafka-connector/issues/487)
+- Camel-telegram wrongly parse chatId from headers [\#463](https://github.com/apache/camel-kafka-connector/issues/463)
+- Release 0.4.4 [\#451](https://github.com/apache/camel-kafka-connector/issues/451)
 
 **Merged pull requests:**
 
+- Review Archetype generation after new dependencies added to core [\#699](https://github.com/apache/camel-kafka-connector/pull/699) ([oscerd](https://github.com/oscerd))
+- Avoid NPE on Windows for Catalog initialization \#697 [\#698](https://github.com/apache/camel-kafka-connector/pull/698) ([apupier](https://github.com/apupier))
 - Added Download page [\#691](https://github.com/apache/camel-kafka-connector/pull/691) ([oscerd](https://github.com/oscerd))
 - SFTP connector: add RemoteFileTransform [\#690](https://github.com/apache/camel-kafka-connector/pull/690) ([oscerd](https://github.com/oscerd))
 - Remove hacktoberfest from label list [\#689](https://github.com/apache/camel-kafka-connector/pull/689) ([oscerd](https://github.com/oscerd))
