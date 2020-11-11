@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
-import com.azure.storage.queue.QueueServiceClient;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +28,7 @@ public final class AzureStorageQueueServiceFactory {
 
     }
 
-    public static AzureService<QueueServiceClient> createAzureService() {
+    public static AzureService createAzureService() {
         String instanceType = System.getProperty("azure.instance.type");
 
         if (instanceType == null || instanceType.equals("local-azure-container")) {

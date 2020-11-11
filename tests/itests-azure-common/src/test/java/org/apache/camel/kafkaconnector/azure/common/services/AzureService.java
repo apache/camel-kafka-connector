@@ -22,7 +22,7 @@ import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-public interface AzureService<T> extends BeforeAllCallback, AfterAllCallback {
+public interface AzureService extends BeforeAllCallback, AfterAllCallback {
 
     /**
      * Gets the credentials for the test service
@@ -30,8 +30,6 @@ public interface AzureService<T> extends BeforeAllCallback, AfterAllCallback {
      */
     AzureCredentialsHolder azureCredentials();
 
-
-    T getClient();
 
     /**
      * Perform any initialization necessary

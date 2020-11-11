@@ -30,6 +30,7 @@ import com.azure.storage.blob.models.BlobItem;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureService;
+import org.apache.camel.kafkaconnector.azure.storage.services.AzureStorageBlobClientUtils;
 import org.apache.camel.kafkaconnector.azure.storage.services.AzureStorageBlobServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
@@ -47,7 +48,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CamelSinkAzureStorageBlobITCase extends AbstractKafkaTest {
     @RegisterExtension
-    public static AzureService<BlobServiceClient> service = AzureStorageBlobServiceFactory.createAzureService();
+    public static AzureService service = AzureStorageBlobServiceFactory.createAzureService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAzureStorageBlobITCase.class);
 
@@ -66,7 +67,7 @@ public class CamelSinkAzureStorageBlobITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUpBlob() {
-        client = service.getClient();
+        client = AzureStorageBlobClientUtils.getClient();
 
         blobContainerName = "test-" +  TestUtils.randomWithRange(1, 100);
         blobContainerClient = client.createBlobContainer(blobContainerName);

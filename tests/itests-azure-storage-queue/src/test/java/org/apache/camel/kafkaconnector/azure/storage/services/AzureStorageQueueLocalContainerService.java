@@ -17,13 +17,12 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
-import com.azure.storage.queue.QueueServiceClient;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureServices;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureStorageService;
 
-public class AzureStorageQueueLocalContainerService extends AzureStorageService<QueueServiceClient> {
+public class AzureStorageQueueLocalContainerService extends AzureStorageService {
 
     @Override
     public void initialize() {
@@ -38,10 +37,5 @@ public class AzureStorageQueueLocalContainerService extends AzureStorageService<
     @Override
     public AzureCredentialsHolder azureCredentials() {
         return getContainer().azureCredentials();
-    }
-
-    @Override
-    public QueueServiceClient getClient() {
-        return AzureStorageClientUtils.getClient();
     }
 }

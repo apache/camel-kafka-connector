@@ -20,7 +20,7 @@ package org.apache.camel.kafkaconnector.azure.common.services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class AzureStorageService<T> implements AzureService<T> {
+public abstract class AzureStorageService implements AzureService {
     private static final Logger LOG = LoggerFactory.getLogger(AzureStorageService.class);
     private final AzuriteContainer container = new AzuriteContainer();
 

@@ -17,12 +17,11 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
-import com.azure.storage.blob.BlobServiceClient;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureService;
 
-public class AzureStorageBlobRemoteService implements AzureService<BlobServiceClient> {
+public class AzureStorageBlobRemoteService implements AzureService {
 
     @Override
     public void initialize() {
@@ -48,10 +47,5 @@ public class AzureStorageBlobRemoteService implements AzureService<BlobServiceCl
                 return System.getProperty(AzureConfigs.ACCOUNT_KEY);
             }
         };
-    }
-
-    @Override
-    public BlobServiceClient getClient() {
-        return AzureStorageBlobClientUtils.getClient();
     }
 }

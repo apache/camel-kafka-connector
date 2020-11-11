@@ -28,6 +28,7 @@ import com.azure.storage.queue.models.PeekedMessageItem;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureService;
+import org.apache.camel.kafkaconnector.azure.storage.services.AzureStorageClientUtils;
 import org.apache.camel.kafkaconnector.azure.storage.services.AzureStorageQueueServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
@@ -45,7 +46,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CamelSinkAzureStorageQueueITCase extends AbstractKafkaTest {
     @RegisterExtension
-    public static AzureService<QueueServiceClient> service = AzureStorageQueueServiceFactory.createAzureService();
+    public static AzureService service = AzureStorageQueueServiceFactory.createAzureService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAzureStorageQueueITCase.class);
 
@@ -62,7 +63,7 @@ public class CamelSinkAzureStorageQueueITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        client = service.getClient();
+        client = AzureStorageClientUtils.getClient();
         queueName = "test-queue" + TestUtils.randomWithRange(0, 100);
 
         queueClient = client.createQueue(queueName);
