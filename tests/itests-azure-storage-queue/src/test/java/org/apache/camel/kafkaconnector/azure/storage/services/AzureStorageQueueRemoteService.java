@@ -17,12 +17,11 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
-import com.azure.storage.queue.QueueServiceClient;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureService;
 
-public class AzureStorageQueueRemoteService implements AzureService<QueueServiceClient> {
+public class AzureStorageQueueRemoteService implements AzureService {
 
     @Override
     public void initialize() {
@@ -48,10 +47,5 @@ public class AzureStorageQueueRemoteService implements AzureService<QueueService
                 return System.getProperty(AzureConfigs.ACCOUNT_KEY);
             }
         };
-    }
-
-    @Override
-    public QueueServiceClient getClient() {
-        return AzureStorageClientUtils.getClient();
     }
 }

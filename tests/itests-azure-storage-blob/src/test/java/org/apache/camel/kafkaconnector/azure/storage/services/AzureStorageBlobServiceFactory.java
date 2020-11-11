@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
-import com.azure.storage.blob.BlobServiceClient;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +28,7 @@ public final class AzureStorageBlobServiceFactory {
 
     }
 
-    public static AzureService<BlobServiceClient> createAzureService() {
+    public static AzureService createAzureService() {
         String instanceType = System.getProperty("azure.instance.type");
 
         if (instanceType == null || instanceType.equals("local-azure-container")) {

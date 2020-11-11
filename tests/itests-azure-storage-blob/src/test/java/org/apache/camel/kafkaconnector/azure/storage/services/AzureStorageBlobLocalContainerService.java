@@ -17,13 +17,12 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.services;
 
-import com.azure.storage.blob.BlobServiceClient;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 import org.apache.camel.kafkaconnector.azure.common.AzureCredentialsHolder;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureServices;
 import org.apache.camel.kafkaconnector.azure.common.services.AzureStorageService;
 
-public class AzureStorageBlobLocalContainerService extends AzureStorageService<BlobServiceClient> {
+public class AzureStorageBlobLocalContainerService extends AzureStorageService {
 
     @Override
     public void initialize() {
@@ -38,10 +37,5 @@ public class AzureStorageBlobLocalContainerService extends AzureStorageService<B
     @Override
     public AzureCredentialsHolder azureCredentials() {
         return getContainer().azureCredentials();
-    }
-
-    @Override
-    public BlobServiceClient getClient() {
-        return AzureStorageBlobClientUtils.getClient();
     }
 }
