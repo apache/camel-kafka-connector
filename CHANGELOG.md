@@ -183,6 +183,7 @@
 - Deploy on ASF Snapshot [\#493](https://github.com/apache/camel-kafka-connector/pull/493) ([oscerd](https://github.com/oscerd))
 - Issue 490 [\#491](https://github.com/apache/camel-kafka-connector/pull/491) ([oscerd](https://github.com/oscerd))
 - Fixes changelog to run only on master [\#488](https://github.com/apache/camel-kafka-connector/pull/488) ([oscerd](https://github.com/oscerd))
+- Poor mans Regen and rebase on master [\#484](https://github.com/apache/camel-kafka-connector/pull/484) ([oscerd](https://github.com/oscerd))
 - Removed bean-validator kafka connector [\#483](https://github.com/apache/camel-kafka-connector/pull/483) ([oscerd](https://github.com/oscerd))
 - Re-introduce camel-bean-kafka-connector [\#482](https://github.com/apache/camel-kafka-connector/pull/482) ([oscerd](https://github.com/oscerd))
 - Bean connector removed [\#481](https://github.com/apache/camel-kafka-connector/pull/481) ([oscerd](https://github.com/oscerd))
