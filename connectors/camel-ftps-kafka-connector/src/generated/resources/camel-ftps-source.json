@@ -728,5 +728,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		}
-	}
+	},
+	"transforms": [
+		"org.apache.camel.kafkaconnector.ftps.transformers.FtpsRemoteFileTransforms"
+	]
 }
