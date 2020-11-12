@@ -74,7 +74,7 @@ class CamelKafkaConnectorCatalogTest {
         assertEquals("org.apache.camel.kafkaconnector", model.getGroupId());
         assertEquals("sink", model.getType());
         assertEquals("org.apache.camel.kafkaconnector.aws2sns.CamelAws2snsSinkConnector", model.getConnectorClass());
-        assertEquals(42, model.getOptions().size());
+        assertEquals(44, model.getOptions().size());
         assertEquals("camel.sink.path.topicNameOrArn", model.getOptions().get(0).getName());
         assertEquals("camel.sink.endpoint.amazonSNSClient", model.getOptions().get(1).getName());
         assertEquals("camel.sink.endpoint.autoCreateTopic", model.getOptions().get(2).getName());
