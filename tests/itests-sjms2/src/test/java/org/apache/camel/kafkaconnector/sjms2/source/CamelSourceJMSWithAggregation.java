@@ -25,8 +25,9 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
-import org.apache.camel.kafkaconnector.sjms2.services.JMSService;
-import org.apache.camel.kafkaconnector.sjms2.services.JMSServiceFactory;
+import org.apache.camel.test.infra.dispatch.router.services.DispatchRouterContainer;
+import org.apache.camel.test.infra.messaging.services.MessagingService;
+import org.apache.camel.test.infra.messaging.services.MessagingServiceBuilder;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,7 +41,11 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class CamelSourceJMSWithAggregation extends AbstractKafkaTest {
     @RegisterExtension
-    public static JMSService jmsService = JMSServiceFactory.createService();
+    public static MessagingService jmsService = MessagingServiceBuilder
+            .newBuilder(DispatchRouterContainer::new)
+            .withPropertiesProvider(DispatchRouterContainer::connectionProperties)
+            .withEndpointProvider(DispatchRouterContainer::defaultEndpoint)
+            .build();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
 
@@ -61,7 +66,7 @@ public class CamelSourceJMSWithAggregation extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         received = 0;
-        jmsClient = JMSClient.newClient(jmsService.getDefaultEndpoint());
+        jmsClient = JMSClient.newClient(jmsService.defaultEndpoint());
 
         for (int i = 0; i < sentSize - 1; i++) {
             expectedMessage += "hello;\n";
@@ -107,7 +112,7 @@ public class CamelSourceJMSWithAggregation extends AbstractKafkaTest {
                     .basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withDestinationName(queueName)
-                    .withConnectionProperties(jmsService.getConnectionProperties())
+                    .withConnectionProperties(jmsService.connectionProperties())
                     .withAggregate("org.apache.camel.kafkaconnector.aggregator.StringAggregator", sentSize,
                             1000);
 
