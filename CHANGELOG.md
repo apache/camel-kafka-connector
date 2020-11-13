@@ -10,6 +10,7 @@
 
 **Closed issues:**
 
+- Add RemoteFileTransforms to the FTPS connector directly [\#702](https://github.com/apache/camel-kafka-connector/issues/702)
 - Camel Kafka Connector Catalog throws NPE on Windows [\#697](https://github.com/apache/camel-kafka-connector/issues/697)
 - Create Camel Google Mail Stream Source example [\#696](https://github.com/apache/camel-kafka-connector/issues/696)
 - Create Google Calendar Stream Source Example [\#695](https://github.com/apache/camel-kafka-connector/issues/695)
@@ -33,6 +34,9 @@
 
 **Merged pull requests:**
 
+- Add RemoteFileTransforms to the FTPS connector directly [\#707](https://github.com/apache/camel-kafka-connector/pull/707) ([oscerd](https://github.com/oscerd))
+- Added missing dependency causing Strimzi tests to fail [\#706](https://github.com/apache/camel-kafka-connector/pull/706) ([orpiske](https://github.com/orpiske))
+- Decouple the Azure clients from the service to simplify using the test infra from Camel [\#704](https://github.com/apache/camel-kafka-connector/pull/704) ([orpiske](https://github.com/orpiske))
 - Review Archetype generation after new dependencies added to core [\#699](https://github.com/apache/camel-kafka-connector/pull/699) ([oscerd](https://github.com/oscerd))
 - Avoid NPE on Windows for Catalog initialization \#697 [\#698](https://github.com/apache/camel-kafka-connector/pull/698) ([apupier](https://github.com/apupier))
 - Added Download page [\#691](https://github.com/apache/camel-kafka-connector/pull/691) ([oscerd](https://github.com/oscerd))
@@ -183,7 +187,6 @@
 - Deploy on ASF Snapshot [\#493](https://github.com/apache/camel-kafka-connector/pull/493) ([oscerd](https://github.com/oscerd))
 - Issue 490 [\#491](https://github.com/apache/camel-kafka-connector/pull/491) ([oscerd](https://github.com/oscerd))
 - Fixes changelog to run only on master [\#488](https://github.com/apache/camel-kafka-connector/pull/488) ([oscerd](https://github.com/oscerd))
-- Poor mans Regen and rebase on master [\#484](https://github.com/apache/camel-kafka-connector/pull/484) ([oscerd](https://github.com/oscerd))
 - Removed bean-validator kafka connector [\#483](https://github.com/apache/camel-kafka-connector/pull/483) ([oscerd](https://github.com/oscerd))
 - Re-introduce camel-bean-kafka-connector [\#482](https://github.com/apache/camel-kafka-connector/pull/482) ([oscerd](https://github.com/oscerd))
 - Bean connector removed [\#481](https://github.com/apache/camel-kafka-connector/pull/481) ([oscerd](https://github.com/oscerd))
