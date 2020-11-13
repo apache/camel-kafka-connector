@@ -33,8 +33,9 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
-import org.apache.camel.kafkaconnector.sjms2.services.JMSService;
-import org.apache.camel.kafkaconnector.sjms2.services.JMSServiceFactory;
+import org.apache.camel.test.infra.dispatch.router.services.DispatchRouterContainer;
+import org.apache.camel.test.infra.messaging.services.MessagingService;
+import org.apache.camel.test.infra.messaging.services.MessagingServiceBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -43,8 +44,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * Integration tests for the JMS sink
@@ -52,7 +53,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Testcontainers
 public class CamelSinkJMSITCase extends AbstractKafkaTest {
     @RegisterExtension
-    public static JMSService jmsService = JMSServiceFactory.createService();
+    public static MessagingService jmsService = MessagingServiceBuilder
+            .newBuilder(DispatchRouterContainer::new)
+            .withEndpointProvider(DispatchRouterContainer::defaultEndpoint)
+            .withPropertiesProvider(DispatchRouterContainer::connectionProperties)
+            .build();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
 
@@ -66,7 +71,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        LOG.info("JMS service running at {}", jmsService.getDefaultEndpoint());
+        LOG.info("JMS service running at {}", jmsService.defaultEndpoint());
         received = 0;
     }
 
@@ -124,7 +129,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withConnectionProperties(jmsService.getConnectionProperties())
+                    .withConnectionProperties(jmsService.connectionProperties())
                     .withDestinationName(SJMS2Common.DEFAULT_JMS_QUEUE);
 
             runTest(connectorPropertyFactory);
@@ -142,7 +147,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withConnectionProperties(jmsService.getConnectionProperties())
+                    .withConnectionProperties(jmsService.connectionProperties())
                         .withUrl(SJMS2Common.DEFAULT_JMS_QUEUE)
                         .buildUrl();
 
@@ -158,7 +163,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
         JMSClient jmsClient = null;
 
         try {
-            jmsClient = JMSClient.newClient(jmsService.getDefaultEndpoint());
+            jmsClient = JMSClient.newClient(jmsService.defaultEndpoint());
 
             jmsClient.start();
 

@@ -25,8 +25,9 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
-import org.apache.camel.kafkaconnector.sjms2.services.JMSService;
-import org.apache.camel.kafkaconnector.sjms2.services.JMSServiceFactory;
+import org.apache.camel.test.infra.dispatch.router.services.DispatchRouterContainer;
+import org.apache.camel.test.infra.messaging.services.MessagingService;
+import org.apache.camel.test.infra.messaging.services.MessagingServiceBuilder;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,7 +48,11 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Testcontainers
 public class CamelSourceJMSITCase extends AbstractKafkaTest {
     @RegisterExtension
-    public static JMSService jmsService = JMSServiceFactory.createService();
+    public static MessagingService jmsService = MessagingServiceBuilder
+            .newBuilder(DispatchRouterContainer::new)
+            .withPropertiesProvider(DispatchRouterContainer::connectionProperties)
+            .withEndpointProvider(DispatchRouterContainer::defaultEndpoint)
+            .build();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceJMSITCase.class);
 
@@ -63,7 +68,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
     @BeforeEach
     public void setUp() {
         received = 0;
-        jmsClient = JMSClient.newClient(jmsService.getDefaultEndpoint());
+        jmsClient = JMSClient.newClient(jmsService.defaultEndpoint());
     }
 
     private <T> boolean checkRecord(ConsumerRecord<String, T> record) {
@@ -101,7 +106,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
                     .basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withDestinationName(SJMS2Common.DEFAULT_JMS_QUEUE)
-                    .withConnectionProperties(jmsService.getConnectionProperties());
+                    .withConnectionProperties(jmsService.connectionProperties());
 
             runBasicStringTest(connectorPropertyFactory);
         } catch (Exception e) {
@@ -116,7 +121,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
         try {
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
-                    .withConnectionProperties(jmsService.getConnectionProperties())
+                    .withConnectionProperties(jmsService.connectionProperties())
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withUrl(SJMS2Common.DEFAULT_JMS_QUEUE)
                         .buildUrl();
@@ -139,7 +144,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
                     .basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()) + jmsQueueName)
                     .withDestinationName(jmsQueueName)
-                    .withConnectionProperties(jmsService.getConnectionProperties());
+                    .withConnectionProperties(jmsService.connectionProperties());
 
             connectorPropertyFactory.log();
             getKafkaConnectService().initializeConnector(connectorPropertyFactory);
