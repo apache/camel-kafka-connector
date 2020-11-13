@@ -79,11 +79,17 @@ public class EmbeddedKafkaService implements KafkaService {
     }
 
     @Override
+    public void registerProperties() {
+        // NO-OP
+    }
+
+    @Override
     public void initialize() {
         if (!started) {
             cluster.start();
             started = true;
 
+            registerProperties();
             LOG.info("Kafka bootstrap server running at address {}", getBootstrapServers());
         }
     }
