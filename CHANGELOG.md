@@ -11,6 +11,7 @@
 **Closed issues:**
 
 - Add RemoteFileTransforms to the FTPS connector directly [\#702](https://github.com/apache/camel-kafka-connector/issues/702)
+- Add RemoteFileTransforms to the FTP connector directly [\#701](https://github.com/apache/camel-kafka-connector/issues/701)
 - Camel Kafka Connector Catalog throws NPE on Windows [\#697](https://github.com/apache/camel-kafka-connector/issues/697)
 - Create Camel Google Mail Stream Source example [\#696](https://github.com/apache/camel-kafka-connector/issues/696)
 - Create Google Calendar Stream Source Example [\#695](https://github.com/apache/camel-kafka-connector/issues/695)
@@ -34,6 +35,7 @@
 
 **Merged pull requests:**
 
+- Add RemoteFileTransforms to the FTP connector directly  [\#709](https://github.com/apache/camel-kafka-connector/pull/709) ([oscerd](https://github.com/oscerd))
 - Add RemoteFileTransforms to the FTPS connector directly [\#707](https://github.com/apache/camel-kafka-connector/pull/707) ([oscerd](https://github.com/oscerd))
 - Added missing dependency causing Strimzi tests to fail [\#706](https://github.com/apache/camel-kafka-connector/pull/706) ([orpiske](https://github.com/orpiske))
 - Decouple the Azure clients from the service to simplify using the test infra from Camel [\#704](https://github.com/apache/camel-kafka-connector/pull/704) ([orpiske](https://github.com/orpiske))
