@@ -184,13 +184,13 @@ public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
         runTest(factory);
     }
 
-    @Disabled("Due to CAMEL-15789")
     @Test
     @Timeout(90)
     public void testBasicSendReceiveUsingUrl() throws Exception {
         ConnectorPropertyFactory factory = CamelCouchbasePropertyFactory.basic()
                 .withTopics(topic)
-                .withUrl("http", service.getHostname(), service.getPort(), bucketName)
+                .withUrl("http", service.getHostname(), service.getPort())
+                    .append("bucket", bucketName)
                     .append("username", service.getUsername())
                     .append("password", service.getPassword())
                     .buildUrl();
