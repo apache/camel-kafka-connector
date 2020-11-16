@@ -18,9 +18,13 @@ package org.apache.camel.kafkaconnector.transforms;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.function.Function;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.avro.AvroFactory;
 import com.fasterxml.jackson.dataformat.avro.AvroSchema;
 import com.fasterxml.jackson.dataformat.avro.schema.AvroSchemaGenerator;
@@ -44,39 +48,54 @@ public class PojoToSchemaAndStructTransform <R extends ConnectRecord<R>> impleme
     private static final ObjectMapper MAPPER = new ObjectMapper(new AvroFactory());
 
     private AvroData avroData;
+    private ConcurrentMap<String, CacheEntry> avroSchemaWrapperCache;
 
     @Override
     public R apply(R r) {
-        LOG.debug("Incoming record: " + r);
+        LOG.debug("Incoming record: {}", r);
 
-        AvroSchemaGenerator gen = new AvroSchemaGenerator();
+        if (r.value() != null) {
+            String recordClassCanonicalName = r.value().getClass().getCanonicalName();
+            CacheEntry cacheEntry = avroSchemaWrapperCache.computeIfAbsent(recordClassCanonicalName, new Function<String, CacheEntry>() {
+                @Override
+                public CacheEntry apply(String s) {
+                    //cache miss
+                    AvroSchemaGenerator gen = new AvroSchemaGenerator();
 
-        try {
-            MAPPER.acceptJsonFormatVisitor(r.value().getClass(), gen);
-        } catch (JsonMappingException e) {
-            throw new ConnectException("Error in generating POJO schema.", e);
+                    try {
+                        MAPPER.acceptJsonFormatVisitor(r.value().getClass(), gen);
+                    } catch (JsonMappingException e) {
+                        throw new ConnectException("Error in generating POJO schema.", e);
+                    }
+
+                    AvroSchema schemaWrapper = gen.getGeneratedSchema();
+                    LOG.debug("Generated and cached avro schema: {}", schemaWrapper.getAvroSchema().toString(true));
+
+                    return new CacheEntry(schemaWrapper, MAPPER.writer(schemaWrapper));
+                }
+            });
+
+            SchemaAndValue connectSchemaAndData = null;
+            try {
+                byte[] avroDataByte = cacheEntry.getObjectWriter().writeValueAsBytes(r.value());
+                Decoder decoder = DecoderFactory.get().binaryDecoder(avroDataByte, null);
+                org.apache.avro.Schema avroSchema = cacheEntry.getAvroSchemaWrapper().getAvroSchema();
+                DatumReader<GenericRecord> datumReader = new GenericDatumReader<GenericRecord>(avroSchema);
+                GenericRecord genericAvroData = datumReader.read(null, decoder);
+
+                connectSchemaAndData = this.avroData.toConnectData(avroSchema, genericAvroData);
+            } catch (IOException e) {
+                throw new ConnectException("Error in generating POJO Struct.", e);
+            }
+
+            LOG.debug("Generate kafka connect schema: {}", connectSchemaAndData.schema());
+            LOG.debug("Generate kafka connect value (as Struct): {}", connectSchemaAndData.value());
+            return r.newRecord(r.topic(), r.kafkaPartition(), r.keySchema(), r.key(),
+                    connectSchemaAndData.schema(), connectSchemaAndData.value(), r.timestamp());
+        } else {
+            LOG.debug("Incoming record with a null value, nothing to be done.");
+            return r;
         }
-
-        AvroSchema schemaWrapper = gen.getGeneratedSchema();
-        org.apache.avro.Schema avroSchema = schemaWrapper.getAvroSchema();
-        LOG.debug("Generated avro schema: " + avroSchema.toString(true));
-
-        SchemaAndValue connectSchemaAndData = null;
-        try {
-            byte[] avroDataByte = MAPPER.writer(schemaWrapper).writeValueAsBytes(r.value());
-            Decoder decoder = DecoderFactory.get().binaryDecoder(avroDataByte, null);
-            DatumReader<GenericRecord> datumReader = new GenericDatumReader<GenericRecord>(avroSchema);
-            GenericRecord genericAvroData = datumReader.read(null, decoder);
-
-            connectSchemaAndData = this.avroData.toConnectData(avroSchema, genericAvroData);
-        } catch (IOException e) {
-            throw new ConnectException("Error in generating POJO Struct.", e);
-        }
-
-        LOG.debug("Generate kafka connect schema: " + connectSchemaAndData.schema());
-        LOG.debug("Generate kafka connect value (as Struct): " + connectSchemaAndData.value());
-        return r.newRecord(r.topic(), r.kafkaPartition(), r.keySchema(), r.key(),
-                connectSchemaAndData.schema(), connectSchemaAndData.value(), r.timestamp());
     }
 
     @Override
@@ -91,6 +110,29 @@ public class PojoToSchemaAndStructTransform <R extends ConnectRecord<R>> impleme
 
     @Override
     public void configure(Map<String, ?> configs) {
+        this.avroSchemaWrapperCache = new ConcurrentHashMap<>();
         this.avroData = new AvroData(new AvroDataConfig(configs));
+    }
+
+    public Map<String, CacheEntry> getCache() {
+        return this.avroSchemaWrapperCache;
+    }
+
+    public class CacheEntry {
+        private AvroSchema avroSchemaWrapper;
+        private ObjectWriter objectWriter;
+
+        public CacheEntry(AvroSchema avroSchemaWrapper, ObjectWriter objectWriter) {
+            this.avroSchemaWrapper = avroSchemaWrapper;
+            this.objectWriter = objectWriter;
+        }
+
+        public AvroSchema getAvroSchemaWrapper() {
+            return avroSchemaWrapper;
+        }
+
+        public ObjectWriter getObjectWriter() {
+            return objectWriter;
+        }
     }
 }

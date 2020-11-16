@@ -122,14 +122,49 @@ public class PojoToSchemaAndStructTransformTest {
                 Schema.STRING_SCHEMA, "testKeyValue",
                 Schema.BYTES_SCHEMA, map);
 
-        assertThrows(ConnectException.class, () -> {pojoToSchemaAndStructTransform.apply(cr);});
+        assertThrows(ConnectException.class, () -> {
+            pojoToSchemaAndStructTransform.apply(cr);
+        });
+    }
+
+    @Test()
+    public void testNullValueConversion() {
+        PojoToSchemaAndStructTransform pojoToSchemaAndStructTransform = new PojoToSchemaAndStructTransform();
+        pojoToSchemaAndStructTransform.configure(Collections.emptyMap());
+
+        ConnectRecord cr = new SourceRecord(null, null, "testTopic",
+                Schema.STRING_SCHEMA, "testKeyValue",
+                Schema.BYTES_SCHEMA, null);
+
+        ConnectRecord transformedCr = pojoToSchemaAndStructTransform.apply(cr);
+        assertEquals(cr, transformedCr);
+    }
+
+    @Test()
+    public void testConversionCache() {
+        PojoToSchemaAndStructTransform pojoToSchemaAndStructTransform = new PojoToSchemaAndStructTransform();
+        pojoToSchemaAndStructTransform.configure(Collections.emptyMap());
+
+        PojoWithMap pwm = new PojoWithMap();
+        pwm.addToMap("ciao", 9);
+
+        ConnectRecord cr = new SourceRecord(null, null, "testTopic",
+                Schema.STRING_SCHEMA, "testKeyValue",
+                Schema.BYTES_SCHEMA, pwm);
+
+        assertEquals(0, pojoToSchemaAndStructTransform.getCache().keySet().size());
+        pojoToSchemaAndStructTransform.apply(cr);
+        assertEquals(1, pojoToSchemaAndStructTransform.getCache().keySet().size());
+        ConnectRecord transformedCr = pojoToSchemaAndStructTransform.apply(cr);
+        assertEquals(1, pojoToSchemaAndStructTransform.getCache().keySet().size());
+        assertTrue(pojoToSchemaAndStructTransform.getCache().keySet().contains(PojoWithMap.class.getCanonicalName()));
     }
 
     private void atLeastOneFieldWithGivenValueExists(List structs, String fieldName, String fieldExpectedValue) {
         structs.stream().filter(
-                struct -> ((Struct) struct).getString(fieldName) == null ? false : true
+            struct -> ((Struct) struct).getString(fieldName) == null ? false : true
         ).forEach(
-                struct -> assertEquals(fieldExpectedValue, ((Struct) struct).getString(fieldName))
+            struct -> assertEquals(fieldExpectedValue, ((Struct) struct).getString(fieldName))
         );
     }
 
