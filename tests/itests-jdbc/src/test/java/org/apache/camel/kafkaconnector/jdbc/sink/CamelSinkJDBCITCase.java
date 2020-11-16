@@ -116,7 +116,7 @@ public class CamelSinkJDBCITCase extends AbstractKafkaTest {
         LOG.debug("Waiting for indices");
 
         try {
-            DatabaseClient client = jdbcService.getClient();
+            DatabaseClient client = new DatabaseClient(jdbcService.jdbcUrl());
 
             TestUtils.waitFor(() -> {
                 try {
