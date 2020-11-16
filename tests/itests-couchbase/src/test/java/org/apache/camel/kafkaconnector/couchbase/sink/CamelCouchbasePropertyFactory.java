@@ -54,8 +54,8 @@ public class CamelCouchbasePropertyFactory extends SinkConnectorPropertyFactory<
         return setProperty("camel.sink.endpoint.password", value);
     }
 
-    public EndpointUrlBuilder<CamelCouchbasePropertyFactory> withUrl(String protocol, String hostname, int port, String bucket) {
-        String sinkUrl = String.format("couchbase:%s://%s:%d/%s", protocol, hostname, port, bucket);
+    public EndpointUrlBuilder<CamelCouchbasePropertyFactory> withUrl(String protocol, String hostname, int port) {
+        String sinkUrl = String.format("couchbase:%s://%s:%d", protocol, hostname, port);
 
         return new EndpointUrlBuilder<>(this::withSinkUrl, sinkUrl);
     }
