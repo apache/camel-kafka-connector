@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.sjms2.source;
 
+import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -43,7 +44,6 @@ public class CamelSourceJMSWithAggregation extends AbstractKafkaTest {
     @RegisterExtension
     public static MessagingService jmsService = MessagingServiceBuilder
             .newBuilder(DispatchRouterContainer::new)
-            .withPropertiesProvider(DispatchRouterContainer::connectionProperties)
             .withEndpointProvider(DispatchRouterContainer::defaultEndpoint)
             .build();
 
@@ -57,6 +57,14 @@ public class CamelSourceJMSWithAggregation extends AbstractKafkaTest {
     private String expectedMessage = "";
     private String queueName;
 
+    private Properties connectionProperties() {
+        Properties properties = new Properties();
+
+        properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
+        properties.put("camel.component.sjms2.connection-factory.remoteURI", jmsService.defaultEndpoint());
+
+        return properties;
+    }
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -112,7 +120,7 @@ public class CamelSourceJMSWithAggregation extends AbstractKafkaTest {
                     .basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withDestinationName(queueName)
-                    .withConnectionProperties(jmsService.connectionProperties())
+                    .withConnectionProperties(connectionProperties())
                     .withAggregate("org.apache.camel.kafkaconnector.aggregator.StringAggregator", sentSize,
                             1000);
 

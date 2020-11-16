@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.sjms2.source;
 
+import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -50,7 +51,6 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static MessagingService jmsService = MessagingServiceBuilder
             .newBuilder(DispatchRouterContainer::new)
-            .withPropertiesProvider(DispatchRouterContainer::connectionProperties)
             .withEndpointProvider(DispatchRouterContainer::defaultEndpoint)
             .build();
 
@@ -59,6 +59,15 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
     private int received;
     private final int expect = 10;
     private JMSClient jmsClient;
+
+    private Properties connectionProperties() {
+        Properties properties = new Properties();
+
+        properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
+        properties.put("camel.component.sjms2.connection-factory.remoteURI", jmsService.defaultEndpoint());
+
+        return properties;
+    }
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -106,7 +115,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
                     .basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withDestinationName(SJMS2Common.DEFAULT_JMS_QUEUE)
-                    .withConnectionProperties(jmsService.connectionProperties());
+                    .withConnectionProperties(connectionProperties());
 
             runBasicStringTest(connectorPropertyFactory);
         } catch (Exception e) {
@@ -121,7 +130,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
         try {
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
-                    .withConnectionProperties(jmsService.connectionProperties())
+                    .withConnectionProperties(connectionProperties())
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                     .withUrl(SJMS2Common.DEFAULT_JMS_QUEUE)
                         .buildUrl();
@@ -144,7 +153,7 @@ public class CamelSourceJMSITCase extends AbstractKafkaTest {
                     .basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()) + jmsQueueName)
                     .withDestinationName(jmsQueueName)
-                    .withConnectionProperties(jmsService.connectionProperties());
+                    .withConnectionProperties(connectionProperties());
 
             connectorPropertyFactory.log();
             getKafkaConnectService().initializeConnector(connectorPropertyFactory);

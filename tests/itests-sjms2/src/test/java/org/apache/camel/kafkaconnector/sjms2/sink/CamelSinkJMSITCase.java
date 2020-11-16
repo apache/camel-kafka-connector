@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.sjms2.sink;
 
+import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -56,13 +57,21 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
     public static MessagingService jmsService = MessagingServiceBuilder
             .newBuilder(DispatchRouterContainer::new)
             .withEndpointProvider(DispatchRouterContainer::defaultEndpoint)
-            .withPropertiesProvider(DispatchRouterContainer::connectionProperties)
             .build();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSITCase.class);
 
     private int received;
     private final int expect = 10;
+
+    private Properties connectionProperties() {
+        Properties properties = new Properties();
+
+        properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
+        properties.put("camel.component.sjms2.connection-factory.remoteURI", jmsService.defaultEndpoint());
+
+        return properties;
+    }
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -129,7 +138,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withConnectionProperties(jmsService.connectionProperties())
+                    .withConnectionProperties(connectionProperties())
                     .withDestinationName(SJMS2Common.DEFAULT_JMS_QUEUE);
 
             runTest(connectorPropertyFactory);
@@ -147,7 +156,7 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
             ConnectorPropertyFactory connectorPropertyFactory = CamelJMSPropertyFactory
                     .basic()
                     .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withConnectionProperties(jmsService.connectionProperties())
+                    .withConnectionProperties(connectionProperties())
                         .withUrl(SJMS2Common.DEFAULT_JMS_QUEUE)
                         .buildUrl();
 
