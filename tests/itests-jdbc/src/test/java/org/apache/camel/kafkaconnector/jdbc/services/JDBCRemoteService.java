@@ -17,15 +17,16 @@
 
 package org.apache.camel.kafkaconnector.jdbc.services;
 
-import java.sql.SQLException;
-
-import org.apache.camel.kafkaconnector.jdbc.client.DatabaseClient;
-
 public class JDBCRemoteService implements JDBCService {
     private static final String CONNECTION_URL;
 
     static {
         CONNECTION_URL = System.getProperty("jdbc.connection.url");
+    }
+
+    @Override
+    public String jdbcUrl() {
+        return CONNECTION_URL;
     }
 
     @Override
@@ -36,10 +37,5 @@ public class JDBCRemoteService implements JDBCService {
     @Override
     public void shutdown() {
         // NO-OP
-    }
-
-    @Override
-    public DatabaseClient getClient() throws SQLException {
-        return new DatabaseClient(CONNECTION_URL);
     }
 }

@@ -17,9 +17,6 @@
 
 package org.apache.camel.kafkaconnector.jdbc.services;
 
-import java.sql.SQLException;
-
-import org.apache.camel.kafkaconnector.jdbc.client.DatabaseClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.JdbcDatabaseContainer;
@@ -44,8 +41,8 @@ public class JDBCLocalContainerService implements JDBCService {
     }
 
     @Override
-    public DatabaseClient getClient() throws SQLException {
-        return new DatabaseClient(container.getJdbcUrl());
+    public String jdbcUrl() {
+        return container.getJdbcUrl();
     }
 
     @Override

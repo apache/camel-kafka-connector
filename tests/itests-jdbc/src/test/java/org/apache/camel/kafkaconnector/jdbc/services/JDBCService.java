@@ -17,9 +17,6 @@
 
 package org.apache.camel.kafkaconnector.jdbc.services;
 
-import java.sql.SQLException;
-
-import org.apache.camel.kafkaconnector.jdbc.client.DatabaseClient;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -35,8 +32,7 @@ public interface JDBCService extends BeforeAllCallback, AfterAllCallback {
      */
     void shutdown();
 
-
-    DatabaseClient getClient() throws SQLException;
+    String jdbcUrl();
 
 
     @Override
