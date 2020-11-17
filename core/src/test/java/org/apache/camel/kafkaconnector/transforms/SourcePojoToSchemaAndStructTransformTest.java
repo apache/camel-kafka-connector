@@ -34,12 +34,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PojoToSchemaAndStructTransformTest {
+public class SourcePojoToSchemaAndStructTransformTest {
 
     @Test
     public void testRecordValueConversion() {
-        PojoToSchemaAndStructTransform pojoToSchemaAndStructTransform = new PojoToSchemaAndStructTransform();
-        pojoToSchemaAndStructTransform.configure(Collections.emptyMap());
+        SourcePojoToSchemaAndStructTransform sourcePojoToSchemaAndStructTransform = new SourcePojoToSchemaAndStructTransform();
+        sourcePojoToSchemaAndStructTransform.configure(Collections.emptyMap());
 
         SlackMessage sm = new SlackMessage();
 
@@ -63,7 +63,7 @@ public class PojoToSchemaAndStructTransformTest {
                 Schema.STRING_SCHEMA, "testKeyValue",
                 Schema.BYTES_SCHEMA, sm);
 
-        ConnectRecord transformedCr = pojoToSchemaAndStructTransform.apply(cr);
+        ConnectRecord transformedCr = sourcePojoToSchemaAndStructTransform.apply(cr);
 
         assertEquals("testTopic", transformedCr.topic());
         assertEquals(Schema.STRING_SCHEMA, transformedCr.keySchema());
@@ -85,8 +85,8 @@ public class PojoToSchemaAndStructTransformTest {
 
     @Test
     public void testMapValueConversion() {
-        PojoToSchemaAndStructTransform pojoToSchemaAndStructTransform = new PojoToSchemaAndStructTransform();
-        pojoToSchemaAndStructTransform.configure(Collections.emptyMap());
+        SourcePojoToSchemaAndStructTransform sourcePojoToSchemaAndStructTransform = new SourcePojoToSchemaAndStructTransform();
+        sourcePojoToSchemaAndStructTransform.configure(Collections.emptyMap());
 
         PojoWithMap pwm = new PojoWithMap();
         pwm.addToMap("ciao", 9);
@@ -95,7 +95,7 @@ public class PojoToSchemaAndStructTransformTest {
                 Schema.STRING_SCHEMA, "testKeyValue",
                 Schema.BYTES_SCHEMA, pwm);
 
-        ConnectRecord transformedCr = pojoToSchemaAndStructTransform.apply(cr);
+        ConnectRecord transformedCr = sourcePojoToSchemaAndStructTransform.apply(cr);
 
         assertEquals("testTopic", transformedCr.topic());
         assertEquals(Schema.STRING_SCHEMA, transformedCr.keySchema());
@@ -113,8 +113,8 @@ public class PojoToSchemaAndStructTransformTest {
 
     @Test()
     public void testNotPojoConversion() {
-        PojoToSchemaAndStructTransform pojoToSchemaAndStructTransform = new PojoToSchemaAndStructTransform();
-        pojoToSchemaAndStructTransform.configure(Collections.emptyMap());
+        SourcePojoToSchemaAndStructTransform sourcePojoToSchemaAndStructTransform = new SourcePojoToSchemaAndStructTransform();
+        sourcePojoToSchemaAndStructTransform.configure(Collections.emptyMap());
 
         Map map = Collections.singletonMap("ciao", 9);
 
@@ -123,27 +123,27 @@ public class PojoToSchemaAndStructTransformTest {
                 Schema.BYTES_SCHEMA, map);
 
         assertThrows(ConnectException.class, () -> {
-            pojoToSchemaAndStructTransform.apply(cr);
+            sourcePojoToSchemaAndStructTransform.apply(cr);
         });
     }
 
     @Test()
     public void testNullValueConversion() {
-        PojoToSchemaAndStructTransform pojoToSchemaAndStructTransform = new PojoToSchemaAndStructTransform();
-        pojoToSchemaAndStructTransform.configure(Collections.emptyMap());
+        SourcePojoToSchemaAndStructTransform sourcePojoToSchemaAndStructTransform = new SourcePojoToSchemaAndStructTransform();
+        sourcePojoToSchemaAndStructTransform.configure(Collections.emptyMap());
 
         ConnectRecord cr = new SourceRecord(null, null, "testTopic",
                 Schema.STRING_SCHEMA, "testKeyValue",
                 Schema.BYTES_SCHEMA, null);
 
-        ConnectRecord transformedCr = pojoToSchemaAndStructTransform.apply(cr);
+        ConnectRecord transformedCr = sourcePojoToSchemaAndStructTransform.apply(cr);
         assertEquals(cr, transformedCr);
     }
 
     @Test()
     public void testConversionCache() {
-        PojoToSchemaAndStructTransform pojoToSchemaAndStructTransform = new PojoToSchemaAndStructTransform();
-        pojoToSchemaAndStructTransform.configure(Collections.emptyMap());
+        SourcePojoToSchemaAndStructTransform sourcePojoToSchemaAndStructTransform = new SourcePojoToSchemaAndStructTransform();
+        sourcePojoToSchemaAndStructTransform.configure(Collections.emptyMap());
 
         PojoWithMap pwm = new PojoWithMap();
         pwm.addToMap("ciao", 9);
@@ -152,12 +152,12 @@ public class PojoToSchemaAndStructTransformTest {
                 Schema.STRING_SCHEMA, "testKeyValue",
                 Schema.BYTES_SCHEMA, pwm);
 
-        assertEquals(0, pojoToSchemaAndStructTransform.getCache().keySet().size());
-        pojoToSchemaAndStructTransform.apply(cr);
-        assertEquals(1, pojoToSchemaAndStructTransform.getCache().keySet().size());
-        ConnectRecord transformedCr = pojoToSchemaAndStructTransform.apply(cr);
-        assertEquals(1, pojoToSchemaAndStructTransform.getCache().keySet().size());
-        assertTrue(pojoToSchemaAndStructTransform.getCache().keySet().contains(PojoWithMap.class.getCanonicalName()));
+        assertEquals(0, sourcePojoToSchemaAndStructTransform.getCache().keySet().size());
+        sourcePojoToSchemaAndStructTransform.apply(cr);
+        assertEquals(1, sourcePojoToSchemaAndStructTransform.getCache().keySet().size());
+        ConnectRecord transformedCr = sourcePojoToSchemaAndStructTransform.apply(cr);
+        assertEquals(1, sourcePojoToSchemaAndStructTransform.getCache().keySet().size());
+        assertTrue(sourcePojoToSchemaAndStructTransform.getCache().keySet().contains(PojoWithMap.class.getCanonicalName()));
     }
 
     private void atLeastOneFieldWithGivenValueExists(List structs, String fieldName, String fieldExpectedValue) {
