@@ -28,6 +28,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.kafkaconnector.CamelConnectorConfig;
 import org.apache.camel.main.SimpleMain;
 import org.apache.camel.model.RouteDefinition;
+import org.apache.camel.support.processor.idempotent.MemoryIdempotentRepository;
 import org.apache.camel.support.service.ServiceHelper;
 import org.apache.camel.util.ObjectHelper;
 import org.slf4j.Logger;
@@ -94,6 +95,10 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private String errorHandler;
         private int maxRedeliveries;
         private long redeliveryDelay;
+        private boolean idempotencyEnabled;
+        private String expressionType;
+        private String expressionHeader;
+        private int memoryDimension;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -139,6 +144,26 @@ public class CamelKafkaConnectMain extends SimpleMain {
             this.redeliveryDelay = redeliveryDelay;
             return this;
         }
+        
+        public Builder withIdempotencyEnabled(boolean idempotencyEnabled) {
+        	this.idempotencyEnabled = idempotencyEnabled;
+        	return this;
+        }
+        
+        public Builder withExpressionType(String expressionType) {
+        	this.expressionType = expressionType;
+        	return this;
+        }
+        
+        public Builder withExpressionHeader(String expressionHeader) {
+        	this.expressionHeader = expressionHeader;
+        	return this;
+        }
+        
+        public Builder withMemoryDimension(int memoryDimension) {
+        	this.memoryDimension = memoryDimension;
+        	return this;
+        }
 
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
@@ -183,13 +208,45 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     if (getContext().getRegistry().lookupByName("aggregate") != null) {
                         //aggregation
                         AggregationStrategy s = getContext().getRegistry().lookupByNameAndType(CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME, AggregationStrategy.class);
-                        LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({})", s, aggregationSize, aggregationTimeout);
-                        LOG.info(".to({})", to);
-                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(to);
+                        if (idempotencyEnabled) {
+                            switch (expressionType) {
+                                case "body":
+                                    LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({}).idempotentConsumer(body(), MemoryIdempotentRepository.memoryIdempotentRepository({}))", s, aggregationSize, aggregationTimeout, memoryDimension);
+                                    LOG.info(".to({})", to);
+                                	rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).idempotentConsumer(body(), MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension)).toD(to);
+                                    break;
+                                case "header":
+                                    LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({}).idempotentConsumer(header(expressionHeader), MemoryIdempotentRepository.memoryIdempotentRepository({}))", s, aggregationSize, aggregationTimeout, memoryDimension);
+                                    LOG.info(".to({})", to);
+                                    rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).idempotentConsumer(header(expressionHeader), MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension)).toD(to);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        } else {
+                            LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({})", s, aggregationSize, aggregationTimeout);
+                            LOG.info(".to({})", to);
+                            rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(to);
+                        }
                     } else {
-                        //to
-                        LOG.info(".to({})", to);
-                        rd.toD(to);
+                        if (idempotencyEnabled) {
+                            switch (expressionType) {
+                                case "body":
+                                	LOG.info("idempotentConsumer(body(), MemoryIdempotentRepository.memoryIdempotentRepository({})).to({})", memoryDimension, to);
+                                	rd.idempotentConsumer(body(), MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension)).toD(to);
+                                    break;
+                                case "header":
+                                	LOG.info("idempotentConsumer(header(expressionHeader), MemoryIdempotentRepository.memoryIdempotentRepository({})).to({})", memoryDimension, to);
+                                    rd.idempotentConsumer(header(expressionHeader), MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension)).toD(to);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        } else {
+                            //to
+                            LOG.info(".to({})", to);
+                            rd.toD(to);
+                        }
                     }
                 }
             });
