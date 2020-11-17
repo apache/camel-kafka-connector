@@ -441,19 +441,16 @@ public class CamelSourceTaskTest {
     public void testSourcePollingWithIdempotencyEnabledAndBody() {
 
         CamelSourceTask sourceTask = new CamelSourceTask();
-        sourceTask.start(mapOf(
-            CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME,
-            CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, true,
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF, "body"
-        ));
+        sourceTask.start(mapOf(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME, CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
+                               CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, true,
+                               CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF, "body"));
 
         try {
 
-        	sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "Test");
-        	sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "Test1");
-        	sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "Test");
-        	sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "Test2");
+            sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "Test");
+            sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "Test1");
+            sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "Test");
+            sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, "Test2");
 
             List<SourceRecord> records = sourceTask.poll();
 
@@ -465,25 +462,22 @@ public class CamelSourceTaskTest {
             sourceTask.stop();
         }
     }
-    
+
     @Test
     public void testSourcePollingWithIdempotencyEnabledAndHeader() {
 
         CamelSourceTask sourceTask = new CamelSourceTask();
-        sourceTask.start(mapOf(
-            CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME,
-            CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, true,
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF, "header",
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_HEADER_CONF, "headerIdempotency"
-        ));
+        sourceTask
+            .start(mapOf(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME, CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
+                         CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, true, CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF,
+                         "header", CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_HEADER_CONF, "headerIdempotency"));
 
         try {
 
-        	sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test", "headerIdempotency", "Test");
-        	sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test1", "headerIdempotency", "Test1");
-        	sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "TestTest", "headerIdempotency", "Test");
-        	sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test2", "headerIdempotency", "Test2");
+            sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test", "headerIdempotency", "Test");
+            sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test1", "headerIdempotency", "Test1");
+            sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "TestTest", "headerIdempotency", "Test");
+            sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test2", "headerIdempotency", "Test2");
 
             List<SourceRecord> records = sourceTask.poll();
 
@@ -495,26 +489,21 @@ public class CamelSourceTaskTest {
             sourceTask.stop();
         }
     }
-    
+
     @Test
     public void testSourcePollingWithAggregationAndIdempotencyBySizeAndTimeout() {
         final int chunkSize = 2;
 
         CamelSourceTask sourceTask = new CamelSourceTask();
-        sourceTask.start(mapOf(
-            CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME,
-            CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, true,
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF, "body",
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF, "#class:org.apache.camel.kafkaconnector.utils.StringJoinerAggregator",
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF + ".delimiter", "|",
-            CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF, chunkSize
-        ));
+        sourceTask
+            .start(mapOf(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME, CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
+                         CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, true, CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF,
+                         "body", CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF, "#class:org.apache.camel.kafkaconnector.utils.StringJoinerAggregator",
+                         CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_CONF + ".delimiter", "|", CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF, chunkSize));
 
         try {
             assertThat(sourceTask.getCms().getCamelContext().getRegistry().lookupByName(CamelSourceConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME))
-                .isInstanceOf(StringJoinerAggregator.class)
-                .hasFieldOrPropertyWithValue("delimiter", "|");
+                .isInstanceOf(StringJoinerAggregator.class).hasFieldOrPropertyWithValue("delimiter", "|");
 
             sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, 0);
             sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, 1);
@@ -524,7 +513,7 @@ public class CamelSourceTaskTest {
             sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, 1);
             sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, 3);
             sourceTask.getCms().getProducerTemplate().sendBody(DIRECT_URI, 2);
-            
+
             List<SourceRecord> records = sourceTask.poll();
 
             assertThat(records).hasSize(3);
