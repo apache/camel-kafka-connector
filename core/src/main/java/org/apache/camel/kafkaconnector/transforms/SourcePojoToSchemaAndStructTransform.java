@@ -43,8 +43,8 @@ import org.apache.kafka.connect.transforms.Transformation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PojoToSchemaAndStructTransform <R extends ConnectRecord<R>> implements Transformation<R> {
-    private static final Logger LOG = LoggerFactory.getLogger(PojoToSchemaAndStructTransform.class);
+public class SourcePojoToSchemaAndStructTransform<R extends ConnectRecord<R>> implements Transformation<R> {
+    private static final Logger LOG = LoggerFactory.getLogger(SourcePojoToSchemaAndStructTransform.class);
     private static final ObjectMapper MAPPER = new ObjectMapper(new AvroFactory());
 
     private AvroData avroData;
