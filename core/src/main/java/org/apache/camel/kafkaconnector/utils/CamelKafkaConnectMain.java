@@ -182,8 +182,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     RouteDefinition rd = from(from);
                     LOG.info("Creating Camel route from({})", from);
                     
-                    if (!ObjectHelper.isEmpty(props.get(CamelConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_CONF))) {
-                        String errorHandler = props.get(CamelConnectorConfig.CAMEL_CONNECTOR_ERROR_HANDLER_CONF);
+                    if (!ObjectHelper.isEmpty(errorHandler)) {
                         switch (errorHandler) {
                             case "no":
                                 rd.errorHandler(noErrorHandler());
