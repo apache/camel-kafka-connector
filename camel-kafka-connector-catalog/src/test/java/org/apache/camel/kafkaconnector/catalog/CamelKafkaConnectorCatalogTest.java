@@ -92,7 +92,7 @@ class CamelKafkaConnectorCatalogTest {
         assertEquals("org.apache.camel.kafkaconnector", model.getGroupId());
         assertEquals("source", model.getType());
         assertEquals("org.apache.camel.kafkaconnector.couchbase.CamelCouchbaseSourceConnector", model.getConnectorClass());
-        assertEquals(41, model.getOptions().size());
+        assertEquals(43, model.getOptions().size());
         assertEquals("camel.source.path.protocol", model.getOptions().get(0).getName());
         assertNull(model.getOptions().get(0).getDefaultValue());
         assertNull(model.getConverters());
