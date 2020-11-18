@@ -7,6 +7,7 @@
 **Implemented enhancements:**
 
 - Review Archetype generation after new dependencies added to core [\#693](https://github.com/apache/camel-kafka-connector/issues/693)
+- Cache already computed Schemas in PojoToSchemaAndStructTransform [\#692](https://github.com/apache/camel-kafka-connector/issues/692)
 
 **Closed issues:**
 
@@ -23,6 +24,7 @@
 - Add SFTP examples [\#668](https://github.com/apache/camel-kafka-connector/issues/668)
 - Add Simple Language support  [\#667](https://github.com/apache/camel-kafka-connector/issues/667)
 - Create example for camel-pgevent connector [\#664](https://github.com/apache/camel-kafka-connector/issues/664)
+- Support Idempotency on source and sink [\#663](https://github.com/apache/camel-kafka-connector/issues/663)
 - Add an extensible connector archetype with dataformat [\#660](https://github.com/apache/camel-kafka-connector/issues/660)
 - Create a Camel-exec example [\#649](https://github.com/apache/camel-kafka-connector/issues/649)
 - Provide an archetype with needed bits to use Apicurio Registry stuff [\#646](https://github.com/apache/camel-kafka-connector/issues/646)
@@ -36,6 +38,8 @@
 
 **Merged pull requests:**
 
+- Idempotency [\#716](https://github.com/apache/camel-kafka-connector/pull/716) ([oscerd](https://github.com/oscerd))
+- Issue/692 [\#714](https://github.com/apache/camel-kafka-connector/pull/714) ([valdar](https://github.com/valdar))
 - Decouple the jdbc clients from the service to simplify using the test infra from Camel [\#713](https://github.com/apache/camel-kafka-connector/pull/713) ([orpiske](https://github.com/orpiske))
 - Add RemoteFileTransforms to the FTP connector directly  [\#709](https://github.com/apache/camel-kafka-connector/pull/709) ([oscerd](https://github.com/oscerd))
 - Add RemoteFileTransforms to the FTPS connector directly [\#707](https://github.com/apache/camel-kafka-connector/pull/707) ([oscerd](https://github.com/oscerd))
@@ -47,6 +51,7 @@
 - SFTP connector: add RemoteFileTransform [\#690](https://github.com/apache/camel-kafka-connector/pull/690) ([oscerd](https://github.com/oscerd))
 - Remove hacktoberfest from label list [\#689](https://github.com/apache/camel-kafka-connector/pull/689) ([oscerd](https://github.com/oscerd))
 - Added PojoToSchemaAndStructTransform to infer POJO kafka connec schem… [\#686](https://github.com/apache/camel-kafka-connector/pull/686) ([valdar](https://github.com/valdar))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#685](https://github.com/apache/camel-kafka-connector/pull/685) ([github-actions[bot]](https://github.com/apps/github-actions))
 - AWS v2 tests tweaks [\#684](https://github.com/apache/camel-kafka-connector/pull/684) ([orpiske](https://github.com/orpiske))
 - Provide API to retrieve Basic configuration \#679 [\#683](https://github.com/apache/camel-kafka-connector/pull/683) ([apupier](https://github.com/apupier))
 - Minor SJMS2 test cleanups [\#681](https://github.com/apache/camel-kafka-connector/pull/681) ([orpiske](https://github.com/orpiske))
@@ -322,7 +327,6 @@
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
 - Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
 - Added automatic-sync gh action for camel-kafka-connector on camel-mas… [\#392](https://github.com/apache/camel-kafka-connector/pull/392) ([oscerd](https://github.com/oscerd))
-- Added automatic-sync-camel-master to camel-master branch for testing … [\#390](https://github.com/apache/camel-kafka-connector/pull/390) ([oscerd](https://github.com/oscerd))
 - Adds basic aggregation test \(github issue \#291\) [\#388](https://github.com/apache/camel-kafka-connector/pull/388) ([orpiske](https://github.com/orpiske))
 - Fix flaky syslog test [\#386](https://github.com/apache/camel-kafka-connector/pull/386) ([orpiske](https://github.com/orpiske))
 - Added a simple troubleshooting guide [\#383](https://github.com/apache/camel-kafka-connector/pull/383) ([orpiske](https://github.com/orpiske))
