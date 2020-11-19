@@ -44,9 +44,6 @@ public class CamelAwslambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_CONF = "camel.sink.endpoint.awsLambdaClient";
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DOC = "To use a existing configured AwsLambdaClient as client";
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSLAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWSLAMBDA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWSLAMBDA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -80,12 +77,12 @@ public class CamelAwslambdaSinkConnectorConfig
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_CONF = "camel.component.aws-lambda.region";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DOC = "Amazon AWS Region. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name()";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DEFAULT = null;
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws-lambda.autowiredEnabled";
+    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_CONF = "camel.component.aws-lambda.awsLambdaClient";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DOC = "To use a existing configured AwsLambdaClient as client";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-lambda.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_CONF = "camel.component.aws-lambda.proxyHost";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the Lambda client";
     public static final String CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_DEFAULT = null;
@@ -120,7 +117,6 @@ public class CamelAwslambdaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_AWS_LAMBDA_CLIENT_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_ENDPOINT_PROXY_PORT_DOC);
@@ -132,8 +128,8 @@ public class CamelAwslambdaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_REGION_DOC);
+        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_AWS_LAMBDA_CLIENT_DOC);
-        conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWSLAMBDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSLAMBDA_COMPONENT_PROXY_PROTOCOL_DOC);

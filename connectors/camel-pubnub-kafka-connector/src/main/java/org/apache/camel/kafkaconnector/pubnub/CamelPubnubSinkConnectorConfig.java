@@ -36,9 +36,6 @@ public class CamelPubnubSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PUBNUB_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
     public static final String CAMEL_SINK_PUBNUB_ENDPOINT_OPERATION_DOC = "The operation to perform. PUBLISH: Default. Send a message to all subscribers of a channel. FIRE: allows the client to send a message to BLOCKS Event Handlers. These messages will go directly to any Event Handlers registered on the channel. HERENOW: Obtain information about the current state of a channel including a list of unique user-ids currently subscribed to the channel and the total occupancy count. WHERENOW: Obtain information about the current list of channels to which a uuid is subscribed to. GETSTATE: Used to get key/value pairs specific to a subscriber uuid. State information is supplied as a JSON object of key/value pairs SETSTATE: Used to set key/value pairs specific to a subscriber uuid GETHISTORY: Fetches historical messages of a channel. One of: [HERENOW] [WHERENOW] [GETSTATE] [SETSTATE] [GETHISTORY] [PUBLISH] [FIRE]";
     public static final String CAMEL_SINK_PUBNUB_ENDPOINT_OPERATION_DEFAULT = null;
-    public static final String CAMEL_SINK_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_PUBNUB_ENDPOINT_PUBNUB_CONF = "camel.sink.endpoint.pubnub";
     public static final String CAMEL_SINK_PUBNUB_ENDPOINT_PUBNUB_DOC = "Reference to a Pubnub client in the registry.";
     public static final String CAMEL_SINK_PUBNUB_ENDPOINT_PUBNUB_DEFAULT = null;
@@ -66,9 +63,9 @@ public class CamelPubnubSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PUBNUB_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.pubnub.lazyStartProducer";
     public static final String CAMEL_SINK_PUBNUB_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_PUBNUB_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.pubnub.basicPropertyBinding";
-    public static final String CAMEL_SINK_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.pubnub.autowiredEnabled";
+    public static final String CAMEL_SINK_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelPubnubSinkConnectorConfig(
             ConfigDef config,
@@ -86,7 +83,6 @@ public class CamelPubnubSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_UUID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PUBNUB_ENDPOINT_UUID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_UUID_DOC);
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PUBNUB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PUBNUB_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_OPERATION_DOC);
-        conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_PUBNUB_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PUBNUB_ENDPOINT_PUBNUB_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_PUBNUB_DOC);
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PUBNUB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_AUTH_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PUBNUB_ENDPOINT_AUTH_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_AUTH_KEY_DOC);
@@ -96,7 +92,7 @@ public class CamelPubnubSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PUBNUB_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SINK_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_DOC);
         conf.define(CAMEL_SINK_PUBNUB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PUBNUB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

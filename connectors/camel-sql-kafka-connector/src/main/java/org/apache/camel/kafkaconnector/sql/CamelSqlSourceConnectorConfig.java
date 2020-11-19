@@ -96,9 +96,6 @@ public class CamelSqlSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_ALWAYS_POPULATE_STATEMENT_CONF = "camel.source.endpoint.alwaysPopulateStatement";
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_ALWAYS_POPULATE_STATEMENT_DOC = "If enabled then the populateStatement method from org.apache.camel.component.sql.SqlPrepareStatementStrategy is always invoked, also if there is no expected parameters to be prepared. When this is false then the populateStatement is only invoked if there is 1 or more expected parameters to be set; for example this avoids reading the message body/headers for SQL queries with no parameters.";
     public static final Boolean CAMEL_SOURCE_SQL_ENDPOINT_ALWAYS_POPULATE_STATEMENT_DEFAULT = false;
-    public static final String CAMEL_SOURCE_SQL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SQL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SQL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_CONF = "camel.source.endpoint.parametersCount";
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_DOC = "If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead.";
     public static final Integer CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_DEFAULT = null;
@@ -165,9 +162,9 @@ public class CamelSqlSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SQL_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.sql.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_SQL_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_SQL_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_SQL_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.sql.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SQL_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SQL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SQL_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.sql.autowiredEnabled";
+    public static final String CAMEL_SOURCE_SQL_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_SQL_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_SQL_COMPONENT_USE_PLACEHOLDER_CONF = "camel.component.sql.usePlaceholder";
     public static final String CAMEL_SOURCE_SQL_COMPONENT_USE_PLACEHOLDER_DOC = "Sets whether to use placeholder and replace all placeholder characters with sign in the SQL queries. This option is default true";
     public static final Boolean CAMEL_SOURCE_SQL_COMPONENT_USE_PLACEHOLDER_DEFAULT = true;
@@ -208,7 +205,6 @@ public class CamelSqlSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_PROCESSING_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_ENDPOINT_PROCESSING_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_PROCESSING_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_ALWAYS_POPULATE_STATEMENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_ENDPOINT_ALWAYS_POPULATE_STATEMENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_ALWAYS_POPULATE_STATEMENT_DOC);
-        conf.define(CAMEL_SOURCE_SQL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_PLACEHOLDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_ENDPOINT_PLACEHOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_PLACEHOLDER_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DOC);
@@ -231,7 +227,7 @@ public class CamelSqlSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_USE_FIXED_DELAY_DOC);
         conf.define(CAMEL_SOURCE_SQL_COMPONENT_DATA_SOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_COMPONENT_DATA_SOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_COMPONENT_DATA_SOURCE_DOC);
         conf.define(CAMEL_SOURCE_SQL_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_SQL_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_SQL_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_SQL_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_SQL_COMPONENT_USE_PLACEHOLDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_COMPONENT_USE_PLACEHOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_COMPONENT_USE_PLACEHOLDER_DOC);
         return conf;
     }

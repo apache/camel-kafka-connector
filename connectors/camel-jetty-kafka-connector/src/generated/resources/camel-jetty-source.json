@@ -15,6 +15,13 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.source.endpoint.chunked": {
+			"name": "camel.source.endpoint.chunked",
+			"description": "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.disableStreamCache": {
 			"name": "camel.source.endpoint.disableStreamCache",
 			"description": "Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory\/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge\/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body.",
@@ -45,13 +52,6 @@
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
 			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.chunked": {
-			"name": "camel.source.endpoint.chunked",
-			"description": "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response",
-			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -200,13 +200,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.basicPropertyBinding": {
-			"name": "camel.source.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.mapHttpMessageBody": {
 			"name": "camel.source.endpoint.mapHttpMessageBody",
 			"description": "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.",
@@ -332,11 +325,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.jetty.basicPropertyBinding": {
-			"name": "camel.component.jetty.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.jetty.autowiredEnabled": {
+			"name": "camel.component.jetty.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.jetty.errorHandler": {

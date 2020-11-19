@@ -59,9 +59,6 @@ public class CamelEhcacheSourceConnectorConfig
     public static final String CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_EHCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_EHCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_EHCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATION_CONF = "camel.source.endpoint.configuration";
     public static final String CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATION_DOC = "The default cache configuration to be used to create caches.";
     public static final String CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATION_DEFAULT = null;
@@ -101,9 +98,9 @@ public class CamelEhcacheSourceConnectorConfig
     public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_TYPES_CONF = "camel.component.ehcache.eventTypes";
     public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_TYPES_DOC = "Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED]";
     public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_TYPES_DEFAULT = null;
-    public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.ehcache.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_EHCACHE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.ehcache.autowiredEnabled";
+    public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_EHCACHE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATION_CONF = "camel.component.ehcache.configuration";
     public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATION_DOC = "The default cache configuration to be used to create caches.";
     public static final String CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -140,7 +137,6 @@ public class CamelEhcacheSourceConnectorConfig
         conf.define(CAMEL_SOURCE_EHCACHE_ENDPOINT_EVENT_TYPES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_ENDPOINT_EVENT_TYPES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_ENDPOINT_EVENT_TYPES_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_EHCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_EHCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATIONS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_ENDPOINT_CONFIGURATIONS_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_ENDPOINT_KEY_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_ENDPOINT_KEY_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_ENDPOINT_KEY_TYPE_DOC);
@@ -154,7 +150,7 @@ public class CamelEhcacheSourceConnectorConfig
         conf.define(CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_FIRING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_FIRING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_FIRING_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_ORDERING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_ORDERING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_ORDERING_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_TYPES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_TYPES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_COMPONENT_EVENT_TYPES_DOC);
-        conf.define(CAMEL_SOURCE_EHCACHE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_EHCACHE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_EHCACHE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_EHCACHE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_EHCACHE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATIONS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_COMPONENT_CONFIGURATIONS_DOC);
         conf.define(CAMEL_SOURCE_EHCACHE_COMPONENT_KEY_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_EHCACHE_COMPONENT_KEY_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_EHCACHE_COMPONENT_KEY_TYPE_DOC);

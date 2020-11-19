@@ -28,13 +28,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.autoDiscoverClient": {
-			"name": "camel.source.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.overrideEndpoint": {
 			"name": "camel.source.endpoint.overrideEndpoint",
 			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
@@ -235,13 +228,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.basicPropertyBinding": {
-			"name": "camel.source.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
@@ -363,13 +349,6 @@
 		"camel.component.aws2-s3.autoCreateBucket": {
 			"name": "camel.component.aws2-s3.autoCreateBucket",
 			"description": "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.aws2-s3.autoDiscoverClient": {
-			"name": "camel.component.aws2-s3.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -541,11 +520,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-s3.basicPropertyBinding": {
-			"name": "camel.component.aws2-s3.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.aws2-s3.autowiredEnabled": {
+			"name": "camel.component.aws2-s3.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.aws2-s3.accessKey": {

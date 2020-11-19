@@ -44,9 +44,6 @@ public class CamelPubnubSourceConnectorConfig
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_CONF = "camel.source.endpoint.pubnub";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_DOC = "Reference to a Pubnub client in the registry.";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_DEFAULT = null;
@@ -74,9 +71,9 @@ public class CamelPubnubSourceConnectorConfig
     public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.pubnub.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.pubnub.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.pubnub.autowiredEnabled";
+    public static final String CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelPubnubSourceConnectorConfig(
             ConfigDef config,
@@ -96,7 +93,6 @@ public class CamelPubnubSourceConnectorConfig
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_WITH_PRESENCE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_ENDPOINT_WITH_PRESENCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_WITH_PRESENCE_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_DOC);
@@ -106,7 +102,7 @@ public class CamelPubnubSourceConnectorConfig
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_SUBSCRIBE_KEY_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_PUBNUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

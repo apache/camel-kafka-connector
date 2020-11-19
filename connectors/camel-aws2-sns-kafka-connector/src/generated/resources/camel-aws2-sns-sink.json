@@ -28,13 +28,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.autoDiscoverClient": {
-			"name": "camel.sink.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to map headers to\/from Camel.",
@@ -124,9 +117,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+		"camel.sink.endpoint.useIAMCredentials": {
+			"name": "camel.sink.endpoint.useIAMCredentials",
+			"description": "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -159,13 +152,6 @@
 		"camel.component.aws2-sns.autoCreateTopic": {
 			"name": "camel.component.aws2-sns.autoCreateTopic",
 			"description": "Setting the autocreation of the topic",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.aws2-sns.autoDiscoverClient": {
-			"name": "camel.component.aws2-sns.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -259,11 +245,18 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-sns.basicPropertyBinding": {
-			"name": "camel.component.aws2-sns.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+		"camel.component.aws2-sns.useIAMCredentials": {
+			"name": "camel.component.aws2-sns.useIAMCredentials",
+			"description": "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
 			"defaultValue": "false",
-			"priority": "LOW",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sns.autowiredEnabled": {
+			"name": "camel.component.aws2-sns.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.aws2-sns.accessKey": {

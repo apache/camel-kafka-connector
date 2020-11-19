@@ -51,9 +51,6 @@ public class CamelMongodbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_MONGODB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_CONF = "camel.sink.endpoint.cursorRegenerationDelay";
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DOC = "MongoDB tailable cursors will block until new data arrives. If no new data is inserted, after some time the cursor will be automatically freed and closed by the MongoDB server. The client is expected to regenerate the cursor if needed. This value specifies the time to wait before attempting to fetch a new cursor, and if the attempt fails, how long before the next attempt is made. Default value is 1000ms.";
     public static final Long CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DEFAULT = 1000L;
@@ -99,9 +96,9 @@ public class CamelMongodbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MONGODB_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.mongodb.lazyStartProducer";
     public static final String CAMEL_SINK_MONGODB_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_MONGODB_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mongodb.basicPropertyBinding";
-    public static final String CAMEL_SINK_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_MONGODB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.mongodb.autowiredEnabled";
+    public static final String CAMEL_SINK_MONGODB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_MONGODB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelMongodbSinkConnectorConfig(
             ConfigDef config,
@@ -124,7 +121,6 @@ public class CamelMongodbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODB_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_OUTPUT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODB_ENDPOINT_OUTPUT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_OUTPUT_TYPE_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_DYNAMICITY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_ENDPOINT_DYNAMICITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_DYNAMICITY_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_DOC);
@@ -140,7 +136,7 @@ public class CamelMongodbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_TAIL_TRACK_INCREASING_FIELD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODB_ENDPOINT_TAIL_TRACK_INCREASING_FIELD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_TAIL_TRACK_INCREASING_FIELD_DOC);
         conf.define(CAMEL_SINK_MONGODB_COMPONENT_MONGO_CONNECTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODB_COMPONENT_MONGO_CONNECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_COMPONENT_MONGO_CONNECTION_DOC);
         conf.define(CAMEL_SINK_MONGODB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_MONGODB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

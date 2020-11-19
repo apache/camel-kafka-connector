@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.azurequeue.CamelAzurequeueSinkCo
 ----
 
 
-The camel-azure-queue sink connector supports 25 options, which are listed below.
+The camel-azure-queue sink connector supports 24 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-azure-queue sink connector supports 25 options, which are listed below
 | *camel.sink.endpoint.messageVisibilityDelay* | Message Visibility Delay in seconds | null | false | MEDIUM
 | *camel.sink.endpoint.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | false | MEDIUM
 | *camel.sink.endpoint.queuePrefix* | Set a prefix which can be used for listing the queues | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
 | *camel.sink.endpoint.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM
@@ -50,7 +49,7 @@ The camel-azure-queue sink connector supports 25 options, which are listed below
 | *camel.component.azure-queue.messageVisibilityDelay* | Message Visibility Delay in seconds | null | false | MEDIUM
 | *camel.component.azure-queue.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | false | MEDIUM
 | *camel.component.azure-queue.queuePrefix* | Set a prefix which can be used for listing the queues | null | false | MEDIUM
-| *camel.component.azure-queue.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.azure-queue.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.azure-queue.configuration* | The Queue Service configuration | null | false | MEDIUM
 | *camel.component.azure-queue.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
 | *camel.component.azure-queue.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM

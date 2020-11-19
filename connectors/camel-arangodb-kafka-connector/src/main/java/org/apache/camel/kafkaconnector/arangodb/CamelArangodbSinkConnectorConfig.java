@@ -53,9 +53,6 @@ public class CamelArangodbSinkConnectorConfig
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_CONF = "camel.sink.endpoint.vertexCollection";
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_DOC = "Collection name of vertices, when using ArangoDb as a Graph Database. Set the vertexCollection name to perform CRUD operation on vertices using these operations : SAVE_EDGE, FIND_EDGE_BY_KEY, UPDATE_EDGE, DELETE_EDGE. The graph attribute is mandatory.";
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_DEFAULT = null;
-    public static final String CAMEL_SINK_ARANGODB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_ARANGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_ARANGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -92,9 +89,9 @@ public class CamelArangodbSinkConnectorConfig
     public static final String CAMEL_SINK_ARANGODB_COMPONENT_VERTEX_COLLECTION_CONF = "camel.component.arangodb.vertexCollection";
     public static final String CAMEL_SINK_ARANGODB_COMPONENT_VERTEX_COLLECTION_DOC = "Collection name of vertices, when using ArangoDb as a Graph Database. Set the vertexCollection name to perform CRUD operation on vertices using these operations : SAVE_EDGE, FIND_EDGE_BY_KEY, UPDATE_EDGE, DELETE_EDGE. The graph attribute is mandatory.";
     public static final String CAMEL_SINK_ARANGODB_COMPONENT_VERTEX_COLLECTION_DEFAULT = null;
-    public static final String CAMEL_SINK_ARANGODB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.arangodb.basicPropertyBinding";
-    public static final String CAMEL_SINK_ARANGODB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_ARANGODB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_ARANGODB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.arangodb.autowiredEnabled";
+    public static final String CAMEL_SINK_ARANGODB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_ARANGODB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_ARANGODB_COMPONENT_PASSWORD_CONF = "camel.component.arangodb.password";
     public static final String CAMEL_SINK_ARANGODB_COMPONENT_PASSWORD_DOC = "ArangoDB password. If user and password are default, this field is Optional.";
     public static final String CAMEL_SINK_ARANGODB_COMPONENT_PASSWORD_DEFAULT = null;
@@ -123,7 +120,6 @@ public class CamelArangodbSinkConnectorConfig
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_ARANGODB_ENDPOINT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_PORT_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_DOC);
-        conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ARANGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_ENDPOINT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_USER_DOC);
@@ -136,7 +132,7 @@ public class CamelArangodbSinkConnectorConfig
         conf.define(CAMEL_SINK_ARANGODB_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_ARANGODB_COMPONENT_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_ARANGODB_COMPONENT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_COMPONENT_PORT_DOC);
         conf.define(CAMEL_SINK_ARANGODB_COMPONENT_VERTEX_COLLECTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_COMPONENT_VERTEX_COLLECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_COMPONENT_VERTEX_COLLECTION_DOC);
-        conf.define(CAMEL_SINK_ARANGODB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ARANGODB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_ARANGODB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_ARANGODB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ARANGODB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_ARANGODB_COMPONENT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_COMPONENT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_COMPONENT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_ARANGODB_COMPONENT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_COMPONENT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_COMPONENT_USER_DOC);
         return conf;

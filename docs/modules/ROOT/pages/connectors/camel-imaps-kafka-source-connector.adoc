@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.imaps.CamelImapsSourceConnector
 ----
 
 
-The camel-imaps source connector supports 95 options, which are listed below.
+The camel-imaps source connector supports 94 options, which are listed below.
 
 
 
@@ -56,7 +56,6 @@ The camel-imaps source connector supports 95 options, which are listed below.
 | *camel.source.endpoint.alternativeBodyHeader* | Specifies the key to an IN message header that contains an alternative email body. For example, if you send emails in text/html format and want to provide an alternative mail body for non-HTML email clients, set the alternative mail body with this key as a header. | "CamelMailAlternativeBody" | false | MEDIUM
 | *camel.source.endpoint.attachmentsContentTransfer EncodingResolver* | To use a custom AttachmentsContentTransferEncodingResolver to resolve what content-type-encoding to use for attachments. | null | false | MEDIUM
 | *camel.source.endpoint.authenticator* | The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.binding* | Sets the binding used to convert from a Camel message to and from a Mail message | null | false | MEDIUM
 | *camel.source.endpoint.connectionTimeout* | The connection timeout in milliseconds. | 30000 | false | MEDIUM
 | *camel.source.endpoint.contentType* | The mail message content type. Use text/html for HTML mails. | "text/plain" | false | MEDIUM
@@ -108,7 +107,7 @@ The camel-imaps source connector supports 95 options, which are listed below.
 | *camel.component.imaps.alternativeBodyHeader* | Specifies the key to an IN message header that contains an alternative email body. For example, if you send emails in text/html format and want to provide an alternative mail body for non-HTML email clients, set the alternative mail body with this key as a header. | "CamelMailAlternativeBody" | false | MEDIUM
 | *camel.component.imaps.attachmentsContentTransfer EncodingResolver* | To use a custom AttachmentsContentTransferEncodingResolver to resolve what content-type-encoding to use for attachments. | null | false | MEDIUM
 | *camel.component.imaps.authenticator* | The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically. | null | false | MEDIUM
-| *camel.component.imaps.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.imaps.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.imaps.configuration* | Sets the Mail configuration | null | false | MEDIUM
 | *camel.component.imaps.connectionTimeout* | The connection timeout in milliseconds. | 30000 | false | MEDIUM
 | *camel.component.imaps.contentType* | The mail message content type. Use text/html for HTML mails. | "text/plain" | false | MEDIUM

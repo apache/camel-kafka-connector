@@ -78,9 +78,6 @@ public class CamelMinioSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_CONF = "camel.sink.endpoint.storageClass";
     public static final String CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_DOC = "The storage class to set in the request.";
     public static final String CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_DEFAULT = null;
-    public static final String CAMEL_SINK_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -144,9 +141,9 @@ public class CamelMinioSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINIO_COMPONENT_STORAGE_CLASS_CONF = "camel.component.minio.storageClass";
     public static final String CAMEL_SINK_MINIO_COMPONENT_STORAGE_CLASS_DOC = "The storage class to set in the request.";
     public static final String CAMEL_SINK_MINIO_COMPONENT_STORAGE_CLASS_DEFAULT = null;
-    public static final String CAMEL_SINK_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.minio.basicPropertyBinding";
-    public static final String CAMEL_SINK_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_MINIO_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.minio.autowiredEnabled";
+    public static final String CAMEL_SINK_MINIO_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_MINIO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_MINIO_COMPONENT_ACCESS_KEY_CONF = "camel.component.minio.accessKey";
     public static final String CAMEL_SINK_MINIO_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Secret Access Key or Minio Access Key. If not set camel will connect to service for anonymous access.";
     public static final String CAMEL_SINK_MINIO_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -184,7 +181,6 @@ public class CamelMinioSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_ENDPOINT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_DOC);
-        conf.define(CAMEL_SINK_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_SECRET_KEY_DOC);
@@ -206,7 +202,7 @@ public class CamelMinioSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MINIO_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_MINIO_COMPONENT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_COMPONENT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_COMPONENT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_MINIO_COMPONENT_STORAGE_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_COMPONENT_STORAGE_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_COMPONENT_STORAGE_CLASS_DOC);
-        conf.define(CAMEL_SINK_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_MINIO_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_MINIO_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_MINIO_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_COMPONENT_SECRET_KEY_DOC);
         return conf;

@@ -65,9 +65,6 @@ public class CamelFilewatchSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_FILEWATCH_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_FILEWATCH_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_FILEWATCH_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILEWATCH_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_FILEWATCH_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_FILEWATCH_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -89,9 +86,9 @@ public class CamelFilewatchSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILEWATCH_COMPONENT_USE_FILE_HASHING_CONF = "camel.component.file-watch.useFileHashing";
     public static final String CAMEL_SOURCE_FILEWATCH_COMPONENT_USE_FILE_HASHING_DOC = "Enables or disables file hashing to detect duplicate events. If you disable this, you can get some events multiple times on some platforms and JDKs. Check java.nio.file.WatchService limitations for your target platform.";
     public static final Boolean CAMEL_SOURCE_FILEWATCH_COMPONENT_USE_FILE_HASHING_DEFAULT = true;
-    public static final String CAMEL_SOURCE_FILEWATCH_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.file-watch.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_FILEWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_FILEWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_FILEWATCH_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.file-watch.autowiredEnabled";
+    public static final String CAMEL_SOURCE_FILEWATCH_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_FILEWATCH_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelFilewatchSourceConnectorConfig(
             ConfigDef config,
@@ -118,7 +115,6 @@ public class CamelFilewatchSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILEWATCH_ENDPOINT_USE_FILE_HASHING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILEWATCH_ENDPOINT_USE_FILE_HASHING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_ENDPOINT_USE_FILE_HASHING_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_FILEWATCH_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILEWATCH_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCH_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILEWATCH_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCH_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILEWATCH_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCH_COMPONENT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FILEWATCH_COMPONENT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_COMPONENT_CONCURRENT_CONSUMERS_DOC);
@@ -126,7 +122,7 @@ public class CamelFilewatchSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILEWATCH_COMPONENT_POLL_THREADS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FILEWATCH_COMPONENT_POLL_THREADS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_COMPONENT_POLL_THREADS_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCH_COMPONENT_QUEUE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FILEWATCH_COMPONENT_QUEUE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_COMPONENT_QUEUE_SIZE_DOC);
         conf.define(CAMEL_SOURCE_FILEWATCH_COMPONENT_USE_FILE_HASHING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILEWATCH_COMPONENT_USE_FILE_HASHING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_COMPONENT_USE_FILE_HASHING_DOC);
-        conf.define(CAMEL_SOURCE_FILEWATCH_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILEWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_FILEWATCH_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_FILEWATCH_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILEWATCH_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILEWATCH_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

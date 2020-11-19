@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awsswf.CamelAwsswfSourceConnecto
 ----
 
 
-The camel-aws-swf source connector supports 43 options, which are listed below.
+The camel-aws-swf source connector supports 42 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-aws-swf source connector supports 43 options, which are listed below.
 | *camel.source.endpoint.activityThreadPoolSize* | Maximum number of threads in work pool for activity. | 100 | false | MEDIUM
 | *camel.source.endpoint.activityTypeExecutionOptions* | Activity execution options | null | false | MEDIUM
 | *camel.source.endpoint.activityTypeRegistration Options* | Activity registration options | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.clientConfiguration Parameters* | To configure the ClientConfiguration using the key/values from the Map. | null | false | MEDIUM
 | *camel.source.endpoint.startWorkflowOptions Parameters* | To configure the StartWorkflowOptions using the key/values from the Map. | null | false | MEDIUM
 | *camel.source.endpoint.sWClientParameters* | To configure the AmazonSimpleWorkflowClient using the key/values from the Map. | null | false | MEDIUM
@@ -64,7 +63,7 @@ The camel-aws-swf source connector supports 43 options, which are listed below.
 | *camel.component.aws-swf.activityThreadPoolSize* | Maximum number of threads in work pool for activity. | 100 | false | MEDIUM
 | *camel.component.aws-swf.activityTypeExecution Options* | Activity execution options | null | false | MEDIUM
 | *camel.component.aws-swf.activityTypeRegistration Options* | Activity registration options | null | false | MEDIUM
-| *camel.component.aws-swf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws-swf.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws-swf.clientConfiguration Parameters* | To configure the ClientConfiguration using the key/values from the Map. | null | false | MEDIUM
 | *camel.component.aws-swf.startWorkflowOptions Parameters* | To configure the StartWorkflowOptions using the key/values from the Map. | null | false | MEDIUM
 | *camel.component.aws-swf.sWClientParameters* | To configure the AmazonSimpleWorkflowClient using the key/values from the Map. | null | false | MEDIUM

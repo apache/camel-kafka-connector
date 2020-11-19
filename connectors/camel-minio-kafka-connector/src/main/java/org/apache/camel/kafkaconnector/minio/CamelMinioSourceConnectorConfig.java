@@ -152,9 +152,6 @@ public class CamelMinioSourceConnectorConfig
     public static final String CAMEL_SOURCE_MINIO_ENDPOINT_POLL_STRATEGY_CONF = "camel.source.endpoint.pollStrategy";
     public static final String CAMEL_SOURCE_MINIO_ENDPOINT_POLL_STRATEGY_DOC = "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.";
     public static final String CAMEL_SOURCE_MINIO_ENDPOINT_POLL_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_MINIO_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_MINIO_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_MINIO_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -320,9 +317,9 @@ public class CamelMinioSourceConnectorConfig
     public static final String CAMEL_SOURCE_MINIO_COMPONENT_VERSION_ID_CONF = "camel.component.minio.versionId";
     public static final String CAMEL_SOURCE_MINIO_COMPONENT_VERSION_ID_DOC = "Set specific version_ID of a object when deleting the object.";
     public static final String CAMEL_SOURCE_MINIO_COMPONENT_VERSION_ID_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.minio.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_MINIO_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.minio.autowiredEnabled";
+    public static final String CAMEL_SOURCE_MINIO_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_MINIO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_MINIO_COMPONENT_ACCESS_KEY_CONF = "camel.component.minio.accessKey";
     public static final String CAMEL_SOURCE_MINIO_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Secret Access Key or Minio Access Key. If not set camel will connect to service for anonymous access.";
     public static final String CAMEL_SOURCE_MINIO_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -384,7 +381,6 @@ public class CamelMinioSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MINIO_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINIO_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_MINIO_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINIO_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_MINIO_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINIO_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_ENDPOINT_POLL_STRATEGY_DOC);
-        conf.define(CAMEL_SOURCE_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_MINIO_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINIO_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_MINIO_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MINIO_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_MINIO_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MINIO_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
@@ -440,7 +436,7 @@ public class CamelMinioSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MINIO_COMPONENT_UN_MODIFIED_SINCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINIO_COMPONENT_UN_MODIFIED_SINCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_COMPONENT_UN_MODIFIED_SINCE_DOC);
         conf.define(CAMEL_SOURCE_MINIO_COMPONENT_USE_VERSION_1CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINIO_COMPONENT_USE_VERSION_1DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_COMPONENT_USE_VERSION_1DOC);
         conf.define(CAMEL_SOURCE_MINIO_COMPONENT_VERSION_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINIO_COMPONENT_VERSION_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_COMPONENT_VERSION_ID_DOC);
-        conf.define(CAMEL_SOURCE_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_MINIO_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_MINIO_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINIO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_MINIO_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINIO_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_MINIO_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINIO_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINIO_COMPONENT_SECRET_KEY_DOC);
         return conf;

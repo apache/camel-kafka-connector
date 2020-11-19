@@ -107,9 +107,6 @@ public class CamelServicenowSinkConnectorConfig
     public static final String CAMEL_SINK_SERVICENOW_ENDPOINT_API_VERSION_CONF = "camel.sink.endpoint.apiVersion";
     public static final String CAMEL_SINK_SERVICENOW_ENDPOINT_API_VERSION_DOC = "The ServiceNow REST API version, default latest";
     public static final String CAMEL_SINK_SERVICENOW_ENDPOINT_API_VERSION_DEFAULT = null;
-    public static final String CAMEL_SINK_SERVICENOW_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_SERVICENOW_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SERVICENOW_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_FORMAT_CONF = "camel.sink.endpoint.dateFormat";
     public static final String CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_FORMAT_DOC = "The date format used for Json serialization/deserialization";
     public static final String CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_FORMAT_DEFAULT = "yyyy-MM-dd";
@@ -248,9 +245,9 @@ public class CamelServicenowSinkConnectorConfig
     public static final String CAMEL_SINK_SERVICENOW_COMPONENT_API_VERSION_CONF = "camel.component.servicenow.apiVersion";
     public static final String CAMEL_SINK_SERVICENOW_COMPONENT_API_VERSION_DOC = "The ServiceNow REST API version, default latest";
     public static final String CAMEL_SINK_SERVICENOW_COMPONENT_API_VERSION_DEFAULT = null;
-    public static final String CAMEL_SINK_SERVICENOW_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.servicenow.basicPropertyBinding";
-    public static final String CAMEL_SINK_SERVICENOW_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SERVICENOW_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_SERVICENOW_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.servicenow.autowiredEnabled";
+    public static final String CAMEL_SINK_SERVICENOW_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_SERVICENOW_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_SERVICENOW_COMPONENT_DATE_FORMAT_CONF = "camel.component.servicenow.dateFormat";
     public static final String CAMEL_SINK_SERVICENOW_COMPONENT_DATE_FORMAT_DOC = "The date format used for Json serialization/deserialization";
     public static final String CAMEL_SINK_SERVICENOW_COMPONENT_DATE_FORMAT_DEFAULT = "yyyy-MM-dd";
@@ -351,7 +348,6 @@ public class CamelServicenowSinkConnectorConfig
         conf.define(CAMEL_SINK_SERVICENOW_ENDPOINT_TARGET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_ENDPOINT_TARGET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_ENDPOINT_TARGET_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_ENDPOINT_TOP_LEVEL_ONLY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_ENDPOINT_TOP_LEVEL_ONLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_ENDPOINT_TOP_LEVEL_ONLY_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_ENDPOINT_API_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_ENDPOINT_API_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_ENDPOINT_API_VERSION_DOC);
-        conf.define(CAMEL_SINK_SERVICENOW_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SERVICENOW_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_FORMAT_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_TIME_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_TIME_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_ENDPOINT_DATE_TIME_FORMAT_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_ENDPOINT_HTTP_CLIENT_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_ENDPOINT_HTTP_CLIENT_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_ENDPOINT_HTTP_CLIENT_POLICY_DOC);
@@ -398,7 +394,7 @@ public class CamelServicenowSinkConnectorConfig
         conf.define(CAMEL_SINK_SERVICENOW_COMPONENT_TARGET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_COMPONENT_TARGET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_COMPONENT_TARGET_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_COMPONENT_TOP_LEVEL_ONLY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_COMPONENT_TOP_LEVEL_ONLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_COMPONENT_TOP_LEVEL_ONLY_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_COMPONENT_API_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_COMPONENT_API_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_COMPONENT_API_VERSION_DOC);
-        conf.define(CAMEL_SINK_SERVICENOW_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SERVICENOW_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SERVICENOW_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_SERVICENOW_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SERVICENOW_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_COMPONENT_DATE_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_COMPONENT_DATE_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_COMPONENT_DATE_FORMAT_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_COMPONENT_DATE_TIME_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_COMPONENT_DATE_TIME_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_COMPONENT_DATE_TIME_FORMAT_DOC);
         conf.define(CAMEL_SINK_SERVICENOW_COMPONENT_HTTP_CLIENT_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SERVICENOW_COMPONENT_HTTP_CLIENT_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SERVICENOW_COMPONENT_HTTP_CLIENT_POLICY_DOC);

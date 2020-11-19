@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.elsql.CamelElsqlSourceConnector
 ----
 
 
-The camel-elsql source connector supports 54 options, which are listed below.
+The camel-elsql source connector supports 53 options, which are listed below.
 
 
 
@@ -55,7 +55,6 @@ The camel-elsql source connector supports 54 options, which are listed below.
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
 | *camel.source.endpoint.processingStrategy* | Allows to plugin to use a custom org.apache.camel.component.sql.SqlProcessingStrategy to execute queries when the consumer has processed the rows/batch. | null | false | MEDIUM
 | *camel.source.endpoint.alwaysPopulateStatement* | If enabled then the populateStatement method from org.apache.camel.component.sql.SqlPrepareStatementStrategy is always invoked, also if there is no expected parameters to be prepared. When this is false then the populateStatement is only invoked if there is 1 or more expected parameters to be set; for example this avoids reading the message body/headers for SQL queries with no parameters. | false | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.elSqlConfig* | To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead. | null | false | MEDIUM
 | *camel.source.endpoint.parametersCount* | If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead. | null | false | MEDIUM
 | *camel.source.endpoint.placeholder* | Specifies a character that will be replaced to in SQL query. Notice, that it is simple String.replaceAll() operation and no SQL parsing is involved (quoted strings will also change). | "#" | false | MEDIUM
@@ -81,7 +80,7 @@ The camel-elsql source connector supports 54 options, which are listed below.
 | *camel.component.elsql.dataSource* | Sets the DataSource to use to communicate with the database. | null | false | MEDIUM
 | *camel.component.elsql.resourceUri* | The resource file which contains the elsql SQL statements to use. You can specify multiple resources separated by comma. The resources are loaded on the classpath by default, you can prefix with file: to load from file system. Notice you can set this option on the component and then you do not have to configure this on the endpoint. | null | false | MEDIUM
 | *camel.component.elsql.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.component.elsql.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.elsql.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.elsql.elSqlConfig* | To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead. | null | false | MEDIUM
 |===
 

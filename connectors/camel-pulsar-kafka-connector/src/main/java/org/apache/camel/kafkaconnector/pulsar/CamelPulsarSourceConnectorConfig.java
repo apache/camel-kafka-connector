@@ -95,9 +95,6 @@ public class CamelPulsarSourceConnectorConfig
     public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT = true;
@@ -161,9 +158,9 @@ public class CamelPulsarSourceConnectorConfig
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_AUTO_CONFIGURATION_CONF = "camel.component.pulsar.autoConfiguration";
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_AUTO_CONFIGURATION_DOC = "The pulsar auto configuration";
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_AUTO_CONFIGURATION_DEFAULT = null;
-    public static final String CAMEL_SOURCE_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.pulsar.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_PULSAR_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.pulsar.autowiredEnabled";
+    public static final String CAMEL_SOURCE_PULSAR_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_PULSAR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_CLIENT_CONF = "camel.component.pulsar.pulsarClient";
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_CLIENT_DOC = "The pulsar client";
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_CLIENT_DEFAULT = null;
@@ -203,7 +200,6 @@ public class CamelPulsarSourceConnectorConfig
         conf.define(CAMEL_SOURCE_PULSAR_ENDPOINT_TOPICS_PATTERN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PULSAR_ENDPOINT_TOPICS_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_ENDPOINT_TOPICS_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PULSAR_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PULSAR_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PULSAR_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_COMPONENT_ACK_GROUP_TIME_MILLIS_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_PULSAR_COMPONENT_ACK_GROUP_TIME_MILLIS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_COMPONENT_ACK_GROUP_TIME_MILLIS_DOC);
@@ -225,7 +221,7 @@ public class CamelPulsarSourceConnectorConfig
         conf.define(CAMEL_SOURCE_PULSAR_COMPONENT_TOPICS_PATTERN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PULSAR_COMPONENT_TOPICS_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_COMPONENT_TOPICS_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_MESSAGE_RECEIPT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_MESSAGE_RECEIPT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_MESSAGE_RECEIPT_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_COMPONENT_AUTO_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PULSAR_COMPONENT_AUTO_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_COMPONENT_AUTO_CONFIGURATION_DOC);
-        conf.define(CAMEL_SOURCE_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_PULSAR_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PULSAR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PULSAR_COMPONENT_PULSAR_CLIENT_DOC);
         return conf;
     }

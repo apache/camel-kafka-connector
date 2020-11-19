@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.azurestorageblob.CamelAzurestora
 ----
 
 
-The camel-azure-storage-blob sink connector supports 57 options, which are listed below.
+The camel-azure-storage-blob sink connector supports 56 options, which are listed below.
 
 
 
@@ -56,7 +56,6 @@ The camel-azure-storage-blob sink connector supports 57 options, which are liste
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.operation* | The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobContainers" | false | MEDIUM
 | *camel.sink.endpoint.pageBlobSize* | Specifies the maximum size for the page blob, up to 8 TB. The page blob size must be aligned to a 512-byte boundary. | "512" | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | false | MEDIUM
 | *camel.component.azure-storage-blob.autoDiscover Client* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
@@ -84,7 +83,7 @@ The camel-azure-storage-blob sink connector supports 57 options, which are liste
 | *camel.component.azure-storage-blob.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.azure-storage-blob.operation* | The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobContainers" | false | MEDIUM
 | *camel.component.azure-storage-blob.pageBlobSize* | Specifies the maximum size for the page blob, up to 8 TB. The page blob size must be aligned to a 512-byte boundary. | "512" | false | MEDIUM
-| *camel.component.azure-storage-blob.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.azure-storage-blob.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.azure-storage-blob.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | false | MEDIUM
 |===
 

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.sftp.CamelSftpSinkConnector
 ----
 
 
-The camel-sftp sink connector supports 59 options, which are listed below.
+The camel-sftp sink connector supports 58 options, which are listed below.
 
 
 
@@ -56,7 +56,6 @@ The camel-sftp sink connector supports 59 options, which are listed below.
 | *camel.sink.endpoint.moveExistingFileStrategy* | Strategy (Custom Strategy) used to move file with special naming token to use when fileExist=Move is configured. By default, there is an implementation used if no custom strategy is provided | null | false | MEDIUM
 | *camel.sink.endpoint.sendNoop* | Whether to send a noop command as a pre-write check before uploading files to the FTP server. This is enabled by default as a validation of the connection is still valid, which allows to silently re-connect to be able to upload the file. However if this causes problems, you can turn this option off. | true | false | MEDIUM
 | *camel.sink.endpoint.autoCreate* | Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to. | true | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.bindAddress* | Specifies the address of the local interface against which the connection should bind. | null | false | MEDIUM
 | *camel.sink.endpoint.bulkRequests* | Specifies how many requests may be outstanding at any one time. Increasing this value may slightly improve file transfer speed but will increase memory usage. | null | false | MEDIUM
 | *camel.sink.endpoint.compression* | To use compression. Specify a level from 1 to 10. Important: You must manually add the needed JSCH zlib JAR to the classpath for compression support. | null | false | MEDIUM
@@ -87,7 +86,7 @@ The camel-sftp sink connector supports 59 options, which are listed below.
 | *camel.sink.endpoint.username* | Username to use for login | null | false | MEDIUM
 | *camel.sink.endpoint.useUserKnownHostsFile* | If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)/.ssh/known_hosts | true | false | MEDIUM
 | *camel.component.sftp.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.sftp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.sftp.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

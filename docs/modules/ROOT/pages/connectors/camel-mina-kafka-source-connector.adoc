@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.mina.CamelMinaSourceConnector
 ----
 
 
-The camel-mina source connector supports 54 options, which are listed below.
+The camel-mina source connector supports 53 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-mina source connector supports 54 options, which are listed below.
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.noReplyLogLevel* | If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "WARN" | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.maximumPoolSize* | Number of worker threads in the worker pool for TCP and UDP | 16 | false | MEDIUM
 | *camel.source.endpoint.orderedThreadPoolExecutor* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
@@ -67,7 +66,7 @@ The camel-mina source connector supports 54 options, which are listed below.
 | *camel.component.mina.clientMode* | If the clientMode is true, mina consumer will connect the address as a TCP client. | false | false | MEDIUM
 | *camel.component.mina.disconnectOnNoReply* | If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back. | true | false | MEDIUM
 | *camel.component.mina.noReplyLogLevel* | If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "WARN" | false | MEDIUM
-| *camel.component.mina.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.mina.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.mina.configuration* | To use the shared mina configuration. | null | false | MEDIUM
 | *camel.component.mina.maximumPoolSize* | Number of worker threads in the worker pool for TCP and UDP | 16 | false | MEDIUM
 | *camel.component.mina.orderedThreadPoolExecutor* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | false | MEDIUM

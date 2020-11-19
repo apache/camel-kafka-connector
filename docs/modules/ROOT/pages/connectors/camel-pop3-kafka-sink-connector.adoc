@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.pop3.CamelPop3SinkConnector
 ----
 
 
-The camel-pop3 sink connector supports 58 options, which are listed below.
+The camel-pop3 sink connector supports 57 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-pop3 sink connector supports 58 options, which are listed below.
 | *camel.sink.endpoint.alternativeBodyHeader* | Specifies the key to an IN message header that contains an alternative email body. For example, if you send emails in text/html format and want to provide an alternative mail body for non-HTML email clients, set the alternative mail body with this key as a header. | "CamelMailAlternativeBody" | false | MEDIUM
 | *camel.sink.endpoint.attachmentsContentTransfer EncodingResolver* | To use a custom AttachmentsContentTransferEncodingResolver to resolve what content-type-encoding to use for attachments. | null | false | MEDIUM
 | *camel.sink.endpoint.authenticator* | The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically. | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.binding* | Sets the binding used to convert from a Camel message to and from a Mail message | null | false | MEDIUM
 | *camel.sink.endpoint.connectionTimeout* | The connection timeout in milliseconds. | 30000 | false | MEDIUM
 | *camel.sink.endpoint.contentType* | The mail message content type. Use text/html for HTML mails. | "text/plain" | false | MEDIUM
@@ -71,7 +70,7 @@ The camel-pop3 sink connector supports 58 options, which are listed below.
 | *camel.component.pop3.alternativeBodyHeader* | Specifies the key to an IN message header that contains an alternative email body. For example, if you send emails in text/html format and want to provide an alternative mail body for non-HTML email clients, set the alternative mail body with this key as a header. | "CamelMailAlternativeBody" | false | MEDIUM
 | *camel.component.pop3.attachmentsContentTransfer EncodingResolver* | To use a custom AttachmentsContentTransferEncodingResolver to resolve what content-type-encoding to use for attachments. | null | false | MEDIUM
 | *camel.component.pop3.authenticator* | The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically. | null | false | MEDIUM
-| *camel.component.pop3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.pop3.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.pop3.configuration* | Sets the Mail configuration | null | false | MEDIUM
 | *camel.component.pop3.connectionTimeout* | The connection timeout in milliseconds. | 30000 | false | MEDIUM
 | *camel.component.pop3.contentType* | The mail message content type. Use text/html for HTML mails. | "text/plain" | false | MEDIUM

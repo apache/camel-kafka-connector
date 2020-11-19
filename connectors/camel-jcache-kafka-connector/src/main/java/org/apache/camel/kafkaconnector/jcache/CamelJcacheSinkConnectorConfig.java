@@ -60,9 +60,6 @@ public class CamelJcacheSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JCACHE_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_JCACHE_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_JCACHE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_JCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_JCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_JCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_JCACHE_ENDPOINT_CACHE_LOADER_FACTORY_CONF = "camel.sink.endpoint.cacheLoaderFactory";
     public static final String CAMEL_SINK_JCACHE_ENDPOINT_CACHE_LOADER_FACTORY_DOC = "The CacheLoader factory";
     public static final String CAMEL_SINK_JCACHE_ENDPOINT_CACHE_LOADER_FACTORY_DEFAULT = null;
@@ -96,9 +93,9 @@ public class CamelJcacheSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JCACHE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.jcache.lazyStartProducer";
     public static final String CAMEL_SINK_JCACHE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_JCACHE_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_JCACHE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.jcache.basicPropertyBinding";
-    public static final String CAMEL_SINK_JCACHE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_JCACHE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_JCACHE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.jcache.autowiredEnabled";
+    public static final String CAMEL_SINK_JCACHE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_JCACHE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelJcacheSinkConnectorConfig(
             ConfigDef config,
@@ -124,7 +121,6 @@ public class CamelJcacheSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JCACHE_ENDPOINT_WRITE_THROUGH_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JCACHE_ENDPOINT_WRITE_THROUGH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_ENDPOINT_WRITE_THROUGH_DOC);
         conf.define(CAMEL_SINK_JCACHE_ENDPOINT_ACTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JCACHE_ENDPOINT_ACTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_ENDPOINT_ACTION_DOC);
         conf.define(CAMEL_SINK_JCACHE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JCACHE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_JCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_JCACHE_ENDPOINT_CACHE_LOADER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JCACHE_ENDPOINT_CACHE_LOADER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_ENDPOINT_CACHE_LOADER_FACTORY_DOC);
         conf.define(CAMEL_SINK_JCACHE_ENDPOINT_CACHE_WRITER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JCACHE_ENDPOINT_CACHE_WRITER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_ENDPOINT_CACHE_WRITER_FACTORY_DOC);
         conf.define(CAMEL_SINK_JCACHE_ENDPOINT_CREATE_CACHE_IF_NOT_EXISTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JCACHE_ENDPOINT_CREATE_CACHE_IF_NOT_EXISTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_ENDPOINT_CREATE_CACHE_IF_NOT_EXISTS_DOC);
@@ -136,7 +132,7 @@ public class CamelJcacheSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JCACHE_COMPONENT_CACHING_PROVIDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JCACHE_COMPONENT_CACHING_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_COMPONENT_CACHING_PROVIDER_DOC);
         conf.define(CAMEL_SINK_JCACHE_COMPONENT_CONFIGURATION_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JCACHE_COMPONENT_CONFIGURATION_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_COMPONENT_CONFIGURATION_URI_DOC);
         conf.define(CAMEL_SINK_JCACHE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JCACHE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_JCACHE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JCACHE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_JCACHE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_JCACHE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JCACHE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JCACHE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

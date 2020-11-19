@@ -44,9 +44,6 @@ public class CamelDirectvmSinkConnectorConfig
     public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.sink.endpoint.headerFilterStrategy";
     public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "Sets a HeaderFilterStrategy that will only be applied on producer endpoints (on both directions: request and response). Default value: none.";
     public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_DIRECTVM_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_CONF = "camel.sink.endpoint.propagateProperties";
     public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_DOC = "Whether to propagate or not properties from the producer side to the consumer side, and vice versa. Default value: true.";
     public static final Boolean CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_DEFAULT = true;
@@ -62,9 +59,9 @@ public class CamelDirectvmSinkConnectorConfig
     public static final String CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_CONF = "camel.component.direct-vm.timeout";
     public static final String CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_DOC = "The timeout value to use if block is enabled.";
     public static final Long CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_DEFAULT = 30000L;
-    public static final String CAMEL_SINK_DIRECTVM_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.direct-vm.basicPropertyBinding";
-    public static final String CAMEL_SINK_DIRECTVM_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_DIRECTVM_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_DIRECTVM_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.direct-vm.autowiredEnabled";
+    public static final String CAMEL_SINK_DIRECTVM_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_DIRECTVM_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_DIRECTVM_COMPONENT_HEADER_FILTER_STRATEGY_CONF = "camel.component.direct-vm.headerFilterStrategy";
     public static final String CAMEL_SINK_DIRECTVM_COMPONENT_HEADER_FILTER_STRATEGY_DOC = "Sets a HeaderFilterStrategy that will only be applied on producer endpoints (on both directions: request and response). Default value: none.";
     public static final String CAMEL_SINK_DIRECTVM_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -90,13 +87,12 @@ public class CamelDirectvmSinkConnectorConfig
         conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_DIRECTVM_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
-        conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_DOC);
-        conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_DIRECTVM_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DIRECTVM_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_PROPAGATE_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_COMPONENT_PROPAGATE_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_PROPAGATE_PROPERTIES_DOC);
         return conf;

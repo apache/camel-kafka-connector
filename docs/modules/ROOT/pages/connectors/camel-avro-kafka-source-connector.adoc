@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.avro.CamelAvroSourceConnector
 ----
 
 
-The camel-avro source connector supports 24 options, which are listed below.
+The camel-avro source connector supports 23 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-avro source connector supports 24 options, which are listed below.
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.avro.protocol* | Avro protocol to use | null | false | MEDIUM
 | *camel.component.avro.protocolClassName* | Avro protocol to use defined by the FQN class name | null | false | MEDIUM
@@ -51,7 +50,7 @@ The camel-avro source connector supports 24 options, which are listed below.
 | *camel.component.avro.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | false | MEDIUM
 | *camel.component.avro.uriAuthority* | Authority to use (username and password) | null | false | MEDIUM
 | *camel.component.avro.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.component.avro.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.avro.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.avro.configuration* | To use a shared AvroConfiguration to configure options once | null | false | MEDIUM
 |===
 

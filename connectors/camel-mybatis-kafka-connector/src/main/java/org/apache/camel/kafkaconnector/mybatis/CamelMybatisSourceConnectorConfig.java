@@ -62,9 +62,6 @@ public class CamelMybatisSourceConnectorConfig
     public static final String CAMEL_SOURCE_MYBATIS_ENDPOINT_PROCESSING_STRATEGY_CONF = "camel.source.endpoint.processingStrategy";
     public static final String CAMEL_SOURCE_MYBATIS_ENDPOINT_PROCESSING_STRATEGY_DOC = "To use a custom MyBatisProcessingStrategy";
     public static final String CAMEL_SOURCE_MYBATIS_ENDPOINT_PROCESSING_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_MYBATIS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_MYBATIS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_MYBATIS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -116,9 +113,9 @@ public class CamelMybatisSourceConnectorConfig
     public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.mybatis.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_MYBATIS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mybatis.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.mybatis.autowiredEnabled";
+    public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_CONF = "camel.component.mybatis.sqlSessionFactory";
     public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_DOC = "To use the SqlSessionFactory";
     public static final String CAMEL_SOURCE_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_DEFAULT = null;
@@ -147,7 +144,6 @@ public class CamelMybatisSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MYBATIS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MYBATIS_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_PROCESSING_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MYBATIS_ENDPOINT_PROCESSING_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_PROCESSING_STRATEGY_DOC);
-        conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MYBATIS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MYBATIS_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MYBATIS_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
@@ -165,7 +161,7 @@ public class CamelMybatisSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MYBATIS_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MYBATIS_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_ENDPOINT_USE_FIXED_DELAY_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_COMPONENT_CONFIGURATION_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MYBATIS_COMPONENT_CONFIGURATION_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_COMPONENT_CONFIGURATION_URI_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MYBATIS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_DOC);
         return conf;
     }

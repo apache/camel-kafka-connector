@@ -65,9 +65,6 @@ public class CamelRestSourceConnectorConfig
     public static final String CAMEL_SOURCE_REST_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_REST_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_REST_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_REST_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_REST_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_REST_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_REST_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -77,9 +74,9 @@ public class CamelRestSourceConnectorConfig
     public static final String CAMEL_SOURCE_REST_COMPONENT_CONSUMER_COMPONENT_NAME_CONF = "camel.component.rest.consumerComponentName";
     public static final String CAMEL_SOURCE_REST_COMPONENT_CONSUMER_COMPONENT_NAME_DOC = "The Camel Rest component to use for (consumer) the REST transport, such as jetty, servlet, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry. If either one is found, then that is being used.";
     public static final String CAMEL_SOURCE_REST_COMPONENT_CONSUMER_COMPONENT_NAME_DEFAULT = null;
-    public static final String CAMEL_SOURCE_REST_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.rest.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_REST_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_REST_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_REST_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.rest.autowiredEnabled";
+    public static final String CAMEL_SOURCE_REST_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_REST_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelRestSourceConnectorConfig(
             ConfigDef config,
@@ -106,11 +103,10 @@ public class CamelRestSourceConnectorConfig
         conf.define(CAMEL_SOURCE_REST_ENDPOINT_DESCRIPTION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_REST_ENDPOINT_DESCRIPTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_REST_ENDPOINT_DESCRIPTION_DOC);
         conf.define(CAMEL_SOURCE_REST_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_REST_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_REST_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_REST_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_REST_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_REST_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_REST_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_REST_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_REST_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_REST_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_REST_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_REST_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_REST_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_REST_COMPONENT_CONSUMER_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_REST_COMPONENT_CONSUMER_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_REST_COMPONENT_CONSUMER_COMPONENT_NAME_DOC);
-        conf.define(CAMEL_SOURCE_REST_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_REST_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_REST_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_REST_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_REST_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_REST_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

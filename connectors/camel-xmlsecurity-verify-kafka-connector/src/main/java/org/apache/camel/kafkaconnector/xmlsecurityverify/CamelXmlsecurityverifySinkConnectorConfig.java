@@ -77,9 +77,6 @@ public class CamelXmlsecurityverifySinkConnectorConfig
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_CHECKER_CONF = "camel.sink.endpoint.xmlSignatureChecker";
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_CHECKER_DOC = "This interface allows the application to check the XML signature before the validation is executed. This step is recommended in http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed";
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_CHECKER_DEFAULT = null;
-    public static final String CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -134,9 +131,9 @@ public class CamelXmlsecurityverifySinkConnectorConfig
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_CHECKER_CONF = "camel.component.xmlsecurity-verify.xmlSignatureChecker";
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_CHECKER_DOC = "This interface allows the application to check the XML signature before the validation is executed. This step is recommended in http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed";
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_CHECKER_DEFAULT = null;
-    public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.xmlsecurity-verify.basicPropertyBinding";
-    public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.xmlsecurity-verify.autowiredEnabled";
+    public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_URI_DEREFERENCER_CONF = "camel.component.xmlsecurity-verify.uriDereferencer";
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_URI_DEREFERENCER_DOC = "If you want to restrict the remote access via reference URIs, you can set an own dereferencer. Optional parameter. If not set the provider default dereferencer is used which can resolve URI fragments, HTTP, file and XPpointer URIs. Attention: The implementation is provider dependent!";
     public static final String CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_URI_DEREFERENCER_DEFAULT = null;
@@ -174,7 +171,6 @@ public class CamelXmlsecurityverifySinkConnectorConfig
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_VALIDATION_FAILED_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_VALIDATION_FAILED_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_VALIDATION_FAILED_HANDLER_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_2MESSAGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_2MESSAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_2MESSAGE_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_CHECKER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_CHECKER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_XML_SIGNATURE_CHECKER_DOC);
-        conf.define(CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_URI_DEREFERENCER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_URI_DEREFERENCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_ENDPOINT_URI_DEREFERENCER_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASE_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASE_URI_DOC);
@@ -193,7 +189,7 @@ public class CamelXmlsecurityverifySinkConnectorConfig
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_VALIDATION_FAILED_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_VALIDATION_FAILED_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_VALIDATION_FAILED_HANDLER_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_2MESSAGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_2MESSAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_2MESSAGE_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_CHECKER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_CHECKER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_XML_SIGNATURE_CHECKER_DOC);
-        conf.define(CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_URI_DEREFERENCER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_URI_DEREFERENCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_URI_DEREFERENCER_DOC);
         conf.define(CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_VERIFIER_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_VERIFIER_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMLSECURITYVERIFY_COMPONENT_VERIFIER_CONFIGURATION_DOC);
         return conf;

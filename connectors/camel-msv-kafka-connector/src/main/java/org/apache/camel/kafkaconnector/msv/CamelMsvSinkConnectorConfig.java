@@ -39,9 +39,6 @@ public class CamelMsvSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MSV_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_MSV_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_MSV_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_MSV_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_MSV_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MSV_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_MSV_ENDPOINT_ERROR_HANDLER_CONF = "camel.sink.endpoint.errorHandler";
     public static final String CAMEL_SINK_MSV_ENDPOINT_ERROR_HANDLER_DOC = "To use a custom org.apache.camel.processor.validation.ValidatorErrorHandler. The default error handler captures the errors and throws an exception.";
     public static final String CAMEL_SINK_MSV_ENDPOINT_ERROR_HANDLER_DEFAULT = null;
@@ -66,9 +63,9 @@ public class CamelMsvSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MSV_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.msv.lazyStartProducer";
     public static final String CAMEL_SINK_MSV_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_MSV_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_MSV_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.msv.basicPropertyBinding";
-    public static final String CAMEL_SINK_MSV_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MSV_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_MSV_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.msv.autowiredEnabled";
+    public static final String CAMEL_SINK_MSV_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_MSV_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_MSV_COMPONENT_RESOURCE_RESOLVER_FACTORY_CONF = "camel.component.msv.resourceResolverFactory";
     public static final String CAMEL_SINK_MSV_COMPONENT_RESOURCE_RESOLVER_FACTORY_DOC = "To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI";
     public static final String CAMEL_SINK_MSV_COMPONENT_RESOURCE_RESOLVER_FACTORY_DEFAULT = null;
@@ -93,7 +90,6 @@ public class CamelMsvSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MSV_ENDPOINT_FAIL_ON_NULL_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MSV_ENDPOINT_FAIL_ON_NULL_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_FAIL_ON_NULL_HEADER_DOC);
         conf.define(CAMEL_SINK_MSV_ENDPOINT_HEADER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MSV_ENDPOINT_HEADER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_HEADER_NAME_DOC);
         conf.define(CAMEL_SINK_MSV_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MSV_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_MSV_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MSV_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_MSV_ENDPOINT_ERROR_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MSV_ENDPOINT_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SINK_MSV_ENDPOINT_RESOURCE_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MSV_ENDPOINT_RESOURCE_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_RESOURCE_RESOLVER_DOC);
         conf.define(CAMEL_SINK_MSV_ENDPOINT_RESOURCE_RESOLVER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MSV_ENDPOINT_RESOURCE_RESOLVER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_RESOURCE_RESOLVER_FACTORY_DOC);
@@ -102,7 +98,7 @@ public class CamelMsvSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MSV_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MSV_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_MSV_ENDPOINT_USE_SHARED_SCHEMA_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MSV_ENDPOINT_USE_SHARED_SCHEMA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_ENDPOINT_USE_SHARED_SCHEMA_DOC);
         conf.define(CAMEL_SINK_MSV_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MSV_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_MSV_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MSV_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_MSV_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_MSV_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MSV_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_MSV_COMPONENT_RESOURCE_RESOLVER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MSV_COMPONENT_RESOURCE_RESOLVER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_COMPONENT_RESOURCE_RESOLVER_FACTORY_DOC);
         conf.define(CAMEL_SINK_MSV_COMPONENT_SCHEMA_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MSV_COMPONENT_SCHEMA_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MSV_COMPONENT_SCHEMA_FACTORY_DOC);
         return conf;

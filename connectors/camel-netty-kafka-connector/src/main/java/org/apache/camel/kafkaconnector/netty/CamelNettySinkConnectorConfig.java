@@ -93,9 +93,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_CONF = "camel.sink.endpoint.allowSerializedHeaders";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DOC = "Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level.";
     public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DEFAULT = false;
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_NETTY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_NETTY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_CONF = "camel.sink.endpoint.channelGroup";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_DOC = "To use a explicit ChannelGroup.";
     public static final String CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_DEFAULT = null;
@@ -252,9 +249,9 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_CONF = "camel.component.netty.allowSerializedHeaders";
     public static final String CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_DOC = "Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level.";
     public static final Boolean CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_DEFAULT = false;
-    public static final String CAMEL_SINK_NETTY_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.netty.basicPropertyBinding";
-    public static final String CAMEL_SINK_NETTY_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_NETTY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.netty.autowiredEnabled";
+    public static final String CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_CONF = "camel.component.netty.channelGroup";
     public static final String CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_DOC = "To use a explicit ChannelGroup.";
     public static final String CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_DEFAULT = null;
@@ -384,7 +381,6 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_UDP_CONNECTIONLESS_SENDING_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_USE_BYTE_BUF_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_ALLOW_SERIALIZED_HEADERS_DOC);
-        conf.define(CAMEL_SINK_NETTY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_CHANNEL_GROUP_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_NATIVE_TRANSPORT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_ENDPOINT_NATIVE_TRANSPORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_NATIVE_TRANSPORT_DOC);
         conf.define(CAMEL_SINK_NETTY_ENDPOINT_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_ENDPOINT_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_ENDPOINT_OPTIONS_DOC);
@@ -437,7 +433,7 @@ public class CamelNettySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_UDP_CONNECTIONLESS_SENDING_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_USE_BYTE_BUF_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_ALLOW_SERIALIZED_HEADERS_DOC);
-        conf.define(CAMEL_SINK_NETTY_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_NETTY_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_CHANNEL_GROUP_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_NATIVE_TRANSPORT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NETTY_COMPONENT_NATIVE_TRANSPORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_NATIVE_TRANSPORT_DOC);
         conf.define(CAMEL_SINK_NETTY_COMPONENT_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NETTY_COMPONENT_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NETTY_COMPONENT_OPTIONS_DOC);

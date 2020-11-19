@@ -39,9 +39,6 @@ public class CamelBeanSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_BEAN_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_BEAN_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_BEAN_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_CONF = "camel.sink.endpoint.parameters";
     public static final String CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_DOC = "Used for configuring additional properties on the bean";
     public static final String CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_DEFAULT = null;
@@ -57,9 +54,9 @@ public class CamelBeanSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_BEAN_COMPONENT_SCOPE_CONF = "camel.component.bean.scope";
     public static final String CAMEL_SINK_BEAN_COMPONENT_SCOPE_DOC = "Scope of bean. When using singleton scope (default) the bean is created or looked up only once and reused for the lifetime of the endpoint. The bean should be thread-safe in case concurrent threads is calling the bean at the same time. When using request scope the bean is created or looked up once per request (exchange). This can be used if you want to store state on a bean while processing a request and you want to call the same bean instance multiple times while processing the request. The bean does not have to be thread-safe as the instance is only called from the same request. When using delegate scope, then the bean will be looked up or created per call. However in case of lookup then this is delegated to the bean registry such as Spring or CDI (if in use), which depends on their configuration can act as either singleton or prototype scope. so when using prototype then this depends on the delegated registry. One of: [Singleton] [Request] [Prototype]";
     public static final String CAMEL_SINK_BEAN_COMPONENT_SCOPE_DEFAULT = "Singleton";
-    public static final String CAMEL_SINK_BEAN_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.bean.basicPropertyBinding";
-    public static final String CAMEL_SINK_BEAN_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_BEAN_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_BEAN_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.bean.autowiredEnabled";
+    public static final String CAMEL_SINK_BEAN_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_BEAN_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelBeanSinkConnectorConfig(
             ConfigDef config,
@@ -78,13 +75,12 @@ public class CamelBeanSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_ENDPOINT_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_METHOD_DOC);
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_SCOPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_ENDPOINT_SCOPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_SCOPE_DOC);
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_BEAN_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_BEAN_COMPONENT_CACHE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_COMPONENT_CACHE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_BEAN_COMPONENT_CACHE_DOC);
         conf.define(CAMEL_SINK_BEAN_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_BEAN_COMPONENT_SCOPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_COMPONENT_SCOPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_COMPONENT_SCOPE_DOC);
-        conf.define(CAMEL_SINK_BEAN_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_BEAN_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_BEAN_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

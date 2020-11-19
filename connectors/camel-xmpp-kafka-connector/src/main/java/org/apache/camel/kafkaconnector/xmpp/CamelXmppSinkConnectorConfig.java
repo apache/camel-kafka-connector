@@ -60,9 +60,6 @@ public class CamelXmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_CONF = "camel.sink.endpoint.connectionConfig";
     public static final String CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_DOC = "To use an existing connection configuration. Currently org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only supported (XMPP over TCP).";
     public static final String CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_DEFAULT = null;
@@ -84,9 +81,9 @@ public class CamelXmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_XMPP_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.xmpp.lazyStartProducer";
     public static final String CAMEL_SINK_XMPP_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_XMPP_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.xmpp.basicPropertyBinding";
-    public static final String CAMEL_SINK_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_XMPP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.xmpp.autowiredEnabled";
+    public static final String CAMEL_SINK_XMPP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_XMPP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelXmppSinkConnectorConfig(
             ConfigDef config,
@@ -112,7 +109,6 @@ public class CamelXmppSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_CREATE_ACCOUNT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_ENDPOINT_CREATE_ACCOUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_CREATE_ACCOUNT_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_RESOURCE_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
@@ -120,7 +116,7 @@ public class CamelXmppSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_ROOM_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_ROOM_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_ROOM_PASSWORD_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_USER_DOC);
         conf.define(CAMEL_SINK_XMPP_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_XMPP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

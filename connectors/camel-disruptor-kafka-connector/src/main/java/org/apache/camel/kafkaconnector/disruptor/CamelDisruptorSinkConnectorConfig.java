@@ -47,9 +47,6 @@ public class CamelDisruptorSinkConnectorConfig
     public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_CONF = "camel.sink.endpoint.waitForTaskToComplete";
     public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DOC = "Option to specify whether the caller should wait for the async task to complete or not before continuing. The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory. The last value, IfReplyExpected, will only wait if the message is Request Reply based. One of: [Never] [IfReplyExpected] [Always]";
     public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DEFAULT = "IfReplyExpected";
-    public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -65,9 +62,9 @@ public class CamelDisruptorSinkConnectorConfig
     public static final String CAMEL_SINK_DISRUPTOR_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.disruptor.lazyStartProducer";
     public static final String CAMEL_SINK_DISRUPTOR_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_DISRUPTOR_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_DISRUPTOR_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.disruptor.basicPropertyBinding";
-    public static final String CAMEL_SINK_DISRUPTOR_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_DISRUPTOR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_DISRUPTOR_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.disruptor.autowiredEnabled";
+    public static final String CAMEL_SINK_DISRUPTOR_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_DISRUPTOR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelDisruptorSinkConnectorConfig(
             ConfigDef config,
@@ -88,13 +85,12 @@ public class CamelDisruptorSinkConnectorConfig
         conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_PRODUCER_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DISRUPTOR_ENDPOINT_PRODUCER_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_PRODUCER_TYPE_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_DISRUPTOR_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DOC);
-        conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_PRODUCER_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_PRODUCER_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_PRODUCER_TYPE_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DISRUPTOR_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DISRUPTOR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_DISRUPTOR_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DISRUPTOR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

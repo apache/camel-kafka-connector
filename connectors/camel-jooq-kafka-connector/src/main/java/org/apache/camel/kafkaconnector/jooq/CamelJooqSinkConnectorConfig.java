@@ -39,9 +39,6 @@ public class CamelJooqSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JOOQ_ENDPOINT_QUERY_CONF = "camel.sink.endpoint.query";
     public static final String CAMEL_SINK_JOOQ_ENDPOINT_QUERY_DOC = "To execute plain SQL query";
     public static final String CAMEL_SINK_JOOQ_ENDPOINT_QUERY_DEFAULT = null;
-    public static final String CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -60,9 +57,9 @@ public class CamelJooqSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JOOQ_COMPONENT_QUERY_CONF = "camel.component.jooq.query";
     public static final String CAMEL_SINK_JOOQ_COMPONENT_QUERY_DOC = "To execute plain SQL query";
     public static final String CAMEL_SINK_JOOQ_COMPONENT_QUERY_DEFAULT = null;
-    public static final String CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.jooq.basicPropertyBinding";
-    public static final String CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.jooq.autowiredEnabled";
+    public static final String CAMEL_SINK_JOOQ_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_JOOQ_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelJooqSinkConnectorConfig(
             ConfigDef config,
@@ -81,14 +78,13 @@ public class CamelJooqSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JOOQ_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_JOOQ_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_JOOQ_ENDPOINT_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_ENDPOINT_QUERY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_ENDPOINT_QUERY_DOC);
-        conf.define(CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_DATABASE_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_JOOQ_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_JOOQ_COMPONENT_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOOQ_COMPONENT_QUERY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_QUERY_DOC);
-        conf.define(CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_JOOQ_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_JOOQ_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOOQ_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOOQ_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

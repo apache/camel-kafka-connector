@@ -56,9 +56,6 @@ public class CamelStubSourceConnectorConfig
     public static final String CAMEL_SOURCE_STUB_ENDPOINT_PURGE_WHEN_STOPPING_CONF = "camel.source.endpoint.purgeWhenStopping";
     public static final String CAMEL_SOURCE_STUB_ENDPOINT_PURGE_WHEN_STOPPING_DOC = "Whether to purge the task queue when stopping the consumer/route. This allows to stop faster, as any pending messages on the queue is discarded.";
     public static final Boolean CAMEL_SOURCE_STUB_ENDPOINT_PURGE_WHEN_STOPPING_DEFAULT = false;
-    public static final String CAMEL_SOURCE_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_STUB_ENDPOINT_QUEUE_CONF = "camel.source.endpoint.queue";
     public static final String CAMEL_SOURCE_STUB_ENDPOINT_QUEUE_DOC = "Define the queue instance which will be used by the endpoint";
     public static final String CAMEL_SOURCE_STUB_ENDPOINT_QUEUE_DEFAULT = null;
@@ -71,9 +68,9 @@ public class CamelStubSourceConnectorConfig
     public static final String CAMEL_SOURCE_STUB_COMPONENT_CONCURRENT_CONSUMERS_CONF = "camel.component.stub.concurrentConsumers";
     public static final String CAMEL_SOURCE_STUB_COMPONENT_CONCURRENT_CONSUMERS_DOC = "Sets the default number of concurrent threads processing exchanges.";
     public static final Integer CAMEL_SOURCE_STUB_COMPONENT_CONCURRENT_CONSUMERS_DEFAULT = 1;
-    public static final String CAMEL_SOURCE_STUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.stub.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_STUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_STUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_STUB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.stub.autowiredEnabled";
+    public static final String CAMEL_SOURCE_STUB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_STUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_CONF = "camel.component.stub.defaultQueueFactory";
     public static final String CAMEL_SOURCE_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_DOC = "Sets the default queue factory.";
     public static final String CAMEL_SOURCE_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_DEFAULT = null;
@@ -103,12 +100,11 @@ public class CamelStubSourceConnectorConfig
         conf.define(CAMEL_SOURCE_STUB_ENDPOINT_MULTIPLE_CONSUMERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STUB_ENDPOINT_MULTIPLE_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_ENDPOINT_MULTIPLE_CONSUMERS_DOC);
         conf.define(CAMEL_SOURCE_STUB_ENDPOINT_POLL_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_STUB_ENDPOINT_POLL_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_ENDPOINT_POLL_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_STUB_ENDPOINT_PURGE_WHEN_STOPPING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STUB_ENDPOINT_PURGE_WHEN_STOPPING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_ENDPOINT_PURGE_WHEN_STOPPING_DOC);
-        conf.define(CAMEL_SOURCE_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_STUB_ENDPOINT_QUEUE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STUB_ENDPOINT_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_ENDPOINT_QUEUE_DOC);
         conf.define(CAMEL_SOURCE_STUB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STUB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_STUB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STUB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_STUB_COMPONENT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_STUB_COMPONENT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_COMPONENT_CONCURRENT_CONSUMERS_DOC);
-        conf.define(CAMEL_SOURCE_STUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_STUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_STUB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_STUB_COMPONENT_QUEUE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_STUB_COMPONENT_QUEUE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STUB_COMPONENT_QUEUE_SIZE_DOC);
         return conf;

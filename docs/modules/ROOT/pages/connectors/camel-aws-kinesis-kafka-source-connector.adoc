@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awskinesis.CamelAwskinesisSource
 ----
 
 
-The camel-aws-kinesis source connector supports 51 options, which are listed below.
+The camel-aws-kinesis source connector supports 50 options, which are listed below.
 
 
 
@@ -46,7 +46,6 @@ The camel-aws-kinesis source connector supports 51 options, which are listed bel
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
@@ -77,7 +76,7 @@ The camel-aws-kinesis source connector supports 51 options, which are listed bel
 | *camel.component.aws-kinesis.sequenceNumber* | The sequence number to start polling from. Required if iteratorType is set to AFTER_SEQUENCE_NUMBER or AT_SEQUENCE_NUMBER | null | false | MEDIUM
 | *camel.component.aws-kinesis.shardClosed* | Define what will be the behavior in case of shard closed. Possible value are ignore, silent and fail. In case of ignore a message will be logged and the consumer will restart from the beginning,in case of silent there will be no logging and the consumer will start from the beginning,in case of fail a ReachedClosedStateException will be raised One of: [ignore] [fail] [silent] | "ignore" | false | MEDIUM
 | *camel.component.aws-kinesis.shardId* | Defines which shardId in the Kinesis stream to get records from | null | false | MEDIUM
-| *camel.component.aws-kinesis.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws-kinesis.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws-kinesis.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws-kinesis.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 |===

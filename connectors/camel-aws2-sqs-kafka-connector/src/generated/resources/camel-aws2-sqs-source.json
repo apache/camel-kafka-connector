@@ -35,13 +35,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.autoDiscoverClient": {
-			"name": "camel.source.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.headerFilterStrategy": {
 			"name": "camel.source.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to map headers to\/from Camel.",
@@ -200,13 +193,6 @@
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.basicPropertyBinding": {
-			"name": "camel.source.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -397,13 +383,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-sqs.autoDiscoverClient": {
-			"name": "camel.component.aws2-sqs.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.aws2-sqs.configuration": {
 			"name": "camel.component.aws2-sqs.configuration",
 			"description": "The AWS SQS default configuration",
@@ -534,11 +513,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-sqs.basicPropertyBinding": {
-			"name": "camel.component.aws2-sqs.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.aws2-sqs.autowiredEnabled": {
+			"name": "camel.component.aws2-sqs.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.aws2-sqs.delayQueue": {

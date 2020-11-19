@@ -15,13 +15,6 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.sink.endpoint.autoDiscoverClient": {
-			"name": "camel.sink.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
@@ -62,13 +55,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
@@ -104,13 +90,6 @@
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
 			"description": "Amazon AWS Secret Key",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.aws2-lambda.autoDiscoverClient": {
-			"name": "camel.component.aws2-lambda.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -154,17 +133,17 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.aws2-lambda.autowiredEnabled": {
+			"name": "camel.component.aws2-lambda.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.aws2-lambda.awsLambdaClient": {
 			"name": "camel.component.aws2-lambda.awsLambdaClient",
 			"description": "To use a existing configured AwsLambdaClient as client",
 			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.aws2-lambda.basicPropertyBinding": {
-			"name": "camel.component.aws2-lambda.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.aws2-lambda.proxyHost": {

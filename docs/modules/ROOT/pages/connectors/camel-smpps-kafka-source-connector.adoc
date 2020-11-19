@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.smpps.CamelSmppsSourceConnector
 ----
 
 
-The camel-smpps source connector supports 50 options, which are listed below.
+The camel-smpps source connector supports 49 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-smpps source connector supports 50 options, which are listed below.
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.enquireLinkTimer* | Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC. | "5000" | false | MEDIUM
 | *camel.source.endpoint.sessionStateListener* | You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed. | null | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
@@ -63,7 +62,7 @@ The camel-smpps source connector supports 50 options, which are listed below.
 | *camel.component.smpps.systemType* | This parameter is used to categorize the type of ESME (External Short Message Entity) that is binding to the SMSC (max. 13 characters). | null | false | MEDIUM
 | *camel.component.smpps.addressRange* | You can specify the address range for the SmppConsumer as defined in section 5.2.7 of the SMPP 3.4 specification. The SmppConsumer will receive messages only from SMSC's which target an address (MSISDN or IP address) within this range. | null | false | MEDIUM
 | *camel.component.smpps.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.component.smpps.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.smpps.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.smpps.configuration* | To use the shared SmppConfiguration as configuration. | null | false | MEDIUM
 | *camel.component.smpps.enquireLinkTimer* | Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC. | "5000" | false | MEDIUM
 | *camel.component.smpps.sessionStateListener* | You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed. | null | false | MEDIUM

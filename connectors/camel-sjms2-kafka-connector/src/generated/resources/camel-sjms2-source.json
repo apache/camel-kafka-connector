@@ -122,13 +122,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.basicPropertyBinding": {
-			"name": "camel.source.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.connectionCount": {
 			"name": "camel.source.endpoint.connectionCount",
 			"description": "The maximum number of connections available to this endpoint",
@@ -246,6 +239,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.sjms2.connectionFactory": {
+			"name": "camel.component.sjms2.connectionFactory",
+			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.sjms2.bridgeErrorHandler": {
 			"name": "camel.component.sjms2.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -267,22 +266,16 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.sjms2.basicPropertyBinding": {
-			"name": "camel.component.sjms2.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.sjms2.autowiredEnabled": {
+			"name": "camel.component.sjms2.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.sjms2.connectionClientId": {
 			"name": "camel.component.sjms2.connectionClientId",
 			"description": "The client ID to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionFactory": {
-			"name": "camel.component.sjms2.connectionFactory",
-			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

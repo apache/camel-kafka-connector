@@ -15,13 +15,6 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
-		"camel.sink.endpoint.autoDiscoverClient": {
-			"name": "camel.sink.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key.",
@@ -189,13 +182,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.clientRequestToken": {
 			"name": "camel.sink.endpoint.clientRequestToken",
 			"description": "A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this.",
@@ -218,13 +204,6 @@
 		"camel.component.aws2-athena.amazonAthenaClient": {
 			"name": "camel.component.aws2-athena.amazonAthenaClient",
 			"description": "The AmazonAthena instance to use as the client.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.aws2-athena.autoDiscoverClient": {
-			"name": "camel.component.aws2-athena.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking",
-			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -389,11 +368,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-athena.basicPropertyBinding": {
-			"name": "camel.component.aws2-athena.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.aws2-athena.autowiredEnabled": {
+			"name": "camel.component.aws2-athena.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.aws2-athena.clientRequestToken": {
