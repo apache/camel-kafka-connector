@@ -203,8 +203,8 @@ public class CamelKafkaConnectMain extends SimpleMain {
                         idempotentRepo = MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension);
                         break;
                     case "kafka":
-                	    idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers);
-                	    break;
+                        idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers);
+                        break;
                     default:
                         break;
                 }
