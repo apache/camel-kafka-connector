@@ -38,6 +38,7 @@
 
 **Merged pull requests:**
 
+- Use the errorHandler variable coming from Builder [\#718](https://github.com/apache/camel-kafka-connector/pull/718) ([oscerd](https://github.com/oscerd))
 - Idempotency [\#716](https://github.com/apache/camel-kafka-connector/pull/716) ([oscerd](https://github.com/oscerd))
 - Issue/692 [\#714](https://github.com/apache/camel-kafka-connector/pull/714) ([valdar](https://github.com/valdar))
 - Decouple the jdbc clients from the service to simplify using the test infra from Camel [\#713](https://github.com/apache/camel-kafka-connector/pull/713) ([orpiske](https://github.com/orpiske))
@@ -51,7 +52,6 @@
 - SFTP connector: add RemoteFileTransform [\#690](https://github.com/apache/camel-kafka-connector/pull/690) ([oscerd](https://github.com/oscerd))
 - Remove hacktoberfest from label list [\#689](https://github.com/apache/camel-kafka-connector/pull/689) ([oscerd](https://github.com/oscerd))
 - Added PojoToSchemaAndStructTransform to infer POJO kafka connec schem… [\#686](https://github.com/apache/camel-kafka-connector/pull/686) ([valdar](https://github.com/valdar))
-- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#685](https://github.com/apache/camel-kafka-connector/pull/685) ([github-actions[bot]](https://github.com/apps/github-actions))
 - AWS v2 tests tweaks [\#684](https://github.com/apache/camel-kafka-connector/pull/684) ([orpiske](https://github.com/orpiske))
 - Provide API to retrieve Basic configuration \#679 [\#683](https://github.com/apache/camel-kafka-connector/pull/683) ([apupier](https://github.com/apupier))
 - Minor SJMS2 test cleanups [\#681](https://github.com/apache/camel-kafka-connector/pull/681) ([orpiske](https://github.com/orpiske))
