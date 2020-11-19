@@ -65,7 +65,7 @@ public final class TaskHelper {
 
 
 
-        return factory.buildUri(componentSchema, filteredProps);
+        return factory.buildUri(componentSchema, filteredProps, false);
     }
 
     /**
