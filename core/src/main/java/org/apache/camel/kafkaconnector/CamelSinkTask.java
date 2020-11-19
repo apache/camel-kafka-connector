@@ -89,6 +89,9 @@ public class CamelSinkTask extends SinkTask {
             final String expressionType = config.getString(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF);
             final String expressionHeader = config.getString(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_HEADER_CONF);
             final int memoryDimension = config.getInt(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_MEMORY_DIMENSION_CONF);
+            final String idempotentRepositoryType = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_REPOSITORY_TYPE_CONF);
+            final String idempotentRepositoryKafkaTopic = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_TOPIC_CONF);
+            final String idempotentRepositoryBootstrapServers = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_BOOTSTRAP_SERVERS_CONF);
             
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
@@ -112,6 +115,9 @@ public class CamelSinkTask extends SinkTask {
                 .withExpressionType(expressionType)
                 .withExpressionHeader(expressionHeader)
                 .withMemoryDimension(memoryDimension)
+                .withIdempotentRepositoryType(idempotentRepositoryType)
+                .withIdempotentRepositoryTopicName(idempotentRepositoryKafkaTopic)
+                .withIdempotentRepositoryKafkaServers(idempotentRepositoryBootstrapServers)
                 .build(camelContext);
 
 
