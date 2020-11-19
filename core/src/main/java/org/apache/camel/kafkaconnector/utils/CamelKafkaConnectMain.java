@@ -28,6 +28,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.kafkaconnector.CamelConnectorConfig;
 import org.apache.camel.main.SimpleMain;
 import org.apache.camel.model.RouteDefinition;
+import org.apache.camel.processor.idempotent.kafka.KafkaIdempotentRepository;
 import org.apache.camel.spi.IdempotentRepository;
 import org.apache.camel.support.processor.idempotent.MemoryIdempotentRepository;
 import org.apache.camel.support.service.ServiceHelper;
@@ -100,6 +101,9 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private String expressionType;
         private String expressionHeader;
         private int memoryDimension;
+        private String idempotentRepositoryType;
+        private String idempotentRepositoryTopicName;
+        private String idempotentRepositoryKafkaServers;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -165,6 +169,21 @@ public class CamelKafkaConnectMain extends SimpleMain {
             this.memoryDimension = memoryDimension;
             return this;
         }
+        
+        public Builder withIdempotentRepositoryType(String idempotentRepositoryType) {
+            this.idempotentRepositoryType = idempotentRepositoryType;
+            return this;
+        }
+        
+        public Builder withIdempotentRepositoryTopicName(String idempotentRepositoryTopicName) {
+            this.idempotentRepositoryTopicName = idempotentRepositoryTopicName;
+            return this;
+        }
+        
+        public Builder withIdempotentRepositoryKafkaServers(String idempotentRepositoryKafkaServers) {
+            this.idempotentRepositoryKafkaServers = idempotentRepositoryKafkaServers;
+            return this;
+        }
 
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
@@ -178,7 +197,17 @@ public class CamelKafkaConnectMain extends SimpleMain {
             
             // Instantianting the idempotent Repository here and inject it in registry to be referenced
             if (idempotencyEnabled) {
-                IdempotentRepository idempotentRepo = MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension);
+                IdempotentRepository idempotentRepo = null;
+                switch (idempotentRepositoryType) {
+                    case "memory":
+                        idempotentRepo = MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension);
+                        break;
+                    case "kafka":
+                	    idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers);
+                	    break;
+                    default:
+                        break;
+                }
                 camelMain.getCamelContext().getRegistry().bind("idempotentRepository", idempotentRepo);
             }
 
