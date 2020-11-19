@@ -37,6 +37,7 @@ import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.test.infra.aws.clients.AWSClientUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws.services.AWSServiceFactory;
@@ -56,7 +57,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Testcontainers
 public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     @RegisterExtension
-    public static AWSService<AmazonKinesis> service = AWSServiceFactory.createKinesisService();
+    public static AWSService service = AWSServiceFactory.createKinesisService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
 
@@ -124,7 +125,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     public void setUp() {
         streamName = AWSCommon.KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
 
-        awsKinesisClient = service.getClient();
+        awsKinesisClient = AWSClientUtils.newKinesisClient();
         received = 0;
 
         createStream();
