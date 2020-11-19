@@ -28,6 +28,7 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
+import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
@@ -39,14 +40,13 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.sqs.SqsClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     @RegisterExtension
-    public static AWSService<SqsClient> service = AWSServiceFactory.createSQSService();
+    public static AWSService service = AWSServiceFactory.createSQSService();
 
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSSQSITCase.class);
 
@@ -63,7 +63,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        awssqsClient = new AWSSQSClient(service.getClient());
+        awssqsClient = new AWSSQSClient(AWSSDKClientUtils.newSQSClient());
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
 
         // TODO: this is a work-around for CAMEL-15833
