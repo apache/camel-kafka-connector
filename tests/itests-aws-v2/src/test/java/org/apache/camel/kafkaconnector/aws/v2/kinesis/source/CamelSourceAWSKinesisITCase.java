@@ -28,6 +28,7 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
+import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
@@ -61,10 +62,10 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
 
     @RegisterExtension
-    AWSService<KinesisClient> awsService = AWSServiceFactory.createKinesisService();
+    public static AWSService awsService = AWSServiceFactory.createKinesisService();
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
 
     private String streamName;
     private KinesisClient kinesisClient;
@@ -156,7 +157,7 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     public void setUp() {
         streamName = AWSCommon.KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
 
-        kinesisClient = awsService.getClient();
+        kinesisClient = AWSSDKClientUtils.newKinesisClient();
         received = 0;
 
         createStream();

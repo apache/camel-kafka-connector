@@ -32,6 +32,7 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
+import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -45,7 +46,6 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.regions.Region;
-import software.amazon.awssdk.services.sqs.SqsClient;
 import software.amazon.awssdk.services.sqs.model.Message;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,10 +54,11 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
 
     @RegisterExtension
-    AWSService<SqsClient> awsService = AWSServiceFactory.createSQSService();
+    public static AWSService awsService = AWSServiceFactory.createSQSService();
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
+
 
     private AWSSQSClient awssqsClient;
     private String queueName;
@@ -73,7 +74,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        awssqsClient = new AWSSQSClient(awsService.getClient());
+        awssqsClient = new AWSSQSClient(AWSSDKClientUtils.newSQSClient());
 
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
         String queueUrl = awssqsClient.getOrCreateQueue(queueName);
