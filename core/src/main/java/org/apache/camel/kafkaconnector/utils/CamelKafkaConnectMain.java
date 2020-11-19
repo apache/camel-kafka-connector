@@ -178,8 +178,8 @@ public class CamelKafkaConnectMain extends SimpleMain {
             
             // Instantianting the idempotent Repository here and inject it in registry to be referenced
             if (idempotencyEnabled) {
-            	IdempotentRepository idempotentRepo = MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension);
-            	camelMain.getCamelContext().getRegistry().bind("idempotentRepository", idempotentRepo);
+                IdempotentRepository idempotentRepo = MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension);
+                camelMain.getCamelContext().getRegistry().bind("idempotentRepository", idempotentRepo);
             }
 
             //creating the actual route
