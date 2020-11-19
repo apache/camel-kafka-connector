@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SourceConnecto
 ----
 
 
-The camel-aws2-s3 source connector supports 85 options, which are listed below.
+The camel-aws2-s3 source connector supports 82 options, which are listed below.
 
 
 
@@ -32,7 +32,6 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.source.path.bucketNameOrArn* | Bucket name or ARN | null | true | HIGH
 | *camel.source.endpoint.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | false | MEDIUM
 | *camel.source.endpoint.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already. | true | false | MEDIUM
-| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.source.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.source.endpoint.pojoRequest* | If we want to use a POJO request as body or not | false | false | MEDIUM
 | *camel.source.endpoint.policy* | The policy for this queue to set in the com.amazonaws.services.s3.AmazonS3#setBucketPolicy() method. | null | false | MEDIUM
@@ -64,7 +63,6 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
@@ -84,7 +82,6 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-s3.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | false | MEDIUM
 | *camel.component.aws2-s3.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already. | true | false | MEDIUM
-| *camel.component.aws2-s3.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.aws2-s3.configuration* | The component configuration | null | false | MEDIUM
 | *camel.component.aws2-s3.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-s3.pojoRequest* | If we want to use a POJO request as body or not | false | false | MEDIUM
@@ -111,7 +108,7 @@ The camel-aws2-s3 source connector supports 85 options, which are listed below.
 | *camel.component.aws2-s3.moveAfterRead* | Move objects from S3 bucket to a different bucket after they have been retrieved. To accomplish the operation the destinationBucket option must be set. The copy bucket operation is only performed if the Exchange is committed. If a rollback occurs, the object is not moved. | false | false | MEDIUM
 | *camel.component.aws2-s3.prefix* | The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in. | null | false | MEDIUM
 | *camel.component.aws2-s3.autocloseBody* | If this option is true and includeBody is false, then the S3Object.close() method will be called on exchange completion. This option is strongly related to includeBody option. In case of setting includeBody to false and autocloseBody to false, it will be up to the caller to close the S3Object stream. Setting autocloseBody to true, will close the S3Object stream automatically. | true | false | MEDIUM
-| *camel.component.aws2-s3.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws2-s3.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-s3.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws2-s3.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 |===

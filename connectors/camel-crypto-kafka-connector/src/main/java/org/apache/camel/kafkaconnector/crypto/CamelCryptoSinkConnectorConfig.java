@@ -66,9 +66,6 @@ public class CamelCryptoSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_SIGNATURE_HEADER_NAME_CONF = "camel.sink.endpoint.signatureHeaderName";
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_SIGNATURE_HEADER_NAME_DOC = "Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature'";
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_SIGNATURE_HEADER_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_CRYPTO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_CRYPTO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CRYPTO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_BUFFER_SIZE_CONF = "camel.sink.endpoint.bufferSize";
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_BUFFER_SIZE_DOC = "Set the size of the buffer used to read in the Exchange payload data.";
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_BUFFER_SIZE_DEFAULT = "2048";
@@ -129,9 +126,9 @@ public class CamelCryptoSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CRYPTO_COMPONENT_SIGNATURE_HEADER_NAME_CONF = "camel.component.crypto.signatureHeaderName";
     public static final String CAMEL_SINK_CRYPTO_COMPONENT_SIGNATURE_HEADER_NAME_DOC = "Set the name of the message header that should be used to store the base64 encoded signature. This defaults to 'CamelDigitalSignature'";
     public static final String CAMEL_SINK_CRYPTO_COMPONENT_SIGNATURE_HEADER_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_CRYPTO_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.crypto.basicPropertyBinding";
-    public static final String CAMEL_SINK_CRYPTO_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CRYPTO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_CRYPTO_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.crypto.autowiredEnabled";
+    public static final String CAMEL_SINK_CRYPTO_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_CRYPTO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_CRYPTO_COMPONENT_BUFFER_SIZE_CONF = "camel.component.crypto.bufferSize";
     public static final String CAMEL_SINK_CRYPTO_COMPONENT_BUFFER_SIZE_DOC = "Set the size of the buffer used to read in the Exchange payload data.";
     public static final String CAMEL_SINK_CRYPTO_COMPONENT_BUFFER_SIZE_DEFAULT = "2048";
@@ -183,7 +180,6 @@ public class CamelCryptoSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_PUBLIC_KEY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_PUBLIC_KEY_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_PUBLIC_KEY_NAME_DOC);
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_NAME_DOC);
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_SIGNATURE_HEADER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_SIGNATURE_HEADER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_SIGNATURE_HEADER_NAME_DOC);
-        conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CRYPTO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_BUFFER_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_CERTIFICATE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_CERTIFICATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_CERTIFICATE_DOC);
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_CLEAR_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CRYPTO_ENDPOINT_CLEAR_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_CLEAR_HEADERS_DOC);
@@ -204,7 +200,7 @@ public class CamelCryptoSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CRYPTO_COMPONENT_PUBLIC_KEY_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_COMPONENT_PUBLIC_KEY_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_PUBLIC_KEY_NAME_DOC);
         conf.define(CAMEL_SINK_CRYPTO_COMPONENT_SECURE_RANDOM_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_COMPONENT_SECURE_RANDOM_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_SECURE_RANDOM_NAME_DOC);
         conf.define(CAMEL_SINK_CRYPTO_COMPONENT_SIGNATURE_HEADER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_COMPONENT_SIGNATURE_HEADER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_SIGNATURE_HEADER_NAME_DOC);
-        conf.define(CAMEL_SINK_CRYPTO_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CRYPTO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_CRYPTO_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_CRYPTO_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CRYPTO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_CRYPTO_COMPONENT_BUFFER_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_COMPONENT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_CRYPTO_COMPONENT_CERTIFICATE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_COMPONENT_CERTIFICATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_CERTIFICATE_DOC);
         conf.define(CAMEL_SINK_CRYPTO_COMPONENT_CLEAR_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CRYPTO_COMPONENT_CLEAR_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_CLEAR_HEADERS_DOC);

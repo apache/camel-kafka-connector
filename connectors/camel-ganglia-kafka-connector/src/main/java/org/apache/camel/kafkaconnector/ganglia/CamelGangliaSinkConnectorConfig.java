@@ -69,9 +69,6 @@ public class CamelGangliaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XCONF = "camel.sink.endpoint.wireFormat31x";
     public static final String CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XDOC = "Use the wire format of Ganglia 3.1.0 and later versions. Set this to false to use Ganglia 3.0.x or earlier.";
     public static final Boolean CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XDEFAULT = true;
-    public static final String CAMEL_SINK_GANGLIA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_GANGLIA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_GANGLIA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -114,9 +111,9 @@ public class CamelGangliaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_GANGLIA_COMPONENT_WIRE_FORMAT_31XCONF = "camel.component.ganglia.wireFormat31x";
     public static final String CAMEL_SINK_GANGLIA_COMPONENT_WIRE_FORMAT_31XDOC = "Use the wire format of Ganglia 3.1.0 and later versions. Set this to false to use Ganglia 3.0.x or earlier.";
     public static final Boolean CAMEL_SINK_GANGLIA_COMPONENT_WIRE_FORMAT_31XDEFAULT = true;
-    public static final String CAMEL_SINK_GANGLIA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.ganglia.basicPropertyBinding";
-    public static final String CAMEL_SINK_GANGLIA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_GANGLIA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_GANGLIA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.ganglia.autowiredEnabled";
+    public static final String CAMEL_SINK_GANGLIA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_GANGLIA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_GANGLIA_COMPONENT_CONFIGURATION_CONF = "camel.component.ganglia.configuration";
     public static final String CAMEL_SINK_GANGLIA_COMPONENT_CONFIGURATION_DOC = "To use the shared configuration";
     public static final String CAMEL_SINK_GANGLIA_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -148,7 +145,6 @@ public class CamelGangliaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_ENDPOINT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_TYPE_DOC);
         conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_UNITS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_ENDPOINT_UNITS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_UNITS_DOC);
         conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XDOC);
-        conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_DMAX_CONF, ConfigDef.Type.INT, CAMEL_SINK_GANGLIA_COMPONENT_DMAX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_DMAX_DOC);
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_GROUP_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_COMPONENT_GROUP_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_GROUP_NAME_DOC);
@@ -163,7 +159,7 @@ public class CamelGangliaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_COMPONENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_TYPE_DOC);
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_UNITS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_COMPONENT_UNITS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_UNITS_DOC);
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_WIRE_FORMAT_31XCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_COMPONENT_WIRE_FORMAT_31XDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_WIRE_FORMAT_31XDOC);
-        conf.define(CAMEL_SINK_GANGLIA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_GANGLIA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_GANGLIA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_CONFIGURATION_DOC);
         return conf;
     }

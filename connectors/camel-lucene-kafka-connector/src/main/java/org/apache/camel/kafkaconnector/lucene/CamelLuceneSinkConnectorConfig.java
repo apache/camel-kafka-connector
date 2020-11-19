@@ -45,9 +45,6 @@ public class CamelLuceneSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_CONF = "camel.sink.endpoint.srcDir";
     public static final String CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_DOC = "An optional directory containing files to be used to be analyzed and added to the index at producer startup.";
     public static final String CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_DEFAULT = null;
-    public static final String CAMEL_SINK_LUCENE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_LUCENE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_LUCENE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -66,9 +63,9 @@ public class CamelLuceneSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_LUCENE_COMPONENT_SRC_DIR_CONF = "camel.component.lucene.srcDir";
     public static final String CAMEL_SINK_LUCENE_COMPONENT_SRC_DIR_DOC = "An optional directory containing files to be used to be analyzed and added to the index at producer startup.";
     public static final String CAMEL_SINK_LUCENE_COMPONENT_SRC_DIR_DEFAULT = null;
-    public static final String CAMEL_SINK_LUCENE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.lucene.basicPropertyBinding";
-    public static final String CAMEL_SINK_LUCENE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_LUCENE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_LUCENE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.lucene.autowiredEnabled";
+    public static final String CAMEL_SINK_LUCENE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_LUCENE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_LUCENE_COMPONENT_CONFIG_CONF = "camel.component.lucene.config";
     public static final String CAMEL_SINK_LUCENE_COMPONENT_CONFIG_DOC = "To use a shared lucene configuration";
     public static final String CAMEL_SINK_LUCENE_COMPONENT_CONFIG_DEFAULT = null;
@@ -92,14 +89,13 @@ public class CamelLuceneSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_LUCENE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_LUCENE_ENDPOINT_MAX_HITS_CONF, ConfigDef.Type.INT, CAMEL_SINK_LUCENE_ENDPOINT_MAX_HITS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_MAX_HITS_DOC);
         conf.define(CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_DOC);
-        conf.define(CAMEL_SINK_LUCENE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_INDEX_DIR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_COMPONENT_INDEX_DIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_INDEX_DIR_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_MAX_HITS_CONF, ConfigDef.Type.INT, CAMEL_SINK_LUCENE_COMPONENT_MAX_HITS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_MAX_HITS_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_SRC_DIR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_COMPONENT_SRC_DIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_SRC_DIR_DOC);
-        conf.define(CAMEL_SINK_LUCENE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_LUCENE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_LUCENE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_COMPONENT_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_CONFIG_DOC);
         return conf;
     }

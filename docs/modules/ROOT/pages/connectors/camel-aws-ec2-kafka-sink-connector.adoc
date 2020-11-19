@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awsec2.CamelAwsec2SinkConnector
 ----
 
 
-The camel-aws-ec2 sink connector supports 25 options, which are listed below.
+The camel-aws-ec2 sink connector supports 24 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-aws-ec2 sink connector supports 25 options, which are listed below.
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the EC2 client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.sink.endpoint.region* | The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.aws-ec2.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.aws-ec2.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
@@ -53,7 +52,7 @@ The camel-aws-ec2 sink connector supports 25 options, which are listed below.
 | *camel.component.aws-ec2.proxyProtocol* | To define a proxy protocol when instantiating the EC2 client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.component.aws-ec2.region* | The region in which ECS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws-ec2.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
-| *camel.component.aws-ec2.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws-ec2.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

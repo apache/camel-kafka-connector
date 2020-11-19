@@ -84,9 +84,6 @@ public class CamelPahoSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PAHO_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_PAHO_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_PAHO_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_PAHO_ENDPOINT_CLIENT_CONF = "camel.sink.endpoint.client";
     public static final String CAMEL_SINK_PAHO_ENDPOINT_CLIENT_DOC = "To use an existing mqtt client";
     public static final String CAMEL_SINK_PAHO_ENDPOINT_CLIENT_DEFAULT = null;
@@ -177,9 +174,9 @@ public class CamelPahoSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PAHO_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.paho.lazyStartProducer";
     public static final String CAMEL_SINK_PAHO_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_PAHO_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.paho.basicPropertyBinding";
-    public static final String CAMEL_SINK_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_PAHO_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.paho.autowiredEnabled";
+    public static final String CAMEL_SINK_PAHO_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_PAHO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_PAHO_COMPONENT_CLIENT_CONF = "camel.component.paho.client";
     public static final String CAMEL_SINK_PAHO_COMPONENT_CLIENT_DOC = "To use a shared Paho client";
     public static final String CAMEL_SINK_PAHO_COMPONENT_CLIENT_DEFAULT = null;
@@ -240,7 +237,6 @@ public class CamelPahoSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_WILL_RETAINED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_ENDPOINT_WILL_RETAINED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_WILL_RETAINED_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_WILL_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_ENDPOINT_WILL_TOPIC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_WILL_TOPIC_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_ENDPOINT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_CLIENT_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_DOC);
@@ -271,7 +267,7 @@ public class CamelPahoSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PAHO_COMPONENT_WILL_RETAINED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_COMPONENT_WILL_RETAINED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_COMPONENT_WILL_RETAINED_DOC);
         conf.define(CAMEL_SINK_PAHO_COMPONENT_WILL_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_COMPONENT_WILL_TOPIC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_COMPONENT_WILL_TOPIC_DOC);
         conf.define(CAMEL_SINK_PAHO_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_PAHO_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_PAHO_COMPONENT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_COMPONENT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_COMPONENT_CLIENT_DOC);
         conf.define(CAMEL_SINK_PAHO_COMPONENT_CUSTOM_WEB_SOCKET_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_COMPONENT_CUSTOM_WEB_SOCKET_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_COMPONENT_CUSTOM_WEB_SOCKET_HEADERS_DOC);
         conf.define(CAMEL_SINK_PAHO_COMPONENT_EXECUTOR_SERVICE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_PAHO_COMPONENT_EXECUTOR_SERVICE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_COMPONENT_EXECUTOR_SERVICE_TIMEOUT_DOC);

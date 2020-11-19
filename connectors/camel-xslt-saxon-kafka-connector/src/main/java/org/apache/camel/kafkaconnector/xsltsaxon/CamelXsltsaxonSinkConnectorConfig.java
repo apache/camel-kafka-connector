@@ -50,9 +50,6 @@ public class CamelXsltsaxonSinkConnectorConfig
     public static final String CAMEL_SINK_XSLTSAXON_ENDPOINT_TRANSFORMER_CACHE_SIZE_CONF = "camel.sink.endpoint.transformerCacheSize";
     public static final String CAMEL_SINK_XSLTSAXON_ENDPOINT_TRANSFORMER_CACHE_SIZE_DOC = "The number of javax.xml.transform.Transformer object that are cached for reuse to avoid calls to Template.newTransformer().";
     public static final Integer CAMEL_SINK_XSLTSAXON_ENDPOINT_TRANSFORMER_CACHE_SIZE_DEFAULT = 0;
-    public static final String CAMEL_SINK_XSLTSAXON_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_XSLTSAXON_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_XSLTSAXON_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_XSLTSAXON_ENDPOINT_ENTITY_RESOLVER_CONF = "camel.sink.endpoint.entityResolver";
     public static final String CAMEL_SINK_XSLTSAXON_ENDPOINT_ENTITY_RESOLVER_DOC = "To use a custom org.xml.sax.EntityResolver with javax.xml.transform.sax.SAXSource.";
     public static final String CAMEL_SINK_XSLTSAXON_ENDPOINT_ENTITY_RESOLVER_DEFAULT = null;
@@ -89,9 +86,9 @@ public class CamelXsltsaxonSinkConnectorConfig
     public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.xslt-saxon.lazyStartProducer";
     public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_XSLTSAXON_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.xslt-saxon.basicPropertyBinding";
-    public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_XSLTSAXON_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.xslt-saxon.autowiredEnabled";
+    public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_XSLTSAXON_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_CONF = "camel.component.xslt-saxon.saxonConfiguration";
     public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_DOC = "To use a custom Saxon configuration";
     public static final String CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_DEFAULT = null;
@@ -134,7 +131,6 @@ public class CamelXsltsaxonSinkConnectorConfig
         conf.define(CAMEL_SINK_XSLTSAXON_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XSLTSAXON_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_ENDPOINT_OUTPUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLTSAXON_ENDPOINT_OUTPUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_ENDPOINT_OUTPUT_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_ENDPOINT_TRANSFORMER_CACHE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_XSLTSAXON_ENDPOINT_TRANSFORMER_CACHE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_ENDPOINT_TRANSFORMER_CACHE_SIZE_DOC);
-        conf.define(CAMEL_SINK_XSLTSAXON_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XSLTSAXON_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_ENDPOINT_ENTITY_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLTSAXON_ENDPOINT_ENTITY_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_ENDPOINT_ENTITY_RESOLVER_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_ENDPOINT_ERROR_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLTSAXON_ENDPOINT_ERROR_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_ENDPOINT_ERROR_LISTENER_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_ENDPOINT_RESULT_HANDLER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLTSAXON_ENDPOINT_RESULT_HANDLER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_ENDPOINT_RESULT_HANDLER_FACTORY_DOC);
@@ -147,7 +143,7 @@ public class CamelXsltsaxonSinkConnectorConfig
         conf.define(CAMEL_SINK_XSLTSAXON_ENDPOINT_URI_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLTSAXON_ENDPOINT_URI_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_ENDPOINT_URI_RESOLVER_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_COMPONENT_CONTENT_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XSLTSAXON_COMPONENT_CONTENT_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_COMPONENT_CONTENT_CACHE_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XSLTSAXON_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_XSLTSAXON_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XSLTSAXON_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_XSLTSAXON_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_XSLTSAXON_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XSLTSAXON_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_CONFIGURATION_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_EXTENSION_FUNCTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_EXTENSION_FUNCTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLTSAXON_COMPONENT_SAXON_EXTENSION_FUNCTIONS_DOC);

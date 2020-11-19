@@ -68,9 +68,6 @@ public class CamelVertxhttpSinkConnectorConfig
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_WEB_CLIENT_OPTIONS_CONF = "camel.sink.endpoint.webClientOptions";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_WEB_CLIENT_OPTIONS_DOC = "Sets customized options for configuring the Vert.x WebClient";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_WEB_CLIENT_OPTIONS_DEFAULT = null;
-    public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_VERTXHTTP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_VERTXHTTP_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -107,9 +104,9 @@ public class CamelVertxhttpSinkConnectorConfig
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF = "camel.component.vertx-http.allowJavaSerializedObject";
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC = "Whether to allow java serialization when a request has the Content-Type application/x-java-serialized-object This is disabled by default. If you enable this, be aware that Java will deserialize the incoming data from the request. This can be a potential security risk.";
     public static final Boolean CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT = false;
-    public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.vertx-http.basicPropertyBinding";
-    public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_VERTXHTTP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.vertx-http.autowiredEnabled";
+    public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_CONF = "camel.component.vertx-http.vertx";
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_DOC = "To use an existing vertx instead of creating a new instance";
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_DEFAULT = null;
@@ -179,7 +176,6 @@ public class CamelVertxhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_USE_COMPRESSION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_ENDPOINT_USE_COMPRESSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_USE_COMPRESSION_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_VERTX_HTTP_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_VERTX_HTTP_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_VERTX_HTTP_BINDING_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_WEB_CLIENT_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_WEB_CLIENT_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_WEB_CLIENT_OPTIONS_DOC);
-        conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_PROXY_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_PROXY_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_PROXY_PASSWORD_DOC);
@@ -192,7 +188,7 @@ public class CamelVertxhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);
-        conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_VERTXHTTP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_HTTP_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_HTTP_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_HTTP_BINDING_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_OPTIONS_DOC);

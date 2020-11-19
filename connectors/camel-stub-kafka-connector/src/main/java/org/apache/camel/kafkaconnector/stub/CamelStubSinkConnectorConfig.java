@@ -54,9 +54,6 @@ public class CamelStubSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_STUB_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_CONF = "camel.sink.endpoint.waitForTaskToComplete";
     public static final String CAMEL_SINK_STUB_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DOC = "Option to specify whether the caller should wait for the async task to complete or not before continuing. The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory. The last value, IfReplyExpected, will only wait if the message is Request Reply based. The default option is IfReplyExpected. One of: [Never] [IfReplyExpected] [Always]";
     public static final String CAMEL_SINK_STUB_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DEFAULT = "IfReplyExpected";
-    public static final String CAMEL_SINK_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_STUB_ENDPOINT_QUEUE_CONF = "camel.sink.endpoint.queue";
     public static final String CAMEL_SINK_STUB_ENDPOINT_QUEUE_DOC = "Define the queue instance which will be used by the endpoint";
     public static final String CAMEL_SINK_STUB_ENDPOINT_QUEUE_DEFAULT = null;
@@ -75,9 +72,9 @@ public class CamelStubSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_STUB_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.stub.lazyStartProducer";
     public static final String CAMEL_SINK_STUB_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_STUB_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_STUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.stub.basicPropertyBinding";
-    public static final String CAMEL_SINK_STUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_STUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_STUB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.stub.autowiredEnabled";
+    public static final String CAMEL_SINK_STUB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_STUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_CONF = "camel.component.stub.defaultQueueFactory";
     public static final String CAMEL_SINK_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_DOC = "Sets the default queue factory.";
     public static final String CAMEL_SINK_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_DEFAULT = null;
@@ -107,14 +104,13 @@ public class CamelStubSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_STUB_ENDPOINT_OFFER_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_STUB_ENDPOINT_OFFER_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_ENDPOINT_OFFER_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_STUB_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_STUB_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_ENDPOINT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_STUB_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STUB_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DOC);
-        conf.define(CAMEL_SINK_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_STUB_ENDPOINT_QUEUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STUB_ENDPOINT_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_ENDPOINT_QUEUE_DOC);
         conf.define(CAMEL_SINK_STUB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STUB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_STUB_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STUB_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DOC);
         conf.define(CAMEL_SINK_STUB_COMPONENT_DEFAULT_DISCARD_WHEN_FULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STUB_COMPONENT_DEFAULT_DISCARD_WHEN_FULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_COMPONENT_DEFAULT_DISCARD_WHEN_FULL_DOC);
         conf.define(CAMEL_SINK_STUB_COMPONENT_DEFAULT_OFFER_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_STUB_COMPONENT_DEFAULT_OFFER_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_COMPONENT_DEFAULT_OFFER_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_STUB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STUB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_STUB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STUB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_STUB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_STUB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_STUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_COMPONENT_DEFAULT_QUEUE_FACTORY_DOC);
         conf.define(CAMEL_SINK_STUB_COMPONENT_QUEUE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_STUB_COMPONENT_QUEUE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_STUB_COMPONENT_QUEUE_SIZE_DOC);
         return conf;

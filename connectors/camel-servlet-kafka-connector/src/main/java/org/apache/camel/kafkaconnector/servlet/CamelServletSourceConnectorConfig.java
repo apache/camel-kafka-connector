@@ -86,9 +86,6 @@ public class CamelServletSourceConnectorConfig
     public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_TRACE_ENABLED_CONF = "camel.source.endpoint.traceEnabled";
     public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_TRACE_ENABLED_DOC = "Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off.";
     public static final Boolean CAMEL_SOURCE_SERVLET_ENDPOINT_TRACE_ENABLED_DEFAULT = false;
-    public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SERVLET_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF = "camel.source.endpoint.mapHttpMessageBody";
     public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC = "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.";
     public static final Boolean CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT = true;
@@ -119,9 +116,9 @@ public class CamelServletSourceConnectorConfig
     public static final String CAMEL_SOURCE_SERVLET_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF = "camel.component.servlet.allowJavaSerializedObject";
     public static final String CAMEL_SOURCE_SERVLET_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC = "Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";
     public static final Boolean CAMEL_SOURCE_SERVLET_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT = false;
-    public static final String CAMEL_SOURCE_SERVLET_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.servlet.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SERVLET_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SERVLET_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SERVLET_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.servlet.autowiredEnabled";
+    public static final String CAMEL_SOURCE_SERVLET_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_SERVLET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_BINDING_CONF = "camel.component.servlet.httpBinding";
     public static final String CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_BINDING_DOC = "To use a custom HttpBinding to control the mapping between Camel message and HttpClient.";
     public static final String CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_BINDING_DEFAULT = null;
@@ -164,7 +161,6 @@ public class CamelServletSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_FILE_NAME_EXT_WHITELIST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SERVLET_ENDPOINT_FILE_NAME_EXT_WHITELIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_FILE_NAME_EXT_WHITELIST_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_OPTIONS_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_OPTIONS_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_OPTIONS_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_TRACE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_TRACE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_TRACE_ENABLED_DOC);
-        conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DOC);
@@ -175,7 +171,7 @@ public class CamelServletSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_FILE_NAME_EXT_WHITELIST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SERVLET_COMPONENT_FILE_NAME_EXT_WHITELIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_FILE_NAME_EXT_WHITELIST_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_REGISTRY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_REGISTRY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_REGISTRY_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);
-        conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_SERVLET_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_BINDING_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_HTTP_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SERVLET_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_HEADER_FILTER_STRATEGY_DOC);

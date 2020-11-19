@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.infinispan.CamelInfinispanSinkCo
 ----
 
 
-The camel-infinispan sink connector supports 47 options, which are listed below.
+The camel-infinispan sink connector supports 46 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-infinispan sink connector supports 47 options, which are listed below.
 | *camel.sink.endpoint.securityRealm* | Define the security realm to access the infinispan instance | null | false | MEDIUM
 | *camel.sink.endpoint.securityServerName* | Define the security server name to access the infinispan instance | null | false | MEDIUM
 | *camel.sink.endpoint.username* | Define the username to access the infinispan instance | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.cacheContainer* | Specifies the cache Container to connect | null | false | MEDIUM
 | *camel.sink.endpoint.cacheContainerConfiguration* | The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration; | null | false | MEDIUM
 | *camel.sink.endpoint.configurationProperties* | Implementation specific properties for the CacheManager | null | false | MEDIUM
@@ -68,7 +67,7 @@ The camel-infinispan sink connector supports 47 options, which are listed below.
 | *camel.component.infinispan.securityRealm* | Define the security realm to access the infinispan instance | null | false | MEDIUM
 | *camel.component.infinispan.securityServerName* | Define the security server name to access the infinispan instance | null | false | MEDIUM
 | *camel.component.infinispan.username* | Define the username to access the infinispan instance | null | false | MEDIUM
-| *camel.component.infinispan.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.infinispan.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.infinispan.cacheContainer* | Specifies the cache Container to connect | null | false | MEDIUM
 | *camel.component.infinispan.cacheContainer Configuration* | The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration; | null | false | MEDIUM
 | *camel.component.infinispan.configurationProperties* | Implementation specific properties for the CacheManager | null | false | MEDIUM

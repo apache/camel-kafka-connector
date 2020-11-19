@@ -74,9 +74,9 @@ public class CamelCouchbaseSinkConnectorConfig
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_ADDITIONAL_HOSTS_CONF = "camel.sink.endpoint.additionalHosts";
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_ADDITIONAL_HOSTS_DOC = "The additional hosts";
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_ADDITIONAL_HOSTS_DEFAULT = null;
-    public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_COUCHBASE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_CONF = "camel.sink.endpoint.connectTimeout";
+    public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_DOC = "Define the timeoutconnect in milliseconds";
+    public static final Long CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_DEFAULT = 2500L;
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_CONF = "camel.sink.endpoint.queryTimeout";
     public static final String CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_DOC = "Define the operation timeout in milliseconds";
     public static final Long CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_DEFAULT = 2500L;
@@ -92,9 +92,9 @@ public class CamelCouchbaseSinkConnectorConfig
     public static final String CAMEL_SINK_COUCHBASE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.couchbase.lazyStartProducer";
     public static final String CAMEL_SINK_COUCHBASE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_COUCHBASE_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_COUCHBASE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.couchbase.basicPropertyBinding";
-    public static final String CAMEL_SINK_COUCHBASE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_COUCHBASE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_COUCHBASE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.couchbase.autowiredEnabled";
+    public static final String CAMEL_SINK_COUCHBASE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_COUCHBASE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelCouchbaseSinkConnectorConfig(
             ConfigDef config,
@@ -124,13 +124,13 @@ public class CamelCouchbaseSinkConnectorConfig
         conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_REPLICATE_TO_CONF, ConfigDef.Type.INT, CAMEL_SINK_COUCHBASE_ENDPOINT_REPLICATE_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_REPLICATE_TO_DOC);
         conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_STARTING_ID_FOR_INSERTS_FROM_CONF, ConfigDef.Type.LONG, CAMEL_SINK_COUCHBASE_ENDPOINT_STARTING_ID_FOR_INSERTS_FROM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_STARTING_ID_FOR_INSERTS_FROM_DOC);
         conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_ADDITIONAL_HOSTS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_COUCHBASE_ENDPOINT_ADDITIONAL_HOSTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_ADDITIONAL_HOSTS_DOC);
-        conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_COUCHBASE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_CONNECT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_QUERY_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_COUCHBASE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_COUCHBASE_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_COUCHBASE_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_COUCHBASE_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_ENDPOINT_USERNAME_DOC);
         conf.define(CAMEL_SINK_COUCHBASE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_COUCHBASE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_COUCHBASE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_COUCHBASE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_COUCHBASE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_COUCHBASE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_COUCHBASE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_COUCHBASE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

@@ -51,9 +51,6 @@ public class CamelMllpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MLLP_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_MLLP_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_MLLP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_MLLP_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_MLLP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used (this component only supports synchronous operations).";
     public static final Boolean CAMEL_SINK_MLLP_ENDPOINT_SYNCHRONOUS_DEFAULT = true;
@@ -87,9 +84,9 @@ public class CamelMllpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MLLP_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.mllp.lazyStartProducer";
     public static final String CAMEL_SINK_MLLP_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_MLLP_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mllp.basicPropertyBinding";
-    public static final String CAMEL_SINK_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_MLLP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.mllp.autowiredEnabled";
+    public static final String CAMEL_SINK_MLLP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_MLLP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_MLLP_COMPONENT_DEFAULT_CHARSET_CONF = "camel.component.mllp.defaultCharset";
     public static final String CAMEL_SINK_MLLP_COMPONENT_DEFAULT_CHARSET_DOC = "Set the default character set to use for byte to/from String conversions.";
     public static final String CAMEL_SINK_MLLP_COMPONENT_DEFAULT_CHARSET_DEFAULT = "ISO-8859-1";
@@ -121,7 +118,6 @@ public class CamelMllpSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_STRING_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_STRING_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_STRING_PAYLOAD_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_VALIDATE_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_VALIDATE_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_VALIDATE_PAYLOAD_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_CHARSET_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MLLP_ENDPOINT_CHARSET_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_CHARSET_NAME_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_KEEP_ALIVE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MLLP_ENDPOINT_KEEP_ALIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_KEEP_ALIVE_DOC);
@@ -133,7 +129,7 @@ public class CamelMllpSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_READ_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_MLLP_ENDPOINT_READ_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_READ_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_MLLP_ENDPOINT_RECEIVE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_MLLP_ENDPOINT_RECEIVE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_ENDPOINT_RECEIVE_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_MLLP_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_MLLP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MLLP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_MLLP_COMPONENT_DEFAULT_CHARSET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MLLP_COMPONENT_DEFAULT_CHARSET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_COMPONENT_DEFAULT_CHARSET_DOC);
         conf.define(CAMEL_SINK_MLLP_COMPONENT_LOG_PHI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MLLP_COMPONENT_LOG_PHI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_COMPONENT_LOG_PHI_DOC);
         conf.define(CAMEL_SINK_MLLP_COMPONENT_LOG_PHI_MAX_BYTES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MLLP_COMPONENT_LOG_PHI_MAX_BYTES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MLLP_COMPONENT_LOG_PHI_MAX_BYTES_DOC);

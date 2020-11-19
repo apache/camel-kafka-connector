@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.consul.CamelConsulSourceConnecto
 ----
 
 
-The camel-consul source connector supports 54 options, which are listed below.
+The camel-consul source connector supports 53 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-consul source connector supports 54 options, which are listed below.
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.consistencyMode* | The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT] | "DEFAULT" | false | MEDIUM
 | *camel.source.endpoint.datacenter* | The data center | null | false | MEDIUM
 | *camel.source.endpoint.nearNode* | The near node to use for queries. | null | false | MEDIUM
@@ -69,7 +68,7 @@ The camel-consul source connector supports 54 options, which are listed below.
 | *camel.component.consul.writeTimeout* | Write timeout for OkHttpClient | null | false | MEDIUM
 | *camel.component.consul.writeTimeoutMillis* | Write timeout for OkHttpClient. Deprecation note: Use writeTimeout instead | null | false | LOW
 | *camel.component.consul.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.component.consul.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.consul.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.consul.configuration* | Consul configuration | null | false | MEDIUM
 | *camel.component.consul.consistencyMode* | The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT] | "DEFAULT" | false | MEDIUM
 | *camel.component.consul.datacenter* | The data center | null | false | MEDIUM

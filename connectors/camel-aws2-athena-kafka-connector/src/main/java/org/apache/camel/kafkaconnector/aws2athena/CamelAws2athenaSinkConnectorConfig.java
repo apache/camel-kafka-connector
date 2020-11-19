@@ -29,9 +29,6 @@ public class CamelAws2athenaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2ATHENA_PATH_LABEL_CONF = "camel.sink.path.label";
     public static final String CAMEL_SINK_AWS2ATHENA_PATH_LABEL_DOC = "Logical name";
     public static final String CAMEL_SINK_AWS2ATHENA_PATH_LABEL_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
-    public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
-    public static final Boolean CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key.";
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -110,9 +107,6 @@ public class CamelAws2athenaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_WORK_GROUP_CONF = "camel.sink.endpoint.workGroup";
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_WORK_GROUP_DOC = "The workgroup to use for running the query.";
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_WORK_GROUP_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWS2ATHENA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_CLIENT_REQUEST_TOKEN_CONF = "camel.sink.endpoint.clientRequestToken";
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_CLIENT_REQUEST_TOKEN_DOC = "A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this.";
     public static final String CAMEL_SINK_AWS2ATHENA_ENDPOINT_CLIENT_REQUEST_TOKEN_DEFAULT = null;
@@ -125,9 +119,6 @@ public class CamelAws2athenaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_CONF = "camel.component.aws2-athena.amazonAthenaClient";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_DOC = "The AmazonAthena instance to use as the client.";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws2-athena.autoDiscoverClient";
-    public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking";
-    public static final Boolean CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-athena.configuration";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_DOC = "The component configuration.";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -203,9 +194,9 @@ public class CamelAws2athenaSinkConnectorConfig
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_WORK_GROUP_CONF = "camel.component.aws2-athena.workGroup";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_WORK_GROUP_DOC = "The workgroup to use for running the query.";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_WORK_GROUP_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws2-athena.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWS2ATHENA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-athena.autowiredEnabled";
+    public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CLIENT_REQUEST_TOKEN_CONF = "camel.component.aws2-athena.clientRequestToken";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CLIENT_REQUEST_TOKEN_DOC = "A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this.";
     public static final String CAMEL_SINK_AWS2ATHENA_COMPONENT_CLIENT_REQUEST_TOKEN_DEFAULT = null;
@@ -223,7 +214,6 @@ public class CamelAws2athenaSinkConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWS2ATHENA_PATH_LABEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_PATH_LABEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2ATHENA_PATH_LABEL_DOC);
-        conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_AMAZON_ATHENA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_AMAZON_ATHENA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_AMAZON_ATHENA_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_DATABASE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_DATABASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_DATABASE_DOC);
@@ -250,12 +240,10 @@ public class CamelAws2athenaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_WAIT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWS2ATHENA_ENDPOINT_WAIT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_WAIT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_WORK_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_WORK_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_WORK_GROUP_DOC);
-        conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_CLIENT_REQUEST_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_ENDPOINT_CLIENT_REQUEST_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_CLIENT_REQUEST_TOKEN_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_AMAZON_ATHENA_CLIENT_DOC);
-        conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_DATABASE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_DATABASE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_DATABASE_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWS2ATHENA_COMPONENT_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_DELAY_DOC);
@@ -281,7 +269,7 @@ public class CamelAws2athenaSinkConnectorConfig
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_WAIT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_AWS2ATHENA_COMPONENT_WAIT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_WAIT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_WORK_GROUP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_WORK_GROUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_WORK_GROUP_DOC);
-        conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWS2ATHENA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2ATHENA_COMPONENT_CLIENT_REQUEST_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ATHENA_COMPONENT_CLIENT_REQUEST_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ATHENA_COMPONENT_CLIENT_REQUEST_TOKEN_DOC);
         return conf;
     }

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.twittertimeline.CamelTwittertime
 ----
 
 
-The camel-twitter-timeline sink connector supports 23 options, which are listed below.
+The camel-twitter-timeline sink connector supports 22 options, which are listed below.
 
 
 
@@ -32,7 +32,6 @@ The camel-twitter-timeline sink connector supports 23 options, which are listed 
 | *camel.sink.path.timelineType* | The timeline type to produce/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [UNKNOWN] | null | true | HIGH
 | *camel.sink.endpoint.user* | The username when using timelineType=user | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.httpProxyHost* | The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
 | *camel.sink.endpoint.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
@@ -43,7 +42,7 @@ The camel-twitter-timeline sink connector supports 23 options, which are listed 
 | *camel.sink.endpoint.consumerKey* | The consumer key. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
 | *camel.sink.endpoint.consumerSecret* | The consumer secret. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
 | *camel.component.twitter-timeline.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.twitter-timeline.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.twitter-timeline.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.twitter-timeline.httpProxyHost* | The http proxy host which can be used for the camel-twitter. | null | false | MEDIUM
 | *camel.component.twitter-timeline.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. | null | false | MEDIUM
 | *camel.component.twitter-timeline.httpProxyPort* | The http proxy port which can be used for the camel-twitter. | null | false | MEDIUM

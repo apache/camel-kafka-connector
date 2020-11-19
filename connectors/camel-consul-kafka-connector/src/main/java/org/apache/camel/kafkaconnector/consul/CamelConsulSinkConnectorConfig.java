@@ -69,9 +69,6 @@ public class CamelConsulSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_VALUE_AS_STRING_CONF = "camel.sink.endpoint.valueAsString";
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_VALUE_AS_STRING_DOC = "Default to transform values retrieved from Consul i.e. on KV endpoint to string.";
     public static final Boolean CAMEL_SINK_CONSUL_ENDPOINT_VALUE_AS_STRING_DEFAULT = false;
-    public static final String CAMEL_SINK_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_CONSISTENCY_MODE_CONF = "camel.sink.endpoint.consistencyMode";
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_CONSISTENCY_MODE_DOC = "The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT]";
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_CONSISTENCY_MODE_DEFAULT = "DEFAULT";
@@ -141,9 +138,9 @@ public class CamelConsulSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CONSUL_COMPONENT_VALUE_AS_STRING_CONF = "camel.component.consul.valueAsString";
     public static final String CAMEL_SINK_CONSUL_COMPONENT_VALUE_AS_STRING_DOC = "Default to transform values retrieved from Consul i.e. on KV endpoint to string.";
     public static final Boolean CAMEL_SINK_CONSUL_COMPONENT_VALUE_AS_STRING_DEFAULT = false;
-    public static final String CAMEL_SINK_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.consul.basicPropertyBinding";
-    public static final String CAMEL_SINK_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_CONSUL_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.consul.autowiredEnabled";
+    public static final String CAMEL_SINK_CONSUL_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_CONSUL_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_CONSUL_COMPONENT_CONFIGURATION_CONF = "camel.component.consul.configuration";
     public static final String CAMEL_SINK_CONSUL_COMPONENT_CONFIGURATION_DOC = "Consul configuration";
     public static final String CAMEL_SINK_CONSUL_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -202,7 +199,6 @@ public class CamelConsulSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_ACTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_ACTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_ACTION_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CONSUL_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_VALUE_AS_STRING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CONSUL_ENDPOINT_VALUE_AS_STRING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_VALUE_AS_STRING_DOC);
-        conf.define(CAMEL_SINK_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_CONSISTENCY_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_CONSISTENCY_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_CONSISTENCY_MODE_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_DATACENTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_DATACENTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_DATACENTER_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_NEAR_NODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_NEAR_NODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_NEAR_NODE_DOC);
@@ -226,7 +222,7 @@ public class CamelConsulSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CONSUL_COMPONENT_ACTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_COMPONENT_ACTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_COMPONENT_ACTION_DOC);
         conf.define(CAMEL_SINK_CONSUL_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CONSUL_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CONSUL_COMPONENT_VALUE_AS_STRING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CONSUL_COMPONENT_VALUE_AS_STRING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_COMPONENT_VALUE_AS_STRING_DOC);
-        conf.define(CAMEL_SINK_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_CONSUL_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CONSUL_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_CONSUL_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_CONSUL_COMPONENT_CONSISTENCY_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_COMPONENT_CONSISTENCY_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_COMPONENT_CONSISTENCY_MODE_DOC);
         conf.define(CAMEL_SINK_CONSUL_COMPONENT_DATACENTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_COMPONENT_DATACENTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_COMPONENT_DATACENTER_DOC);

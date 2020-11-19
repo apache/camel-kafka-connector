@@ -50,9 +50,6 @@ public class CamelIgniteeventsSourceConnectorConfig
     public static final String CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -68,9 +65,9 @@ public class CamelIgniteeventsSourceConnectorConfig
     public static final String CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_CONFIGURATION_CONF = "camel.component.ignite-events.igniteConfiguration";
     public static final String CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_CONFIGURATION_DOC = "Allows the user to set a programmatic ignite configuration.";
     public static final String CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_CONFIGURATION_DEFAULT = null;
-    public static final String CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.ignite-events.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.ignite-events.autowiredEnabled";
+    public static final String CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelIgniteeventsSourceConnectorConfig(
             ConfigDef config,
@@ -93,13 +90,12 @@ public class CamelIgniteeventsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_TREAT_COLLECTIONS_AS_CACHE_OBJECTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_TREAT_COLLECTIONS_AS_CACHE_OBJECTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_TREAT_COLLECTIONS_AS_CACHE_OBJECTS_DOC);
         conf.define(CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_CONFIGURATION_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_CONFIGURATION_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_CONFIGURATION_RESOURCE_DOC);
         conf.define(CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_DOC);
         conf.define(CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_IGNITE_CONFIGURATION_DOC);
-        conf.define(CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IGNITEEVENTS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

@@ -56,9 +56,6 @@ public class CamelGooglemailSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_POLL_STRATEGY_CONF = "camel.source.endpoint.pollStrategy";
     public static final String CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_POLL_STRATEGY_DOC = "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.";
     public static final String CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_POLL_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -125,9 +122,9 @@ public class CamelGooglemailSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.google-mail.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.google-mail.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.google-mail.autowiredEnabled";
+    public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_FACTORY_CONF = "camel.component.google-mail.clientFactory";
     public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_FACTORY_DOC = "To use the GoogleCalendarClientFactory as factory for creating the client. Will by default use BatchGoogleMailClientFactory";
     public static final String CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_FACTORY_DEFAULT = null;
@@ -163,7 +160,6 @@ public class CamelGooglemailSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_POLL_STRATEGY_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
@@ -186,7 +182,7 @@ public class CamelGooglemailSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_ID_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLEMAIL_COMPONENT_CLIENT_SECRET_DOC);

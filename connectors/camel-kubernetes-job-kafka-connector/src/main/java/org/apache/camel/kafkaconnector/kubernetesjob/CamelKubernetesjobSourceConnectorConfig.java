@@ -83,9 +83,6 @@ public class CamelKubernetesjobSourceConnectorConfig
     public static final String CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CONNECTION_TIMEOUT_CONF = "camel.source.endpoint.connectionTimeout";
     public static final String CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CONNECTION_TIMEOUT_DOC = "Connection timeout in milliseconds to use when making requests to the Kubernetes API server.";
     public static final String CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CONNECTION_TIMEOUT_DEFAULT = null;
@@ -131,9 +128,9 @@ public class CamelKubernetesjobSourceConnectorConfig
     public static final String CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.kubernetes-job.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.kubernetes-job.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.kubernetes-job.autowiredEnabled";
+    public static final String CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelKubernetesjobSourceConnectorConfig(
             ConfigDef config,
@@ -167,7 +164,6 @@ public class CamelKubernetesjobSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_RESOURCE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_RESOURCE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_RESOURCE_NAME_DOC);
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CONNECTION_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CA_CERT_DATA_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CA_CERT_DATA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_CA_CERT_DATA_DOC);
@@ -183,7 +179,7 @@ public class CamelKubernetesjobSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_TRUST_CERTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_TRUST_CERTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_TRUST_CERTS_DOC);
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_ENDPOINT_USERNAME_DOC);
         conf.define(CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KUBERNETESJOB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

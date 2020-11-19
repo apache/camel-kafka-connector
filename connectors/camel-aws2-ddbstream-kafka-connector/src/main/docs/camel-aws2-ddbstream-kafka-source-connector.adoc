@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2ddbstream.CamelAws2ddbstream
 ----
 
 
-The camel-aws2-ddbstream source connector supports 49 options, which are listed below.
+The camel-aws2-ddbstream source connector supports 46 options, which are listed below.
 
 
 
@@ -30,7 +30,6 @@ The camel-aws2-ddbstream source connector supports 49 options, which are listed 
 |===
 | Name | Description | Default | Required | Priority
 | *camel.source.path.tableName* | Name of the dynamodb table | null | true | HIGH
-| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | false | MEDIUM
 | *camel.source.endpoint.amazonDynamoDbStreamsClient* | Amazon DynamoDB client to use for all requests for this endpoint | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.iteratorType* | Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. One of: [TRIM_HORIZON] [LATEST] [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [null] | "LATEST" | false | MEDIUM
@@ -45,7 +44,6 @@ The camel-aws2-ddbstream source connector supports 49 options, which are listed 
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
@@ -63,7 +61,6 @@ The camel-aws2-ddbstream source connector supports 49 options, which are listed 
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
 | *camel.source.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
-| *camel.component.aws2-ddbstream.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | false | MEDIUM
 | *camel.component.aws2-ddbstream.amazonDynamoDb StreamsClient* | Amazon DynamoDB client to use for all requests for this endpoint | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.aws2-ddbstream.configuration* | The component configuration | null | false | MEDIUM
@@ -75,7 +72,7 @@ The camel-aws2-ddbstream source connector supports 49 options, which are listed 
 | *camel.component.aws2-ddbstream.region* | The region in which DDBStreams client needs to work | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.sequenceNumber Provider* | Provider for the sequence number when using one of the two ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER iterator types. Can be a registry reference or a literal sequence number. | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.trustAll Certificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
-| *camel.component.aws2-ddbstream.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws2-ddbstream.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-ddbstream.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws2-ddbstream.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 |===

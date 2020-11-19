@@ -29,6 +29,9 @@ public class CamelJettySourceConnectorConfig
     public static final String CAMEL_SOURCE_JETTY_PATH_HTTP_URI_CONF = "camel.source.path.httpUri";
     public static final String CAMEL_SOURCE_JETTY_PATH_HTTP_URI_DOC = "The url of the HTTP endpoint to call.";
     public static final String CAMEL_SOURCE_JETTY_PATH_HTTP_URI_DEFAULT = null;
+    public static final String CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_CONF = "camel.source.endpoint.chunked";
+    public static final String CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_DOC = "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response";
+    public static final Boolean CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_DEFAULT = true;
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_CONF = "camel.source.endpoint.disableStreamCache";
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_DOC = "Determines whether or not the raw input stream from Servlet is cached or not (Camel will read the stream into a in memory/overflow to file, Stream caching) cache. By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body if this option is false to support reading the stream multiple times. If you use Servlet to bridge/proxy an endpoint then consider enabling this option to improve performance, in case you do not need to read the message payload multiple times. The http producer will by default cache the response body stream. If setting this option to true, then the producers will not cache the response body stream but use the response stream as-is as the message body.";
     public static final Boolean CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_DEFAULT = false;
@@ -44,9 +47,6 @@ public class CamelJettySourceConnectorConfig
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_JETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_CONF = "camel.source.endpoint.chunked";
-    public static final String CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_DOC = "If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response";
-    public static final Boolean CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_DEFAULT = true;
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_CONTINUATION_TIMEOUT_CONF = "camel.source.endpoint.continuationTimeout";
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_CONTINUATION_TIMEOUT_DOC = "Allows to set a timeout in millis when using Jetty as consumer (server). By default Jetty uses 30000. You can use a value of = 0 to never expire. If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client. This option is only in use when using Jetty with the Asynchronous Routing Engine.";
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_CONTINUATION_TIMEOUT_DEFAULT = "30000";
@@ -113,9 +113,6 @@ public class CamelJettySourceConnectorConfig
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_TRACE_ENABLED_CONF = "camel.source.endpoint.traceEnabled";
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_TRACE_ENABLED_DOC = "Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off.";
     public static final Boolean CAMEL_SOURCE_JETTY_ENDPOINT_TRACE_ENABLED_DEFAULT = false;
-    public static final String CAMEL_SOURCE_JETTY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_JETTY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_JETTY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF = "camel.source.endpoint.mapHttpMessageBody";
     public static final String CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC = "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.";
     public static final Boolean CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT = true;
@@ -173,9 +170,9 @@ public class CamelJettySourceConnectorConfig
     public static final String CAMEL_SOURCE_JETTY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF = "camel.component.jetty.allowJavaSerializedObject";
     public static final String CAMEL_SOURCE_JETTY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC = "Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";
     public static final Boolean CAMEL_SOURCE_JETTY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT = false;
-    public static final String CAMEL_SOURCE_JETTY_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.jetty.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_JETTY_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_JETTY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_JETTY_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.jetty.autowiredEnabled";
+    public static final String CAMEL_SOURCE_JETTY_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_JETTY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_JETTY_COMPONENT_ERROR_HANDLER_CONF = "camel.component.jetty.errorHandler";
     public static final String CAMEL_SOURCE_JETTY_COMPONENT_ERROR_HANDLER_DOC = "This option is used to set the ErrorHandler that Jetty server uses.";
     public static final String CAMEL_SOURCE_JETTY_COMPONENT_ERROR_HANDLER_DEFAULT = null;
@@ -241,12 +238,12 @@ public class CamelJettySourceConnectorConfig
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSourceConnectorConfig.conf());
         conf.define(CAMEL_SOURCE_JETTY_PATH_HTTP_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_PATH_HTTP_URI_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_JETTY_PATH_HTTP_URI_DOC);
+        conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_DISABLE_STREAM_CACHE_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_HTTP_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_ENDPOINT_HTTP_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_HTTP_BINDING_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_ASYNC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_ASYNC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_ASYNC_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_CHUNKED_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_CONTINUATION_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_ENDPOINT_CONTINUATION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_CONTINUATION_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_ENABLE_CORSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_ENABLE_CORSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_ENABLE_CORSDOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_ENABLE_JMX_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_ENABLE_JMX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_ENABLE_JMX_DOC);
@@ -269,7 +266,6 @@ public class CamelJettySourceConnectorConfig
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_MULTIPART_FILTER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_ENDPOINT_MULTIPART_FILTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_MULTIPART_FILTER_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_OPTIONS_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_OPTIONS_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_OPTIONS_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_TRACE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_TRACE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_TRACE_ENABLED_DOC);
-        conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DOC);
         conf.define(CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DOC);
@@ -289,7 +285,7 @@ public class CamelJettySourceConnectorConfig
         conf.define(CAMEL_SOURCE_JETTY_COMPONENT_USE_XFORWARDED_FOR_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_COMPONENT_USE_XFORWARDED_FOR_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_COMPONENT_USE_XFORWARDED_FOR_HEADER_DOC);
         conf.define(CAMEL_SOURCE_JETTY_COMPONENT_THREAD_POOL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_COMPONENT_THREAD_POOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_COMPONENT_THREAD_POOL_DOC);
         conf.define(CAMEL_SOURCE_JETTY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);
-        conf.define(CAMEL_SOURCE_JETTY_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_JETTY_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_JETTY_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JETTY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_JETTY_COMPONENT_ERROR_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_COMPONENT_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_COMPONENT_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JETTY_COMPONENT_HTTP_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_COMPONENT_HTTP_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_COMPONENT_HTTP_BINDING_DOC);
         conf.define(CAMEL_SOURCE_JETTY_COMPONENT_HTTP_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JETTY_COMPONENT_HTTP_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JETTY_COMPONENT_HTTP_CONFIGURATION_DOC);

@@ -47,9 +47,6 @@ public class CamelEtcdstatsSinkConnectorConfig
     public static final String CAMEL_SINK_ETCDSTATS_ENDPOINT_TIME_TO_LIVE_CONF = "camel.sink.endpoint.timeToLive";
     public static final String CAMEL_SINK_ETCDSTATS_ENDPOINT_TIME_TO_LIVE_DOC = "To set the lifespan of a key in milliseconds.";
     public static final String CAMEL_SINK_ETCDSTATS_ENDPOINT_TIME_TO_LIVE_DEFAULT = null;
-    public static final String CAMEL_SINK_ETCDSTATS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_ETCDSTATS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_ETCDSTATS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_ETCDSTATS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_ETCDSTATS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_ETCDSTATS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -83,9 +80,9 @@ public class CamelEtcdstatsSinkConnectorConfig
     public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_TIME_TO_LIVE_CONF = "camel.component.etcd-stats.timeToLive";
     public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_TIME_TO_LIVE_DOC = "To set the lifespan of a key in milliseconds.";
     public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_TIME_TO_LIVE_DEFAULT = null;
-    public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.etcd-stats.basicPropertyBinding";
-    public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_ETCDSTATS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.etcd-stats.autowiredEnabled";
+    public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_ETCDSTATS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_PASSWORD_CONF = "camel.component.etcd-stats.password";
     public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_PASSWORD_DOC = "The password to use for basic authentication.";
     public static final String CAMEL_SINK_ETCDSTATS_COMPONENT_PASSWORD_DEFAULT = null;
@@ -118,7 +115,6 @@ public class CamelEtcdstatsSinkConnectorConfig
         conf.define(CAMEL_SINK_ETCDSTATS_ENDPOINT_URIS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_ENDPOINT_URIS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_ENDPOINT_URIS_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDSTATS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_ENDPOINT_TIME_TO_LIVE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_ENDPOINT_TIME_TO_LIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_ENDPOINT_TIME_TO_LIVE_DOC);
-        conf.define(CAMEL_SINK_ETCDSTATS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDSTATS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDSTATS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
@@ -130,7 +126,7 @@ public class CamelEtcdstatsSinkConnectorConfig
         conf.define(CAMEL_SINK_ETCDSTATS_COMPONENT_URIS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_COMPONENT_URIS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_COMPONENT_URIS_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDSTATS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_COMPONENT_TIME_TO_LIVE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_COMPONENT_TIME_TO_LIVE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_COMPONENT_TIME_TO_LIVE_DOC);
-        conf.define(CAMEL_SINK_ETCDSTATS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDSTATS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_ETCDSTATS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_ETCDSTATS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDSTATS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_COMPONENT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_COMPONENT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_COMPONENT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ETCDSTATS_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_ETCDSTATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ETCDSTATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ETCDSTATS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);

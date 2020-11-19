@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.azureblob.CamelAzureblobSinkConn
 ----
 
 
-The camel-azure-blob sink connector supports 43 options, which are listed below.
+The camel-azure-blob sink connector supports 42 options, which are listed below.
 
 
 
@@ -47,7 +47,6 @@ The camel-azure-blob sink connector supports 43 options, which are listed below.
 | *camel.sink.endpoint.operation* | Blob service operation hint to the producer One of: [getBlob] [deleteBlob] [listBlobs] [updateBlockBlob] [uploadBlobBlocks] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [updateAppendBlob] [createPageBlob] [updatePageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobs" | false | MEDIUM
 | *camel.sink.endpoint.streamWriteSize* | Set the size of the buffer for writing block and page blocks | null | false | MEDIUM
 | *camel.sink.endpoint.useFlatListing* | Specify if the flat or hierarchical blob listing should be used | true | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
 | *camel.sink.endpoint.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM
@@ -68,7 +67,7 @@ The camel-azure-blob sink connector supports 43 options, which are listed below.
 | *camel.component.azure-blob.operation* | Blob service operation hint to the producer One of: [getBlob] [deleteBlob] [listBlobs] [updateBlockBlob] [uploadBlobBlocks] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [updateAppendBlob] [createPageBlob] [updatePageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobs" | false | MEDIUM
 | *camel.component.azure-blob.streamWriteSize* | Set the size of the buffer for writing block and page blocks | null | false | MEDIUM
 | *camel.component.azure-blob.useFlatListing* | Specify if the flat or hierarchical blob listing should be used | true | false | MEDIUM
-| *camel.component.azure-blob.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.azure-blob.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.azure-blob.configuration* | The Blob Service configuration | null | false | MEDIUM
 | *camel.component.azure-blob.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
 | *camel.component.azure-blob.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM

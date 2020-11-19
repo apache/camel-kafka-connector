@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.servicenow.CamelServicenowSinkCo
 ----
 
 
-The camel-servicenow sink connector supports 95 options, which are listed below.
+The camel-servicenow sink connector supports 94 options, which are listed below.
 
 
 
@@ -56,7 +56,6 @@ The camel-servicenow sink connector supports 95 options, which are listed below.
 | *camel.sink.endpoint.target* | Set this parameter to true to return only scorecards that have a target. | null | false | MEDIUM
 | *camel.sink.endpoint.topLevelOnly* | Gets only those categories whose parent is a catalog. | null | false | MEDIUM
 | *camel.sink.endpoint.apiVersion* | The ServiceNow REST API version, default latest | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.dateFormat* | The date format used for Json serialization/deserialization | "yyyy-MM-dd" | false | MEDIUM
 | *camel.sink.endpoint.dateTimeFormat* | The date-time format used for Json serialization/deserialization | "yyyy-MM-dd HH:mm:ss" | false | MEDIUM
 | *camel.sink.endpoint.httpClientPolicy* | To configure http-client | null | false | MEDIUM
@@ -103,7 +102,7 @@ The camel-servicenow sink connector supports 95 options, which are listed below.
 | *camel.component.servicenow.target* | Set this parameter to true to return only scorecards that have a target. | null | false | MEDIUM
 | *camel.component.servicenow.topLevelOnly* | Gets only those categories whose parent is a catalog. | null | false | MEDIUM
 | *camel.component.servicenow.apiVersion* | The ServiceNow REST API version, default latest | null | false | MEDIUM
-| *camel.component.servicenow.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.servicenow.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.servicenow.dateFormat* | The date format used for Json serialization/deserialization | "yyyy-MM-dd" | false | MEDIUM
 | *camel.component.servicenow.dateTimeFormat* | The date-time format used for Json serialization/deserialization | "yyyy-MM-dd HH:mm:ss" | false | MEDIUM
 | *camel.component.servicenow.httpClientPolicy* | To configure http-client | null | false | MEDIUM

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.log.CamelLogSinkConnector
 ----
 
 
-The camel-log sink connector supports 32 options, which are listed below.
+The camel-log sink connector supports 31 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-log sink connector supports 32 options, which are listed below.
 | *camel.sink.endpoint.level* | Logging level to use. The default value is INFO. One of: [ERROR] [WARN] [INFO] [DEBUG] [TRACE] [OFF] | "INFO" | false | MEDIUM
 | *camel.sink.endpoint.logMask* | If true, mask sensitive information like password or passphrase in the log. | null | false | MEDIUM
 | *camel.sink.endpoint.marker* | An optional Marker name to use. | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.exchangeFormatter* | To use a custom exchange formatter | null | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.maxChars* | Limits the number of characters logged per line. | 10000 | false | MEDIUM
@@ -59,7 +58,7 @@ The camel-log sink connector supports 32 options, which are listed below.
 | *camel.sink.endpoint.skipBodyLineSeparator* | Whether to skip line separators when logging the message body. This allows to log the message body in one line, setting this option to false will preserve any line separators from the body, which then will log the body as is. | true | false | MEDIUM
 | *camel.sink.endpoint.style* | Sets the outputs style to use. One of: [Default] [Tab] [Fixed] | "Default" | false | MEDIUM
 | *camel.component.log.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.log.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.log.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.log.exchangeFormatter* | Sets a custom ExchangeFormatter to convert the Exchange to a String suitable for logging. If not specified, we default to DefaultExchangeFormatter. | null | false | MEDIUM
 |===
 

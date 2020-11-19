@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2athena.CamelAws2athenaSinkCo
 ----
 
 
-The camel-aws2-athena sink connector supports 61 options, which are listed below.
+The camel-aws2-athena sink connector supports 58 options, which are listed below.
 
 
 
@@ -30,7 +30,6 @@ The camel-aws2-athena sink connector supports 61 options, which are listed below
 |===
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.label* | Logical name | null | true | HIGH
-| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key. | null | false | MEDIUM
 | *camel.sink.endpoint.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | false | MEDIUM
 | *camel.sink.endpoint.database* | The Athena database to use. | null | false | MEDIUM
@@ -57,12 +56,10 @@ The camel-aws2-athena sink connector supports 61 options, which are listed below
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key. | null | false | MEDIUM
 | *camel.sink.endpoint.waitTimeout* | Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 0L | false | MEDIUM
 | *camel.sink.endpoint.workGroup* | The workgroup to use for running the query. | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.aws2-athena.accessKey* | Amazon AWS Access Key. | null | false | MEDIUM
 | *camel.component.aws2-athena.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | false | MEDIUM
-| *camel.component.aws2-athena.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking | true | false | MEDIUM
 | *camel.component.aws2-athena.configuration* | The component configuration. | null | false | MEDIUM
 | *camel.component.aws2-athena.database* | The Athena database to use. | null | false | MEDIUM
 | *camel.component.aws2-athena.delay* | Milliseconds before the next poll for query execution status. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 2000L | false | MEDIUM
@@ -88,7 +85,7 @@ The camel-aws2-athena sink connector supports 61 options, which are listed below
 | *camel.component.aws2-athena.secretKey* | Amazon AWS Secret Key. | null | false | MEDIUM
 | *camel.component.aws2-athena.waitTimeout* | Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 0L | false | MEDIUM
 | *camel.component.aws2-athena.workGroup* | The workgroup to use for running the query. | null | false | MEDIUM
-| *camel.component.aws2-athena.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws2-athena.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-athena.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | false | MEDIUM
 |===
 

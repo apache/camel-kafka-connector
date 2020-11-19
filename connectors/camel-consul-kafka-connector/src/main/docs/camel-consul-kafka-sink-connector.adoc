@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.consul.CamelConsulSinkConnector
 ----
 
 
-The camel-consul sink connector supports 50 options, which are listed below.
+The camel-consul sink connector supports 49 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-consul sink connector supports 50 options, which are listed below.
 | *camel.sink.endpoint.action* | The default action. Can be overridden by CamelConsulAction | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.valueAsString* | Default to transform values retrieved from Consul i.e. on KV endpoint to string. | false | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.consistencyMode* | The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT] | "DEFAULT" | false | MEDIUM
 | *camel.sink.endpoint.datacenter* | The data center | null | false | MEDIUM
 | *camel.sink.endpoint.nearNode* | The near node to use for queries. | null | false | MEDIUM
@@ -68,7 +67,7 @@ The camel-consul sink connector supports 50 options, which are listed below.
 | *camel.component.consul.action* | The default action. Can be overridden by CamelConsulAction | null | false | MEDIUM
 | *camel.component.consul.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.consul.valueAsString* | Default to transform values retrieved from Consul i.e. on KV endpoint to string. | false | false | MEDIUM
-| *camel.component.consul.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.consul.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.consul.configuration* | Consul configuration | null | false | MEDIUM
 | *camel.component.consul.consistencyMode* | The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT] | "DEFAULT" | false | MEDIUM
 | *camel.component.consul.datacenter* | The data center | null | false | MEDIUM

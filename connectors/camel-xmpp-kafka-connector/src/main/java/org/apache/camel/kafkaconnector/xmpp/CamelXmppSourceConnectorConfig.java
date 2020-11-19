@@ -74,9 +74,6 @@ public class CamelXmppSourceConnectorConfig
     public static final String CAMEL_SOURCE_XMPP_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_XMPP_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_XMPP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_XMPP_ENDPOINT_CONNECTION_CONFIG_CONF = "camel.source.endpoint.connectionConfig";
     public static final String CAMEL_SOURCE_XMPP_ENDPOINT_CONNECTION_CONFIG_DOC = "To use an existing connection configuration. Currently org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only supported (XMPP over TCP).";
     public static final String CAMEL_SOURCE_XMPP_ENDPOINT_CONNECTION_CONFIG_DEFAULT = null;
@@ -98,9 +95,9 @@ public class CamelXmppSourceConnectorConfig
     public static final String CAMEL_SOURCE_XMPP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.xmpp.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_XMPP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_XMPP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.xmpp.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_XMPP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.xmpp.autowiredEnabled";
+    public static final String CAMEL_SOURCE_XMPP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_XMPP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelXmppSourceConnectorConfig(
             ConfigDef config,
@@ -130,7 +127,6 @@ public class CamelXmppSourceConnectorConfig
         conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_DOC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_XMPP_ENDPOINT_DOC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_DOC_DOC);
         conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_XMPP_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_XMPP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_CONNECTION_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_XMPP_ENDPOINT_CONNECTION_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_CONNECTION_CONFIG_DOC);
         conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_XMPP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
@@ -138,7 +134,7 @@ public class CamelXmppSourceConnectorConfig
         conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_ROOM_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_XMPP_ENDPOINT_ROOM_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_ROOM_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_XMPP_ENDPOINT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_XMPP_ENDPOINT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_ENDPOINT_USER_DOC);
         conf.define(CAMEL_SOURCE_XMPP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_XMPP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_XMPP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_XMPP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_XMPP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_XMPP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

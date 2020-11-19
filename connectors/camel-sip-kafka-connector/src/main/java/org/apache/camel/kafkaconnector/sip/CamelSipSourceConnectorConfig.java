@@ -90,9 +90,6 @@ public class CamelSipSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_ADDRESS_FACTORY_CONF = "camel.source.endpoint.addressFactory";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_ADDRESS_FACTORY_DOC = "To use a custom AddressFactory";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_ADDRESS_FACTORY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SIP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SIP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SIP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_CALL_ID_HEADER_CONF = "camel.source.endpoint.callIdHeader";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_CALL_ID_HEADER_DOC = "A custom Header object containing call details. Must implement the type javax.sip.header.CallIdHeader";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_CALL_ID_HEADER_DEFAULT = null;
@@ -165,9 +162,9 @@ public class CamelSipSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SIP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.sip.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_SIP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_SIP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_SIP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.sip.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SIP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SIP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SIP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.sip.autowiredEnabled";
+    public static final String CAMEL_SOURCE_SIP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_SIP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelSipSourceConnectorConfig(
             ConfigDef config,
@@ -203,7 +200,6 @@ public class CamelSipSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_ADDRESS_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_ADDRESS_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_ADDRESS_FACTORY_DOC);
-        conf.define(CAMEL_SOURCE_SIP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SIP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_CALL_ID_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_CALL_ID_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_CALL_ID_HEADER_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_CONTACT_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_CONTACT_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_CONTACT_HEADER_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_CONTENT_TYPE_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_CONTENT_TYPE_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_CONTENT_TYPE_HEADER_DOC);
@@ -228,7 +224,7 @@ public class CamelSipSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_MAX_FORWARDS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SIP_ENDPOINT_MAX_FORWARDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_MAX_FORWARDS_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_USE_ROUTER_FOR_ALL_URIS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SIP_ENDPOINT_USE_ROUTER_FOR_ALL_URIS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_USE_ROUTER_FOR_ALL_URIS_DOC);
         conf.define(CAMEL_SOURCE_SIP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SIP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_SIP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SIP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_SIP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_SIP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SIP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

@@ -138,9 +138,6 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JMS_ENDPOINT_ASYNC_STOP_LISTENER_CONF = "camel.sink.endpoint.asyncStopListener";
     public static final String CAMEL_SINK_JMS_ENDPOINT_ASYNC_STOP_LISTENER_DOC = "Whether to stop the JmsConsumer message listener asynchronously, when stopping a route.";
     public static final Boolean CAMEL_SINK_JMS_ENDPOINT_ASYNC_STOP_LISTENER_DEFAULT = false;
-    public static final String CAMEL_SINK_JMS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_JMS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_JMS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_JMS_ENDPOINT_DESTINATION_RESOLVER_CONF = "camel.sink.endpoint.destinationResolver";
     public static final String CAMEL_SINK_JMS_ENDPOINT_DESTINATION_RESOLVER_DOC = "A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver (for example, to lookup the real destination in a JNDI registry).";
     public static final String CAMEL_SINK_JMS_ENDPOINT_DESTINATION_RESOLVER_DEFAULT = null;
@@ -354,9 +351,9 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_CONF = "camel.component.jms.asyncStopListener";
     public static final String CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_DOC = "Whether to stop the JmsConsumer message listener asynchronously, when stopping a route.";
     public static final Boolean CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_DEFAULT = false;
-    public static final String CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.jms.basicPropertyBinding";
-    public static final String CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_JMS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.jms.autowiredEnabled";
+    public static final String CAMEL_SINK_JMS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_JMS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_CONF = "camel.component.jms.configuration";
     public static final String CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_DOC = "To use a shared JMS configuration";
     public static final String CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -510,7 +507,6 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JMS_ENDPOINT_ARTEMIS_STREAMING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_ENDPOINT_ARTEMIS_STREAMING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_ARTEMIS_STREAMING_ENABLED_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_ASYNC_START_LISTENER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_ENDPOINT_ASYNC_START_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_ASYNC_START_LISTENER_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_ASYNC_STOP_LISTENER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_ENDPOINT_ASYNC_STOP_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_ASYNC_STOP_LISTENER_DOC);
-        conf.define(CAMEL_SINK_JMS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_DESTINATION_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_ENDPOINT_DESTINATION_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_DESTINATION_RESOLVER_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_ERROR_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_ENDPOINT_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SINK_JMS_ENDPOINT_EXCEPTION_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_ENDPOINT_EXCEPTION_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_ENDPOINT_EXCEPTION_LISTENER_DOC);
@@ -582,7 +578,7 @@ public class CamelJmsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JMS_COMPONENT_ARTEMIS_STREAMING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_ARTEMIS_STREAMING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_ARTEMIS_STREAMING_ENABLED_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_ASYNC_START_LISTENER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_ASYNC_START_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_ASYNC_START_LISTENER_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_ASYNC_STOP_LISTENER_DOC);
-        conf.define(CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_JMS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_JMS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JMS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_DESTINATION_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_DESTINATION_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_DESTINATION_RESOLVER_DOC);
         conf.define(CAMEL_SINK_JMS_COMPONENT_ERROR_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JMS_COMPONENT_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JMS_COMPONENT_ERROR_HANDLER_DOC);

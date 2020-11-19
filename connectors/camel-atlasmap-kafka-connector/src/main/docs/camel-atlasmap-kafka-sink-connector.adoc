@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.atlasmap.CamelAtlasmapSinkConnec
 ----
 
 
-The camel-atlasmap sink connector supports 13 options, which are listed below.
+The camel-atlasmap sink connector supports 12 options, which are listed below.
 
 
 
@@ -36,12 +36,11 @@ The camel-atlasmap sink connector supports 13 options, which are listed below.
 | *camel.sink.endpoint.sourceMapName* | The Exchange property name for a source message map which hold java.util.Map&lt;String, Message&gt; where the key is AtlasMap Document ID. AtlasMap consumes Message bodies as source documents, as well as message headers as source properties where the scope equals to Document ID. | null | false | MEDIUM
 | *camel.sink.endpoint.targetMapMode* | TargetMapMode enum value to specify how multiple target documents are delivered if exist. 'MAP': Stores them into a java.util.Map, and the java.util.Map is set to an exchange property if 'targetMapName' is specified, otherwise message body. 'MESSAGE_HEADER': Stores them into message headers. 'EXCHANGE_PROPERTY': Stores them into exchange properties. ) One of: [MAP] [MESSAGE_HEADER] [EXCHANGE_PROPERTY] | "MAP" | false | MEDIUM
 | *camel.sink.endpoint.targetMapName* | The Exchange property name for a target document map which hold java.util.Map&lt;String, Object&gt; where the key is AtlasMap Document ID. AtlasMap populates multiple target documents into this map. | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.propertiesFile* | The URI of the properties file which is used for AtlasContextFactory initialization. | null | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.atlasmap.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.atlasmap.atlasContextFactory* | To use the AtlasContextFactory otherwise a new engine is created. | null | false | MEDIUM
-| *camel.component.atlasmap.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.atlasmap.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 
@@ -59,8 +58,4 @@ The camel-atlasmap sink connector has no transforms out of the box.
 
 
 The camel-atlasmap sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

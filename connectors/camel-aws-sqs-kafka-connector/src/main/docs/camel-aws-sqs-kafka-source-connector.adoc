@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awssqs.CamelAwssqsSourceConnecto
 ----
 
 
-The camel-aws-sqs source connector supports 89 options, which are listed below.
+The camel-aws-sqs source connector supports 88 options, which are listed below.
 
 
 
@@ -57,7 +57,6 @@ The camel-aws-sqs source connector supports 89 options, which are listed below.
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | false | MEDIUM
 | *camel.source.endpoint.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
@@ -106,7 +105,7 @@ The camel-aws-sqs source connector supports 89 options, which are listed below.
 | *camel.component.aws-sqs.serverSideEncryption Enabled* | Define if Server Side Encryption is enabled or not on the queue | false | false | MEDIUM
 | *camel.component.aws-sqs.visibilityTimeout* | The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only make sense if its different from defaultVisibilityTimeout. It changes the queue visibility timeout attribute permanently. | null | false | MEDIUM
 | *camel.component.aws-sqs.waitTimeSeconds* | Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response. | null | false | MEDIUM
-| *camel.component.aws-sqs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws-sqs.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws-sqs.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | false | MEDIUM
 | *camel.component.aws-sqs.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | false | MEDIUM
 | *camel.component.aws-sqs.proxyHost* | To define a proxy host when instantiating the SQS client | null | false | MEDIUM

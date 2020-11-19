@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.quartz.CamelQuartzSourceConnecto
 ----
 
 
-The camel-quartz source connector supports 35 options, which are listed below.
+The camel-quartz source connector supports 34 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-quartz source connector supports 35 options, which are listed below.
 | *camel.source.endpoint.stateful* | Uses a Quartz PersistJobDataAfterExecution and DisallowConcurrentExecution instead of the default job. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.customCalendar* | Specifies a custom calendar to avoid specific range of date | null | false | MEDIUM
 | *camel.source.endpoint.jobParameters* | To configure additional options on the job. | null | false | MEDIUM
 | *camel.source.endpoint.prefixJobNameWithEndpointId* | Whether the job name should be prefixed with endpoint id | false | false | MEDIUM
@@ -58,7 +57,7 @@ The camel-quartz source connector supports 35 options, which are listed below.
 | *camel.component.quartz.properties* | Properties to configure the Quartz scheduler. | null | false | MEDIUM
 | *camel.component.quartz.propertiesFile* | File name of the properties to load from the classpath | null | false | MEDIUM
 | *camel.component.quartz.propertiesRef* | References to an existing Properties or Map to lookup in the registry to use for configuring quartz. | null | false | MEDIUM
-| *camel.component.quartz.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.quartz.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.quartz.scheduler* | To use the custom configured Quartz scheduler, instead of creating a new Scheduler. | null | false | MEDIUM
 | *camel.component.quartz.schedulerFactory* | To use the custom SchedulerFactory which is used to create the Scheduler. | null | false | MEDIUM
 | *camel.component.quartz.autoStartScheduler* | Whether or not the scheduler should be auto started. This options is default true | true | false | MEDIUM

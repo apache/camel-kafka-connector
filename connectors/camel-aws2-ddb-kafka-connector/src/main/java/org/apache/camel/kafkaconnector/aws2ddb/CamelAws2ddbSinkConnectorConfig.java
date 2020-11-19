@@ -30,9 +30,6 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_CONF = "camel.sink.endpoint.amazonDDBClient";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_DOC = "To use the AmazonDynamoDB as the client";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
-    public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AWS2DDB_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_CONF = "camel.sink.endpoint.consistentRead";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_DOC = "Determines whether or not strong consistency should be enforced when data is read.";
     public static final Boolean CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_DEFAULT = false;
@@ -69,9 +66,6 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_WRITE_CAPACITY_CONF = "camel.sink.endpoint.writeCapacity";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_WRITE_CAPACITY_DOC = "The provisioned throughput to reserved for writing resources to your table";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_WRITE_CAPACITY_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWS2DDB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWS2DDB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWS2DDB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -84,9 +78,6 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_AMAZON_DDBCLIENT_CONF = "camel.component.aws2-ddb.amazonDDBClient";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_AMAZON_DDBCLIENT_DOC = "To use the AmazonDynamoDB as the client";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_AMAZON_DDBCLIENT_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws2-ddb.autoDiscoverClient";
-    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AWS2DDB_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-ddb.configuration";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -126,9 +117,9 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_WRITE_CAPACITY_CONF = "camel.component.aws2-ddb.writeCapacity";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_WRITE_CAPACITY_DOC = "The provisioned throughput to reserved for writing resources to your table";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_WRITE_CAPACITY_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws2-ddb.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWS2DDB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-ddb.autowiredEnabled";
+    public static final String CAMEL_SINK_AWS2DDB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWS2DDB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws2-ddb.accessKey";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWS2DDB_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -150,7 +141,6 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWS2DDB_PATH_TABLE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_PATH_TABLE_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2DDB_PATH_TABLE_NAME_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_AMAZON_DDBCLIENT_DOC);
-        conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_CONSISTENT_READ_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_NAME_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_KEY_ATTRIBUTE_TYPE_DOC);
@@ -163,12 +153,10 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_WRITE_CAPACITY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_WRITE_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_WRITE_CAPACITY_DOC);
-        conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_AMAZON_DDBCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_AMAZON_DDBCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_AMAZON_DDBCLIENT_DOC);
-        conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_CONSISTENT_READ_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_COMPONENT_CONSISTENT_READ_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_CONSISTENT_READ_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_KEY_ATTRIBUTE_NAME_DOC);
@@ -182,7 +170,7 @@ public class CamelAws2ddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_WRITE_CAPACITY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_WRITE_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_WRITE_CAPACITY_DOC);
-        conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWS2DDB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2DDB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2DDB_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2DDB_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2DDB_COMPONENT_SECRET_KEY_DOC);
         return conf;

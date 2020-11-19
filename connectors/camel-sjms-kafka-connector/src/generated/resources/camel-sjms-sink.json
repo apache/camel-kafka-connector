@@ -98,13 +98,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.connectionCount": {
 			"name": "camel.sink.endpoint.connectionCount",
 			"description": "The maximum number of connections available to this endpoint",
@@ -187,6 +180,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.sjms.connectionFactory": {
+			"name": "camel.component.sjms.connectionFactory",
+			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.sjms.lazyStartProducer": {
 			"name": "camel.component.sjms.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
@@ -194,22 +193,16 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.sjms.basicPropertyBinding": {
-			"name": "camel.component.sjms.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.sjms.autowiredEnabled": {
+			"name": "camel.component.sjms.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.sjms.connectionClientId": {
 			"name": "camel.component.sjms.connectionClientId",
 			"description": "The client ID to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms.connectionFactory": {
-			"name": "camel.component.sjms.connectionFactory",
-			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
