@@ -44,9 +44,6 @@ public class CamelJgroupsSourceConnectorConfig
     public static final String CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_JGROUPS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_JGROUPS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_JGROUPS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_JGROUPS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_JGROUPS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_JGROUPS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -62,9 +59,9 @@ public class CamelJgroupsSourceConnectorConfig
     public static final String CAMEL_SOURCE_JGROUPS_COMPONENT_ENABLE_VIEW_MESSAGES_CONF = "camel.component.jgroups.enableViewMessages";
     public static final String CAMEL_SOURCE_JGROUPS_COMPONENT_ENABLE_VIEW_MESSAGES_DOC = "If set to true, the consumer endpoint will receive org.jgroups.View messages as well (not only org.jgroups.Message instances). By default only regular messages are consumed by the endpoint.";
     public static final Boolean CAMEL_SOURCE_JGROUPS_COMPONENT_ENABLE_VIEW_MESSAGES_DEFAULT = false;
-    public static final String CAMEL_SOURCE_JGROUPS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.jgroups.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_JGROUPS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_JGROUPS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_JGROUPS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.jgroups.autowiredEnabled";
+    public static final String CAMEL_SOURCE_JGROUPS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_JGROUPS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelJgroupsSourceConnectorConfig(
             ConfigDef config,
@@ -84,13 +81,12 @@ public class CamelJgroupsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_JGROUPS_ENDPOINT_ENABLE_VIEW_MESSAGES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JGROUPS_ENDPOINT_ENABLE_VIEW_MESSAGES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_ENDPOINT_ENABLE_VIEW_MESSAGES_DOC);
         conf.define(CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_JGROUPS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JGROUPS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_JGROUPS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JGROUPS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_JGROUPS_COMPONENT_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JGROUPS_COMPONENT_CHANNEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_COMPONENT_CHANNEL_DOC);
         conf.define(CAMEL_SOURCE_JGROUPS_COMPONENT_CHANNEL_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JGROUPS_COMPONENT_CHANNEL_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_COMPONENT_CHANNEL_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_JGROUPS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JGROUPS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JGROUPS_COMPONENT_ENABLE_VIEW_MESSAGES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JGROUPS_COMPONENT_ENABLE_VIEW_MESSAGES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_COMPONENT_ENABLE_VIEW_MESSAGES_DOC);
-        conf.define(CAMEL_SOURCE_JGROUPS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JGROUPS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_JGROUPS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_JGROUPS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JGROUPS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JGROUPS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

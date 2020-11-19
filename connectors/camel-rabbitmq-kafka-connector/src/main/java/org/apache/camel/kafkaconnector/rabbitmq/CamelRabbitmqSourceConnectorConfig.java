@@ -137,9 +137,6 @@ public class CamelRabbitmqSourceConnectorConfig
     public static final String CAMEL_SOURCE_RABBITMQ_ENDPOINT_ARGS_CONF = "camel.source.endpoint.args";
     public static final String CAMEL_SOURCE_RABBITMQ_ENDPOINT_ARGS_DOC = "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ binding: arg.dlq.binding. For example to declare a queue with message ttl argument: http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000";
     public static final String CAMEL_SOURCE_RABBITMQ_ENDPOINT_ARGS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_RABBITMQ_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_RABBITMQ_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_RABBITMQ_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_RABBITMQ_ENDPOINT_CLIENT_PROPERTIES_CONF = "camel.source.endpoint.clientProperties";
     public static final String CAMEL_SOURCE_RABBITMQ_ENDPOINT_CLIENT_PROPERTIES_DOC = "Connection client properties (client info used in negotiating with the server)";
     public static final String CAMEL_SOURCE_RABBITMQ_ENDPOINT_CLIENT_PROPERTIES_DEFAULT = null;
@@ -275,9 +272,9 @@ public class CamelRabbitmqSourceConnectorConfig
     public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOMATIC_RECOVERY_ENABLED_CONF = "camel.component.rabbitmq.automaticRecoveryEnabled";
     public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOMATIC_RECOVERY_ENABLED_DOC = "Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application)";
     public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOMATIC_RECOVERY_ENABLED_DEFAULT = null;
-    public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.rabbitmq.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_RABBITMQ_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.rabbitmq.autowiredEnabled";
+    public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_CLIENT_PROPERTIES_CONF = "camel.component.rabbitmq.clientProperties";
     public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_CLIENT_PROPERTIES_DOC = "Connection client properties (client info used in negotiating with the server)";
     public static final String CAMEL_SOURCE_RABBITMQ_COMPONENT_CLIENT_PROPERTIES_DEFAULT = null;
@@ -373,7 +370,6 @@ public class CamelRabbitmqSourceConnectorConfig
         conf.define(CAMEL_SOURCE_RABBITMQ_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_ENDPOINT_THREAD_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_RABBITMQ_ENDPOINT_THREAD_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_ENDPOINT_THREAD_POOL_SIZE_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_ENDPOINT_ARGS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_ENDPOINT_ARGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_ENDPOINT_ARGS_DOC);
-        conf.define(CAMEL_SOURCE_RABBITMQ_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RABBITMQ_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_ENDPOINT_CLIENT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_ENDPOINT_CLIENT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_ENDPOINT_CLIENT_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_ENDPOINT_CONNECTION_FACTORY_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_ENDPOINT_CONNECTION_FACTORY_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_ENDPOINT_CONNECTION_FACTORY_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_ENDPOINT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_RABBITMQ_ENDPOINT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_ENDPOINT_CONNECTION_TIMEOUT_DOC);
@@ -419,7 +415,7 @@ public class CamelRabbitmqSourceConnectorConfig
         conf.define(CAMEL_SOURCE_RABBITMQ_COMPONENT_ARGS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_COMPONENT_ARGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_COMPONENT_ARGS_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTO_DETECT_CONNECTION_FACTORY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTO_DETECT_CONNECTION_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTO_DETECT_CONNECTION_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOMATIC_RECOVERY_ENABLED_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOMATIC_RECOVERY_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOMATIC_RECOVERY_ENABLED_DOC);
-        conf.define(CAMEL_SOURCE_RABBITMQ_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RABBITMQ_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_RABBITMQ_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_COMPONENT_CLIENT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_COMPONENT_CLIENT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_COMPONENT_CLIENT_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_COMPONENT_CONNECTION_FACTORY_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RABBITMQ_COMPONENT_CONNECTION_FACTORY_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_COMPONENT_CONNECTION_FACTORY_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_RABBITMQ_COMPONENT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_RABBITMQ_COMPONENT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RABBITMQ_COMPONENT_CONNECTION_TIMEOUT_DOC);

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.kubernetesreplicationcontrollers
 ----
 
 
-The camel-kubernetes-replication-controllers source connector supports 36 options, which are listed below.
+The camel-kubernetes-replication-controllers source connector supports 35 options, which are listed below.
 
 
 
@@ -48,7 +48,6 @@ The camel-kubernetes-replication-controllers source connector supports 36 option
 | *camel.source.endpoint.resourceName* | The Consumer Resource Name we would like to watch | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.connectionTimeout* | Connection timeout in milliseconds to use when making requests to the Kubernetes API server. | null | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.caCertData* | The CA Cert Data | null | false | MEDIUM
@@ -64,7 +63,7 @@ The camel-kubernetes-replication-controllers source connector supports 36 option
 | *camel.source.endpoint.trustCerts* | Define if the certs we used are trusted anyway or not | null | false | MEDIUM
 | *camel.source.endpoint.username* | Username to connect to Kubernetes | null | false | MEDIUM
 | * camel.component.kubernetes-replication-controllers.bridge ErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| * camel.component.kubernetes-replication-controllers.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| * camel.component.kubernetes-replication-controllers.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

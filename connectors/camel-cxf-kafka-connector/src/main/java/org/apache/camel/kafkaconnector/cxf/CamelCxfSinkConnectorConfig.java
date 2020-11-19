@@ -60,9 +60,6 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_CONF = "camel.sink.endpoint.allowStreaming";
     public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DOC = "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.";
     public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DEFAULT = null;
-    public static final String CAMEL_SINK_CXF_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_CXF_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CXF_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_CXF_ENDPOINT_BUS_CONF = "camel.sink.endpoint.bus";
     public static final String CAMEL_SINK_CXF_ENDPOINT_BUS_DOC = "To use a custom configured CXF Bus.";
     public static final String CAMEL_SINK_CXF_ENDPOINT_BUS_DEFAULT = null;
@@ -135,9 +132,9 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_CONF = "camel.component.cxf.allowStreaming";
     public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DOC = "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.";
     public static final String CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DEFAULT = null;
-    public static final String CAMEL_SINK_CXF_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.cxf.basicPropertyBinding";
-    public static final String CAMEL_SINK_CXF_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CXF_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.cxf.autowiredEnabled";
+    public static final String CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_CONF = "camel.component.cxf.headerFilterStrategy";
     public static final String CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_DOC = "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -169,7 +166,6 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CXF_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_WRAPPED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_WRAPPED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_WRAPPED_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DOC);
-        conf.define(CAMEL_SINK_CXF_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_BUS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_BUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_BUS_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_CONTINUATION_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_CXF_ENDPOINT_CONTINUATION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_CONTINUATION_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_CXF_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_CXF_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_CXF_BINDING_DOC);
@@ -194,7 +190,7 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CXF_ENDPOINT_WSDL_URLCONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_WSDL_URLDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_WSDL_URLDOC);
         conf.define(CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_ALLOW_STREAMING_DOC);
-        conf.define(CAMEL_SINK_CXF_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_CXF_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_CXF_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
         return conf;

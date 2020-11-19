@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.azurequeue.CamelAzurequeueSource
 ----
 
 
-The camel-azure-queue source connector supports 19 options, which are listed below.
+The camel-azure-queue source connector supports 18 options, which are listed below.
 
 
 
@@ -36,7 +36,6 @@ The camel-azure-queue source connector supports 19 options, which are listed bel
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
 | *camel.source.endpoint.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM
@@ -44,7 +43,7 @@ The camel-azure-queue source connector supports 19 options, which are listed bel
 | *camel.component.azure-queue.credentials* | Set the storage credentials, required in most cases | null | false | MEDIUM
 | *camel.component.azure-queue.validateClientURI* | Whether to validate the Azure client URI | true | false | MEDIUM
 | *camel.component.azure-queue.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.component.azure-queue.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.azure-queue.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.azure-queue.configuration* | The Queue Service configuration | null | false | MEDIUM
 | *camel.component.azure-queue.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
 | *camel.component.azure-queue.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM

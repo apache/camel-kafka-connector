@@ -66,9 +66,6 @@ public class CamelRestSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_CONF = "camel.sink.endpoint.queryParameters";
     public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DOC = "Query parameters for the HTTP service to call. The query parameters can contain multiple parameters separated by ampersand such such as foo=123&bar=456.";
     public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DEFAULT = null;
-    public static final String CAMEL_SINK_REST_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -87,9 +84,9 @@ public class CamelRestSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_REST_COMPONENT_PRODUCER_COMPONENT_NAME_CONF = "camel.component.rest.producerComponentName";
     public static final String CAMEL_SINK_REST_COMPONENT_PRODUCER_COMPONENT_NAME_DOC = "The Camel Rest component to use for (producer) the REST transport, such as http, undertow. If no component has been explicit configured, then Camel will lookup if there is a Camel component that integrates with the Rest DSL, or if a org.apache.camel.spi.RestProducerFactory is registered in the registry. If either one is found, then that is being used.";
     public static final String CAMEL_SINK_REST_COMPONENT_PRODUCER_COMPONENT_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_REST_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.rest.basicPropertyBinding";
-    public static final String CAMEL_SINK_REST_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_REST_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_REST_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.rest.autowiredEnabled";
+    public static final String CAMEL_SINK_REST_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_REST_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelRestSinkConnectorConfig(
             ConfigDef config,
@@ -117,14 +114,13 @@ public class CamelRestSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_REST_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_REST_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_REST_ENDPOINT_PRODUCER_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_ENDPOINT_PRODUCER_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_PRODUCER_COMPONENT_NAME_DOC);
         conf.define(CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DOC);
-        conf.define(CAMEL_SINK_REST_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_REST_COMPONENT_API_DOC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_COMPONENT_API_DOC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_COMPONENT_API_DOC_DOC);
         conf.define(CAMEL_SINK_REST_COMPONENT_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_COMPONENT_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_REST_COMPONENT_COMPONENT_NAME_DOC);
         conf.define(CAMEL_SINK_REST_COMPONENT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_COMPONENT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_COMPONENT_HOST_DOC);
         conf.define(CAMEL_SINK_REST_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_REST_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_REST_COMPONENT_PRODUCER_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_COMPONENT_PRODUCER_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_COMPONENT_PRODUCER_COMPONENT_NAME_DOC);
-        conf.define(CAMEL_SINK_REST_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_REST_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_REST_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_REST_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_REST_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

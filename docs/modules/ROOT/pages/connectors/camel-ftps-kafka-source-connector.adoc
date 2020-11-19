@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.ftps.CamelFtpsSourceConnector
 ----
 
 
-The camel-ftps source connector supports 110 options, which are listed below.
+The camel-ftps source connector supports 109 options, which are listed below.
 
 
 
@@ -66,7 +66,6 @@ The camel-ftps source connector supports 110 options, which are listed below.
 | *camel.source.endpoint.useList* | Whether to allow using LIST command when downloading a file. Default is true. In some use cases you may want to download a specific file and are not allowed to use the LIST command, and therefore you can set this option to false. Notice when using this option, then the specific file to download does not include meta-data information such as file size, timestamp, permissions etc, because those information is only possible to retrieve when LIST command is in use. | true | false | MEDIUM
 | *camel.source.endpoint.activePortRange* | Set the client side port range in active mode. The syntax is: minPort-maxPort Both port numbers are inclusive, eg 10000-19999 to include all 1xxxx ports. | null | false | MEDIUM
 | *camel.source.endpoint.autoCreate* | Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to. | true | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.bufferSize* | Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files). | 131072 | false | MEDIUM
 | *camel.source.endpoint.connectTimeout* | Sets the connect timeout for waiting for a connection to be established Used by both FTPClient and JSCH | 10000 | false | MEDIUM
 | *camel.source.endpoint.ftpClient* | To use a custom instance of FTPClient | null | false | MEDIUM
@@ -137,7 +136,7 @@ The camel-ftps source connector supports 110 options, which are listed below.
 | *camel.source.endpoint.sortBy* | Built-in sort by using the File Language. Supports nested sorts, so you can have a sort by file name and as a 2nd group sort by modified date. | null | false | MEDIUM
 | *camel.source.endpoint.sorter* | Pluggable sorter as a java.util.Comparator class. | null | false | MEDIUM
 | *camel.component.ftps.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.component.ftps.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.ftps.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.ftps.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
 |===
 

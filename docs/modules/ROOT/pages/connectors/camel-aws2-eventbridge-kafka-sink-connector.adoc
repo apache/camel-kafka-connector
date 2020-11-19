@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2eventbridge.CamelAws2eventbr
 ----
 
 
-The camel-aws2-eventbridge sink connector supports 31 options, which are listed below.
+The camel-aws2-eventbridge sink connector supports 28 options, which are listed below.
 
 
 
@@ -30,7 +30,6 @@ The camel-aws2-eventbridge sink connector supports 31 options, which are listed 
 |===
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.eventbusNameOrArn* | Event bus name or ARN | null | true | HIGH
-| *camel.sink.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.sink.endpoint.eventbridgeClient* | To use a existing configured AWS Eventbridge as client | null | false | MEDIUM
 | *camel.sink.endpoint.eventPatternFile* | EventPattern File | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
@@ -41,11 +40,9 @@ The camel-aws2-eventbridge sink connector supports 31 options, which are listed 
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Eventbridge client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.sink.endpoint.region* | The region in which Eventbridge client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
-| *camel.component.aws2-eventbridge.autoDiscover Client* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.aws2-eventbridge.configuration* | Component configuration | null | false | MEDIUM
 | *camel.component.aws2-eventbridge.eventbridgeClient* | To use a existing configured AWS Eventbridge as client | null | false | MEDIUM
 | *camel.component.aws2-eventbridge.eventPatternFile* | EventPattern File | null | false | MEDIUM
@@ -57,7 +54,7 @@ The camel-aws2-eventbridge sink connector supports 31 options, which are listed 
 | *camel.component.aws2-eventbridge.proxyProtocol* | To define a proxy protocol when instantiating the Eventbridge client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.component.aws2-eventbridge.region* | The region in which Eventbridge client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-eventbridge.trustAll Certificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
-| *camel.component.aws2-eventbridge.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws2-eventbridge.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-eventbridge.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws2-eventbridge.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 |===

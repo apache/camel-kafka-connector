@@ -33,9 +33,6 @@ public class CamelCordaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CORDA_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
     public static final String CAMEL_SINK_CORDA_ENDPOINT_OPERATION_DOC = "Operation to use";
     public static final String CAMEL_SINK_CORDA_ENDPOINT_OPERATION_DEFAULT = null;
-    public static final String CAMEL_SINK_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_CORDA_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_CORDA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_CORDA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -54,9 +51,9 @@ public class CamelCordaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CORDA_COMPONENT_OPERATION_CONF = "camel.component.corda.operation";
     public static final String CAMEL_SINK_CORDA_COMPONENT_OPERATION_DOC = "Operation to use";
     public static final String CAMEL_SINK_CORDA_COMPONENT_OPERATION_DEFAULT = null;
-    public static final String CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.corda.basicPropertyBinding";
-    public static final String CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_CORDA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.corda.autowiredEnabled";
+    public static final String CAMEL_SINK_CORDA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_CORDA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_CORDA_COMPONENT_PASSWORD_CONF = "camel.component.corda.password";
     public static final String CAMEL_SINK_CORDA_COMPONENT_PASSWORD_DOC = "Password for login";
     public static final String CAMEL_SINK_CORDA_COMPONENT_PASSWORD_DEFAULT = null;
@@ -79,14 +76,13 @@ public class CamelCordaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CORDA_PATH_NODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_PATH_NODE_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_CORDA_PATH_NODE_DOC);
         conf.define(CAMEL_SINK_CORDA_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CORDA_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CORDA_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_ENDPOINT_OPERATION_DOC);
-        conf.define(CAMEL_SINK_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_CORDA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CORDA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_CORDA_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_CORDA_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_ENDPOINT_USERNAME_DOC);
         conf.define(CAMEL_SINK_CORDA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CORDA_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_OPERATION_DOC);
-        conf.define(CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_CORDA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CORDA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_CORDA_COMPONENT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_COMPONENT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_CORDA_COMPONENT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CORDA_COMPONENT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CORDA_COMPONENT_USERNAME_DOC);
         return conf;

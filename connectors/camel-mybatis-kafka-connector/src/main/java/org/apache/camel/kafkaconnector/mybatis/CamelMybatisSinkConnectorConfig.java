@@ -42,9 +42,6 @@ public class CamelMybatisSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_CONF = "camel.sink.endpoint.statementType";
     public static final String CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_DOC = "Mandatory to specify for the producer to control which kind of operation to invoke. One of: [SelectOne] [SelectList] [Insert] [InsertList] [Update] [UpdateList] [Delete] [DeleteList]";
     public static final String CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_DEFAULT = null;
-    public static final String CAMEL_SINK_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -54,9 +51,9 @@ public class CamelMybatisSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.mybatis.lazyStartProducer";
     public static final String CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mybatis.basicPropertyBinding";
-    public static final String CAMEL_SINK_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.mybatis.autowiredEnabled";
+    public static final String CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_CONF = "camel.component.mybatis.sqlSessionFactory";
     public static final String CAMEL_SINK_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_DOC = "To use the SqlSessionFactory";
     public static final String CAMEL_SINK_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_DEFAULT = null;
@@ -79,11 +76,10 @@ public class CamelMybatisSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_OUTPUT_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_ENDPOINT_OUTPUT_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_OUTPUT_HEADER_DOC);
         conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_DOC);
-        conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_DOC);
         conf.define(CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_MYBATIS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_COMPONENT_SQL_SESSION_FACTORY_DOC);
         return conf;
     }

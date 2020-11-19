@@ -27,9 +27,6 @@ public class CamelAws2ecsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2ECS_PATH_LABEL_CONF = "camel.sink.path.label";
     public static final String CAMEL_SINK_AWS2ECS_PATH_LABEL_DOC = "Logical name";
     public static final String CAMEL_SINK_AWS2ECS_PATH_LABEL_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
-    public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AWS2ECS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_ECS_CLIENT_CONF = "camel.sink.endpoint.ecsClient";
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_ECS_CLIENT_DOC = "To use a existing configured AWS ECS as client";
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_ECS_CLIENT_DEFAULT = null;
@@ -57,9 +54,6 @@ public class CamelAws2ecsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.sink.endpoint.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2ECS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
-    public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWS2ECS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWS2ECS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -69,9 +63,6 @@ public class CamelAws2ecsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_SECRET_KEY_CONF = "camel.sink.endpoint.secretKey";
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
     public static final String CAMEL_SINK_AWS2ECS_ENDPOINT_SECRET_KEY_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2ECS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws2-ecs.autoDiscoverClient";
-    public static final String CAMEL_SINK_AWS2ECS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AWS2ECS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2ECS_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-ecs.configuration";
     public static final String CAMEL_SINK_AWS2ECS_COMPONENT_CONFIGURATION_DOC = "Component configuration";
     public static final String CAMEL_SINK_AWS2ECS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -102,9 +93,9 @@ public class CamelAws2ecsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2ECS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-ecs.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2ECS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2ECS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
-    public static final String CAMEL_SINK_AWS2ECS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws2-ecs.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWS2ECS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWS2ECS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2ECS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-ecs.autowiredEnabled";
+    public static final String CAMEL_SINK_AWS2ECS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWS2ECS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2ECS_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws2-ecs.accessKey";
     public static final String CAMEL_SINK_AWS2ECS_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWS2ECS_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -125,7 +116,6 @@ public class CamelAws2ecsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static ConfigDef conf() {
         ConfigDef conf = new ConfigDef(CamelSinkConnectorConfig.conf());
         conf.define(CAMEL_SINK_AWS2ECS_PATH_LABEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_PATH_LABEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2ECS_PATH_LABEL_DOC);
-        conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_ECS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_ENDPOINT_ECS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_ECS_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2ECS_ENDPOINT_OPERATION_DOC);
@@ -135,11 +125,9 @@ public class CamelAws2ecsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
-        conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_ENDPOINT_SECRET_KEY_DOC);
-        conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_ECS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_COMPONENT_ECS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_ECS_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_LAZY_START_PRODUCER_DOC);
@@ -150,7 +138,7 @@ public class CamelAws2ecsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_COMPONENT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
-        conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWS2ECS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2ECS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2ECS_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2ECS_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2ECS_COMPONENT_SECRET_KEY_DOC);
         return conf;

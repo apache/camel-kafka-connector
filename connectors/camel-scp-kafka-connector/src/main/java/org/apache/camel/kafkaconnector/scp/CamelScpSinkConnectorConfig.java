@@ -63,9 +63,6 @@ public class CamelScpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SCP_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_CONF = "camel.sink.endpoint.moveExistingFileStrategy";
     public static final String CAMEL_SINK_SCP_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_DOC = "Strategy (Custom Strategy) used to move file with special naming token to use when fileExist=Move is configured. By default, there is an implementation used if no custom strategy is provided";
     public static final String CAMEL_SINK_SCP_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SINK_SCP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_SCP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SCP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_SCP_ENDPOINT_CONNECT_TIMEOUT_CONF = "camel.sink.endpoint.connectTimeout";
     public static final String CAMEL_SINK_SCP_ENDPOINT_CONNECT_TIMEOUT_DOC = "Sets the connect timeout for waiting for a connection to be established Used by both FTPClient and JSCH";
     public static final Integer CAMEL_SINK_SCP_ENDPOINT_CONNECT_TIMEOUT_DEFAULT = 10000;
@@ -111,9 +108,9 @@ public class CamelScpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SCP_COMPONENT_VERBOSE_LOGGING_CONF = "camel.component.scp.verboseLogging";
     public static final String CAMEL_SINK_SCP_COMPONENT_VERBOSE_LOGGING_DOC = "JSCH is verbose logging out of the box. Therefore we turn the logging down to DEBUG logging by default. But setting this option to true turns on the verbose logging again.";
     public static final Boolean CAMEL_SINK_SCP_COMPONENT_VERBOSE_LOGGING_DEFAULT = false;
-    public static final String CAMEL_SINK_SCP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.scp.basicPropertyBinding";
-    public static final String CAMEL_SINK_SCP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SCP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_SCP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.scp.autowiredEnabled";
+    public static final String CAMEL_SINK_SCP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_SCP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelScpSinkConnectorConfig(
             ConfigDef config,
@@ -140,7 +137,6 @@ public class CamelScpSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SCP_ENDPOINT_ALLOW_NULL_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SCP_ENDPOINT_ALLOW_NULL_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_ENDPOINT_ALLOW_NULL_BODY_DOC);
         conf.define(CAMEL_SINK_SCP_ENDPOINT_DISCONNECT_ON_BATCH_COMPLETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SCP_ENDPOINT_DISCONNECT_ON_BATCH_COMPLETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_ENDPOINT_DISCONNECT_ON_BATCH_COMPLETE_DOC);
         conf.define(CAMEL_SINK_SCP_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SCP_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_ENDPOINT_MOVE_EXISTING_FILE_STRATEGY_DOC);
-        conf.define(CAMEL_SINK_SCP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SCP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_SCP_ENDPOINT_CONNECT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_SCP_ENDPOINT_CONNECT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_ENDPOINT_CONNECT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SCP_ENDPOINT_SO_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_SCP_ENDPOINT_SO_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_ENDPOINT_SO_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SCP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SCP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_ENDPOINT_SYNCHRONOUS_DOC);
@@ -156,7 +152,7 @@ public class CamelScpSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SCP_ENDPOINT_CIPHERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SCP_ENDPOINT_CIPHERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_ENDPOINT_CIPHERS_DOC);
         conf.define(CAMEL_SINK_SCP_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SCP_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_SCP_COMPONENT_VERBOSE_LOGGING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SCP_COMPONENT_VERBOSE_LOGGING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_COMPONENT_VERBOSE_LOGGING_DOC);
-        conf.define(CAMEL_SINK_SCP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SCP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SCP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_SCP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SCP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SCP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

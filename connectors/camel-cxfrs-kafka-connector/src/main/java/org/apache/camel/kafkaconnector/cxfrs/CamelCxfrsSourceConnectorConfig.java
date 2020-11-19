@@ -74,9 +74,6 @@ public class CamelCxfrsSourceConnectorConfig
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_SERVICE_BEANS_CONF = "camel.source.endpoint.serviceBeans";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_SERVICE_BEANS_DOC = "The service beans (the bean ids to lookup in the registry) which you want to export as REST service. Multiple beans can be separated by comma";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_SERVICE_BEANS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_CXFRS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_BINDING_CONF = "camel.source.endpoint.binding";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_BINDING_DOC = "To use a custom CxfBinding to control the binding between Camel Message and CXF Message.";
     public static final String CAMEL_SOURCE_CXFRS_ENDPOINT_BINDING_DEFAULT = null;
@@ -107,9 +104,9 @@ public class CamelCxfrsSourceConnectorConfig
     public static final String CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.cxfrs.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_CXFRS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.cxfrs.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_CXFRS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_CXFRS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.cxfrs.autowiredEnabled";
+    public static final String CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_CONF = "camel.component.cxfrs.headerFilterStrategy";
     public static final String CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_DOC = "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -145,7 +142,6 @@ public class CamelCxfrsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_SERVICE_BEANS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_SERVICE_BEANS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_SERVICE_BEANS_DOC);
-        conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_BINDING_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_BUS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_ENDPOINT_BUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_BUS_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_CONTINUATION_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_CXFRS_ENDPOINT_CONTINUATION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_CONTINUATION_TIMEOUT_DOC);
@@ -156,7 +152,7 @@ public class CamelCxfrsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_PROPAGATE_CONTEXTS_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_CXFRS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_CXFRS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_CXFRS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXFRS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXFRS_COMPONENT_USE_GLOBAL_SSL_CONTEXT_PARAMETERS_DOC);
         return conf;

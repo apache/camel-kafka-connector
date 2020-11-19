@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.rabbitmq.CamelRabbitmqSinkConnec
 ----
 
 
-The camel-rabbitmq sink connector supports 102 options, which are listed below.
+The camel-rabbitmq sink connector supports 101 options, which are listed below.
 
 
 
@@ -66,7 +66,6 @@ The camel-rabbitmq sink connector supports 102 options, which are listed below.
 | *camel.sink.endpoint.publisherAcknowledgements* | When true, the message will be published with publisher acknowledgements turned on | false | false | MEDIUM
 | *camel.sink.endpoint.publisherAcknowledgements Timeout* | The amount of time in milliseconds to wait for a basic.ack response from RabbitMQ server | null | false | MEDIUM
 | *camel.sink.endpoint.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ binding: arg.dlq.binding. For example to declare a queue with message ttl argument: \http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000 | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.clientProperties* | Connection client properties (client info used in negotiating with the server) | null | false | MEDIUM
 | *camel.sink.endpoint.connectionFactoryException Handler* | Custom rabbitmq ExceptionHandler for ConnectionFactory | null | false | MEDIUM
 | *camel.sink.endpoint.connectionTimeout* | Connection timeout | 60000 | false | MEDIUM
@@ -115,7 +114,7 @@ The camel-rabbitmq sink connector supports 102 options, which are listed below.
 | *camel.component.rabbitmq.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ Binding: arg.dlq.binding. For example to declare a queue with message ttl argument: \http://localhost:5672/exchange/queueargs=arg.queue.x-message-ttl=60000 | null | false | MEDIUM
 | *camel.component.rabbitmq.autoDetectConnection Factory* | Whether to auto-detect looking up RabbitMQ connection factory from the registry. When enabled and a single instance of the connection factory is found then it will be used. An explicit connection factory can be configured on the component or endpoint level which takes precedence. | true | false | MEDIUM
 | *camel.component.rabbitmq.automaticRecoveryEnabled* | Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application) | null | false | MEDIUM
-| *camel.component.rabbitmq.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.rabbitmq.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.rabbitmq.clientProperties* | Connection client properties (client info used in negotiating with the server) | null | false | MEDIUM
 | *camel.component.rabbitmq.connectionFactory ExceptionHandler* | Custom rabbitmq ExceptionHandler for ConnectionFactory | null | false | MEDIUM
 | *camel.component.rabbitmq.connectionTimeout* | Connection timeout | 60000 | false | MEDIUM

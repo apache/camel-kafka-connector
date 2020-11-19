@@ -33,9 +33,6 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_CONF = "camel.sink.endpoint.autoCreateBucket";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.";
     public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_DEFAULT = true;
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF = "camel.sink.endpoint.autoDiscoverClient";
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_CONF = "camel.sink.endpoint.overrideEndpoint";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_DOC = "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option";
     public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT = false;
@@ -105,9 +102,6 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_CONF = "camel.sink.endpoint.useCustomerKey";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_DOC = "Define if Customer Key must be used or not";
     public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_DEFAULT = false;
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -123,9 +117,6 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_CONF = "camel.component.aws2-s3.autoCreateBucket";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_DOC = "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.";
     public static final Boolean CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_DEFAULT = true;
-    public static final String CAMEL_SINK_AWS2S3_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws2-s3.autoDiscoverClient";
-    public static final String CAMEL_SINK_AWS2S3_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
-    public static final Boolean CAMEL_SINK_AWS2S3_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_CONF = "camel.component.aws2-s3.configuration";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_DOC = "The component configuration";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -198,9 +189,9 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_USE_CUSTOMER_KEY_CONF = "camel.component.aws2-s3.useCustomerKey";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_USE_CUSTOMER_KEY_DOC = "Define if Customer Key must be used or not";
     public static final Boolean CAMEL_SINK_AWS2S3_COMPONENT_USE_CUSTOMER_KEY_DEFAULT = false;
-    public static final String CAMEL_SINK_AWS2S3_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws2-s3.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWS2S3_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWS2S3_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-s3.autowiredEnabled";
+    public static final String CAMEL_SINK_AWS2S3_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWS2S3_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws2-s3.accessKey";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWS2S3_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -223,7 +214,6 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2S3_PATH_BUCKET_NAME_OR_ARN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_PATH_BUCKET_NAME_OR_ARN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_AWS2S3_PATH_BUCKET_NAME_OR_ARN_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_AMAZON_S3CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_AMAZON_S3CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_AMAZON_S3CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_CREATE_BUCKET_DOC);
-        conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_POLICY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_POLICY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_POLICY_DOC);
@@ -247,13 +237,11 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_AWS_KMSKEY_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_AWS_KMSKEY_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_AWS_KMSKEY_ID_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_USE_AWS_KMSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_USE_AWS_KMSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_USE_AWS_KMSDOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_DOC);
-        conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_AMAZON_S3CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_AMAZON_S3CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_AMAZON_S3CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_AUTO_CREATE_BUCKET_DOC);
-        conf.define(CAMEL_SINK_AWS2S3_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_OVERRIDE_ENDPOINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_OVERRIDE_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_OVERRIDE_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_POJO_REQUEST_DOC);
@@ -278,7 +266,7 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_AWS_KMSKEY_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_AWS_KMSKEY_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_AWS_KMSKEY_ID_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_USE_AWS_KMSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_USE_AWS_KMSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_USE_AWS_KMSDOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_USE_CUSTOMER_KEY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_USE_CUSTOMER_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_USE_CUSTOMER_KEY_DOC);
-        conf.define(CAMEL_SINK_AWS2S3_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWS2S3_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWS2S3_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_SECRET_KEY_DOC);
         return conf;

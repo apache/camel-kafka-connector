@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.jpa.CamelJpaSinkConnector
 ----
 
 
-The camel-jpa sink connector supports 25 options, which are listed below.
+The camel-jpa sink connector supports 24 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-jpa sink connector supports 25 options, which are listed below.
 | *camel.sink.endpoint.useExecuteUpdate* | To configure whether to use executeUpdate() when producer executes a query. When you use INSERT, UPDATE or DELETE statement as a named query, you need to specify this option to 'true'. | null | false | MEDIUM
 | *camel.sink.endpoint.usePersist* | Indicates to use entityManager.persist(entity) instead of entityManager.merge(entity). Note: entityManager.persist(entity) doesn't work for detached entities (where the EntityManager has to execute an UPDATE instead of an INSERT query)! | false | false | MEDIUM
 | *camel.sink.endpoint.usePassedInEntityManager* | If set to true, then Camel will use the EntityManager from the header JpaConstants.ENTITY_MANAGER instead of the configured entity manager on the component/endpoint. This allows end users to control which entity manager will be in use. | false | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.entityManagerProperties* | Additional properties for the entity manager to use. | null | false | MEDIUM
 | *camel.sink.endpoint.sharedEntityManager* | Whether to use Spring's SharedEntityManager for the consumer/producer. Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager. | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
@@ -53,7 +52,7 @@ The camel-jpa sink connector supports 25 options, which are listed below.
 | *camel.component.jpa.sharedEntityManager* | Whether to use Spring's SharedEntityManager for the consumer/producer. Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager. | false | false | MEDIUM
 | *camel.component.jpa.transactionManager* | To use the PlatformTransactionManager for managing transactions. | null | false | MEDIUM
 | *camel.component.jpa.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.jpa.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.jpa.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

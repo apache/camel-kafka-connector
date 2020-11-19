@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.mina.CamelMinaSinkConnector
 ----
 
 
-The camel-mina sink connector supports 50 options, which are listed below.
+The camel-mina sink connector supports 49 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-mina sink connector supports 50 options, which are listed below.
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.cachedAddress* | Whether to create the InetAddress once and reuse. Setting this to false allows to pickup DNS changes in the network. | true | false | MEDIUM
 | *camel.sink.endpoint.lazySessionCreation* | Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started. | true | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.maximumPoolSize* | Number of worker threads in the worker pool for TCP and UDP | 16 | false | MEDIUM
 | *camel.sink.endpoint.orderedThreadPoolExecutor* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
@@ -63,7 +62,7 @@ The camel-mina sink connector supports 50 options, which are listed below.
 | *camel.component.mina.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.mina.cachedAddress* | Whether to create the InetAddress once and reuse. Setting this to false allows to pickup DNS changes in the network. | true | false | MEDIUM
 | *camel.component.mina.lazySessionCreation* | Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started. | true | false | MEDIUM
-| *camel.component.mina.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.mina.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.mina.configuration* | To use the shared mina configuration. | null | false | MEDIUM
 | *camel.component.mina.maximumPoolSize* | Number of worker threads in the worker pool for TCP and UDP | 16 | false | MEDIUM
 | *camel.component.mina.orderedThreadPoolExecutor* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | false | MEDIUM

@@ -66,9 +66,6 @@ public class CamelSmtpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SMTPS_ENDPOINT_AUTHENTICATOR_CONF = "camel.sink.endpoint.authenticator";
     public static final String CAMEL_SINK_SMTPS_ENDPOINT_AUTHENTICATOR_DOC = "The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically.";
     public static final String CAMEL_SINK_SMTPS_ENDPOINT_AUTHENTICATOR_DEFAULT = null;
-    public static final String CAMEL_SINK_SMTPS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_SMTPS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SMTPS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_SMTPS_ENDPOINT_BINDING_CONF = "camel.sink.endpoint.binding";
     public static final String CAMEL_SINK_SMTPS_ENDPOINT_BINDING_DOC = "Sets the binding used to convert from a Camel message to and from a Mail message";
     public static final String CAMEL_SINK_SMTPS_ENDPOINT_BINDING_DEFAULT = null;
@@ -150,9 +147,9 @@ public class CamelSmtpsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SMTPS_COMPONENT_AUTHENTICATOR_CONF = "camel.component.smtps.authenticator";
     public static final String CAMEL_SINK_SMTPS_COMPONENT_AUTHENTICATOR_DOC = "The authenticator for login. If set then the password and username are ignored. Can be used for tokens which can expire and therefore must be read dynamically.";
     public static final String CAMEL_SINK_SMTPS_COMPONENT_AUTHENTICATOR_DEFAULT = null;
-    public static final String CAMEL_SINK_SMTPS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.smtps.basicPropertyBinding";
-    public static final String CAMEL_SINK_SMTPS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SMTPS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_SMTPS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.smtps.autowiredEnabled";
+    public static final String CAMEL_SINK_SMTPS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_SMTPS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_SMTPS_COMPONENT_CONFIGURATION_CONF = "camel.component.smtps.configuration";
     public static final String CAMEL_SINK_SMTPS_COMPONENT_CONFIGURATION_DOC = "Sets the Mail configuration";
     public static final String CAMEL_SINK_SMTPS_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -225,7 +222,6 @@ public class CamelSmtpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SMTPS_ENDPOINT_ALTERNATIVE_BODY_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_ENDPOINT_ALTERNATIVE_BODY_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_ENDPOINT_ALTERNATIVE_BODY_HEADER_DOC);
         conf.define(CAMEL_SINK_SMTPS_ENDPOINT_ATTACHMENTS_CONTENT_TRANSFER_ENCODING_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_ENDPOINT_ATTACHMENTS_CONTENT_TRANSFER_ENCODING_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_ENDPOINT_ATTACHMENTS_CONTENT_TRANSFER_ENCODING_RESOLVER_DOC);
         conf.define(CAMEL_SINK_SMTPS_ENDPOINT_AUTHENTICATOR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_ENDPOINT_AUTHENTICATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_ENDPOINT_AUTHENTICATOR_DOC);
-        conf.define(CAMEL_SINK_SMTPS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SMTPS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_SMTPS_ENDPOINT_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_ENDPOINT_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_ENDPOINT_BINDING_DOC);
         conf.define(CAMEL_SINK_SMTPS_ENDPOINT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_SMTPS_ENDPOINT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_ENDPOINT_CONNECTION_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SMTPS_ENDPOINT_CONTENT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_ENDPOINT_CONTENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_ENDPOINT_CONTENT_TYPE_DOC);
@@ -253,7 +249,7 @@ public class CamelSmtpsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SMTPS_COMPONENT_ALTERNATIVE_BODY_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_COMPONENT_ALTERNATIVE_BODY_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_COMPONENT_ALTERNATIVE_BODY_HEADER_DOC);
         conf.define(CAMEL_SINK_SMTPS_COMPONENT_ATTACHMENTS_CONTENT_TRANSFER_ENCODING_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_COMPONENT_ATTACHMENTS_CONTENT_TRANSFER_ENCODING_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_COMPONENT_ATTACHMENTS_CONTENT_TRANSFER_ENCODING_RESOLVER_DOC);
         conf.define(CAMEL_SINK_SMTPS_COMPONENT_AUTHENTICATOR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_COMPONENT_AUTHENTICATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_COMPONENT_AUTHENTICATOR_DOC);
-        conf.define(CAMEL_SINK_SMTPS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SMTPS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SMTPS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_SMTPS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SMTPS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_SMTPS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_SMTPS_COMPONENT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_SMTPS_COMPONENT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_COMPONENT_CONNECTION_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SMTPS_COMPONENT_CONTENT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMTPS_COMPONENT_CONTENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMTPS_COMPONENT_CONTENT_TYPE_DOC);

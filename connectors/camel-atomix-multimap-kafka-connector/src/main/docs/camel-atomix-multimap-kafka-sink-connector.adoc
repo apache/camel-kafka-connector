@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.atomixmultimap.CamelAtomixmultim
 ----
 
 
-The camel-atomix-multimap sink connector supports 35 options, which are listed below.
+The camel-atomix-multimap sink connector supports 34 options, which are listed below.
 
 
 
@@ -39,7 +39,6 @@ The camel-atomix-multimap sink connector supports 35 options, which are listed b
 | *camel.sink.endpoint.resultHeader* | The header that wil carry the result. | null | false | MEDIUM
 | *camel.sink.endpoint.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | false | MEDIUM
 | *camel.sink.endpoint.ttl* | The resource ttl. | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.defaultResourceConfig* | The cluster wide default resource configuration. | null | false | MEDIUM
 | *camel.sink.endpoint.defaultResourceOptions* | The local default resource options. | null | false | MEDIUM
 | *camel.sink.endpoint.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | false | MEDIUM
@@ -57,7 +56,7 @@ The camel-atomix-multimap sink connector supports 35 options, which are listed b
 | *camel.component.atomix-multimap.resultHeader* | The header that wil carry the result. | null | false | MEDIUM
 | *camel.component.atomix-multimap.transportClassName* | The class name (fqn) of the Atomix transport | "io.atomix.catalyst.transport.netty.NettyTransport" | false | MEDIUM
 | *camel.component.atomix-multimap.ttl* | The resource ttl. | null | false | MEDIUM
-| *camel.component.atomix-multimap.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.atomix-multimap.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.atomix-multimap.defaultResource Config* | The cluster wide default resource configuration. | null | false | MEDIUM
 | *camel.component.atomix-multimap.defaultResource Options* | The local default resource options. | null | false | MEDIUM
 | *camel.component.atomix-multimap.ephemeral* | Sets if the local member should join groups as PersistentMember or not. If set to ephemeral the local member will receive an auto generated ID thus the local one is ignored. | false | false | MEDIUM

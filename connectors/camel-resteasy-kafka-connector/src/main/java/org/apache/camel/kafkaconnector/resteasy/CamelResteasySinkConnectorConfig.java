@@ -86,9 +86,6 @@ public class CamelResteasySinkConnectorConfig
     public static final String CAMEL_SINK_RESTEASY_ENDPOINT_OK_STATUS_CODE_RANGE_CONF = "camel.sink.endpoint.okStatusCodeRange";
     public static final String CAMEL_SINK_RESTEASY_ENDPOINT_OK_STATUS_CODE_RANGE_DOC = "The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included.";
     public static final String CAMEL_SINK_RESTEASY_ENDPOINT_OK_STATUS_CODE_RANGE_DEFAULT = "200-299";
-    public static final String CAMEL_SINK_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.sink.endpoint.headerFilterStrategy";
     public static final String CAMEL_SINK_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SINK_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -128,9 +125,9 @@ public class CamelResteasySinkConnectorConfig
     public static final String CAMEL_SINK_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF = "camel.component.resteasy.allowJavaSerializedObject";
     public static final String CAMEL_SINK_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC = "Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";
     public static final Boolean CAMEL_SINK_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT = false;
-    public static final String CAMEL_SINK_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.resteasy.basicPropertyBinding";
-    public static final String CAMEL_SINK_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.resteasy.autowiredEnabled";
+    public static final String CAMEL_SINK_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_CONF = "camel.component.resteasy.headerFilterStrategy";
     public static final String CAMEL_SINK_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_DOC = "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SINK_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -167,7 +164,6 @@ public class CamelResteasySinkConnectorConfig
         conf.define(CAMEL_SINK_RESTEASY_ENDPOINT_DELETE_WITH_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_ENDPOINT_DELETE_WITH_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_ENDPOINT_DELETE_WITH_BODY_DOC);
         conf.define(CAMEL_SINK_RESTEASY_ENDPOINT_GET_WITH_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_ENDPOINT_GET_WITH_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_ENDPOINT_GET_WITH_BODY_DOC);
         conf.define(CAMEL_SINK_RESTEASY_ENDPOINT_OK_STATUS_CODE_RANGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTEASY_ENDPOINT_OK_STATUS_CODE_RANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_ENDPOINT_OK_STATUS_CODE_RANGE_DOC);
-        conf.define(CAMEL_SINK_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC);
         conf.define(CAMEL_SINK_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DOC);
@@ -181,7 +177,7 @@ public class CamelResteasySinkConnectorConfig
         conf.define(CAMEL_SINK_RESTEASY_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTEASY_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_ENDPOINT_USERNAME_DOC);
         conf.define(CAMEL_SINK_RESTEASY_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);
-        conf.define(CAMEL_SINK_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         return conf;
     }

@@ -74,9 +74,6 @@ public class CamelOlingo4SourceConnectorConfig
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_CONF = "camel.source.endpoint.pollStrategy";
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_DOC = "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.";
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_OLINGO4_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_CONF = "camel.source.endpoint.httpAsyncClientBuilder";
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_DOC = "Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely";
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_DEFAULT = null;
@@ -161,9 +158,9 @@ public class CamelOlingo4SourceConnectorConfig
     public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_SPLIT_RESULT_CONF = "camel.component.olingo4.splitResult";
     public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_SPLIT_RESULT_DOC = "For endpoints that return an array or collection, a consumer endpoint will map every element to distinct messages, unless splitResult is set to false.";
     public static final Boolean CAMEL_SOURCE_OLINGO4_COMPONENT_SPLIT_RESULT_DEFAULT = true;
-    public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.olingo4.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_OLINGO4_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.olingo4.autowiredEnabled";
+    public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_OLINGO4_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_ASYNC_CLIENT_BUILDER_CONF = "camel.component.olingo4.httpAsyncClientBuilder";
     public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_ASYNC_CLIENT_BUILDER_DOC = "Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely";
     public static final String CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_ASYNC_CLIENT_BUILDER_DEFAULT = null;
@@ -205,7 +202,6 @@ public class CamelOlingo4SourceConnectorConfig
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_DOC);
-        conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OLINGO4_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_DOC);
@@ -234,7 +230,7 @@ public class CamelOlingo4SourceConnectorConfig
         conf.define(CAMEL_SOURCE_OLINGO4_COMPONENT_SOCKET_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_OLINGO4_COMPONENT_SOCKET_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_COMPONENT_SOCKET_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OLINGO4_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_COMPONENT_SPLIT_RESULT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OLINGO4_COMPONENT_SPLIT_RESULT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_COMPONENT_SPLIT_RESULT_DOC);
-        conf.define(CAMEL_SOURCE_OLINGO4_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OLINGO4_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_OLINGO4_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_OLINGO4_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OLINGO4_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_ASYNC_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_ASYNC_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_ASYNC_CLIENT_BUILDER_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_COMPONENT_HTTP_CLIENT_BUILDER_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_COMPONENT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_COMPONENT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_COMPONENT_SSL_CONTEXT_PARAMETERS_DOC);

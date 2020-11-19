@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.fhir.CamelFhirSinkConnector
 ----
 
 
-The camel-fhir sink connector supports 55 options, which are listed below.
+The camel-fhir sink connector supports 54 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-fhir sink connector supports 55 options, which are listed below.
 | *camel.sink.endpoint.prettyPrint* | Pretty print all request | false | false | MEDIUM
 | *camel.sink.endpoint.serverUrl* | The FHIR server base URL | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.client* | To use the custom client | null | false | MEDIUM
 | *camel.sink.endpoint.clientFactory* | To use the custom client factory | null | false | MEDIUM
 | *camel.sink.endpoint.compress* | Compresses outgoing (POST/PUT) contents to the GZIP format | false | false | MEDIUM
@@ -64,7 +63,7 @@ The camel-fhir sink connector supports 55 options, which are listed below.
 | *camel.component.fhir.prettyPrint* | Pretty print all request | false | false | MEDIUM
 | *camel.component.fhir.serverUrl* | The FHIR server base URL | null | false | MEDIUM
 | *camel.component.fhir.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.fhir.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.fhir.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.fhir.client* | To use the custom client | null | false | MEDIUM
 | *camel.component.fhir.clientFactory* | To use the custom client factory | null | false | MEDIUM
 | *camel.component.fhir.compress* | Compresses outgoing (POST/PUT) contents to the GZIP format | false | false | MEDIUM

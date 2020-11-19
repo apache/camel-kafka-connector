@@ -92,9 +92,6 @@ public class CamelPahoSourceConnectorConfig
     public static final String CAMEL_SOURCE_PAHO_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_PAHO_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_PAHO_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_PAHO_ENDPOINT_CLIENT_CONF = "camel.source.endpoint.client";
     public static final String CAMEL_SOURCE_PAHO_ENDPOINT_CLIENT_DOC = "To use an existing mqtt client";
     public static final String CAMEL_SOURCE_PAHO_ENDPOINT_CLIENT_DEFAULT = null;
@@ -185,9 +182,9 @@ public class CamelPahoSourceConnectorConfig
     public static final String CAMEL_SOURCE_PAHO_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.paho.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_PAHO_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_PAHO_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.paho.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_PAHO_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.paho.autowiredEnabled";
+    public static final String CAMEL_SOURCE_PAHO_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_PAHO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_PAHO_COMPONENT_CLIENT_CONF = "camel.component.paho.client";
     public static final String CAMEL_SOURCE_PAHO_COMPONENT_CLIENT_DOC = "To use a shared Paho client";
     public static final String CAMEL_SOURCE_PAHO_COMPONENT_CLIENT_DEFAULT = null;
@@ -250,7 +247,6 @@ public class CamelPahoSourceConnectorConfig
         conf.define(CAMEL_SOURCE_PAHO_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PAHO_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_PAHO_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PAHO_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_PAHO_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PAHO_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_PAHO_ENDPOINT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PAHO_ENDPOINT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_ENDPOINT_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_DOC);
         conf.define(CAMEL_SOURCE_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_DOC);
@@ -281,7 +277,7 @@ public class CamelPahoSourceConnectorConfig
         conf.define(CAMEL_SOURCE_PAHO_COMPONENT_WILL_RETAINED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PAHO_COMPONENT_WILL_RETAINED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_COMPONENT_WILL_RETAINED_DOC);
         conf.define(CAMEL_SOURCE_PAHO_COMPONENT_WILL_TOPIC_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PAHO_COMPONENT_WILL_TOPIC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_COMPONENT_WILL_TOPIC_DOC);
         conf.define(CAMEL_SOURCE_PAHO_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PAHO_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_PAHO_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_PAHO_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PAHO_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_PAHO_COMPONENT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PAHO_COMPONENT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_COMPONENT_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_PAHO_COMPONENT_CUSTOM_WEB_SOCKET_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PAHO_COMPONENT_CUSTOM_WEB_SOCKET_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_COMPONENT_CUSTOM_WEB_SOCKET_HEADERS_DOC);
         conf.define(CAMEL_SOURCE_PAHO_COMPONENT_EXECUTOR_SERVICE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_PAHO_COMPONENT_EXECUTOR_SERVICE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PAHO_COMPONENT_EXECUTOR_SERVICE_TIMEOUT_DOC);

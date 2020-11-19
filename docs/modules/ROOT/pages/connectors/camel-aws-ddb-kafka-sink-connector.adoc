@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awsddb.CamelAwsddbSinkConnector
 ----
 
 
-The camel-aws-ddb sink connector supports 35 options, which are listed below.
+The camel-aws-ddb sink connector supports 34 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-aws-ddb sink connector supports 35 options, which are listed below.
 | *camel.sink.endpoint.readCapacity* | The provisioned throughput to reserve for reading resources from your table | null | false | MEDIUM
 | *camel.sink.endpoint.region* | The region in which DDB client needs to work | null | false | MEDIUM
 | *camel.sink.endpoint.writeCapacity* | The provisioned throughput to reserved for writing resources to your table | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
@@ -61,7 +60,7 @@ The camel-aws-ddb sink connector supports 35 options, which are listed below.
 | *camel.component.aws-ddb.readCapacity* | The provisioned throughput to reserve for reading resources from your table | null | false | MEDIUM
 | *camel.component.aws-ddb.region* | The region in which DDB client needs to work | null | false | MEDIUM
 | *camel.component.aws-ddb.writeCapacity* | The provisioned throughput to reserved for writing resources to your table | null | false | MEDIUM
-| *camel.component.aws-ddb.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws-ddb.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws-ddb.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws-ddb.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 |===

@@ -111,9 +111,6 @@ public class CamelAwss3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSS3_ENDPOINT_PAYLOAD_SIGNING_ENABLED_CONF = "camel.sink.endpoint.payloadSigningEnabled";
     public static final String CAMEL_SINK_AWSS3_ENDPOINT_PAYLOAD_SIGNING_ENABLED_DOC = "Define if Payload Signing enabled is true or false";
     public static final Boolean CAMEL_SINK_AWSS3_ENDPOINT_PAYLOAD_SIGNING_ENABLED_DEFAULT = false;
-    public static final String CAMEL_SINK_AWSS3_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSS3_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSS3_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWSS3_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWSS3_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWSS3_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -210,9 +207,9 @@ public class CamelAwss3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSS3_COMPONENT_PAYLOAD_SIGNING_ENABLED_CONF = "camel.component.aws-s3.payloadSigningEnabled";
     public static final String CAMEL_SINK_AWSS3_COMPONENT_PAYLOAD_SIGNING_ENABLED_DOC = "Define if Payload Signing enabled is true or false";
     public static final Boolean CAMEL_SINK_AWSS3_COMPONENT_PAYLOAD_SIGNING_ENABLED_DEFAULT = false;
-    public static final String CAMEL_SINK_AWSS3_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-s3.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSS3_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSS3_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSS3_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws-s3.autowiredEnabled";
+    public static final String CAMEL_SINK_AWSS3_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWSS3_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AWSS3_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws-s3.accessKey";
     public static final String CAMEL_SINK_AWSS3_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWSS3_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -261,7 +258,6 @@ public class CamelAwss3SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSS3_ENDPOINT_DUALSTACK_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_ENDPOINT_DUALSTACK_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_ENDPOINT_DUALSTACK_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSS3_ENDPOINT_FORCE_GLOBAL_BUCKET_ACCESS_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_ENDPOINT_FORCE_GLOBAL_BUCKET_ACCESS_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_ENDPOINT_FORCE_GLOBAL_BUCKET_ACCESS_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSS3_ENDPOINT_PAYLOAD_SIGNING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_ENDPOINT_PAYLOAD_SIGNING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_ENDPOINT_PAYLOAD_SIGNING_ENABLED_DOC);
-        conf.define(CAMEL_SINK_AWSS3_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSS3_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSS3_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSS3_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_ENDPOINT_SECRET_KEY_DOC);
@@ -294,7 +290,7 @@ public class CamelAwss3SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSS3_COMPONENT_DUALSTACK_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_COMPONENT_DUALSTACK_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_COMPONENT_DUALSTACK_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSS3_COMPONENT_FORCE_GLOBAL_BUCKET_ACCESS_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_COMPONENT_FORCE_GLOBAL_BUCKET_ACCESS_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_COMPONENT_FORCE_GLOBAL_BUCKET_ACCESS_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSS3_COMPONENT_PAYLOAD_SIGNING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_COMPONENT_PAYLOAD_SIGNING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_COMPONENT_PAYLOAD_SIGNING_ENABLED_DOC);
-        conf.define(CAMEL_SINK_AWSS3_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWSS3_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWSS3_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSS3_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSS3_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSS3_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSS3_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSS3_COMPONENT_SECRET_KEY_DOC);
         return conf;

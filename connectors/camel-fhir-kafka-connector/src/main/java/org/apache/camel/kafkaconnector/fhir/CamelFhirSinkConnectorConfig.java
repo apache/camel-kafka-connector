@@ -51,9 +51,6 @@ public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_FHIR_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_FHIR_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_FHIR_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_FHIR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_FHIR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_FHIR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_FHIR_ENDPOINT_CLIENT_CONF = "camel.sink.endpoint.client";
     public static final String CAMEL_SINK_FHIR_ENDPOINT_CLIENT_DOC = "To use the custom client";
     public static final String CAMEL_SINK_FHIR_ENDPOINT_CLIENT_DEFAULT = null;
@@ -129,9 +126,9 @@ public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.fhir.lazyStartProducer";
     public static final String CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.fhir.basicPropertyBinding";
-    public static final String CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_FHIR_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.fhir.autowiredEnabled";
+    public static final String CAMEL_SINK_FHIR_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_FHIR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_FHIR_COMPONENT_CLIENT_CONF = "camel.component.fhir.client";
     public static final String CAMEL_SINK_FHIR_COMPONENT_CLIENT_DOC = "To use the custom client";
     public static final String CAMEL_SINK_FHIR_COMPONENT_CLIENT_DEFAULT = null;
@@ -211,7 +208,6 @@ public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_PRETTY_PRINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_ENDPOINT_PRETTY_PRINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_PRETTY_PRINT_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_SERVER_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_SERVER_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_SERVER_URL_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_FHIR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_CLIENT_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_CLIENT_FACTORY_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_COMPRESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_ENDPOINT_COMPRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_COMPRESS_DOC);
@@ -237,7 +233,7 @@ public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_FHIR_COMPONENT_PRETTY_PRINT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_PRETTY_PRINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_PRETTY_PRINT_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_SERVER_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_COMPONENT_SERVER_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_SERVER_URL_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_FHIR_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_FHIR_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_COMPONENT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_CLIENT_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_COMPONENT_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_CLIENT_FACTORY_DOC);
         conf.define(CAMEL_SINK_FHIR_COMPONENT_COMPRESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_COMPONENT_COMPRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_COMPONENT_COMPRESS_DOC);

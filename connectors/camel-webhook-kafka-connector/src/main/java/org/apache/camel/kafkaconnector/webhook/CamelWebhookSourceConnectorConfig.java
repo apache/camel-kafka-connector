@@ -53,9 +53,6 @@ public class CamelWebhookSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_WEBHOOK_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_WEBHOOK_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_WEBHOOK_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_WEBHOOK_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_WEBHOOK_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_WEBHOOK_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -77,9 +74,9 @@ public class CamelWebhookSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_PATH_CONF = "camel.component.webhook.webhookPath";
     public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_PATH_DOC = "The path where the webhook endpoint will be exposed (relative to basePath, if any)";
     public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_PATH_DEFAULT = null;
-    public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.webhook.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_WEBHOOK_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.webhook.autowiredEnabled";
+    public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_WEBHOOK_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_CONFIGURATION_CONF = "camel.component.webhook.configuration";
     public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_CONFIGURATION_DOC = "Set the default configuration for the webhook meta-component.";
     public static final String CAMEL_SOURCE_WEBHOOK_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -105,7 +102,6 @@ public class CamelWebhookSourceConnectorConfig
         conf.define(CAMEL_SOURCE_WEBHOOK_ENDPOINT_WEBHOOK_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBHOOK_ENDPOINT_WEBHOOK_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_ENDPOINT_WEBHOOK_PATH_DOC);
         conf.define(CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_WEBHOOK_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBHOOK_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_WEBHOOK_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBHOOK_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_WEBHOOK_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBHOOK_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_AUTO_REGISTER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_AUTO_REGISTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_AUTO_REGISTER_DOC);
@@ -113,7 +109,7 @@ public class CamelWebhookSourceConnectorConfig
         conf.define(CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_COMPONENT_NAME_DOC);
         conf.define(CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_EXTERNAL_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_EXTERNAL_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_EXTERNAL_URL_DOC);
         conf.define(CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_COMPONENT_WEBHOOK_PATH_DOC);
-        conf.define(CAMEL_SOURCE_WEBHOOK_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBHOOK_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_WEBHOOK_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_WEBHOOK_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBHOOK_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_WEBHOOK_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBHOOK_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBHOOK_COMPONENT_CONFIGURATION_DOC);
         return conf;
     }

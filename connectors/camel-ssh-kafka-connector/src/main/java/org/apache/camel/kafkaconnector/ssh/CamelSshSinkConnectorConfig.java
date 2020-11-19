@@ -42,9 +42,6 @@ public class CamelSshSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SSH_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_SSH_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_SSH_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_CONF = "camel.sink.endpoint.channelType";
     public static final String CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_DOC = "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.";
     public static final String CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_DEFAULT = "exec";
@@ -87,9 +84,9 @@ public class CamelSshSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SSH_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.ssh.lazyStartProducer";
     public static final String CAMEL_SINK_SSH_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_SSH_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_SSH_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.ssh.basicPropertyBinding";
-    public static final String CAMEL_SINK_SSH_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SSH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_SSH_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.ssh.autowiredEnabled";
+    public static final String CAMEL_SINK_SSH_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_SSH_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_SSH_COMPONENT_CHANNEL_TYPE_CONF = "camel.component.ssh.channelType";
     public static final String CAMEL_SINK_SSH_COMPONENT_CHANNEL_TYPE_DOC = "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.";
     public static final String CAMEL_SINK_SSH_COMPONENT_CHANNEL_TYPE_DEFAULT = "exec";
@@ -139,7 +136,6 @@ public class CamelSshSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SSH_ENDPOINT_KNOWN_HOSTS_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_ENDPOINT_KNOWN_HOSTS_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_KNOWN_HOSTS_RESOURCE_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SSH_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SSH_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_SHELL_PROMPT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_ENDPOINT_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_SHELL_PROMPT_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DOC);
@@ -154,7 +150,7 @@ public class CamelSshSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SSH_COMPONENT_KNOWN_HOSTS_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_COMPONENT_KNOWN_HOSTS_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_COMPONENT_KNOWN_HOSTS_RESOURCE_DOC);
         conf.define(CAMEL_SINK_SSH_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SSH_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_COMPONENT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SSH_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SSH_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_SSH_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SSH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SSH_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_SSH_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SSH_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_SSH_COMPONENT_CHANNEL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_COMPONENT_CHANNEL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_COMPONENT_CHANNEL_TYPE_DOC);
         conf.define(CAMEL_SINK_SSH_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_SSH_COMPONENT_SHELL_PROMPT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_COMPONENT_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_COMPONENT_SHELL_PROMPT_DOC);

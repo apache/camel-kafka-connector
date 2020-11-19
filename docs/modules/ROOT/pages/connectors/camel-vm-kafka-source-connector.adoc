@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.vm.CamelVmSourceConnector
 ----
 
 
-The camel-vm source connector supports 18 options, which are listed below.
+The camel-vm source connector supports 17 options, which are listed below.
 
 
 
@@ -39,12 +39,11 @@ The camel-vm source connector supports 18 options, which are listed below.
 | *camel.source.endpoint.multipleConsumers* | Specifies whether multiple consumers are allowed. If enabled, you can use SEDA for Publish-Subscribe messaging. That is, you can send a message to the SEDA queue and have each consumer receive a copy of the message. When enabled, this option should be specified on every consumer endpoint. | false | false | MEDIUM
 | *camel.source.endpoint.pollTimeout* | The timeout used when polling. When a timeout occurs, the consumer can check whether it is allowed to continue running. Setting a lower value allows the consumer to react more quickly upon shutdown. | 1000 | false | MEDIUM
 | *camel.source.endpoint.purgeWhenStopping* | Whether to purge the task queue when stopping the consumer/route. This allows to stop faster, as any pending messages on the queue is discarded. | false | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.queue* | Define the queue instance which will be used by the endpoint | null | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.vm.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.vm.concurrentConsumers* | Sets the default number of concurrent threads processing exchanges. | 1 | false | MEDIUM
-| *camel.component.vm.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.vm.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.vm.defaultQueueFactory* | Sets the default queue factory. | null | false | MEDIUM
 | *camel.component.vm.queueSize* | Sets the default maximum capacity of the SEDA queue (i.e., the number of messages it can hold). | 1000 | false | MEDIUM
 |===

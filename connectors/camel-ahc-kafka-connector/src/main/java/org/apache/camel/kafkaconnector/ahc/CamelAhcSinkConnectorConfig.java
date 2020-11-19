@@ -51,9 +51,6 @@ public class CamelAhcSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AHC_ENDPOINT_TRANSFER_EXCEPTION_CONF = "camel.sink.endpoint.transferException";
     public static final String CAMEL_SINK_AHC_ENDPOINT_TRANSFER_EXCEPTION_DOC = "If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type (for example using Jetty or Servlet Camel components). On the producer side the exception will be deserialized and thrown as is, instead of the AhcOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";
     public static final Boolean CAMEL_SINK_AHC_ENDPOINT_TRANSFER_EXCEPTION_DEFAULT = false;
-    public static final String CAMEL_SINK_AHC_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AHC_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AHC_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AHC_ENDPOINT_BINDING_CONF = "camel.sink.endpoint.binding";
     public static final String CAMEL_SINK_AHC_ENDPOINT_BINDING_DOC = "To use a custom AhcBinding which allows to control how to bind between AHC and Camel.";
     public static final String CAMEL_SINK_AHC_ENDPOINT_BINDING_DEFAULT = null;
@@ -78,9 +75,9 @@ public class CamelAhcSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AHC_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF = "camel.component.ahc.allowJavaSerializedObject";
     public static final String CAMEL_SINK_AHC_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC = "Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";
     public static final Boolean CAMEL_SINK_AHC_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT = false;
-    public static final String CAMEL_SINK_AHC_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.ahc.basicPropertyBinding";
-    public static final String CAMEL_SINK_AHC_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AHC_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AHC_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.ahc.autowiredEnabled";
+    public static final String CAMEL_SINK_AHC_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AHC_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AHC_COMPONENT_BINDING_CONF = "camel.component.ahc.binding";
     public static final String CAMEL_SINK_AHC_COMPONENT_BINDING_DOC = "To use a custom AhcBinding which allows to control how to bind between AHC and Camel.";
     public static final String CAMEL_SINK_AHC_COMPONENT_BINDING_DEFAULT = null;
@@ -121,7 +118,6 @@ public class CamelAhcSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AHC_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_TRANSFER_EXCEPTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_ENDPOINT_TRANSFER_EXCEPTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_TRANSFER_EXCEPTION_DOC);
-        conf.define(CAMEL_SINK_AHC_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_BINDING_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_DOC);
@@ -130,7 +126,7 @@ public class CamelAhcSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AHC_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_AHC_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AHC_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);
-        conf.define(CAMEL_SINK_AHC_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AHC_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AHC_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AHC_COMPONENT_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_COMPONENT_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_COMPONENT_BINDING_DOC);
         conf.define(CAMEL_SINK_AHC_COMPONENT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_COMPONENT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_COMPONENT_CLIENT_DOC);
         conf.define(CAMEL_SINK_AHC_COMPONENT_CLIENT_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_COMPONENT_CLIENT_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_COMPONENT_CLIENT_CONFIG_DOC);

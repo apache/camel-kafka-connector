@@ -56,9 +56,6 @@ public class CamelZookeeperSourceConnectorConfig
     public static final String CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -80,9 +77,9 @@ public class CamelZookeeperSourceConnectorConfig
     public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_SEND_EMPTY_MESSAGE_ON_DELETE_CONF = "camel.component.zookeeper.sendEmptyMessageOnDelete";
     public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_SEND_EMPTY_MESSAGE_ON_DELETE_DOC = "Upon the delete of a znode, should an empty message be send to the consumer";
     public static final Boolean CAMEL_SOURCE_ZOOKEEPER_COMPONENT_SEND_EMPTY_MESSAGE_ON_DELETE_DEFAULT = true;
-    public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.zookeeper.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.zookeeper.autowiredEnabled";
+    public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_ZOOKEEPER_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_CONFIGURATION_CONF = "camel.component.zookeeper.configuration";
     public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_CONFIGURATION_DOC = "To use a shared ZooKeeperConfiguration";
     public static final String CAMEL_SOURCE_ZOOKEEPER_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -109,7 +106,6 @@ public class CamelZookeeperSourceConnectorConfig
         conf.define(CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SEND_EMPTY_MESSAGE_ON_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SEND_EMPTY_MESSAGE_ON_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SEND_EMPTY_MESSAGE_ON_DELETE_DOC);
         conf.define(CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_ZOOKEEPER_COMPONENT_LIST_CHILDREN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_LIST_CHILDREN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_LIST_CHILDREN_DOC);
         conf.define(CAMEL_SOURCE_ZOOKEEPER_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_TIMEOUT_DOC);
@@ -117,7 +113,7 @@ public class CamelZookeeperSourceConnectorConfig
         conf.define(CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_ZOOKEEPER_COMPONENT_REPEAT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_REPEAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_REPEAT_DOC);
         conf.define(CAMEL_SOURCE_ZOOKEEPER_COMPONENT_SEND_EMPTY_MESSAGE_ON_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_SEND_EMPTY_MESSAGE_ON_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_SEND_EMPTY_MESSAGE_ON_DELETE_DOC);
-        conf.define(CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_ZOOKEEPER_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_ZOOKEEPER_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ZOOKEEPER_COMPONENT_CONFIGURATION_DOC);
         return conf;
     }

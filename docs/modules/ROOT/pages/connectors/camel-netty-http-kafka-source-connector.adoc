@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.nettyhttp.CamelNettyhttpSourceCo
 ----
 
 
-The camel-netty-http source connector supports 132 options, which are listed below.
+The camel-netty-http source connector supports 131 options, which are listed below.
 
 
 
@@ -66,7 +66,6 @@ The camel-netty-http source connector supports 132 options, which are listed bel
 | *camel.source.endpoint.urlDecodeHeaders* | If this option is enabled, then during binding from Netty to Camel Message then the header values will be URL decoded (eg %20 will be a space character. Notice this option is used by the default org.apache.camel.component.netty.http.NettyHttpBinding and therefore if you implement a custom org.apache.camel.component.netty.http.NettyHttpBinding then you would need to decode the headers accordingly to this option. | false | false | MEDIUM
 | *camel.source.endpoint.usingExecutorService* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | false | MEDIUM
 | *camel.source.endpoint.allowSerializedHeaders* | Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level. | false | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.channelGroup* | To use a explicit ChannelGroup. | null | false | MEDIUM
 | *camel.source.endpoint.configuration* | To use a custom configured NettyHttpConfiguration for configuring this endpoint. | null | false | MEDIUM
 | *camel.source.endpoint.disableStreamCache* | Determines whether or not the raw input stream from Netty HttpRequest#getContent() or HttpResponset#getContent() is cached or not (Camel will read the stream into a in light-weight memory based Stream caching) cache. By default Camel will cache the Netty input stream to support reading it multiple times to ensure it Camel can retrieve all data from the stream. However you can set this option to true when you for example need to access the raw stream, such as streaming it directly to a file or other persistent store. Mind that if you enable this option, then you cannot read the Netty stream multiple times out of the box, and you would need manually to reset the reader index on the Netty raw stream. Also Netty will auto-close the Netty stream when the Netty HTTP server/HTTP client is done processing, which means that if the asynchronous routing engine is in use then any asynchronous thread that may continue routing the org.apache.camel.Exchange may not be able to read the Netty stream, because Netty has closed it. | false | false | MEDIUM
@@ -125,7 +124,7 @@ The camel-netty-http source connector supports 132 options, which are listed bel
 | *camel.component.netty-http.serverInitializer Factory* | To use a custom ServerInitializerFactory | null | false | MEDIUM
 | *camel.component.netty-http.usingExecutorService* | Whether to use ordered thread pool, to ensure events are processed orderly on the same channel. | true | false | MEDIUM
 | *camel.component.netty-http.allowSerializedHeaders* | Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN level. | false | false | MEDIUM
-| *camel.component.netty-http.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.netty-http.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.netty-http.channelGroup* | To use a explicit ChannelGroup. | null | false | MEDIUM
 | *camel.component.netty-http.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter headers. | null | false | MEDIUM
 | *camel.component.netty-http.nativeTransport* | Whether to use native transport instead of NIO. Native transport takes advantage of the host operating system and is only supported on some platforms. You need to add the netty JAR for the host operating system you are using. See more details at: \http://netty.io/wiki/native-transports.html | false | false | MEDIUM

@@ -78,9 +78,6 @@ public class CamelAwssnsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSSNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSCONF = "camel.sink.endpoint.subscribeSNStoSQS";
     public static final String CAMEL_SINK_AWSSNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSDOC = "Define if the subscription between SNS Topic and SQS must be done or not";
     public static final Boolean CAMEL_SINK_AWSSNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSDEFAULT = false;
-    public static final String CAMEL_SINK_AWSSNS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSSNS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSSNS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSNS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWSSNS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWSSNS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -141,9 +138,9 @@ public class CamelAwssnsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSSNS_COMPONENT_SUBSCRIBE_SNSTO_SQSCONF = "camel.component.aws-sns.subscribeSNStoSQS";
     public static final String CAMEL_SINK_AWSSNS_COMPONENT_SUBSCRIBE_SNSTO_SQSDOC = "Define if the subscription between SNS Topic and SQS must be done or not";
     public static final Boolean CAMEL_SINK_AWSSNS_COMPONENT_SUBSCRIBE_SNSTO_SQSDEFAULT = false;
-    public static final String CAMEL_SINK_AWSSNS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-sns.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSSNS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSSNS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSSNS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws-sns.autowiredEnabled";
+    public static final String CAMEL_SINK_AWSSNS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWSSNS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AWSSNS_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws-sns.accessKey";
     public static final String CAMEL_SINK_AWSSNS_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWSSNS_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -181,7 +178,6 @@ public class CamelAwssnsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSSNS_ENDPOINT_SERVER_SIDE_ENCRYPTION_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSNS_ENDPOINT_SERVER_SIDE_ENCRYPTION_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_ENDPOINT_SERVER_SIDE_ENCRYPTION_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSSNS_ENDPOINT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSNS_ENDPOINT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_ENDPOINT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWSSNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSDOC);
-        conf.define(CAMEL_SINK_AWSSNS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSNS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSSNS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSNS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSSNS_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSNS_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSNS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSNS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_ENDPOINT_SECRET_KEY_DOC);
@@ -202,7 +198,7 @@ public class CamelAwssnsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSSNS_COMPONENT_SERVER_SIDE_ENCRYPTION_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSNS_COMPONENT_SERVER_SIDE_ENCRYPTION_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_COMPONENT_SERVER_SIDE_ENCRYPTION_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSSNS_COMPONENT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSNS_COMPONENT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_COMPONENT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWSSNS_COMPONENT_SUBSCRIBE_SNSTO_SQSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSNS_COMPONENT_SUBSCRIBE_SNSTO_SQSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_COMPONENT_SUBSCRIBE_SNSTO_SQSDOC);
-        conf.define(CAMEL_SINK_AWSSNS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSNS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWSSNS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWSSNS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSNS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSSNS_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSNS_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSNS_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSNS_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSNS_COMPONENT_SECRET_KEY_DOC);
         return conf;
