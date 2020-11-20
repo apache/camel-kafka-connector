@@ -11,6 +11,8 @@
 
 **Closed issues:**
 
+- File language and core languages in general are not working [\#720](https://github.com/apache/camel-kafka-connector/issues/720)
+- Idempotency: Support KafkaIdempotentRepository from Camel  [\#719](https://github.com/apache/camel-kafka-connector/issues/719)
 - Add Google Sheets Stream source example [\#703](https://github.com/apache/camel-kafka-connector/issues/703)
 - Add RemoteFileTransforms to the FTPS connector directly [\#702](https://github.com/apache/camel-kafka-connector/issues/702)
 - Add RemoteFileTransforms to the FTP connector directly [\#701](https://github.com/apache/camel-kafka-connector/issues/701)
@@ -38,6 +40,8 @@
 
 **Merged pull requests:**
 
+- Added Support for KafkaIdempotentRepository [\#725](https://github.com/apache/camel-kafka-connector/pull/725) ([oscerd](https://github.com/oscerd))
+- Use a Registry Ref for IdempotentRepository [\#722](https://github.com/apache/camel-kafka-connector/pull/722) ([oscerd](https://github.com/oscerd))
 - Use the errorHandler variable coming from Builder [\#718](https://github.com/apache/camel-kafka-connector/pull/718) ([oscerd](https://github.com/oscerd))
 - Idempotency [\#716](https://github.com/apache/camel-kafka-connector/pull/716) ([oscerd](https://github.com/oscerd))
 - Issue/692 [\#714](https://github.com/apache/camel-kafka-connector/pull/714) ([valdar](https://github.com/valdar))
