@@ -73,6 +73,8 @@ public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
         bucketName = "testBucket" + TestUtils.randomWithRange(0, 100);
         cluster = Cluster.connect(service.getConnectionString(), service.getUsername(), service.getPassword());
 
+        cluster.ping();
+
         LOG.debug("Creating a new bucket named {}", bucketName);
         cluster.buckets().createBucket(BucketSettings.create(bucketName));
         LOG.debug("Bucket created");
@@ -193,6 +195,10 @@ public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
                     .append("bucket", bucketName)
                     .append("username", service.getUsername())
                     .append("password", service.getPassword())
+                    .append("connectTimeout", 5000)
+                    .append("queryTimeout", 5000)
+                    .append("producerRetryAttempts", 10)
+                    .append("producerRetryPause", 7500)
                     .buildUrl();
 
 
