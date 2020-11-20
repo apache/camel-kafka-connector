@@ -17,6 +17,13 @@ For a Sink connector the basic options are:
 | camel.error.handler | The error handler to use: possible value are 'no' or 'default' | default | MEDIUM
 | camel.error.handler.max.redeliveries | The maximum redeliveries to be use in case of Default Error Handler | 0 | MEDIUM
 | camel.error.handler.redelivery.delay | The initial redelivery delay in milliseconds in case of Default Error Handler | 1000L | MEDIUM
+| camel.idempotency.enabled | If idempotency must be enabled or not | false | LOW
+| camel.idempotency.repository.type | The idempotent repository type to use, possible values are memory and kafka | memory | LOW
+| camel.idempotency.expression.type | How the idempotency will be evaluated: possible values are body and header | body | LOW
+| camel.idempotency.expression.header | The header name that will be evaluated in case of camel.idempotency.expression.type equals to header | null | LOW
+| camel.idempotency.memory.dimension | The Memory dimension of the in memory idempotent Repository | 100 | LOW
+| camel.idempotency.kafka.topic | The Kafka topic name to use for the idempotent repository | kafka_idempotent_repository | LOW
+| camel.idempotency.kafka.bootstrap.servers | A comma-separated list of host and port pairs that are the addresses of the Kafka brokers where the idempotent repository should live | localhost:9092 | LOW
 |===
 
 For a Source connector the basic options are:
@@ -39,6 +46,13 @@ For a Source connector the basic options are:
 | camel.error.handler | The error handler to use: possible value are 'no' or 'default' | default | MEDIUM
 | camel.error.handler.max.redeliveries | The maximum redeliveries to be use in case of Default Error Handler | 0 | MEDIUM
 | camel.error.handler.redelivery.delay | The initial redelivery delay in milliseconds in case of Default Error Handler | 1000L | MEDIUM
+| camel.idempotency.enabled | If idempotency must be enabled or not | false | LOW
+| camel.idempotency.repository.type | The idempotent repository type to use, possible values are memory and kafka | memory | LOW
+| camel.idempotency.expression.type | How the idempotency will be evaluated: possible values are body and header | body | LOW
+| camel.idempotency.expression.header | The header name that will be evaluated in case of camel.idempotency.expression.type equals to header | null | LOW
+| camel.idempotency.memory.dimension | The Memory dimension of the in memory idempotent Repository | 100 | LOW
+| camel.idempotency.kafka.topic | The Kafka topic name to use for the idempotent repository | kafka_idempotent_repository | LOW
+| camel.idempotency.kafka.bootstrap.servers | A comma-separated list of host and port pairs that are the addresses of the Kafka brokers where the idempotent repository should live | localhost:9092 | LOW
 |===
 
 For more options related to single connector you can have a look at xref:connectors.adoc[Connectors list].
