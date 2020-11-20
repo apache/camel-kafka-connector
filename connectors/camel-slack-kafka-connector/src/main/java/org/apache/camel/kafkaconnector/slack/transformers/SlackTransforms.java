@@ -39,9 +39,9 @@ public class SlackTransforms <R extends ConnectRecord<R>> implements Transformat
     public R apply(R r) {
         Object value = r.value();
 
-        if (r.value() instanceof SlackMessage) {
+        if (value instanceof SlackMessage) {
             LOG.debug("Converting record from SlackMessage to text");
-            SlackMessage message = (SlackMessage) r.value();
+            SlackMessage message = (SlackMessage) value;
 
             LOG.debug("Received text: {}", message.getText());
 
@@ -49,7 +49,7 @@ public class SlackTransforms <R extends ConnectRecord<R>> implements Transformat
                     SchemaHelper.buildSchemaBuilderForType(message.getText()), message.getText(), r.timestamp());
 
         } else {
-            LOG.debug("Unexpected message type: {}", r.value().getClass());
+            LOG.debug("Unexpected message type: {}", value == null ? "null instance" : value.getClass());
 
             return r;
         }

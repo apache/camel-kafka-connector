@@ -38,9 +38,9 @@ public class SftpRemoteFileTransforms <R extends ConnectRecord<R>> implements Tr
     public R apply(R r) {
         Object value = r.value();
 
-        if (r.value() instanceof RemoteFile) {
+        if (value instanceof RemoteFile) {
             LOG.debug("Converting record from RemoteFile to text");
-            RemoteFile message = (RemoteFile) r.value();
+            RemoteFile message = (RemoteFile) value;
 
             LOG.debug("Received text: {}", message.getBody());
 
@@ -48,7 +48,7 @@ public class SftpRemoteFileTransforms <R extends ConnectRecord<R>> implements Tr
                     SchemaHelper.buildSchemaBuilderForType(message.getBody()), message.getBody(), r.timestamp());
 
         } else {
-            LOG.debug("Unexpected message type: {}", r.value().getClass());
+            LOG.debug("Unexpected message type: {}", value == null ? "null instance" : value.getClass());
 
             return r;
         }

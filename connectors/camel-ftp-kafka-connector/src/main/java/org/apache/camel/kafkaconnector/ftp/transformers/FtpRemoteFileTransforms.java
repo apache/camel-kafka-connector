@@ -40,7 +40,7 @@ public class FtpRemoteFileTransforms <R extends ConnectRecord<R>> implements Tra
 
         if (r.value() instanceof RemoteFile) {
             LOG.debug("Converting record from RemoteFile to text");
-            RemoteFile message = (RemoteFile) r.value();
+            RemoteFile message = (RemoteFile) value;
 
             LOG.debug("Received text: {}", message.getBody());
 
@@ -48,7 +48,7 @@ public class FtpRemoteFileTransforms <R extends ConnectRecord<R>> implements Tra
                     SchemaHelper.buildSchemaBuilderForType(message.getBody()), message.getBody(), r.timestamp());
 
         } else {
-            LOG.debug("Unexpected message type: {}", r.value().getClass());
+            LOG.debug("Unexpected message type: {}", value == null ? "null instance" : value.getClass());
 
             return r;
         }
