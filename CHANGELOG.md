@@ -11,6 +11,7 @@
 
 **Closed issues:**
 
+- Added example for AWS2-STS [\#727](https://github.com/apache/camel-kafka-connector/issues/727)
 - File language and core languages in general are not working [\#720](https://github.com/apache/camel-kafka-connector/issues/720)
 - Idempotency: Support KafkaIdempotentRepository from Camel  [\#719](https://github.com/apache/camel-kafka-connector/issues/719)
 - Add Google Sheets Stream source example [\#703](https://github.com/apache/camel-kafka-connector/issues/703)
@@ -37,9 +38,13 @@
 - Beans aggregation size and timeout [\#487](https://github.com/apache/camel-kafka-connector/issues/487)
 - Camel-telegram wrongly parse chatId from headers [\#463](https://github.com/apache/camel-kafka-connector/issues/463)
 - Release 0.4.4 [\#451](https://github.com/apache/camel-kafka-connector/issues/451)
+- camel-azure-storage-queue-kafka-connector: Unknown parameter 'accountName' [\#409](https://github.com/apache/camel-kafka-connector/issues/409)
 
 **Merged pull requests:**
 
+- Fixed wrong config references in both CamelSinkTask and CamelSourceTask [\#731](https://github.com/apache/camel-kafka-connector/pull/731) ([oscerd](https://github.com/oscerd))
+- Prevent NPEs in the \(unlikely\) case the record value is null [\#730](https://github.com/apache/camel-kafka-connector/pull/730) ([orpiske](https://github.com/orpiske))
+- Added documentation for idempotency in basic configuration docs [\#729](https://github.com/apache/camel-kafka-connector/pull/729) ([oscerd](https://github.com/oscerd))
 - Added Support for KafkaIdempotentRepository [\#725](https://github.com/apache/camel-kafka-connector/pull/725) ([oscerd](https://github.com/oscerd))
 - Use a Registry Ref for IdempotentRepository [\#722](https://github.com/apache/camel-kafka-connector/pull/722) ([oscerd](https://github.com/oscerd))
 - Use the errorHandler variable coming from Builder [\#718](https://github.com/apache/camel-kafka-connector/pull/718) ([oscerd](https://github.com/oscerd))
