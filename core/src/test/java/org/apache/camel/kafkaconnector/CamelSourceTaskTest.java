@@ -295,7 +295,7 @@ public class CamelSourceTaskTest {
         assertEquals(1, results.size());
         Header bigDecimalHeader = results.get(0).headers().allWithName(CamelSourceTask.HEADER_CAMEL_PREFIX + "bigdecimal").next();
         assertEquals("[B", bigDecimalHeader.value().getClass().getName());
-        assertEquals(Decimal.class.getCanonicalName(), bigDecimalHeader.schema().name());
+        assertEquals(Decimal.class.getName(), bigDecimalHeader.schema().name());
         assertEquals(Schema.Type.BYTES, bigDecimalHeader.schema().type());
 
         sourceTask.stop();
