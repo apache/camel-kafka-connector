@@ -55,7 +55,7 @@ public class SourcePojoToSchemaAndStructTransform<R extends ConnectRecord<R>> im
         LOG.debug("Incoming record: {}", r);
 
         if (r.value() != null) {
-            String recordClassCanonicalName = r.value().getClass().getCanonicalName();
+            String recordClassCanonicalName = r.value().getClass().getName();
             CacheEntry cacheEntry = avroSchemaWrapperCache.computeIfAbsent(recordClassCanonicalName, new Function<String, CacheEntry>() {
                 @Override
                 public CacheEntry apply(String s) {
