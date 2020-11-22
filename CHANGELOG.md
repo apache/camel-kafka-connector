@@ -80,7 +80,6 @@
 - Update archetypes docs to point to the latest snapshot 0.7.0 [\#654](https://github.com/apache/camel-kafka-connector/pull/654) ([oscerd](https://github.com/oscerd))
 - Error handling 1st part [\#653](https://github.com/apache/camel-kafka-connector/pull/653) ([oscerd](https://github.com/oscerd))
 - Minor fixes [\#652](https://github.com/apache/camel-kafka-connector/pull/652) ([valdar](https://github.com/valdar))
-- Provide an archetype with needed bits to use Apicurio Registry stuff [\#650](https://github.com/apache/camel-kafka-connector/pull/650) ([oscerd](https://github.com/oscerd))
 - Added 0.6.0 to camel compatibility matrix [\#648](https://github.com/apache/camel-kafka-connector/pull/648) ([oscerd](https://github.com/oscerd))
 - Aligned docs and link to 0.6.0 [\#647](https://github.com/apache/camel-kafka-connector/pull/647) ([oscerd](https://github.com/oscerd))
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
@@ -122,6 +121,7 @@
 
 **Merged pull requests:**
 
+- Provide an archetype with needed bits to use Apicurio Registry stuff [\#650](https://github.com/apache/camel-kafka-connector/pull/650) ([oscerd](https://github.com/oscerd))
 - Switches the AWS v2 test infra-structure [\#635](https://github.com/apache/camel-kafka-connector/pull/635) ([orpiske](https://github.com/orpiske))
 - Decouple the Cassandra client from the service to simplify moving the services to Camel core [\#634](https://github.com/apache/camel-kafka-connector/pull/634) ([orpiske](https://github.com/orpiske))
 - Switches the AWS v1 test infra-structure [\#633](https://github.com/apache/camel-kafka-connector/pull/633) ([orpiske](https://github.com/orpiske))
