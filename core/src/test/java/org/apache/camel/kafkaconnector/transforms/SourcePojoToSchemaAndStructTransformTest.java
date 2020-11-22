@@ -18,7 +18,6 @@ package org.apache.camel.kafkaconnector.transforms;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -157,7 +156,7 @@ public class SourcePojoToSchemaAndStructTransformTest {
         assertEquals(1, sourcePojoToSchemaAndStructTransform.getCache().keySet().size());
         ConnectRecord transformedCr = sourcePojoToSchemaAndStructTransform.apply(cr);
         assertEquals(1, sourcePojoToSchemaAndStructTransform.getCache().keySet().size());
-        assertTrue(sourcePojoToSchemaAndStructTransform.getCache().keySet().contains(PojoWithMap.class.getCanonicalName()));
+        assertTrue(sourcePojoToSchemaAndStructTransform.getCache().keySet().contains(PojoWithMap.class.getName()));
     }
 
     private void atLeastOneFieldWithGivenValueExists(List structs, String fieldName, String fieldExpectedValue) {
@@ -166,21 +165,5 @@ public class SourcePojoToSchemaAndStructTransformTest {
         ).forEach(
             struct -> assertEquals(fieldExpectedValue, ((Struct) struct).getString(fieldName))
         );
-    }
-
-    public class PojoWithMap {
-        private Map<String, Integer> map = new HashMap<>();
-
-        public Map<String, Integer> getMap() {
-            return map;
-        }
-
-        public void setMap(Map<String, Integer> map) {
-            this.map = map;
-        }
-
-        public void addToMap(String key, Integer value) {
-            map.put(key, value);
-        }
     }
 }
