@@ -60,7 +60,7 @@ class CamelKafkaConnectorCatalogTest {
         assertEquals("org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SinkConnector", model.getConnectorClass());
         assertEquals("camel.sink.path.bucketNameOrArn", model.getOptions().get(0).getName());
         assertEquals("camel.sink.endpoint.amazonS3Client", model.getOptions().get(1).getName());
-        assertEquals("camel.sink.endpoint.autoCreateBucket", model.getOptions().get(2).getName());
+        assertEquals("camel.sink.endpoint.amazonS3Presigner", model.getOptions().get(2).getName());
         assertEquals(1, model.getConverters().size());
         assertEquals(1, model.getTransforms().size());
         assertNull(model.getAggregationStrategies());
