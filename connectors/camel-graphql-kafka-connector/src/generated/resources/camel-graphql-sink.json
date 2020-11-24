@@ -65,6 +65,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.jwtAuthorizationType": {
+			"name": "camel.sink.endpoint.jwtAuthorizationType",
+			"description": "The JWT Authorization type. Default is Bearer.",
+			"defaultValue": "\"Bearer\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
 			"description": "The password for Basic authentication.",

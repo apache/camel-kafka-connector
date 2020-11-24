@@ -40,7 +40,7 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_CONF = "camel.sink.endpoint.apiVersion";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DOC = "Salesforce API version.";
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DEFAULT = "34.0";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DEFAULT = "50.0";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_CONF = "camel.sink.endpoint.backoffIncrement";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_DOC = "Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.";
     public static final Long CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_DEFAULT = 1000L;
@@ -160,7 +160,7 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_CONF = "camel.component.salesforce.apiVersion";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DOC = "Salesforce API version.";
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DEFAULT = "34.0";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DEFAULT = "50.0";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_CONF = "camel.component.salesforce.backoffIncrement";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_DOC = "Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.";
     public static final Long CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_DEFAULT = 1000L;

@@ -36,7 +36,7 @@
 		"camel.source.endpoint.apiVersion": {
 			"name": "camel.source.endpoint.apiVersion",
 			"description": "Salesforce API version.",
-			"defaultValue": "\"34.0\"",
+			"defaultValue": "\"50.0\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -302,7 +302,7 @@
 		"camel.component.salesforce.apiVersion": {
 			"name": "camel.component.salesforce.apiVersion",
 			"description": "Salesforce API version.",
-			"defaultValue": "\"34.0\"",
+			"defaultValue": "\"50.0\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
