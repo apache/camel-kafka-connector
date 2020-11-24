@@ -34,13 +34,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.bufferSize": {
 			"name": "camel.sink.endpoint.bufferSize",
 			"description": "The initial in-memory buffer size used when transferring data between Camel and AHC Client.",
@@ -93,18 +86,18 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.telegram.autowiredEnabled": {
+			"name": "camel.component.telegram.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.telegram.baseUri": {
 			"name": "camel.component.telegram.baseUri",
 			"description": "Can be used to set an alternative base URI, e.g. when you want to test the component against a mock Telegram API",
 			"defaultValue": "\"https:\/\/api.telegram.org\"",
 			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.telegram.basicPropertyBinding": {
-			"name": "camel.component.telegram.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
 			"required": "false"
 		},
 		"camel.component.telegram.client": {

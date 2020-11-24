@@ -80,13 +80,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.basicPropertyBinding": {
-			"name": "camel.source.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.channelType": {
 			"name": "camel.source.endpoint.channelType",
 			"description": "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.",
@@ -276,11 +269,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.ssh.basicPropertyBinding": {
-			"name": "camel.component.ssh.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.ssh.autowiredEnabled": {
+			"name": "camel.component.ssh.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.ssh.channelType": {
