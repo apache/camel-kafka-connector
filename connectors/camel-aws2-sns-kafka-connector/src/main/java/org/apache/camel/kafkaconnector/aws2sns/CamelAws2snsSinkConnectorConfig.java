@@ -75,9 +75,9 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.sink.endpoint.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
-    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_USE_IAMCREDENTIALS_CONF = "camel.sink.endpoint.useIAMCredentials";
-    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_USE_IAMCREDENTIALS_DOC = "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.";
-    public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_USE_IAMCREDENTIALS_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.sink.endpoint.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWS2SNS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -135,9 +135,9 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF = "camel.component.aws2-sns.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
-    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_USE_IAMCREDENTIALS_CONF = "camel.component.aws2-sns.useIAMCredentials";
-    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_USE_IAMCREDENTIALS_DOC = "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.";
-    public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_USE_IAMCREDENTIALS_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.component.aws2-sns.useDefaultCredentialsProvider";
+    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.";
+    public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws2-sns.autowiredEnabled";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
@@ -177,7 +177,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_SUBSCRIBE_SNSTO_SQSDOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
-        conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_USE_IAMCREDENTIALS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_USE_IAMCREDENTIALS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_USE_IAMCREDENTIALS_DOC);
+        conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_ENDPOINT_SECRET_KEY_DOC);
@@ -197,7 +197,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_SUBSCRIBE_SNSTO_SQSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_SUBSCRIBE_SNSTO_SQSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_SUBSCRIBE_SNSTO_SQSDOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
-        conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_USE_IAMCREDENTIALS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_USE_IAMCREDENTIALS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_USE_IAMCREDENTIALS_DOC);
+        conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2SNS_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SNS_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SNS_COMPONENT_SECRET_KEY_DOC);

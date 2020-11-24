@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SourceConnecto
 ----
 
 
-The camel-aws2-s3 source connector supports 82 options, which are listed below.
+The camel-aws2-s3 source connector supports 84 options, which are listed below.
 
 
 
@@ -31,6 +31,7 @@ The camel-aws2-s3 source connector supports 82 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.source.path.bucketNameOrArn* | Bucket name or ARN | null | true | HIGH
 | *camel.source.endpoint.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | false | MEDIUM
+| *camel.source.endpoint.amazonS3Presigner* | An S3 Presigner for Request, used mainly in createDownloadLink operation | null | false | MEDIUM
 | *camel.source.endpoint.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already. | true | false | MEDIUM
 | *camel.source.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.source.endpoint.pojoRequest* | If we want to use a POJO request as body or not | false | false | MEDIUM
@@ -41,7 +42,7 @@ The camel-aws2-s3 source connector supports 82 options, which are listed below.
 | *camel.source.endpoint.region* | The region in which S3 client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.source.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.source.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
-| *camel.source.endpoint.useIAMCredentials* | Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in. | false | false | MEDIUM
+| *camel.source.endpoint.useDefaultCredentials Provider* | Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.source.endpoint.customerAlgorithm* | Define the customer algorithm to use in case CustomerKey is enabled | null | false | MEDIUM
 | *camel.source.endpoint.customerKeyId* | Define the id of Customer key to use in case CustomerKey is enabled | null | false | MEDIUM
 | *camel.source.endpoint.customerKeyMD5* | Define the MD5 of Customer key to use in case CustomerKey is enabled | null | false | MEDIUM
@@ -81,6 +82,7 @@ The camel-aws2-s3 source connector supports 82 options, which are listed below.
 | *camel.source.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.source.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-s3.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | false | MEDIUM
+| *camel.component.aws2-s3.amazonS3Presigner* | An S3 Presigner for Request, used mainly in createDownloadLink operation | null | false | MEDIUM
 | *camel.component.aws2-s3.autoCreateBucket* | Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already. | true | false | MEDIUM
 | *camel.component.aws2-s3.configuration* | The component configuration | null | false | MEDIUM
 | *camel.component.aws2-s3.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
@@ -92,7 +94,7 @@ The camel-aws2-s3 source connector supports 82 options, which are listed below.
 | *camel.component.aws2-s3.region* | The region in which S3 client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-s3.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.component.aws2-s3.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
-| *camel.component.aws2-s3.useIAMCredentials* | Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in. | false | false | MEDIUM
+| *camel.component.aws2-s3.useDefaultCredentials Provider* | Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-s3.customerAlgorithm* | Define the customer algorithm to use in case CustomerKey is enabled | null | false | MEDIUM
 | *camel.component.aws2-s3.customerKeyId* | Define the id of Customer key to use in case CustomerKey is enabled | null | false | MEDIUM
 | *camel.component.aws2-s3.customerKeyMD5* | Define the MD5 of Customer key to use in case CustomerKey is enabled | null | false | MEDIUM

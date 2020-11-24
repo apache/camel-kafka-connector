@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.component.slack.helper.SlackMessage;
+import org.apache.camel.component.slack.helper.SlackMessage.Attachment;
+import org.apache.camel.component.slack.helper.SlackMessage.Attachment.Field;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.Struct;
@@ -42,14 +44,14 @@ public class SourcePojoToSchemaAndStructTransformTest {
 
         SlackMessage sm = new SlackMessage();
 
-        SlackMessage.Attachment at1 = sm.new Attachment();
-        SlackMessage.Attachment.Field at1f1 = at1.new Field();
+        SlackMessage.Attachment at1 = new Attachment();
+        SlackMessage.Attachment.Field at1f1 = new Field();
         at1f1.setTitle("ciao");
         at1f1.setShortValue(true);
         at1.setFields(new ArrayList<SlackMessage.Attachment.Field>(Collections.singleton(at1f1)));
         at1.setAuthorName("Andrea");
 
-        SlackMessage.Attachment at2 = sm.new Attachment();
+        SlackMessage.Attachment at2 = new Attachment();
         at2.setColor("green");
 
         ArrayList<SlackMessage.Attachment> attachments = new ArrayList<>();
