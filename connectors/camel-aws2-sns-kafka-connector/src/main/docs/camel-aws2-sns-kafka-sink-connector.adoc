@@ -46,7 +46,7 @@ The camel-aws2-sns sink connector supports 41 options, which are listed below.
 | *camel.sink.endpoint.subject* | The subject which is used if the message header 'CamelAwsSnsSubject' is not present. | null | false | MEDIUM
 | *camel.sink.endpoint.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
-| *camel.sink.endpoint.useIAMCredentials* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
+| *camel.sink.endpoint.useDefaultCredentialsProvider* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
@@ -66,7 +66,7 @@ The camel-aws2-sns sink connector supports 41 options, which are listed below.
 | *camel.component.aws2-sns.subject* | The subject which is used if the message header 'CamelAwsSnsSubject' is not present. | null | false | MEDIUM
 | *camel.component.aws2-sns.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | false | MEDIUM
 | *camel.component.aws2-sns.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
-| *camel.component.aws2-sns.useIAMCredentials* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
+| *camel.component.aws2-sns.useDefaultCredentials Provider* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-sns.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-sns.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws2-sns.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM

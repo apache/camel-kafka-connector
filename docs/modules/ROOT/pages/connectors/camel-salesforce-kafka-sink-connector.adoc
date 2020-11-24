@@ -33,7 +33,7 @@ The camel-salesforce sink connector supports 112 options, which are listed below
 | *camel.sink.endpoint.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.sink.endpoint.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
 | *camel.sink.endpoint.apexUrl* | APEX method URL | null | false | MEDIUM
-| *camel.sink.endpoint.apiVersion* | Salesforce API version. | "34.0" | false | MEDIUM
+| *camel.sink.endpoint.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
 | *camel.sink.endpoint.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | false | MEDIUM
 | *camel.sink.endpoint.batchId* | Bulk API Batch ID | null | false | MEDIUM
 | *camel.sink.endpoint.contentType* | Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON] | null | false | MEDIUM
@@ -73,7 +73,7 @@ The camel-salesforce sink connector supports 112 options, which are listed below
 | *camel.component.salesforce.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.component.salesforce.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
 | *camel.component.salesforce.apexUrl* | APEX method URL | null | false | MEDIUM
-| *camel.component.salesforce.apiVersion* | Salesforce API version. | "34.0" | false | MEDIUM
+| *camel.component.salesforce.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
 | *camel.component.salesforce.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | false | MEDIUM
 | *camel.component.salesforce.batchId* | Bulk API Batch ID | null | false | MEDIUM
 | *camel.component.salesforce.contentType* | Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON] | null | false | MEDIUM
