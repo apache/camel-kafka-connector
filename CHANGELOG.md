@@ -14,6 +14,7 @@
 - Added example for AWS2-STS [\#727](https://github.com/apache/camel-kafka-connector/issues/727)
 - File language and core languages in general are not working [\#720](https://github.com/apache/camel-kafka-connector/issues/720)
 - Idempotency: Support KafkaIdempotentRepository from Camel  [\#719](https://github.com/apache/camel-kafka-connector/issues/719)
+- Create the sink counterpart of the PojoToSchemaAndStructTransform [\#715](https://github.com/apache/camel-kafka-connector/issues/715)
 - Add Google Sheets Stream source example [\#703](https://github.com/apache/camel-kafka-connector/issues/703)
 - Add RemoteFileTransforms to the FTPS connector directly [\#702](https://github.com/apache/camel-kafka-connector/issues/702)
 - Add RemoteFileTransforms to the FTP connector directly [\#701](https://github.com/apache/camel-kafka-connector/issues/701)
@@ -42,6 +43,7 @@
 
 **Merged pull requests:**
 
+- Issue/715 [\#732](https://github.com/apache/camel-kafka-connector/pull/732) ([valdar](https://github.com/valdar))
 - Fixed wrong config references in both CamelSinkTask and CamelSourceTask [\#731](https://github.com/apache/camel-kafka-connector/pull/731) ([oscerd](https://github.com/oscerd))
 - Prevent NPEs in the \(unlikely\) case the record value is null [\#730](https://github.com/apache/camel-kafka-connector/pull/730) ([orpiske](https://github.com/orpiske))
 - Added documentation for idempotency in basic configuration docs [\#729](https://github.com/apache/camel-kafka-connector/pull/729) ([oscerd](https://github.com/oscerd))
