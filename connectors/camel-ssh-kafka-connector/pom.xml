@@ -44,17 +44,17 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-ssh</artifactId>
     </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io-version}</version>
+    </dependency>
     <!--START OF GENERATED CODE-->
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
     </dependency>
     <!--END OF GENERATED CODE-->
-    <dependency>
-       <groupId>commons-io</groupId>
-       <artifactId>commons-io</artifactId>
-       <version>${commons-io-version}</version>
-    </dependency>
   </dependencies>
   <build>
     <plugins>
