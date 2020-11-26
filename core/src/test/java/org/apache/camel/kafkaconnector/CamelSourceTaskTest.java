@@ -37,6 +37,7 @@ import org.junit.jupiter.api.Test;
 import static org.apache.camel.util.CollectionHelper.mapOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -67,6 +68,7 @@ public class CamelSourceTaskTest {
 
         assertEquals(size, poll.size());
         assertEquals(TOPIC_NAME, poll.get(0).topic());
+        assertNotNull(poll.get(0).timestamp());
         assertEquals(LoggingLevel.OFF.toString(), sourceTask.getCamelSourceConnectorConfig(props)
             .getString(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF));
 
