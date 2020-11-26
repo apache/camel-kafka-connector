@@ -197,6 +197,9 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_CONF = "camel.component.salesforce.httpMaxContentLength";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DOC = "Max content length of an HTTP response.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_CONF = "camel.component.salesforce.httpRequestBufferSize";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DOC = "HTTP request buffer size. May need to be increased for large SOQL queries.";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DEFAULT = "8192";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_CONF = "camel.component.salesforce.includeDetails";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DOC = "Include details in Salesforce1 Analytics report, defaults to false.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DEFAULT = null;
@@ -240,7 +243,7 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_OBJECT_MAPPER_DOC = "Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_OBJECT_MAPPER_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_CONF = "camel.component.salesforce.packages";
-    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF = "camel.component.salesforce.rawPayload";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default";
@@ -441,6 +444,7 @@ public class CamelSalesforceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DOC);
+        conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_INSTANCE_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_INSTANCE_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_INSTANCE_ID_DOC);
