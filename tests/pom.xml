@@ -62,6 +62,7 @@
         <module>perf-tests-rabbitmq</module>
         <module>itests-rabbitmq</module>
         <module>itests-couchbase</module>
+        <module>itests-ssh</module>
     </modules>
 
 
