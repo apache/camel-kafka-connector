@@ -76,7 +76,7 @@ public class CamelSourceSshITCase extends AbstractKafkaTest {
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelSshPropertyFactory.basic().withKafkaTopic(topic).withHost(sshService.getSshHost())
             .withPort(Integer.toString(sshService.getSshPort())).withDelay(Integer.toString(10000)).withUsername("root").withPassword("root").withPollcommand("date")
-            .withTransformsConfig("SshTransforms").withEntry("type", "org.apache.camel.kafkaconnector.ssh.source.SshTransforms").end();
+            .withTransformsConfig("SshTransforms").withEntry("type", "org.apache.camel.kafkaconnector.ssh.transformers.SshTransforms").end();
 
         runTest(connectorPropertyFactory);
     }
