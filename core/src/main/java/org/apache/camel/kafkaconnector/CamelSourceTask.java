@@ -173,9 +173,11 @@ public class CamelSourceTask extends SourceTask {
             final Schema messageKeySchema = messageHeaderKey != null ? SchemaHelper.buildSchemaBuilderForType(messageHeaderKey) : null;
             final Schema messageBodySchema = messageBodyValue != null ? SchemaHelper.buildSchemaBuilderForType(messageBodyValue) : null;
 
+            final long timestamp = calculateTimestamp(exchange);
+
             for (String singleTopic : topics) {
-                SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, singleTopic, messageKeySchema,
-                        messageHeaderKey, messageBodySchema, messageBodyValue);
+                SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, singleTopic, null, messageKeySchema,
+                        messageHeaderKey, messageBodySchema, messageBodyValue, timestamp);
 
                 if (exchange.getMessage().hasHeaders()) {
                     setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
@@ -238,6 +240,10 @@ public class CamelSourceTask extends SourceTask {
 
     protected static String getCamelSourcePathConfigPrefix() {
         return CAMEL_SOURCE_PATH_PROPERTIES_PREFIX;
+    }
+
+    protected long calculateTimestamp(Exchange exchange) {
+        return System.currentTimeMillis();
     }
 
     private void setAdditionalHeaders(SourceRecord record, Map<String, Object> map, String prefix) {
