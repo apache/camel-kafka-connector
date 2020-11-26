@@ -11,6 +11,7 @@
 
 **Closed issues:**
 
+- Create Twitter direct message examples [\#736](https://github.com/apache/camel-kafka-connector/issues/736)
 - Added example for AWS2-STS [\#727](https://github.com/apache/camel-kafka-connector/issues/727)
 - File language and core languages in general are not working [\#720](https://github.com/apache/camel-kafka-connector/issues/720)
 - Idempotency: Support KafkaIdempotentRepository from Camel  [\#719](https://github.com/apache/camel-kafka-connector/issues/719)
