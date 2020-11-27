@@ -40,7 +40,9 @@ import org.apache.camel.test.infra.aws.services.AWSServiceFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,11 +50,13 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkAWSSNSITCase extends AbstractKafkaTest {
-    @RegisterExtension
-    public static AWSService<AmazonSQS> service = AWSServiceFactory.createSNSService();
-
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSNSITCase.class);
+
+    @RegisterExtension
+    AWSService<AmazonSQS> service = AWSServiceFactory.createSNSService();
 
     private AWSSQSClient awsSqsClient;
     private String sqsQueueUrl;

@@ -23,9 +23,7 @@ import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnect
 import org.apache.camel.kafkaconnector.common.utils.PropertyUtils;
 import org.apache.camel.test.infra.kafka.services.KafkaService;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
-@Testcontainers
 public abstract class AbstractKafkaTest {
     @RegisterExtension
     public final KafkaService kafkaService;
