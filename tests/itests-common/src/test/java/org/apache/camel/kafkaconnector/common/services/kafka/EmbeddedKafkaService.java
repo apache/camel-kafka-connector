@@ -94,7 +94,6 @@ public class EmbeddedKafkaService implements KafkaService {
 
         if (started) {
             cluster.stop();
-            cluster = null;
             started = false;
         }
     }
