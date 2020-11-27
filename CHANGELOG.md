@@ -11,6 +11,9 @@
 
 **Closed issues:**
 
+- Move SshTransforms from example/it test class directly in the camel-ssh-kafka-connector [\#742](https://github.com/apache/camel-kafka-connector/issues/742)
+- Missing timestamp information [\#738](https://github.com/apache/camel-kafka-connector/issues/738)
+- Create SSH connector examples [\#737](https://github.com/apache/camel-kafka-connector/issues/737)
 - Create Twitter direct message examples [\#736](https://github.com/apache/camel-kafka-connector/issues/736)
 - Added example for AWS2-STS [\#727](https://github.com/apache/camel-kafka-connector/issues/727)
 - File language and core languages in general are not working [\#720](https://github.com/apache/camel-kafka-connector/issues/720)
@@ -44,6 +47,10 @@
 
 **Merged pull requests:**
 
+- fix \#738 : added timestamp information to source records. [\#748](https://github.com/apache/camel-kafka-connector/pull/748) ([valdar](https://github.com/valdar))
+- Move SshTransforms from example/it test class directly in the camel-ssh-kafka-connector [\#747](https://github.com/apache/camel-kafka-connector/pull/747) ([oscerd](https://github.com/oscerd))
+- Fixed Commons-io dependency version in ssh IT test [\#741](https://github.com/apache/camel-kafka-connector/pull/741) ([oscerd](https://github.com/oscerd))
+- Camel-SSH-Kafka-connector integration test [\#740](https://github.com/apache/camel-kafka-connector/pull/740) ([oscerd](https://github.com/oscerd))
 - Issue/715 [\#732](https://github.com/apache/camel-kafka-connector/pull/732) ([valdar](https://github.com/valdar))
 - Fixed wrong config references in both CamelSinkTask and CamelSourceTask [\#731](https://github.com/apache/camel-kafka-connector/pull/731) ([oscerd](https://github.com/oscerd))
 - Prevent NPEs in the \(unlikely\) case the record value is null [\#730](https://github.com/apache/camel-kafka-connector/pull/730) ([orpiske](https://github.com/orpiske))
