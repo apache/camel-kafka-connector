@@ -3,7 +3,6 @@
 
 This page describes some common pitfalls when deploying the connectors.
 
-
 [[Troubleshooting-Contents]]
 == Table of Contents
 
@@ -32,7 +31,6 @@ connectors, it would be possible to have a directory structure like this:
 * `/camel-kafka-connectors/camel-hdfs-kafka-connector`
 * `/camel-kafka-connectors/camel-amqp-kafka-connector`
 
-
 [#missing-or-incorrect-converters]
 == Missing or Incorrect Converters
 
@@ -47,7 +45,6 @@ Here's one example with trying to exchange data using the AMQP connector without
 
 `Caused by: org.apache.kafka.connect.errors.DataException: JsonConverter with schemas.enable requires "schema" and "payload" fields and may not contain additional fields. If you are trying to deserialize plain JSON data, set schemas.enable=false in your converter configuration.`
 
-
 [#missing-dependencies]
 == Missing Dependencies
 
@@ -55,10 +52,9 @@ When deploying the connector manually (ie.: without the assistance of tools such
 make sure to provide the required runtime dependencies and their dependencies. Some notable examples are:
 
 * AMQP connector requires a JMS-compliant client (such as qpid-jms-client)
-* SJMS2 connector requires the client libraries for the protocol used to communicate with the broker (ie.:
-qpid-jms-client, activemq-client, artemis-jms-client, etc).
+* From version 0.7.0 onward, the ActiveMQ and Artemis JMS clients are packaged along with the SJMS2 connector.
+If you need to use other JMS clients, then you have to repackage including all required libraries.
 * JDBC connector requires the JDBC client for the database
-
 
 [#known-incompatibilities]
 == Known Incompatibilities
