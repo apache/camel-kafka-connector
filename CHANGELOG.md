@@ -46,6 +46,7 @@
 - Update azure-tests [\#659](https://github.com/apache/camel-kafka-connector/pull/659) ([unsortedhashsets](https://github.com/unsortedhashsets))
 - Index.adoc should reflect nav.adoc [\#658](https://github.com/apache/camel-kafka-connector/pull/658) ([oscerd](https://github.com/oscerd))
 - Added a page in docs related to basic configuration of camel kafka co… [\#657](https://github.com/apache/camel-kafka-connector/pull/657) ([oscerd](https://github.com/oscerd))
+- Added specific section in documentation related to archetype [\#656](https://github.com/apache/camel-kafka-connector/pull/656) ([oscerd](https://github.com/oscerd))
 - Update archetypes docs to point to the latest snapshot 0.7.0 [\#654](https://github.com/apache/camel-kafka-connector/pull/654) ([oscerd](https://github.com/oscerd))
 - Error handling 1st part [\#653](https://github.com/apache/camel-kafka-connector/pull/653) ([oscerd](https://github.com/oscerd))
 - Minor fixes [\#652](https://github.com/apache/camel-kafka-connector/pull/652) ([valdar](https://github.com/valdar))
@@ -53,7 +54,6 @@
 - Added 0.6.0 to camel compatibility matrix [\#648](https://github.com/apache/camel-kafka-connector/pull/648) ([oscerd](https://github.com/oscerd))
 - Aligned docs and link to 0.6.0 [\#647](https://github.com/apache/camel-kafka-connector/pull/647) ([oscerd](https://github.com/oscerd))
 - Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
-- Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.6.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.1) (2020-11-27)
@@ -103,7 +103,6 @@
 
 **Merged pull requests:**
 
-- Added specific section in documentation related to archetype [\#656](https://github.com/apache/camel-kafka-connector/pull/656) ([oscerd](https://github.com/oscerd))
 - Docs antora 0.6.x [\#655](https://github.com/apache/camel-kafka-connector/pull/655) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.6.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.0) (2020-10-24)
@@ -141,6 +140,7 @@
 
 **Merged pull requests:**
 
+- Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
 - Switches the AWS v2 test infra-structure [\#635](https://github.com/apache/camel-kafka-connector/pull/635) ([orpiske](https://github.com/orpiske))
 - Decouple the Cassandra client from the service to simplify moving the services to Camel core [\#634](https://github.com/apache/camel-kafka-connector/pull/634) ([orpiske](https://github.com/orpiske))
 - Switches the AWS v1 test infra-structure [\#633](https://github.com/apache/camel-kafka-connector/pull/633) ([orpiske](https://github.com/orpiske))
@@ -181,7 +181,6 @@
 - 573 allow to add remove elements from catalog dynamically through api [\#574](https://github.com/apache/camel-kafka-connector/pull/574) ([apupier](https://github.com/apupier))
 - Add back AWS\*-connectors [\#572](https://github.com/apache/camel-kafka-connector/pull/572) ([oscerd](https://github.com/oscerd))
 - Improve Catalog and cleanup [\#571](https://github.com/apache/camel-kafka-connector/pull/571) ([oscerd](https://github.com/oscerd))
-- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#570](https://github.com/apache/camel-kafka-connector/pull/570) ([github-actions[bot]](https://github.com/apps/github-actions))
 - github action: add trigger on workflow\_dispatch [\#568](https://github.com/apache/camel-kafka-connector/pull/568) ([lburgazzoli](https://github.com/lburgazzoli))
 - GH actions: Fixed deploy action [\#567](https://github.com/apache/camel-kafka-connector/pull/567) ([oscerd](https://github.com/oscerd))
 - Do not use the wrapper test client on the AWS v2 service classes [\#562](https://github.com/apache/camel-kafka-connector/pull/562) ([orpiske](https://github.com/orpiske))
