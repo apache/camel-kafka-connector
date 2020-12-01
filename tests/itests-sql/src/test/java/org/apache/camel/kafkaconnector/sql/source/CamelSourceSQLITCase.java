@@ -17,17 +17,16 @@
 
 package org.apache.camel.kafkaconnector.sql.source;
 
+import java.util.concurrent.ExecutionException;
+
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
-import org.apache.camel.kafkaconnector.sql.client.DatabaseClient;
 import org.apache.camel.kafkaconnector.sql.services.SQLService;
 import org.apache.camel.kafkaconnector.sql.services.SQLServiceFactory;
 import org.apache.camel.kafkaconnector.sql.services.TestDataSource;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -36,12 +35,6 @@ import org.slf4j.LoggerFactory;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.concurrent.ExecutionException;
 
 @Testcontainers
 public class CamelSourceSQLITCase extends AbstractKafkaTest {
@@ -82,10 +75,8 @@ public class CamelSourceSQLITCase extends AbstractKafkaTest {
     @Timeout(10)
     @Test
     public void testDBFetch() throws ExecutionException, InterruptedException {
-        CamelSqlPropertyFactory factory = CamelSqlPropertyFactory.basic()
-                .withDataSource(CamelSqlPropertyFactory.classRef(TestDataSource.class.getName()))
-                .withQuery("select * from test")
-                .withTopics(TestUtils.getDefaultTestTopic(this.getClass()));
+        CamelSqlPropertyFactory factory = CamelSqlPropertyFactory.basic().withDataSource(CamelSqlPropertyFactory.classRef(TestDataSource.class.getName()))
+            .withQuery("select * from test").withTopics(TestUtils.getDefaultTestTopic(this.getClass()));
 
         runTest(factory);
 

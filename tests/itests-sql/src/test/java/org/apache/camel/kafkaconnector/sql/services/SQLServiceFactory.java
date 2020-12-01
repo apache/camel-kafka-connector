@@ -26,12 +26,11 @@ public final class SQLServiceFactory {
     private SQLServiceFactory() {
     }
 
-
-	public static SQLService createService() {
+    public static SQLService createService() {
         String instanceType = System.getProperty("sql.instance.type");
 
         if (instanceType == null || instanceType.equals("local-sql-container")) {
-           return new SQLLocalContainerService();
+            return new SQLLocalContainerService();
         }
 
         if (instanceType.equals("remote")) {
