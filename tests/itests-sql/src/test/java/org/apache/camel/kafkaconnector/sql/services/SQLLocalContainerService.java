@@ -28,12 +28,7 @@ public class SQLLocalContainerService implements SQLService {
     private static JdbcDatabaseContainer container;
 
     public SQLLocalContainerService() {
-        container = new PostgreSQLContainer()
-                .withDatabaseName("camel")
-                .withUsername("ckc")
-                .withPassword("ckcDevel123")
-                .withInitScript("schema.sql")
-                .withStartupTimeoutSeconds(60);
+        container = new PostgreSQLContainer().withDatabaseName("camel").withUsername("ckc").withPassword("ckcDevel123").withInitScript("schema.sql").withStartupTimeoutSeconds(60);
 
         container.start();
 
@@ -52,10 +47,9 @@ public class SQLLocalContainerService implements SQLService {
 
     @Override
     public void shutdown() {
-    	System.err.println("Shutdown");
+        System.err.println("Shutdown");
         LOG.info("Stopping the database instance");
         container.stop();
     }
-    
-    
+
 }

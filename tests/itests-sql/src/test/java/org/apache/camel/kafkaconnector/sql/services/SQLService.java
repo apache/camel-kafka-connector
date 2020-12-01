@@ -34,7 +34,6 @@ public interface SQLService extends BeforeAllCallback, AfterAllCallback {
 
     String sqlUrl();
 
-
     @Override
     default void beforeAll(ExtensionContext extensionContext) throws Exception {
         initialize();

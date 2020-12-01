@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.sql.source;
 
-
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
 public final class CamelSqlPropertyFactory extends SinkConnectorPropertyFactory<CamelSqlPropertyFactory> {
@@ -34,11 +33,7 @@ public final class CamelSqlPropertyFactory extends SinkConnectorPropertyFactory<
     }
 
     public static CamelSqlPropertyFactory basic() {
-        return new CamelSqlPropertyFactory()
-                .withName("CamelSQLSourceConnector")
-                .withTasksMax(1)
-                .withConnectorClass("org.apache.camel.kafkaconnector.sql.CamelSqlSourceConnector")
-                .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
-                .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
+        return new CamelSqlPropertyFactory().withName("CamelSQLSourceConnector").withTasksMax(1).withConnectorClass("org.apache.camel.kafkaconnector.sql.CamelSqlSourceConnector")
+            .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter").withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
 }

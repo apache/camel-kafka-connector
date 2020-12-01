@@ -138,10 +138,8 @@ public class CamelSinkSQLITCase extends AbstractKafkaTest {
 
     @Test
     public void testDBFetch() throws ExecutionException, InterruptedException {
-        CamelSqlPropertyFactory factory = CamelSqlPropertyFactory.basic()
-                .withDataSource(CamelSqlPropertyFactory.classRef(TestDataSource.class.getName()))
-                .withQuery("insert into test(test_name, test_data) values(:#TestName,:#TestData)")
-                .withTopics(TestUtils.getDefaultTestTopic(this.getClass()));
+        CamelSqlPropertyFactory factory = CamelSqlPropertyFactory.basic().withDataSource(CamelSqlPropertyFactory.classRef(TestDataSource.class.getName()))
+            .withQuery("insert into test(test_name, test_data) values(:#TestName,:#TestData)").withTopics(TestUtils.getDefaultTestTopic(this.getClass()));
 
         runTest(factory);
 
