@@ -104,6 +104,8 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private String idempotentRepositoryType;
         private String idempotentRepositoryTopicName;
         private String idempotentRepositoryKafkaServers;
+        private int idempotentRepositoryKafkaMaxCacheSize;
+        private int idempotentRepositoryKafkaPollDuration;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -184,6 +186,16 @@ public class CamelKafkaConnectMain extends SimpleMain {
             this.idempotentRepositoryKafkaServers = idempotentRepositoryKafkaServers;
             return this;
         }
+        
+        public Builder withIdempotentRepositoryKafkaMaxCacheSize(int idempotentRepositoryKafkaMaxCacheSize) {
+            this.idempotentRepositoryKafkaMaxCacheSize = idempotentRepositoryKafkaMaxCacheSize;
+            return this;
+        }
+        
+        public Builder withIdempotentRepositoryKafkaPollDuration(int idempotentRepositoryKafkaPollDuration) {
+            this.idempotentRepositoryKafkaPollDuration = idempotentRepositoryKafkaPollDuration;
+            return this;
+        }
 
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
@@ -203,7 +215,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                         idempotentRepo = MemoryIdempotentRepository.memoryIdempotentRepository(memoryDimension);
                         break;
                     case "kafka":
-                        idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers);
+                        idempotentRepo = new KafkaIdempotentRepository(idempotentRepositoryTopicName, idempotentRepositoryKafkaServers, idempotentRepositoryKafkaMaxCacheSize, idempotentRepositoryKafkaPollDuration);
                         break;
                     default:
                         break;
