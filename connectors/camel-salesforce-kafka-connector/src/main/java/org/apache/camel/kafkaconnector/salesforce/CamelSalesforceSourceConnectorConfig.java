@@ -52,7 +52,7 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_CONTENT_TYPE_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_CONF = "camel.source.endpoint.defaultReplayId";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DOC = "Default replayId setting if no value is found in initialReplayIdMap";
-    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DEFAULT = "-1";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_FORMAT_CONF = "camel.source.endpoint.format";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_FORMAT_DOC = "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_FORMAT_DEFAULT = null;
@@ -181,7 +181,7 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_CONTENT_TYPE_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_CONF = "camel.component.salesforce.defaultReplayId";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DOC = "Default replayId setting if no value is found in initialReplayIdMap";
-    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DEFAULT = "-1";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_FORMAT_CONF = "camel.component.salesforce.format";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_FORMAT_DOC = "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_FORMAT_DEFAULT = null;

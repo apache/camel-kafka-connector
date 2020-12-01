@@ -37,7 +37,7 @@ The camel-salesforce sink connector supports 113 options, which are listed below
 | *camel.sink.endpoint.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | false | MEDIUM
 | *camel.sink.endpoint.batchId* | Bulk API Batch ID | null | false | MEDIUM
 | *camel.sink.endpoint.contentType* | Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON] | null | false | MEDIUM
-| *camel.sink.endpoint.defaultReplayId* | Default replayId setting if no value is found in initialReplayIdMap | null | false | MEDIUM
+| *camel.sink.endpoint.defaultReplayId* | Default replayId setting if no value is found in initialReplayIdMap | "-1" | false | MEDIUM
 | *camel.sink.endpoint.format* | Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML] | null | false | MEDIUM
 | *camel.sink.endpoint.httpClient* | Custom Jetty Http Client to use to connect to Salesforce. | null | false | MEDIUM
 | *camel.sink.endpoint.includeDetails* | Include details in Salesforce1 Analytics report, defaults to false. | null | false | MEDIUM
@@ -77,7 +77,7 @@ The camel-salesforce sink connector supports 113 options, which are listed below
 | *camel.component.salesforce.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | false | MEDIUM
 | *camel.component.salesforce.batchId* | Bulk API Batch ID | null | false | MEDIUM
 | *camel.component.salesforce.contentType* | Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON] | null | false | MEDIUM
-| *camel.component.salesforce.defaultReplayId* | Default replayId setting if no value is found in initialReplayIdMap | null | false | MEDIUM
+| *camel.component.salesforce.defaultReplayId* | Default replayId setting if no value is found in initialReplayIdMap | "-1" | false | MEDIUM
 | *camel.component.salesforce.format* | Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML] | null | false | MEDIUM
 | *camel.component.salesforce.httpClient* | Custom Jetty Http Client to use to connect to Salesforce. | null | false | MEDIUM
 | *camel.component.salesforce.httpClientConnection Timeout* | Connection timeout used by the HttpClient when connecting to the Salesforce server. | 60000L | false | MEDIUM

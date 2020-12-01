@@ -62,6 +62,7 @@
 		"camel.sink.endpoint.defaultReplayId": {
 			"name": "camel.sink.endpoint.defaultReplayId",
 			"description": "Default replayId setting if no value is found in initialReplayIdMap",
+			"defaultValue": "\"-1\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -310,6 +311,7 @@
 		"camel.component.salesforce.defaultReplayId": {
 			"name": "camel.component.salesforce.defaultReplayId",
 			"description": "Default replayId setting if no value is found in initialReplayIdMap",
+			"defaultValue": "\"-1\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
