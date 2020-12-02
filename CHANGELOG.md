@@ -4,8 +4,17 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.1...HEAD)
 
+**Closed issues:**
+
+- Added Camel-SQL kafka connector integration test [\#757](https://github.com/apache/camel-kafka-connector/issues/757)
+- Support Poll timeout and key cache size as option for kafka idempotent repository [\#734](https://github.com/apache/camel-kafka-connector/issues/734)
+
 **Merged pull requests:**
 
+- Support Poll timeout and key cache size as option for kafka idempotent repository [\#760](https://github.com/apache/camel-kafka-connector/pull/760) ([oscerd](https://github.com/oscerd))
+- Docs update website [\#759](https://github.com/apache/camel-kafka-connector/pull/759) ([oscerd](https://github.com/oscerd))
+- Camel-SQL Kafka Connector Added integration tests [\#758](https://github.com/apache/camel-kafka-connector/pull/758) ([oscerd](https://github.com/oscerd))
+- Apicurio archetype docs [\#756](https://github.com/apache/camel-kafka-connector/pull/756) ([oscerd](https://github.com/oscerd))
 - Documentation for dataformat archetype [\#753](https://github.com/apache/camel-kafka-connector/pull/753) ([oscerd](https://github.com/oscerd))
 - Set JMS clients scope runtime to include required dependencies in the package [\#752](https://github.com/apache/camel-kafka-connector/pull/752) ([fvaleri](https://github.com/fvaleri))
 - Disable slow tests [\#749](https://github.com/apache/camel-kafka-connector/pull/749) ([orpiske](https://github.com/orpiske))
@@ -234,6 +243,7 @@
 - Fixes typos when an invalid instance type is provided [\#477](https://github.com/apache/camel-kafka-connector/pull/477) ([orpiske](https://github.com/orpiske))
 - Implement the connection timeout work-around [\#476](https://github.com/apache/camel-kafka-connector/pull/476) ([orpiske](https://github.com/orpiske))
 - Removed browse and class connector [\#475](https://github.com/apache/camel-kafka-connector/pull/475) ([oscerd](https://github.com/oscerd))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#473](https://github.com/apache/camel-kafka-connector/pull/473) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Removed digitalocean connector [\#472](https://github.com/apache/camel-kafka-connector/pull/472) ([oscerd](https://github.com/oscerd))
 - .asf.yaml: Enabled only rebase and squash button on PR [\#471](https://github.com/apache/camel-kafka-connector/pull/471) ([oscerd](https://github.com/oscerd))
 - Replaced the use of kubectl with oc command. [\#468](https://github.com/apache/camel-kafka-connector/pull/468) ([valdar](https://github.com/valdar))
