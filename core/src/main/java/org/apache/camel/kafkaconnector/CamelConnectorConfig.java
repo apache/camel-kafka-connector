@@ -39,6 +39,10 @@ public abstract class CamelConnectorConfig extends AbstractConfig {
     public static final String CAMEL_CONNECTOR_ERROR_HANDLER_CONF = "camel.error.handler";
     public static final String CAMEL_CONNECTOR_ERROR_HANDLER_DOC = "The error handler to use: possible value are 'no' or 'default'";
     
+    public static final String CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_DEFAULT = "";
+    public static final String CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF = "camel.remove.headers.pattern";
+    public static final String CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_DOC = "The pattern of the headers we want to exclude from the exchange";
+    
     public static final int CAMEL_CONNECTOR_ERROR_HANDLER_MAXIMUM_REDELIVERIES_DEFAULT = 0;
     public static final String CAMEL_CONNECTOR_ERROR_HANDLER_MAXIMUM_REDELIVERIES_CONF = "camel.error.handler.max.redeliveries";
     public static final String CAMEL_CONNECTOR_ERROR_HANDLER_MAXIMUM_REDELIVERIES_DOC = "The maximum redeliveries to be use in case of Default Error Handler";

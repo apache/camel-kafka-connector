@@ -106,6 +106,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private String idempotentRepositoryKafkaServers;
         private int idempotentRepositoryKafkaMaxCacheSize;
         private int idempotentRepositoryKafkaPollDuration;
+        private String headersExcludePattern;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -196,6 +197,11 @@ public class CamelKafkaConnectMain extends SimpleMain {
             this.idempotentRepositoryKafkaPollDuration = idempotentRepositoryKafkaPollDuration;
             return this;
         }
+        
+        public Builder withHeadersExcludePattern(String headersExcludePattern) {
+            this.headersExcludePattern = headersExcludePattern;
+            return this;
+        }
 
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
@@ -261,14 +267,23 @@ public class CamelKafkaConnectMain extends SimpleMain {
                                     LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({}).idempotentConsumer(body(), + "
                                            + "MemoryIdempotentRepository.memoryIdempotentRepository({}))", s, aggregationSize, aggregationTimeout, memoryDimension);
                                     LOG.info(".to({})", to);
-                                    rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").toD(to);
+                                    if (ObjectHelper.isEmpty(headersExcludePattern)) {
+                                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").toD(to);
+                                    } else {
+                                    	rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
+                                    }
                                     break;
                                 case "header":
                                     LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({}).idempotentConsumer(header(expressionHeader), + "
                                            + "MemoryIdempotentRepository.memoryIdempotentRepository({}))", s, aggregationSize, aggregationTimeout, memoryDimension);
                                     LOG.info(".to({})", to);
-                                    rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout)
-                                        .idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").toD(to);
+                                    if (ObjectHelper.isEmpty(headersExcludePattern)) {
+                                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout)
+                                            .idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").toD(to);
+                                    } else {
+                                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout)
+                                            .idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);	
+                                    }
                                     break;
                                 default:
                                     break;
@@ -276,18 +291,30 @@ public class CamelKafkaConnectMain extends SimpleMain {
                         } else {
                             LOG.info(".aggregate({}).constant(true).completionSize({}).completionTimeout({})", s, aggregationSize, aggregationTimeout);
                             LOG.info(".to({})", to);
-                            rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(to);
+                            if (ObjectHelper.isEmpty(headersExcludePattern)) {
+                                rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(to);
+                            } else {
+                            	rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).removeHeaders(headersExcludePattern).toD(to);
+                            }
                         }
                     } else {
                         if (idempotencyEnabled) {
                             switch (expressionType) {
                                 case "body":
                                     LOG.info("idempotentConsumer(body(), MemoryIdempotentRepository.memoryIdempotentRepository({})).to({})", memoryDimension, to);
-                                    rd.idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").toD(to);
+                                    if (ObjectHelper.isEmpty(headersExcludePattern)) {
+                                        rd.idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").toD(to);
+                                    } else {
+                                    	rd.idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);	
+                                    }
                                     break;
                                 case "header":
                                     LOG.info("idempotentConsumer(header(expressionHeader), MemoryIdempotentRepository.memoryIdempotentRepository({})).to({})", memoryDimension, to);
-                                    rd.idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").toD(to);
+                                    if (ObjectHelper.isEmpty(headersExcludePattern)) {
+                                        rd.idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").toD(to);
+                                    } else {
+                                    	rd.idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
+                                    }
                                     break;
                                 default:
                                     break;
@@ -295,7 +322,11 @@ public class CamelKafkaConnectMain extends SimpleMain {
                         } else {
                             //to
                             LOG.info(".to({})", to);
-                            rd.toD(to);
+                            if (ObjectHelper.isEmpty(headersExcludePattern)) {
+                                rd.toD(to);
+                            } else {
+                            	rd.removeHeaders(headersExcludePattern).toD(to);
+                            }
                         }
                     }
                 }
