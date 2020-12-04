@@ -270,7 +270,8 @@ public class CamelKafkaConnectMain extends SimpleMain {
                                     if (ObjectHelper.isEmpty(headersExcludePattern)) {
                                         rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").toD(to);
                                     } else {
-                                    	rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
+                                        rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout)
+                                            .idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
                                     }
                                     break;
                                 case "header":
@@ -282,7 +283,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                                             .idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").toD(to);
                                     } else {
                                         rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout)
-                                            .idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);	
+                                            .idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
                                     }
                                     break;
                                 default:
@@ -294,7 +295,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                             if (ObjectHelper.isEmpty(headersExcludePattern)) {
                                 rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).toD(to);
                             } else {
-                            	rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).removeHeaders(headersExcludePattern).toD(to);
+                                rd.aggregate(s).constant(true).completionSize(aggregationSize).completionTimeout(aggregationTimeout).removeHeaders(headersExcludePattern).toD(to);
                             }
                         }
                     } else {
@@ -305,7 +306,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                                     if (ObjectHelper.isEmpty(headersExcludePattern)) {
                                         rd.idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").toD(to);
                                     } else {
-                                    	rd.idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);	
+                                        rd.idempotentConsumer(body()).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
                                     }
                                     break;
                                 case "header":
@@ -313,7 +314,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                                     if (ObjectHelper.isEmpty(headersExcludePattern)) {
                                         rd.idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").toD(to);
                                     } else {
-                                    	rd.idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
+                                        rd.idempotentConsumer(header(expressionHeader)).messageIdRepositoryRef("idempotentRepository").removeHeaders(headersExcludePattern).toD(to);
                                     }
                                     break;
                                 default:
@@ -325,7 +326,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
                             if (ObjectHelper.isEmpty(headersExcludePattern)) {
                                 rd.toD(to);
                             } else {
-                            	rd.removeHeaders(headersExcludePattern).toD(to);
+                                rd.removeHeaders(headersExcludePattern).toD(to);
                             }
                         }
                     }
