@@ -29,6 +29,7 @@
 - Prevent NPEs in the \(unlikely\) case the record value is null [\#730](https://github.com/apache/camel-kafka-connector/pull/730) ([orpiske](https://github.com/orpiske))
 - Added documentation for idempotency in basic configuration docs [\#729](https://github.com/apache/camel-kafka-connector/pull/729) ([oscerd](https://github.com/oscerd))
 - Added Support for KafkaIdempotentRepository [\#725](https://github.com/apache/camel-kafka-connector/pull/725) ([oscerd](https://github.com/oscerd))
+- File language and core languages in general are not working  [\#723](https://github.com/apache/camel-kafka-connector/pull/723) ([oscerd](https://github.com/oscerd))
 - Use a Registry Ref for IdempotentRepository [\#722](https://github.com/apache/camel-kafka-connector/pull/722) ([oscerd](https://github.com/oscerd))
 - Use the errorHandler variable coming from Builder [\#718](https://github.com/apache/camel-kafka-connector/pull/718) ([oscerd](https://github.com/oscerd))
 - Idempotency [\#716](https://github.com/apache/camel-kafka-connector/pull/716) ([oscerd](https://github.com/oscerd))
@@ -411,6 +412,7 @@
 - BigDecimal values are not handled correctly in Headers serialization and deserialization [\#325](https://github.com/apache/camel-kafka-connector/issues/325)
 - Camel HDFS: does not work due to dependencies conflicts [\#263](https://github.com/apache/camel-kafka-connector/issues/263)
 - NullPointerException during shutdown when using Salesforce component [\#245](https://github.com/apache/camel-kafka-connector/issues/245)
+- Possible problems in CamelSinkAWSSQSITCase tests [\#215](https://github.com/apache/camel-kafka-connector/issues/215)
 
 **Closed issues:**
 
@@ -474,7 +476,6 @@
 **Fixed bugs:**
 
 - Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
-- Possible problems in CamelSinkAWSSQSITCase tests [\#215](https://github.com/apache/camel-kafka-connector/issues/215)
 
 **Closed issues:**
 
