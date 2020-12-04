@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -31,12 +32,14 @@ import org.apache.camel.kafkaconnector.utils.StringJoinerAggregator;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.header.Header;
+import org.apache.kafka.connect.header.Headers;
 import org.apache.kafka.connect.source.SourceRecord;
 import org.junit.jupiter.api.Test;
 
 import static org.apache.camel.util.CollectionHelper.mapOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -522,6 +525,37 @@ public class CamelSourceTaskTest {
             assertThat(records).element(0).hasFieldOrPropertyWithValue("value", "0|1");
             assertThat(records).element(1).hasFieldOrPropertyWithValue("value", "2|3");
             assertThat(records).element(2).hasFieldOrPropertyWithValue("value", "3|2");
+        } finally {
+            sourceTask.stop();
+        }
+    }
+    
+    @Test
+    public void testSourcePollingWithIdempotencyEnabledAndHeaderExclusion() {
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask
+            .start(mapOf(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME, CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI,
+                         CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_ENABLED_CONF, true, CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_TYPE_CONF,
+                         "header", CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_EXPRESSION_HEADER_CONF, "headerIdempotency",
+            		CamelSourceConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF, "headerIdempotency"));
+
+        try {
+
+            sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test", "headerIdempotency", "Test");
+            sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test1", "headerIdempotency", "Test1");
+            sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "TestTest", "headerIdempotency", "Test");
+            sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "Test2", "headerIdempotency", "Test2");
+
+            List<SourceRecord> records = sourceTask.poll();
+
+            assertThat(records).hasSize(3);
+            assertThat(records).element(0).hasFieldOrPropertyWithValue("value", "Test");
+            assertThat(records).element(1).hasFieldOrPropertyWithValue("value", "Test1");
+            assertThat(records).element(2).hasFieldOrPropertyWithValue("value", "Test2");
+            assertFalse(records.get(0).headers().allWithName("headerIdempotency").hasNext());
+            assertFalse(records.get(1).headers().allWithName("headerIdempotency").hasNext());
+            assertFalse(records.get(2).headers().allWithName("headerIdempotency").hasNext());
         } finally {
             sourceTask.stop();
         }
