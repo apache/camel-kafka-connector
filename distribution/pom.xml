@@ -45,9 +45,22 @@
                   <goal>single</goal>
                 </goals>
                 <configuration>
-                  <finalName>camel-kafka-connector-${project.version}</finalName>
+                  <finalName>camel-kafka-connector-source-${project.version}</finalName>
                   <descriptors>
                     <descriptor>src/main/assemblies/source-release.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+              <execution>
+                <id>binary-release</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <finalName>camel-kafka-connector-binary-${project.version}</finalName>
+                  <descriptors>
+                    <descriptor>src/main/assemblies/binary-release.xml</descriptor>
                   </descriptors>
                 </configuration>
               </execution>
