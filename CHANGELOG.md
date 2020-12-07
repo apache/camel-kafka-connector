@@ -34,6 +34,7 @@
 - Use a Registry Ref for IdempotentRepository [\#722](https://github.com/apache/camel-kafka-connector/pull/722) ([oscerd](https://github.com/oscerd))
 - Use the errorHandler variable coming from Builder [\#718](https://github.com/apache/camel-kafka-connector/pull/718) ([oscerd](https://github.com/oscerd))
 - Idempotency [\#716](https://github.com/apache/camel-kafka-connector/pull/716) ([oscerd](https://github.com/oscerd))
+- Issue/692 [\#714](https://github.com/apache/camel-kafka-connector/pull/714) ([valdar](https://github.com/valdar))
 - Decouple the jdbc clients from the service to simplify using the test infra from Camel [\#713](https://github.com/apache/camel-kafka-connector/pull/713) ([orpiske](https://github.com/orpiske))
 - Add RemoteFileTransforms to the FTP connector directly  [\#709](https://github.com/apache/camel-kafka-connector/pull/709) ([oscerd](https://github.com/oscerd))
 - Add RemoteFileTransforms to the FTPS connector directly [\#707](https://github.com/apache/camel-kafka-connector/pull/707) ([oscerd](https://github.com/oscerd))
