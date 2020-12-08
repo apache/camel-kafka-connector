@@ -8,13 +8,15 @@
 
 - Add a removeHeaders option on both source and sink [\#763](https://github.com/apache/camel-kafka-connector/issues/763)
 - Added Camel-SQL kafka connector integration test [\#757](https://github.com/apache/camel-kafka-connector/issues/757)
+- Create binary distribution [\#754](https://github.com/apache/camel-kafka-connector/issues/754)
 - Support Poll timeout and key cache size as option for kafka idempotent repository [\#734](https://github.com/apache/camel-kafka-connector/issues/734)
+- Provide validation of properties file from the catalog [\#671](https://github.com/apache/camel-kafka-connector/issues/671)
 - Create Arangodb examples [\#457](https://github.com/apache/camel-kafka-connector/issues/457)
 
 **Merged pull requests:**
 
+- Binary distribution created [\#765](https://github.com/apache/camel-kafka-connector/pull/765) ([valdar](https://github.com/valdar))
 - Remove headers fix [\#764](https://github.com/apache/camel-kafka-connector/pull/764) ([oscerd](https://github.com/oscerd))
-- chore: documentation regen for 0.6.1 [\#761](https://github.com/apache/camel-kafka-connector/pull/761) ([valdar](https://github.com/valdar))
 - Support Poll timeout and key cache size as option for kafka idempotent repository [\#760](https://github.com/apache/camel-kafka-connector/pull/760) ([oscerd](https://github.com/oscerd))
 - Docs update website [\#759](https://github.com/apache/camel-kafka-connector/pull/759) ([oscerd](https://github.com/oscerd))
 - Camel-SQL Kafka Connector Added integration tests [\#758](https://github.com/apache/camel-kafka-connector/pull/758) ([oscerd](https://github.com/oscerd))
