@@ -15,8 +15,10 @@
 
 **Merged pull requests:**
 
+- Fix example CamelAmqpSourceConnector using sink instead of source pro… [\#768](https://github.com/apache/camel-kafka-connector/pull/768) ([apupier](https://github.com/apupier))
 - Binary distribution created [\#765](https://github.com/apache/camel-kafka-connector/pull/765) ([valdar](https://github.com/valdar))
 - Remove headers fix [\#764](https://github.com/apache/camel-kafka-connector/pull/764) ([oscerd](https://github.com/oscerd))
+- chore: documentation regen for 0.6.1 [\#761](https://github.com/apache/camel-kafka-connector/pull/761) ([valdar](https://github.com/valdar))
 - Support Poll timeout and key cache size as option for kafka idempotent repository [\#760](https://github.com/apache/camel-kafka-connector/pull/760) ([oscerd](https://github.com/oscerd))
 - Docs update website [\#759](https://github.com/apache/camel-kafka-connector/pull/759) ([oscerd](https://github.com/oscerd))
 - Camel-SQL Kafka Connector Added integration tests [\#758](https://github.com/apache/camel-kafka-connector/pull/758) ([oscerd](https://github.com/oscerd))
@@ -33,6 +35,7 @@
 - Prevent NPEs in the \(unlikely\) case the record value is null [\#730](https://github.com/apache/camel-kafka-connector/pull/730) ([orpiske](https://github.com/orpiske))
 - Added documentation for idempotency in basic configuration docs [\#729](https://github.com/apache/camel-kafka-connector/pull/729) ([oscerd](https://github.com/oscerd))
 - Added Support for KafkaIdempotentRepository [\#725](https://github.com/apache/camel-kafka-connector/pull/725) ([oscerd](https://github.com/oscerd))
+- Updated AWS test services according to interface changes from camel 3.7 [\#724](https://github.com/apache/camel-kafka-connector/pull/724) ([orpiske](https://github.com/orpiske))
 - Use a Registry Ref for IdempotentRepository [\#722](https://github.com/apache/camel-kafka-connector/pull/722) ([oscerd](https://github.com/oscerd))
 - Use the errorHandler variable coming from Builder [\#718](https://github.com/apache/camel-kafka-connector/pull/718) ([oscerd](https://github.com/oscerd))
 - Idempotency [\#716](https://github.com/apache/camel-kafka-connector/pull/716) ([oscerd](https://github.com/oscerd))
