@@ -41,7 +41,11 @@
 			"description": "Defines the producers allowed on the Disruptor. The options allowed are: Multi to allow multiple producers and Single to enable certain optimizations only allowed when one concurrent producer (on one thread or otherwise synchronized) is active. One of: [Single] [Multi]",
 			"defaultValue": "\"Multi\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Single",
+				"Multi"
+			]
 		},
 		"camel.sink.endpoint.timeout": {
 			"name": "camel.sink.endpoint.timeout",
@@ -55,7 +59,12 @@
 			"description": "Option to specify whether the caller should wait for the async task to complete or not before continuing. The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory. The last value, IfReplyExpected, will only wait if the message is Request Reply based. One of: [Never] [IfReplyExpected] [Always]",
 			"defaultValue": "\"IfReplyExpected\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Never",
+				"IfReplyExpected",
+				"Always"
+			]
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
@@ -90,7 +99,11 @@
 			"description": "To configure the default value for DisruptorProducerType The default value is Multi. One of: [Single] [Multi]",
 			"defaultValue": "\"Multi\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Single",
+				"Multi"
+			]
 		},
 		"camel.component.disruptor-vm.lazyStartProducer": {
 			"name": "camel.component.disruptor-vm.lazyStartProducer",

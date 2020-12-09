@@ -41,7 +41,10 @@
 			"description": "The operation to perform One of: [translateText]",
 			"defaultValue": "\"translateText\"",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"translateText"
+			]
 		},
 		"camel.sink.endpoint.pojoRequest": {
 			"name": "camel.sink.endpoint.pojoRequest",
@@ -67,7 +70,11 @@
 			"description": "To define a proxy protocol when instantiating the Translate client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -158,7 +165,10 @@
 			"description": "The operation to perform One of: [translateText]",
 			"defaultValue": "\"translateText\"",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"translateText"
+			]
 		},
 		"camel.component.aws2-translate.pojoRequest": {
 			"name": "camel.component.aws2-translate.pojoRequest",
@@ -184,7 +194,11 @@
 			"description": "To define a proxy protocol when instantiating the Translate client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws2-translate.region": {
 			"name": "camel.component.aws2-translate.region",

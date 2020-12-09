@@ -46,7 +46,14 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do in case the user don't want to send only a record One of: [sendBatchRecord] [createDeliveryStream] [deleteDeliveryStream] [describeDeliveryStream] [updateDestination]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"sendBatchRecord",
+				"createDeliveryStream",
+				"deleteDeliveryStream",
+				"describeDeliveryStream",
+				"updateDestination"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -65,7 +72,11 @@
 			"description": "To define a proxy protocol when instantiating the Kinesis Firehose client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -143,7 +154,14 @@
 			"name": "camel.component.aws2-kinesis-firehose.operation",
 			"description": "The operation to do in case the user don't want to send only a record One of: [sendBatchRecord] [createDeliveryStream] [deleteDeliveryStream] [describeDeliveryStream] [updateDestination]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"sendBatchRecord",
+				"createDeliveryStream",
+				"deleteDeliveryStream",
+				"describeDeliveryStream",
+				"updateDestination"
+			]
 		},
 		"camel.component.aws2-kinesis-firehose.proxyHost": {
 			"name": "camel.component.aws2-kinesis-firehose.proxyHost",
@@ -162,7 +180,11 @@
 			"description": "To define a proxy protocol when instantiating the Kinesis Firehose client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws2-kinesis-firehose.region": {
 			"name": "camel.component.aws2-kinesis-firehose.region",

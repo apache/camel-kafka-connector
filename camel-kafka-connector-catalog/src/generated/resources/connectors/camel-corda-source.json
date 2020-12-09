@@ -40,7 +40,11 @@
 			"name": "camel.source.endpoint.sort",
 			"description": "Sort allows specification of a set of entity attribute names and their associated directionality and null handling, to be applied upon processing a query specification. One of: [ASC] [DESC]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ASC",
+				"DESC"
+			]
 		},
 		"camel.source.endpoint.contractStateClass": {
 			"name": "camel.source.endpoint.contractStateClass",
@@ -58,7 +62,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.flowLogicArguments": {
 			"name": "camel.source.endpoint.flowLogicArguments",
@@ -135,7 +144,11 @@
 			"name": "camel.component.corda.sort",
 			"description": "Sort allows specification of a set of entity attribute names and their associated directionality and null handling, to be applied upon processing a query specification. One of: [ASC] [DESC]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ASC",
+				"DESC"
+			]
 		},
 		"camel.component.corda.contractStateClass": {
 			"name": "camel.component.corda.contractStateClass",

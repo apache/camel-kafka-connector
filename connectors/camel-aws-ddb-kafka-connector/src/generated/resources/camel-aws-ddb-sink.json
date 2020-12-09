@@ -59,7 +59,19 @@
 			"description": "What operation to perform One of: [BatchGetItems] [DeleteItem] [DeleteTable] [DescribeTable] [GetItem] [PutItem] [Query] [Scan] [UpdateItem] [UpdateTable]",
 			"defaultValue": "\"PutItem\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"BatchGetItems",
+				"DeleteItem",
+				"DeleteTable",
+				"DescribeTable",
+				"GetItem",
+				"PutItem",
+				"Query",
+				"Scan",
+				"UpdateItem",
+				"UpdateTable"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -78,7 +90,11 @@
 			"description": "To define a proxy protocol when instantiating the DDB client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.readCapacity": {
 			"name": "camel.sink.endpoint.readCapacity",
@@ -174,7 +190,19 @@
 			"description": "What operation to perform One of: [BatchGetItems] [DeleteItem] [DeleteTable] [DescribeTable] [GetItem] [PutItem] [Query] [Scan] [UpdateItem] [UpdateTable]",
 			"defaultValue": "\"PutItem\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"BatchGetItems",
+				"DeleteItem",
+				"DeleteTable",
+				"DescribeTable",
+				"GetItem",
+				"PutItem",
+				"Query",
+				"Scan",
+				"UpdateItem",
+				"UpdateTable"
+			]
 		},
 		"camel.component.aws-ddb.proxyHost": {
 			"name": "camel.component.aws-ddb.proxyHost",
@@ -193,7 +221,11 @@
 			"description": "To define a proxy protocol when instantiating the DDB client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-ddb.readCapacity": {
 			"name": "camel.component.aws-ddb.readCapacity",

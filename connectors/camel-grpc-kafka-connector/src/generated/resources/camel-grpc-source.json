@@ -53,7 +53,11 @@
 			"description": "This option specifies the top-level strategy for processing service requests and responses in streaming mode. If an aggregation strategy is selected, all requests will be accumulated in the list, then transferred to the flow, and the accumulated responses will be sent to the sender. If a propagation strategy is selected, request is sent to the stream, and the response will be immediately sent back to the sender. One of: [AGGREGATION] [PROPAGATION]",
 			"defaultValue": "\"PROPAGATION\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"AGGREGATION",
+				"PROPAGATION"
+			]
 		},
 		"camel.source.endpoint.forwardOnCompleted": {
 			"name": "camel.source.endpoint.forwardOnCompleted",
@@ -86,7 +90,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
@@ -107,14 +116,24 @@
 			"description": "Authentication method type in advance to the SSL\/TLS negotiation One of: [NONE] [GOOGLE] [JWT]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"GOOGLE",
+				"JWT"
+			]
 		},
 		"camel.source.endpoint.jwtAlgorithm": {
 			"name": "camel.source.endpoint.jwtAlgorithm",
 			"description": "JSON Web Token sign algorithm One of: [HMAC256] [HMAC384] [HMAC512]",
 			"defaultValue": "\"HMAC256\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HMAC256",
+				"HMAC384",
+				"HMAC512"
+			]
 		},
 		"camel.source.endpoint.jwtIssuer": {
 			"name": "camel.source.endpoint.jwtIssuer",
@@ -157,7 +176,12 @@
 			"description": "Identifies the security negotiation type used for HTTP\/2 communication One of: [TLS] [PLAINTEXT_UPGRADE] [PLAINTEXT]",
 			"defaultValue": "\"PLAINTEXT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TLS",
+				"PLAINTEXT_UPGRADE",
+				"PLAINTEXT"
+			]
 		},
 		"camel.source.endpoint.serviceAccountResource": {
 			"name": "camel.source.endpoint.serviceAccountResource",

@@ -34,7 +34,11 @@
 			"description": "Specifies if the output should be Jackson JsonNode or a JSON String. One of: [Jackson] [JsonString]",
 			"defaultValue": "\"Jackson\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Jackson",
+				"JsonString"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -48,7 +52,11 @@
 			"description": "Specifies if the output should be Jackson JsonNode or a JSON String. One of: [Jackson] [JsonString]",
 			"defaultValue": "\"Jackson\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Jackson",
+				"JsonString"
+			]
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",

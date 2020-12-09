@@ -13,19 +13,53 @@
 			"name": "camel.sink.path.command",
 			"description": "Command can be either route or language One of: [route] [language]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"route",
+				"language"
+			]
 		},
 		"camel.sink.path.language": {
 			"name": "camel.sink.path.language",
 			"description": "Allows you to specify the name of a Language to use for evaluating the message body. If there is any result from the evaluation, then the result is put in the message body. One of: [bean] [constant] [el] [exchangeProperty] [file] [groovy] [header] [jsonpath] [mvel] [ognl] [ref] [simple] [spel] [sql] [terser] [tokenize] [xpath] [xquery] [xtokenize]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"bean",
+				"constant",
+				"el",
+				"exchangeProperty",
+				"file",
+				"groovy",
+				"header",
+				"jsonpath",
+				"mvel",
+				"ognl",
+				"ref",
+				"simple",
+				"spel",
+				"sql",
+				"terser",
+				"tokenize",
+				"xpath",
+				"xquery",
+				"xtokenize"
+			]
 		},
 		"camel.sink.endpoint.action": {
 			"name": "camel.sink.endpoint.action",
 			"description": "To denote an action that can be either: start, stop, or status. To either start or stop a route, or to get the status of the route as output in the message body. You can use suspend and resume from Camel 2.11.1 onwards to either suspend or resume a route. And from Camel 2.11.1 onwards you can use stats to get performance statics returned in XML format; the routeId option can be used to define which route to get the performance stats for, if routeId is not defined, then you get statistics for the entire CamelContext. The restart action will restart the route. One of: [start] [stop] [suspend] [resume] [restart] [status] [stats]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"start",
+				"stop",
+				"suspend",
+				"resume",
+				"restart",
+				"status",
+				"stats"
+			]
 		},
 		"camel.sink.endpoint.async": {
 			"name": "camel.sink.endpoint.async",
@@ -46,7 +80,15 @@
 			"description": "Logging level used for logging when task is done, or if any exceptions occurred during processing the task. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"INFO\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.sink.endpoint.restartDelay": {
 			"name": "camel.sink.endpoint.restartDelay",

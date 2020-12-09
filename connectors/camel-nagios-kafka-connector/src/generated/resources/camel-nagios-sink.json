@@ -67,7 +67,16 @@
 			"name": "camel.sink.endpoint.encryption",
 			"description": "To specify an encryption method. One of: [NONE] [TRIPLE_DES] [XOR] [RIJNDAEL128] [RIJNDAEL192] [RIJNDAEL256] [BLOWFISH]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"TRIPLE_DES",
+				"XOR",
+				"RIJNDAEL128",
+				"RIJNDAEL192",
+				"RIJNDAEL256",
+				"BLOWFISH"
+			]
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",
@@ -113,7 +122,16 @@
 			"name": "camel.component.nagios.encryption",
 			"description": "To specify an encryption method. One of: [NONE] [TRIPLE_DES] [XOR] [RIJNDAEL128] [RIJNDAEL192] [RIJNDAEL256] [BLOWFISH]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"TRIPLE_DES",
+				"XOR",
+				"RIJNDAEL128",
+				"RIJNDAEL192",
+				"RIJNDAEL256",
+				"BLOWFISH"
+			]
 		},
 		"camel.component.nagios.password": {
 			"name": "camel.component.nagios.password",

@@ -32,7 +32,13 @@
 			"description": "The default action. One of: [SET] [GET] [GET_AND_SET] [COMPARE_AND_SET]",
 			"defaultValue": "\"SET\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SET",
+				"GET",
+				"GET_AND_SET",
+				"COMPARE_AND_SET"
+			]
 		},
 		"camel.source.endpoint.nodes": {
 			"name": "camel.source.endpoint.nodes",
@@ -76,7 +82,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
@@ -108,7 +119,13 @@
 			"name": "camel.source.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.source.endpoint.resourceConfigs": {
 			"name": "camel.source.endpoint.resourceConfigs",
@@ -152,7 +169,13 @@
 			"description": "The default action. One of: [SET] [GET] [GET_AND_SET] [COMPARE_AND_SET]",
 			"defaultValue": "\"SET\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SET",
+				"GET",
+				"GET_AND_SET",
+				"COMPARE_AND_SET"
+			]
 		},
 		"camel.component.atomix-value.nodes": {
 			"name": "camel.component.atomix-value.nodes",
@@ -216,7 +239,13 @@
 			"name": "camel.component.atomix-value.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.component.atomix-value.resourceConfigs": {
 			"name": "camel.component.atomix-value.resourceConfigs",

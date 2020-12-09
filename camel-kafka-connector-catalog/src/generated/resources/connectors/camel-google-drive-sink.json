@@ -13,13 +13,43 @@
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [DRIVE_ABOUT] [DRIVE_APPS] [DRIVE_CHANGES] [DRIVE_CHANNELS] [DRIVE_CHILDREN] [DRIVE_COMMENTS] [DRIVE_FILES] [DRIVE_PARENTS] [DRIVE_PERMISSIONS] [DRIVE_PROPERTIES] [DRIVE_REALTIME] [DRIVE_REPLIES] [DRIVE_REVISIONS]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"DRIVE_ABOUT",
+				"DRIVE_APPS",
+				"DRIVE_CHANGES",
+				"DRIVE_CHANNELS",
+				"DRIVE_CHILDREN",
+				"DRIVE_COMMENTS",
+				"DRIVE_FILES",
+				"DRIVE_PARENTS",
+				"DRIVE_PERMISSIONS",
+				"DRIVE_PROPERTIES",
+				"DRIVE_REALTIME",
+				"DRIVE_REPLIES",
+				"DRIVE_REVISIONS"
+			]
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation One of: [copy] [delete] [get] [getIdForEmail] [insert] [list] [patch] [stop] [touch] [trash] [untrash] [update] [watch]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"copy",
+				"delete",
+				"get",
+				"getIdForEmail",
+				"insert",
+				"list",
+				"patch",
+				"stop",
+				"touch",
+				"trash",
+				"untrash",
+				"update",
+				"watch"
+			]
 		},
 		"camel.sink.endpoint.applicationName": {
 			"name": "camel.sink.endpoint.applicationName",

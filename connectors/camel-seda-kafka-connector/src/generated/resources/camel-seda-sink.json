@@ -75,7 +75,12 @@
 			"description": "Option to specify whether the caller should wait for the async task to complete or not before continuing. The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory. The last value, IfReplyExpected, will only wait if the message is Request Reply based. The default option is IfReplyExpected. One of: [Never] [IfReplyExpected] [Always]",
 			"defaultValue": "\"IfReplyExpected\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Never",
+				"IfReplyExpected",
+				"Always"
+			]
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",

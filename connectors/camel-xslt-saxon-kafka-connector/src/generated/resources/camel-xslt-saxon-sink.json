@@ -55,7 +55,13 @@
 			"description": "Option to specify which output type to use. Possible values are: string, bytes, DOM, file. The first three options are all in memory based, where as file is streamed directly to a java.io.File. For file you must specify the filename in the IN header with the key Exchange.XSLT_FILE_NAME which is also CamelXsltFileName. Also any paths leading to the filename must be created beforehand, otherwise an exception is thrown at runtime. One of: [string] [bytes] [DOM] [file]",
 			"defaultValue": "\"string\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"string",
+				"bytes",
+				"DOM",
+				"file"
+			]
 		},
 		"camel.sink.endpoint.transformerCacheSize": {
 			"name": "camel.sink.endpoint.transformerCacheSize",

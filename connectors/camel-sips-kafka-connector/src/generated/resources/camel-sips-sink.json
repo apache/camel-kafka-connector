@@ -110,7 +110,11 @@
 			"description": "Setting for choice of transport protocol. Valid choices are tcp or udp. One of: [tcp] [udp]",
 			"defaultValue": "\"tcp\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"tcp",
+				"udp"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

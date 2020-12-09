@@ -51,7 +51,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
@@ -78,19 +83,32 @@
 			"name": "camel.source.endpoint.adsuAddressType",
 			"description": "The common ASDU address size. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SIZE_1",
+				"SIZE_2"
+			]
 		},
 		"camel.source.endpoint.causeOfTransmissionType": {
 			"name": "camel.source.endpoint.causeOfTransmissionType",
 			"description": "The cause of transmission type. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SIZE_1",
+				"SIZE_2"
+			]
 		},
 		"camel.source.endpoint.informationObjectAddressType": {
 			"name": "camel.source.endpoint.informationObjectAddressType",
 			"description": "The information address size. May be either SIZE_1, SIZE_2 or SIZE_3. One of: [SIZE_1] [SIZE_2] [SIZE_3]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SIZE_1",
+				"SIZE_2",
+				"SIZE_3"
+			]
 		},
 		"camel.source.endpoint.maxUnacknowledged": {
 			"name": "camel.source.endpoint.maxUnacknowledged",

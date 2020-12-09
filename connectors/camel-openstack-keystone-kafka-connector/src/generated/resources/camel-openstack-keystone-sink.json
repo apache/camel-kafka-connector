@@ -57,7 +57,14 @@
 			"name": "camel.sink.endpoint.subsystem",
 			"description": "OpenStack Keystone subsystem One of: [regions] [domains] [projects] [users] [groups]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"regions",
+				"domains",
+				"projects",
+				"users",
+				"groups"
+			]
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",

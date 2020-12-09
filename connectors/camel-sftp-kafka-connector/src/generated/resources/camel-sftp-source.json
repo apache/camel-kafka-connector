@@ -64,7 +64,15 @@
 			"description": "The logging level to use for JSCH activity logging. As JSCH is verbose at by default at INFO level the threshold is WARN by default. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.passiveMode": {
 			"name": "camel.source.endpoint.passiveMode",
@@ -78,7 +86,12 @@
 			"description": "Sets the path separator to be used. UNIX = Uses unix style path separator Windows = Uses windows style path separator Auto = (is default) Use existing path separator in file name One of: [UNIX] [Windows] [Auto]",
 			"defaultValue": "\"UNIX\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"UNIX",
+				"Windows",
+				"Auto"
+			]
 		},
 		"camel.source.endpoint.fastExistsCheck": {
 			"name": "camel.source.endpoint.fastExistsCheck",
@@ -165,7 +178,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.ignoreFileNotFoundOrPermissionError": {
 			"name": "camel.source.endpoint.ignoreFileNotFoundOrPermissionError",
@@ -434,7 +452,17 @@
 			"description": "Used by consumer, to only poll the files if it has exclusive read-lock on the file (i.e. the file is not in-progress or being written). Camel will wait until the file lock is granted. This option provides the build in strategies: - none - No read lock is in use - markerFile - Camel creates a marker file (fileName.camelLock) and then holds a lock on it. This option is not available for the FTP component - changed - Changed is using file length\/modification timestamp to detect whether the file is currently being copied or not. Will at least use 1 sec to determine this, so this option cannot consume files as fast as the others, but can be more reliable as the JDK IO API cannot always determine whether a file is currently being used by another process. The option readLockCheckInterval can be used to set the check frequency. - fileLock - is for using java.nio.channels.FileLock. This option is not avail for Windows OS and the FTP component. This approach should be avoided when accessing a remote file system via a mount\/share unless that file system supports distributed file locks. - rename - rename is for using a try to rename the file as a test if we can get exclusive read-lock. - idempotent - (only for file component) idempotent is for using a idempotentRepository as the read-lock. This allows to use read locks that supports clustering if the idempotent repository implementation supports that. - idempotent-changed - (only for file component) idempotent-changed is for using a idempotentRepository and changed as the combined read-lock. This allows to use read locks that supports clustering if the idempotent repository implementation supports that. - idempotent-rename - (only for file component) idempotent-rename is for using a idempotentRepository and rename as the combined read-lock. This allows to use read locks that supports clustering if the idempotent repository implementation supports that.Notice: The various read locks is not all suited to work in clustered mode, where concurrent consumers on different nodes is competing for the same files on a shared file system. The markerFile using a close to atomic operation to create the empty marker file, but its not guaranteed to work in a cluster. The fileLock may work better but then the file system need to support distributed file locks, and so on. Using the idempotent read lock can support clustering if the idempotent repository supports clustering, such as Hazelcast Component or Infinispan. One of: [none] [markerFile] [fileLock] [rename] [changed] [idempotent] [idempotent-changed] [idempotent-rename]",
 			"defaultValue": "\"none\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"none",
+				"markerFile",
+				"fileLock",
+				"rename",
+				"changed",
+				"idempotent",
+				"idempotent-changed",
+				"idempotent-rename"
+			]
 		},
 		"camel.source.endpoint.readLockCheckInterval": {
 			"name": "camel.source.endpoint.readLockCheckInterval",
@@ -480,7 +508,15 @@
 			"description": "Logging level used when a read lock could not be acquired. By default a DEBUG is logged. You can change this level, for example to OFF to not have any logging. This option is only applicable for readLock of types: changed, fileLock, idempotent, idempotent-changed, idempotent-rename, rename. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"DEBUG\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.readLockMarkerFile": {
 			"name": "camel.source.endpoint.readLockMarkerFile",
@@ -575,7 +611,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -608,7 +652,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",
@@ -688,7 +741,11 @@
 			"description": "Sets whether to use strict host key checking. One of: [no] [yes]",
 			"defaultValue": "\"no\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"no",
+				"yes"
+			]
 		},
 		"camel.source.endpoint.username": {
 			"name": "camel.source.endpoint.username",

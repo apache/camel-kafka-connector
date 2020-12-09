@@ -40,7 +40,14 @@
 			"description": "Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. One of: [TRIM_HORIZON] [LATEST] [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [null]",
 			"defaultValue": "\"LATEST\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRIM_HORIZON",
+				"LATEST",
+				"AT_SEQUENCE_NUMBER",
+				"AFTER_SEQUENCE_NUMBER",
+				"null"
+			]
 		},
 		"camel.source.endpoint.maxResultsPerRequest": {
 			"name": "camel.source.endpoint.maxResultsPerRequest",
@@ -65,7 +72,11 @@
 			"description": "To define a proxy protocol when instantiating the DDBStreams client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.source.endpoint.region": {
 			"name": "camel.source.endpoint.region",
@@ -103,7 +114,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -176,7 +192,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -209,7 +233,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",
@@ -261,7 +294,14 @@
 			"description": "Defines where in the DynaboDB stream to start getting records. Note that using TRIM_HORIZON can cause a significant delay before the stream has caught up to real-time. if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider MUST be supplied. One of: [TRIM_HORIZON] [LATEST] [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [null]",
 			"defaultValue": "\"LATEST\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRIM_HORIZON",
+				"LATEST",
+				"AT_SEQUENCE_NUMBER",
+				"AFTER_SEQUENCE_NUMBER",
+				"null"
+			]
 		},
 		"camel.component.aws2-ddbstream.maxResultsPerRequest": {
 			"name": "camel.component.aws2-ddbstream.maxResultsPerRequest",
@@ -286,7 +326,11 @@
 			"description": "To define a proxy protocol when instantiating the DDBStreams client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws2-ddbstream.region": {
 			"name": "camel.component.aws2-ddbstream.region",

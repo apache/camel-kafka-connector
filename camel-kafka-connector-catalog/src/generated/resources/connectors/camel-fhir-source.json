@@ -13,7 +13,22 @@
 			"name": "camel.source.path.apiName",
 			"description": "What kind of operation to perform One of: [CAPABILITIES] [CREATE] [DELETE] [HISTORY] [LOAD_PAGE] [META] [OPERATION] [PATCH] [READ] [SEARCH] [TRANSACTION] [UPDATE] [VALIDATE]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"CAPABILITIES",
+				"CREATE",
+				"DELETE",
+				"HISTORY",
+				"LOAD_PAGE",
+				"META",
+				"OPERATION",
+				"PATCH",
+				"READ",
+				"SEARCH",
+				"TRANSACTION",
+				"UPDATE",
+				"VALIDATE"
+			]
 		},
 		"camel.source.path.methodName": {
 			"name": "camel.source.path.methodName",
@@ -25,14 +40,26 @@
 			"name": "camel.source.endpoint.encoding",
 			"description": "Encoding to use for all request One of: [JSON] [XML]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"JSON",
+				"XML"
+			]
 		},
 		"camel.source.endpoint.fhirVersion": {
 			"name": "camel.source.endpoint.fhirVersion",
 			"description": "The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5]",
 			"defaultValue": "\"R4\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DSTU2",
+				"DSTU2_HL7ORG",
+				"DSTU2_1",
+				"DSTU3",
+				"R4",
+				"R5"
+			]
 		},
 		"camel.source.endpoint.inBody": {
 			"name": "camel.source.endpoint.inBody",
@@ -84,7 +111,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -162,7 +194,14 @@
 			"name": "camel.source.endpoint.summary",
 			"description": "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"COUNT",
+				"TEXT",
+				"DATA",
+				"TRUE",
+				"FALSE"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
@@ -176,7 +215,11 @@
 			"description": "When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE]",
 			"defaultValue": "\"ONCE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NEVER",
+				"ONCE"
+			]
 		},
 		"camel.source.endpoint.proxyHost": {
 			"name": "camel.source.endpoint.proxyHost",
@@ -253,7 +296,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -286,7 +337,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",
@@ -317,14 +377,26 @@
 			"name": "camel.component.fhir.encoding",
 			"description": "Encoding to use for all request One of: [JSON] [XML]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"JSON",
+				"XML"
+			]
 		},
 		"camel.component.fhir.fhirVersion": {
 			"name": "camel.component.fhir.fhirVersion",
 			"description": "The FHIR Version to use One of: [DSTU2] [DSTU2_HL7ORG] [DSTU2_1] [DSTU3] [R4] [R5]",
 			"defaultValue": "\"R4\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DSTU2",
+				"DSTU2_HL7ORG",
+				"DSTU2_1",
+				"DSTU3",
+				"R4",
+				"R5"
+			]
 		},
 		"camel.component.fhir.log": {
 			"name": "camel.component.fhir.log",
@@ -429,14 +501,25 @@
 			"name": "camel.component.fhir.summary",
 			"description": "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"COUNT",
+				"TEXT",
+				"DATA",
+				"TRUE",
+				"FALSE"
+			]
 		},
 		"camel.component.fhir.validationMode": {
 			"name": "camel.component.fhir.validationMode",
 			"description": "When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE]",
 			"defaultValue": "\"ONCE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NEVER",
+				"ONCE"
+			]
 		},
 		"camel.component.fhir.proxyHost": {
 			"name": "camel.component.fhir.proxyHost",

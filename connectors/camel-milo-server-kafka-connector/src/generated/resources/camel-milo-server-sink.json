@@ -152,7 +152,15 @@
 			"name": "camel.component.milo-server.usernameSecurityPolicyUri",
 			"description": "Set the UserTokenPolicy used when One of: [None] [Basic128Rsa15] [Basic256] [Basic256Sha256] [Aes128_Sha256_RsaOaep] [Aes256_Sha256_RsaPss]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"None",
+				"Basic128Rsa15",
+				"Basic256",
+				"Basic256Sha256",
+				"Aes128_Sha256_RsaOaep",
+				"Aes256_Sha256_RsaPss"
+			]
 		}
 	}
 }

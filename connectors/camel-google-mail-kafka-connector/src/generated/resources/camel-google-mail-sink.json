@@ -13,13 +13,40 @@
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [THREADS] [MESSAGES] [ATTACHMENTS] [LABELS] [HISTORY] [DRAFTS] [USERS]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"THREADS",
+				"MESSAGES",
+				"ATTACHMENTS",
+				"LABELS",
+				"HISTORY",
+				"DRAFTS",
+				"USERS"
+			]
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation One of: [attachments] [create] [delete] [get] [getProfile] [gmailImport] [insert] [list] [modify] [patch] [send] [stop] [trash] [untrash] [update] [watch]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"attachments",
+				"create",
+				"delete",
+				"get",
+				"getProfile",
+				"gmailImport",
+				"insert",
+				"list",
+				"modify",
+				"patch",
+				"send",
+				"stop",
+				"trash",
+				"untrash",
+				"update",
+				"watch"
+			]
 		},
 		"camel.sink.endpoint.applicationName": {
 			"name": "camel.sink.endpoint.applicationName",

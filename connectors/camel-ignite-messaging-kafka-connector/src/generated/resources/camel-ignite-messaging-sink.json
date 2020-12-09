@@ -47,7 +47,11 @@
 			"description": "The send mode to use. Possible values: UNORDERED, ORDERED. One of: [ORDERED] [UNORDERED]",
 			"defaultValue": "\"UNORDERED\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ORDERED",
+				"UNORDERED"
+			]
 		},
 		"camel.sink.endpoint.timeout": {
 			"name": "camel.sink.endpoint.timeout",

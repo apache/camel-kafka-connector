@@ -114,7 +114,12 @@
 			"description": "The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT]",
 			"defaultValue": "\"DEFAULT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"STALE",
+				"CONSISTENT"
+			]
 		},
 		"camel.sink.endpoint.datacenter": {
 			"name": "camel.sink.endpoint.datacenter",
@@ -270,7 +275,12 @@
 			"description": "The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT]",
 			"defaultValue": "\"DEFAULT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"STALE",
+				"CONSISTENT"
+			]
 		},
 		"camel.component.consul.datacenter": {
 			"name": "camel.component.consul.datacenter",

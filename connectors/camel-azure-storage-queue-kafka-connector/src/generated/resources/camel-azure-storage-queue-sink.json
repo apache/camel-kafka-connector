@@ -52,7 +52,18 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [clearQueue] [sendMessage] [deleteMessage] [receiveMessages] [peekMessages] [updateMessage]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"listQueues",
+				"createQueue",
+				"deleteQueue",
+				"clearQueue",
+				"sendMessage",
+				"deleteMessage",
+				"receiveMessages",
+				"peekMessages",
+				"updateMessage"
+			]
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",
@@ -154,7 +165,18 @@
 			"name": "camel.component.azure-storage-queue.operation",
 			"description": "Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [clearQueue] [sendMessage] [deleteMessage] [receiveMessages] [peekMessages] [updateMessage]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"listQueues",
+				"createQueue",
+				"deleteQueue",
+				"clearQueue",
+				"sendMessage",
+				"deleteMessage",
+				"receiveMessages",
+				"peekMessages",
+				"updateMessage"
+			]
 		},
 		"camel.component.azure-storage-queue.basicPropertyBinding": {
 			"name": "camel.component.azure-storage-queue.basicPropertyBinding",

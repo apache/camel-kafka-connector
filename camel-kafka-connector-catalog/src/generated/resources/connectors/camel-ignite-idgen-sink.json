@@ -39,7 +39,14 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to invoke on the Ignite ID Generator. Superseded by the IgniteConstants.IGNITE_IDGEN_OPERATION header in the IN message. Possible values: ADD_AND_GET, GET, GET_AND_ADD, GET_AND_INCREMENT, INCREMENT_AND_GET. One of: [ADD_AND_GET] [GET] [GET_AND_ADD] [GET_AND_INCREMENT] [INCREMENT_AND_GET]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ADD_AND_GET",
+				"GET",
+				"GET_AND_ADD",
+				"GET_AND_INCREMENT",
+				"INCREMENT_AND_GET"
+			]
 		},
 		"camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue": {
 			"name": "camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue",

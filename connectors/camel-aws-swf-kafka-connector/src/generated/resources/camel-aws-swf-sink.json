@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.type",
 			"description": "Activity or workflow One of: [activity] [workflow]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"activity",
+				"workflow"
+			]
 		},
 		"camel.sink.endpoint.amazonSWClient": {
 			"name": "camel.sink.endpoint.amazonSWClient",
@@ -126,7 +130,16 @@
 			"description": "Workflow operation One of: [SIGNAL] [CANCEL] [TERMINATE] [GET_STATE] [START] [DESCRIBE] [GET_HISTORY]",
 			"defaultValue": "\"START\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SIGNAL",
+				"CANCEL",
+				"TERMINATE",
+				"GET_STATE",
+				"START",
+				"DESCRIBE",
+				"GET_HISTORY"
+			]
 		},
 		"camel.sink.endpoint.signalName": {
 			"name": "camel.sink.endpoint.signalName",
@@ -269,7 +282,16 @@
 			"description": "Workflow operation One of: [SIGNAL] [CANCEL] [TERMINATE] [GET_STATE] [START] [DESCRIBE] [GET_HISTORY]",
 			"defaultValue": "\"START\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SIGNAL",
+				"CANCEL",
+				"TERMINATE",
+				"GET_STATE",
+				"START",
+				"DESCRIBE",
+				"GET_HISTORY"
+			]
 		},
 		"camel.component.aws-swf.signalName": {
 			"name": "camel.component.aws-swf.signalName",

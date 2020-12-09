@@ -79,7 +79,17 @@
 			"name": "camel.sink.endpoint.httpMethod",
 			"description": "Configure the HTTP method to use. The HttpMethod header cannot override this option if set. One of: [GET] [POST] [PUT] [DELETE] [HEAD] [OPTIONS] [TRACE] [PATCH]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"GET",
+				"POST",
+				"PUT",
+				"DELETE",
+				"HEAD",
+				"OPTIONS",
+				"TRACE",
+				"PATCH"
+			]
 		},
 		"camel.sink.endpoint.ignoreResponseBody": {
 			"name": "camel.sink.endpoint.ignoreResponseBody",
@@ -257,7 +267,12 @@
 			"name": "camel.sink.endpoint.proxyAuthMethod",
 			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Basic",
+				"Digest",
+				"NTLM"
+			]
 		},
 		"camel.sink.endpoint.proxyAuthNtHost": {
 			"name": "camel.sink.endpoint.proxyAuthNtHost",
@@ -281,7 +296,11 @@
 			"name": "camel.sink.endpoint.proxyAuthScheme",
 			"description": "Proxy authentication scheme to use One of: [http] [https]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"http",
+				"https"
+			]
 		},
 		"camel.sink.endpoint.proxyAuthUsername": {
 			"name": "camel.sink.endpoint.proxyAuthUsername",
@@ -330,7 +349,12 @@
 			"name": "camel.sink.endpoint.authMethodPriority",
 			"description": "Which authentication method to prioritize to use, either as Basic, Digest or NTLM. One of: [Basic] [Digest] [NTLM]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Basic",
+				"Digest",
+				"NTLM"
+			]
 		},
 		"camel.sink.endpoint.authPassword": {
 			"name": "camel.sink.endpoint.authPassword",
@@ -455,7 +479,12 @@
 			"name": "camel.component.https.proxyAuthMethod",
 			"description": "Proxy authentication method to use One of: [Basic] [Digest] [NTLM]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Basic",
+				"Digest",
+				"NTLM"
+			]
 		},
 		"camel.component.https.proxyAuthNtHost": {
 			"name": "camel.component.https.proxyAuthNtHost",

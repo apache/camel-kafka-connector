@@ -32,14 +32,44 @@
 			"description": "Language of the response. One of: [en] [ru] [it] [es] [sp] [uk] [ua] [de] [pt] [ro] [pl] [fi] [nl] [fr] [bg] [sv] [se] [zh_tw] [zh] [zh_cn] [tr] [hr] [ca]",
 			"defaultValue": "\"en\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"en",
+				"ru",
+				"it",
+				"es",
+				"sp",
+				"uk",
+				"ua",
+				"de",
+				"pt",
+				"ro",
+				"pl",
+				"fi",
+				"nl",
+				"fr",
+				"bg",
+				"sv",
+				"se",
+				"zh_tw",
+				"zh",
+				"zh_cn",
+				"tr",
+				"hr",
+				"ca"
+			]
 		},
 		"camel.sink.endpoint.mode": {
 			"name": "camel.sink.endpoint.mode",
 			"description": "The output format of the weather data. One of: [HTML] [JSON] [XML]",
 			"defaultValue": "\"JSON\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTML",
+				"JSON",
+				"XML"
+			]
 		},
 		"camel.sink.endpoint.period": {
 			"name": "camel.sink.endpoint.period",
@@ -51,13 +81,23 @@
 			"name": "camel.sink.endpoint.units",
 			"description": "The units for temperature measurement. One of: [IMPERIAL] [METRIC]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"IMPERIAL",
+				"METRIC"
+			]
 		},
 		"camel.sink.endpoint.weatherApi": {
 			"name": "camel.sink.endpoint.weatherApi",
 			"description": "The API to use (current, forecast\/3 hour, forecast daily, station) One of: [Current] [Station] [Hourly] [Daily]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Current",
+				"Station",
+				"Hourly",
+				"Daily"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

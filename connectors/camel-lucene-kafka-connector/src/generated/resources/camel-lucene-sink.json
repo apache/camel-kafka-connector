@@ -19,7 +19,11 @@
 			"name": "camel.sink.path.operation",
 			"description": "Operation to do such as insert or query. One of: [insert] [query]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"insert",
+				"query"
+			]
 		},
 		"camel.sink.endpoint.analyzer": {
 			"name": "camel.sink.endpoint.analyzer",

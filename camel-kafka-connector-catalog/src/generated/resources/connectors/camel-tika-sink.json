@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.operation",
 			"description": "Operation type One of: [parse] [detect]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"parse",
+				"detect"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -45,7 +49,13 @@
 			"description": "Tika Output Format. Supported output formats. xml: Returns Parsed Content as XML. html: Returns Parsed Content as HTML. text: Returns Parsed Content as Text. textMain: Uses the boilerpipe library to automatically extract the main content from a web page. One of: [xml] [html] [text] [textMain]",
 			"defaultValue": "\"xml\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"xml",
+				"html",
+				"text",
+				"textMain"
+			]
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",

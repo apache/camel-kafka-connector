@@ -20,7 +20,12 @@
 			"description": "The executor type to be used while executing statements. simple - executor does nothing special. reuse - executor reuses prepared statements. batch - executor reuses statements and batches updates. One of: [SIMPLE] [REUSE] [BATCH]",
 			"defaultValue": "\"SIMPLE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SIMPLE",
+				"REUSE",
+				"BATCH"
+			]
 		},
 		"camel.sink.endpoint.inputHeader": {
 			"name": "camel.sink.endpoint.inputHeader",
@@ -45,7 +50,17 @@
 			"name": "camel.sink.endpoint.statementType",
 			"description": "Mandatory to specify for the producer to control which kind of operation to invoke. One of: [SelectOne] [SelectList] [Insert] [InsertList] [Update] [UpdateList] [Delete] [DeleteList]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SelectOne",
+				"SelectList",
+				"Insert",
+				"InsertList",
+				"Update",
+				"UpdateList",
+				"Delete",
+				"DeleteList"
+			]
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",

@@ -13,7 +13,19 @@
 			"name": "camel.sink.path.outputType",
 			"description": "The primary output format is PDF but other output formats are also supported. One of: [pdf] [ps] [pcl] [png] [jpeg] [svg] [xml] [mif] [rtf] [txt]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"pdf",
+				"ps",
+				"pcl",
+				"png",
+				"jpeg",
+				"svg",
+				"xml",
+				"mif",
+				"rtf",
+				"txt"
+			]
 		},
 		"camel.sink.endpoint.fopFactory": {
 			"name": "camel.sink.endpoint.fopFactory",

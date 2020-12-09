@@ -52,7 +52,12 @@
 			"description": "The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob]",
 			"defaultValue": "\"blockblob\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"blockblob",
+				"appendblob",
+				"pageblob"
+			]
 		},
 		"camel.sink.endpoint.closeStreamAfterRead": {
 			"name": "camel.sink.endpoint.closeStreamAfterRead",
@@ -122,7 +127,12 @@
 			"description": "Specifies which type of blocks to return. One of: [committed] [uncommitted] [all]",
 			"defaultValue": "\"COMMITTED\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"committed",
+				"uncommitted",
+				"all"
+			]
 		},
 		"camel.sink.endpoint.closeStreamAfterWrite": {
 			"name": "camel.sink.endpoint.closeStreamAfterWrite",
@@ -170,7 +180,28 @@
 			"description": "The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges]",
 			"defaultValue": "\"listBlobContainers\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"listBlobContainers",
+				"createBlobContainer",
+				"deleteBlobContainer",
+				"listBlobs",
+				"getBlob",
+				"deleteBlob",
+				"downloadBlobToFile",
+				"downloadLink",
+				"uploadBlockBlob",
+				"stageBlockBlobList",
+				"commitBlobBlockList",
+				"getBlobBlockList",
+				"createAppendBlob",
+				"commitAppendBlob",
+				"createPageBlob",
+				"uploadPageBlob",
+				"resizePageBlob",
+				"clearPageBlob",
+				"getPageBlobRanges"
+			]
 		},
 		"camel.sink.endpoint.pageBlobSize": {
 			"name": "camel.sink.endpoint.pageBlobSize",
@@ -224,7 +255,12 @@
 			"description": "The blob type in order to initiate the appropriate settings for each blob type One of: [blockblob] [appendblob] [pageblob]",
 			"defaultValue": "\"blockblob\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"blockblob",
+				"appendblob",
+				"pageblob"
+			]
 		},
 		"camel.component.azure-storage-blob.closeStreamAfterRead": {
 			"name": "camel.component.azure-storage-blob.closeStreamAfterRead",
@@ -300,7 +336,12 @@
 			"description": "Specifies which type of blocks to return. One of: [committed] [uncommitted] [all]",
 			"defaultValue": "\"COMMITTED\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"committed",
+				"uncommitted",
+				"all"
+			]
 		},
 		"camel.component.azure-storage-blob.closeStreamAfterWrite": {
 			"name": "camel.component.azure-storage-blob.closeStreamAfterWrite",
@@ -348,7 +389,28 @@
 			"description": "The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges]",
 			"defaultValue": "\"listBlobContainers\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"listBlobContainers",
+				"createBlobContainer",
+				"deleteBlobContainer",
+				"listBlobs",
+				"getBlob",
+				"deleteBlob",
+				"downloadBlobToFile",
+				"downloadLink",
+				"uploadBlockBlob",
+				"stageBlockBlobList",
+				"commitBlobBlockList",
+				"getBlobBlockList",
+				"createAppendBlob",
+				"commitAppendBlob",
+				"createPageBlob",
+				"uploadPageBlob",
+				"resizePageBlob",
+				"clearPageBlob",
+				"getPageBlobRanges"
+			]
 		},
 		"camel.component.azure-storage-blob.pageBlobSize": {
 			"name": "camel.component.azure-storage-blob.pageBlobSize",

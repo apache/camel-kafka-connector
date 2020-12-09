@@ -27,7 +27,11 @@
 			"description": "Format for the message body. Either xml or raw. If xml, the notification is serialized to xml. If raw, then the raw java object is set as the body. One of: [xml] [raw]",
 			"defaultValue": "\"xml\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"xml",
+				"raw"
+			]
 		},
 		"camel.source.endpoint.granularityPeriod": {
 			"name": "camel.source.endpoint.granularityPeriod",
@@ -40,7 +44,12 @@
 			"name": "camel.source.endpoint.monitorType",
 			"description": "The type of monitor to create. One of string, gauge, counter (monitor types only). One of: [counter] [gauge] [string]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"counter",
+				"gauge",
+				"string"
+			]
 		},
 		"camel.source.endpoint.objectDomain": {
 			"name": "camel.source.endpoint.objectDomain",
@@ -70,7 +79,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",

@@ -33,7 +33,12 @@
 			"description": "Set a blob type, 'blockblob' is default One of: [blockblob] [appendblob] [pageblob]",
 			"defaultValue": "\"blockblob\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"blockblob",
+				"appendblob",
+				"pageblob"
+			]
 		},
 		"camel.source.endpoint.closeStreamAfterRead": {
 			"name": "camel.source.endpoint.closeStreamAfterRead",
@@ -97,7 +102,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
@@ -143,7 +153,12 @@
 			"description": "Set a blob type, 'blockblob' is default One of: [blockblob] [appendblob] [pageblob]",
 			"defaultValue": "\"blockblob\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"blockblob",
+				"appendblob",
+				"pageblob"
+			]
 		},
 		"camel.component.azure-blob.closeStreamAfterRead": {
 			"name": "camel.component.azure-blob.closeStreamAfterRead",

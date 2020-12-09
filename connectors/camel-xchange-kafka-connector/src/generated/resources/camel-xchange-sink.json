@@ -38,13 +38,28 @@
 			"name": "camel.sink.endpoint.method",
 			"description": "The method to execute One of: [balances] [fundingHistory] [wallets] [currencies] [currencyMetaData] [currencyPairs] [currencyPairMetaData] [ticker]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"balances",
+				"fundingHistory",
+				"wallets",
+				"currencies",
+				"currencyMetaData",
+				"currencyPairs",
+				"currencyPairMetaData",
+				"ticker"
+			]
 		},
 		"camel.sink.endpoint.service": {
 			"name": "camel.sink.endpoint.service",
 			"description": "The service to call One of: [marketdata] [metadata] [account]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"marketdata",
+				"metadata",
+				"account"
+			]
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",

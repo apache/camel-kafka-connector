@@ -71,7 +71,11 @@
 			"description": "To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -130,7 +134,13 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [deleteBucket] [listBuckets] [downloadLink]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"copyObject",
+				"deleteBucket",
+				"listBuckets",
+				"downloadLink"
+			]
 		},
 		"camel.sink.endpoint.partSize": {
 			"name": "camel.sink.endpoint.partSize",
@@ -287,7 +297,11 @@
 			"description": "To define a proxy protocol when instantiating the S3 client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-s3.region": {
 			"name": "camel.component.aws-s3.region",
@@ -346,7 +360,13 @@
 			"name": "camel.component.aws-s3.operation",
 			"description": "The operation to do in case the user don't want to do only an upload One of: [copyObject] [deleteBucket] [listBuckets] [downloadLink]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"copyObject",
+				"deleteBucket",
+				"listBuckets",
+				"downloadLink"
+			]
 		},
 		"camel.component.aws-s3.partSize": {
 			"name": "camel.component.aws-s3.partSize",
