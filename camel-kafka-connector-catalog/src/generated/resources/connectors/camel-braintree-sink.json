@@ -13,13 +13,65 @@
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [ADD_ON] [ADDRESS] [CLIENT_TOKEN] [CREDIT_CARD_VERIFICATION] [CUSTOMER] [DISCOUNT] [DISPUTE] [DOCUMENT_UPLOAD] [MERCHANT_ACCOUNT] [PAYMENT_METHOD] [PAYMENT_METHOD_NONCE] [PLAN] [REPORT] [SETTLEMENT_BATCH_SUMMARY] [SUBSCRIPTION] [TRANSACTION] [WEBHOOK_NOTIFICATION]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"ADD_ON",
+				"ADDRESS",
+				"CLIENT_TOKEN",
+				"CREDIT_CARD_VERIFICATION",
+				"CUSTOMER",
+				"DISCOUNT",
+				"DISPUTE",
+				"DOCUMENT_UPLOAD",
+				"MERCHANT_ACCOUNT",
+				"PAYMENT_METHOD",
+				"PAYMENT_METHOD_NONCE",
+				"PLAN",
+				"REPORT",
+				"SETTLEMENT_BATCH_SUMMARY",
+				"SUBSCRIPTION",
+				"TRANSACTION",
+				"WEBHOOK_NOTIFICATION"
+			]
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation One of: [accept] [addFileEvidence] [addTextEvidence] [cancel] [cancelRelease] [cloneTransaction] [create] [createForCurrency] [credit] [delete] [fetchMerchantAccounts] [finalize] [find] [generate] [grant] [holdInEscrow] [parse] [refund] [releaseFromEscrow] [removeEvidence] [retryCharge] [revoke] [sale] [search] [submitForPartialSettlement] [submitForSettlement] [transactionLevelFees] [update] [updateDetails] [verify] [voidTransaction]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"accept",
+				"addFileEvidence",
+				"addTextEvidence",
+				"cancel",
+				"cancelRelease",
+				"cloneTransaction",
+				"create",
+				"createForCurrency",
+				"credit",
+				"delete",
+				"fetchMerchantAccounts",
+				"finalize",
+				"find",
+				"generate",
+				"grant",
+				"holdInEscrow",
+				"parse",
+				"refund",
+				"releaseFromEscrow",
+				"removeEvidence",
+				"retryCharge",
+				"revoke",
+				"sale",
+				"search",
+				"submitForPartialSettlement",
+				"submitForSettlement",
+				"transactionLevelFees",
+				"update",
+				"updateDetails",
+				"verify",
+				"voidTransaction"
+			]
 		},
 		"camel.sink.endpoint.environment": {
 			"name": "camel.sink.endpoint.environment",
@@ -70,7 +122,18 @@
 			"name": "camel.sink.endpoint.httpLogLevel",
 			"description": "Set logging level for http calls, see java.util.logging.Level One of: [OFF] [SEVERE] [WARNING] [INFO] [CONFIG] [FINE] [FINER] [FINEST] [ALL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"OFF",
+				"SEVERE",
+				"WARNING",
+				"INFO",
+				"CONFIG",
+				"FINE",
+				"FINER",
+				"FINEST",
+				"ALL"
+			]
 		},
 		"camel.sink.endpoint.httpLogName": {
 			"name": "camel.sink.endpoint.httpLogName",

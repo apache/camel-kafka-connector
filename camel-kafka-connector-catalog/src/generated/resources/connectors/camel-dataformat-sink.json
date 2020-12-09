@@ -19,7 +19,11 @@
 			"name": "camel.sink.path.operation",
 			"description": "Operation to use either marshal or unmarshal One of: [marshal] [unmarshal]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"marshal",
+				"unmarshal"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

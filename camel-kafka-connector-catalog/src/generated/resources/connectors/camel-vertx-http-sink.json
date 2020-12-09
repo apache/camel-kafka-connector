@@ -40,7 +40,19 @@
 			"name": "camel.sink.endpoint.httpMethod",
 			"description": "The HTTP method to use. The HttpMethod header cannot override this option if set One of: [OPTIONS] [GET] [HEAD] [POST] [PUT] [DELETE] [TRACE] [CONNECT] [PATCH] [OTHER]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"OPTIONS",
+				"GET",
+				"HEAD",
+				"POST",
+				"PUT",
+				"DELETE",
+				"TRACE",
+				"CONNECT",
+				"PATCH",
+				"OTHER"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -139,7 +151,12 @@
 			"name": "camel.sink.endpoint.proxyType",
 			"description": "The proxy server type One of: [HTTP] [SOCKS4] [SOCKS5]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"SOCKS4",
+				"SOCKS5"
+			]
 		},
 		"camel.sink.endpoint.proxyUsername": {
 			"name": "camel.sink.endpoint.proxyUsername",
@@ -238,7 +255,12 @@
 			"name": "camel.component.vertx-http.proxyType",
 			"description": "The proxy server type One of: [HTTP] [SOCKS4] [SOCKS5]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"SOCKS4",
+				"SOCKS5"
+			]
 		},
 		"camel.component.vertx-http.proxyUsername": {
 			"name": "camel.component.vertx-http.proxyUsername",

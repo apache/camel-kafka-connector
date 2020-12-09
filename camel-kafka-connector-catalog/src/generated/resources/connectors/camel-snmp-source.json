@@ -32,7 +32,11 @@
 			"description": "Here you can select which protocol to use. You can use either udp or tcp. One of: [tcp] [udp]",
 			"defaultValue": "\"udp\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"tcp",
+				"udp"
+			]
 		},
 		"camel.source.endpoint.retries": {
 			"name": "camel.source.endpoint.retries",
@@ -65,7 +69,12 @@
 			"description": "Sets the snmp version for the request. The value 0 means SNMPv1, 1 means SNMPv2c, and the value 3 means SNMPv3 One of: [0] [1] [3]",
 			"defaultValue": "0",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"0",
+				"1",
+				"3"
+			]
 		},
 		"camel.source.endpoint.timeout": {
 			"name": "camel.source.endpoint.timeout",
@@ -78,7 +87,12 @@
 			"name": "camel.source.endpoint.type",
 			"description": "Which operation to perform such as poll, trap, etc. One of: [TRAP] [POLL] [GET_NEXT]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRAP",
+				"POLL",
+				"GET_NEXT"
+			]
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -118,7 +132,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -184,7 +203,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -217,7 +244,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",
@@ -236,7 +272,11 @@
 			"name": "camel.source.endpoint.authenticationProtocol",
 			"description": "Authentication protocol to use if security level is set to enable authentication The possible values are: MD5, SHA1 One of: [MD5] [SHA1]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"MD5",
+				"SHA1"
+			]
 		},
 		"camel.source.endpoint.privacyPassphrase": {
 			"name": "camel.source.endpoint.privacyPassphrase",
@@ -255,7 +295,12 @@
 			"description": "Sets the security level for this target. The supplied security level must be supported by the security model dependent information associated with the security name set for this target. The value 1 means: No authentication and no encryption. Anyone can create and read messages with this security level The value 2 means: Authentication and no encryption. Only the one with the right authentication key can create messages with this security level, but anyone can read the contents of the message. The value 3 means: Authentication and encryption. Only the one with the right authentication key can create messages with this security level, and only the one with the right encryption\/decryption key can read the contents of the message. One of: [1] [2] [3]",
 			"defaultValue": "3",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"1",
+				"2",
+				"3"
+			]
 		},
 		"camel.source.endpoint.securityName": {
 			"name": "camel.source.endpoint.securityName",

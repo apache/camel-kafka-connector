@@ -13,7 +13,17 @@
 			"name": "camel.sink.path.metricType",
 			"description": "Metric type One of: [concurrent gauge] [counter] [gauge] [meter] [histogram] [timer] [simple timer] [invalid]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"concurrent gauge",
+				"counter",
+				"gauge",
+				"meter",
+				"histogram",
+				"timer",
+				"simple timer",
+				"invalid"
+			]
 		},
 		"camel.sink.path.metricName": {
 			"name": "camel.sink.path.metricName",

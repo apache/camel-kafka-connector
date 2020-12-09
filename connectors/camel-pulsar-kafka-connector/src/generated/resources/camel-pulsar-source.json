@@ -13,7 +13,11 @@
 			"name": "camel.source.path.persistence",
 			"description": "Whether the topic is persistent or non-persistent One of: [persistent] [non-persistent]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"persistent",
+				"non-persistent"
+			]
 		},
 		"camel.source.path.tenant": {
 			"name": "camel.source.path.tenant",
@@ -113,7 +117,11 @@
 			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST]",
 			"defaultValue": "\"LATEST\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EARLIEST",
+				"LATEST"
+			]
 		},
 		"camel.source.endpoint.subscriptionName": {
 			"name": "camel.source.endpoint.subscriptionName",
@@ -127,14 +135,25 @@
 			"description": "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions. One of: [PersistentOnly] [NonPersistentOnly] [AllTopics]",
 			"defaultValue": "\"PersistentOnly\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PersistentOnly",
+				"NonPersistentOnly",
+				"AllTopics"
+			]
 		},
 		"camel.source.endpoint.subscriptionType": {
 			"name": "camel.source.endpoint.subscriptionType",
 			"description": "Type of the subscription EXCLUSIVESHAREDFAILOVERKEY_SHARED, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] [KEY_SHARED]",
 			"defaultValue": "\"EXCLUSIVE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EXCLUSIVE",
+				"SHARED",
+				"FAILOVER",
+				"KEY_SHARED"
+			]
 		},
 		"camel.source.endpoint.topicsPattern": {
 			"name": "camel.source.endpoint.topicsPattern",
@@ -153,7 +172,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
@@ -255,7 +279,11 @@
 			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST]",
 			"defaultValue": "\"LATEST\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EARLIEST",
+				"LATEST"
+			]
 		},
 		"camel.component.pulsar.subscriptionName": {
 			"name": "camel.component.pulsar.subscriptionName",
@@ -269,14 +297,25 @@
 			"description": "Determines to which topics this consumer should be subscribed to - Persistent, Non-Persistent, or both. Only used with pattern subscriptions. One of: [PersistentOnly] [NonPersistentOnly] [AllTopics]",
 			"defaultValue": "\"PersistentOnly\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PersistentOnly",
+				"NonPersistentOnly",
+				"AllTopics"
+			]
 		},
 		"camel.component.pulsar.subscriptionType": {
 			"name": "camel.component.pulsar.subscriptionType",
 			"description": "Type of the subscription EXCLUSIVESHAREDFAILOVERKEY_SHARED, defaults to EXCLUSIVE One of: [EXCLUSIVE] [SHARED] [FAILOVER] [KEY_SHARED]",
 			"defaultValue": "\"EXCLUSIVE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EXCLUSIVE",
+				"SHARED",
+				"FAILOVER",
+				"KEY_SHARED"
+			]
 		},
 		"camel.component.pulsar.topicsPattern": {
 			"name": "camel.component.pulsar.topicsPattern",

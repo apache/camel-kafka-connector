@@ -13,7 +13,29 @@
 			"name": "camel.sink.path.languageName",
 			"description": "Sets the name of the language to use One of: [bean] [constant] [exchangeProperty] [file] [groovy] [header] [javascript] [jsonpath] [mvel] [ognl] [] [ref] [simple] [spel] [sql] [terser] [tokenize] [xpath] [xquery] [xtokenize]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"bean",
+				"constant",
+				"exchangeProperty",
+				"file",
+				"groovy",
+				"header",
+				"javascript",
+				"jsonpath",
+				"mvel",
+				"ognl",
+				"",
+				"ref",
+				"simple",
+				"spel",
+				"sql",
+				"terser",
+				"tokenize",
+				"xpath",
+				"xquery",
+				"xtokenize"
+			]
 		},
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",

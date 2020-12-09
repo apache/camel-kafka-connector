@@ -37,7 +37,11 @@
 			"name": "camel.sink.endpoint.mappingStrategyName",
 			"description": "The strategy to use for mapping Camel messages to HBase columns. Supported values: header, or body. One of: [header] [body]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"header",
+				"body"
+			]
 		},
 		"camel.sink.endpoint.rowMapping": {
 			"name": "camel.sink.endpoint.rowMapping",

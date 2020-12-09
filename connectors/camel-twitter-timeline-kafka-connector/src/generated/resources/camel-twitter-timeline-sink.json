@@ -13,7 +13,15 @@
 			"name": "camel.sink.path.timelineType",
 			"description": "The timeline type to produce\/consume. One of: [PUBLIC] [HOME] [USER] [MENTIONS] [RETWEETSOFME] [UNKNOWN]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"PUBLIC",
+				"HOME",
+				"USER",
+				"MENTIONS",
+				"RETWEETSOFME",
+				"UNKNOWN"
+			]
 		},
 		"camel.sink.endpoint.user": {
 			"name": "camel.sink.endpoint.user",

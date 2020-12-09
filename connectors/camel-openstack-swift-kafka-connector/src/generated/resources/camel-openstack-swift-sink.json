@@ -20,7 +20,11 @@
 			"description": "OpenStack API version One of: [V2] [V3]",
 			"defaultValue": "\"V3\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"V2",
+				"V3"
+			]
 		},
 		"camel.sink.endpoint.config": {
 			"name": "camel.sink.endpoint.config",
@@ -64,7 +68,11 @@
 			"name": "camel.sink.endpoint.subsystem",
 			"description": "OpenStack Swift subsystem One of: [objects] [containers]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"objects",
+				"containers"
+			]
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",

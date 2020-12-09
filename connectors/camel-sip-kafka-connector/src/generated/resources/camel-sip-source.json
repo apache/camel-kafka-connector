@@ -110,7 +110,11 @@
 			"description": "Setting for choice of transport protocol. Valid choices are tcp or udp. One of: [tcp] [udp]",
 			"defaultValue": "\"tcp\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"tcp",
+				"udp"
+			]
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -143,7 +147,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.addressFactory": {
 			"name": "camel.source.endpoint.addressFactory",

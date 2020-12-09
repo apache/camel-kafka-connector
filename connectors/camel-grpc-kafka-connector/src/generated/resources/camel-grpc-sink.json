@@ -59,7 +59,11 @@
 			"description": "The mode used to communicate with a remote gRPC server. In SIMPLE mode a single exchange is translated into a remote procedure call. In STREAMING mode all exchanges will be sent within the same request (input and output of the recipient gRPC service must be of type 'stream'). One of: [SIMPLE] [STREAMING]",
 			"defaultValue": "\"SIMPLE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SIMPLE",
+				"STREAMING"
+			]
 		},
 		"camel.sink.endpoint.streamRepliesTo": {
 			"name": "camel.sink.endpoint.streamRepliesTo",
@@ -92,14 +96,24 @@
 			"description": "Authentication method type in advance to the SSL\/TLS negotiation One of: [NONE] [GOOGLE] [JWT]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"GOOGLE",
+				"JWT"
+			]
 		},
 		"camel.sink.endpoint.jwtAlgorithm": {
 			"name": "camel.sink.endpoint.jwtAlgorithm",
 			"description": "JSON Web Token sign algorithm One of: [HMAC256] [HMAC384] [HMAC512]",
 			"defaultValue": "\"HMAC256\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HMAC256",
+				"HMAC384",
+				"HMAC512"
+			]
 		},
 		"camel.sink.endpoint.jwtIssuer": {
 			"name": "camel.sink.endpoint.jwtIssuer",
@@ -142,7 +156,12 @@
 			"description": "Identifies the security negotiation type used for HTTP\/2 communication One of: [TLS] [PLAINTEXT_UPGRADE] [PLAINTEXT]",
 			"defaultValue": "\"PLAINTEXT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TLS",
+				"PLAINTEXT_UPGRADE",
+				"PLAINTEXT"
+			]
 		},
 		"camel.sink.endpoint.serviceAccountResource": {
 			"name": "camel.sink.endpoint.serviceAccountResource",

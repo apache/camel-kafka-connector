@@ -124,7 +124,13 @@
 			"description": "Set the ssl protocol to use One of: [TLSv1.2] [TLSv1.1] [TLSv1] [SSLv3]",
 			"defaultValue": "\"TLSv1.2\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TLSv1.2",
+				"TLSv1.1",
+				"TLSv1",
+				"SSLv3"
+			]
 		},
 		"camel.sink.endpoint.username": {
 			"name": "camel.sink.endpoint.username",

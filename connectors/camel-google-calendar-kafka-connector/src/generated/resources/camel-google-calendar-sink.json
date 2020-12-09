@@ -13,13 +13,39 @@
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [ACL] [LIST] [CALENDARS] [CHANNELS] [COLORS] [FREEBUSY] [EVENTS] [SETTINGS]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"ACL",
+				"LIST",
+				"CALENDARS",
+				"CHANNELS",
+				"COLORS",
+				"FREEBUSY",
+				"EVENTS",
+				"SETTINGS"
+			]
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation One of: [calendarImport] [clear] [delete] [get] [insert] [instances] [list] [move] [patch] [query] [quickAdd] [stop] [update] [watch]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"calendarImport",
+				"clear",
+				"delete",
+				"get",
+				"insert",
+				"instances",
+				"list",
+				"move",
+				"patch",
+				"query",
+				"quickAdd",
+				"stop",
+				"update",
+				"watch"
+			]
 		},
 		"camel.sink.endpoint.applicationName": {
 			"name": "camel.sink.endpoint.applicationName",

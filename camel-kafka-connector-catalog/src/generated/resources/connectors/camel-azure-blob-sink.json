@@ -33,7 +33,12 @@
 			"description": "Set a blob type, 'blockblob' is default One of: [blockblob] [appendblob] [pageblob]",
 			"defaultValue": "\"blockblob\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"blockblob",
+				"appendblob",
+				"pageblob"
+			]
 		},
 		"camel.sink.endpoint.closeStreamAfterRead": {
 			"name": "camel.sink.endpoint.closeStreamAfterRead",
@@ -111,7 +116,23 @@
 			"description": "Blob service operation hint to the producer One of: [getBlob] [deleteBlob] [listBlobs] [updateBlockBlob] [uploadBlobBlocks] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [updateAppendBlob] [createPageBlob] [updatePageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges]",
 			"defaultValue": "\"listBlobs\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"getBlob",
+				"deleteBlob",
+				"listBlobs",
+				"updateBlockBlob",
+				"uploadBlobBlocks",
+				"commitBlobBlockList",
+				"getBlobBlockList",
+				"createAppendBlob",
+				"updateAppendBlob",
+				"createPageBlob",
+				"updatePageBlob",
+				"resizePageBlob",
+				"clearPageBlob",
+				"getPageBlobRanges"
+			]
 		},
 		"camel.sink.endpoint.streamWriteSize": {
 			"name": "camel.sink.endpoint.streamWriteSize",
@@ -170,7 +191,12 @@
 			"description": "Set a blob type, 'blockblob' is default One of: [blockblob] [appendblob] [pageblob]",
 			"defaultValue": "\"blockblob\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"blockblob",
+				"appendblob",
+				"pageblob"
+			]
 		},
 		"camel.component.azure-blob.closeStreamAfterRead": {
 			"name": "camel.component.azure-blob.closeStreamAfterRead",
@@ -248,7 +274,23 @@
 			"description": "Blob service operation hint to the producer One of: [getBlob] [deleteBlob] [listBlobs] [updateBlockBlob] [uploadBlobBlocks] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [updateAppendBlob] [createPageBlob] [updatePageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges]",
 			"defaultValue": "\"listBlobs\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"getBlob",
+				"deleteBlob",
+				"listBlobs",
+				"updateBlockBlob",
+				"uploadBlobBlocks",
+				"commitBlobBlockList",
+				"getBlobBlockList",
+				"createAppendBlob",
+				"updateAppendBlob",
+				"createPageBlob",
+				"updatePageBlob",
+				"resizePageBlob",
+				"clearPageBlob",
+				"getPageBlobRanges"
+			]
 		},
 		"camel.component.azure-blob.streamWriteSize": {
 			"name": "camel.component.azure-blob.streamWriteSize",

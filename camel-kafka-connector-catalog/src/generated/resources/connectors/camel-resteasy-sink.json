@@ -87,7 +87,17 @@
 			"name": "camel.sink.endpoint.httpMethod",
 			"description": "Configure the HTTP method to use. The HttpMethod header cannot override this option if set. One of: [GET] [POST] [PUT] [DELETE] [HEAD] [OPTIONS] [TRACE] [PATCH]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"GET",
+				"POST",
+				"PUT",
+				"DELETE",
+				"HEAD",
+				"OPTIONS",
+				"TRACE",
+				"PATCH"
+			]
 		},
 		"camel.sink.endpoint.ignoreResponseBody": {
 			"name": "camel.sink.endpoint.ignoreResponseBody",

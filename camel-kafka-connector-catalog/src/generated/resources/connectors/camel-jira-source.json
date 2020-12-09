@@ -13,7 +13,23 @@
 			"name": "camel.source.path.type",
 			"description": "Operation to perform. Consumers: NewIssues, NewComments. Producers: AddIssue, AttachFile, DeleteIssue, TransitionIssue, UpdateIssue, Watchers. See this class javadoc description for more information. One of: [ADDCOMMENT] [ADDISSUE] [ATTACH] [DELETEISSUE] [NEWISSUES] [NEWCOMMENTS] [WATCHUPDATES] [UPDATEISSUE] [TRANSITIONISSUE] [WATCHERS] [ADDISSUELINK] [ADDWORKLOG] [FETCHISSUE] [FETCHCOMMENTS]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"ADDCOMMENT",
+				"ADDISSUE",
+				"ATTACH",
+				"DELETEISSUE",
+				"NEWISSUES",
+				"NEWCOMMENTS",
+				"WATCHUPDATES",
+				"UPDATEISSUE",
+				"TRANSITIONISSUE",
+				"WATCHERS",
+				"ADDISSUELINK",
+				"ADDWORKLOG",
+				"FETCHISSUE",
+				"FETCHCOMMENTS"
+			]
 		},
 		"camel.source.endpoint.delay": {
 			"name": "camel.source.endpoint.delay",
@@ -72,7 +88,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",

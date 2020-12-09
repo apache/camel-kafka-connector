@@ -13,7 +13,14 @@
 			"name": "camel.sink.path.kind",
 			"description": "Kind of stream to use such as System.in or System.out. One of: [in] [out] [err] [header] [file]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"in",
+				"out",
+				"err",
+				"header",
+				"file"
+			]
 		},
 		"camel.sink.endpoint.encoding": {
 			"name": "camel.sink.endpoint.encoding",

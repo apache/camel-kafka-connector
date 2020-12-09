@@ -48,7 +48,12 @@
 			"description": "Comma separated list of events to watch. One of: [CREATE] [MODIFY] [DELETE]",
 			"defaultValue": "\"CREATE,MODIFY,DELETE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"CREATE",
+				"MODIFY",
+				"DELETE"
+			]
 		},
 		"camel.source.endpoint.fileHasher": {
 			"name": "camel.source.endpoint.fileHasher",
@@ -95,7 +100,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",

@@ -32,14 +32,24 @@
 			"description": "Protocol compression mechanism type One of: [NONE] [ZLIB]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"ZLIB"
+			]
 		},
 		"camel.source.endpoint.exchangeProtocol": {
 			"name": "camel.source.endpoint.exchangeProtocol",
 			"description": "Exchange protocol serialization type One of: [BINARY] [JSON] [SJSON] [COMPACT]",
 			"defaultValue": "\"BINARY\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"BINARY",
+				"JSON",
+				"SJSON",
+				"COMPACT"
+			]
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -78,7 +88,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
@@ -99,7 +114,12 @@
 			"description": "Security negotiation type One of: [PLAINTEXT] [SSL] [SASL]",
 			"defaultValue": "\"PLAINTEXT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PLAINTEXT",
+				"SSL",
+				"SASL"
+			]
 		},
 		"camel.source.endpoint.sslParameters": {
 			"name": "camel.source.endpoint.sslParameters",

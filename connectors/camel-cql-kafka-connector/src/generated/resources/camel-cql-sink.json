@@ -43,7 +43,20 @@
 			"name": "camel.sink.endpoint.consistencyLevel",
 			"description": "Consistency level to use One of: [ANY] [ONE] [TWO] [THREE] [QUORUM] [ALL] [LOCAL_ONE] [LOCAL_QUORUM] [EACH_QUORUM] [SERIAL] [LOCAL_SERIAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ANY",
+				"ONE",
+				"TWO",
+				"THREE",
+				"QUORUM",
+				"ALL",
+				"LOCAL_ONE",
+				"LOCAL_QUORUM",
+				"EACH_QUORUM",
+				"SERIAL",
+				"LOCAL_SERIAL"
+			]
 		},
 		"camel.sink.endpoint.cql": {
 			"name": "camel.sink.endpoint.cql",

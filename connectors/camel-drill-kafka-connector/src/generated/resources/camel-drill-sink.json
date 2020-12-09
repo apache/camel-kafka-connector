@@ -39,7 +39,11 @@
 			"description": "Connection mode: zk: Zookeeper drillbit: Drillbit direct connection https:\/\/drill.apache.org\/docs\/using-the-jdbc-driver\/ One of: [ZK] [DRILLBIT]",
 			"defaultValue": "\"ZK\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ZK",
+				"DRILLBIT"
+			]
 		},
 		"camel.sink.endpoint.port": {
 			"name": "camel.sink.endpoint.port",

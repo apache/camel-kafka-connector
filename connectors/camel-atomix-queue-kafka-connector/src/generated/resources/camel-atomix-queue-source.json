@@ -32,7 +32,18 @@
 			"description": "The default action. One of: [ADD] [OFFER] [PEEK] [POLL] [CLEAR] [CONTAINS] [IS_EMPTY] [REMOVE] [SIZE]",
 			"defaultValue": "\"ADD\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ADD",
+				"OFFER",
+				"PEEK",
+				"POLL",
+				"CLEAR",
+				"CONTAINS",
+				"IS_EMPTY",
+				"REMOVE",
+				"SIZE"
+			]
 		},
 		"camel.source.endpoint.nodes": {
 			"name": "camel.source.endpoint.nodes",
@@ -70,7 +81,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
@@ -102,7 +118,13 @@
 			"name": "camel.source.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.source.endpoint.resourceConfigs": {
 			"name": "camel.source.endpoint.resourceConfigs",
@@ -146,7 +168,18 @@
 			"description": "The default action. One of: [ADD] [OFFER] [PEEK] [POLL] [CLEAR] [CONTAINS] [IS_EMPTY] [REMOVE] [SIZE]",
 			"defaultValue": "\"ADD\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ADD",
+				"OFFER",
+				"PEEK",
+				"POLL",
+				"CLEAR",
+				"CONTAINS",
+				"IS_EMPTY",
+				"REMOVE",
+				"SIZE"
+			]
 		},
 		"camel.component.atomix-queue.nodes": {
 			"name": "camel.component.atomix-queue.nodes",
@@ -204,7 +237,13 @@
 			"name": "camel.component.atomix-queue.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.component.atomix-queue.resourceConfigs": {
 			"name": "camel.component.atomix-queue.resourceConfigs",

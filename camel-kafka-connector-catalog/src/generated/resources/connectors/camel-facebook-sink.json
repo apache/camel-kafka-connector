@@ -372,7 +372,15 @@
 			"name": "camel.sink.endpoint.pictureSize",
 			"description": "The picture size One of: [square] [small] [normal] [large] [thumbnail] [album]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"square",
+				"small",
+				"normal",
+				"large",
+				"thumbnail",
+				"album"
+			]
 		},
 		"camel.sink.endpoint.placeId": {
 			"name": "camel.sink.endpoint.placeId",
@@ -446,7 +454,15 @@
 			"name": "camel.sink.endpoint.size",
 			"description": "The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"square",
+				"small",
+				"normal",
+				"large",
+				"thumbnail",
+				"album"
+			]
 		},
 		"camel.sink.endpoint.source": {
 			"name": "camel.sink.endpoint.source",

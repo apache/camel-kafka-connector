@@ -47,7 +47,13 @@
 			"description": "The create mode that should be used for the newly created node One of: [PERSISTENT] [PERSISTENT_SEQUENTIAL] [EPHEMERAL] [EPHEMERAL_SEQUENTIAL]",
 			"defaultValue": "\"EPHEMERAL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PERSISTENT",
+				"PERSISTENT_SEQUENTIAL",
+				"EPHEMERAL",
+				"EPHEMERAL_SEQUENTIAL"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -96,7 +102,13 @@
 			"description": "The create mode that should be used for the newly created node One of: [PERSISTENT] [PERSISTENT_SEQUENTIAL] [EPHEMERAL] [EPHEMERAL_SEQUENTIAL]",
 			"defaultValue": "\"EPHEMERAL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PERSISTENT",
+				"PERSISTENT_SEQUENTIAL",
+				"EPHEMERAL",
+				"EPHEMERAL_SEQUENTIAL"
+			]
 		},
 		"camel.component.zookeeper.lazyStartProducer": {
 			"name": "camel.component.zookeeper.lazyStartProducer",

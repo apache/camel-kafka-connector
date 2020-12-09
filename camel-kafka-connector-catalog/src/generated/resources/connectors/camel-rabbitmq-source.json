@@ -52,7 +52,13 @@
 			"description": "The type of the dead letter exchange One of: [direct] [fanout] [headers] [topic]",
 			"defaultValue": "\"direct\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
 		},
 		"camel.source.endpoint.deadLetterQueue": {
 			"name": "camel.source.endpoint.deadLetterQueue",
@@ -85,7 +91,13 @@
 			"description": "The exchange type such as direct or topic. One of: [direct] [fanout] [headers] [topic]",
 			"defaultValue": "\"direct\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
 		},
 		"camel.source.endpoint.exclusive": {
 			"name": "camel.source.endpoint.exclusive",
@@ -237,7 +249,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.threadPoolSize": {
 			"name": "camel.source.endpoint.threadPoolSize",
@@ -403,7 +420,13 @@
 			"description": "The type of the dead letter exchange One of: [direct] [fanout] [headers] [topic]",
 			"defaultValue": "\"direct\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
 		},
 		"camel.component.rabbitmq.deadLetterQueue": {
 			"name": "camel.component.rabbitmq.deadLetterQueue",

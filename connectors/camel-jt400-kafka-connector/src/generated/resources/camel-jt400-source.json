@@ -37,7 +37,13 @@
 			"name": "camel.source.path.type",
 			"description": "Whether to work with data queues or remote program call One of: [DTAQ] [PGM] [SRVPGM] [MSGQ]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"DTAQ",
+				"PGM",
+				"SRVPGM",
+				"MSGQ"
+			]
 		},
 		"camel.source.endpoint.ccsid": {
 			"name": "camel.source.endpoint.ccsid",
@@ -50,7 +56,11 @@
 			"description": "Sets the data format for sending messages. One of: [text] [binary]",
 			"defaultValue": "\"text\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"text",
+				"binary"
+			]
 		},
 		"camel.source.endpoint.guiAvailable": {
 			"name": "camel.source.endpoint.guiAvailable",
@@ -84,7 +94,12 @@
 			"description": "Action to be taken on messages when read from a message queue. Messages can be marked as old (OLD), removed from the queue (REMOVE), or neither (SAME). One of: [OLD] [REMOVE] [SAME]",
 			"defaultValue": "\"OLD\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"OLD",
+				"REMOVE",
+				"SAME"
+			]
 		},
 		"camel.source.endpoint.readTimeout": {
 			"name": "camel.source.endpoint.readTimeout",
@@ -98,7 +113,15 @@
 			"description": "Search type such as EQ for equal etc. One of: [EQ] [NE] [LT] [LE] [GT] [GE]",
 			"defaultValue": "\"EQ\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EQ",
+				"NE",
+				"LT",
+				"LE",
+				"GT",
+				"GE"
+			]
 		},
 		"camel.source.endpoint.sendEmptyMessageWhenIdle": {
 			"name": "camel.source.endpoint.sendEmptyMessageWhenIdle",
@@ -117,7 +140,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -190,7 +218,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -223,7 +259,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",

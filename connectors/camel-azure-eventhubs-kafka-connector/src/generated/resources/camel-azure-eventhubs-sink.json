@@ -32,7 +32,11 @@
 			"description": "Sets the transport type by which all the communication with Azure Event Hubs occurs. Default value is AmqpTransportType#AMQP. One of: [Amqp] [AmqpWebSockets]",
 			"defaultValue": "\"AMQP\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Amqp",
+				"AmqpWebSockets"
+			]
 		},
 		"camel.sink.endpoint.autoDiscoverClient": {
 			"name": "camel.sink.endpoint.autoDiscoverClient",
@@ -109,7 +113,11 @@
 			"description": "Sets the transport type by which all the communication with Azure Event Hubs occurs. Default value is AmqpTransportType#AMQP. One of: [Amqp] [AmqpWebSockets]",
 			"defaultValue": "\"AMQP\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Amqp",
+				"AmqpWebSockets"
+			]
 		},
 		"camel.component.azure-eventhubs.autoDiscoverClient": {
 			"name": "camel.component.azure-eventhubs.autoDiscoverClient",

@@ -51,7 +51,13 @@
 			"name": "camel.sink.endpoint.encryptionOption",
 			"description": "The encryption type to use when storing query results in S3. One of SSE_S3, SSE_KMS, or CSE_KMS. One of: [SSE_S3] [SSE_KMS] [CSE_KMS] [null]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SSE_S3",
+				"SSE_KMS",
+				"CSE_KMS",
+				"null"
+			]
 		},
 		"camel.sink.endpoint.includeTrace": {
 			"name": "camel.sink.endpoint.includeTrace",
@@ -104,7 +110,13 @@
 			"description": "The Athena API function to call. One of: [getQueryExecution] [getQueryResults] [listQueryExecutions] [startQueryExecution]",
 			"defaultValue": "\"startQueryExecution\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"getQueryExecution",
+				"getQueryResults",
+				"listQueryExecutions",
+				"startQueryExecution"
+			]
 		},
 		"camel.sink.endpoint.outputLocation": {
 			"name": "camel.sink.endpoint.outputLocation",
@@ -117,7 +129,12 @@
 			"description": "How query results should be returned. One of StreamList (default - return a GetQueryResultsIterable that can page through all results), SelectList (returns at most 1,000 rows at a time, plus a NextToken value as a header than can be used for manual pagination of results), S3Pointer (return an S3 path pointing to the results). One of: [StreamList] [SelectList] [S3Pointer]",
 			"defaultValue": "\"StreamList\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"StreamList",
+				"SelectList",
+				"S3Pointer"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -136,7 +153,11 @@
 			"description": "To define a proxy protocol when instantiating the Athena client. One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.queryExecutionId": {
 			"name": "camel.sink.endpoint.queryExecutionId",
@@ -168,7 +189,14 @@
 			"description": "Optional comma separated list of error types to retry the query for. Use 'retryable' to retry all retryable failure conditions (e.g. generic errors and resources exhausted), 'generic' to retry 'GENERIC_INTERNAL_ERROR' failures, 'exhausted' to retry queries that have exhausted resource limits, 'always' to always retry regardless of failure condition, or 'never' or null to never retry (default). See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. One of: [never] [always] [retryable] [exhausted] [generic]",
 			"defaultValue": "\"never\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"never",
+				"always",
+				"retryable",
+				"exhausted",
+				"generic"
+			]
 		},
 		"camel.sink.endpoint.secretKey": {
 			"name": "camel.sink.endpoint.secretKey",
@@ -251,7 +279,13 @@
 			"name": "camel.component.aws2-athena.encryptionOption",
 			"description": "The encryption type to use when storing query results in S3. One of SSE_S3, SSE_KMS, or CSE_KMS. One of: [SSE_S3] [SSE_KMS] [CSE_KMS] [null]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SSE_S3",
+				"SSE_KMS",
+				"CSE_KMS",
+				"null"
+			]
 		},
 		"camel.component.aws2-athena.includeTrace": {
 			"name": "camel.component.aws2-athena.includeTrace",
@@ -304,7 +338,13 @@
 			"description": "The Athena API function to call. One of: [getQueryExecution] [getQueryResults] [listQueryExecutions] [startQueryExecution]",
 			"defaultValue": "\"startQueryExecution\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"getQueryExecution",
+				"getQueryResults",
+				"listQueryExecutions",
+				"startQueryExecution"
+			]
 		},
 		"camel.component.aws2-athena.outputLocation": {
 			"name": "camel.component.aws2-athena.outputLocation",
@@ -317,7 +357,12 @@
 			"description": "How query results should be returned. One of StreamList (default - return a GetQueryResultsIterable that can page through all results), SelectList (returns at most 1,000 rows at a time, plus a NextToken value as a header than can be used for manual pagination of results), S3Pointer (return an S3 path pointing to the results). One of: [StreamList] [SelectList] [S3Pointer]",
 			"defaultValue": "\"StreamList\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"StreamList",
+				"SelectList",
+				"S3Pointer"
+			]
 		},
 		"camel.component.aws2-athena.proxyHost": {
 			"name": "camel.component.aws2-athena.proxyHost",
@@ -336,7 +381,11 @@
 			"description": "To define a proxy protocol when instantiating the Athena client. One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws2-athena.queryExecutionId": {
 			"name": "camel.component.aws2-athena.queryExecutionId",
@@ -368,7 +417,14 @@
 			"description": "Optional comma separated list of error types to retry the query for. Use 'retryable' to retry all retryable failure conditions (e.g. generic errors and resources exhausted), 'generic' to retry 'GENERIC_INTERNAL_ERROR' failures, 'exhausted' to retry queries that have exhausted resource limits, 'always' to always retry regardless of failure condition, or 'never' or null to never retry (default). See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. One of: [never] [always] [retryable] [exhausted] [generic]",
 			"defaultValue": "\"never\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"never",
+				"always",
+				"retryable",
+				"exhausted",
+				"generic"
+			]
 		},
 		"camel.component.aws2-athena.secretKey": {
 			"name": "camel.component.aws2-athena.secretKey",

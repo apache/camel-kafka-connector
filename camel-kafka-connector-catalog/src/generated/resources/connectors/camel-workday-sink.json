@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.entity",
 			"description": "The entity to be requested or subscribed via API. One of: [report] [commonAPI]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"report",
+				"commonAPI"
+			]
 		},
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
@@ -53,7 +57,10 @@
 			"description": "Workday Report as a service output format. One of: [json]",
 			"defaultValue": "\"json\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"json"
+			]
 		},
 		"camel.sink.endpoint.host": {
 			"name": "camel.sink.endpoint.host",

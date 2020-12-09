@@ -41,7 +41,11 @@
 			"description": "Specifies if the input is hydrated JSON or a JSON String. One of: [Hydrated] [JsonString]",
 			"defaultValue": "\"Hydrated\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Hydrated",
+				"JsonString"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -55,14 +59,25 @@
 			"description": "Specifies if the output should be hydrated JSON or a JSON String. One of: [Hydrated] [JsonString]",
 			"defaultValue": "\"Hydrated\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Hydrated",
+				"JsonString"
+			]
 		},
 		"camel.sink.endpoint.transformDsl": {
 			"name": "camel.sink.endpoint.transformDsl",
 			"description": "Specifies the Transform DSL of the endpoint resource. If none is specified Chainr will be used. One of: [Chainr] [Shiftr] [Defaultr] [Removr] [Sortr]",
 			"defaultValue": "\"Chainr\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Chainr",
+				"Shiftr",
+				"Defaultr",
+				"Removr",
+				"Sortr"
+			]
 		},
 		"camel.sink.endpoint.basicPropertyBinding": {
 			"name": "camel.sink.endpoint.basicPropertyBinding",

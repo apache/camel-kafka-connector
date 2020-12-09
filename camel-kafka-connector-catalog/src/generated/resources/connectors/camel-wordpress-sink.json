@@ -13,13 +13,20 @@
 			"name": "camel.sink.path.operation",
 			"description": "The endpoint operation. One of: [post] [user]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"post",
+				"user"
+			]
 		},
 		"camel.sink.path.operationDetail": {
 			"name": "camel.sink.path.operationDetail",
 			"description": "The second part of an endpoint operation. Needed only when endpoint semantic is not enough, like wordpress:post:delete One of: [delete]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"delete"
+			]
 		},
 		"camel.sink.endpoint.apiVersion": {
 			"name": "camel.sink.endpoint.apiVersion",

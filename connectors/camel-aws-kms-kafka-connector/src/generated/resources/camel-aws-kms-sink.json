@@ -45,7 +45,15 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform One of: [listKeys] [createKey] [disableKey] [scheduleKeyDeletion] [describeKey] [enableKey]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"listKeys",
+				"createKey",
+				"disableKey",
+				"scheduleKeyDeletion",
+				"describeKey",
+				"enableKey"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -64,7 +72,11 @@
 			"description": "To define a proxy protocol when instantiating the KMS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -128,7 +140,15 @@
 			"name": "camel.component.aws-kms.operation",
 			"description": "The operation to perform One of: [listKeys] [createKey] [disableKey] [scheduleKeyDeletion] [describeKey] [enableKey]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"listKeys",
+				"createKey",
+				"disableKey",
+				"scheduleKeyDeletion",
+				"describeKey",
+				"enableKey"
+			]
 		},
 		"camel.component.aws-kms.proxyHost": {
 			"name": "camel.component.aws-kms.proxyHost",
@@ -147,7 +167,11 @@
 			"description": "To define a proxy protocol when instantiating the KMS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-kms.region": {
 			"name": "camel.component.aws-kms.region",

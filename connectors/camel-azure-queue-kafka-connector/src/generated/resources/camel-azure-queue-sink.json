@@ -58,7 +58,17 @@
 			"description": "Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage]",
 			"defaultValue": "\"listQueues\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"listQueues",
+				"createQueue",
+				"deleteQueue",
+				"addMessage",
+				"retrieveMessage",
+				"peekMessage",
+				"updateMessage",
+				"deleteMessage"
+			]
 		},
 		"camel.sink.endpoint.queuePrefix": {
 			"name": "camel.sink.endpoint.queuePrefix",
@@ -135,7 +145,17 @@
 			"description": "Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage]",
 			"defaultValue": "\"listQueues\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"listQueues",
+				"createQueue",
+				"deleteQueue",
+				"addMessage",
+				"retrieveMessage",
+				"peekMessage",
+				"updateMessage",
+				"deleteMessage"
+			]
 		},
 		"camel.component.azure-queue.queuePrefix": {
 			"name": "camel.component.azure-queue.queuePrefix",

@@ -93,14 +93,27 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.noReplyLogLevel": {
 			"name": "camel.source.endpoint.noReplyLogLevel",
 			"description": "If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",
@@ -187,7 +200,14 @@
 			"name": "camel.source.endpoint.textlineDelimiter",
 			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"AUTO",
+				"UNIX",
+				"WINDOWS",
+				"MAC"
+			]
 		},
 		"camel.source.endpoint.autoStartTls": {
 			"name": "camel.source.endpoint.autoStartTls",
@@ -263,7 +283,15 @@
 			"description": "If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.component.mina.basicPropertyBinding": {
 			"name": "camel.component.mina.basicPropertyBinding",
@@ -349,7 +377,14 @@
 			"name": "camel.component.mina.textlineDelimiter",
 			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"AUTO",
+				"UNIX",
+				"WINDOWS",
+				"MAC"
+			]
 		},
 		"camel.component.mina.autoStartTls": {
 			"name": "camel.component.mina.autoStartTls",

@@ -79,7 +79,21 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "What operation to perform One of: [Index] [Update] [Bulk] [BulkIndex] [GetById] [MultiGet] [MultiSearch] [Delete] [DeleteIndex] [Search] [Exists] [Ping]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Index",
+				"Update",
+				"Bulk",
+				"BulkIndex",
+				"GetById",
+				"MultiGet",
+				"MultiSearch",
+				"Delete",
+				"DeleteIndex",
+				"Search",
+				"Exists",
+				"Ping"
+			]
 		},
 		"camel.sink.endpoint.scrollKeepAliveMs": {
 			"name": "camel.sink.endpoint.scrollKeepAliveMs",

@@ -13,7 +13,14 @@
 			"name": "camel.source.path.kind",
 			"description": "Kind of stream to use such as System.in or System.out. One of: [in] [out] [err] [header] [file]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"in",
+				"out",
+				"err",
+				"header",
+				"file"
+			]
 		},
 		"camel.source.endpoint.encoding": {
 			"name": "camel.source.endpoint.encoding",
@@ -102,7 +109,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",

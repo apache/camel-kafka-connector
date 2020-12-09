@@ -52,7 +52,15 @@
 			"description": "Logging level to use. The default value is INFO. One of: [ERROR] [WARN] [INFO] [DEBUG] [TRACE] [OFF]",
 			"defaultValue": "\"INFO\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ERROR",
+				"WARN",
+				"INFO",
+				"DEBUG",
+				"TRACE",
+				"OFF"
+			]
 		},
 		"camel.sink.endpoint.logMask": {
 			"name": "camel.sink.endpoint.logMask",
@@ -203,7 +211,12 @@
 			"description": "Sets the outputs style to use. One of: [Default] [Tab] [Fixed]",
 			"defaultValue": "\"Default\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Default",
+				"Tab",
+				"Fixed"
+			]
 		},
 		"camel.component.log.lazyStartProducer": {
 			"name": "camel.component.log.lazyStartProducer",

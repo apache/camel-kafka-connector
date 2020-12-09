@@ -34,7 +34,27 @@
 			"description": "The operation to perform. It can be listFunctions, getFunction, createFunction, deleteFunction or invokeFunction One of: [listFunctions] [getFunction] [createAlias] [deleteAlias] [getAlias] [listAliases] [createFunction] [deleteFunction] [invokeFunction] [updateFunction] [createEventSourceMapping] [deleteEventSourceMapping] [listEventSourceMapping] [listTags] [tagResource] [untagResource] [publishVersion] [listVersions]",
 			"defaultValue": "\"invokeFunction\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"listFunctions",
+				"getFunction",
+				"createAlias",
+				"deleteAlias",
+				"getAlias",
+				"listAliases",
+				"createFunction",
+				"deleteFunction",
+				"invokeFunction",
+				"updateFunction",
+				"createEventSourceMapping",
+				"deleteEventSourceMapping",
+				"listEventSourceMapping",
+				"listTags",
+				"tagResource",
+				"untagResource",
+				"publishVersion",
+				"listVersions"
+			]
 		},
 		"camel.sink.endpoint.pojoRequest": {
 			"name": "camel.sink.endpoint.pojoRequest",
@@ -93,7 +113,11 @@
 			"description": "To define a proxy protocol when instantiating the Lambda client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
@@ -132,7 +156,27 @@
 			"description": "The operation to perform. It can be listFunctions, getFunction, createFunction, deleteFunction or invokeFunction One of: [listFunctions] [getFunction] [createAlias] [deleteAlias] [getAlias] [listAliases] [createFunction] [deleteFunction] [invokeFunction] [updateFunction] [createEventSourceMapping] [deleteEventSourceMapping] [listEventSourceMapping] [listTags] [tagResource] [untagResource] [publishVersion] [listVersions]",
 			"defaultValue": "\"invokeFunction\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"listFunctions",
+				"getFunction",
+				"createAlias",
+				"deleteAlias",
+				"getAlias",
+				"listAliases",
+				"createFunction",
+				"deleteFunction",
+				"invokeFunction",
+				"updateFunction",
+				"createEventSourceMapping",
+				"deleteEventSourceMapping",
+				"listEventSourceMapping",
+				"listTags",
+				"tagResource",
+				"untagResource",
+				"publishVersion",
+				"listVersions"
+			]
 		},
 		"camel.component.aws2-lambda.pojoRequest": {
 			"name": "camel.component.aws2-lambda.pojoRequest",
@@ -184,7 +228,11 @@
 			"description": "To define a proxy protocol when instantiating the Lambda client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws2-lambda.accessKey": {
 			"name": "camel.component.aws2-lambda.accessKey",

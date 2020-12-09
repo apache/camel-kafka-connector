@@ -13,7 +13,18 @@
 			"name": "camel.sink.path.type",
 			"description": "What git operation to execute One of: [CLOSEPULLREQUEST] [PULLREQUESTCOMMENT] [COMMIT] [PULLREQUEST] [TAG] [PULLREQUESTSTATE] [PULLREQUESTFILES] [GETCOMMITFILE] [CREATEISSUE]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"CLOSEPULLREQUEST",
+				"PULLREQUESTCOMMENT",
+				"COMMIT",
+				"PULLREQUEST",
+				"TAG",
+				"PULLREQUESTSTATE",
+				"PULLREQUESTFILES",
+				"GETCOMMITFILE",
+				"CREATEISSUE"
+			]
 		},
 		"camel.sink.endpoint.oauthToken": {
 			"name": "camel.sink.endpoint.oauthToken",
@@ -62,7 +73,13 @@
 			"name": "camel.sink.endpoint.state",
 			"description": "To set git commit status state One of: [error] [failure] [pending] [success]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"error",
+				"failure",
+				"pending",
+				"success"
+			]
 		},
 		"camel.sink.endpoint.targetUrl": {
 			"name": "camel.sink.endpoint.targetUrl",

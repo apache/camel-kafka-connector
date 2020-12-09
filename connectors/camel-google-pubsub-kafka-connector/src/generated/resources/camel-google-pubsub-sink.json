@@ -26,7 +26,11 @@
 			"description": "AUTO = exchange gets ack'ed\/nack'ed on completion. NONE = downstream process has to ack\/nack explicitly One of: [AUTO] [NONE]",
 			"defaultValue": "\"AUTO\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"AUTO",
+				"NONE"
+			]
 		},
 		"camel.sink.endpoint.concurrentConsumers": {
 			"name": "camel.sink.endpoint.concurrentConsumers",

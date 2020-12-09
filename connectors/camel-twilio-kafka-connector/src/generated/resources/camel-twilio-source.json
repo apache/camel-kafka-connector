@@ -13,13 +13,78 @@
 			"name": "camel.source.path.apiName",
 			"description": "What kind of operation to perform One of: [ACCOUNT] [ADDRESS] [APPLICATION] [AVAILABLE_PHONE_NUMBER_COUNTRY] [CALL] [CONFERENCE] [CONNECT_APP] [INCOMING_PHONE_NUMBER] [KEY] [MESSAGE] [NEW_KEY] [NEW_SIGNING_KEY] [NOTIFICATION] [OUTGOING_CALLER_ID] [QUEUE] [RECORDING] [SHORT_CODE] [SIGNING_KEY] [TOKEN] [TRANSCRIPTION] [VALIDATION_REQUEST] [ADDRESS_DEPENDENT_PHONE_NUMBER] [AVAILABLE_PHONE_NUMBER_COUNTRY_LOCAL] [AVAILABLE_PHONE_NUMBER_COUNTRY_MOBILE] [AVAILABLE_PHONE_NUMBER_COUNTRY_TOLL_FREE] [CALL_FEEDBACK] [CALL_FEEDBACK_SUMMARY] [CALL_NOTIFICATION] [CALL_RECORDING] [CONFERENCE_PARTICIPANT] [INCOMING_PHONE_NUMBER_LOCAL] [INCOMING_PHONE_NUMBER_MOBILE] [INCOMING_PHONE_NUMBER_TOLL_FREE] [MESSAGE_FEEDBACK] [MESSAGE_MEDIA] [QUEUE_MEMBER] [RECORDING_ADD_ON_RESULT] [RECORDING_TRANSCRIPTION] [RECORDING_ADD_ON_RESULT_PAYLOAD] [SIP_CREDENTIAL_LIST] [SIP_DOMAIN] [SIP_IP_ACCESS_CONTROL_LIST] [SIP_CREDENTIAL_LIST_CREDENTIAL] [SIP_DOMAIN_CREDENTIAL_LIST_MAPPING] [SIP_DOMAIN_IP_ACCESS_CONTROL_LIST_MAPPING] [SIP_IP_ACCESS_CONTROL_LIST_IP_ADDRESS] [USAGE_RECORD] [USAGE_TRIGGER] [USAGE_RECORD_ALL_TIME] [USAGE_RECORD_DAILY] [USAGE_RECORD_LAST_MONTH] [USAGE_RECORD_MONTHLY] [USAGE_RECORD_THIS_MONTH] [USAGE_RECORD_TODAY] [USAGE_RECORD_YEARLY] [USAGE_RECORD_YESTERDAY]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"ACCOUNT",
+				"ADDRESS",
+				"APPLICATION",
+				"AVAILABLE_PHONE_NUMBER_COUNTRY",
+				"CALL",
+				"CONFERENCE",
+				"CONNECT_APP",
+				"INCOMING_PHONE_NUMBER",
+				"KEY",
+				"MESSAGE",
+				"NEW_KEY",
+				"NEW_SIGNING_KEY",
+				"NOTIFICATION",
+				"OUTGOING_CALLER_ID",
+				"QUEUE",
+				"RECORDING",
+				"SHORT_CODE",
+				"SIGNING_KEY",
+				"TOKEN",
+				"TRANSCRIPTION",
+				"VALIDATION_REQUEST",
+				"ADDRESS_DEPENDENT_PHONE_NUMBER",
+				"AVAILABLE_PHONE_NUMBER_COUNTRY_LOCAL",
+				"AVAILABLE_PHONE_NUMBER_COUNTRY_MOBILE",
+				"AVAILABLE_PHONE_NUMBER_COUNTRY_TOLL_FREE",
+				"CALL_FEEDBACK",
+				"CALL_FEEDBACK_SUMMARY",
+				"CALL_NOTIFICATION",
+				"CALL_RECORDING",
+				"CONFERENCE_PARTICIPANT",
+				"INCOMING_PHONE_NUMBER_LOCAL",
+				"INCOMING_PHONE_NUMBER_MOBILE",
+				"INCOMING_PHONE_NUMBER_TOLL_FREE",
+				"MESSAGE_FEEDBACK",
+				"MESSAGE_MEDIA",
+				"QUEUE_MEMBER",
+				"RECORDING_ADD_ON_RESULT",
+				"RECORDING_TRANSCRIPTION",
+				"RECORDING_ADD_ON_RESULT_PAYLOAD",
+				"SIP_CREDENTIAL_LIST",
+				"SIP_DOMAIN",
+				"SIP_IP_ACCESS_CONTROL_LIST",
+				"SIP_CREDENTIAL_LIST_CREDENTIAL",
+				"SIP_DOMAIN_CREDENTIAL_LIST_MAPPING",
+				"SIP_DOMAIN_IP_ACCESS_CONTROL_LIST_MAPPING",
+				"SIP_IP_ACCESS_CONTROL_LIST_IP_ADDRESS",
+				"USAGE_RECORD",
+				"USAGE_TRIGGER",
+				"USAGE_RECORD_ALL_TIME",
+				"USAGE_RECORD_DAILY",
+				"USAGE_RECORD_LAST_MONTH",
+				"USAGE_RECORD_MONTHLY",
+				"USAGE_RECORD_THIS_MONTH",
+				"USAGE_RECORD_TODAY",
+				"USAGE_RECORD_YEARLY",
+				"USAGE_RECORD_YESTERDAY"
+			]
 		},
 		"camel.source.path.methodName": {
 			"name": "camel.source.path.methodName",
 			"description": "What sub operation to use for the selected operation One of: [create] [delete] [fetch] [read] [update]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"create",
+				"delete",
+				"fetch",
+				"read",
+				"update"
+			]
 		},
 		"camel.source.endpoint.inBody": {
 			"name": "camel.source.endpoint.inBody",
@@ -51,7 +116,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -124,7 +194,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -157,7 +235,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",

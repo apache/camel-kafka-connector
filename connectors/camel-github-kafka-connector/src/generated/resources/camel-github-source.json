@@ -13,7 +13,18 @@
 			"name": "camel.source.path.type",
 			"description": "What git operation to execute One of: [CLOSEPULLREQUEST] [PULLREQUESTCOMMENT] [COMMIT] [PULLREQUEST] [TAG] [PULLREQUESTSTATE] [PULLREQUESTFILES] [GETCOMMITFILE] [CREATEISSUE]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"CLOSEPULLREQUEST",
+				"PULLREQUESTCOMMENT",
+				"COMMIT",
+				"PULLREQUEST",
+				"TAG",
+				"PULLREQUESTSTATE",
+				"PULLREQUESTFILES",
+				"GETCOMMITFILE",
+				"CREATEISSUE"
+			]
 		},
 		"camel.source.path.branchName": {
 			"name": "camel.source.path.branchName",
@@ -68,7 +79,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",

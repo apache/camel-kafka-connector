@@ -13,7 +13,11 @@
 			"name": "camel.source.path.transport",
 			"description": "Transport to use, can be either http or netty One of: [http] [netty]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"http",
+				"netty"
+			]
 		},
 		"camel.source.path.port": {
 			"name": "camel.source.path.port",
@@ -88,7 +92,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",

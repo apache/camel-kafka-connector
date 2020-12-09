@@ -71,7 +71,12 @@
 			"description": "Logging level. 0=none, 1=info, 2=debug. One of: [0] [1] [2]",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"0",
+				"1",
+				"2"
+			]
 		},
 		"camel.sink.endpoint.maxInterval": {
 			"name": "camel.sink.endpoint.maxInterval",

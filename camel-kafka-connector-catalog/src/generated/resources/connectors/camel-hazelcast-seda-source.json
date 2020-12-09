@@ -19,7 +19,45 @@
 			"name": "camel.source.endpoint.defaultOperation",
 			"description": "To specify a default operation to use, if no operation header has been provided. One of: [put] [delete] [get] [update] [query] [getAll] [clear] [putIfAbsent] [allAll] [removeAll] [retainAll] [evict] [evictAll] [valueCount] [containsKey] [containsValue] [keySet] [removevalue] [increment] [decrement] [setvalue] [destroy] [compareAndSet] [getAndAdd] [add] [offer] [peek] [poll] [remainingCapacity] [drainTo] [removeIf] [take] [publish] [readOnceHeal] [readOnceTail] [capacity]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"put",
+				"delete",
+				"get",
+				"update",
+				"query",
+				"getAll",
+				"clear",
+				"putIfAbsent",
+				"allAll",
+				"removeAll",
+				"retainAll",
+				"evict",
+				"evictAll",
+				"valueCount",
+				"containsKey",
+				"containsValue",
+				"keySet",
+				"removevalue",
+				"increment",
+				"decrement",
+				"setvalue",
+				"destroy",
+				"compareAndSet",
+				"getAndAdd",
+				"add",
+				"offer",
+				"peek",
+				"poll",
+				"remainingCapacity",
+				"drainTo",
+				"removeIf",
+				"take",
+				"publish",
+				"readOnceHeal",
+				"readOnceTail",
+				"capacity"
+			]
 		},
 		"camel.source.endpoint.hazelcastInstance": {
 			"name": "camel.source.endpoint.hazelcastInstance",
@@ -50,7 +88,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.basicPropertyBinding": {
 			"name": "camel.source.endpoint.basicPropertyBinding",

@@ -32,14 +32,24 @@
 			"description": "Protocol compression mechanism type One of: [NONE] [ZLIB]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"ZLIB"
+			]
 		},
 		"camel.sink.endpoint.exchangeProtocol": {
 			"name": "camel.sink.endpoint.exchangeProtocol",
 			"description": "Exchange protocol serialization type One of: [BINARY] [JSON] [SJSON] [COMPACT]",
 			"defaultValue": "\"BINARY\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"BINARY",
+				"JSON",
+				"SJSON",
+				"COMPACT"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -73,7 +83,12 @@
 			"description": "Security negotiation type One of: [PLAINTEXT] [SSL] [SASL]",
 			"defaultValue": "\"PLAINTEXT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PLAINTEXT",
+				"SSL",
+				"SASL"
+			]
 		},
 		"camel.sink.endpoint.sslParameters": {
 			"name": "camel.sink.endpoint.sslParameters",

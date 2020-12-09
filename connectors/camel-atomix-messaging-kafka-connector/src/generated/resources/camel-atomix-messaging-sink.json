@@ -26,7 +26,11 @@
 			"description": "The broadcast type. One of: [ALL] [RANDOM]",
 			"defaultValue": "\"ALL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"RANDOM"
+			]
 		},
 		"camel.sink.endpoint.channelName": {
 			"name": "camel.sink.endpoint.channelName",
@@ -45,7 +49,11 @@
 			"description": "The default action. One of: [DIRECT] [BROADCAST]",
 			"defaultValue": "\"DIRECT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DIRECT",
+				"BROADCAST"
+			]
 		},
 		"camel.sink.endpoint.memberName": {
 			"name": "camel.sink.endpoint.memberName",
@@ -109,7 +117,13 @@
 			"name": "camel.sink.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.sink.endpoint.resourceConfigs": {
 			"name": "camel.sink.endpoint.resourceConfigs",
@@ -141,7 +155,11 @@
 			"description": "The broadcast type. One of: [ALL] [RANDOM]",
 			"defaultValue": "\"ALL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"RANDOM"
+			]
 		},
 		"camel.component.atomix-messaging.channelName": {
 			"name": "camel.component.atomix-messaging.channelName",
@@ -166,7 +184,11 @@
 			"description": "The default action. One of: [DIRECT] [BROADCAST]",
 			"defaultValue": "\"DIRECT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DIRECT",
+				"BROADCAST"
+			]
 		},
 		"camel.component.atomix-messaging.memberName": {
 			"name": "camel.component.atomix-messaging.memberName",
@@ -230,7 +252,13 @@
 			"name": "camel.component.atomix-messaging.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.component.atomix-messaging.resourceConfigs": {
 			"name": "camel.component.atomix-messaging.resourceConfigs",

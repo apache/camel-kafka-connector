@@ -52,7 +52,18 @@
 			"description": "Operation to perform One of: [BatchDeleteAttributes] [BatchPutAttributes] [DeleteAttributes] [DeleteDomain] [DomainMetadata] [GetAttributes] [ListDomains] [PutAttributes] [Select]",
 			"defaultValue": "\"PutAttributes\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"BatchDeleteAttributes",
+				"BatchPutAttributes",
+				"DeleteAttributes",
+				"DeleteDomain",
+				"DomainMetadata",
+				"GetAttributes",
+				"ListDomains",
+				"PutAttributes",
+				"Select"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -71,7 +82,11 @@
 			"description": "To define a proxy protocol when instantiating the SDB client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
