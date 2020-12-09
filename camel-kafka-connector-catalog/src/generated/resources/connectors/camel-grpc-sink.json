@@ -27,6 +27,13 @@
 			"priority": "HIGH",
 			"required": "true"
 		},
+		"camel.sink.endpoint.autoDiscoverClientInterceptors": {
+			"name": "camel.sink.endpoint.autoDiscoverClientInterceptors",
+			"description": "Setting the autoDiscoverClientInterceptors mechanism, if true, the component will look for a ClientInterceptor instance in the registry automatically otherwise it will skip that checking.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.flowControlWindow": {
 			"name": "camel.sink.endpoint.flowControlWindow",
 			"description": "The HTTP\/2 flow control window size (MiB)",
@@ -70,13 +77,6 @@
 		"camel.sink.endpoint.userAgent": {
 			"name": "camel.sink.endpoint.userAgent",
 			"description": "The user agent header passed to the server",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -163,11 +163,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.grpc.basicPropertyBinding": {
-			"name": "camel.component.grpc.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.grpc.autowiredEnabled": {
+			"name": "camel.component.grpc.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		}
 	}

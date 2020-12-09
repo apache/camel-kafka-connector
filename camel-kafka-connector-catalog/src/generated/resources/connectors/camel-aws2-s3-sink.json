@@ -21,16 +21,15 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.autoCreateBucket": {
-			"name": "camel.sink.endpoint.autoCreateBucket",
-			"description": "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.",
-			"defaultValue": "true",
+		"camel.sink.endpoint.amazonS3Presigner": {
+			"name": "camel.sink.endpoint.amazonS3Presigner",
+			"description": "An S3 Presigner for Request, used mainly in createDownloadLink operation",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.autoDiscoverClient": {
-			"name": "camel.sink.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+		"camel.sink.endpoint.autoCreateBucket": {
+			"name": "camel.sink.endpoint.autoCreateBucket",
+			"description": "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -93,9 +92,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.useIAMCredentials": {
-			"name": "camel.sink.endpoint.useIAMCredentials",
-			"description": "Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in.",
+		"camel.sink.endpoint.useDefaultCredentialsProvider": {
+			"name": "camel.sink.endpoint.useDefaultCredentialsProvider",
+			"description": "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -184,13 +183,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
@@ -216,16 +208,15 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-s3.autoCreateBucket": {
-			"name": "camel.component.aws2-s3.autoCreateBucket",
-			"description": "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.",
-			"defaultValue": "true",
+		"camel.component.aws2-s3.amazonS3Presigner": {
+			"name": "camel.component.aws2-s3.amazonS3Presigner",
+			"description": "An S3 Presigner for Request, used mainly in createDownloadLink operation",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-s3.autoDiscoverClient": {
-			"name": "camel.component.aws2-s3.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
+		"camel.component.aws2-s3.autoCreateBucket": {
+			"name": "camel.component.aws2-s3.autoCreateBucket",
+			"description": "Setting the autocreation of the S3 bucket bucketName. This will apply also in case of moveAfterRead option enabled and it will create the destinationBucket if it doesn't exist already.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -294,9 +285,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-s3.useIAMCredentials": {
-			"name": "camel.component.aws2-s3.useIAMCredentials",
-			"description": "Set whether the S3 client should expect to load credentials on an EC2 instance or to expect static credentials to be passed in.",
+		"camel.component.aws2-s3.useDefaultCredentialsProvider": {
+			"name": "camel.component.aws2-s3.useDefaultCredentialsProvider",
+			"description": "Set whether the S3 client should expect to load credentials through a default credentials provider or to expect static credentials to be passed in.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -385,11 +376,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-s3.basicPropertyBinding": {
-			"name": "camel.component.aws2-s3.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.aws2-s3.autowiredEnabled": {
+			"name": "camel.component.aws2-s3.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.aws2-s3.accessKey": {

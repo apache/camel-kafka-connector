@@ -11,21 +11,9 @@
 	"properties": {
 		"camel.sink.path.type": {
 			"name": "camel.sink.path.type",
-			"description": "What git operation to execute One of: [CLOSEPULLREQUEST] [PULLREQUESTCOMMENT] [COMMIT] [PULLREQUEST] [TAG] [PULLREQUESTSTATE] [PULLREQUESTFILES] [GETCOMMITFILE] [CREATEISSUE]",
+			"description": "What git operation to execute One of: [CLOSEPULLREQUEST] [PULLREQUESTCOMMENT] [COMMIT] [PULLREQUEST] [TAG] [PULLREQUESTSTATE] [PULLREQUESTFILES] [GETCOMMITFILE] [CREATEISSUE] [EVENT]",
 			"priority": "HIGH",
 			"required": "true"
-		},
-		"camel.sink.endpoint.oauthToken": {
-			"name": "camel.sink.endpoint.oauthToken",
-			"description": "GitHub OAuth token, required unless username & password are provided",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.password": {
-			"name": "camel.sink.endpoint.password",
-			"description": "GitHub password, required unless oauthToken is provided",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.sink.endpoint.repoName": {
 			"name": "camel.sink.endpoint.repoName",
@@ -38,12 +26,6 @@
 			"description": "GitHub repository owner (organization)",
 			"priority": "HIGH",
 			"required": "true"
-		},
-		"camel.sink.endpoint.username": {
-			"name": "camel.sink.endpoint.username",
-			"description": "GitHub username, required unless oauthToken is provided",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.sink.endpoint.encoding": {
 			"name": "camel.sink.endpoint.encoding",
@@ -70,17 +52,16 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.oauthToken": {
+			"name": "camel.sink.endpoint.oauthToken",
+			"description": "GitHub OAuth token. Must be configured on either component or endpoint.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -91,11 +72,17 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.github.basicPropertyBinding": {
-			"name": "camel.component.github.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.github.autowiredEnabled": {
+			"name": "camel.component.github.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.github.oauthToken": {
+			"name": "camel.component.github.oauthToken",
+			"description": "GitHub OAuth token. Must be configured on either component or endpoint.",
+			"priority": "MEDIUM",
 			"required": "false"
 		}
 	}

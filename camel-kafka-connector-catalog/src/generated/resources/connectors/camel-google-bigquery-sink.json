@@ -29,7 +29,7 @@
 		},
 		"camel.sink.endpoint.connectionFactory": {
 			"name": "camel.sink.endpoint.connectionFactory",
-			"description": "ConnectionFactory to obtain connection to Bigquery Service. If non provided the default one will be used",
+			"description": "ConnectionFactory to obtain connection to Bigquery Service. If not provided the default one will be used",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -46,13 +46,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
@@ -62,7 +55,7 @@
 		},
 		"camel.component.google-bigquery.connectionFactory": {
 			"name": "camel.component.google-bigquery.connectionFactory",
-			"description": "ConnectionFactory to obtain connection to Bigquery Service. If non provided the default one will be used",
+			"description": "ConnectionFactory to obtain connection to Bigquery Service. If not provided the default one will be used",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -85,11 +78,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.google-bigquery.basicPropertyBinding": {
-			"name": "camel.component.google-bigquery.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.google-bigquery.autowiredEnabled": {
+			"name": "camel.component.google-bigquery.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		}
 	}

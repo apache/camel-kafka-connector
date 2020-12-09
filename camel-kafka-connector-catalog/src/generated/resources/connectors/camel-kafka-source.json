@@ -157,16 +157,16 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.headerDeserializer": {
+			"name": "camel.source.endpoint.headerDeserializer",
+			"description": "To use a custom KafkaHeaderDeserializer to deserialize kafka headers values",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.heartbeatIntervalMs": {
 			"name": "camel.source.endpoint.heartbeatIntervalMs",
 			"description": "The expected time between heartbeats to the consumer coordinator when using Kafka's group management facilities. Heartbeats are used to ensure that the consumer's session stays active and to facilitate rebalancing when new consumers join or leave the group. The value must be set lower than session.timeout.ms, but typically should be set no higher than 1\/3 of that value. It can be adjusted even lower to control the expected time for normal rebalances.",
 			"defaultValue": "\"3000\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.kafkaHeaderDeserializer": {
-			"name": "camel.source.endpoint.kafkaHeaderDeserializer",
-			"description": "To use a custom KafkaHeaderDeserializer to deserialize kafka headers values",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -260,13 +260,6 @@
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.basicPropertyBinding": {
-			"name": "camel.source.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -563,16 +556,16 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.kafka.headerDeserializer": {
+			"name": "camel.component.kafka.headerDeserializer",
+			"description": "To use a custom KafkaHeaderDeserializer to deserialize kafka headers values",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.kafka.heartbeatIntervalMs": {
 			"name": "camel.component.kafka.heartbeatIntervalMs",
 			"description": "The expected time between heartbeats to the consumer coordinator when using Kafka's group management facilities. Heartbeats are used to ensure that the consumer's session stays active and to facilitate rebalancing when new consumers join or leave the group. The value must be set lower than session.timeout.ms, but typically should be set no higher than 1\/3 of that value. It can be adjusted even lower to control the expected time for normal rebalances.",
 			"defaultValue": "\"3000\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.kafka.kafkaHeaderDeserializer": {
-			"name": "camel.component.kafka.kafkaHeaderDeserializer",
-			"description": "To use a custom KafkaHeaderDeserializer to deserialize kafka headers values",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -663,11 +656,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.kafka.basicPropertyBinding": {
-			"name": "camel.component.kafka.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.kafka.autowiredEnabled": {
+			"name": "camel.component.kafka.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.kafka.schemaRegistryURL": {
