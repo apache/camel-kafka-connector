@@ -23,6 +23,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -80,30 +81,8 @@ public class CollectConnectorDescriptorMojo extends AbstractMojo {
                 for (int i = 0; i < files.length; i++) {
                     File file = files[i];
                     if (file.isDirectory()) {
-                        File fileSource = FileUtils.getFile(file, "src/generated/descriptors/connector-source.properties");
-                        File fileSink = FileUtils.getFile(file, "src/generated/descriptors/connector-sink.properties");
-                        if (fileSource.exists()) {
-                            try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileSource), "UTF-8"))) {
-                                String line = null;
-                                while ((line = br.readLine()) != null) {
-                                    sb.append(line);
-                                    sb.append(System.lineSeparator());
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        if (fileSink.exists()) {
-                            try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileSink), "UTF-8"))) {
-                                String line = null;
-                                while ((line = br.readLine()) != null) {
-                                    sb.append(line);
-                                    sb.append(System.lineSeparator());
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
+                        fillStringBuilderWithContentOf(sb, file, "src/generated/descriptors/connector-source.properties");
+                        fillStringBuilderWithContentOf(sb, file, "src/generated/descriptors/connector-sink.properties");
                     }
                 }
                 File file = FileUtils.getFile(catalogDescriptorDir, "connectors.properties");
@@ -112,6 +91,21 @@ public class CollectConnectorDescriptorMojo extends AbstractMojo {
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                     writer.write(sb.toString());
                 }
+            }
+        }
+    }
+
+    private void fillStringBuilderWithContentOf(StringBuilder sb, File file, String path) {
+        File fileToRead = FileUtils.getFile(file, path);
+        if (fileToRead.exists()) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileToRead), StandardCharsets.UTF_8))) {
+                String line = null;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                    sb.append(System.lineSeparator());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
