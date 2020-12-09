@@ -16,6 +16,7 @@ For a Sink connector the basic options are:
 | camel.aggregation.timeout | The timeout of the aggregation, to be used in combination with camel.beans.aggregate | 500L | MEDIUM
 | camel.error.handler | The error handler to use: possible value are 'no' or 'default' | default | MEDIUM
 | camel.error.handler.max.redeliveries | The maximum redeliveries to be use in case of Default Error Handler | 0 | MEDIUM
+| camel.error.handler.redelivery.delay | The initial redelivery delay in milliseconds in case of Default Error Handler | 1000L | MEDIUM
 | camel.remove.headers.pattern | The pattern of the headers we want to exclude from the exchange | null | MEDIUM
 | camel.idempotency.enabled | If idempotency must be enabled or not | false | LOW
 | camel.idempotency.enabled | If idempotency must be enabled or not | false | LOW
