@@ -16,6 +16,8 @@
  */
 package org.apache.camel.kafkaconnector.model;
 
+import java.util.List;
+
 import org.apache.camel.tooling.model.Strings;
 
 public class CamelKafkaConnectorOptionModel {
@@ -25,6 +27,7 @@ public class CamelKafkaConnectorOptionModel {
     private String name;
     private String defaultValue;
     private String required;
+    private List<String> possibleEnumValues;
 
     public String getName() {
         return name;
@@ -70,5 +73,13 @@ public class CamelKafkaConnectorOptionModel {
 
     public void setRequired(String required) {
         this.required = required;
+    }
+
+    public List<String> getPossibleEnumValues() {
+        return possibleEnumValues;
+    }
+
+    public void setPossibleEnumValues(List<String> possibleEnumValues) {
+        this.possibleEnumValues = possibleEnumValues;
     }
 }
