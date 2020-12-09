@@ -663,6 +663,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         optionModel.setPriority(StringUtils.removeStart(confPriority, CONFIG_DEF_IMPORTANCE_PREFIX));
         optionModel.setDefaultValue(defaultValueClassLiteralInitializer.equals("null") ? null : defaultValueClassLiteralInitializer);
         optionModel.setRequired(String.valueOf(baseOptionModel.isRequired()));
+        optionModel.setPossibleEnumValues(baseOptionModel.getEnums());
         listOptions.add(optionModel);
     }
 

@@ -70,6 +70,10 @@ public final class JsonMapperKafkaConnector {
         }
         obj.put("priority", model.getPriority());
         obj.put("required", model.getRequired());
+        List<String> possibleEnumValues = model.getPossibleEnumValues();
+        if (possibleEnumValues != null && !possibleEnumValues.isEmpty()) {
+            obj.put("enum", possibleEnumValues);
+        }
         return obj;
     }
 }

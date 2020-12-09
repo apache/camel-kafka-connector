@@ -138,6 +138,7 @@ public class CamelKafkaConnectorCatalog {
             singleModel.setDescription((String)object.get("description"));
             singleModel.setName((String)object.get("name"));
             singleModel.setRequired((String)object.get("required"));
+            singleModel.setPossibleEnumValues((List<String>)object.get("enum"));
             model.add(singleModel);
         }
         return model;
