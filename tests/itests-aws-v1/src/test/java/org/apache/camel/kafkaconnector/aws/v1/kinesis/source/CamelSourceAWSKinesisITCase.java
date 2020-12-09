@@ -60,10 +60,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     @RegisterExtension
+    public static AWSService service = AWSServiceFactory.createKinesisService();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
-
-    @RegisterExtension
-    AWSService<AmazonKinesis> service = AWSServiceFactory.createKinesisService();
 
     private String streamName;
     private AmazonKinesis awsKinesisClient;
