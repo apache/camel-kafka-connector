@@ -40,7 +40,7 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_APEX_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_API_VERSION_CONF = "camel.source.endpoint.apiVersion";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_API_VERSION_DOC = "Salesforce API version.";
-    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_API_VERSION_DEFAULT = "34.0";
+    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_API_VERSION_DEFAULT = "50.0";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_CONF = "camel.source.endpoint.backoffIncrement";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_DOC = "Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.";
     public static final Long CAMEL_SOURCE_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_DEFAULT = 1000L;
@@ -52,7 +52,7 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_CONTENT_TYPE_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_CONF = "camel.source.endpoint.defaultReplayId";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DOC = "Default replayId setting if no value is found in initialReplayIdMap";
-    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DEFAULT = "-1";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_FORMAT_CONF = "camel.source.endpoint.format";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_FORMAT_DOC = "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_FORMAT_DEFAULT = null;
@@ -155,9 +155,6 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -172,7 +169,7 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_URL_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_API_VERSION_CONF = "camel.component.salesforce.apiVersion";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_API_VERSION_DOC = "Salesforce API version.";
-    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_API_VERSION_DEFAULT = "34.0";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_API_VERSION_DEFAULT = "50.0";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_CONF = "camel.component.salesforce.backoffIncrement";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_DOC = "Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.";
     public static final Long CAMEL_SOURCE_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_DEFAULT = 1000L;
@@ -184,7 +181,7 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_CONTENT_TYPE_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_CONF = "camel.component.salesforce.defaultReplayId";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DOC = "Default replayId setting if no value is found in initialReplayIdMap";
-    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DEFAULT = "-1";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_FORMAT_CONF = "camel.component.salesforce.format";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_FORMAT_DOC = "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_FORMAT_DEFAULT = null;
@@ -200,6 +197,9 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_CONF = "camel.component.salesforce.httpMaxContentLength";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DOC = "Max content length of an HTTP response.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_CONF = "camel.component.salesforce.httpRequestBufferSize";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DOC = "HTTP request buffer size. May need to be increased for large SOQL queries.";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DEFAULT = "8192";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_CONF = "camel.component.salesforce.includeDetails";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DOC = "Include details in Salesforce1 Analytics report, defaults to false.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DEFAULT = null;
@@ -243,7 +243,7 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_OBJECT_MAPPER_DOC = "Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_OBJECT_MAPPER_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_CONF = "camel.component.salesforce.packages";
-    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF = "camel.component.salesforce.rawPayload";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default";
@@ -299,9 +299,9 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.salesforce.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_SALESFORCE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.salesforce.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.salesforce.autowiredEnabled";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_CONF = "camel.component.salesforce.httpProxyExcludedAddresses";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DOC = "A list of addresses for which HTTP proxy server should not be used.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DEFAULT = null;
@@ -430,7 +430,6 @@ public class CamelSalesforceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPLAY_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPLAY_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPLAY_ID_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DOC);
@@ -445,6 +444,7 @@ public class CamelSalesforceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DOC);
+        conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_INSTANCE_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_INSTANCE_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_INSTANCE_ID_DOC);
@@ -478,7 +478,7 @@ public class CamelSalesforceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_INCLUDED_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_INCLUDED_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_HTTP_PROXY_INCLUDED_ADDRESSES_DOC);

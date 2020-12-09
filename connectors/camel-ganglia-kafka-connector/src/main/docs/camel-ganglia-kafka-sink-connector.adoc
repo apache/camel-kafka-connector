@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.ganglia.CamelGangliaSinkConnecto
 ----
 
 
-The camel-ganglia sink connector supports 32 options, which are listed below.
+The camel-ganglia sink connector supports 31 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-ganglia sink connector supports 32 options, which are listed below.
 | *camel.sink.endpoint.type* | The type of value One of: [STRING] [INT8] [UINT8] [INT16] [UINT16] [INT32] [UINT32] [FLOAT] [DOUBLE] | "STRING" | false | MEDIUM
 | *camel.sink.endpoint.units* | Any unit of measurement that qualifies the metric, e.g. widgets, litres, bytes. Do not include a prefix such as k (kilo) or m (milli), other tools may scale the units later. The value should be unscaled. | null | false | MEDIUM
 | *camel.sink.endpoint.wireFormat31x* | Use the wire format of Ganglia 3.1.0 and later versions. Set this to false to use Ganglia 3.0.x or earlier. | true | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.ganglia.dmax* | Minumum time in seconds before Ganglia will purge the metric value if it expires. Set to 0 and the value will remain in Ganglia indefinitely until a gmond agent restart. | 0 | false | MEDIUM
 | *camel.component.ganglia.groupName* | The group that the metric belongs to. | "java" | false | MEDIUM
@@ -59,7 +58,7 @@ The camel-ganglia sink connector supports 32 options, which are listed below.
 | *camel.component.ganglia.type* | The type of value One of: [STRING] [INT8] [UINT8] [INT16] [UINT16] [INT32] [UINT32] [FLOAT] [DOUBLE] | "STRING" | false | MEDIUM
 | *camel.component.ganglia.units* | Any unit of measurement that qualifies the metric, e.g. widgets, litres, bytes. Do not include a prefix such as k (kilo) or m (milli), other tools may scale the units later. The value should be unscaled. | null | false | MEDIUM
 | *camel.component.ganglia.wireFormat31x* | Use the wire format of Ganglia 3.1.0 and later versions. Set this to false to use Ganglia 3.0.x or earlier. | true | false | MEDIUM
-| *camel.component.ganglia.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.ganglia.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.ganglia.configuration* | To use the shared configuration | null | false | MEDIUM
 |===
 

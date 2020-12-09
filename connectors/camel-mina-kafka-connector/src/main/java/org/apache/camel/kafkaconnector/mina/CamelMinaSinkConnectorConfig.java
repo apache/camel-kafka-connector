@@ -57,9 +57,6 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_CONF = "camel.sink.endpoint.lazySessionCreation";
     public static final String CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DOC = "Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.";
     public static final Boolean CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DEFAULT = true;
-    public static final String CAMEL_SINK_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_CONF = "camel.sink.endpoint.maximumPoolSize";
     public static final String CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DOC = "Number of worker threads in the worker pool for TCP and UDP";
     public static final Integer CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DEFAULT = 16;
@@ -126,9 +123,9 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_CONF = "camel.component.mina.lazySessionCreation";
     public static final String CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_DOC = "Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.";
     public static final Boolean CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_DEFAULT = true;
-    public static final String CAMEL_SINK_MINA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mina.basicPropertyBinding";
-    public static final String CAMEL_SINK_MINA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_MINA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.mina.autowiredEnabled";
+    public static final String CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_CONF = "camel.component.mina.configuration";
     public static final String CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_DOC = "To use the shared mina configuration.";
     public static final String CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -198,7 +195,6 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MINA_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_CACHED_ADDRESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_CACHED_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_CACHED_ADDRESS_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DOC);
-        conf.define(CAMEL_SINK_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_DOC);
@@ -221,7 +217,7 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MINA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_CACHED_ADDRESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_CACHED_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_CACHED_ADDRESS_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_LAZY_SESSION_CREATION_DOC);
-        conf.define(CAMEL_SINK_MINA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_MINA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_MAXIMUM_POOL_SIZE_DOC);
         conf.define(CAMEL_SINK_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_DOC);

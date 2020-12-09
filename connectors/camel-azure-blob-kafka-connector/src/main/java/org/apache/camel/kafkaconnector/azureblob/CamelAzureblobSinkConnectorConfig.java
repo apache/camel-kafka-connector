@@ -80,9 +80,6 @@ public class CamelAzureblobSinkConnectorConfig
     public static final String CAMEL_SINK_AZUREBLOB_ENDPOINT_USE_FLAT_LISTING_CONF = "camel.sink.endpoint.useFlatListing";
     public static final String CAMEL_SINK_AZUREBLOB_ENDPOINT_USE_FLAT_LISTING_DOC = "Specify if the flat or hierarchical blob listing should be used";
     public static final Boolean CAMEL_SINK_AZUREBLOB_ENDPOINT_USE_FLAT_LISTING_DEFAULT = true;
-    public static final String CAMEL_SINK_AZUREBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AZUREBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AZUREBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AZUREBLOB_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AZUREBLOB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AZUREBLOB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -143,9 +140,9 @@ public class CamelAzureblobSinkConnectorConfig
     public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_USE_FLAT_LISTING_CONF = "camel.component.azure-blob.useFlatListing";
     public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_USE_FLAT_LISTING_DOC = "Specify if the flat or hierarchical blob listing should be used";
     public static final Boolean CAMEL_SINK_AZUREBLOB_COMPONENT_USE_FLAT_LISTING_DEFAULT = true;
-    public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.azure-blob.basicPropertyBinding";
-    public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.azure-blob.autowiredEnabled";
+    public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AZUREBLOB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_CONFIGURATION_CONF = "camel.component.azure-blob.configuration";
     public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_CONFIGURATION_DOC = "The Blob Service configuration";
     public static final String CAMEL_SINK_AZUREBLOB_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -186,7 +183,6 @@ public class CamelAzureblobSinkConnectorConfig
         conf.define(CAMEL_SINK_AZUREBLOB_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREBLOB_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_ENDPOINT_STREAM_WRITE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_AZUREBLOB_ENDPOINT_STREAM_WRITE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_ENDPOINT_STREAM_WRITE_SIZE_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_ENDPOINT_USE_FLAT_LISTING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREBLOB_ENDPOINT_USE_FLAT_LISTING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_ENDPOINT_USE_FLAT_LISTING_DOC);
-        conf.define(CAMEL_SINK_AZUREBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREBLOB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREBLOB_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_ENDPOINT_CREDENTIALS_ACCOUNT_KEY_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREBLOB_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_ENDPOINT_CREDENTIALS_ACCOUNT_NAME_DOC);
@@ -207,7 +203,7 @@ public class CamelAzureblobSinkConnectorConfig
         conf.define(CAMEL_SINK_AZUREBLOB_COMPONENT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREBLOB_COMPONENT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_COMPONENT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_COMPONENT_STREAM_WRITE_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_AZUREBLOB_COMPONENT_STREAM_WRITE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_COMPONENT_STREAM_WRITE_SIZE_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_COMPONENT_USE_FLAT_LISTING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREBLOB_COMPONENT_USE_FLAT_LISTING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_COMPONENT_USE_FLAT_LISTING_DOC);
-        conf.define(CAMEL_SINK_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AZUREBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AZUREBLOB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZUREBLOB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREBLOB_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_COMPONENT_CREDENTIALS_ACCOUNT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREBLOB_COMPONENT_CREDENTIALS_ACCOUNT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_COMPONENT_CREDENTIALS_ACCOUNT_KEY_DOC);
         conf.define(CAMEL_SINK_AZUREBLOB_COMPONENT_CREDENTIALS_ACCOUNT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZUREBLOB_COMPONENT_CREDENTIALS_ACCOUNT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZUREBLOB_COMPONENT_CREDENTIALS_ACCOUNT_NAME_DOC);

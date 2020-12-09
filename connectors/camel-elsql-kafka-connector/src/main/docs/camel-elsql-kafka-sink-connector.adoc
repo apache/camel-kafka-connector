@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.elsql.CamelElsqlSinkConnector
 ----
 
 
-The camel-elsql sink connector supports 29 options, which are listed below.
+The camel-elsql sink connector supports 28 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-elsql sink connector supports 29 options, which are listed below.
 | *camel.sink.endpoint.noop* | If set, will ignore the results of the SQL query and use the existing IN message as the OUT message for the continuation of processing | false | false | MEDIUM
 | *camel.sink.endpoint.useMessageBodyForSql* | Whether to use the message body as the SQL and then headers for parameters. If this option is enabled then the SQL in the uri is not used. Note that query parameters in the message body are represented by a question mark instead of a # symbol. | false | false | MEDIUM
 | *camel.sink.endpoint.alwaysPopulateStatement* | If enabled then the populateStatement method from org.apache.camel.component.sql.SqlPrepareStatementStrategy is always invoked, also if there is no expected parameters to be prepared. When this is false then the populateStatement is only invoked if there is 1 or more expected parameters to be set; for example this avoids reading the message body/headers for SQL queries with no parameters. | false | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.elSqlConfig* | To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead. | null | false | MEDIUM
 | *camel.sink.endpoint.parametersCount* | If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead. | null | false | MEDIUM
 | *camel.sink.endpoint.placeholder* | Specifies a character that will be replaced to in SQL query. Notice, that it is simple String.replaceAll() operation and no SQL parsing is involved (quoted strings will also change). | "#" | false | MEDIUM
@@ -56,7 +55,7 @@ The camel-elsql sink connector supports 29 options, which are listed below.
 | *camel.component.elsql.dataSource* | Sets the DataSource to use to communicate with the database. | null | false | MEDIUM
 | *camel.component.elsql.resourceUri* | The resource file which contains the elsql SQL statements to use. You can specify multiple resources separated by comma. The resources are loaded on the classpath by default, you can prefix with file: to load from file system. Notice you can set this option on the component and then you do not have to configure this on the endpoint. | null | false | MEDIUM
 | *camel.component.elsql.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.elsql.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.elsql.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.elsql.elSqlConfig* | To use a specific configured ElSqlConfig. It may be better to use the databaseVendor option instead. | null | false | MEDIUM
 |===
 

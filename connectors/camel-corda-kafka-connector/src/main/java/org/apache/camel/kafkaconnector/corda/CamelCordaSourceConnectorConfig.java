@@ -59,9 +59,6 @@ public class CamelCordaSourceConnectorConfig
     public static final String CAMEL_SOURCE_CORDA_ENDPOINT_QUERY_CRITERIA_CONF = "camel.source.endpoint.queryCriteria";
     public static final String CAMEL_SOURCE_CORDA_ENDPOINT_QUERY_CRITERIA_DOC = "QueryCriteria assumes underlying schema tables are correctly indexed for performance.";
     public static final String CAMEL_SOURCE_CORDA_ENDPOINT_QUERY_CRITERIA_DEFAULT = null;
-    public static final String CAMEL_SOURCE_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_CORDA_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_CORDA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_CORDA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -98,9 +95,9 @@ public class CamelCordaSourceConnectorConfig
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_CONF = "camel.component.corda.queryCriteria";
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_DOC = "QueryCriteria assumes underlying schema tables are correctly indexed for performance.";
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_DEFAULT = null;
-    public static final String CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.corda.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.corda.autowiredEnabled";
+    public static final String CAMEL_SOURCE_CORDA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_CORDA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_CONF = "camel.component.corda.password";
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_DOC = "Password for login";
     public static final String CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_DEFAULT = null;
@@ -131,7 +128,6 @@ public class CamelCordaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CORDA_ENDPOINT_FLOW_LOGIC_ARGUMENTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_ENDPOINT_FLOW_LOGIC_ARGUMENTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_ENDPOINT_FLOW_LOGIC_ARGUMENTS_DOC);
         conf.define(CAMEL_SOURCE_CORDA_ENDPOINT_FLOW_LOGIC_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_ENDPOINT_FLOW_LOGIC_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_ENDPOINT_FLOW_LOGIC_CLASS_DOC);
         conf.define(CAMEL_SOURCE_CORDA_ENDPOINT_QUERY_CRITERIA_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_ENDPOINT_QUERY_CRITERIA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_ENDPOINT_QUERY_CRITERIA_DOC);
-        conf.define(CAMEL_SOURCE_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_CORDA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CORDA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_CORDA_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_CORDA_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_ENDPOINT_USERNAME_DOC);
@@ -144,7 +140,7 @@ public class CamelCordaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_ARGUMENTS_DOC);
         conf.define(CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_FLOW_LOGIC_CLASS_DOC);
         conf.define(CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_QUERY_CRITERIA_DOC);
-        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_CORDA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_CORDA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CORDA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CORDA_COMPONENT_USERNAME_DOC);
         return conf;

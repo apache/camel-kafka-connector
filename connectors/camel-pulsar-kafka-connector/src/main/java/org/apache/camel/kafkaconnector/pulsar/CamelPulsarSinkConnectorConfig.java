@@ -78,9 +78,6 @@ public class CamelPulsarSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_CONF = "camel.sink.endpoint.sendTimeoutMs";
     public static final String CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DOC = "Send timeout in milliseconds";
     public static final Integer CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DEFAULT = 30000;
-    public static final String CAMEL_SINK_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT = true;
@@ -132,9 +129,9 @@ public class CamelPulsarSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PULSAR_COMPONENT_AUTO_CONFIGURATION_CONF = "camel.component.pulsar.autoConfiguration";
     public static final String CAMEL_SINK_PULSAR_COMPONENT_AUTO_CONFIGURATION_DOC = "The pulsar auto configuration";
     public static final String CAMEL_SINK_PULSAR_COMPONENT_AUTO_CONFIGURATION_DEFAULT = null;
-    public static final String CAMEL_SINK_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.pulsar.basicPropertyBinding";
-    public static final String CAMEL_SINK_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_PULSAR_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.pulsar.autowiredEnabled";
+    public static final String CAMEL_SINK_PULSAR_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_PULSAR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_PULSAR_COMPONENT_PULSAR_CLIENT_CONF = "camel.component.pulsar.pulsarClient";
     public static final String CAMEL_SINK_PULSAR_COMPONENT_PULSAR_CLIENT_DOC = "The pulsar client";
     public static final String CAMEL_SINK_PULSAR_COMPONENT_PULSAR_CLIENT_DEFAULT = null;
@@ -169,7 +166,6 @@ public class CamelPulsarSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PULSAR_ENDPOINT_MESSAGE_ROUTING_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_ENDPOINT_MESSAGE_ROUTING_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_MESSAGE_ROUTING_MODE_DOC);
         conf.define(CAMEL_SINK_PULSAR_ENDPOINT_PRODUCER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_ENDPOINT_PRODUCER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_PRODUCER_NAME_DOC);
         conf.define(CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_CONF, ConfigDef.Type.INT, CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DOC);
-        conf.define(CAMEL_SINK_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_BATCHER_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_COMPONENT_BATCHER_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_BATCHER_BUILDER_DOC);
@@ -187,7 +183,7 @@ public class CamelPulsarSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_PRODUCER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_COMPONENT_PRODUCER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_PRODUCER_NAME_DOC);
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_SEND_TIMEOUT_MS_CONF, ConfigDef.Type.INT, CAMEL_SINK_PULSAR_COMPONENT_SEND_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_SEND_TIMEOUT_MS_DOC);
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_AUTO_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_COMPONENT_AUTO_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_AUTO_CONFIGURATION_DOC);
-        conf.define(CAMEL_SINK_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_PULSAR_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_PULSAR_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PULSAR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_PULSAR_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_COMPONENT_PULSAR_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_PULSAR_CLIENT_DOC);
         return conf;
     }

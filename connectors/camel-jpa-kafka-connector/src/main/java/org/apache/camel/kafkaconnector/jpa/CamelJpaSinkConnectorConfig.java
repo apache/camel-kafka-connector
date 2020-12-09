@@ -69,9 +69,6 @@ public class CamelJpaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_CONF = "camel.sink.endpoint.usePassedInEntityManager";
     public static final String CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_DOC = "If set to true, then Camel will use the EntityManager from the header JpaConstants.ENTITY_MANAGER instead of the configured entity manager on the component/endpoint. This allows end users to control which entity manager will be in use.";
     public static final Boolean CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_DEFAULT = false;
-    public static final String CAMEL_SINK_JPA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_JPA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_JPA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_CONF = "camel.sink.endpoint.entityManagerProperties";
     public static final String CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_DOC = "Additional properties for the entity manager to use.";
     public static final String CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_DEFAULT = null;
@@ -96,9 +93,9 @@ public class CamelJpaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JPA_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.jpa.lazyStartProducer";
     public static final String CAMEL_SINK_JPA_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_JPA_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_JPA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.jpa.basicPropertyBinding";
-    public static final String CAMEL_SINK_JPA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_JPA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_JPA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.jpa.autowiredEnabled";
+    public static final String CAMEL_SINK_JPA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_JPA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelJpaSinkConnectorConfig(
             ConfigDef config,
@@ -127,7 +124,6 @@ public class CamelJpaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JPA_ENDPOINT_USE_EXECUTE_UPDATE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JPA_ENDPOINT_USE_EXECUTE_UPDATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_USE_EXECUTE_UPDATE_DOC);
         conf.define(CAMEL_SINK_JPA_ENDPOINT_USE_PERSIST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_USE_PERSIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_USE_PERSIST_DOC);
         conf.define(CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_DOC);
-        conf.define(CAMEL_SINK_JPA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_DOC);
         conf.define(CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_DOC);
@@ -136,7 +132,7 @@ public class CamelJpaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JPA_COMPONENT_SHARED_ENTITY_MANAGER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_COMPONENT_SHARED_ENTITY_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_COMPONENT_SHARED_ENTITY_MANAGER_DOC);
         conf.define(CAMEL_SINK_JPA_COMPONENT_TRANSACTION_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JPA_COMPONENT_TRANSACTION_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_COMPONENT_TRANSACTION_MANAGER_DOC);
         conf.define(CAMEL_SINK_JPA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_JPA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_JPA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_JPA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

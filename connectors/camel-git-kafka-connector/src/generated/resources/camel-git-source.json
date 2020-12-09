@@ -21,36 +21,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.password": {
-			"name": "camel.source.endpoint.password",
-			"description": "Remote repository password",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.remoteName": {
-			"name": "camel.source.endpoint.remoteName",
-			"description": "The remote repository name to use in particular operation like pull",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.remotePath": {
-			"name": "camel.source.endpoint.remotePath",
-			"description": "The remote repository path",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.tagName": {
-			"name": "camel.source.endpoint.tagName",
-			"description": "The tag name to work on",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.username": {
-			"name": "camel.source.endpoint.username",
-			"description": "Remote repository username",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -76,13 +46,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.basicPropertyBinding": {
-			"name": "camel.source.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
@@ -97,11 +60,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.git.basicPropertyBinding": {
-			"name": "camel.component.git.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.git.autowiredEnabled": {
+			"name": "camel.component.git.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		}
 	}

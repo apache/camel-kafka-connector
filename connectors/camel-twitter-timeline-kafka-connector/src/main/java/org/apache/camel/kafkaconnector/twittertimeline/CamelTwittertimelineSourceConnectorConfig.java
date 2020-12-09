@@ -68,9 +68,6 @@ public class CamelTwittertimelineSourceConnectorConfig
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_RADIUS_CONF = "camel.source.endpoint.radius";
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_RADIUS_DOC = "Used by the geography search to search by radius. You need to configure all the following options: longitude, latitude, radius, and distanceMetric.";
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_RADIUS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -164,9 +161,9 @@ public class CamelTwittertimelineSourceConnectorConfig
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.twitter-timeline.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.twitter-timeline.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.twitter-timeline.autowiredEnabled";
+    public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_HOST_CONF = "camel.component.twitter-timeline.httpProxyHost";
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_HOST_DOC = "The http proxy host which can be used for the camel-twitter.";
     public static final String CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_HOST_DEFAULT = null;
@@ -219,7 +216,6 @@ public class CamelTwittertimelineSourceConnectorConfig
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_LONGITUDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_LONGITUDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_LONGITUDE_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_RADIUS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_RADIUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_RADIUS_DOC);
-        conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_COUNT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_COUNT_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_FILTER_OLD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_FILTER_OLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_FILTER_OLD_DOC);
@@ -251,7 +247,7 @@ public class CamelTwittertimelineSourceConnectorConfig
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_CONSUMER_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_CONSUMER_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_CONSUMER_SECRET_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SORT_BY_ID_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SORT_BY_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_ENDPOINT_SORT_BY_ID_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_PORT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_TWITTERTIMELINE_COMPONENT_HTTP_PROXY_PORT_DOC);

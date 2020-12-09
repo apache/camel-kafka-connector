@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.filewatch.CamelFilewatchSourceCo
 ----
 
 
-The camel-file-watch source connector supports 22 options, which are listed below.
+The camel-file-watch source connector supports 21 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-file-watch source connector supports 22 options, which are listed belo
 | *camel.source.endpoint.useFileHashing* | Enables or disables file hashing to detect duplicate events. If you disable this, you can get some events multiple times on some platforms and JDKs. Check java.nio.file.WatchService limitations for your target platform. | true | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.file-watch.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.file-watch.concurrentConsumers* | The number of concurrent consumers. Increase this value, if your route is slow to prevent buffering in queue. | 1 | false | MEDIUM
@@ -50,7 +49,7 @@ The camel-file-watch source connector supports 22 options, which are listed belo
 | *camel.component.file-watch.pollThreads* | The number of threads polling WatchService. Increase this value, if you see OVERFLOW messages in log. | 1 | false | MEDIUM
 | *camel.component.file-watch.queueSize* | Maximum size of queue between WatchService and consumer. Unbounded by default. | 2147483647 | false | MEDIUM
 | *camel.component.file-watch.useFileHashing* | Enables or disables file hashing to detect duplicate events. If you disable this, you can get some events multiple times on some platforms and JDKs. Check java.nio.file.WatchService limitations for your target platform. | true | false | MEDIUM
-| *camel.component.file-watch.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.file-watch.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

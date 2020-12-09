@@ -90,9 +90,6 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_CONF = "camel.sink.endpoint.typeOfNumber";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_DOC = "Defines the type of number (TON) to be used in the SME. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6]";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_DEFAULT = null;
-    public static final String CAMEL_SINK_SMPP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_SMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_CONF = "camel.sink.endpoint.enquireLinkTimer";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DOC = "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DEFAULT = "5000";
@@ -198,9 +195,9 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SMPP_COMPONENT_TYPE_OF_NUMBER_CONF = "camel.component.smpp.typeOfNumber";
     public static final String CAMEL_SINK_SMPP_COMPONENT_TYPE_OF_NUMBER_DOC = "Defines the type of number (TON) to be used in the SME. The following TON values are defined: 0: Unknown 1: International 2: National 3: Network Specific 4: Subscriber Number 5: Alphanumeric 6: Abbreviated One of: [0] [1] [2] [3] [4] [5] [6]";
     public static final String CAMEL_SINK_SMPP_COMPONENT_TYPE_OF_NUMBER_DEFAULT = null;
-    public static final String CAMEL_SINK_SMPP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.smpp.basicPropertyBinding";
-    public static final String CAMEL_SINK_SMPP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SMPP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.smpp.autowiredEnabled";
+    public static final String CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_CONF = "camel.component.smpp.configuration";
     public static final String CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_DOC = "To use the shared SmppConfiguration as configuration.";
     public static final String CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -281,7 +278,6 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_NPI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_NPI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_NPI_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_TON_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_TON_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_SOURCE_ADDR_TON_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_DOC);
-        conf.define(CAMEL_SINK_SMPP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DOC);
         conf.define(CAMEL_SINK_SMPP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SMPP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_ENDPOINT_SYNCHRONOUS_DOC);
@@ -317,7 +313,7 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SMPP_COMPONENT_SOURCE_ADDR_NPI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_SOURCE_ADDR_NPI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_SOURCE_ADDR_NPI_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_SOURCE_ADDR_TON_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_SOURCE_ADDR_TON_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_SOURCE_ADDR_TON_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_TYPE_OF_NUMBER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_TYPE_OF_NUMBER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_TYPE_OF_NUMBER_DOC);
-        conf.define(CAMEL_SINK_SMPP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SMPP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SMPP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DOC);
         conf.define(CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_DOC);

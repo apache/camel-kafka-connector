@@ -57,9 +57,6 @@ public class CamelSshSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_POLL_STRATEGY_CONF = "camel.source.endpoint.pollStrategy";
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_POLL_STRATEGY_DOC = "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.";
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_POLL_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_CONF = "camel.source.endpoint.channelType";
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_DOC = "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.";
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_DEFAULT = "exec";
@@ -147,9 +144,9 @@ public class CamelSshSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SSH_COMPONENT_POLL_COMMAND_CONF = "camel.component.ssh.pollCommand";
     public static final String CAMEL_SOURCE_SSH_COMPONENT_POLL_COMMAND_DOC = "Sets the command string to send to the remote SSH server during every poll cycle. Only works with camel-ssh component being used as a consumer, i.e. from(ssh://...) You may need to end your command with a newline, and that must be URL encoded %0A";
     public static final String CAMEL_SOURCE_SSH_COMPONENT_POLL_COMMAND_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SSH_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.ssh.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_SSH_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_SSH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SSH_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.ssh.autowiredEnabled";
+    public static final String CAMEL_SOURCE_SSH_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_SSH_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_SSH_COMPONENT_CHANNEL_TYPE_CONF = "camel.component.ssh.channelType";
     public static final String CAMEL_SOURCE_SSH_COMPONENT_CHANNEL_TYPE_DOC = "Sets the channel type to pass to the Channel as part of command execution. Defaults to exec.";
     public static final String CAMEL_SOURCE_SSH_COMPONENT_CHANNEL_TYPE_DEFAULT = "exec";
@@ -204,7 +201,6 @@ public class CamelSshSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_POLL_STRATEGY_DOC);
-        conf.define(CAMEL_SOURCE_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_SHELL_PROMPT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_ENDPOINT_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_SHELL_PROMPT_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DOC);
@@ -234,7 +230,7 @@ public class CamelSshSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SSH_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SSH_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_COMPONENT_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_SSH_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SSH_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SSH_COMPONENT_POLL_COMMAND_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_COMPONENT_POLL_COMMAND_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_COMPONENT_POLL_COMMAND_DOC);
-        conf.define(CAMEL_SOURCE_SSH_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SSH_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_SSH_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_SSH_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SSH_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_SSH_COMPONENT_CHANNEL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_COMPONENT_CHANNEL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_COMPONENT_CHANNEL_TYPE_DOC);
         conf.define(CAMEL_SOURCE_SSH_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_SSH_COMPONENT_SHELL_PROMPT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_COMPONENT_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_COMPONENT_SHELL_PROMPT_DOC);

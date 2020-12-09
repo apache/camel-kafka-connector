@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.pulsar.CamelPulsarSinkConnector
 ----
 
 
-The camel-pulsar sink connector supports 38 options, which are listed below.
+The camel-pulsar sink connector supports 37 options, which are listed below.
 
 
 
@@ -47,7 +47,6 @@ The camel-pulsar sink connector supports 38 options, which are listed below.
 | *camel.sink.endpoint.messageRoutingMode* | Message Routing Mode to use One of: [SinglePartition] [RoundRobinPartition] [CustomPartition] | "RoundRobinPartition" | false | MEDIUM
 | *camel.sink.endpoint.producerName* | Name of the producer. If unset, lets Pulsar select a unique identifier. | null | false | MEDIUM
 | *camel.sink.endpoint.sendTimeoutMs* | Send timeout in milliseconds | 30000 | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | true | false | MEDIUM
 | *camel.component.pulsar.configuration* | Allows to pre-configure the Pulsar component with common options that the endpoints will reuse. | null | false | MEDIUM
 | *camel.component.pulsar.batcherBuilder* | Control batching method used by the producer. | "DEFAULT" | false | MEDIUM
@@ -65,7 +64,7 @@ The camel-pulsar sink connector supports 38 options, which are listed below.
 | *camel.component.pulsar.producerName* | Name of the producer. If unset, lets Pulsar select a unique identifier. | null | false | MEDIUM
 | *camel.component.pulsar.sendTimeoutMs* | Send timeout in milliseconds | 30000 | false | MEDIUM
 | *camel.component.pulsar.autoConfiguration* | The pulsar auto configuration | null | false | MEDIUM
-| *camel.component.pulsar.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.pulsar.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.pulsar.pulsarClient* | The pulsar client | null | false | MEDIUM
 |===
 

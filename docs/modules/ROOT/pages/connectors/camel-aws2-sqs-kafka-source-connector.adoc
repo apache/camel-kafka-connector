@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2sqs.CamelAws2sqsSourceConnec
 ----
 
 
-The camel-aws2-sqs source connector supports 91 options, which are listed below.
+The camel-aws2-sqs source connector supports 90 options, which are listed below.
 
 
 
@@ -33,13 +33,13 @@ The camel-aws2-sqs source connector supports 91 options, which are listed below.
 | *camel.source.endpoint.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | false | MEDIUM
 | *camel.source.endpoint.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
 | *camel.source.endpoint.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
-| *camel.source.endpoint.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to map headers to/from Camel. | null | false | MEDIUM
 | *camel.source.endpoint.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
 | *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.source.endpoint.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
 | *camel.source.endpoint.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.source.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.source.endpoint.useDefaultCredentials Provider* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.source.endpoint.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | false | MEDIUM
@@ -58,7 +58,6 @@ The camel-aws2-sqs source connector supports 91 options, which are listed below.
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | false | MEDIUM
 | *camel.source.endpoint.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
@@ -88,13 +87,13 @@ The camel-aws2-sqs source connector supports 91 options, which are listed below.
 | *camel.component.aws2-sqs.amazonAWSHost* | The hostname of the Amazon AWS cloud. | "amazonaws.com" | false | MEDIUM
 | *camel.component.aws2-sqs.amazonSQSClient* | To use the AmazonSQS as client | null | false | MEDIUM
 | *camel.component.aws2-sqs.autoCreateQueue* | Setting the autocreation of the queue | true | false | MEDIUM
-| *camel.component.aws2-sqs.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.aws2-sqs.configuration* | The AWS SQS default configuration | null | false | MEDIUM
 | *camel.component.aws2-sqs.protocol* | The underlying protocol used to communicate with SQS | "https" | false | MEDIUM
 | *camel.component.aws2-sqs.proxyProtocol* | To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.component.aws2-sqs.queueOwnerAWSAccountId* | Specify the queue owner aws account id when you need to connect the queue with different account owner. | null | false | MEDIUM
 | *camel.component.aws2-sqs.region* | The region in which SQS client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-sqs.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.component.aws2-sqs.useDefaultCredentials Provider* | Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
 | *camel.component.aws2-sqs.attributeNames* | A list of attribute names to receive when consuming. Multiple names can be separated by comma. | null | false | MEDIUM
 | *camel.component.aws2-sqs.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.aws2-sqs.concurrentConsumers* | Allows you to use multiple threads to poll the sqs queue to increase throughput | 1 | false | MEDIUM
@@ -108,7 +107,7 @@ The camel-aws2-sqs source connector supports 91 options, which are listed below.
 | *camel.component.aws2-sqs.serverSideEncryption Enabled* | Define if Server Side Encryption is enabled or not on the queue | false | false | MEDIUM
 | *camel.component.aws2-sqs.visibilityTimeout* | The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest. This only make sense if its different from defaultVisibilityTimeout. It changes the queue visibility timeout attribute permanently. | null | false | MEDIUM
 | *camel.component.aws2-sqs.waitTimeSeconds* | Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response. | null | false | MEDIUM
-| *camel.component.aws2-sqs.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws2-sqs.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws2-sqs.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | false | MEDIUM
 | *camel.component.aws2-sqs.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | false | MEDIUM
 | *camel.component.aws2-sqs.proxyHost* | To define a proxy host when instantiating the SQS client | null | false | MEDIUM

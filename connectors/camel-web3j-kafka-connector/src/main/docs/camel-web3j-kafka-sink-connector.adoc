@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.web3j.CamelWeb3jSinkConnector
 ----
 
 
-The camel-web3j sink connector supports 75 options, which are listed below.
+The camel-web3j sink connector supports 74 options, which are listed below.
 
 
 
@@ -65,7 +65,6 @@ The camel-web3j sink connector supports 75 options, which are listed below.
 | *camel.sink.endpoint.transactionHash* | The information about a transaction requested by transaction hash. | null | false | MEDIUM
 | *camel.sink.endpoint.ttl* | The time to live in seconds of a whisper message. | null | false | MEDIUM
 | *camel.sink.endpoint.value* | The value sent within a transaction. | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.web3j.addresses* | Contract address or a list of addresses. | null | false | MEDIUM
 | *camel.component.web3j.configuration* | Default configuration | null | false | MEDIUM
@@ -103,7 +102,7 @@ The camel-web3j sink connector supports 75 options, which are listed below.
 | *camel.component.web3j.transactionHash* | The information about a transaction requested by transaction hash. | null | false | MEDIUM
 | *camel.component.web3j.ttl* | The time to live in seconds of a whisper message. | null | false | MEDIUM
 | *camel.component.web3j.value* | The value sent within a transaction. | null | false | MEDIUM
-| *camel.component.web3j.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.web3j.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

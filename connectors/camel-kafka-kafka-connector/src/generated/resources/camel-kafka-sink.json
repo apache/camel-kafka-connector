@@ -81,8 +81,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.kafkaHeaderSerializer": {
-			"name": "camel.sink.endpoint.kafkaHeaderSerializer",
+		"camel.sink.endpoint.headerSerializer": {
+			"name": "camel.sink.endpoint.headerSerializer",
 			"description": "To use a custom KafkaHeaderSerializer to serialize kafka headers values",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -93,8 +93,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.keySerializerClass": {
-			"name": "camel.sink.endpoint.keySerializerClass",
+		"camel.sink.endpoint.keySerializer": {
+			"name": "camel.sink.endpoint.keySerializer",
 			"description": "The serializer class for keys (defaults to the same as for messages if nothing is given).",
 			"defaultValue": "\"org.apache.kafka.common.serialization.StringSerializer\"",
 			"priority": "MEDIUM",
@@ -245,8 +245,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.serializerClass": {
-			"name": "camel.sink.endpoint.serializerClass",
+		"camel.sink.endpoint.valueSerializer": {
+			"name": "camel.sink.endpoint.valueSerializer",
 			"description": "The serializer class for messages.",
 			"defaultValue": "\"org.apache.kafka.common.serialization.StringSerializer\"",
 			"priority": "MEDIUM",
@@ -269,13 +269,6 @@
 			"name": "camel.sink.endpoint.workerPoolMaxSize",
 			"description": "Maximum number of threads for the worker pool for continue routing Exchange after kafka server has acknowledge the message that was sent to it from KafkaProducer using asynchronous non-blocking processing.",
 			"defaultValue": "\"20\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -526,8 +519,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.kafka.kafkaHeaderSerializer": {
-			"name": "camel.component.kafka.kafkaHeaderSerializer",
+		"camel.component.kafka.headerSerializer": {
+			"name": "camel.component.kafka.headerSerializer",
 			"description": "To use a custom KafkaHeaderSerializer to serialize kafka headers values",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -538,8 +531,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.kafka.keySerializerClass": {
-			"name": "camel.component.kafka.keySerializerClass",
+		"camel.component.kafka.keySerializer": {
+			"name": "camel.component.kafka.keySerializer",
 			"description": "The serializer class for keys (defaults to the same as for messages if nothing is given).",
 			"defaultValue": "\"org.apache.kafka.common.serialization.StringSerializer\"",
 			"priority": "MEDIUM",
@@ -690,8 +683,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.kafka.serializerClass": {
-			"name": "camel.component.kafka.serializerClass",
+		"camel.component.kafka.valueSerializer": {
+			"name": "camel.component.kafka.valueSerializer",
 			"description": "The serializer class for messages.",
 			"defaultValue": "\"org.apache.kafka.common.serialization.StringSerializer\"",
 			"priority": "MEDIUM",
@@ -717,11 +710,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.kafka.basicPropertyBinding": {
-			"name": "camel.component.kafka.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.kafka.autowiredEnabled": {
+			"name": "camel.component.kafka.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.kafka.schemaRegistryURL": {

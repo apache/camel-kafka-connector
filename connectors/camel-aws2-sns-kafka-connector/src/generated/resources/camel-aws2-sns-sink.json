@@ -28,13 +28,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.autoDiscoverClient": {
-			"name": "camel.sink.endpoint.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.headerFilterStrategy": {
 			"name": "camel.sink.endpoint.headerFilterStrategy",
 			"description": "To use a custom HeaderFilterStrategy to map headers to\/from Camel.",
@@ -51,6 +44,19 @@
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.messageDeduplicationIdStrategy": {
+			"name": "camel.sink.endpoint.messageDeduplicationIdStrategy",
+			"description": "Only for FIFO Topic. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication]",
+			"defaultValue": "\"useExchangeId\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.messageGroupIdStrategy": {
+			"name": "camel.sink.endpoint.messageGroupIdStrategy",
+			"description": "Only for FIFO Topic. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue]",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -124,9 +130,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+		"camel.sink.endpoint.useDefaultCredentialsProvider": {
+			"name": "camel.sink.endpoint.useDefaultCredentialsProvider",
+			"description": "Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -163,13 +169,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-sns.autoDiscoverClient": {
-			"name": "camel.component.aws2-sns.autoDiscoverClient",
-			"description": "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.aws2-sns.configuration": {
 			"name": "camel.component.aws2-sns.configuration",
 			"description": "Component configuration",
@@ -186,6 +185,19 @@
 			"name": "camel.component.aws2-sns.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sns.messageDeduplicationIdStrategy": {
+			"name": "camel.component.aws2-sns.messageDeduplicationIdStrategy",
+			"description": "Only for FIFO Topic. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication]",
+			"defaultValue": "\"useExchangeId\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sns.messageGroupIdStrategy": {
+			"name": "camel.component.aws2-sns.messageGroupIdStrategy",
+			"description": "Only for FIFO Topic. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue]",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -259,11 +271,18 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.aws2-sns.basicPropertyBinding": {
-			"name": "camel.component.aws2-sns.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
+		"camel.component.aws2-sns.useDefaultCredentialsProvider": {
+			"name": "camel.component.aws2-sns.useDefaultCredentialsProvider",
+			"description": "Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
 			"defaultValue": "false",
-			"priority": "LOW",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-sns.autowiredEnabled": {
+			"name": "camel.component.aws2-sns.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.aws2-sns.accessKey": {

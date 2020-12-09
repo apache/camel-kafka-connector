@@ -98,6 +98,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.regex": {
+			"name": "camel.sink.endpoint.regex",
+			"description": "Filters the results to return only blobs whose names match the specified regular expression. May be null to return all if both prefix and regex are set, regex takes the priority and prefix is ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.serviceClient": {
 			"name": "camel.sink.endpoint.serviceClient",
 			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).",
@@ -176,13 +182,6 @@
 			"name": "camel.sink.endpoint.pageBlobSize",
 			"description": "Specifies the maximum size for the page blob, up to 8 TB. The page blob size must be aligned to a 512-byte boundary.",
 			"defaultValue": "\"512\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -276,6 +275,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.azure-storage-blob.regex": {
+			"name": "camel.component.azure-storage-blob.regex",
+			"description": "Filters the results to return only blobs whose names match the specified regular expression. May be null to return all if both prefix and regex are set, regex takes the priority and prefix is ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.azure-storage-blob.serviceClient": {
 			"name": "camel.component.azure-storage-blob.serviceClient",
 			"description": "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).",
@@ -357,11 +362,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.azure-storage-blob.basicPropertyBinding": {
-			"name": "camel.component.azure-storage-blob.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.azure-storage-blob.autowiredEnabled": {
+			"name": "camel.component.azure-storage-blob.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.azure-storage-blob.accessKey": {

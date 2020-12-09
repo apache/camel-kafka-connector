@@ -53,9 +53,6 @@ public class CamelWebsocketSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BUFFER_SIZE_CONF = "camel.source.endpoint.bufferSize";
     public static final String CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BUFFER_SIZE_DOC = "Set the buffer size of the websocketServlet, which is also the max frame byte size (default 8192)";
     public static final String CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BUFFER_SIZE_DEFAULT = "8192";
@@ -98,9 +95,9 @@ public class CamelWebsocketSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_CONF = "camel.component.websocket.staticResources";
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_DOC = "Set a resource path for static resources (such as .html files etc). The resources can be loaded from classpath, if you prefix with classpath:, otherwise the resources is loaded from file system or from JAR files. For example to load from root classpath use classpath:., or classpath:WEB-INF/static If not configured (eg null) then no static resource is in use.";
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_DEFAULT = null;
-    public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.websocket.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.websocket.autowiredEnabled";
+    public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_ENABLE_JMX_CONF = "camel.component.websocket.enableJmx";
     public static final String CAMEL_SOURCE_WEBSOCKET_COMPONENT_ENABLE_JMX_DOC = "If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details.";
     public static final Boolean CAMEL_SOURCE_WEBSOCKET_COMPONENT_ENABLE_JMX_DEFAULT = false;
@@ -150,7 +147,6 @@ public class CamelWebsocketSourceConnectorConfig
         conf.define(CAMEL_SOURCE_WEBSOCKET_ENDPOINT_STATIC_RESOURCES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_STATIC_RESOURCES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_STATIC_RESOURCES_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BUFFER_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_ENDPOINT_MAX_IDLE_TIME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_MAX_IDLE_TIME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_MAX_IDLE_TIME_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_ENDPOINT_MAX_TEXT_MESSAGE_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_MAX_TEXT_MESSAGE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_ENDPOINT_MAX_TEXT_MESSAGE_SIZE_DOC);
@@ -165,7 +161,7 @@ public class CamelWebsocketSourceConnectorConfig
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_PORT_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_STATIC_RESOURCES_DOC);
-        conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_ENABLE_JMX_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEBSOCKET_COMPONENT_ENABLE_JMX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_ENABLE_JMX_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_MAX_THREADS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_COMPONENT_MAX_THREADS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_MAX_THREADS_DOC);
         conf.define(CAMEL_SOURCE_WEBSOCKET_COMPONENT_MIN_THREADS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEBSOCKET_COMPONENT_MIN_THREADS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEBSOCKET_COMPONENT_MIN_THREADS_DOC);

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.twittersearch.CamelTwittersearch
 ----
 
 
-The camel-twitter-search source connector supports 54 options, which are listed below.
+The camel-twitter-search source connector supports 53 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-twitter-search source connector supports 54 options, which are listed 
 | *camel.source.endpoint.longitude* | Used by the geography search to search by longitude. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
 | *camel.source.endpoint.radius* | Used by the geography search to search by radius. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.count* | Limiting number of results per page. | "5" | false | MEDIUM
 | *camel.source.endpoint.filterOld* | Filter out old tweets, that has previously been polled. This state is stored in memory only, and based on last tweet id. | true | false | MEDIUM
@@ -74,7 +73,7 @@ The camel-twitter-search source connector supports 54 options, which are listed 
 | *camel.source.endpoint.consumerSecret* | The consumer secret. Can also be configured on the TwitterComponent level instead. | null | false | MEDIUM
 | *camel.source.endpoint.sortById* | Sorts by id, so the oldest are first, and newest last. | true | false | MEDIUM
 | *camel.component.twitter-search.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.component.twitter-search.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.twitter-search.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.twitter-search.httpProxyHost* | The http proxy host which can be used for the camel-twitter. | null | false | MEDIUM
 | *camel.component.twitter-search.httpProxyPassword* | The http proxy password which can be used for the camel-twitter. | null | false | MEDIUM
 | *camel.component.twitter-search.httpProxyPort* | The http proxy port which can be used for the camel-twitter. | null | false | MEDIUM

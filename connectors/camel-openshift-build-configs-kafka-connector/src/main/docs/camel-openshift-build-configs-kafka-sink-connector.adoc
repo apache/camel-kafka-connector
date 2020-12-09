@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.openshiftbuildconfigs.CamelOpens
 ----
 
 
-The camel-openshift-build-configs sink connector supports 25 options, which are listed below.
+The camel-openshift-build-configs sink connector supports 24 options, which are listed below.
 
 
 
@@ -37,7 +37,6 @@ The camel-openshift-build-configs sink connector supports 25 options, which are 
 | *camel.sink.endpoint.operation* | Producer operation to do on Kubernetes | null | false | MEDIUM
 | *camel.sink.endpoint.portName* | The port name, used for ServiceCall EIP | null | false | MEDIUM
 | *camel.sink.endpoint.portProtocol* | The port protocol, used for ServiceCall EIP | "tcp" | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.connectionTimeout* | Connection timeout in milliseconds to use when making requests to the Kubernetes API server. | null | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.caCertData* | The CA Cert Data | null | false | MEDIUM
@@ -53,7 +52,7 @@ The camel-openshift-build-configs sink connector supports 25 options, which are 
 | *camel.sink.endpoint.trustCerts* | Define if the certs we used are trusted anyway or not | null | false | MEDIUM
 | *camel.sink.endpoint.username* | Username to connect to Kubernetes | null | false | MEDIUM
 | *camel.component.openshift-build-configs.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.openshift-build-configs.basic PropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.openshift-build-configs.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

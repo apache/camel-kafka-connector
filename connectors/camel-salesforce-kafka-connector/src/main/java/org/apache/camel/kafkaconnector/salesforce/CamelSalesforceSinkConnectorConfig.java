@@ -40,7 +40,7 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_CONF = "camel.sink.endpoint.apiVersion";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DOC = "Salesforce API version.";
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DEFAULT = "34.0";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DEFAULT = "50.0";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_CONF = "camel.sink.endpoint.backoffIncrement";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_DOC = "Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.";
     public static final Long CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_DEFAULT = 1000L;
@@ -52,7 +52,7 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_CONTENT_TYPE_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_CONF = "camel.sink.endpoint.defaultReplayId";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DOC = "Default replayId setting if no value is found in initialReplayIdMap";
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_DEFAULT_REPLAY_ID_DEFAULT = "-1";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_FORMAT_CONF = "camel.sink.endpoint.format";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_FORMAT_DOC = "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_FORMAT_DEFAULT = null;
@@ -146,9 +146,6 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -163,7 +160,7 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_CONF = "camel.component.salesforce.apiVersion";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DOC = "Salesforce API version.";
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DEFAULT = "34.0";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DEFAULT = "50.0";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_CONF = "camel.component.salesforce.backoffIncrement";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_DOC = "Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.";
     public static final Long CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_DEFAULT = 1000L;
@@ -175,7 +172,7 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_CONTENT_TYPE_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_CONF = "camel.component.salesforce.defaultReplayId";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DOC = "Default replayId setting if no value is found in initialReplayIdMap";
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_DEFAULT_REPLAY_ID_DEFAULT = "-1";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_FORMAT_CONF = "camel.component.salesforce.format";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_FORMAT_DOC = "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_FORMAT_DEFAULT = null;
@@ -191,6 +188,9 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_CONF = "camel.component.salesforce.httpMaxContentLength";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DOC = "Max content length of an HTTP response.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_CONF = "camel.component.salesforce.httpRequestBufferSize";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DOC = "HTTP request buffer size. May need to be increased for large SOQL queries.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DEFAULT = "8192";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_INCLUDE_DETAILS_CONF = "camel.component.salesforce.includeDetails";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DOC = "Include details in Salesforce1 Analytics report, defaults to false.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DEFAULT = null;
@@ -234,7 +234,7 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_DOC = "Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_CONF = "camel.component.salesforce.packages";
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF = "camel.component.salesforce.rawPayload";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default";
@@ -290,9 +290,9 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.salesforce.lazyStartProducer";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.salesforce.basicPropertyBinding";
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.salesforce.autowiredEnabled";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_CONF = "camel.component.salesforce.httpProxyExcludedAddresses";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DOC = "A list of addresses for which HTTP proxy server should not be used.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DEFAULT = null;
@@ -418,7 +418,6 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_SEARCH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_SEARCH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_SEARCH_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DOC);
@@ -433,6 +432,7 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_CONNECTION_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_IDLE_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_MAX_CONTENT_LENGTH_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_REQUEST_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_INCLUDE_DETAILS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_INCLUDE_DETAILS_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_INITIAL_REPLAY_ID_MAP_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_INSTANCE_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_INSTANCE_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_INSTANCE_ID_DOC);
@@ -466,7 +466,7 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_SALESFORCE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_INCLUDED_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_INCLUDED_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_INCLUDED_ADDRESSES_DOC);

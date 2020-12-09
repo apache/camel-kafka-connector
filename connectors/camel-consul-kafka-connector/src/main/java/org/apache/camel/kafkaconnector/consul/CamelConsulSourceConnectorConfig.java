@@ -71,9 +71,6 @@ public class CamelConsulSourceConnectorConfig
     public static final String CAMEL_SOURCE_CONSUL_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_CONSUL_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_CONSUL_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_CONSUL_ENDPOINT_CONSISTENCY_MODE_CONF = "camel.source.endpoint.consistencyMode";
     public static final String CAMEL_SOURCE_CONSUL_ENDPOINT_CONSISTENCY_MODE_DOC = "The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT]";
     public static final String CAMEL_SOURCE_CONSUL_ENDPOINT_CONSISTENCY_MODE_DEFAULT = "DEFAULT";
@@ -146,9 +143,9 @@ public class CamelConsulSourceConnectorConfig
     public static final String CAMEL_SOURCE_CONSUL_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.consul.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_CONSUL_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_CONSUL_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.consul.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_CONSUL_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.consul.autowiredEnabled";
+    public static final String CAMEL_SOURCE_CONSUL_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_CONSUL_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_CONSUL_COMPONENT_CONFIGURATION_CONF = "camel.component.consul.configuration";
     public static final String CAMEL_SOURCE_CONSUL_COMPONENT_CONFIGURATION_DOC = "Consul configuration";
     public static final String CAMEL_SOURCE_CONSUL_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -216,7 +213,6 @@ public class CamelConsulSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CONSUL_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CONSUL_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_ENDPOINT_CONSISTENCY_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_ENDPOINT_CONSISTENCY_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_ENDPOINT_CONSISTENCY_MODE_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_ENDPOINT_DATACENTER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_ENDPOINT_DATACENTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_ENDPOINT_DATACENTER_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_ENDPOINT_NEAR_NODE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_ENDPOINT_NEAR_NODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_ENDPOINT_NEAR_NODE_DOC);
@@ -241,7 +237,7 @@ public class CamelConsulSourceConnectorConfig
         conf.define(CAMEL_SOURCE_CONSUL_COMPONENT_WRITE_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_COMPONENT_WRITE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_COMPONENT_WRITE_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_COMPONENT_WRITE_TIMEOUT_MILLIS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_COMPONENT_WRITE_TIMEOUT_MILLIS_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_CONSUL_COMPONENT_WRITE_TIMEOUT_MILLIS_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CONSUL_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_CONSUL_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_CONSUL_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CONSUL_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_COMPONENT_CONSISTENCY_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_COMPONENT_CONSISTENCY_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_COMPONENT_CONSISTENCY_MODE_DOC);
         conf.define(CAMEL_SOURCE_CONSUL_COMPONENT_DATACENTER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CONSUL_COMPONENT_DATACENTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CONSUL_COMPONENT_DATACENTER_DOC);

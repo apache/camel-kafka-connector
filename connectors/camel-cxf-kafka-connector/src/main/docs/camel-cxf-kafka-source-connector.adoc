@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.cxf.CamelCxfSourceConnector
 ----
 
 
-The camel-cxf source connector supports 36 options, which are listed below.
+The camel-cxf source connector supports 35 options, which are listed below.
 
 
 
@@ -37,7 +37,6 @@ The camel-cxf source connector supports 36 options, which are listed below.
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.allowStreaming* | This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.bus* | To use a custom configured CXF Bus. | null | false | MEDIUM
 | *camel.source.endpoint.continuationTimeout* | This option is used to set the CXF continuation timeout which could be used in CxfConsumer by default when the CXF server is using Jetty or Servlet transport. | 30000L | false | MEDIUM
 | *camel.source.endpoint.cxfBinding* | To use a custom CxfBinding to control the binding between Camel Message and CXF Message. | null | false | MEDIUM
@@ -62,7 +61,7 @@ The camel-cxf source connector supports 36 options, which are listed below.
 | *camel.source.endpoint.wsdlURL* | The location of the WSDL. Can be on the classpath, file system, or be hosted remotely. | null | false | MEDIUM
 | *camel.component.cxf.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.cxf.allowStreaming* | This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases. | null | false | MEDIUM
-| *camel.component.cxf.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.cxf.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.cxf.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
 | *camel.component.cxf.useGlobalSslContextParameters* | Enable usage of global SSL context parameters. | false | false | MEDIUM
 |===

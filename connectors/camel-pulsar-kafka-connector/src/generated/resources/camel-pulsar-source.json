@@ -108,6 +108,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.readCompacted": {
+			"name": "camel.source.endpoint.readCompacted",
+			"description": "Enable compacted topic reading.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.subscriptionInitialPosition": {
 			"name": "camel.source.endpoint.subscriptionInitialPosition",
 			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST]",
@@ -152,13 +159,6 @@
 		"camel.source.endpoint.exchangePattern": {
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.basicPropertyBinding": {
-			"name": "camel.source.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -250,6 +250,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.pulsar.readCompacted": {
+			"name": "camel.component.pulsar.readCompacted",
+			"description": "Enable compacted topic reading.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.pulsar.subscriptionInitialPosition": {
 			"name": "camel.component.pulsar.subscriptionInitialPosition",
 			"description": "Control the initial position in the topic of a newly created subscription. Default is latest message. One of: [EARLIEST] [LATEST]",
@@ -297,11 +304,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.pulsar.basicPropertyBinding": {
-			"name": "camel.component.pulsar.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.pulsar.autowiredEnabled": {
+			"name": "camel.component.pulsar.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.pulsar.pulsarClient": {

@@ -72,13 +72,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.defaultResourceConfig": {
 			"name": "camel.sink.endpoint.defaultResourceConfig",
 			"description": "The cluster wide default resource configuration.",
@@ -186,11 +179,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.atomix-map.basicPropertyBinding": {
-			"name": "camel.component.atomix-map.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.atomix-map.autowiredEnabled": {
+			"name": "camel.component.atomix-map.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.atomix-map.defaultResourceConfig": {

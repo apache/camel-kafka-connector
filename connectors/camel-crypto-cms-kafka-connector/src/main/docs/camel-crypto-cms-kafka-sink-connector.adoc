@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.cryptocms.CamelCryptocmsSinkConn
 ----
 
 
-The camel-crypto-cms sink connector supports 23 options, which are listed below.
+The camel-crypto-cms sink connector supports 22 options, which are listed below.
 
 
 
@@ -34,7 +34,6 @@ The camel-crypto-cms sink connector supports 23 options, which are listed below.
 | *camel.sink.endpoint.keyStore* | Keystore which contains signer private keys, verifier public keys, encryptor public keys, decryptor private keys depending on the operation. Use either this parameter or the parameter 'keyStoreParameters'. | null | false | MEDIUM
 | *camel.sink.endpoint.keyStoreParameters* | Keystore containing signer private keys, verifier public keys, encryptor public keys, decryptor private keys depending on the operation. Use either this parameter or the parameter 'keystore'. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.password* | Sets the password of the private keys. It is assumed that all private keys in the keystore have the same password. If not set then it is assumed that the password of the private keys is given by the keystore password given in the KeyStoreParameters. | null | false | MEDIUM
 | *camel.sink.endpoint.fromBase64* | If true then the CMS message is base 64 encoded and must be decoded during the processing. Default value is false. | false | false | MEDIUM
@@ -49,7 +48,7 @@ The camel-crypto-cms sink connector supports 23 options, which are listed below.
 | *camel.sink.endpoint.signedDataHeaderBase64* | Indicates whether the value in the header CamelCryptoCmsSignedData is base64 encoded. Default value is false. Only relevant for detached signatures. In the detached signature case, the header contains the Signed Data object. | false | false | MEDIUM
 | *camel.sink.endpoint.verifySignaturesOfAllSigners* | If true then the signatures of all signers contained in the Signed Data object are verified. If false then only one signature whose signer info matches with one of the specified certificates is verified. Default value is true. | true | false | MEDIUM
 | *camel.component.crypto-cms.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.crypto-cms.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.crypto-cms.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.crypto-cms.envelopedDataDecryptor Configuration* | To configure the shared EnvelopedDataDecryptorConfiguration, which determines the uri parameters for the decrypt operation. | null | false | MEDIUM
 | *camel.component.crypto-cms.signedDataVerifier Configuration* | To configure the shared SignedDataVerifierConfiguration, which determines the uri parameters for the verify operation. | null | false | MEDIUM
 |===

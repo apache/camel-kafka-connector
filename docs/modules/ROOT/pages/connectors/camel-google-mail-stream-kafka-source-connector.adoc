@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.googlemailstream.CamelGooglemail
 ----
 
 
-The camel-google-mail-stream source connector supports 44 options, which are listed below.
+The camel-google-mail-stream source connector supports 43 options, which are listed below.
 
 
 
@@ -41,7 +41,6 @@ The camel-google-mail-stream source connector supports 44 options, which are lis
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
@@ -67,7 +66,7 @@ The camel-google-mail-stream source connector supports 44 options, which are lis
 | *camel.component.google-mail-stream.markAsRead* | Mark the message as read once it has been consumed | false | false | MEDIUM
 | *camel.component.google-mail-stream.maxResults* | Max results to be returned | 10L | false | MEDIUM
 | *camel.component.google-mail-stream.query* | The query to execute on gmail box | "is:unread" | false | MEDIUM
-| *camel.component.google-mail-stream.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.google-mail-stream.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.google-mail-stream.clientFactory* | The client Factory | null | false | MEDIUM
 | *camel.component.google-mail-stream.configuration* | The configuration | null | false | MEDIUM
 | *camel.component.google-mail-stream.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | false | MEDIUM

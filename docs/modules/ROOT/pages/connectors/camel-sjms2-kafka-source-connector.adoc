@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.sjms2.CamelSjms2SourceConnector
 ----
 
 
-The camel-sjms2 source connector supports 53 options, which are listed below.
+The camel-sjms2 source connector supports 52 options, which are listed below.
 
 
 
@@ -46,7 +46,6 @@ The camel-sjms2 source connector supports 53 options, which are listed below.
 | *camel.source.endpoint.messageSelector* | Sets the JMS Message selector syntax. | null | false | MEDIUM
 | *camel.source.endpoint.asyncStartListener* | Whether to startup the consumer message listener asynchronously, when starting a route. For example if a JmsConsumer cannot get a connection to a remote JMS broker, then it may block while retrying and/or failover. This will cause Camel to block while starting routes. By setting this option to true, you will let routes startup, while the JmsConsumer connects to the JMS broker using a dedicated thread in asynchronous mode. If this option is used, then beware that if the connection could not be established, then an exception is logged at WARN level, and the consumer will not be able to receive messages; You can then restart the route to retry. | false | false | MEDIUM
 | *camel.source.endpoint.asyncStopListener* | Whether to stop the consumer message listener asynchronously, when stopping a route. | false | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.connectionCount* | The maximum number of connections available to this endpoint | null | false | MEDIUM
 | *camel.source.endpoint.connectionFactory* | Initializes the connectionFactory for the endpoint, which takes precedence over the component's connectionFactory, if any | null | false | MEDIUM
 | *camel.source.endpoint.connectionResource* | Initializes the connectionResource for the endpoint, which takes precedence over the component's connectionResource, if any | null | false | MEDIUM
@@ -65,12 +64,12 @@ The camel-sjms2 source connector supports 53 options, which are listed below.
 | *camel.source.endpoint.transactionCommitStrategy* | Sets the commit strategy. | null | false | MEDIUM
 | *camel.source.endpoint.sharedJMSSession* | Specifies whether to share JMS session with other SJMS endpoints. Turn this off if your route is accessing to multiple JMS providers. If you need transaction against multiple JMS providers, use jms component to leverage XA transaction. | true | false | MEDIUM
 | *camel.component.sjms2.connectionCount* | The maximum number of connections available to endpoints started under this component | "1" | false | MEDIUM
+| *camel.component.sjms2.connectionFactory* | A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource. | null | false | MEDIUM
 | *camel.component.sjms2.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.sjms2.reconnectBackOff* | Backoff in millis on consumer pool reconnection attempts | 5000L | false | MEDIUM
 | *camel.component.sjms2.reconnectOnError* | Try to apply reconnection logic on consumer pool | true | false | MEDIUM
-| *camel.component.sjms2.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.sjms2.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.sjms2.connectionClientId* | The client ID to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource. | null | false | MEDIUM
-| *camel.component.sjms2.connectionFactory* | A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource. | null | false | MEDIUM
 | *camel.component.sjms2.connectionMaxWait* | The max wait time in millis to block and wait on free connection when the pool is exhausted when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource. | 5000L | false | MEDIUM
 | *camel.component.sjms2.connectionResource* | A ConnectionResource is an interface that allows for customization and container control of the ConnectionFactory. See Plugable Connection Resource Management for further details. | null | false | MEDIUM
 | *camel.component.sjms2.connectionTestOnBorrow* | When using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource then should each javax.jms.Connection be tested (calling start) before returned from the pool. | true | false | MEDIUM

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awscw.CamelAwscwSinkConnector
 ----
 
 
-The camel-aws-cw sink connector supports 31 options, which are listed below.
+The camel-aws-cw sink connector supports 30 options, which are listed below.
 
 
 
@@ -41,7 +41,6 @@ The camel-aws-cw sink connector supports 31 options, which are listed below.
 | *camel.sink.endpoint.timestamp* | The metric timestamp | null | false | MEDIUM
 | *camel.sink.endpoint.unit* | The metric unit | null | false | MEDIUM
 | *camel.sink.endpoint.value* | The metric value | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
@@ -57,7 +56,7 @@ The camel-aws-cw sink connector supports 31 options, which are listed below.
 | *camel.component.aws-cw.timestamp* | The metric timestamp | null | false | MEDIUM
 | *camel.component.aws-cw.unit* | The metric unit | null | false | MEDIUM
 | *camel.component.aws-cw.value* | The metric value | null | false | MEDIUM
-| *camel.component.aws-cw.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws-cw.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws-cw.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws-cw.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 |===

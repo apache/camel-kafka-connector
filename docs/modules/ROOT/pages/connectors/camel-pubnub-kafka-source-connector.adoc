@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.pubnub.CamelPubnubSourceConnecto
 ----
 
 
-The camel-pubnub source connector supports 17 options, which are listed below.
+The camel-pubnub source connector supports 16 options, which are listed below.
 
 
 
@@ -35,7 +35,6 @@ The camel-pubnub source connector supports 17 options, which are listed below.
 | *camel.source.endpoint.withPresence* | Also subscribe to related presence information | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.pubnub* | Reference to a Pubnub client in the registry. | null | false | MEDIUM
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.authKey* | If Access Manager is utilized, client will use this authKey in all restricted requests. | null | false | MEDIUM
@@ -45,7 +44,7 @@ The camel-pubnub source connector supports 17 options, which are listed below.
 | *camel.source.endpoint.secure* | Use SSL for secure transmission. | true | false | MEDIUM
 | *camel.source.endpoint.subscribeKey* | The subscribe key obtained from your PubNub account. Required when subscribing to channels or listening for presence events | null | false | MEDIUM
 | *camel.component.pubnub.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
-| *camel.component.pubnub.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.pubnub.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.atmospherewebsocket.CamelAtmosph
 ----
 
 
-The camel-atmosphere-websocket source connector supports 37 options, which are listed below.
+The camel-atmosphere-websocket source connector supports 36 options, which are listed below.
 
 
 
@@ -51,7 +51,6 @@ The camel-atmosphere-websocket source connector supports 37 options, which are l
 | *camel.source.endpoint.fileNameExtWhitelist* | Whitelist of accepted filename extensions for accepting uploaded files. Multiple extensions can be separated by comma, such as txt,xml. | null | false | MEDIUM
 | *camel.source.endpoint.optionsEnabled* | Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off. | false | false | MEDIUM
 | *camel.source.endpoint.traceEnabled* | Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off. | false | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.mapHttpMessageBody* | If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping. | true | false | MEDIUM
 | *camel.source.endpoint.mapHttpMessageFormUrlEncoded Body* | If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping. | true | false | MEDIUM
 | *camel.source.endpoint.mapHttpMessageHeaders* | If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping. | true | false | MEDIUM
@@ -62,7 +61,7 @@ The camel-atmosphere-websocket source connector supports 37 options, which are l
 | *camel.component.atmosphere-websocket.fileNameExt Whitelist* | Whitelist of accepted filename extensions for accepting uploaded files. Multiple extensions can be separated by comma, such as txt,xml. | null | false | MEDIUM
 | *camel.component.atmosphere-websocket.httpRegistry* | To use a custom org.apache.camel.component.servlet.HttpRegistry. | null | false | MEDIUM
 | *camel.component.atmosphere-websocket.allowJava SerializedObject* | Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | false | false | MEDIUM
-| *camel.component.atmosphere-websocket.basicProperty Binding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.atmosphere-websocket.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.atmosphere-websocket.httpBinding* | To use a custom HttpBinding to control the mapping between Camel message and HttpClient. | null | false | MEDIUM
 | *camel.component.atmosphere-websocket.http Configuration* | To use the shared HttpConfiguration as base configuration. | null | false | MEDIUM
 | *camel.component.atmosphere-websocket.headerFilter Strategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM

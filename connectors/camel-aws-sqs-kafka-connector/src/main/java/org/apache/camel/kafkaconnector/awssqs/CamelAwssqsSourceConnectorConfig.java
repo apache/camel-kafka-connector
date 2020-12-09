@@ -110,9 +110,6 @@ public class CamelAwssqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_CONF = "camel.source.endpoint.pollStrategy";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_DOC = "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_AWSSQS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_CONF = "camel.source.endpoint.delayQueue";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_DOC = "Define if you want to apply delaySeconds option to the queue or on single messages";
     public static final Boolean CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_DEFAULT = false;
@@ -257,9 +254,9 @@ public class CamelAwssqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_WAIT_TIME_SECONDS_CONF = "camel.component.aws-sqs.waitTimeSeconds";
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_WAIT_TIME_SECONDS_DOC = "Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response.";
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_WAIT_TIME_SECONDS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-sqs.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_AWSSQS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws-sqs.autowiredEnabled";
+    public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_AWSSQS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_DELAY_QUEUE_CONF = "camel.component.aws-sqs.delayQueue";
     public static final String CAMEL_SOURCE_AWSSQS_COMPONENT_DELAY_QUEUE_DOC = "Define if you want to apply delaySeconds option to the queue or on single messages";
     public static final Boolean CAMEL_SOURCE_AWSSQS_COMPONENT_DELAY_QUEUE_DEFAULT = false;
@@ -334,7 +331,6 @@ public class CamelAwssqsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_DOC);
-        conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_DOC);
@@ -383,7 +379,7 @@ public class CamelAwssqsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_SERVER_SIDE_ENCRYPTION_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_COMPONENT_SERVER_SIDE_ENCRYPTION_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_SERVER_SIDE_ENCRYPTION_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_VISIBILITY_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_VISIBILITY_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_VISIBILITY_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_WAIT_TIME_SECONDS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_WAIT_TIME_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_WAIT_TIME_SECONDS_DOC);
-        conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_AWSSQS_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_DELAY_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_COMPONENT_DELAY_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_DELAY_QUEUE_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_QUEUE_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_QUEUE_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_QUEUE_URL_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_COMPONENT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_COMPONENT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_COMPONENT_PROXY_HOST_DOC);

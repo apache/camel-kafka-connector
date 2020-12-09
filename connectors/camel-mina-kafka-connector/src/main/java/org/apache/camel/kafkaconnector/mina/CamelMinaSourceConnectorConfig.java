@@ -68,9 +68,6 @@ public class CamelMinaSourceConnectorConfig
     public static final String CAMEL_SOURCE_MINA_ENDPOINT_NO_REPLY_LOG_LEVEL_CONF = "camel.source.endpoint.noReplyLogLevel";
     public static final String CAMEL_SOURCE_MINA_ENDPOINT_NO_REPLY_LOG_LEVEL_DOC = "If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]";
     public static final String CAMEL_SOURCE_MINA_ENDPOINT_NO_REPLY_LOG_LEVEL_DEFAULT = "WARN";
-    public static final String CAMEL_SOURCE_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_CONF = "camel.source.endpoint.maximumPoolSize";
     public static final String CAMEL_SOURCE_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DOC = "Number of worker threads in the worker pool for TCP and UDP";
     public static final Integer CAMEL_SOURCE_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DEFAULT = 16;
@@ -140,9 +137,9 @@ public class CamelMinaSourceConnectorConfig
     public static final String CAMEL_SOURCE_MINA_COMPONENT_NO_REPLY_LOG_LEVEL_CONF = "camel.component.mina.noReplyLogLevel";
     public static final String CAMEL_SOURCE_MINA_COMPONENT_NO_REPLY_LOG_LEVEL_DOC = "If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]";
     public static final String CAMEL_SOURCE_MINA_COMPONENT_NO_REPLY_LOG_LEVEL_DEFAULT = "WARN";
-    public static final String CAMEL_SOURCE_MINA_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mina.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MINA_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MINA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_MINA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.mina.autowiredEnabled";
+    public static final String CAMEL_SOURCE_MINA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_MINA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_MINA_COMPONENT_CONFIGURATION_CONF = "camel.component.mina.configuration";
     public static final String CAMEL_SOURCE_MINA_COMPONENT_CONFIGURATION_DOC = "To use the shared mina configuration.";
     public static final String CAMEL_SOURCE_MINA_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -215,7 +212,6 @@ public class CamelMinaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MINA_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINA_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_MINA_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINA_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_MINA_ENDPOINT_NO_REPLY_LOG_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINA_ENDPOINT_NO_REPLY_LOG_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_ENDPOINT_NO_REPLY_LOG_LEVEL_DOC);
-        conf.define(CAMEL_SOURCE_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DOC);
         conf.define(CAMEL_SOURCE_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DOC);
         conf.define(CAMEL_SOURCE_MINA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_ENDPOINT_SYNCHRONOUS_DOC);
@@ -239,7 +235,7 @@ public class CamelMinaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MINA_COMPONENT_CLIENT_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINA_COMPONENT_CLIENT_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_COMPONENT_CLIENT_MODE_DOC);
         conf.define(CAMEL_SOURCE_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_COMPONENT_DISCONNECT_ON_NO_REPLY_DOC);
         conf.define(CAMEL_SOURCE_MINA_COMPONENT_NO_REPLY_LOG_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINA_COMPONENT_NO_REPLY_LOG_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_COMPONENT_NO_REPLY_LOG_LEVEL_DOC);
-        conf.define(CAMEL_SOURCE_MINA_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINA_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_MINA_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_MINA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_MINA_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MINA_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_MINA_COMPONENT_MAXIMUM_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MINA_COMPONENT_MAXIMUM_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_COMPONENT_MAXIMUM_POOL_SIZE_DOC);
         conf.define(CAMEL_SOURCE_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MINA_COMPONENT_ORDERED_THREAD_POOL_EXECUTOR_DOC);

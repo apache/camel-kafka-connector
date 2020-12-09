@@ -101,9 +101,6 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_CONF = "camel.source.endpoint.autoCreate";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DOC = "Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DEFAULT = true;
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_CONF = "camel.source.endpoint.bufferSize";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DOC = "Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files).";
     public static final Integer CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DEFAULT = 131072;
@@ -263,9 +260,9 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.file.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_FILE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.file.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_FILE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_FILE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.file.autowiredEnabled";
+    public static final String CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelFileSourceConnectorConfig(
             ConfigDef config,
@@ -304,7 +301,6 @@ public class CamelFileSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_EXIST_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_STARTING_DIRECTORY_MUST_HAVE_ACCESS_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_AUTO_CREATE_DOC);
-        conf.define(CAMEL_SOURCE_FILE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_COPY_AND_DELETE_ON_RENAME_FAIL_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DOC);
@@ -358,7 +354,7 @@ public class CamelFileSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_SORT_BY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_SORT_BY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_SORT_BY_DOC);
         conf.define(CAMEL_SOURCE_FILE_ENDPOINT_SORTER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FILE_ENDPOINT_SORTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_ENDPOINT_SORTER_DOC);
         conf.define(CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_FILE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_FILE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FILE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

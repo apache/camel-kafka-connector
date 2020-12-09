@@ -59,9 +59,6 @@ public class CamelMllpSourceConnectorConfig
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = "InOut";
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used (this component only supports synchronous operations).";
     public static final Boolean CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_DEFAULT = true;
@@ -110,9 +107,9 @@ public class CamelMllpSourceConnectorConfig
     public static final String CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.mllp.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mllp.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_MLLP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.mllp.autowiredEnabled";
+    public static final String CAMEL_SOURCE_MLLP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_MLLP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_MLLP_COMPONENT_DEFAULT_CHARSET_CONF = "camel.component.mllp.defaultCharset";
     public static final String CAMEL_SOURCE_MLLP_COMPONENT_DEFAULT_CHARSET_DOC = "Set the default character set to use for byte to/from String conversions.";
     public static final String CAMEL_SOURCE_MLLP_COMPONENT_DEFAULT_CHARSET_DEFAULT = "ISO-8859-1";
@@ -146,7 +143,6 @@ public class CamelMllpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_BACKLOG_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_BACKLOG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_BACKLOG_DOC);
@@ -163,7 +159,7 @@ public class CamelMllpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_READ_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_RECEIVE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_MLLP_ENDPOINT_RECEIVE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_RECEIVE_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_MLLP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_MLLP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_MLLP_COMPONENT_DEFAULT_CHARSET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_COMPONENT_DEFAULT_CHARSET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_COMPONENT_DEFAULT_CHARSET_DOC);
         conf.define(CAMEL_SOURCE_MLLP_COMPONENT_LOG_PHI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_COMPONENT_LOG_PHI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_COMPONENT_LOG_PHI_DOC);
         conf.define(CAMEL_SOURCE_MLLP_COMPONENT_LOG_PHI_MAX_BYTES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_COMPONENT_LOG_PHI_MAX_BYTES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_COMPONENT_LOG_PHI_MAX_BYTES_DOC);

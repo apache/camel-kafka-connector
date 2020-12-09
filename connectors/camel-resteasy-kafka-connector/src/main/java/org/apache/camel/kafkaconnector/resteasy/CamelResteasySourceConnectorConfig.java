@@ -77,9 +77,6 @@ public class CamelResteasySourceConnectorConfig
     public static final String CAMEL_SOURCE_RESTEASY_ENDPOINT_TRACE_ENABLED_CONF = "camel.source.endpoint.traceEnabled";
     public static final String CAMEL_SOURCE_RESTEASY_ENDPOINT_TRACE_ENABLED_DOC = "Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off.";
     public static final Boolean CAMEL_SOURCE_RESTEASY_ENDPOINT_TRACE_ENABLED_DEFAULT = false;
-    public static final String CAMEL_SOURCE_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.source.endpoint.headerFilterStrategy";
     public static final String CAMEL_SOURCE_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SOURCE_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -122,9 +119,9 @@ public class CamelResteasySourceConnectorConfig
     public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF = "camel.component.resteasy.allowJavaSerializedObject";
     public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC = "Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";
     public static final Boolean CAMEL_SOURCE_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT = false;
-    public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.resteasy.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.resteasy.autowiredEnabled";
+    public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_CONF = "camel.component.resteasy.headerFilterStrategy";
     public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_DOC = "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SOURCE_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -158,7 +155,6 @@ public class CamelResteasySourceConnectorConfig
         conf.define(CAMEL_SOURCE_RESTEASY_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RESTEASY_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_RESTEASY_ENDPOINT_OPTIONS_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_ENDPOINT_OPTIONS_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_ENDPOINT_OPTIONS_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_RESTEASY_ENDPOINT_TRACE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_ENDPOINT_TRACE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_ENDPOINT_TRACE_ENABLED_DOC);
-        conf.define(CAMEL_SOURCE_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC);
         conf.define(CAMEL_SOURCE_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DOC);
@@ -173,7 +169,7 @@ public class CamelResteasySourceConnectorConfig
         conf.define(CAMEL_SOURCE_RESTEASY_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_RESTEASY_COMPONENT_PROXY_CONSUMERS_CLASSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RESTEASY_COMPONENT_PROXY_CONSUMERS_CLASSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_COMPONENT_PROXY_CONSUMERS_CLASSES_DOC);
         conf.define(CAMEL_SOURCE_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);
-        conf.define(CAMEL_SOURCE_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_RESTEASY_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_RESTEASY_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         return conf;
     }

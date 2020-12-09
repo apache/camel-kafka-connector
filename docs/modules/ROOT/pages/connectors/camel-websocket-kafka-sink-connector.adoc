@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.websocket.CamelWebsocketSinkConn
 ----
 
 
-The camel-websocket sink connector supports 31 options, which are listed below.
+The camel-websocket sink connector supports 30 options, which are listed below.
 
 
 
@@ -36,7 +36,6 @@ The camel-websocket sink connector supports 31 options, which are listed below.
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.sendTimeout* | Timeout in millis when sending to a websocket channel. The default timeout is 30000 (30 seconds). | "30000" | false | MEDIUM
 | *camel.sink.endpoint.sendToAll* | To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the WebsocketConstants.SEND_TO_ALL header on the message. | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.bufferSize* | Set the buffer size of the websocketServlet, which is also the max frame byte size (default 8192) | "8192" | false | MEDIUM
 | *camel.sink.endpoint.maxIdleTime* | Set the time in ms that the websocket created by the websocketServlet may be idle before closing. (default is 300000) | "300000" | false | MEDIUM
 | *camel.sink.endpoint.maxTextMessageSize* | Can be used to set the size in characters that the websocket created by the websocketServlet may be accept before closing. | null | false | MEDIUM
@@ -50,7 +49,7 @@ The camel-websocket sink connector supports 31 options, which are listed below.
 | *camel.component.websocket.host* | The hostname. The default value is 0.0.0.0 | "0.0.0.0" | false | MEDIUM
 | *camel.component.websocket.port* | The port number. The default value is 9292 | "9292" | false | MEDIUM
 | *camel.component.websocket.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.websocket.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.websocket.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.websocket.enableJmx* | If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details. | false | false | MEDIUM
 | *camel.component.websocket.maxThreads* | To set a value for maximum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for maxThreads is 1 2 noCores. | null | false | MEDIUM
 | *camel.component.websocket.minThreads* | To set a value for minimum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9. The default values for minThreads is 1. | null | false | MEDIUM

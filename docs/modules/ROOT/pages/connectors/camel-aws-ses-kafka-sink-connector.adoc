@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awsses.CamelAwssesSinkConnector
 ----
 
 
-The camel-aws-ses sink connector supports 31 options, which are listed below.
+The camel-aws-ses sink connector supports 30 options, which are listed below.
 
 
 
@@ -41,7 +41,6 @@ The camel-aws-ses sink connector supports 31 options, which are listed below.
 | *camel.sink.endpoint.returnPath* | The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header. | null | false | MEDIUM
 | *camel.sink.endpoint.subject* | The subject which is used if the message header 'CamelAwsSesSubject' is not present. | null | false | MEDIUM
 | *camel.sink.endpoint.to* | List of destination email address. Can be overriden with 'CamelAwsSesTo' header. | null | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
@@ -57,7 +56,7 @@ The camel-aws-ses sink connector supports 31 options, which are listed below.
 | *camel.component.aws-ses.returnPath* | The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header. | null | false | MEDIUM
 | *camel.component.aws-ses.subject* | The subject which is used if the message header 'CamelAwsSesSubject' is not present. | null | false | MEDIUM
 | *camel.component.aws-ses.to* | List of destination email address. Can be overriden with 'CamelAwsSesTo' header. | null | false | MEDIUM
-| *camel.component.aws-ses.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.aws-ses.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.aws-ses.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws-ses.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 |===

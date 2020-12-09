@@ -68,6 +68,9 @@ public class CamelAzurestorageblobSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_PREFIX_CONF = "camel.source.endpoint.prefix";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_PREFIX_DOC = "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_PREFIX_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_REGEX_CONF = "camel.source.endpoint.regex";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_REGEX_DOC = "Filters the results to return only blobs whose names match the specified regular expression. May be null to return all if both prefix and regex are set, regex takes the priority and prefix is ignored.";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_REGEX_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_CONF = "camel.source.endpoint.serviceClient";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_DOC = "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_DEFAULT = null;
@@ -83,9 +86,6 @@ public class CamelAzurestorageblobSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -128,6 +128,9 @@ public class CamelAzurestorageblobSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_PREFIX_CONF = "camel.component.azure-storage-blob.prefix";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_PREFIX_DOC = "Filters the results to return only blobs whose names begin with the specified prefix. May be null to return all blobs.";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_PREFIX_DEFAULT = null;
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_REGEX_CONF = "camel.component.azure-storage-blob.regex";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_REGEX_DOC = "Filters the results to return only blobs whose names match the specified regular expression. May be null to return all if both prefix and regex are set, regex takes the priority and prefix is ignored.";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_REGEX_DEFAULT = null;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_CONF = "camel.component.azure-storage-blob.serviceClient";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_DOC = "Client to a storage account. This client does not hold any state about a particular storage account but is instead a convenient way of sending off appropriate requests to the resource on the service. It may also be used to construct URLs to blobs and containers. This client contains operations on a service account. Operations on a container are available on BlobContainerClient through BlobServiceClient#getBlobContainerClient(String), and operations on a blob are available on BlobClient through BlobContainerClient#getBlobClient(String).";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_DEFAULT = null;
@@ -137,9 +140,9 @@ public class CamelAzurestorageblobSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.azure-storage-blob.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.azure-storage-blob.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.azure-storage-blob.autowiredEnabled";
+    public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_CONF = "camel.component.azure-storage-blob.accessKey";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_DOC = "Access key for the associated azure account name to be used for authentication with azure blob services";
     public static final String CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -171,12 +174,12 @@ public class CamelAzurestorageblobSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_MAX_RESULTS_PER_PAGE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_MAX_RESULTS_PER_PAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_MAX_RESULTS_PER_PAGE_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_MAX_RETRY_REQUESTS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_MAX_RETRY_REQUESTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_MAX_RETRY_REQUESTS_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_PREFIX_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_PREFIX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_PREFIX_DOC);
+        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_REGEX_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_REGEX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_REGEX_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SERVICE_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
@@ -191,10 +194,11 @@ public class CamelAzurestorageblobSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_MAX_RESULTS_PER_PAGE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_MAX_RESULTS_PER_PAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_MAX_RESULTS_PER_PAGE_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_MAX_RETRY_REQUESTS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_MAX_RETRY_REQUESTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_MAX_RETRY_REQUESTS_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_PREFIX_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_PREFIX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_PREFIX_DOC);
+        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_REGEX_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_REGEX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_REGEX_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_SERVICE_CLIENT_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZURESTORAGEBLOB_COMPONENT_ACCESS_KEY_DOC);
         return conf;
     }

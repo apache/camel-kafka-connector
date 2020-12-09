@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.ftp.CamelFtpSinkConnector
 ----
 
 
-The camel-ftp sink connector supports 50 options, which are listed below.
+The camel-ftp sink connector supports 49 options, which are listed below.
 
 
 
@@ -59,7 +59,6 @@ The camel-ftp sink connector supports 50 options, which are listed below.
 | *camel.sink.endpoint.sendNoop* | Whether to send a noop command as a pre-write check before uploading files to the FTP server. This is enabled by default as a validation of the connection is still valid, which allows to silently re-connect to be able to upload the file. However if this causes problems, you can turn this option off. | true | false | MEDIUM
 | *camel.sink.endpoint.activePortRange* | Set the client side port range in active mode. The syntax is: minPort-maxPort Both port numbers are inclusive, eg 10000-19999 to include all 1xxxx ports. | null | false | MEDIUM
 | *camel.sink.endpoint.autoCreate* | Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory. For the file producer, it means the directory the files should be written to. | true | false | MEDIUM
-| *camel.sink.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.sink.endpoint.bufferSize* | Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files). | 131072 | false | MEDIUM
 | *camel.sink.endpoint.connectTimeout* | Sets the connect timeout for waiting for a connection to be established Used by both FTPClient and JSCH | 10000 | false | MEDIUM
 | *camel.sink.endpoint.ftpClient* | To use a custom instance of FTPClient | null | false | MEDIUM
@@ -78,7 +77,7 @@ The camel-ftp sink connector supports 50 options, which are listed below.
 | *camel.sink.endpoint.password* | Password to use for login | null | false | MEDIUM
 | *camel.sink.endpoint.username* | Username to use for login | null | false | MEDIUM
 | *camel.component.ftp.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.ftp.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.ftp.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===
 
 

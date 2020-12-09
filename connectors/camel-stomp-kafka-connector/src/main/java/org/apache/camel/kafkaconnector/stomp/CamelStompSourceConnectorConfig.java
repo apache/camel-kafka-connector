@@ -50,9 +50,6 @@ public class CamelStompSourceConnectorConfig
     public static final String CAMEL_SOURCE_STOMP_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_STOMP_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_STOMP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_STOMP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_STOMP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_STOMP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_STOMP_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.source.endpoint.headerFilterStrategy";
     public static final String CAMEL_SOURCE_STOMP_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SOURCE_STOMP_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -83,9 +80,9 @@ public class CamelStompSourceConnectorConfig
     public static final String CAMEL_SOURCE_STOMP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.stomp.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_STOMP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_STOMP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.stomp.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_STOMP_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.stomp.autowiredEnabled";
+    public static final String CAMEL_SOURCE_STOMP_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_STOMP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SOURCE_STOMP_COMPONENT_CONFIGURATION_CONF = "camel.component.stomp.configuration";
     public static final String CAMEL_SOURCE_STOMP_COMPONENT_CONFIGURATION_DOC = "Component configuration.";
     public static final String CAMEL_SOURCE_STOMP_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -125,7 +122,6 @@ public class CamelStompSourceConnectorConfig
         conf.define(CAMEL_SOURCE_STOMP_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STOMP_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_STOMP_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_STOMP_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_STOMP_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STOMP_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_STOMP_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_STOMP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STOMP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_STOMP_ENDPOINT_LOGIN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_ENDPOINT_LOGIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_ENDPOINT_LOGIN_DOC);
@@ -136,7 +132,7 @@ public class CamelStompSourceConnectorConfig
         conf.define(CAMEL_SOURCE_STOMP_COMPONENT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_COMPONENT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_COMPONENT_HOST_DOC);
         conf.define(CAMEL_SOURCE_STOMP_COMPONENT_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_COMPONENT_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_COMPONENT_VERSION_DOC);
         conf.define(CAMEL_SOURCE_STOMP_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STOMP_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_STOMP_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_STOMP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STOMP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_STOMP_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_STOMP_COMPONENT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_COMPONENT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_COMPONENT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_STOMP_COMPONENT_LOGIN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STOMP_COMPONENT_LOGIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STOMP_COMPONENT_LOGIN_DOC);

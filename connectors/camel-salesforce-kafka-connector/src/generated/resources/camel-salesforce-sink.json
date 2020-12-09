@@ -36,7 +36,7 @@
 		"camel.sink.endpoint.apiVersion": {
 			"name": "camel.sink.endpoint.apiVersion",
 			"description": "Salesforce API version.",
-			"defaultValue": "\"34.0\"",
+			"defaultValue": "\"50.0\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -62,6 +62,7 @@
 		"camel.sink.endpoint.defaultReplayId": {
 			"name": "camel.sink.endpoint.defaultReplayId",
 			"description": "Default replayId setting if no value is found in initialReplayIdMap",
+			"defaultValue": "\"-1\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -256,13 +257,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.basicPropertyBinding": {
-			"name": "camel.sink.endpoint.basicPropertyBinding",
-			"description": "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
 			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
@@ -291,7 +285,7 @@
 		"camel.component.salesforce.apiVersion": {
 			"name": "camel.component.salesforce.apiVersion",
 			"description": "Salesforce API version.",
-			"defaultValue": "\"34.0\"",
+			"defaultValue": "\"50.0\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -317,6 +311,7 @@
 		"camel.component.salesforce.defaultReplayId": {
 			"name": "camel.component.salesforce.defaultReplayId",
 			"description": "Default replayId setting if no value is found in initialReplayIdMap",
+			"defaultValue": "\"-1\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -349,6 +344,13 @@
 		"camel.component.salesforce.httpMaxContentLength": {
 			"name": "camel.component.salesforce.httpMaxContentLength",
 			"description": "Max content length of an HTTP response.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.httpRequestBufferSize": {
+			"name": "camel.component.salesforce.httpRequestBufferSize",
+			"description": "HTTP request buffer size. May need to be increased for large SOQL queries.",
+			"defaultValue": "\"8192\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -440,7 +442,7 @@
 		},
 		"camel.component.salesforce.packages": {
 			"name": "camel.component.salesforce.packages",
-			"description": "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. Set it if using the generated DTOs to gain the benefit of using short SObject names in parameters\/header values. Multiple packages can be separated by comma.",
+			"description": "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters\/header values. Multiple packages can be separated by comma.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -555,11 +557,11 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.salesforce.basicPropertyBinding": {
-			"name": "camel.component.salesforce.basicPropertyBinding",
-			"description": "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities",
-			"defaultValue": "false",
-			"priority": "LOW",
+		"camel.component.salesforce.autowiredEnabled": {
+			"name": "camel.component.salesforce.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.salesforce.httpProxyExcludedAddresses": {

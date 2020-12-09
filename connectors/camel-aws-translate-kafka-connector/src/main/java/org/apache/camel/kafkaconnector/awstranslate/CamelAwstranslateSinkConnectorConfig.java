@@ -68,9 +68,6 @@ public class CamelAwstranslateSinkConnectorConfig
     public static final String CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TRANSLATE_CLIENT_CONF = "camel.sink.endpoint.translateClient";
     public static final String CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TRANSLATE_CLIENT_DOC = "To use a existing configured AWS Translate as client";
     public static final String CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TRANSLATE_CLIENT_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -116,9 +113,9 @@ public class CamelAwstranslateSinkConnectorConfig
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_CONF = "camel.component.aws-translate.translateClient";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_DOC = "To use a existing configured AWS Translate as client";
     public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-translate.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws-translate.autowiredEnabled";
+    public static final String CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelAwstranslateSinkConnectorConfig(
             ConfigDef config,
@@ -146,7 +143,6 @@ public class CamelAwstranslateSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SOURCE_LANGUAGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SOURCE_LANGUAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SOURCE_LANGUAGE_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TARGET_LANGUAGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TARGET_LANGUAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TARGET_LANGUAGE_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TRANSLATE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TRANSLATE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_TRANSLATE_CLIENT_DOC);
-        conf.define(CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_ACCESS_KEY_DOC);
@@ -162,7 +158,7 @@ public class CamelAwstranslateSinkConnectorConfig
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_SOURCE_LANGUAGE_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_TARGET_LANGUAGE_DOC);
         conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_TRANSLATE_CLIENT_DOC);
-        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWSTRANSLATE_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSTRANSLATE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

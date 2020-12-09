@@ -60,9 +60,6 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_TO_CONF = "camel.sink.endpoint.to";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_TO_DOC = "List of destination email address. Can be overriden with 'CamelAwsSesTo' header.";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_TO_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSSES_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSSES_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSSES_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
     public static final Boolean CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
@@ -108,9 +105,9 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSSES_COMPONENT_TO_CONF = "camel.component.aws-ses.to";
     public static final String CAMEL_SINK_AWSSES_COMPONENT_TO_DOC = "List of destination email address. Can be overriden with 'CamelAwsSesTo' header.";
     public static final String CAMEL_SINK_AWSSES_COMPONENT_TO_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSSES_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.aws-ses.basicPropertyBinding";
-    public static final String CAMEL_SINK_AWSSES_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_AWSSES_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_AWSSES_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.aws-ses.autowiredEnabled";
+    public static final String CAMEL_SINK_AWSSES_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_AWSSES_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_AWSSES_COMPONENT_ACCESS_KEY_CONF = "camel.component.aws-ses.accessKey";
     public static final String CAMEL_SINK_AWSSES_COMPONENT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWSSES_COMPONENT_ACCESS_KEY_DEFAULT = null;
@@ -142,7 +139,6 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_RETURN_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_RETURN_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_RETURN_PATH_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_TO_DOC);
-        conf.define(CAMEL_SINK_AWSSES_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_DOC);
@@ -158,7 +154,7 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_RETURN_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_RETURN_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_RETURN_PATH_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_TO_DOC);
-        conf.define(CAMEL_SINK_AWSSES_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_AWSSES_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_AWSSES_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_SECRET_KEY_DOC);
         return conf;

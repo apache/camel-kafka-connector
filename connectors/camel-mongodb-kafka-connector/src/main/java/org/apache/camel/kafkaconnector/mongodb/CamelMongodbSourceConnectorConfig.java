@@ -62,9 +62,6 @@ public class CamelMongodbSourceConnectorConfig
     public static final String CAMEL_SOURCE_MONGODB_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_MONGODB_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_MONGODB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.source.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SOURCE_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_CONF = "camel.source.endpoint.cursorRegenerationDelay";
     public static final String CAMEL_SOURCE_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DOC = "MongoDB tailable cursors will block until new data arrives. If no new data is inserted, after some time the cursor will be automatically freed and closed by the MongoDB server. The client is expected to regenerate the cursor if needed. This value specifies the time to wait before attempting to fetch a new cursor, and if the attempt fails, how long before the next attempt is made. Default value is 1000ms.";
     public static final Long CAMEL_SOURCE_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DEFAULT = 1000L;
@@ -110,9 +107,9 @@ public class CamelMongodbSourceConnectorConfig
     public static final String CAMEL_SOURCE_MONGODB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.mongodb.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_MONGODB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_MONGODB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
-    public static final String CAMEL_SOURCE_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.mongodb.basicPropertyBinding";
-    public static final String CAMEL_SOURCE_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SOURCE_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SOURCE_MONGODB_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.mongodb.autowiredEnabled";
+    public static final String CAMEL_SOURCE_MONGODB_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SOURCE_MONGODB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
 
     public CamelMongodbSourceConnectorConfig(
             ConfigDef config,
@@ -138,7 +135,6 @@ public class CamelMongodbSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MONGODB_ENDPOINT_CONSUMER_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODB_ENDPOINT_CONSUMER_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_ENDPOINT_CONSUMER_TYPE_DOC);
         conf.define(CAMEL_SOURCE_MONGODB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_MONGODB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SOURCE_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DOC);
         conf.define(CAMEL_SOURCE_MONGODB_ENDPOINT_DYNAMICITY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MONGODB_ENDPOINT_DYNAMICITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_ENDPOINT_DYNAMICITY_DOC);
         conf.define(CAMEL_SOURCE_MONGODB_ENDPOINT_READ_PREFERENCE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODB_ENDPOINT_READ_PREFERENCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_ENDPOINT_READ_PREFERENCE_DOC);
@@ -154,7 +150,7 @@ public class CamelMongodbSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MONGODB_ENDPOINT_TAIL_TRACK_INCREASING_FIELD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODB_ENDPOINT_TAIL_TRACK_INCREASING_FIELD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_ENDPOINT_TAIL_TRACK_INCREASING_FIELD_DOC);
         conf.define(CAMEL_SOURCE_MONGODB_COMPONENT_MONGO_CONNECTION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MONGODB_COMPONENT_MONGO_CONNECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_COMPONENT_MONGO_CONNECTION_DOC);
         conf.define(CAMEL_SOURCE_MONGODB_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MONGODB_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
-        conf.define(CAMEL_SOURCE_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SOURCE_MONGODB_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SOURCE_MONGODB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MONGODB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MONGODB_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;
     }
 }

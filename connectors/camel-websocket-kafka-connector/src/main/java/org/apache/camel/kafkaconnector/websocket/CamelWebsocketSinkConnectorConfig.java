@@ -47,9 +47,6 @@ public class CamelWebsocketSinkConnectorConfig
     public static final String CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TO_ALL_CONF = "camel.sink.endpoint.sendToAll";
     public static final String CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TO_ALL_DOC = "To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the WebsocketConstants.SEND_TO_ALL header on the message.";
     public static final String CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TO_ALL_DEFAULT = null;
-    public static final String CAMEL_SINK_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_CONF = "camel.sink.endpoint.basicPropertyBinding";
-    public static final String CAMEL_SINK_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DOC = "Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT = false;
     public static final String CAMEL_SINK_WEBSOCKET_ENDPOINT_BUFFER_SIZE_CONF = "camel.sink.endpoint.bufferSize";
     public static final String CAMEL_SINK_WEBSOCKET_ENDPOINT_BUFFER_SIZE_DOC = "Set the buffer size of the websocketServlet, which is also the max frame byte size (default 8192)";
     public static final String CAMEL_SINK_WEBSOCKET_ENDPOINT_BUFFER_SIZE_DEFAULT = "8192";
@@ -89,9 +86,9 @@ public class CamelWebsocketSinkConnectorConfig
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.websocket.lazyStartProducer";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_CONF = "camel.component.websocket.basicPropertyBinding";
-    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DOC = "Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities";
-    public static final Boolean CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT = false;
+    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.websocket.autowiredEnabled";
+    public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
+    public static final Boolean CAMEL_SINK_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_CONF = "camel.component.websocket.enableJmx";
     public static final String CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_DOC = "If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details.";
     public static final Boolean CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_DEFAULT = false;
@@ -139,7 +136,6 @@ public class CamelWebsocketSinkConnectorConfig
         conf.define(CAMEL_SINK_WEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TO_ALL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TO_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_ENDPOINT_SEND_TO_ALL_DOC);
-        conf.define(CAMEL_SINK_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_ENDPOINT_BASIC_PROPERTY_BINDING_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_ENDPOINT_BUFFER_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_ENDPOINT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_ENDPOINT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_ENDPOINT_MAX_IDLE_TIME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_ENDPOINT_MAX_IDLE_TIME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_ENDPOINT_MAX_IDLE_TIME_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_ENDPOINT_MAX_TEXT_MESSAGE_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_ENDPOINT_MAX_TEXT_MESSAGE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_ENDPOINT_MAX_TEXT_MESSAGE_SIZE_DOC);
@@ -153,7 +149,7 @@ public class CamelWebsocketSinkConnectorConfig
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_HOST_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_PORT_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_WEBSOCKET_COMPONENT_BASIC_PROPERTY_BINDING_DOC);
+        conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_ENABLE_JMX_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_MAX_THREADS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_MAX_THREADS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_MAX_THREADS_DOC);
         conf.define(CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEBSOCKET_COMPONENT_MIN_THREADS_DOC);

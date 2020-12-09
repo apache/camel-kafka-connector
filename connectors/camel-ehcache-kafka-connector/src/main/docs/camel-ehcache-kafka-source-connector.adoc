@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.ehcache.CamelEhcacheSourceConnec
 ----
 
 
-The camel-ehcache source connector supports 30 options, which are listed below.
+The camel-ehcache source connector supports 29 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-ehcache source connector supports 30 options, which are listed below.
 | *camel.source.endpoint.eventTypes* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.basicPropertyBinding* | Whether the endpoint should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | MEDIUM
 | *camel.source.endpoint.configuration* | The default cache configuration to be used to create caches. | null | false | MEDIUM
 | *camel.source.endpoint.configurations* | A map of cache configuration to be used to create caches. | null | false | MEDIUM
 | *camel.source.endpoint.keyType* | The cache key type, default java.lang.Object | null | false | MEDIUM
@@ -54,7 +53,7 @@ The camel-ehcache source connector supports 30 options, which are listed below.
 | *camel.component.ehcache.eventFiring* | Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS] | "ASYNCHRONOUS" | false | MEDIUM
 | *camel.component.ehcache.eventOrdering* | Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED] | "ORDERED" | false | MEDIUM
 | *camel.component.ehcache.eventTypes* | Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED] | null | false | MEDIUM
-| *camel.component.ehcache.basicPropertyBinding* | Whether the component should use basic property binding (Camel 2.x) or the newer property binding with additional capabilities | false | false | LOW
+| *camel.component.ehcache.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.ehcache.configuration* | The default cache configuration to be used to create caches. | null | false | MEDIUM
 | *camel.component.ehcache.configurations* | A map of cache configuration to be used to create caches. | null | false | MEDIUM
 | *camel.component.ehcache.keyType* | The cache key type, default java.lang.Object | null | false | MEDIUM
