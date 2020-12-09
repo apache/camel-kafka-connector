@@ -16,6 +16,7 @@
  */
 package org.apache.camel.kafkaconnector.catalog;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -83,6 +84,7 @@ class CamelKafkaConnectorCatalogTest {
         assertNull(model.getConverters());
         assertNull(model.getTransforms());
         assertNull(model.getAggregationStrategies());
+        assertEquals(Arrays.asList("HTTP", "HTTPS"), catalog.getOptionModel("camel-aws2-sns-sink", "camel.component.aws2-sns.proxyProtocol").getPossibleEnumValues());
     }
     
     @Test
@@ -116,8 +118,9 @@ class CamelKafkaConnectorCatalogTest {
                 + "        \"camel.component.my-test-connector.demo\": {\n"
                 + "            \"name\": \"camel.component.my-test-connector.demo\",\n"
                 + "            \"description\": \"A demo description of the component\",\n"
-                + "            \"defaultValue\": \"\\\"false\\\"\",\n"
-                + "            \"priority\": \"MEDIUM\"\n"
+                + "            \"defaultValue\": \"\\\"firstValue\\\"\",\n"
+                + "            \"priority\": \"MEDIUM\",\n"
+                + "            \"enum\": [\"firstValue\",\"secondValue\"]\n"
                 + "        }\n"
                 + "    }\n"
                 + "}\n");
@@ -129,10 +132,11 @@ class CamelKafkaConnectorCatalogTest {
 
     private void checkAddedConnectorContainsCorrectPropertyValues(String connectorName) {
         CamelKafkaConnectorOptionModel camelKafkaConnectorOptionModel = catalog.getConnectorsModel().get(connectorName).getOptions().get(0);
-        assertEquals("\"false\"", camelKafkaConnectorOptionModel.getDefaultValue());
+        assertEquals("\"firstValue\"", camelKafkaConnectorOptionModel.getDefaultValue());
         assertEquals("camel.component.my-test-connector.demo", camelKafkaConnectorOptionModel.getName());
         assertEquals("MEDIUM", camelKafkaConnectorOptionModel.getPriority());
         assertEquals("A demo description of the component", camelKafkaConnectorOptionModel.getDescription());
+        assertEquals(Arrays.asList("firstValue", "secondValue"), camelKafkaConnectorOptionModel.getPossibleEnumValues());
     }
     
     @Test
