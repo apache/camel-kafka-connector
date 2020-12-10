@@ -22,6 +22,7 @@ import com.azure.core.http.policy.HttpLogOptions;
 import com.azure.storage.common.StorageSharedKeyCredential;
 import com.azure.storage.queue.QueueServiceClient;
 import com.azure.storage.queue.QueueServiceClientBuilder;
+import com.azure.storage.queue.QueueServiceVersion;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 
 public final class AzureStorageClientUtils {
@@ -56,6 +57,7 @@ public final class AzureStorageClientUtils {
                 .endpoint(endpoint)
                 .credential(credential)
                 .httpLogOptions(new HttpLogOptions().setLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS).setPrettyPrintBody(true))
+                .serviceVersion(QueueServiceVersion.V2019_12_12)
                 .buildClient();
     }
 }
