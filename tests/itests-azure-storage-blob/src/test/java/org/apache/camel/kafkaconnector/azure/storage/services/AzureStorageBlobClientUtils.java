@@ -21,6 +21,7 @@ import com.azure.core.http.policy.HttpLogDetailLevel;
 import com.azure.core.http.policy.HttpLogOptions;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.azure.storage.blob.BlobServiceVersion;
 import com.azure.storage.common.StorageSharedKeyCredential;
 import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
 
@@ -56,6 +57,7 @@ public final class AzureStorageBlobClientUtils {
                 .endpoint(endpoint)
                 .credential(credential)
                 .httpLogOptions(new HttpLogOptions().setLogLevel(HttpLogDetailLevel.BODY_AND_HEADERS).setPrettyPrintBody(true))
+                .serviceVersion(BlobServiceVersion.V2019_12_12)
                 .buildClient();
     }
 }
