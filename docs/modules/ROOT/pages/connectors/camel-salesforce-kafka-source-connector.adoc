@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.salesforce.CamelSalesforceSource
 ----
 
 
-The camel-salesforce source connector supports 116 options, which are listed below.
+The camel-salesforce source connector supports 114 options, which are listed below.
 
 
 
@@ -32,7 +32,6 @@ The camel-salesforce source connector supports 116 options, which are listed bel
 | *camel.source.path.topicName* | The name of the topic/channel to use | null | false | MEDIUM
 | *camel.source.endpoint.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.source.endpoint.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
-| *camel.source.endpoint.apexUrl* | APEX method URL | null | false | MEDIUM
 | *camel.source.endpoint.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
 | *camel.source.endpoint.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | false | MEDIUM
 | *camel.source.endpoint.batchId* | Bulk API Batch ID | null | false | MEDIUM
@@ -75,7 +74,6 @@ The camel-salesforce source connector supports 116 options, which are listed bel
 | *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.salesforce.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.component.salesforce.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
-| *camel.component.salesforce.apexUrl* | APEX method URL | null | false | MEDIUM
 | *camel.component.salesforce.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
 | *camel.component.salesforce.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | false | MEDIUM
 | *camel.component.salesforce.batchId* | Bulk API Batch ID | null | false | MEDIUM
