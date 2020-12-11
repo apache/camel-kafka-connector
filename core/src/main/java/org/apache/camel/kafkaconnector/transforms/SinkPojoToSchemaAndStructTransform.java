@@ -63,7 +63,13 @@ public class SinkPojoToSchemaAndStructTransform<R extends ConnectRecord<R>> impl
         if (r.value() != null && r.valueSchema() != null && Schema.Type.STRUCT.equals(r.valueSchema().type())) {
             GenericRecord avroGenericRecord = (GenericRecord)avroData.fromConnectData(r.valueSchema(), r.value());
 
-            LOG.debug("GenericRecord created: {} \nwith schema: {}", avroGenericRecord, avroGenericRecord == null ? "null" : avroGenericRecord.getClass().getName());
+            if (avroGenericRecord == null) {
+                LOG.warn("No GenericRecord was converted as part of this transformation");
+
+                return r;
+            }
+
+            LOG.debug("GenericRecord created: {} \nwith schema: {}", avroGenericRecord, avroGenericRecord.getClass().getName());
 
             GenericDatumWriter<GenericRecord> writer = new GenericDatumWriter<GenericRecord>(avroGenericRecord.getSchema());
 
