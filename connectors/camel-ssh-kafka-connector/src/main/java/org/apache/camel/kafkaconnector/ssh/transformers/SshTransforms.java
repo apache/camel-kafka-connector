@@ -40,7 +40,7 @@ public class SshTransforms<R extends ConnectRecord<R>> implements Transformation
     public R apply(R r) {
         Object value = r.value();
 
-        if (r.value() instanceof ByteArrayInputStream) {
+        if (value instanceof ByteArrayInputStream) {
             LOG.debug("Converting record from Ssh Body Result to text");
             ByteArrayInputStream message = (ByteArrayInputStream)r.value();
             String m = null;
@@ -53,7 +53,7 @@ public class SshTransforms<R extends ConnectRecord<R>> implements Transformation
             return r.newRecord(r.topic(), r.kafkaPartition(), null, r.key(), SchemaHelper.buildSchemaBuilderForType(m), m, r.timestamp());
 
         } else {
-            LOG.debug("Unexpected message type: {}", r.value().getClass());
+            LOG.debug("Unexpected message type: {}", value == null ? "null instance" : value.getClass());
 
             return r;
         }
