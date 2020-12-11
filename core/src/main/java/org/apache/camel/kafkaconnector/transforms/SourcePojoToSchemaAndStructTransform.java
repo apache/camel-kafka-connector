@@ -80,7 +80,7 @@ public class SourcePojoToSchemaAndStructTransform<R extends ConnectRecord<R>> im
                 byte[] avroDataByte = cacheEntry.getObjectWriter().writeValueAsBytes(r.value());
                 Decoder decoder = DecoderFactory.get().binaryDecoder(avroDataByte, null);
                 org.apache.avro.Schema avroSchema = cacheEntry.getAvroSchemaWrapper().getAvroSchema();
-                DatumReader<GenericRecord> datumReader = new GenericDatumReader<GenericRecord>(avroSchema);
+                DatumReader<GenericRecord> datumReader = new GenericDatumReader<>(avroSchema);
                 GenericRecord genericAvroData = datumReader.read(null, decoder);
 
                 connectSchemaAndData = this.avroData.toConnectData(avroSchema, genericAvroData);
