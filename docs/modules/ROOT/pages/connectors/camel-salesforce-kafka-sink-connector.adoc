@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.salesforce.CamelSalesforceSinkCo
 ----
 
 
-The camel-salesforce sink connector supports 113 options, which are listed below.
+The camel-salesforce sink connector supports 115 options, which are listed below.
 
 
 
@@ -32,7 +32,6 @@ The camel-salesforce sink connector supports 113 options, which are listed below
 | *camel.sink.path.operationName* | The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] | null | false | MEDIUM
 | *camel.sink.endpoint.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.sink.endpoint.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
-| *camel.sink.endpoint.apexUrl* | APEX method URL | null | false | MEDIUM
 | *camel.sink.endpoint.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
 | *camel.sink.endpoint.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | false | MEDIUM
 | *camel.sink.endpoint.batchId* | Bulk API Batch ID | null | false | MEDIUM
@@ -68,11 +67,12 @@ The camel-salesforce sink connector supports 113 options, which are listed below
 | *camel.sink.endpoint.sObjectQuery* | Salesforce SOQL query string | null | false | MEDIUM
 | *camel.sink.endpoint.sObjectSearch* | Salesforce SOSL search string | null | false | MEDIUM
 | *camel.sink.endpoint.updateTopic* | Whether to update an existing Push Topic when using the Streaming API, defaults to false | false | false | MEDIUM
+| *camel.sink.endpoint.apexUrl* | APEX method URL | null | false | MEDIUM
+| *camel.sink.endpoint.compositeMethod* | Composite (raw) method. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.salesforce.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.component.salesforce.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
-| *camel.component.salesforce.apexUrl* | APEX method URL | null | false | MEDIUM
 | *camel.component.salesforce.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
 | *camel.component.salesforce.backoffIncrement* | Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect. | 1000L | false | MEDIUM
 | *camel.component.salesforce.batchId* | Bulk API Batch ID | null | false | MEDIUM
@@ -116,6 +116,8 @@ The camel-salesforce sink connector supports 113 options, which are listed below
 | *camel.component.salesforce.config* | Global endpoint configuration - use to set values that are common to all endpoints | null | false | MEDIUM
 | *camel.component.salesforce.httpClientProperties* | Used to set any properties that can be configured on the underlying HTTP client. Have a look at properties of SalesforceHttpClient and the Jetty HttpClient for all available options. | null | false | MEDIUM
 | *camel.component.salesforce.longPollingTransport Properties* | Used to set any properties that can be configured on the LongPollingTransport used by the BayeuxClient (CometD) used by the streaming api | null | false | MEDIUM
+| *camel.component.salesforce.apexUrl* | APEX method URL | null | false | MEDIUM
+| *camel.component.salesforce.compositeMethod* | Composite (raw) method. | null | false | MEDIUM
 | *camel.component.salesforce.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.salesforce.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.salesforce.httpProxyExcluded Addresses* | A list of addresses for which HTTP proxy server should not be used. | null | false | MEDIUM

@@ -35,9 +35,6 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_QUERY_PARAMS_CONF = "camel.sink.endpoint.apexQueryParams";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_QUERY_PARAMS_DOC = "Query params for APEX method";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_QUERY_PARAMS_DEFAULT = null;
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_CONF = "camel.sink.endpoint.apexUrl";
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DOC = "APEX method URL";
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_CONF = "camel.sink.endpoint.apiVersion";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DOC = "Salesforce API version.";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DEFAULT = "50.0";
@@ -143,6 +140,12 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_CONF = "camel.sink.endpoint.updateTopic";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_DOC = "Whether to update an existing Push Topic when using the Streaming API, defaults to false";
     public static final Boolean CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_DEFAULT = false;
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_CONF = "camel.sink.endpoint.apexUrl";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DOC = "APEX method URL";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_CONF = "camel.sink.endpoint.compositeMethod";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_DOC = "Composite (raw) method.";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -155,9 +158,6 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_CONF = "camel.component.salesforce.apexQueryParams";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DOC = "Query params for APEX method";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DEFAULT = null;
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_CONF = "camel.component.salesforce.apexUrl";
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DOC = "APEX method URL";
-    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_CONF = "camel.component.salesforce.apiVersion";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DOC = "Salesforce API version.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DEFAULT = "50.0";
@@ -287,6 +287,12 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_CONF = "camel.component.salesforce.longPollingTransportProperties";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_DOC = "Used to set any properties that can be configured on the LongPollingTransport used by the BayeuxClient (CometD) used by the streaming api";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_CONF = "camel.component.salesforce.apexUrl";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DOC = "APEX method URL";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_COMPOSITE_METHOD_CONF = "camel.component.salesforce.compositeMethod";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_COMPOSITE_METHOD_DOC = "Composite (raw) method.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_COMPOSITE_METHOD_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.salesforce.lazyStartProducer";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -381,7 +387,6 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_METHOD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_QUERY_PARAMS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_QUERY_PARAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_QUERY_PARAMS_DOC);
-        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_API_VERSION_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_BACKOFF_INCREMENT_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_BATCH_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_BATCH_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_BATCH_ID_DOC);
@@ -417,11 +422,12 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_QUERY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_QUERY_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_SEARCH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_SEARCH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_SOBJECT_SEARCH_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_UPDATE_TOPIC_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DOC);
-        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_BACKOFF_INCREMENT_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_BATCH_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_BATCH_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_BATCH_ID_DOC);
@@ -465,6 +471,8 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_CONFIG_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_CLIENT_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_LONG_POLLING_TRANSPORT_PROPERTIES_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_URL_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_COMPOSITE_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_COMPOSITE_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_COMPOSITE_METHOD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_HTTP_PROXY_EXCLUDED_ADDRESSES_DOC);
