@@ -10,8 +10,10 @@
 - Add a removeHeaders option on both source and sink [\#763](https://github.com/apache/camel-kafka-connector/issues/763)
 - Added Camel-SQL kafka connector integration test [\#757](https://github.com/apache/camel-kafka-connector/issues/757)
 - Create binary distribution [\#754](https://github.com/apache/camel-kafka-connector/issues/754)
+- Possibly moving Integration tests in a separated repository? [\#746](https://github.com/apache/camel-kafka-connector/issues/746)
 - Support Poll timeout and key cache size as option for kafka idempotent repository [\#734](https://github.com/apache/camel-kafka-connector/issues/734)
 - Provide validation of properties file from the catalog [\#671](https://github.com/apache/camel-kafka-connector/issues/671)
+- Include possible enum values in Catalog [\#645](https://github.com/apache/camel-kafka-connector/issues/645)
 - Create Arangodb examples [\#457](https://github.com/apache/camel-kafka-connector/issues/457)
 
 **Merged pull requests:**
@@ -37,7 +39,6 @@
 - Move SshTransforms from example/it test class directly in the camel-ssh-kafka-connector [\#747](https://github.com/apache/camel-kafka-connector/pull/747) ([oscerd](https://github.com/oscerd))
 - Fixed Commons-io dependency version in ssh IT test [\#741](https://github.com/apache/camel-kafka-connector/pull/741) ([oscerd](https://github.com/oscerd))
 - Camel-SSH-Kafka-connector integration test [\#740](https://github.com/apache/camel-kafka-connector/pull/740) ([oscerd](https://github.com/oscerd))
-- Camel master align and rebase [\#735](https://github.com/apache/camel-kafka-connector/pull/735) ([oscerd](https://github.com/oscerd))
 - Issue/715 [\#732](https://github.com/apache/camel-kafka-connector/pull/732) ([valdar](https://github.com/valdar))
 - Fixed wrong config references in both CamelSinkTask and CamelSourceTask [\#731](https://github.com/apache/camel-kafka-connector/pull/731) ([oscerd](https://github.com/oscerd))
 - Prevent NPEs in the \(unlikely\) case the record value is null [\#730](https://github.com/apache/camel-kafka-connector/pull/730) ([orpiske](https://github.com/orpiske))
@@ -205,6 +206,7 @@
 - ISSUE-524 Create a source distribution module [\#577](https://github.com/apache/camel-kafka-connector/pull/577) ([cunningt](https://github.com/cunningt))
 - ISSUE-146 Prevent the overwrite of existing classes unless they are @Generated annotated [\#576](https://github.com/apache/camel-kafka-connector/pull/576) ([cunningt](https://github.com/cunningt))
 - Camel-Kafka-kafka-connector is back [\#575](https://github.com/apache/camel-kafka-connector/pull/575) ([oscerd](https://github.com/oscerd))
+- 573 allow to add remove elements from catalog dynamically through api [\#574](https://github.com/apache/camel-kafka-connector/pull/574) ([apupier](https://github.com/apupier))
 - Add back AWS\*-connectors [\#572](https://github.com/apache/camel-kafka-connector/pull/572) ([oscerd](https://github.com/oscerd))
 - Improve Catalog and cleanup [\#571](https://github.com/apache/camel-kafka-connector/pull/571) ([oscerd](https://github.com/oscerd))
 - github action: add trigger on workflow\_dispatch [\#568](https://github.com/apache/camel-kafka-connector/pull/568) ([lburgazzoli](https://github.com/lburgazzoli))
