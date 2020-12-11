@@ -32,7 +32,7 @@ public class CamelSyslogSourceTask extends CamelNettySourceTask {
     }
     @Override
     protected Map<String, String> getDefaultConfig() {
-        Map<String, String> defaultConfig = new HashMap<String, String>();
+        Map<String, String> defaultConfig = new HashMap<>();
         defaultConfig.putAll(super.getDefaultConfig());
         defaultConfig.put(CamelSourceConnectorConfig.CAMEL_SOURCE_UNMARSHAL_CONF, "syslog");
         defaultConfig.put(CamelSourceTask.getCamelSourceEndpointConfigPrefix() + "decoders", "#syslogdecoder");
