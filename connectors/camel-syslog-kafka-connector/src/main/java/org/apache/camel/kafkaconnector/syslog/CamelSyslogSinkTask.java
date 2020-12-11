@@ -32,7 +32,7 @@ public class CamelSyslogSinkTask extends CamelNettySinkTask {
     }
     @Override
     protected Map<String, String> getDefaultConfig() {
-        Map<String, String> defaultConfig = new HashMap<String, String>();
+        Map<String, String> defaultConfig = new HashMap<>();
         defaultConfig.putAll(super.getDefaultConfig());
         defaultConfig.put(CamelSinkConnectorConfig.CAMEL_SINK_MARSHAL_CONF, "syslog");
         defaultConfig.put(CamelSinkTask.getCamelSinkEndpointConfigPrefix() + "encoders", "#syslogencoder");
