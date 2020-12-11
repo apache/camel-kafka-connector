@@ -42,12 +42,13 @@ public class SshTransforms<R extends ConnectRecord<R>> implements Transformation
 
         if (value instanceof ByteArrayInputStream) {
             LOG.debug("Converting record from Ssh Body Result to text");
-            ByteArrayInputStream message = (ByteArrayInputStream)r.value();
+            ByteArrayInputStream message = (ByteArrayInputStream) value;
             String m = null;
             try {
                 m = IOUtils.toString(message, Charset.defaultCharset());
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error("Input/output error while transforming the SSH value of type {}: {}", value.getClass(),
+                        e.getMessage(), e);
             }
 
             return r.newRecord(r.topic(), r.kafkaPartition(), null, r.key(), SchemaHelper.buildSchemaBuilderForType(m), m, r.timestamp());
