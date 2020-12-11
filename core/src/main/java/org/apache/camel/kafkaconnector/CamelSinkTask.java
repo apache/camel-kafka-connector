@@ -74,7 +74,7 @@ public class CamelSinkTask extends SinkTask {
                 String levelStr = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF);
                 loggingLevel = LoggingLevel.valueOf(levelStr.toUpperCase());
             } catch (Exception e) {
-                LOG.debug("Invalid value for " + CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF + "property");
+                LOG.debug("Invalid value for {} property", CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF);
             }
 
             String remoteUrl = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF);
