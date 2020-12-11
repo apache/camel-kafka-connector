@@ -71,7 +71,7 @@ public class SinkPojoToSchemaAndStructTransform<R extends ConnectRecord<R>> impl
 
             LOG.debug("GenericRecord created: {} \nwith schema: {}", avroGenericRecord, avroGenericRecord.getClass().getName());
 
-            GenericDatumWriter<GenericRecord> writer = new GenericDatumWriter<GenericRecord>(avroGenericRecord.getSchema());
+            GenericDatumWriter<GenericRecord> writer = new GenericDatumWriter<>(avroGenericRecord.getSchema());
 
             Object pojo;
             try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
