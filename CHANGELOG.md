@@ -18,6 +18,11 @@
 
 **Merged pull requests:**
 
+- NPE prevention and log cleanup on the SSH transformation code [\#781](https://github.com/apache/camel-kafka-connector/pull/781) ([orpiske](https://github.com/orpiske))
+- \(chores\) Use log markers [\#780](https://github.com/apache/camel-kafka-connector/pull/780) ([orpiske](https://github.com/orpiske))
+- \(chores\) Use diamond operators instead of type specification [\#779](https://github.com/apache/camel-kafka-connector/pull/779) ([orpiske](https://github.com/orpiske))
+- Avoid creating an anonymous extra class [\#778](https://github.com/apache/camel-kafka-connector/pull/778) ([orpiske](https://github.com/orpiske))
+- Prevents a potential null pointer dereference if the conversion cannot be made in the SinkPojoToSchemaAndStructTransform [\#777](https://github.com/apache/camel-kafka-connector/pull/777) ([orpiske](https://github.com/orpiske))
 - Added max redelivery delay to source config in basic configuration [\#774](https://github.com/apache/camel-kafka-connector/pull/774) ([oscerd](https://github.com/oscerd))
 - Added documentation for remove headers in basic configuration docs [\#773](https://github.com/apache/camel-kafka-connector/pull/773) ([oscerd](https://github.com/oscerd))
 - 645 add enum in catalog [\#772](https://github.com/apache/camel-kafka-connector/pull/772) ([apupier](https://github.com/apupier))
