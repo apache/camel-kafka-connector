@@ -45,7 +45,20 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform. It can be createAndRunInstances, startInstances, stopInstances, terminateInstances, describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances, createTags or deleteTags One of: [createAndRunInstances] [startInstances] [stopInstances] [terminateInstances] [describeInstances] [describeInstancesStatus] [rebootInstances] [monitorInstances] [unmonitorInstances] [createTags] [deleteTags]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"createAndRunInstances",
+				"startInstances",
+				"stopInstances",
+				"terminateInstances",
+				"describeInstances",
+				"describeInstancesStatus",
+				"rebootInstances",
+				"monitorInstances",
+				"unmonitorInstances",
+				"createTags",
+				"deleteTags"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -64,7 +77,11 @@
 			"description": "To define a proxy protocol when instantiating the EC2 client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -121,7 +138,20 @@
 			"name": "camel.component.aws-ec2.operation",
 			"description": "The operation to perform. It can be createAndRunInstances, startInstances, stopInstances, terminateInstances, describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances, createTags or deleteTags One of: [createAndRunInstances] [startInstances] [stopInstances] [terminateInstances] [describeInstances] [describeInstancesStatus] [rebootInstances] [monitorInstances] [unmonitorInstances] [createTags] [deleteTags]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"createAndRunInstances",
+				"startInstances",
+				"stopInstances",
+				"terminateInstances",
+				"describeInstances",
+				"describeInstancesStatus",
+				"rebootInstances",
+				"monitorInstances",
+				"unmonitorInstances",
+				"createTags",
+				"deleteTags"
+			]
 		},
 		"camel.component.aws-ec2.proxyHost": {
 			"name": "camel.component.aws-ec2.proxyHost",
@@ -140,7 +170,11 @@
 			"description": "To define a proxy protocol when instantiating the EC2 client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-ec2.region": {
 			"name": "camel.component.aws-ec2.region",

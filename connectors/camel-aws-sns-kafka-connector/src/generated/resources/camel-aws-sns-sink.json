@@ -89,7 +89,11 @@
 			"description": "To define a proxy protocol when instantiating the SNS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.queueUrl": {
 			"name": "camel.sink.endpoint.queueUrl",
@@ -216,7 +220,11 @@
 			"description": "To define a proxy protocol when instantiating the SNS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-sns.queueUrl": {
 			"name": "camel.component.aws-sns.queueUrl",

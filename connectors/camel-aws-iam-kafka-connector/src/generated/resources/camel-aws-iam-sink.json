@@ -45,7 +45,22 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"listAccessKeys",
+				"createUser",
+				"deleteUser",
+				"getUser",
+				"listUsers",
+				"createAccessKey",
+				"deleteAccessKey",
+				"updateAccessKey",
+				"createGroup",
+				"deleteGroup",
+				"listGroups",
+				"addUserToGroup",
+				"removeUserFromGroup"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -64,7 +79,11 @@
 			"description": "To define a proxy protocol when instantiating the IAM client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -121,7 +140,22 @@
 			"name": "camel.component.aws-iam.operation",
 			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"listAccessKeys",
+				"createUser",
+				"deleteUser",
+				"getUser",
+				"listUsers",
+				"createAccessKey",
+				"deleteAccessKey",
+				"updateAccessKey",
+				"createGroup",
+				"deleteGroup",
+				"listGroups",
+				"addUserToGroup",
+				"removeUserFromGroup"
+			]
 		},
 		"camel.component.aws-iam.proxyHost": {
 			"name": "camel.component.aws-iam.proxyHost",
@@ -140,7 +174,11 @@
 			"description": "To define a proxy protocol when instantiating the IAM client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-iam.region": {
 			"name": "camel.component.aws-iam.region",

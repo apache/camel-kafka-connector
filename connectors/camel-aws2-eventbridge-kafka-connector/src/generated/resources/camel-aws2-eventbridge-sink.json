@@ -39,7 +39,19 @@
 			"description": "The operation to perform One of: [putRule] [putTargets] [removeTargets] [deleteRule] [enableRule] [disableRule] [describeRule] [listRules] [listTargetsByRule] [listRuleNamesByTarget]",
 			"defaultValue": "\"putRule\"",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"putRule",
+				"putTargets",
+				"removeTargets",
+				"deleteRule",
+				"enableRule",
+				"disableRule",
+				"describeRule",
+				"listRules",
+				"listTargetsByRule",
+				"listRuleNamesByTarget"
+			]
 		},
 		"camel.sink.endpoint.pojoRequest": {
 			"name": "camel.sink.endpoint.pojoRequest",
@@ -65,7 +77,11 @@
 			"description": "To define a proxy protocol when instantiating the Eventbridge client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -129,7 +145,19 @@
 			"description": "The operation to perform One of: [putRule] [putTargets] [removeTargets] [deleteRule] [enableRule] [disableRule] [describeRule] [listRules] [listTargetsByRule] [listRuleNamesByTarget]",
 			"defaultValue": "\"putRule\"",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"putRule",
+				"putTargets",
+				"removeTargets",
+				"deleteRule",
+				"enableRule",
+				"disableRule",
+				"describeRule",
+				"listRules",
+				"listTargetsByRule",
+				"listRuleNamesByTarget"
+			]
 		},
 		"camel.component.aws2-eventbridge.pojoRequest": {
 			"name": "camel.component.aws2-eventbridge.pojoRequest",
@@ -155,7 +183,11 @@
 			"description": "To define a proxy protocol when instantiating the Eventbridge client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws2-eventbridge.region": {
 			"name": "camel.component.aws2-eventbridge.region",

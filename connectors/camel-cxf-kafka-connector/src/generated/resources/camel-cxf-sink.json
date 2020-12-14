@@ -26,7 +26,14 @@
 			"description": "The data type messages supported by the CXF endpoint. One of: [PAYLOAD] [RAW] [MESSAGE] [CXF_MESSAGE] [POJO]",
 			"defaultValue": "\"POJO\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PAYLOAD",
+				"RAW",
+				"MESSAGE",
+				"CXF_MESSAGE",
+				"POJO"
+			]
 		},
 		"camel.sink.endpoint.wrappedStyle": {
 			"name": "camel.sink.endpoint.wrappedStyle",

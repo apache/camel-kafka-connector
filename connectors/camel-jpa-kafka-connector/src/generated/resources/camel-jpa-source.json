@@ -92,7 +92,17 @@
 			"description": "To configure the lock mode on the consumer. One of: [READ] [WRITE] [OPTIMISTIC] [OPTIMISTIC_FORCE_INCREMENT] [PESSIMISTIC_READ] [PESSIMISTIC_WRITE] [PESSIMISTIC_FORCE_INCREMENT] [NONE]",
 			"defaultValue": "\"PESSIMISTIC_WRITE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"READ",
+				"WRITE",
+				"OPTIMISTIC",
+				"OPTIMISTIC_FORCE_INCREMENT",
+				"PESSIMISTIC_READ",
+				"PESSIMISTIC_WRITE",
+				"PESSIMISTIC_FORCE_INCREMENT",
+				"NONE"
+			]
 		},
 		"camel.source.endpoint.maxMessagesPerPoll": {
 			"name": "camel.source.endpoint.maxMessagesPerPoll",
@@ -137,7 +147,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.parameters": {
 			"name": "camel.source.endpoint.parameters",
@@ -222,7 +237,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -255,7 +278,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",

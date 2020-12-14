@@ -49,7 +49,12 @@
 			"description": "You can specify a policy for handling long messages: ALLOW - the default, long messages are split to 140 bytes per message TRUNCATE - long messages are split and only the first fragment will be sent to the SMSC. Some carriers drop subsequent fragments so this reduces load on the SMPP connection sending parts of a message that will never be delivered. REJECT - if a message would need to be split, it is rejected with an SMPP NegativeResponseException and the reason code signifying the message is too long. One of: [ALLOW] [REJECT] [TRUNCATE]",
 			"defaultValue": "\"ALLOW\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALLOW",
+				"REJECT",
+				"TRUNCATE"
+			]
 		},
 		"camel.source.endpoint.systemType": {
 			"name": "camel.source.endpoint.systemType",
@@ -80,7 +85,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.enquireLinkTimer": {
 			"name": "camel.source.endpoint.enquireLinkTimer",
@@ -113,7 +123,12 @@
 			"name": "camel.source.endpoint.alphabet",
 			"description": "Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"0",
+				"4",
+				"8"
+			]
 		},
 		"camel.source.endpoint.dataCoding": {
 			"name": "camel.source.endpoint.dataCoding",
@@ -205,7 +220,12 @@
 			"description": "You can specify a policy for handling long messages: ALLOW - the default, long messages are split to 140 bytes per message TRUNCATE - long messages are split and only the first fragment will be sent to the SMSC. Some carriers drop subsequent fragments so this reduces load on the SMPP connection sending parts of a message that will never be delivered. REJECT - if a message would need to be split, it is rejected with an SMPP NegativeResponseException and the reason code signifying the message is too long. One of: [ALLOW] [REJECT] [TRUNCATE]",
 			"defaultValue": "\"ALLOW\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALLOW",
+				"REJECT",
+				"TRUNCATE"
+			]
 		},
 		"camel.component.smpps.systemType": {
 			"name": "camel.component.smpps.systemType",
@@ -263,7 +283,12 @@
 			"name": "camel.component.smpps.alphabet",
 			"description": "Defines encoding of data according the SMPP 3.4 specification, section 5.2.19. 0: SMSC Default Alphabet 4: 8 bit Alphabet 8: UCS2 Alphabet One of: [0] [4] [8]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"0",
+				"4",
+				"8"
+			]
 		},
 		"camel.component.smpps.dataCoding": {
 			"name": "camel.component.smpps.dataCoding",

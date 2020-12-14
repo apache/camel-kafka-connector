@@ -13,7 +13,11 @@
 			"name": "camel.source.path.protocol",
 			"description": "The protocol to use which can be tcp or udp. One of: [tcp] [udp]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"tcp",
+				"udp"
+			]
 		},
 		"camel.source.path.host": {
 			"name": "camel.source.path.host",
@@ -140,7 +144,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.nettyServerBootstrapFactory": {
 			"name": "camel.source.endpoint.nettyServerBootstrapFactory",
@@ -159,21 +168,45 @@
 			"description": "If sync is enabled this option dictates NettyConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.serverClosedChannelExceptionCaughtLogLevel": {
 			"name": "camel.source.endpoint.serverClosedChannelExceptionCaughtLogLevel",
 			"description": "If the server (NettyConsumer) catches an java.nio.channels.ClosedChannelException then its logged using this logging level. This is used to avoid logging the closed channel exceptions, as clients can disconnect abruptly and then cause a flood of closed exceptions in the Netty server. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"DEBUG\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.serverExceptionCaughtLogLevel": {
 			"name": "camel.source.endpoint.serverExceptionCaughtLogLevel",
 			"description": "If the server (NettyConsumer) catches an exception then its logged using this logging level. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.serverInitializerFactory": {
 			"name": "camel.source.endpoint.serverInitializerFactory",
@@ -299,7 +332,11 @@
 			"description": "The delimiter to use for the textline codec. Possible values are LINE and NULL. One of: [LINE] [NULL]",
 			"defaultValue": "\"LINE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"LINE",
+				"NULL"
+			]
 		},
 		"camel.source.endpoint.encoders": {
 			"name": "camel.source.endpoint.encoders",
@@ -540,21 +577,45 @@
 			"description": "If sync is enabled this option dictates NettyConsumer which logging level to use when logging a there is no reply to send back. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.component.netty.serverClosedChannelExceptionCaughtLogLevel": {
 			"name": "camel.component.netty.serverClosedChannelExceptionCaughtLogLevel",
 			"description": "If the server (NettyConsumer) catches an java.nio.channels.ClosedChannelException then its logged using this logging level. This is used to avoid logging the closed channel exceptions, as clients can disconnect abruptly and then cause a flood of closed exceptions in the Netty server. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"DEBUG\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.component.netty.serverExceptionCaughtLogLevel": {
 			"name": "camel.component.netty.serverExceptionCaughtLogLevel",
 			"description": "If the server (NettyConsumer) catches an exception then its logged using this logging level. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.component.netty.serverInitializerFactory": {
 			"name": "camel.component.netty.serverInitializerFactory",
@@ -680,7 +741,11 @@
 			"description": "The delimiter to use for the textline codec. Possible values are LINE and NULL. One of: [LINE] [NULL]",
 			"defaultValue": "\"LINE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"LINE",
+				"NULL"
+			]
 		},
 		"camel.component.netty.encoders": {
 			"name": "camel.component.netty.encoders",

@@ -45,7 +45,13 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"listClusters",
+				"describeCluster",
+				"createCluster",
+				"deleteCluster"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -64,7 +70,11 @@
 			"description": "To define a proxy protocol when instantiating the ECS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -121,7 +131,13 @@
 			"name": "camel.component.aws-ecs.operation",
 			"description": "The operation to perform One of: [listClusters] [describeCluster] [createCluster] [deleteCluster]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"listClusters",
+				"describeCluster",
+				"createCluster",
+				"deleteCluster"
+			]
 		},
 		"camel.component.aws-ecs.proxyHost": {
 			"name": "camel.component.aws-ecs.proxyHost",
@@ -140,7 +156,11 @@
 			"description": "To define a proxy protocol when instantiating the ECS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-ecs.region": {
 			"name": "camel.component.aws-ecs.region",

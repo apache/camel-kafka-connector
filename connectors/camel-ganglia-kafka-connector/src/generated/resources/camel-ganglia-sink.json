@@ -56,7 +56,11 @@
 			"description": "Send the UDP metric packets using MULTICAST or UNICAST One of: [MULTICAST] [UNICAST]",
 			"defaultValue": "\"MULTICAST\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"MULTICAST",
+				"UNICAST"
+			]
 		},
 		"camel.sink.endpoint.prefix": {
 			"name": "camel.sink.endpoint.prefix",
@@ -69,7 +73,13 @@
 			"description": "The slope One of: [ZERO] [POSITIVE] [NEGATIVE] [BOTH]",
 			"defaultValue": "\"BOTH\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ZERO",
+				"POSITIVE",
+				"NEGATIVE",
+				"BOTH"
+			]
 		},
 		"camel.sink.endpoint.spoofHostname": {
 			"name": "camel.sink.endpoint.spoofHostname",
@@ -96,7 +106,18 @@
 			"description": "The type of value One of: [STRING] [INT8] [UINT8] [INT16] [UINT16] [INT32] [UINT32] [FLOAT] [DOUBLE]",
 			"defaultValue": "\"STRING\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"STRING",
+				"INT8",
+				"UINT8",
+				"INT16",
+				"UINT16",
+				"INT32",
+				"UINT32",
+				"FLOAT",
+				"DOUBLE"
+			]
 		},
 		"camel.sink.endpoint.units": {
 			"name": "camel.sink.endpoint.units",
@@ -151,7 +172,11 @@
 			"description": "Send the UDP metric packets using MULTICAST or UNICAST One of: [MULTICAST] [UNICAST]",
 			"defaultValue": "\"MULTICAST\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"MULTICAST",
+				"UNICAST"
+			]
 		},
 		"camel.component.ganglia.prefix": {
 			"name": "camel.component.ganglia.prefix",
@@ -164,7 +189,13 @@
 			"description": "The slope One of: [ZERO] [POSITIVE] [NEGATIVE] [BOTH]",
 			"defaultValue": "\"BOTH\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ZERO",
+				"POSITIVE",
+				"NEGATIVE",
+				"BOTH"
+			]
 		},
 		"camel.component.ganglia.spoofHostname": {
 			"name": "camel.component.ganglia.spoofHostname",
@@ -191,7 +222,18 @@
 			"description": "The type of value One of: [STRING] [INT8] [UINT8] [INT16] [UINT16] [INT32] [UINT32] [FLOAT] [DOUBLE]",
 			"defaultValue": "\"STRING\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"STRING",
+				"INT8",
+				"UINT8",
+				"INT16",
+				"UINT16",
+				"INT32",
+				"UINT32",
+				"FLOAT",
+				"DOUBLE"
+			]
 		},
 		"camel.component.ganglia.units": {
 			"name": "camel.component.ganglia.units",

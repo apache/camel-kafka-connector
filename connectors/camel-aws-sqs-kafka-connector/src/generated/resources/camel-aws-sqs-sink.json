@@ -60,7 +60,11 @@
 			"description": "To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.queueOwnerAWSAccountId": {
 			"name": "camel.sink.endpoint.queueOwnerAWSAccountId",
@@ -92,19 +96,33 @@
 			"description": "Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication]",
 			"defaultValue": "\"useExchangeId\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"useExchangeId",
+				"useContentBasedDeduplication"
+			]
 		},
 		"camel.sink.endpoint.messageGroupIdStrategy": {
 			"name": "camel.sink.endpoint.messageGroupIdStrategy",
 			"description": "Only for FIFO queues. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"useConstant",
+				"useExchangeId",
+				"usePropertyValue"
+			]
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do in case the user don't want to send only a message One of: [sendBatchMessage] [deleteMessage] [listQueues]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"sendBatchMessage",
+				"deleteMessage",
+				"listQueues"
+			]
 		},
 		"camel.sink.endpoint.delayQueue": {
 			"name": "camel.sink.endpoint.delayQueue",
@@ -225,7 +243,11 @@
 			"description": "To define a proxy protocol when instantiating the SQS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-sqs.queueOwnerAWSAccountId": {
 			"name": "camel.component.aws-sqs.queueOwnerAWSAccountId",
@@ -257,19 +279,33 @@
 			"description": "Only for FIFO queues. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication]",
 			"defaultValue": "\"useExchangeId\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"useExchangeId",
+				"useContentBasedDeduplication"
+			]
 		},
 		"camel.component.aws-sqs.messageGroupIdStrategy": {
 			"name": "camel.component.aws-sqs.messageGroupIdStrategy",
 			"description": "Only for FIFO queues. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"useConstant",
+				"useExchangeId",
+				"usePropertyValue"
+			]
 		},
 		"camel.component.aws-sqs.operation": {
 			"name": "camel.component.aws-sqs.operation",
 			"description": "The operation to do in case the user don't want to send only a message One of: [sendBatchMessage] [deleteMessage] [listQueues]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"sendBatchMessage",
+				"deleteMessage",
+				"listQueues"
+			]
 		},
 		"camel.component.aws-sqs.autowiredEnabled": {
 			"name": "camel.component.aws-sqs.autowiredEnabled",

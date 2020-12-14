@@ -52,7 +52,13 @@
 			"description": "The type of the dead letter exchange One of: [direct] [fanout] [headers] [topic]",
 			"defaultValue": "\"direct\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
 		},
 		"camel.sink.endpoint.deadLetterQueue": {
 			"name": "camel.sink.endpoint.deadLetterQueue",
@@ -85,7 +91,13 @@
 			"description": "The exchange type such as direct or topic. One of: [direct] [fanout] [headers] [topic]",
 			"defaultValue": "\"direct\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
 		},
 		"camel.sink.endpoint.exclusive": {
 			"name": "camel.sink.endpoint.exclusive",
@@ -398,7 +410,13 @@
 			"description": "The type of the dead letter exchange One of: [direct] [fanout] [headers] [topic]",
 			"defaultValue": "\"direct\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
 		},
 		"camel.component.rabbitmq.deadLetterQueue": {
 			"name": "camel.component.rabbitmq.deadLetterQueue",

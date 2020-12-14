@@ -38,7 +38,16 @@
 			"name": "camel.sink.endpoint.writeConcern",
 			"description": "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ACKNOWLEDGED",
+				"W1",
+				"W2",
+				"W3",
+				"UNACKNOWLEDGED",
+				"JOURNALED",
+				"MAJORITY"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

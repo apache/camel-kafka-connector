@@ -81,7 +81,12 @@
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"defaultValue": "\"InOut\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

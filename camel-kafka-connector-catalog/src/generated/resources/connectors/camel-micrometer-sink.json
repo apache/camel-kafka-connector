@@ -13,7 +13,15 @@
 			"name": "camel.sink.path.metricsType",
 			"description": "Type of metrics One of: [COUNTER] [GAUGE] [LONG_TASK_TIMER] [TIMER] [DISTRIBUTION_SUMMARY] [OTHER]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"COUNTER",
+				"GAUGE",
+				"LONG_TASK_TIMER",
+				"TIMER",
+				"DISTRIBUTION_SUMMARY",
+				"OTHER"
+			]
 		},
 		"camel.sink.path.metricsName": {
 			"name": "camel.sink.path.metricsName",

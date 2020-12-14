@@ -37,7 +37,11 @@
 			"name": "camel.source.endpoint.mappingStrategyName",
 			"description": "The strategy to use for mapping Camel messages to HBase columns. Supported values: header, or body. One of: [header] [body]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"header",
+				"body"
+			]
 		},
 		"camel.source.endpoint.rowMapping": {
 			"name": "camel.source.endpoint.rowMapping",
@@ -74,7 +78,13 @@
 			"name": "camel.source.endpoint.operation",
 			"description": "The HBase operation to perform One of: [CamelHBasePut] [CamelHBaseGet] [CamelHBaseScan] [CamelHBaseDelete]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"CamelHBasePut",
+				"CamelHBaseGet",
+				"CamelHBaseScan",
+				"CamelHBaseDelete"
+			]
 		},
 		"camel.source.endpoint.remove": {
 			"name": "camel.source.endpoint.remove",
@@ -99,7 +109,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

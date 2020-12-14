@@ -19,7 +19,12 @@
 			"name": "camel.sink.endpoint.backpressureStrategy",
 			"description": "The backpressure strategy to use when pushing events to a slow subscriber. One of: [BUFFER] [OLDEST] [LATEST]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"BUFFER",
+				"OLDEST",
+				"LATEST"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -60,7 +65,12 @@
 			"description": "The backpressure strategy to use when pushing events to a slow subscriber. One of: [BUFFER] [OLDEST] [LATEST]",
 			"defaultValue": "\"BUFFER\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"BUFFER",
+				"OLDEST",
+				"LATEST"
+			]
 		},
 		"camel.component.reactive-streams.lazyStartProducer": {
 			"name": "camel.component.reactive-streams.lazyStartProducer",

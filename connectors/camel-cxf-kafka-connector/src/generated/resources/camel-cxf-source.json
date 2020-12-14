@@ -26,7 +26,14 @@
 			"description": "The data type messages supported by the CXF endpoint. One of: [PAYLOAD] [RAW] [MESSAGE] [CXF_MESSAGE] [POJO]",
 			"defaultValue": "\"POJO\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PAYLOAD",
+				"RAW",
+				"MESSAGE",
+				"CXF_MESSAGE",
+				"POJO"
+			]
 		},
 		"camel.source.endpoint.wrappedStyle": {
 			"name": "camel.source.endpoint.wrappedStyle",
@@ -51,7 +58,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.allowStreaming": {
 			"name": "camel.source.endpoint.allowStreaming",

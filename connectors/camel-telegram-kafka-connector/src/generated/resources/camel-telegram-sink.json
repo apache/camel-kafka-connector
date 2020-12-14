@@ -13,7 +13,10 @@
 			"name": "camel.sink.path.type",
 			"description": "The endpoint type. Currently, only the 'bots' type is supported. One of: [bots]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"bots"
+			]
 		},
 		"camel.sink.endpoint.chatId": {
 			"name": "camel.sink.endpoint.chatId",
@@ -71,7 +74,12 @@
 			"description": "HTTP proxy type which could be used when sending out the message. One of: [HTTP] [SOCKS4] [SOCKS5]",
 			"defaultValue": "\"HTTP\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"SOCKS4",
+				"SOCKS5"
+			]
 		},
 		"camel.sink.endpoint.authorizationToken": {
 			"name": "camel.sink.endpoint.authorizationToken",

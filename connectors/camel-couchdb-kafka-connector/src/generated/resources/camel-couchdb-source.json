@@ -13,7 +13,11 @@
 			"name": "camel.source.path.protocol",
 			"description": "The protocol to use for communicating with the database. One of: [http] [https]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"http",
+				"https"
+			]
 		},
 		"camel.source.path.hostname": {
 			"name": "camel.source.path.hostname",
@@ -73,7 +77,11 @@
 			"description": "Specifies how many revisions are returned in the changes array. The default, main_only, will only return the current winning revision; all_docs will return all leaf revisions (including conflicts and deleted former conflicts.) One of: [all_docs] [main_only]",
 			"defaultValue": "\"main_only\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"all_docs",
+				"main_only"
+			]
 		},
 		"camel.source.endpoint.updates": {
 			"name": "camel.source.endpoint.updates",
@@ -92,7 +100,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

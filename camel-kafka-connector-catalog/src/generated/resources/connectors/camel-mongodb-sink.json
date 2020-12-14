@@ -50,13 +50,34 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "Sets the operation this endpoint will execute against MongoDB. One of: [findById] [findOneByQuery] [findAll] [findDistinct] [insert] [save] [update] [remove] [bulkWrite] [aggregate] [getDbStats] [getColStats] [count] [command]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"findById",
+				"findOneByQuery",
+				"findAll",
+				"findDistinct",
+				"insert",
+				"save",
+				"update",
+				"remove",
+				"bulkWrite",
+				"aggregate",
+				"getDbStats",
+				"getColStats",
+				"count",
+				"command"
+			]
 		},
 		"camel.sink.endpoint.outputType": {
 			"name": "camel.sink.endpoint.outputType",
 			"description": "Convert the output of the producer to the selected type : DocumentList Document or MongoIterable. DocumentList or MongoIterable applies to findAll and aggregate. Document applies to all other operations. One of: [DocumentList] [Document] [MongoIterable]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DocumentList",
+				"Document",
+				"MongoIterable"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
@@ -84,7 +105,14 @@
 			"description": "Configure how MongoDB clients route read operations to the members of a replica set. Possible values are PRIMARY, PRIMARY_PREFERRED, SECONDARY, SECONDARY_PREFERRED or NEAREST One of: [PRIMARY] [PRIMARY_PREFERRED] [SECONDARY] [SECONDARY_PREFERRED] [NEAREST]",
 			"defaultValue": "\"PRIMARY\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PRIMARY",
+				"PRIMARY_PREFERRED",
+				"SECONDARY",
+				"SECONDARY_PREFERRED",
+				"NEAREST"
+			]
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
@@ -98,7 +126,16 @@
 			"description": "Configure the connection bean with the level of acknowledgment requested from MongoDB for write operations to a standalone mongod, replicaset or cluster. Possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED or MAJORITY. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]",
 			"defaultValue": "\"ACKNOWLEDGED\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ACKNOWLEDGED",
+				"W1",
+				"W2",
+				"W3",
+				"UNACKNOWLEDGED",
+				"JOURNALED",
+				"MAJORITY"
+			]
 		},
 		"camel.sink.endpoint.writeResultAsHeader": {
 			"name": "camel.sink.endpoint.writeResultAsHeader",

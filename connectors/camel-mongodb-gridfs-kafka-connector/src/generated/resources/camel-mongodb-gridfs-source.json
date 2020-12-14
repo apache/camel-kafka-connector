@@ -38,7 +38,16 @@
 			"name": "camel.source.endpoint.writeConcern",
 			"description": "Set the WriteConcern for write operations on MongoDB using the standard ones. Resolved from the fields of the WriteConcern class by calling the WriteConcern#valueOf(String) method. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ACKNOWLEDGED",
+				"W1",
+				"W2",
+				"W3",
+				"UNACKNOWLEDGED",
+				"JOURNALED",
+				"MAJORITY"
+			]
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -93,7 +102,14 @@
 			"description": "Sets the QueryStrategy that is used for polling for new files. Default is Timestamp One of: [TimeStamp] [PersistentTimestamp] [FileAttribute] [TimeStampAndFileAttribute] [PersistentTimestampAndFileAttribute]",
 			"defaultValue": "\"TimeStamp\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TimeStamp",
+				"PersistentTimestamp",
+				"FileAttribute",
+				"TimeStampAndFileAttribute",
+				"PersistentTimestampAndFileAttribute"
+			]
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
@@ -105,7 +121,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

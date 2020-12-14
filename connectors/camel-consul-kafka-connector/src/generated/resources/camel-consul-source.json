@@ -99,14 +99,24 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.consistencyMode": {
 			"name": "camel.source.endpoint.consistencyMode",
 			"description": "The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT]",
 			"defaultValue": "\"DEFAULT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"STALE",
+				"CONSISTENT"
+			]
 		},
 		"camel.source.endpoint.datacenter": {
 			"name": "camel.source.endpoint.datacenter",
@@ -270,7 +280,12 @@
 			"description": "The consistencyMode used for queries, default ConsistencyMode.DEFAULT One of: [DEFAULT] [STALE] [CONSISTENT]",
 			"defaultValue": "\"DEFAULT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"STALE",
+				"CONSISTENT"
+			]
 		},
 		"camel.component.consul.datacenter": {
 			"name": "camel.component.consul.datacenter",

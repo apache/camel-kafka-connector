@@ -39,7 +39,16 @@
 			"description": "What output result to use One of: [Bytes] [BytesSource] [DOM] [DOMSource] [List] [String] [StringSource]",
 			"defaultValue": "\"DOM\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Bytes",
+				"BytesSource",
+				"DOM",
+				"DOMSource",
+				"List",
+				"String",
+				"StringSource"
+			]
 		},
 		"camel.sink.endpoint.resultType": {
 			"name": "camel.sink.endpoint.resultType",

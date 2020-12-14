@@ -87,7 +87,11 @@
 			"description": "Client persistence to be used - memory or file. One of: [FILE] [MEMORY]",
 			"defaultValue": "\"MEMORY\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"FILE",
+				"MEMORY"
+			]
 		},
 		"camel.sink.endpoint.qos": {
 			"name": "camel.sink.endpoint.qos",
@@ -282,7 +286,11 @@
 			"description": "Client persistence to be used - memory or file. One of: [FILE] [MEMORY]",
 			"defaultValue": "\"MEMORY\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"FILE",
+				"MEMORY"
+			]
 		},
 		"camel.component.paho.qos": {
 			"name": "camel.component.paho.qos",

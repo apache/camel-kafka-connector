@@ -33,7 +33,12 @@
 			"description": "Type of operation to execute on query One of: [EXECUTE] [FETCH] [NONE]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EXECUTE",
+				"FETCH",
+				"NONE"
+			]
 		},
 		"camel.sink.endpoint.query": {
 			"name": "camel.sink.endpoint.query",
@@ -72,7 +77,12 @@
 			"description": "Type of operation to execute on query One of: [EXECUTE] [FETCH] [NONE]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EXECUTE",
+				"FETCH",
+				"NONE"
+			]
 		},
 		"camel.component.jooq.query": {
 			"name": "camel.component.jooq.query",

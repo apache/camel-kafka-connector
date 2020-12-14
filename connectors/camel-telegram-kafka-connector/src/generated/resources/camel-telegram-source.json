@@ -13,7 +13,10 @@
 			"name": "camel.source.path.type",
 			"description": "The endpoint type. Currently, only the 'bots' type is supported. One of: [bots]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"bots"
+			]
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -53,7 +56,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -104,7 +112,12 @@
 			"description": "HTTP proxy type which could be used when sending out the message. One of: [HTTP] [SOCKS4] [SOCKS5]",
 			"defaultValue": "\"HTTP\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"SOCKS4",
+				"SOCKS5"
+			]
 		},
 		"camel.source.endpoint.backoffErrorThreshold": {
 			"name": "camel.source.endpoint.backoffErrorThreshold",
@@ -157,7 +170,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -190,7 +211,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",

@@ -38,7 +38,12 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "Operation to perform One of: [INSERT] [CREATE_TABLE] [SCAN]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"INSERT",
+				"CREATE_TABLE",
+				"SCAN"
+			]
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",

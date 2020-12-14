@@ -161,7 +161,14 @@
 			"name": "camel.sink.endpoint.textlineDelimiter",
 			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"AUTO",
+				"UNIX",
+				"WINDOWS",
+				"MAC"
+			]
 		},
 		"camel.sink.endpoint.autoStartTls": {
 			"name": "camel.sink.endpoint.autoStartTls",
@@ -316,7 +323,14 @@
 			"name": "camel.component.mina.textlineDelimiter",
 			"description": "Only used for TCP and if textline=true. Sets the text line delimiter to use. If none provided, Camel will use DEFAULT. This delimiter is used to mark the end of text. One of: [DEFAULT] [AUTO] [UNIX] [WINDOWS] [MAC]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"AUTO",
+				"UNIX",
+				"WINDOWS",
+				"MAC"
+			]
 		},
 		"camel.component.mina.autoStartTls": {
 			"name": "camel.component.mina.autoStartTls",

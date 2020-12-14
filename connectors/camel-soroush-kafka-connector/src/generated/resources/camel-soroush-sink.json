@@ -13,7 +13,13 @@
 			"name": "camel.sink.path.action",
 			"description": "The action to do. One of: [sendMessage] [getMessage] [uploadFile] [downloadFile]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"sendMessage",
+				"getMessage",
+				"uploadFile",
+				"downloadFile"
+			]
 		},
 		"camel.sink.endpoint.connectionTimeout": {
 			"name": "camel.sink.endpoint.connectionTimeout",

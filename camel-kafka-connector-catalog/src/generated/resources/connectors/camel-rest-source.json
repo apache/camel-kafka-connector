@@ -13,7 +13,18 @@
 			"name": "camel.source.path.method",
 			"description": "HTTP method to use. One of: [get] [post] [put] [delete] [patch] [head] [trace] [connect] [options]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"get",
+				"post",
+				"put",
+				"delete",
+				"patch",
+				"head",
+				"trace",
+				"connect",
+				"options"
+			]
 		},
 		"camel.source.path.path": {
 			"name": "camel.source.path.path",
@@ -86,7 +97,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

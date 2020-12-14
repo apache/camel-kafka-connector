@@ -26,7 +26,12 @@
 			"description": "The executor type to be used while executing statements. simple - executor does nothing special. reuse - executor reuses prepared statements. batch - executor reuses statements and batches updates. One of: [SIMPLE] [REUSE] [BATCH]",
 			"defaultValue": "\"SIMPLE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SIMPLE",
+				"REUSE",
+				"BATCH"
+			]
 		},
 		"camel.sink.endpoint.inputHeader": {
 			"name": "camel.sink.endpoint.inputHeader",

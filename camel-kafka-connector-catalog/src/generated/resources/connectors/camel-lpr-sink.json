@@ -77,7 +77,13 @@
 			"description": "Sets the page orientation. One of: [portrait] [landscape] [reverse-portrait] [reverse-landscape]",
 			"defaultValue": "\"portrait\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"portrait",
+				"landscape",
+				"reverse-portrait",
+				"reverse-landscape"
+			]
 		},
 		"camel.sink.endpoint.printerPrefix": {
 			"name": "camel.sink.endpoint.printerPrefix",
@@ -97,7 +103,14 @@
 			"description": "Sets one sided or two sided printing based on the javax.print.attribute.standard.Sides API One of: [one-sided] [duplex] [tumble] [two-sided-short-edge] [two-sided-long-edge]",
 			"defaultValue": "\"one-sided\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"one-sided",
+				"duplex",
+				"tumble",
+				"two-sided-short-edge",
+				"two-sided-long-edge"
+			]
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",

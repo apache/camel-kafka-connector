@@ -46,7 +46,12 @@
 			"description": "Specifies how deeply to search the tree of entries, starting at the base DN. One of: [object] [onelevel] [subtree]",
 			"defaultValue": "\"subtree\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"object",
+				"onelevel",
+				"subtree"
+			]
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
