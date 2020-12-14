@@ -46,7 +46,12 @@
 			"description": "Specifies the major dimension that results should use.. One of: [ROWS] [COLUMNS] [DIMENSION_UNSPECIFIED]",
 			"defaultValue": "\"ROWS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ROWS",
+				"COLUMNS",
+				"DIMENSION_UNSPECIFIED"
+			]
 		},
 		"camel.source.endpoint.maxResults": {
 			"name": "camel.source.endpoint.maxResults",
@@ -91,7 +96,12 @@
 			"description": "Determines how values should be rendered in the output. One of: [FORMATTED_VALUE] [UNFORMATTED_VALUE] [FORMULA]",
 			"defaultValue": "\"FORMATTED_VALUE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"FORMATTED_VALUE",
+				"UNFORMATTED_VALUE",
+				"FORMULA"
+			]
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
@@ -103,7 +113,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -169,7 +184,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -202,7 +225,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",
@@ -266,7 +298,12 @@
 			"description": "Specifies the major dimension that results should use.. One of: [ROWS] [COLUMNS] [DIMENSION_UNSPECIFIED]",
 			"defaultValue": "\"ROWS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ROWS",
+				"COLUMNS",
+				"DIMENSION_UNSPECIFIED"
+			]
 		},
 		"camel.component.google-sheets-stream.maxResults": {
 			"name": "camel.component.google-sheets-stream.maxResults",
@@ -304,7 +341,12 @@
 			"description": "Determines how values should be rendered in the output. One of: [FORMATTED_VALUE] [UNFORMATTED_VALUE] [FORMULA]",
 			"defaultValue": "\"FORMATTED_VALUE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"FORMATTED_VALUE",
+				"UNFORMATTED_VALUE",
+				"FORMULA"
+			]
 		},
 		"camel.component.google-sheets-stream.autowiredEnabled": {
 			"name": "camel.component.google-sheets-stream.autowiredEnabled",

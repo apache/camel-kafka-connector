@@ -32,7 +32,21 @@
 			"description": "The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES]",
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PUT",
+				"PUT_IF_ABSENT",
+				"GET",
+				"CLEAR",
+				"SIZE",
+				"CONTAINS_KEY",
+				"CONTAINS_VALUE",
+				"IS_EMPTY",
+				"ENTRY_SET",
+				"REMOVE",
+				"REPLACE",
+				"VALUES"
+			]
 		},
 		"camel.source.endpoint.key": {
 			"name": "camel.source.endpoint.key",
@@ -82,7 +96,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.defaultResourceConfig": {
 			"name": "camel.source.endpoint.defaultResourceConfig",
@@ -107,7 +126,13 @@
 			"name": "camel.source.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.source.endpoint.resourceConfigs": {
 			"name": "camel.source.endpoint.resourceConfigs",
@@ -151,7 +176,21 @@
 			"description": "The default action. One of: [PUT] [PUT_IF_ABSENT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [CONTAINS_VALUE] [IS_EMPTY] [ENTRY_SET] [REMOVE] [REPLACE] [VALUES]",
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PUT",
+				"PUT_IF_ABSENT",
+				"GET",
+				"CLEAR",
+				"SIZE",
+				"CONTAINS_KEY",
+				"CONTAINS_VALUE",
+				"IS_EMPTY",
+				"ENTRY_SET",
+				"REMOVE",
+				"REPLACE",
+				"VALUES"
+			]
 		},
 		"camel.component.atomix-map.key": {
 			"name": "camel.component.atomix-map.key",
@@ -221,7 +260,13 @@
 			"name": "camel.component.atomix-map.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.component.atomix-map.resourceConfigs": {
 			"name": "camel.component.atomix-map.resourceConfigs",

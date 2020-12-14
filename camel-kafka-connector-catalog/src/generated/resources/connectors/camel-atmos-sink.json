@@ -19,7 +19,14 @@
 			"name": "camel.sink.path.operation",
 			"description": "Operation to perform One of: [put] [del] [search] [get] [move]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"put",
+				"del",
+				"search",
+				"get",
+				"move"
+			]
 		},
 		"camel.sink.endpoint.localPath": {
 			"name": "camel.sink.endpoint.localPath",

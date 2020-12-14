@@ -39,7 +39,27 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do on the repository One of: [clone] [init] [add] [remove] [commit] [commitAll] [createBranch] [deleteBranch] [createTag] [deleteTag] [status] [log] [push] [pull] [showBranches] [cherryPick] [remoteAdd] [remoteList]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"clone",
+				"init",
+				"add",
+				"remove",
+				"commit",
+				"commitAll",
+				"createBranch",
+				"deleteBranch",
+				"createTag",
+				"deleteTag",
+				"status",
+				"log",
+				"push",
+				"pull",
+				"showBranches",
+				"cherryPick",
+				"remoteAdd",
+				"remoteList"
+			]
 		},
 		"camel.sink.endpoint.password": {
 			"name": "camel.sink.endpoint.password",

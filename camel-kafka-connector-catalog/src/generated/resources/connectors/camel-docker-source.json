@@ -13,7 +13,40 @@
 			"name": "camel.source.path.operation",
 			"description": "Which operation to use One of: [events] [stats] [auth] [info] [ping] [version] [imagebuild] [imagecreate] [imageinspect] [imagelist] [imagepull] [imagepushimageremove] [imagesearch] [imagetag] [containerattach] [containercommit] [containercopyfile] [containercreate] [containerdiffinspectcontainer] [containerkill] [containerlist] [containerlog] [containerpause] [containerrestart] [containerremove] [containerstartcontainerstop] [containertop] [containerunpause] [containerwait] [execcreate] [execstart]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"events",
+				"stats",
+				"auth",
+				"info",
+				"ping",
+				"version",
+				"imagebuild",
+				"imagecreate",
+				"imageinspect",
+				"imagelist",
+				"imagepull",
+				"imagepushimageremove",
+				"imagesearch",
+				"imagetag",
+				"containerattach",
+				"containercommit",
+				"containercopyfile",
+				"containercreate",
+				"containerdiffinspectcontainer",
+				"containerkill",
+				"containerlist",
+				"containerlog",
+				"containerpause",
+				"containerrestart",
+				"containerremove",
+				"containerstartcontainerstop",
+				"containertop",
+				"containerunpause",
+				"containerwait",
+				"execcreate",
+				"execstart"
+			]
 		},
 		"camel.source.endpoint.email": {
 			"name": "camel.source.endpoint.email",
@@ -58,7 +91,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.cmdExecFactory": {
 			"name": "camel.source.endpoint.cmdExecFactory",

@@ -52,20 +52,35 @@
 			"description": "Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS]",
 			"defaultValue": "\"ASYNCHRONOUS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ASYNCHRONOUS",
+				"SYNCHRONOUS"
+			]
 		},
 		"camel.source.endpoint.eventOrdering": {
 			"name": "camel.source.endpoint.eventOrdering",
 			"description": "Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED]",
 			"defaultValue": "\"ORDERED\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"UNORDERED",
+				"ORDERED"
+			]
 		},
 		"camel.source.endpoint.eventTypes": {
 			"name": "camel.source.endpoint.eventTypes",
 			"description": "Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EVICTED",
+				"EXPIRED",
+				"REMOVED",
+				"CREATED",
+				"UPDATED"
+			]
 		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
@@ -77,7 +92,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.configuration": {
 			"name": "camel.source.endpoint.configuration",
@@ -147,20 +167,35 @@
 			"description": "Set the delivery mode (synchronous, asynchronous) One of: [ASYNCHRONOUS] [SYNCHRONOUS]",
 			"defaultValue": "\"ASYNCHRONOUS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ASYNCHRONOUS",
+				"SYNCHRONOUS"
+			]
 		},
 		"camel.component.ehcache.eventOrdering": {
 			"name": "camel.component.ehcache.eventOrdering",
 			"description": "Set the delivery mode (ordered, unordered) One of: [UNORDERED] [ORDERED]",
 			"defaultValue": "\"ORDERED\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"UNORDERED",
+				"ORDERED"
+			]
 		},
 		"camel.component.ehcache.eventTypes": {
 			"name": "camel.component.ehcache.eventTypes",
 			"description": "Set the type of events to listen for (EVICTED,EXPIRED,REMOVED,CREATED,UPDATED). You can specify multiple entries separated by comma. One of: [EVICTED] [EXPIRED] [REMOVED] [CREATED] [UPDATED]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EVICTED",
+				"EXPIRED",
+				"REMOVED",
+				"CREATED",
+				"UPDATED"
+			]
 		},
 		"camel.component.ehcache.autowiredEnabled": {
 			"name": "camel.component.ehcache.autowiredEnabled",

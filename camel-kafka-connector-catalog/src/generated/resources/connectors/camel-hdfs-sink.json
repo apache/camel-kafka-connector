@@ -40,21 +40,43 @@
 			"description": "Set to LOCAL to not use HDFS but local java.io.File instead. One of: [LOCAL] [HDFS]",
 			"defaultValue": "\"HDFS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"LOCAL",
+				"HDFS"
+			]
 		},
 		"camel.sink.endpoint.fileType": {
 			"name": "camel.sink.endpoint.fileType",
 			"description": "The file type to use. For more details see Hadoop HDFS documentation about the various files types. One of: [NORMAL_FILE] [SEQUENCE_FILE] [MAP_FILE] [BLOOMMAP_FILE] [ARRAY_FILE]",
 			"defaultValue": "\"NORMAL_FILE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NORMAL_FILE",
+				"SEQUENCE_FILE",
+				"MAP_FILE",
+				"BLOOMMAP_FILE",
+				"ARRAY_FILE"
+			]
 		},
 		"camel.sink.endpoint.keyType": {
 			"name": "camel.sink.endpoint.keyType",
 			"description": "The type for the key in case of sequence or map files. One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]",
 			"defaultValue": "\"NULL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NULL",
+				"BOOLEAN",
+				"BYTE",
+				"INT",
+				"FLOAT",
+				"LONG",
+				"DOUBLE",
+				"TEXT",
+				"BYTES"
+			]
 		},
 		"camel.sink.endpoint.namedNodes": {
 			"name": "camel.sink.endpoint.namedNodes",
@@ -73,7 +95,18 @@
 			"description": "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]",
 			"defaultValue": "\"BYTES\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NULL",
+				"BOOLEAN",
+				"BYTE",
+				"INT",
+				"FLOAT",
+				"LONG",
+				"DOUBLE",
+				"TEXT",
+				"BYTES"
+			]
 		},
 		"camel.sink.endpoint.append": {
 			"name": "camel.sink.endpoint.append",
@@ -129,14 +162,24 @@
 			"description": "The compression codec to use One of: [DEFAULT] [GZIP] [BZIP2]",
 			"defaultValue": "\"DEFAULT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"GZIP",
+				"BZIP2"
+			]
 		},
 		"camel.sink.endpoint.compressionType": {
 			"name": "camel.sink.endpoint.compressionType",
 			"description": "The compression type to use (is default not in use) One of: [NONE] [RECORD] [BLOCK]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"RECORD",
+				"BLOCK"
+			]
 		},
 		"camel.sink.endpoint.openedSuffix": {
 			"name": "camel.sink.endpoint.openedSuffix",

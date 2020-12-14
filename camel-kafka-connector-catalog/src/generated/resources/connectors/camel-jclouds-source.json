@@ -13,7 +13,11 @@
 			"name": "camel.source.path.command",
 			"description": "What command to execute such as blobstore or compute. One of: [blobstore] [compute]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"blobstore",
+				"compute"
+			]
 		},
 		"camel.source.path.providerId": {
 			"name": "camel.source.path.providerId",
@@ -38,7 +42,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

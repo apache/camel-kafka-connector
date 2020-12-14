@@ -13,7 +13,13 @@
 			"name": "camel.sink.path.ipfsCmd",
 			"description": "The ipfs command One of: [add] [cat] [get] [version]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"add",
+				"cat",
+				"get",
+				"version"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

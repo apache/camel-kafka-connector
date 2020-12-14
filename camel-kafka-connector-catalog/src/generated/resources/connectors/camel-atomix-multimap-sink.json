@@ -32,7 +32,17 @@
 			"description": "The default action. One of: [PUT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [IS_EMPTY] [REMOVE] [REMOVE_VALUE]",
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PUT",
+				"GET",
+				"CLEAR",
+				"SIZE",
+				"CONTAINS_KEY",
+				"IS_EMPTY",
+				"REMOVE",
+				"REMOVE_VALUE"
+			]
 		},
 		"camel.sink.endpoint.key": {
 			"name": "camel.sink.endpoint.key",
@@ -95,7 +105,13 @@
 			"name": "camel.sink.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.sink.endpoint.resourceConfigs": {
 			"name": "camel.sink.endpoint.resourceConfigs",
@@ -139,7 +155,17 @@
 			"description": "The default action. One of: [PUT] [GET] [CLEAR] [SIZE] [CONTAINS_KEY] [IS_EMPTY] [REMOVE] [REMOVE_VALUE]",
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PUT",
+				"GET",
+				"CLEAR",
+				"SIZE",
+				"CONTAINS_KEY",
+				"IS_EMPTY",
+				"REMOVE",
+				"REMOVE_VALUE"
+			]
 		},
 		"camel.component.atomix-multimap.key": {
 			"name": "camel.component.atomix-multimap.key",
@@ -209,7 +235,13 @@
 			"name": "camel.component.atomix-multimap.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.component.atomix-multimap.resourceConfigs": {
 			"name": "camel.component.atomix-multimap.resourceConfigs",

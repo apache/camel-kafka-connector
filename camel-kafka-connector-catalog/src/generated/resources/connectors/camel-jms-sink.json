@@ -14,7 +14,13 @@
 			"description": "The kind of destination to use One of: [queue] [topic] [temp-queue] [temp-topic]",
 			"defaultValue": "\"queue\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"queue",
+				"topic",
+				"temp-queue",
+				"temp-topic"
+			]
 		},
 		"camel.sink.path.destinationName": {
 			"name": "camel.sink.path.destinationName",
@@ -51,7 +57,14 @@
 			"name": "camel.sink.endpoint.jmsMessageType",
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Bytes",
+				"Map",
+				"Object",
+				"Stream",
+				"Text"
+			]
 		},
 		"camel.sink.endpoint.replyTo": {
 			"name": "camel.sink.endpoint.replyTo",
@@ -77,7 +90,11 @@
 			"name": "camel.sink.endpoint.deliveryMode",
 			"description": "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"1",
+				"2"
+			]
 		},
 		"camel.sink.endpoint.deliveryPersistent": {
 			"name": "camel.sink.endpoint.deliveryPersistent",
@@ -119,7 +136,18 @@
 			"description": "Values greater than 1 specify the message priority when sending (where 0 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. One of: [1] [2] [3] [4] [5] [6] [7] [8] [9]",
 			"defaultValue": "4",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"7",
+				"8",
+				"9"
+			]
 		},
 		"camel.sink.endpoint.replyToConcurrentConsumers": {
 			"name": "camel.sink.endpoint.replyToConcurrentConsumers",
@@ -151,7 +179,12 @@
 			"name": "camel.sink.endpoint.replyToType",
 			"description": "Allows for explicitly specifying which kind of strategy to use for replyTo queues when doing request\/reply over JMS. Possible values are: Temporary, Shared, or Exclusive. By default Camel will use temporary queues. However if replyTo has been configured, then Shared is used by default. This option allows you to use exclusive queues instead of shared ones. See Camel JMS documentation for more details, and especially the notes about the implications if running in a clustered environment, and the fact that Shared reply queues has lower performance than its alternatives Temporary and Exclusive. One of: [Temporary] [Shared] [Exclusive]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Temporary",
+				"Shared",
+				"Exclusive"
+			]
 		},
 		"camel.sink.endpoint.requestTimeout": {
 			"name": "camel.sink.endpoint.requestTimeout",
@@ -218,7 +251,14 @@
 			"name": "camel.sink.endpoint.replyToCacheLevelName",
 			"description": "Sets the cache level by name for the reply consumer when doing request\/reply over JMS. This option only applies when using fixed reply queues (not temporary). Camel will by default use: CACHE_CONSUMER for exclusive or shared w\/ replyToSelectorName. And CACHE_SESSION for shared without replyToSelectorName. Some JMS brokers such as IBM WebSphere may require to set the replyToCacheLevelName=CACHE_NONE to work. Note: If using temporary queues then CACHE_NONE is not allowed, and you must use a higher value such as CACHE_CONSUMER or CACHE_SESSION. One of: [CACHE_AUTO] [CACHE_CONNECTION] [CACHE_CONSUMER] [CACHE_NONE] [CACHE_SESSION]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"CACHE_AUTO",
+				"CACHE_CONNECTION",
+				"CACHE_CONSUMER",
+				"CACHE_NONE",
+				"CACHE_SESSION"
+			]
 		},
 		"camel.sink.endpoint.replyToDestinationSelectorName": {
 			"name": "camel.sink.endpoint.replyToDestinationSelectorName",
@@ -310,7 +350,11 @@
 			"name": "camel.sink.endpoint.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation. One of: [default] [passthrough]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"default",
+				"passthrough"
+			]
 		},
 		"camel.sink.endpoint.mapJmsMessage": {
 			"name": "camel.sink.endpoint.mapJmsMessage",
@@ -509,7 +553,14 @@
 			"name": "camel.component.jms.jmsMessageType",
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Bytes",
+				"Map",
+				"Object",
+				"Stream",
+				"Text"
+			]
 		},
 		"camel.component.jms.replyTo": {
 			"name": "camel.component.jms.replyTo",
@@ -535,7 +586,11 @@
 			"name": "camel.component.jms.deliveryMode",
 			"description": "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"1",
+				"2"
+			]
 		},
 		"camel.component.jms.deliveryPersistent": {
 			"name": "camel.component.jms.deliveryPersistent",
@@ -577,7 +632,18 @@
 			"description": "Values greater than 1 specify the message priority when sending (where 0 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. One of: [1] [2] [3] [4] [5] [6] [7] [8] [9]",
 			"defaultValue": "4",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"7",
+				"8",
+				"9"
+			]
 		},
 		"camel.component.jms.replyToConcurrentConsumers": {
 			"name": "camel.component.jms.replyToConcurrentConsumers",
@@ -609,7 +675,12 @@
 			"name": "camel.component.jms.replyToType",
 			"description": "Allows for explicitly specifying which kind of strategy to use for replyTo queues when doing request\/reply over JMS. Possible values are: Temporary, Shared, or Exclusive. By default Camel will use temporary queues. However if replyTo has been configured, then Shared is used by default. This option allows you to use exclusive queues instead of shared ones. See Camel JMS documentation for more details, and especially the notes about the implications if running in a clustered environment, and the fact that Shared reply queues has lower performance than its alternatives Temporary and Exclusive. One of: [Temporary] [Shared] [Exclusive]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Temporary",
+				"Shared",
+				"Exclusive"
+			]
 		},
 		"camel.component.jms.requestTimeout": {
 			"name": "camel.component.jms.requestTimeout",
@@ -676,7 +747,14 @@
 			"name": "camel.component.jms.replyToCacheLevelName",
 			"description": "Sets the cache level by name for the reply consumer when doing request\/reply over JMS. This option only applies when using fixed reply queues (not temporary). Camel will by default use: CACHE_CONSUMER for exclusive or shared w\/ replyToSelectorName. And CACHE_SESSION for shared without replyToSelectorName. Some JMS brokers such as IBM WebSphere may require to set the replyToCacheLevelName=CACHE_NONE to work. Note: If using temporary queues then CACHE_NONE is not allowed, and you must use a higher value such as CACHE_CONSUMER or CACHE_SESSION. One of: [CACHE_AUTO] [CACHE_CONNECTION] [CACHE_CONSUMER] [CACHE_NONE] [CACHE_SESSION]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"CACHE_AUTO",
+				"CACHE_CONNECTION",
+				"CACHE_CONSUMER",
+				"CACHE_NONE",
+				"CACHE_SESSION"
+			]
 		},
 		"camel.component.jms.replyToDestinationSelectorName": {
 			"name": "camel.component.jms.replyToDestinationSelectorName",
@@ -789,7 +867,11 @@
 			"name": "camel.component.jms.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation. One of: [default] [passthrough]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"default",
+				"passthrough"
+			]
 		},
 		"camel.component.jms.mapJmsMessage": {
 			"name": "camel.component.jms.mapJmsMessage",
