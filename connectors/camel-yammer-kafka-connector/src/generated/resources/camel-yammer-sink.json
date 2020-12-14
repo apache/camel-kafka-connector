@@ -13,7 +13,18 @@
 			"name": "camel.sink.path.function",
 			"description": "The function to use One of: [MESSAGES] [MY_FEED] [ALGO] [FOLLOWING] [SENT] [PRIVATE] [RECEIVED] [USERS] [CURRENT]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"MESSAGES",
+				"MY_FEED",
+				"ALGO",
+				"FOLLOWING",
+				"SENT",
+				"PRIVATE",
+				"RECEIVED",
+				"USERS",
+				"CURRENT"
+			]
 		},
 		"camel.sink.endpoint.useJson": {
 			"name": "camel.sink.endpoint.useJson",

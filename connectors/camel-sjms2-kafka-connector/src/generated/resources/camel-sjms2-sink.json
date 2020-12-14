@@ -14,7 +14,11 @@
 			"description": "The kind of destination to use One of: [queue] [topic]",
 			"defaultValue": "\"queue\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"queue",
+				"topic"
+			]
 		},
 		"camel.sink.path.destinationName": {
 			"name": "camel.sink.path.destinationName",
@@ -27,7 +31,13 @@
 			"description": "The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE One of: [SESSION_TRANSACTED] [CLIENT_ACKNOWLEDGE] [AUTO_ACKNOWLEDGE] [DUPS_OK_ACKNOWLEDGE]",
 			"defaultValue": "\"AUTO_ACKNOWLEDGE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SESSION_TRANSACTED",
+				"CLIENT_ACKNOWLEDGE",
+				"AUTO_ACKNOWLEDGE",
+				"DUPS_OK_ACKNOWLEDGE"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

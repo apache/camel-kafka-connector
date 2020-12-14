@@ -372,7 +372,15 @@
 			"name": "camel.source.endpoint.pictureSize",
 			"description": "The picture size One of: [square] [small] [normal] [large] [thumbnail] [album]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"square",
+				"small",
+				"normal",
+				"large",
+				"thumbnail",
+				"album"
+			]
 		},
 		"camel.source.endpoint.placeId": {
 			"name": "camel.source.endpoint.placeId",
@@ -446,7 +454,15 @@
 			"name": "camel.source.endpoint.size",
 			"description": "The picture size, one of large, normal, small or square One of: [square] [small] [normal] [large] [thumbnail] [album]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"square",
+				"small",
+				"normal",
+				"large",
+				"thumbnail",
+				"album"
+			]
 		},
 		"camel.source.endpoint.source": {
 			"name": "camel.source.endpoint.source",
@@ -575,7 +591,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

@@ -38,7 +38,24 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to invoke on the Ignite Queue. Superseded by the IgniteConstants.IGNITE_QUEUE_OPERATION header in the IN message. Possible values: CONTAINS, ADD, SIZE, REMOVE, ITERATOR, CLEAR, RETAIN_ALL, ARRAY, DRAIN, ELEMENT, PEEK, OFFER, POLL, TAKE, PUT. One of: [CONTAINS] [ADD] [SIZE] [REMOVE] [ITERATOR] [CLEAR] [RETAIN_ALL] [ARRAY] [DRAIN] [ELEMENT] [PEEK] [OFFER] [POLL] [TAKE] [PUT]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"CONTAINS",
+				"ADD",
+				"SIZE",
+				"REMOVE",
+				"ITERATOR",
+				"CLEAR",
+				"RETAIN_ALL",
+				"ARRAY",
+				"DRAIN",
+				"ELEMENT",
+				"PEEK",
+				"OFFER",
+				"POLL",
+				"TAKE",
+				"PUT"
+			]
 		},
 		"camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue": {
 			"name": "camel.sink.endpoint.propagateIncomingBodyIfNoReturnValue",

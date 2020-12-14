@@ -87,7 +87,11 @@
 			"description": "Client persistence to be used - memory or file. One of: [FILE] [MEMORY]",
 			"defaultValue": "\"MEMORY\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"FILE",
+				"MEMORY"
+			]
 		},
 		"camel.source.endpoint.qos": {
 			"name": "camel.source.endpoint.qos",
@@ -151,7 +155,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.client": {
 			"name": "camel.source.endpoint.client",
@@ -294,7 +303,11 @@
 			"description": "Client persistence to be used - memory or file. One of: [FILE] [MEMORY]",
 			"defaultValue": "\"MEMORY\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"FILE",
+				"MEMORY"
+			]
 		},
 		"camel.component.paho.qos": {
 			"name": "camel.component.paho.qos",

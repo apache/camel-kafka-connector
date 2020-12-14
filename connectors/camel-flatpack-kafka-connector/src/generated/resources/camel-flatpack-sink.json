@@ -14,7 +14,11 @@
 			"description": "Whether to use fixed or delimiter One of: [fixed] [delim]",
 			"defaultValue": "\"delim\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"fixed",
+				"delim"
+			]
 		},
 		"camel.sink.path.resourceUri": {
 			"name": "camel.sink.path.resourceUri",

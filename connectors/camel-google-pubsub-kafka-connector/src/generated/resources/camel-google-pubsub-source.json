@@ -26,7 +26,11 @@
 			"description": "AUTO = exchange gets ack'ed\/nack'ed on completion. NONE = downstream process has to ack\/nack explicitly One of: [AUTO] [NONE]",
 			"defaultValue": "\"AUTO\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"AUTO",
+				"NONE"
+			]
 		},
 		"camel.source.endpoint.concurrentConsumers": {
 			"name": "camel.source.endpoint.concurrentConsumers",
@@ -72,7 +76,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

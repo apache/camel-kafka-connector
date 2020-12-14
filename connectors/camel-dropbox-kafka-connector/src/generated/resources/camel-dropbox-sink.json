@@ -13,7 +13,14 @@
 			"name": "camel.sink.path.operation",
 			"description": "The specific action (typically is a CRUD action) to perform on Dropbox remote folder. One of: [put] [del] [search] [get] [move]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"put",
+				"del",
+				"search",
+				"get",
+				"move"
+			]
 		},
 		"camel.sink.endpoint.accessToken": {
 			"name": "camel.sink.endpoint.accessToken",
@@ -61,7 +68,11 @@
 			"name": "camel.sink.endpoint.uploadMode",
 			"description": "Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. One of: [add] [force]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"add",
+				"force"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

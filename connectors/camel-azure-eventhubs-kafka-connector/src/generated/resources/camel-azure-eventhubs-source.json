@@ -32,7 +32,11 @@
 			"description": "Sets the transport type by which all the communication with Azure Event Hubs occurs. Default value is AmqpTransportType#AMQP. One of: [Amqp] [AmqpWebSockets]",
 			"defaultValue": "\"AMQP\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Amqp",
+				"AmqpWebSockets"
+			]
 		},
 		"camel.source.endpoint.autoDiscoverClient": {
 			"name": "camel.source.endpoint.autoDiscoverClient",
@@ -109,7 +113,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
@@ -147,7 +156,11 @@
 			"description": "Sets the transport type by which all the communication with Azure Event Hubs occurs. Default value is AmqpTransportType#AMQP. One of: [Amqp] [AmqpWebSockets]",
 			"defaultValue": "\"AMQP\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Amqp",
+				"AmqpWebSockets"
+			]
 		},
 		"camel.component.azure-eventhubs.autoDiscoverClient": {
 			"name": "camel.component.azure-eventhubs.autoDiscoverClient",

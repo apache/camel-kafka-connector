@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.persistence",
 			"description": "Whether the topic is persistent or non-persistent One of: [persistent] [non-persistent]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"persistent",
+				"non-persistent"
+			]
 		},
 		"camel.sink.path.tenant": {
 			"name": "camel.sink.path.tenant",
@@ -73,7 +77,14 @@
 			"description": "Compression type to use One of: [NONE] [LZ4] [ZLIB] [ZSTD] [SNAPPY]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"LZ4",
+				"ZLIB",
+				"ZSTD",
+				"SNAPPY"
+			]
 		},
 		"camel.sink.endpoint.initialSequenceId": {
 			"name": "camel.sink.endpoint.initialSequenceId",
@@ -114,7 +125,12 @@
 			"description": "Message Routing Mode to use One of: [SinglePartition] [RoundRobinPartition] [CustomPartition]",
 			"defaultValue": "\"RoundRobinPartition\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SinglePartition",
+				"RoundRobinPartition",
+				"CustomPartition"
+			]
 		},
 		"camel.sink.endpoint.producerName": {
 			"name": "camel.sink.endpoint.producerName",
@@ -182,7 +198,14 @@
 			"description": "Compression type to use One of: [NONE] [LZ4] [ZLIB] [ZSTD] [SNAPPY]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"LZ4",
+				"ZLIB",
+				"ZSTD",
+				"SNAPPY"
+			]
 		},
 		"camel.component.pulsar.initialSequenceId": {
 			"name": "camel.component.pulsar.initialSequenceId",
@@ -223,7 +246,12 @@
 			"description": "Message Routing Mode to use One of: [SinglePartition] [RoundRobinPartition] [CustomPartition]",
 			"defaultValue": "\"RoundRobinPartition\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SinglePartition",
+				"RoundRobinPartition",
+				"CustomPartition"
+			]
 		},
 		"camel.component.pulsar.producerName": {
 			"name": "camel.component.pulsar.producerName",

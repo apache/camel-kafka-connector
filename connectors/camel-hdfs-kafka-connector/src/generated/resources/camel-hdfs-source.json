@@ -40,21 +40,43 @@
 			"description": "Set to LOCAL to not use HDFS but local java.io.File instead. One of: [LOCAL] [HDFS]",
 			"defaultValue": "\"HDFS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"LOCAL",
+				"HDFS"
+			]
 		},
 		"camel.source.endpoint.fileType": {
 			"name": "camel.source.endpoint.fileType",
 			"description": "The file type to use. For more details see Hadoop HDFS documentation about the various files types. One of: [NORMAL_FILE] [SEQUENCE_FILE] [MAP_FILE] [BLOOMMAP_FILE] [ARRAY_FILE]",
 			"defaultValue": "\"NORMAL_FILE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NORMAL_FILE",
+				"SEQUENCE_FILE",
+				"MAP_FILE",
+				"BLOOMMAP_FILE",
+				"ARRAY_FILE"
+			]
 		},
 		"camel.source.endpoint.keyType": {
 			"name": "camel.source.endpoint.keyType",
 			"description": "The type for the key in case of sequence or map files. One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]",
 			"defaultValue": "\"NULL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NULL",
+				"BOOLEAN",
+				"BYTE",
+				"INT",
+				"FLOAT",
+				"LONG",
+				"DOUBLE",
+				"TEXT",
+				"BYTES"
+			]
 		},
 		"camel.source.endpoint.namedNodes": {
 			"name": "camel.source.endpoint.namedNodes",
@@ -73,7 +95,18 @@
 			"description": "The type for the key in case of sequence or map files One of: [NULL] [BOOLEAN] [BYTE] [INT] [FLOAT] [LONG] [DOUBLE] [TEXT] [BYTES]",
 			"defaultValue": "\"BYTES\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NULL",
+				"BOOLEAN",
+				"BYTE",
+				"INT",
+				"FLOAT",
+				"LONG",
+				"DOUBLE",
+				"TEXT",
+				"BYTES"
+			]
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -113,7 +146,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -154,14 +192,24 @@
 			"description": "The compression codec to use One of: [DEFAULT] [GZIP] [BZIP2]",
 			"defaultValue": "\"DEFAULT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DEFAULT",
+				"GZIP",
+				"BZIP2"
+			]
 		},
 		"camel.source.endpoint.compressionType": {
 			"name": "camel.source.endpoint.compressionType",
 			"description": "The compression type to use (is default not in use) One of: [NONE] [RECORD] [BLOCK]",
 			"defaultValue": "\"NONE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NONE",
+				"RECORD",
+				"BLOCK"
+			]
 		},
 		"camel.source.endpoint.openedSuffix": {
 			"name": "camel.source.endpoint.openedSuffix",
@@ -255,7 +303,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -288,7 +344,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",

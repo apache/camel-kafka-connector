@@ -13,13 +13,20 @@
 			"name": "camel.source.path.operation",
 			"description": "The endpoint operation. One of: [post] [user]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"post",
+				"user"
+			]
 		},
 		"camel.source.path.operationDetail": {
 			"name": "camel.source.path.operationDetail",
 			"description": "The second part of an endpoint operation. Needed only when endpoint semantic is not enough, like wordpress:post:delete One of: [delete]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"delete"
+			]
 		},
 		"camel.source.endpoint.apiVersion": {
 			"name": "camel.source.endpoint.apiVersion",
@@ -88,7 +95,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

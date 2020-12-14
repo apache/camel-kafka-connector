@@ -13,13 +13,25 @@
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [SPREADSHEETS] [DATA]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"SPREADSHEETS",
+				"DATA"
+			]
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
 			"description": "What sub operation to use for the selected operation One of: [create] [get] [update] [append] [batchUpdate] [clear]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"create",
+				"get",
+				"update",
+				"append",
+				"batchUpdate",
+				"clear"
+			]
 		},
 		"camel.sink.endpoint.applicationName": {
 			"name": "camel.sink.endpoint.applicationName",

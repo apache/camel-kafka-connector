@@ -64,7 +64,30 @@
 			"description": "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PUT",
+				"PUTASYNC",
+				"PUTALL",
+				"PUTALLASYNC",
+				"PUTIFABSENT",
+				"PUTIFABSENTASYNC",
+				"GET",
+				"GETORDEFAULT",
+				"CONTAINSKEY",
+				"CONTAINSVALUE",
+				"REMOVE",
+				"REMOVEASYNC",
+				"REPLACE",
+				"REPLACEASYNC",
+				"SIZE",
+				"CLEAR",
+				"CLEARASYNC",
+				"QUERY",
+				"STATS",
+				"COMPUTE",
+				"COMPUTEASYNC"
+			]
 		},
 		"camel.sink.endpoint.value": {
 			"name": "camel.sink.endpoint.value",
@@ -206,7 +229,30 @@
 			"description": "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PUT",
+				"PUTASYNC",
+				"PUTALL",
+				"PUTALLASYNC",
+				"PUTIFABSENT",
+				"PUTIFABSENTASYNC",
+				"GET",
+				"GETORDEFAULT",
+				"CONTAINSKEY",
+				"CONTAINSVALUE",
+				"REMOVE",
+				"REMOVEASYNC",
+				"REPLACE",
+				"REPLACEASYNC",
+				"SIZE",
+				"CLEAR",
+				"CLEARASYNC",
+				"QUERY",
+				"STATS",
+				"COMPUTE",
+				"COMPUTEASYNC"
+			]
 		},
 		"camel.component.infinispan.value": {
 			"name": "camel.component.infinispan.value",

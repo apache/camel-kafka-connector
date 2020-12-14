@@ -13,7 +13,12 @@
 			"name": "camel.sink.path.endpointType",
 			"description": "Type of the endpoint (rdd, dataframe, hive). One of: [rdd] [dataframe] [hive]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"rdd",
+				"dataframe",
+				"hive"
+			]
 		},
 		"camel.sink.endpoint.collect": {
 			"name": "camel.sink.endpoint.collect",

@@ -14,7 +14,11 @@
 			"description": "The kind of destination to use One of: [queue] [topic]",
 			"defaultValue": "\"queue\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"queue",
+				"topic"
+			]
 		},
 		"camel.source.path.destinationName": {
 			"name": "camel.source.path.destinationName",
@@ -27,7 +31,13 @@
 			"description": "The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE One of: [SESSION_TRANSACTED] [CLIENT_ACKNOWLEDGE] [AUTO_ACKNOWLEDGE] [DUPS_OK_ACKNOWLEDGE]",
 			"defaultValue": "\"AUTO_ACKNOWLEDGE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SESSION_TRANSACTED",
+				"CLIENT_ACKNOWLEDGE",
+				"AUTO_ACKNOWLEDGE",
+				"DUPS_OK_ACKNOWLEDGE"
+			]
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -80,7 +90,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.messageSelector": {
 			"name": "camel.source.endpoint.messageSelector",
@@ -169,7 +184,15 @@
 			"description": "Allows to configure the default errorHandler logging level for logging uncaught exceptions. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.errorHandlerLogStackTrace": {
 			"name": "camel.source.endpoint.errorHandlerLogStackTrace",

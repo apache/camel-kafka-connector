@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.action",
 			"description": "Action to execute (complete or compensate) One of: [COMPLETE] [COMPENSATE]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"COMPLETE",
+				"COMPENSATE"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

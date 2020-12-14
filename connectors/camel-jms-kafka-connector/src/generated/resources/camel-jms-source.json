@@ -14,7 +14,13 @@
 			"description": "The kind of destination to use One of: [queue] [topic] [temp-queue] [temp-topic]",
 			"defaultValue": "\"queue\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"queue",
+				"topic",
+				"temp-queue",
+				"temp-topic"
+			]
 		},
 		"camel.source.path.destinationName": {
 			"name": "camel.source.path.destinationName",
@@ -51,7 +57,14 @@
 			"name": "camel.source.endpoint.jmsMessageType",
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Bytes",
+				"Map",
+				"Object",
+				"Stream",
+				"Text"
+			]
 		},
 		"camel.source.endpoint.replyTo": {
 			"name": "camel.source.endpoint.replyTo",
@@ -71,7 +84,13 @@
 			"description": "The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE One of: [SESSION_TRANSACTED] [CLIENT_ACKNOWLEDGE] [AUTO_ACKNOWLEDGE] [DUPS_OK_ACKNOWLEDGE]",
 			"defaultValue": "\"AUTO_ACKNOWLEDGE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SESSION_TRANSACTED",
+				"CLIENT_ACKNOWLEDGE",
+				"AUTO_ACKNOWLEDGE",
+				"DUPS_OK_ACKNOWLEDGE"
+			]
 		},
 		"camel.source.endpoint.asyncConsumer": {
 			"name": "camel.source.endpoint.asyncConsumer",
@@ -98,7 +117,14 @@
 			"description": "Sets the cache level by name for the underlying JMS resources. Possible values are: CACHE_AUTO, CACHE_CONNECTION, CACHE_CONSUMER, CACHE_NONE, and CACHE_SESSION. The default setting is CACHE_AUTO. See the Spring documentation and Transactions Cache Levels for more information. One of: [CACHE_AUTO] [CACHE_CONNECTION] [CACHE_CONSUMER] [CACHE_NONE] [CACHE_SESSION]",
 			"defaultValue": "\"CACHE_AUTO\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"CACHE_AUTO",
+				"CACHE_CONNECTION",
+				"CACHE_CONSUMER",
+				"CACHE_NONE",
+				"CACHE_SESSION"
+			]
 		},
 		"camel.source.endpoint.concurrentConsumers": {
 			"name": "camel.source.endpoint.concurrentConsumers",
@@ -165,13 +191,22 @@
 			"description": "The consumer type to use, which can be one of: Simple, Default, or Custom. The consumer type determines which Spring JMS listener to use. Default will use org.springframework.jms.listener.DefaultMessageListenerContainer, Simple will use org.springframework.jms.listener.SimpleMessageListenerContainer. When Custom is specified, the MessageListenerContainerFactory defined by the messageListenerContainerFactory option will determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use. One of: [Simple] [Default] [Custom]",
 			"defaultValue": "\"Default\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Simple",
+				"Default",
+				"Custom"
+			]
 		},
 		"camel.source.endpoint.defaultTaskExecutorType": {
 			"name": "camel.source.endpoint.defaultTaskExecutorType",
 			"description": "Specifies what default TaskExecutor type to use in the DefaultMessageListenerContainer, for both consumer endpoints and the ReplyTo consumer of producer endpoints. Possible values: SimpleAsync (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's ThreadPoolTaskExecutor with optimal values - cached threadpool-like). If not set, it defaults to the previous behaviour, which uses a cached thread pool for consumer endpoints and SimpleAsync for reply consumers. The use of ThreadPool is recommended to reduce thread trash in elastic configurations with dynamically increasing and decreasing concurrent consumers. One of: [ThreadPool] [SimpleAsync]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ThreadPool",
+				"SimpleAsync"
+			]
 		},
 		"camel.source.endpoint.eagerLoadingOfProperties": {
 			"name": "camel.source.endpoint.eagerLoadingOfProperties",
@@ -197,7 +232,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.exposeListenerSession": {
 			"name": "camel.source.endpoint.exposeListenerSession",
@@ -296,7 +336,11 @@
 			"name": "camel.source.endpoint.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation. One of: [default] [passthrough]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"default",
+				"passthrough"
+			]
 		},
 		"camel.source.endpoint.mapJmsMessage": {
 			"name": "camel.source.endpoint.mapJmsMessage",
@@ -419,7 +463,15 @@
 			"description": "Allows to configure the default errorHandler logging level for logging uncaught exceptions. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.errorHandlerLogStackTrace": {
 			"name": "camel.source.endpoint.errorHandlerLogStackTrace",
@@ -509,7 +561,14 @@
 			"name": "camel.component.jms.jmsMessageType",
 			"description": "Allows you to force the use of a specific javax.jms.Message implementation for sending JMS messages. Possible values are: Bytes, Map, Object, Stream, Text. By default, Camel would determine which JMS message type to use from the In body type. This option allows you to specify it. One of: [Bytes] [Map] [Object] [Stream] [Text]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Bytes",
+				"Map",
+				"Object",
+				"Stream",
+				"Text"
+			]
 		},
 		"camel.component.jms.replyTo": {
 			"name": "camel.component.jms.replyTo",
@@ -529,7 +588,13 @@
 			"description": "The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE One of: [SESSION_TRANSACTED] [CLIENT_ACKNOWLEDGE] [AUTO_ACKNOWLEDGE] [DUPS_OK_ACKNOWLEDGE]",
 			"defaultValue": "\"AUTO_ACKNOWLEDGE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SESSION_TRANSACTED",
+				"CLIENT_ACKNOWLEDGE",
+				"AUTO_ACKNOWLEDGE",
+				"DUPS_OK_ACKNOWLEDGE"
+			]
 		},
 		"camel.component.jms.asyncConsumer": {
 			"name": "camel.component.jms.asyncConsumer",
@@ -556,7 +621,14 @@
 			"description": "Sets the cache level by name for the underlying JMS resources. Possible values are: CACHE_AUTO, CACHE_CONNECTION, CACHE_CONSUMER, CACHE_NONE, and CACHE_SESSION. The default setting is CACHE_AUTO. See the Spring documentation and Transactions Cache Levels for more information. One of: [CACHE_AUTO] [CACHE_CONNECTION] [CACHE_CONSUMER] [CACHE_NONE] [CACHE_SESSION]",
 			"defaultValue": "\"CACHE_AUTO\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"CACHE_AUTO",
+				"CACHE_CONNECTION",
+				"CACHE_CONSUMER",
+				"CACHE_NONE",
+				"CACHE_SESSION"
+			]
 		},
 		"camel.component.jms.concurrentConsumers": {
 			"name": "camel.component.jms.concurrentConsumers",
@@ -623,13 +695,22 @@
 			"description": "The consumer type to use, which can be one of: Simple, Default, or Custom. The consumer type determines which Spring JMS listener to use. Default will use org.springframework.jms.listener.DefaultMessageListenerContainer, Simple will use org.springframework.jms.listener.SimpleMessageListenerContainer. When Custom is specified, the MessageListenerContainerFactory defined by the messageListenerContainerFactory option will determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use. One of: [Simple] [Default] [Custom]",
 			"defaultValue": "\"Default\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"Simple",
+				"Default",
+				"Custom"
+			]
 		},
 		"camel.component.jms.defaultTaskExecutorType": {
 			"name": "camel.component.jms.defaultTaskExecutorType",
 			"description": "Specifies what default TaskExecutor type to use in the DefaultMessageListenerContainer, for both consumer endpoints and the ReplyTo consumer of producer endpoints. Possible values: SimpleAsync (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's ThreadPoolTaskExecutor with optimal values - cached threadpool-like). If not set, it defaults to the previous behaviour, which uses a cached thread pool for consumer endpoints and SimpleAsync for reply consumers. The use of ThreadPool is recommended to reduce thread trash in elastic configurations with dynamically increasing and decreasing concurrent consumers. One of: [ThreadPool] [SimpleAsync]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ThreadPool",
+				"SimpleAsync"
+			]
 		},
 		"camel.component.jms.eagerLoadingOfProperties": {
 			"name": "camel.component.jms.eagerLoadingOfProperties",
@@ -763,7 +844,11 @@
 			"name": "camel.component.jms.jmsKeyFormatStrategy",
 			"description": "Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification. Camel provides two implementations out of the box: default and passthrough. The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is. Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters. You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using the # notation. One of: [default] [passthrough]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"default",
+				"passthrough"
+			]
 		},
 		"camel.component.jms.mapJmsMessage": {
 			"name": "camel.component.jms.mapJmsMessage",
@@ -891,7 +976,15 @@
 			"description": "Allows to configure the default errorHandler logging level for logging uncaught exceptions. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"WARN\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.component.jms.errorHandlerLogStackTrace": {
 			"name": "camel.component.jms.errorHandlerLogStackTrace",

@@ -39,7 +39,11 @@
 			"description": "Set the eviction Type for this cache One of: [size_based] [time_based]",
 			"defaultValue": "\"SIZE_BASED\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"size_based",
+				"time_based"
+			]
 		},
 		"camel.sink.endpoint.expireAfterAccessTime": {
 			"name": "camel.sink.endpoint.expireAfterAccessTime",
@@ -144,7 +148,11 @@
 			"description": "Set the eviction Type for this cache One of: [size_based] [time_based]",
 			"defaultValue": "\"SIZE_BASED\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"size_based",
+				"time_based"
+			]
 		},
 		"camel.component.caffeine-loadcache.expireAfterAccessTime": {
 			"name": "camel.component.caffeine-loadcache.expireAfterAccessTime",

@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.cryptoOperation",
 			"description": "Set the Crypto operation from that supplied after the crypto scheme in the endpoint uri e.g. crypto:sign sets sign as the operation. One of: [sign] [verify]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"sign",
+				"verify"
+			]
 		},
 		"camel.sink.path.name": {
 			"name": "camel.sink.path.name",

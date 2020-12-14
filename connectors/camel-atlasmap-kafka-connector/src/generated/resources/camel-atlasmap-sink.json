@@ -47,7 +47,12 @@
 			"description": "TargetMapMode enum value to specify how multiple target documents are delivered if exist. 'MAP': Stores them into a java.util.Map, and the java.util.Map is set to an exchange property if 'targetMapName' is specified, otherwise message body. 'MESSAGE_HEADER': Stores them into message headers. 'EXCHANGE_PROPERTY': Stores them into exchange properties. ) One of: [MAP] [MESSAGE_HEADER] [EXCHANGE_PROPERTY]",
 			"defaultValue": "\"MAP\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"MAP",
+				"MESSAGE_HEADER",
+				"EXCHANGE_PROPERTY"
+			]
 		},
 		"camel.sink.endpoint.targetMapName": {
 			"name": "camel.sink.endpoint.targetMapName",

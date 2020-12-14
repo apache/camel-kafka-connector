@@ -13,7 +13,18 @@
 			"name": "camel.sink.path.method",
 			"description": "HTTP method to use. One of: [get] [post] [put] [delete] [patch] [head] [trace] [connect] [options]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"get",
+				"post",
+				"put",
+				"delete",
+				"patch",
+				"head",
+				"trace",
+				"connect",
+				"options"
+			]
 		},
 		"camel.sink.path.path": {
 			"name": "camel.sink.path.path",
@@ -67,7 +78,14 @@
 			"name": "camel.sink.endpoint.bindingMode",
 			"description": "Configures the binding mode for the producer. If set to anything other than 'off' the producer will try to convert the body of the incoming message from inType to the json or xml, and the response from json or xml to outType. One of: [auto] [off] [json] [xml] [json_xml]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"auto",
+				"off",
+				"json",
+				"xml",
+				"json_xml"
+			]
 		},
 		"camel.sink.endpoint.host": {
 			"name": "camel.sink.endpoint.host",

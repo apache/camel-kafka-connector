@@ -71,7 +71,12 @@
 			"description": "Logging level. 0=none, 1=info, 2=debug. One of: [0] [1] [2]",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"0",
+				"1",
+				"2"
+			]
 		},
 		"camel.source.endpoint.maxInterval": {
 			"name": "camel.source.endpoint.maxInterval",
@@ -118,7 +123,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

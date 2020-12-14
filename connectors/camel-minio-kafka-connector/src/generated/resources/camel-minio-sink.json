@@ -108,7 +108,17 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to do in case the user don't want to do only an upload. One of: [copyObject] [listObjects] [deleteObject] [deleteObjects] [deleteBucket] [listBuckets] [getObject] [getObjectRange]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"copyObject",
+				"listObjects",
+				"deleteObject",
+				"deleteObjects",
+				"deleteBucket",
+				"listBuckets",
+				"getObject",
+				"getObjectRange"
+			]
 		},
 		"camel.sink.endpoint.pojoRequest": {
 			"name": "camel.sink.endpoint.pojoRequest",
@@ -241,7 +251,17 @@
 			"name": "camel.component.minio.operation",
 			"description": "The operation to do in case the user don't want to do only an upload. One of: [copyObject] [listObjects] [deleteObject] [deleteObjects] [deleteBucket] [listBuckets] [getObject] [getObjectRange]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"copyObject",
+				"listObjects",
+				"deleteObject",
+				"deleteObjects",
+				"deleteBucket",
+				"listBuckets",
+				"getObject",
+				"getObjectRange"
+			]
 		},
 		"camel.component.minio.pojoRequest": {
 			"name": "camel.component.minio.pojoRequest",

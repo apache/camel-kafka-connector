@@ -32,7 +32,18 @@
 			"description": "The default action. One of: [ADD] [OFFER] [PEEK] [POLL] [CLEAR] [CONTAINS] [IS_EMPTY] [REMOVE] [SIZE]",
 			"defaultValue": "\"ADD\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ADD",
+				"OFFER",
+				"PEEK",
+				"POLL",
+				"CLEAR",
+				"CONTAINS",
+				"IS_EMPTY",
+				"REMOVE",
+				"SIZE"
+			]
 		},
 		"camel.sink.endpoint.nodes": {
 			"name": "camel.sink.endpoint.nodes",
@@ -83,7 +94,13 @@
 			"name": "camel.sink.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.sink.endpoint.resourceConfigs": {
 			"name": "camel.sink.endpoint.resourceConfigs",
@@ -127,7 +144,18 @@
 			"description": "The default action. One of: [ADD] [OFFER] [PEEK] [POLL] [CLEAR] [CONTAINS] [IS_EMPTY] [REMOVE] [SIZE]",
 			"defaultValue": "\"ADD\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ADD",
+				"OFFER",
+				"PEEK",
+				"POLL",
+				"CLEAR",
+				"CONTAINS",
+				"IS_EMPTY",
+				"REMOVE",
+				"SIZE"
+			]
 		},
 		"camel.component.atomix-queue.nodes": {
 			"name": "camel.component.atomix-queue.nodes",
@@ -185,7 +213,13 @@
 			"name": "camel.component.atomix-queue.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.component.atomix-queue.resourceConfigs": {
 			"name": "camel.component.atomix-queue.resourceConfigs",

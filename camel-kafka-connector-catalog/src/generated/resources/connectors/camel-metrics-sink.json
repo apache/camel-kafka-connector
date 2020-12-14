@@ -13,7 +13,14 @@
 			"name": "camel.sink.path.metricsType",
 			"description": "Type of metrics One of: [gauge] [counter] [histogram] [meter] [timer]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"gauge",
+				"counter",
+				"histogram",
+				"meter",
+				"timer"
+			]
 		},
 		"camel.sink.path.metricsName": {
 			"name": "camel.sink.path.metricsName",
@@ -25,7 +32,11 @@
 			"name": "camel.sink.endpoint.action",
 			"description": "Action when using timer type One of: [start] [stop]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"start",
+				"stop"
+			]
 		},
 		"camel.sink.endpoint.decrement": {
 			"name": "camel.sink.endpoint.decrement",

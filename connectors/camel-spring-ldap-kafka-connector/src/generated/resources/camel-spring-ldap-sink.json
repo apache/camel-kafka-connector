@@ -26,14 +26,27 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The LDAP operation to be performed. One of: [SEARCH] [BIND] [UNBIND] [AUTHENTICATE] [MODIFY_ATTRIBUTES] [FUNCTION_DRIVEN]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"SEARCH",
+				"BIND",
+				"UNBIND",
+				"AUTHENTICATE",
+				"MODIFY_ATTRIBUTES",
+				"FUNCTION_DRIVEN"
+			]
 		},
 		"camel.sink.endpoint.scope": {
 			"name": "camel.sink.endpoint.scope",
 			"description": "The scope of the search operation. One of: [object] [onelevel] [subtree]",
 			"defaultValue": "\"subtree\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"object",
+				"onelevel",
+				"subtree"
+			]
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",

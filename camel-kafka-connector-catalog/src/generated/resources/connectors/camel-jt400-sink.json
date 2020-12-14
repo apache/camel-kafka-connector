@@ -37,7 +37,13 @@
 			"name": "camel.sink.path.type",
 			"description": "Whether to work with data queues or remote program call One of: [DTAQ] [PGM] [SRVPGM] [MSGQ]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"DTAQ",
+				"PGM",
+				"SRVPGM",
+				"MSGQ"
+			]
 		},
 		"camel.sink.endpoint.ccsid": {
 			"name": "camel.sink.endpoint.ccsid",
@@ -50,7 +56,11 @@
 			"description": "Sets the data format for sending messages. One of: [text] [binary]",
 			"defaultValue": "\"text\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"text",
+				"binary"
+			]
 		},
 		"camel.sink.endpoint.guiAvailable": {
 			"name": "camel.sink.endpoint.guiAvailable",

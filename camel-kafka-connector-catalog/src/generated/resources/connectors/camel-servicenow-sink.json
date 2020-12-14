@@ -20,14 +20,24 @@
 			"description": "Set this parameter to true to return only scorecards where the indicator Display field is selected. Set this parameter to all to return scorecards with any Display field value. This parameter is true by default. One of: [false] [true] [all]",
 			"defaultValue": "\"true\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"false",
+				"true",
+				"all"
+			]
 		},
 		"camel.sink.endpoint.displayValue": {
 			"name": "camel.sink.endpoint.displayValue",
 			"description": "Return the display value (true), actual value (false), or both (all) for reference fields (default: false) One of: [false] [true] [all]",
 			"defaultValue": "\"false\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"false",
+				"true",
+				"all"
+			]
 		},
 		"camel.sink.endpoint.excludeReferenceLink": {
 			"name": "camel.sink.endpoint.excludeReferenceLink",
@@ -108,7 +118,12 @@
 			"description": "The ServiceNow release to target, default to Helsinki See https:\/\/docs.servicenow.com One of: [FUJI] [GENEVA] [HELSINKI]",
 			"defaultValue": "\"HELSINKI\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"FUJI",
+				"GENEVA",
+				"HELSINKI"
+			]
 		},
 		"camel.sink.endpoint.requestModels": {
 			"name": "camel.sink.endpoint.requestModels",
@@ -132,13 +147,36 @@
 			"name": "camel.sink.endpoint.sortBy",
 			"description": "Specify the value to use when sorting results. By default, queries sort records by value. One of: [value] [change] [changeperc] [gap] [gapperc] [duedate] [name] [order] [default] [group] [indicator_group] [frequency] [target] [date] [trend] [bullet] [direction]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"value",
+				"change",
+				"changeperc",
+				"gap",
+				"gapperc",
+				"duedate",
+				"name",
+				"order",
+				"default",
+				"group",
+				"indicator_group",
+				"frequency",
+				"target",
+				"date",
+				"trend",
+				"bullet",
+				"direction"
+			]
 		},
 		"camel.sink.endpoint.sortDir": {
 			"name": "camel.sink.endpoint.sortDir",
 			"description": "Specify the sort direction, ascending or descending. By default, queries sort records in descending order. Use sysparm_sortdir=asc to sort in ascending order. One of: [asc] [desc]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"asc",
+				"desc"
+			]
 		},
 		"camel.sink.endpoint.suppressAutoSysField": {
 			"name": "camel.sink.endpoint.suppressAutoSysField",
@@ -306,14 +344,24 @@
 			"description": "Set this parameter to true to return only scorecards where the indicator Display field is selected. Set this parameter to all to return scorecards with any Display field value. This parameter is true by default. One of: [false] [true] [all]",
 			"defaultValue": "\"true\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"false",
+				"true",
+				"all"
+			]
 		},
 		"camel.component.servicenow.displayValue": {
 			"name": "camel.component.servicenow.displayValue",
 			"description": "Return the display value (true), actual value (false), or both (all) for reference fields (default: false) One of: [false] [true] [all]",
 			"defaultValue": "\"false\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"false",
+				"true",
+				"all"
+			]
 		},
 		"camel.component.servicenow.excludeReferenceLink": {
 			"name": "camel.component.servicenow.excludeReferenceLink",
@@ -394,7 +442,12 @@
 			"description": "The ServiceNow release to target, default to Helsinki See https:\/\/docs.servicenow.com One of: [FUJI] [GENEVA] [HELSINKI]",
 			"defaultValue": "\"HELSINKI\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"FUJI",
+				"GENEVA",
+				"HELSINKI"
+			]
 		},
 		"camel.component.servicenow.requestModels": {
 			"name": "camel.component.servicenow.requestModels",
@@ -418,13 +471,36 @@
 			"name": "camel.component.servicenow.sortBy",
 			"description": "Specify the value to use when sorting results. By default, queries sort records by value. One of: [value] [change] [changeperc] [gap] [gapperc] [duedate] [name] [order] [default] [group] [indicator_group] [frequency] [target] [date] [trend] [bullet] [direction]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"value",
+				"change",
+				"changeperc",
+				"gap",
+				"gapperc",
+				"duedate",
+				"name",
+				"order",
+				"default",
+				"group",
+				"indicator_group",
+				"frequency",
+				"target",
+				"date",
+				"trend",
+				"bullet",
+				"direction"
+			]
 		},
 		"camel.component.servicenow.sortDir": {
 			"name": "camel.component.servicenow.sortDir",
 			"description": "Specify the sort direction, ascending or descending. By default, queries sort records in descending order. Use sysparm_sortdir=asc to sort in ascending order. One of: [asc] [desc]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"asc",
+				"desc"
+			]
 		},
 		"camel.component.servicenow.suppressAutoSysField": {
 			"name": "camel.component.servicenow.suppressAutoSysField",

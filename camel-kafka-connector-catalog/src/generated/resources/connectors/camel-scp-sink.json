@@ -73,7 +73,11 @@
 			"description": "Sets whether to use strict host key checking. Possible values are: no, yes One of: [no] [yes]",
 			"defaultValue": "\"no\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"no",
+				"yes"
+			]
 		},
 		"camel.sink.endpoint.allowNullBody": {
 			"name": "camel.sink.endpoint.allowNullBody",

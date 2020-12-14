@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.protocol",
 			"description": "The protocol to use which is either http, https or proxy - a consumer only option. One of: [http] [https]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"http",
+				"https"
+			]
 		},
 		"camel.sink.path.host": {
 			"name": "camel.sink.path.host",
@@ -625,7 +629,11 @@
 			"description": "The delimiter to use for the textline codec. Possible values are LINE and NULL. One of: [LINE] [NULL]",
 			"defaultValue": "\"LINE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"LINE",
+				"NULL"
+			]
 		},
 		"camel.component.netty-http.encoders": {
 			"name": "camel.component.netty-http.encoders",

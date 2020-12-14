@@ -13,7 +13,52 @@
 			"name": "camel.sink.path.operationName",
 			"description": "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"getVersions",
+				"getResources",
+				"getGlobalObjects",
+				"getBasicInfo",
+				"getDescription",
+				"getSObject",
+				"createSObject",
+				"updateSObject",
+				"deleteSObject",
+				"getSObjectWithId",
+				"upsertSObject",
+				"deleteSObjectWithId",
+				"getBlobField",
+				"query",
+				"queryMore",
+				"queryAll",
+				"search",
+				"apexCall",
+				"recent",
+				"createJob",
+				"getJob",
+				"closeJob",
+				"abortJob",
+				"createBatch",
+				"getBatch",
+				"getAllBatches",
+				"getRequest",
+				"getResults",
+				"createBatchQuery",
+				"getQueryResultIds",
+				"getQueryResult",
+				"getRecentReports",
+				"getReportDescription",
+				"executeSyncReport",
+				"executeAsyncReport",
+				"getReportInstances",
+				"getReportResults",
+				"limits",
+				"approval",
+				"approvals",
+				"composite-tree",
+				"composite-batch",
+				"composite"
+			]
 		},
 		"camel.sink.endpoint.apexMethod": {
 			"name": "camel.sink.endpoint.apexMethod",
@@ -51,7 +96,15 @@
 			"name": "camel.sink.endpoint.contentType",
 			"description": "Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"XML",
+				"CSV",
+				"JSON",
+				"ZIP_XML",
+				"ZIP_CSV",
+				"ZIP_JSON"
+			]
 		},
 		"camel.sink.endpoint.defaultReplayId": {
 			"name": "camel.sink.endpoint.defaultReplayId",
@@ -64,7 +117,11 @@
 			"name": "camel.sink.endpoint.format",
 			"description": "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"JSON",
+				"XML"
+			]
 		},
 		"camel.sink.endpoint.httpClient": {
 			"name": "camel.sink.endpoint.httpClient",
@@ -114,13 +171,23 @@
 			"description": "Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL]",
 			"defaultValue": "\"EXCEPTION\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EXCEPTION",
+				"NULL"
+			]
 		},
 		"camel.sink.endpoint.notifyForFields": {
 			"name": "camel.sink.endpoint.notifyForFields",
 			"description": "Notify for fields, options are ALL, REFERENCED, SELECT, WHERE One of: [ALL] [REFERENCED] [SELECT] [WHERE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"REFERENCED",
+				"SELECT",
+				"WHERE"
+			]
 		},
 		"camel.sink.endpoint.notifyForOperationCreate": {
 			"name": "camel.sink.endpoint.notifyForOperationCreate",
@@ -138,7 +205,13 @@
 			"name": "camel.sink.endpoint.notifyForOperations",
 			"description": "Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API version 29.0) One of: [ALL] [CREATE] [EXTENDED] [UPDATE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"CREATE",
+				"EXTENDED",
+				"UPDATE"
+			]
 		},
 		"camel.sink.endpoint.notifyForOperationUndelete": {
 			"name": "camel.sink.endpoint.notifyForOperationUndelete",
@@ -306,7 +379,15 @@
 			"name": "camel.component.salesforce.contentType",
 			"description": "Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV One of: [XML] [CSV] [JSON] [ZIP_XML] [ZIP_CSV] [ZIP_JSON]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"XML",
+				"CSV",
+				"JSON",
+				"ZIP_XML",
+				"ZIP_CSV",
+				"ZIP_JSON"
+			]
 		},
 		"camel.component.salesforce.defaultReplayId": {
 			"name": "camel.component.salesforce.defaultReplayId",
@@ -319,7 +400,11 @@
 			"name": "camel.component.salesforce.format",
 			"description": "Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON One of: [JSON] [XML]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"JSON",
+				"XML"
+			]
 		},
 		"camel.component.salesforce.httpClient": {
 			"name": "camel.component.salesforce.httpClient",
@@ -396,13 +481,23 @@
 			"description": "Sets the behaviour of 404 not found status received from Salesforce API. Should the body be set to NULL NotFoundBehaviour#NULL or should a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION - the default. One of: [EXCEPTION] [NULL]",
 			"defaultValue": "\"EXCEPTION\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"EXCEPTION",
+				"NULL"
+			]
 		},
 		"camel.component.salesforce.notifyForFields": {
 			"name": "camel.component.salesforce.notifyForFields",
 			"description": "Notify for fields, options are ALL, REFERENCED, SELECT, WHERE One of: [ALL] [REFERENCED] [SELECT] [WHERE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"REFERENCED",
+				"SELECT",
+				"WHERE"
+			]
 		},
 		"camel.component.salesforce.notifyForOperationCreate": {
 			"name": "camel.component.salesforce.notifyForOperationCreate",
@@ -420,7 +515,13 @@
 			"name": "camel.component.salesforce.notifyForOperations",
 			"description": "Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API version 29.0) One of: [ALL] [CREATE] [EXTENDED] [UPDATE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"CREATE",
+				"EXTENDED",
+				"UPDATE"
+			]
 		},
 		"camel.component.salesforce.notifyForOperationUndelete": {
 			"name": "camel.component.salesforce.notifyForOperationUndelete",
@@ -611,7 +712,12 @@
 			"name": "camel.component.salesforce.authenticationType",
 			"description": "Explicit authentication method to be used, one of USERNAME_PASSWORD, REFRESH_TOKEN or JWT. Salesforce component can auto-determine the authentication method to use from the properties set, set this property to eliminate any ambiguity. One of: [USERNAME_PASSWORD] [REFRESH_TOKEN] [JWT]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"USERNAME_PASSWORD",
+				"REFRESH_TOKEN",
+				"JWT"
+			]
 		},
 		"camel.component.salesforce.clientId": {
 			"name": "camel.component.salesforce.clientId",
