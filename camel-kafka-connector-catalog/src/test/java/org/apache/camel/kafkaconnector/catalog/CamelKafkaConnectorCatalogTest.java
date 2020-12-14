@@ -82,7 +82,6 @@ class CamelKafkaConnectorCatalogTest {
         assertNull(model.getConverters());
         assertNull(model.getTransforms());
         assertNull(model.getAggregationStrategies());
-        assertEquals(Arrays.asList("HTTP", "HTTPS"), catalog.getOptionModel("camel-aws2-sns-sink", "camel.sink.endpoint.proxyProtocol").getPossibleEnumValues());
     }
     
     @Test
