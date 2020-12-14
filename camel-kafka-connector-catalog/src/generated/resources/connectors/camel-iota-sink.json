@@ -40,7 +40,12 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "Which operation to perform, one of: sendTransfer, getNewAddress, getTransfers One of: [sendTransfer] [getNewAddress] [getTransfers]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"sendTransfer",
+				"getNewAddress",
+				"getTransfers"
+			]
 		},
 		"camel.sink.endpoint.tag": {
 			"name": "camel.sink.endpoint.tag",

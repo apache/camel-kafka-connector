@@ -26,7 +26,11 @@
 			"description": "The broadcast type. One of: [ALL] [RANDOM]",
 			"defaultValue": "\"ALL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"RANDOM"
+			]
 		},
 		"camel.source.endpoint.channelName": {
 			"name": "camel.source.endpoint.channelName",
@@ -45,7 +49,11 @@
 			"description": "The default action. One of: [DIRECT] [BROADCAST]",
 			"defaultValue": "\"DIRECT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DIRECT",
+				"BROADCAST"
+			]
 		},
 		"camel.source.endpoint.memberName": {
 			"name": "camel.source.endpoint.memberName",
@@ -89,7 +97,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.defaultResourceConfig": {
 			"name": "camel.source.endpoint.defaultResourceConfig",
@@ -114,7 +127,13 @@
 			"name": "camel.source.endpoint.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.source.endpoint.resourceConfigs": {
 			"name": "camel.source.endpoint.resourceConfigs",
@@ -146,7 +165,11 @@
 			"description": "The broadcast type. One of: [ALL] [RANDOM]",
 			"defaultValue": "\"ALL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"RANDOM"
+			]
 		},
 		"camel.component.atomix-messaging.channelName": {
 			"name": "camel.component.atomix-messaging.channelName",
@@ -171,7 +194,11 @@
 			"description": "The default action. One of: [DIRECT] [BROADCAST]",
 			"defaultValue": "\"DIRECT\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"DIRECT",
+				"BROADCAST"
+			]
 		},
 		"camel.component.atomix-messaging.memberName": {
 			"name": "camel.component.atomix-messaging.memberName",
@@ -235,7 +262,13 @@
 			"name": "camel.component.atomix-messaging.readConsistency",
 			"description": "The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ATOMIC",
+				"ATOMIC_LEASE",
+				"SEQUENTIAL",
+				"LOCAL"
+			]
 		},
 		"camel.component.atomix-messaging.resourceConfigs": {
 			"name": "camel.component.atomix-messaging.resourceConfigs",

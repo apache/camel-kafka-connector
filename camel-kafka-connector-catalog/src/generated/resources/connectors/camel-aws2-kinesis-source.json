@@ -45,7 +45,11 @@
 			"description": "To define a proxy protocol when instantiating the Kinesis client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.source.endpoint.region": {
 			"name": "camel.source.endpoint.region",
@@ -72,7 +76,15 @@
 			"description": "Defines where in the Kinesis stream to start getting records One of: [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [TRIM_HORIZON] [LATEST] [AT_TIMESTAMP] [null]",
 			"defaultValue": "\"TRIM_HORIZON\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"AT_SEQUENCE_NUMBER",
+				"AFTER_SEQUENCE_NUMBER",
+				"TRIM_HORIZON",
+				"LATEST",
+				"AT_TIMESTAMP",
+				"null"
+			]
 		},
 		"camel.source.endpoint.maxResultsPerRequest": {
 			"name": "camel.source.endpoint.maxResultsPerRequest",
@@ -99,7 +111,12 @@
 			"description": "Define what will be the behavior in case of shard closed. Possible value are ignore, silent and fail. In case of ignore a message will be logged and the consumer will restart from the beginning,in case of silent there will be no logging and the consumer will start from the beginning,in case of fail a ReachedClosedStateException will be raised One of: [ignore] [fail] [silent]",
 			"defaultValue": "\"ignore\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ignore",
+				"fail",
+				"silent"
+			]
 		},
 		"camel.source.endpoint.shardId": {
 			"name": "camel.source.endpoint.shardId",
@@ -117,7 +134,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -183,7 +205,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -216,7 +246,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",
@@ -273,7 +312,11 @@
 			"description": "To define a proxy protocol when instantiating the Kinesis client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws2-kinesis.region": {
 			"name": "camel.component.aws2-kinesis.region",
@@ -300,7 +343,15 @@
 			"description": "Defines where in the Kinesis stream to start getting records One of: [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [TRIM_HORIZON] [LATEST] [AT_TIMESTAMP] [null]",
 			"defaultValue": "\"TRIM_HORIZON\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"AT_SEQUENCE_NUMBER",
+				"AFTER_SEQUENCE_NUMBER",
+				"TRIM_HORIZON",
+				"LATEST",
+				"AT_TIMESTAMP",
+				"null"
+			]
 		},
 		"camel.component.aws2-kinesis.maxResultsPerRequest": {
 			"name": "camel.component.aws2-kinesis.maxResultsPerRequest",
@@ -320,7 +371,12 @@
 			"description": "Define what will be the behavior in case of shard closed. Possible value are ignore, silent and fail. In case of ignore a message will be logged and the consumer will restart from the beginning,in case of silent there will be no logging and the consumer will start from the beginning,in case of fail a ReachedClosedStateException will be raised One of: [ignore] [fail] [silent]",
 			"defaultValue": "\"ignore\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ignore",
+				"fail",
+				"silent"
+			]
 		},
 		"camel.component.aws2-kinesis.shardId": {
 			"name": "camel.component.aws2-kinesis.shardId",

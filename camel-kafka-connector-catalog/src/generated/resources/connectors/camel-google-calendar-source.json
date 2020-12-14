@@ -13,13 +13,39 @@
 			"name": "camel.source.path.apiName",
 			"description": "What kind of operation to perform One of: [ACL] [LIST] [CALENDARS] [CHANNELS] [COLORS] [FREEBUSY] [EVENTS] [SETTINGS]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"ACL",
+				"LIST",
+				"CALENDARS",
+				"CHANNELS",
+				"COLORS",
+				"FREEBUSY",
+				"EVENTS",
+				"SETTINGS"
+			]
 		},
 		"camel.source.path.methodName": {
 			"name": "camel.source.path.methodName",
 			"description": "What sub operation to use for the selected operation One of: [calendarImport] [clear] [delete] [get] [insert] [instances] [list] [move] [patch] [query] [quickAdd] [stop] [update] [watch]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"calendarImport",
+				"clear",
+				"delete",
+				"get",
+				"insert",
+				"instances",
+				"list",
+				"move",
+				"patch",
+				"query",
+				"quickAdd",
+				"stop",
+				"update",
+				"watch"
+			]
 		},
 		"camel.source.endpoint.applicationName": {
 			"name": "camel.source.endpoint.applicationName",
@@ -88,7 +114,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
@@ -154,7 +185,15 @@
 			"description": "The consumer logs a start\/complete log line when it polls. This option allows you to configure the logging level for that. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
 			"defaultValue": "\"TRACE\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"TRACE",
+				"DEBUG",
+				"INFO",
+				"WARN",
+				"ERROR",
+				"OFF"
+			]
 		},
 		"camel.source.endpoint.scheduledExecutorService": {
 			"name": "camel.source.endpoint.scheduledExecutorService",
@@ -187,7 +226,16 @@
 			"description": "Time unit for initialDelay and delay options. One of: [NANOSECONDS] [MICROSECONDS] [MILLISECONDS] [SECONDS] [MINUTES] [HOURS] [DAYS]",
 			"defaultValue": "\"MILLISECONDS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NANOSECONDS",
+				"MICROSECONDS",
+				"MILLISECONDS",
+				"SECONDS",
+				"MINUTES",
+				"HOURS",
+				"DAYS"
+			]
 		},
 		"camel.source.endpoint.useFixedDelay": {
 			"name": "camel.source.endpoint.useFixedDelay",

@@ -52,13 +52,22 @@
 			"description": "Only for FIFO Topic. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication]",
 			"defaultValue": "\"useExchangeId\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"useExchangeId",
+				"useContentBasedDeduplication"
+			]
 		},
 		"camel.sink.endpoint.messageGroupIdStrategy": {
 			"name": "camel.sink.endpoint.messageGroupIdStrategy",
 			"description": "Only for FIFO Topic. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"useConstant",
+				"useExchangeId",
+				"usePropertyValue"
+			]
 		},
 		"camel.sink.endpoint.messageStructure": {
 			"name": "camel.sink.endpoint.messageStructure",
@@ -89,7 +98,11 @@
 			"description": "To define a proxy protocol when instantiating the SNS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.queueUrl": {
 			"name": "camel.sink.endpoint.queueUrl",
@@ -193,13 +206,22 @@
 			"description": "Only for FIFO Topic. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication]",
 			"defaultValue": "\"useExchangeId\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"useExchangeId",
+				"useContentBasedDeduplication"
+			]
 		},
 		"camel.component.aws2-sns.messageGroupIdStrategy": {
 			"name": "camel.component.aws2-sns.messageGroupIdStrategy",
 			"description": "Only for FIFO Topic. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"useConstant",
+				"useExchangeId",
+				"usePropertyValue"
+			]
 		},
 		"camel.component.aws2-sns.messageStructure": {
 			"name": "camel.component.aws2-sns.messageStructure",
@@ -230,7 +252,11 @@
 			"description": "To define a proxy protocol when instantiating the SNS client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws2-sns.queueUrl": {
 			"name": "camel.component.aws2-sns.queueUrl",

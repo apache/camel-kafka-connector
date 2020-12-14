@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.command",
 			"description": "What command to execute such as blobstore or compute. One of: [blobstore] [compute]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"blobstore",
+				"compute"
+			]
 		},
 		"camel.sink.path.providerId": {
 			"name": "camel.sink.path.providerId",
@@ -81,7 +85,15 @@
 			"name": "camel.sink.endpoint.nodeState",
 			"description": "To filter by node status to only select running nodes etc. One of: [PENDING] [TERMINATED] [SUSPENDED] [RUNNING] [ERROR] [UNRECOGNIZED]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PENDING",
+				"TERMINATED",
+				"SUSPENDED",
+				"RUNNING",
+				"ERROR",
+				"UNRECOGNIZED"
+			]
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",

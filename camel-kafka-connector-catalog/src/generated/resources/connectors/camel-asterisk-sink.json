@@ -37,7 +37,12 @@
 			"name": "camel.sink.endpoint.action",
 			"description": "What action to perform such as getting queue status, sip peers or extension state. One of: [QUEUE_STATUS] [SIP_PEERS] [EXTENSION_STATE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"QUEUE_STATUS",
+				"SIP_PEERS",
+				"EXTENSION_STATE"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

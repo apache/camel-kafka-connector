@@ -40,7 +40,15 @@
 			"description": "The CachePeekMode, only needed for operations that require it (IgniteCacheOperation#SIZE). One of: [ALL] [NEAR] [PRIMARY] [BACKUP] [ONHEAP] [OFFHEAP]",
 			"defaultValue": "\"ALL\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ALL",
+				"NEAR",
+				"PRIMARY",
+				"BACKUP",
+				"ONHEAP",
+				"OFFHEAP"
+			]
 		},
 		"camel.sink.endpoint.failIfInexistentCache": {
 			"name": "camel.sink.endpoint.failIfInexistentCache",
@@ -60,7 +68,16 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The cache operation to invoke. Possible values: GET, PUT, REMOVE, SIZE, REBALANCE, QUERY, CLEAR. One of: [GET] [PUT] [REMOVE] [SIZE] [REBALANCE] [QUERY] [CLEAR]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"GET",
+				"PUT",
+				"REMOVE",
+				"SIZE",
+				"REBALANCE",
+				"QUERY",
+				"CLEAR"
+			]
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",

@@ -13,7 +13,14 @@
 			"name": "camel.source.path.operation",
 			"description": "The specific action (typically is a CRUD action) to perform on Dropbox remote folder. One of: [put] [del] [search] [get] [move]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"put",
+				"del",
+				"search",
+				"get",
+				"move"
+			]
 		},
 		"camel.source.endpoint.accessToken": {
 			"name": "camel.source.endpoint.accessToken",
@@ -61,7 +68,11 @@
 			"name": "camel.source.endpoint.uploadMode",
 			"description": "Which mode to upload. in case of add the new file will be renamed if a file with the same name already exists on dropbox. in case of force if a file with the same name already exists on dropbox, this will be overwritten. One of: [add] [force]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"add",
+				"force"
+			]
 		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
@@ -80,7 +91,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

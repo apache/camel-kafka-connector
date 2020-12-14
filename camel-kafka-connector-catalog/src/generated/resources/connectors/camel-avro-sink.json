@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.transport",
 			"description": "Transport to use, can be either http or netty One of: [http] [netty]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"http",
+				"netty"
+			]
 		},
 		"camel.sink.path.port": {
 			"name": "camel.sink.path.port",

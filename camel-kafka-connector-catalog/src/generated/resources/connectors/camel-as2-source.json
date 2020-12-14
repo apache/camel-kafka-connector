@@ -13,7 +13,11 @@
 			"name": "camel.source.path.apiName",
 			"description": "What kind of operation to perform One of: [CLIENT] [SERVER]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"CLIENT",
+				"SERVER"
+			]
 		},
 		"camel.source.path.methodName": {
 			"name": "camel.source.path.methodName",
@@ -31,7 +35,17 @@
 			"name": "camel.source.endpoint.as2MessageStructure",
 			"description": "The structure of AS2 Message. One of: PLAIN - No encryption, no signature, SIGNED - No encryption, signature, ENCRYPTED - Encryption, no signature, ENCRYPTED_SIGNED - Encryption, signature One of: [PLAIN] [SIGNED] [ENCRYPTED] [SIGNED_ENCRYPTED] [PLAIN_COMPRESSED] [SIGNED_COMPRESSED] [ENCRYPTED_COMPRESSED] [ENCRYPTED_COMPRESSED_SIGNED]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"PLAIN",
+				"SIGNED",
+				"ENCRYPTED",
+				"SIGNED_ENCRYPTED",
+				"PLAIN_COMPRESSED",
+				"SIGNED_COMPRESSED",
+				"ENCRYPTED_COMPRESSED",
+				"ENCRYPTED_COMPRESSED_SIGNED"
+			]
 		},
 		"camel.source.endpoint.as2To": {
 			"name": "camel.source.endpoint.as2To",
@@ -44,7 +58,11 @@
 			"description": "The version of the AS2 protocol. One of: [1.0] [1.1]",
 			"defaultValue": "\"1.1\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"1.0",
+				"1.1"
+			]
 		},
 		"camel.source.endpoint.clientFqdn": {
 			"name": "camel.source.endpoint.clientFqdn",
@@ -57,7 +75,10 @@
 			"name": "camel.source.endpoint.compressionAlgorithm",
 			"description": "The algorithm used to compress EDI message. One of: [ZLIB]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"ZLIB"
+			]
 		},
 		"camel.source.endpoint.decryptingPrivateKey": {
 			"name": "camel.source.endpoint.decryptingPrivateKey",
@@ -87,7 +108,29 @@
 			"name": "camel.source.endpoint.encryptingAlgorithm",
 			"description": "The algorithm used to encrypt EDI message. One of: [AES128_CBC] [AES192_CBC] [AES256_CBC] [AES128_CCM] [AES192_CCM] [AES256_CCM] [AES128_GCM] [AES192_GCM] [AES256_GCM] [CAMELLIA128_CBC] [CAMELLIA192_CBC] [CAMELLIA256_CBC] [CAST5_CBC] [DES_CBC] [DES_EDE3_CBC] [GOST28147_GCFB] [IDEA_CBC] [RC2_CBC] [RC4] [SEED_CBC]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"AES128_CBC",
+				"AES192_CBC",
+				"AES256_CBC",
+				"AES128_CCM",
+				"AES192_CCM",
+				"AES256_CCM",
+				"AES128_GCM",
+				"AES192_GCM",
+				"AES256_GCM",
+				"CAMELLIA128_CBC",
+				"CAMELLIA192_CBC",
+				"CAMELLIA256_CBC",
+				"CAST5_CBC",
+				"DES_CBC",
+				"DES_EDE3_CBC",
+				"GOST28147_GCFB",
+				"IDEA_CBC",
+				"RC2_CBC",
+				"RC4",
+				"SEED_CBC"
+			]
 		},
 		"camel.source.endpoint.encryptingCertificateChain": {
 			"name": "camel.source.endpoint.encryptingCertificateChain",
@@ -150,7 +193,56 @@
 			"name": "camel.source.endpoint.signingAlgorithm",
 			"description": "The algorithm used to sign EDI message. One of: [SHA3_224WITHRSA] [SHA3_256WITHRSA] [SHA3_384withRSA] [SHA3_512WITHRSA] [MD5WITHRSA] [SHA1WITHRSA] [MD2WITHRSA] [SHA224WITHRSA] [SHA256WITHRSA] [SHA384WITHRSA] [SHA512WITHRSA] [RIPEMD128WITHRSA] [RIPEMD160WITHRSA] [RIPEMD256WITHRSA] [SHA224WITHDSA] [SHA256WITHDSA] [SHA384WITHDSA] [SHA512WITHDSA] [SHA3_224WITHDSA] [SHA3_256WITHDSA] [SHA3_384WITHDSA] [SHA3_512WITHDSA] [SHA1WITHDSA] [SHA3_224WITHECDSA] [SHA3_256WITHECDSA] [SHA3_384WITHECDSA] [SHA3_512WITHECDSA] [SHA1WITHECDSA] [SHA224WITHECDSA] [SHA256WITHECDSA] [SHA384WITHECDSA] [SHA512WITHECDSA] [SHA1WITHPLAIN_ECDSA] [SHA224WITHPLAIN_ECDSA] [SHA256WITHPLAIN_ECDSA] [SHA384WITHPLAIN_ECDSA] [SHA512WITHPLAIN_ECDSA] [RIPEMD160WITHPLAIN_ECDSA] [SHA1WITHRSAANDMGF1] [SHA224WITHRSAANDMGF1] [SHA256WITHRSAANDMGF1] [SHA384WITHRSAANDMGF1] [SHA512WITHRSAANDMGF1] [SHA3_224WITHRSAANDMGF1] [SHA3_256WITHRSAANDMGF1] [SHA3_384WITHRSAANDMGF1] [SHA3_512WITHRSAANDMGF1]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SHA3_224WITHRSA",
+				"SHA3_256WITHRSA",
+				"SHA3_384withRSA",
+				"SHA3_512WITHRSA",
+				"MD5WITHRSA",
+				"SHA1WITHRSA",
+				"MD2WITHRSA",
+				"SHA224WITHRSA",
+				"SHA256WITHRSA",
+				"SHA384WITHRSA",
+				"SHA512WITHRSA",
+				"RIPEMD128WITHRSA",
+				"RIPEMD160WITHRSA",
+				"RIPEMD256WITHRSA",
+				"SHA224WITHDSA",
+				"SHA256WITHDSA",
+				"SHA384WITHDSA",
+				"SHA512WITHDSA",
+				"SHA3_224WITHDSA",
+				"SHA3_256WITHDSA",
+				"SHA3_384WITHDSA",
+				"SHA3_512WITHDSA",
+				"SHA1WITHDSA",
+				"SHA3_224WITHECDSA",
+				"SHA3_256WITHECDSA",
+				"SHA3_384WITHECDSA",
+				"SHA3_512WITHECDSA",
+				"SHA1WITHECDSA",
+				"SHA224WITHECDSA",
+				"SHA256WITHECDSA",
+				"SHA384WITHECDSA",
+				"SHA512WITHECDSA",
+				"SHA1WITHPLAIN_ECDSA",
+				"SHA224WITHPLAIN_ECDSA",
+				"SHA256WITHPLAIN_ECDSA",
+				"SHA384WITHPLAIN_ECDSA",
+				"SHA512WITHPLAIN_ECDSA",
+				"RIPEMD160WITHPLAIN_ECDSA",
+				"SHA1WITHRSAANDMGF1",
+				"SHA224WITHRSAANDMGF1",
+				"SHA256WITHRSAANDMGF1",
+				"SHA384WITHRSAANDMGF1",
+				"SHA512WITHRSAANDMGF1",
+				"SHA3_224WITHRSAANDMGF1",
+				"SHA3_256WITHRSAANDMGF1",
+				"SHA3_384WITHRSAANDMGF1",
+				"SHA3_512WITHRSAANDMGF1"
+			]
 		},
 		"camel.source.endpoint.signingCertificateChain": {
 			"name": "camel.source.endpoint.signingCertificateChain",
@@ -199,7 +291,12 @@
 			"name": "camel.source.endpoint.exchangePattern",
 			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",

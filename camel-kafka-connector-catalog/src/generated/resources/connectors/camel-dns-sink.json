@@ -13,7 +13,13 @@
 			"name": "camel.sink.path.dnsType",
 			"description": "The type of the lookup. One of: [dig] [ip] [lookup] [wikipedia]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"dig",
+				"ip",
+				"lookup",
+				"wikipedia"
+			]
 		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",

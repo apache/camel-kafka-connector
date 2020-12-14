@@ -13,7 +13,19 @@
 			"name": "camel.sink.path.apiName",
 			"description": "What kind of operation to perform One of: [COLLABORATIONS] [COMMENTS] [EVENT_LOGS] [FILES] [FOLDERS] [GROUPS] [EVENTS] [SEARCH] [TASKS] [USERS]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"COLLABORATIONS",
+				"COMMENTS",
+				"EVENT_LOGS",
+				"FILES",
+				"FOLDERS",
+				"GROUPS",
+				"EVENTS",
+				"SEARCH",
+				"TASKS",
+				"USERS"
+			]
 		},
 		"camel.sink.path.methodName": {
 			"name": "camel.sink.path.methodName",
@@ -89,7 +101,12 @@
 			"description": "The type of encryption algorithm for JWT. Supported Algorithms: RSA_SHA_256 RSA_SHA_384 RSA_SHA_512 One of: [RSA_SHA_256] [RSA_SHA_384] [RSA_SHA_512]",
 			"defaultValue": "\"RSA_SHA_256\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"RSA_SHA_256",
+				"RSA_SHA_384",
+				"RSA_SHA_512"
+			]
 		},
 		"camel.sink.endpoint.maxCacheEntries": {
 			"name": "camel.sink.endpoint.maxCacheEntries",
@@ -202,7 +219,12 @@
 			"description": "The type of encryption algorithm for JWT. Supported Algorithms: RSA_SHA_256 RSA_SHA_384 RSA_SHA_512 One of: [RSA_SHA_256] [RSA_SHA_384] [RSA_SHA_512]",
 			"defaultValue": "\"RSA_SHA_256\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"RSA_SHA_256",
+				"RSA_SHA_384",
+				"RSA_SHA_512"
+			]
 		},
 		"camel.component.box.maxCacheEntries": {
 			"name": "camel.component.box.maxCacheEntries",

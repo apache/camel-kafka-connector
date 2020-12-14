@@ -45,7 +45,15 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "The operation to perform. It can be listBrokers,createBroker,deleteBroker One of: [listBrokers] [createBroker] [deleteBroker] [rebootBroker] [updateBroker] [describeBroker]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"listBrokers",
+				"createBroker",
+				"deleteBroker",
+				"rebootBroker",
+				"updateBroker",
+				"describeBroker"
+			]
 		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
@@ -64,7 +72,11 @@
 			"description": "To define a proxy protocol when instantiating the MQ client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.sink.endpoint.region": {
 			"name": "camel.sink.endpoint.region",
@@ -121,7 +133,15 @@
 			"name": "camel.component.aws-mq.operation",
 			"description": "The operation to perform. It can be listBrokers,createBroker,deleteBroker One of: [listBrokers] [createBroker] [deleteBroker] [rebootBroker] [updateBroker] [describeBroker]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"listBrokers",
+				"createBroker",
+				"deleteBroker",
+				"rebootBroker",
+				"updateBroker",
+				"describeBroker"
+			]
 		},
 		"camel.component.aws-mq.proxyHost": {
 			"name": "camel.component.aws-mq.proxyHost",
@@ -140,7 +160,11 @@
 			"description": "To define a proxy protocol when instantiating the MQ client One of: [HTTP] [HTTPS]",
 			"defaultValue": "\"HTTPS\"",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"HTTP",
+				"HTTPS"
+			]
 		},
 		"camel.component.aws-mq.region": {
 			"name": "camel.component.aws-mq.region",

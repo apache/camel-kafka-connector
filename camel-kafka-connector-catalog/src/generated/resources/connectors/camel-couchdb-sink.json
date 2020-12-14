@@ -13,7 +13,11 @@
 			"name": "camel.sink.path.protocol",
 			"description": "The protocol to use for communicating with the database. One of: [http] [https]",
 			"priority": "HIGH",
-			"required": "true"
+			"required": "true",
+			"enum": [
+				"http",
+				"https"
+			]
 		},
 		"camel.sink.path.hostname": {
 			"name": "camel.sink.path.hostname",

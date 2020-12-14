@@ -50,7 +50,22 @@
 			"name": "camel.sink.endpoint.operation",
 			"description": "Operations to perform on ArangoDb. For the operation AQL_QUERY, no need to specify a collection or graph. One of: [SAVE_DOCUMENT] [FIND_DOCUMENT_BY_KEY] [UPDATE_DOCUMENT] [DELETE_DOCUMENT] [AQL_QUERY] [SAVE_VERTEX] [FIND_VERTEX_BY_KEY] [UPDATE_VERTEX] [DELETE_VERTEX] [SAVE_EDGE] [FIND_EDGE_BY_KEY] [UPDATE_EDGE] [DELETE_EDGE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SAVE_DOCUMENT",
+				"FIND_DOCUMENT_BY_KEY",
+				"UPDATE_DOCUMENT",
+				"DELETE_DOCUMENT",
+				"AQL_QUERY",
+				"SAVE_VERTEX",
+				"FIND_VERTEX_BY_KEY",
+				"UPDATE_VERTEX",
+				"DELETE_VERTEX",
+				"SAVE_EDGE",
+				"FIND_EDGE_BY_KEY",
+				"UPDATE_EDGE",
+				"DELETE_EDGE"
+			]
 		},
 		"camel.sink.endpoint.port": {
 			"name": "camel.sink.endpoint.port",
@@ -124,7 +139,22 @@
 			"name": "camel.component.arangodb.operation",
 			"description": "Operations to perform on ArangoDb. For the operation AQL_QUERY, no need to specify a collection or graph. One of: [SAVE_DOCUMENT] [FIND_DOCUMENT_BY_KEY] [UPDATE_DOCUMENT] [DELETE_DOCUMENT] [AQL_QUERY] [SAVE_VERTEX] [FIND_VERTEX_BY_KEY] [UPDATE_VERTEX] [DELETE_VERTEX] [SAVE_EDGE] [FIND_EDGE_BY_KEY] [UPDATE_EDGE] [DELETE_EDGE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"SAVE_DOCUMENT",
+				"FIND_DOCUMENT_BY_KEY",
+				"UPDATE_DOCUMENT",
+				"DELETE_DOCUMENT",
+				"AQL_QUERY",
+				"SAVE_VERTEX",
+				"FIND_VERTEX_BY_KEY",
+				"UPDATE_VERTEX",
+				"DELETE_VERTEX",
+				"SAVE_EDGE",
+				"FIND_EDGE_BY_KEY",
+				"UPDATE_EDGE",
+				"DELETE_EDGE"
+			]
 		},
 		"camel.component.arangodb.port": {
 			"name": "camel.component.arangodb.port",

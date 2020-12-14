@@ -52,7 +52,11 @@
 			"name": "camel.sink.endpoint.type",
 			"description": "Type of GeoCoding server. Supported Nominatim and Google. One of: [NOMINATIM] [GOOGLE]",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"NOMINATIM",
+				"GOOGLE"
+			]
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
