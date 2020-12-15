@@ -26,6 +26,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import com.couchbase.client.core.diagnostics.EndpointPingReport;
+import com.couchbase.client.core.diagnostics.PingResult;
+import com.couchbase.client.core.diagnostics.PingState;
+import com.couchbase.client.core.service.ServiceType;
 import com.couchbase.client.java.Cluster;
 import com.couchbase.client.java.json.JsonObject;
 import com.couchbase.client.java.manager.bucket.BucketSettings;
@@ -35,13 +39,15 @@ import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
-import org.apache.camel.kafkaconnector.couchbase.services.CouchbaseService;
-import org.apache.camel.kafkaconnector.couchbase.services.CouchbaseServiceFactory;
+import org.apache.camel.test.infra.couchbase.services.CouchbaseService;
+import org.apache.camel.test.infra.couchbase.services.CouchbaseServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,6 +56,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+/*
+ This test is slow and flaky. It tends to fail on systems with limited resources and slow I/O. Therefore, it is
+ disabled by default.
+ */
+@EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static CouchbaseService service = CouchbaseServiceFactory.getService();
@@ -73,13 +84,38 @@ public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
         bucketName = "testBucket" + TestUtils.randomWithRange(0, 100);
         cluster = Cluster.connect(service.getConnectionString(), service.getUsername(), service.getPassword());
 
-        cluster.ping();
+        cluster.ping().endpoints().entrySet().forEach(this::checkEndpoints);
 
         LOG.debug("Creating a new bucket named {}", bucketName);
+
         cluster.buckets().createBucket(BucketSettings.create(bucketName));
+        PingResult pingResult = cluster.bucket(bucketName).ping();
+        pingResult.endpoints().entrySet().forEach(this::checkEndpoints);
+
         LOG.debug("Bucket created");
 
-        topic = TestUtils.getDefaultTestTopic(this.getClass());
+        topic = TestUtils.getDefaultTestTopic(this.getClass()) + TestUtils.randomWithRange(0, 100);
+
+        try {
+            String startDelay = System.getProperty("couchbase.test.start.delay", "1000");
+
+            int delay = Integer.parseInt(startDelay);
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupted();
+        }
+    }
+
+    private void checkEndpoints(Map.Entry<ServiceType, List<EndpointPingReport>> entries) {
+        entries.getValue().forEach(this::checkStatus);
+    }
+
+    private void checkStatus(EndpointPingReport endpointPingReport) {
+        if (endpointPingReport.state() == PingState.OK) {
+            LOG.debug("Endpoint {} is ok", endpointPingReport.id());
+        } else {
+            LOG.warn("Endpoint {} is not OK", endpointPingReport.id());
+        }
     }
 
     @AfterEach
@@ -186,7 +222,7 @@ public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
         runTest(factory);
     }
 
-    @Test
+    @RepeatedTest(10)
     @Timeout(90)
     public void testBasicSendReceiveUsingUrl() throws Exception {
         ConnectorPropertyFactory factory = CamelCouchbasePropertyFactory.basic()

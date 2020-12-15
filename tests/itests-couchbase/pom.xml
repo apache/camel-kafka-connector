@@ -39,13 +39,15 @@
 
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-couchbase</artifactId>
+            <artifactId>camel-test-infra-couchbase</artifactId>
+            <version>${camel.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>couchbase</artifactId>
-            <scope>test</scope>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-couchbase</artifactId>
         </dependency>
 
         <dependency>
@@ -54,4 +56,23 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <argLine>${common.failsafe.args}</argLine>
+                    <skipTests>${skipIntegrationTests}</skipTests>
+                    <!--
+                    These tests are flaky and depend on some fragile timeout logic on Couchbase
+                     -->
+                    <rerunFailingTestsCount>2</rerunFailingTestsCount>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
 </project>
