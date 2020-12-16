@@ -7,6 +7,7 @@
 **Closed issues:**
 
 - CamelAmqpSourceConnector example contains wrong camel.sink parameters [\#767](https://github.com/apache/camel-kafka-connector/issues/767)
+- Getting some error logs for camel.connector 3.1.0 with strimzi 0.20.0 update [\#766](https://github.com/apache/camel-kafka-connector/issues/766)
 - Add a removeHeaders option on both source and sink [\#763](https://github.com/apache/camel-kafka-connector/issues/763)
 - Added Camel-SQL kafka connector integration test [\#757](https://github.com/apache/camel-kafka-connector/issues/757)
 - Create binary distribution [\#754](https://github.com/apache/camel-kafka-connector/issues/754)
@@ -14,10 +15,13 @@
 - Support Poll timeout and key cache size as option for kafka idempotent repository [\#734](https://github.com/apache/camel-kafka-connector/issues/734)
 - Provide validation of properties file from the catalog [\#671](https://github.com/apache/camel-kafka-connector/issues/671)
 - Include possible enum values in Catalog [\#645](https://github.com/apache/camel-kafka-connector/issues/645)
+- \[camel-main-support\] Use camel's built-in support for configuring data formats trough properties [\#497](https://github.com/apache/camel-kafka-connector/issues/497)
 - Create Arangodb examples [\#457](https://github.com/apache/camel-kafka-connector/issues/457)
 
 **Merged pull requests:**
 
+- Enable integration tests on Apache CI [\#790](https://github.com/apache/camel-kafka-connector/pull/790) ([orpiske](https://github.com/orpiske))
+- AWS2-S3 aggregation strategy OOTB [\#785](https://github.com/apache/camel-kafka-connector/pull/785) ([oscerd](https://github.com/oscerd))
 - NPE prevention and log cleanup on the SSH transformation code [\#781](https://github.com/apache/camel-kafka-connector/pull/781) ([orpiske](https://github.com/orpiske))
 - \(chores\) Use log markers [\#780](https://github.com/apache/camel-kafka-connector/pull/780) ([orpiske](https://github.com/orpiske))
 - \(chores\) Use diamond operators instead of type specification [\#779](https://github.com/apache/camel-kafka-connector/pull/779) ([orpiske](https://github.com/orpiske))
