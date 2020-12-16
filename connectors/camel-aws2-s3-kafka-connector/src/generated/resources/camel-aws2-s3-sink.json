@@ -427,5 +427,8 @@
 	],
 	"transforms": [
 		"org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms"
+	],
+	"aggregationStrategies": [
+		"org.apache.camel.kafkaconnector.aws2s3.aggregation.NewlineAggregationStrategy"
 	]
 }

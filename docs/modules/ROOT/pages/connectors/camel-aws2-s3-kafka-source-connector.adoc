@@ -143,5 +143,14 @@ org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms
 
 
 
-The camel-aws2-s3 sink connector has no aggregation strategies out of the box.
+The camel-aws2-s3 sink connector supports 1 aggregation strategies out of the box, which are listed below.
+
+
+
+[source,java]
+----
+
+org.apache.camel.kafkaconnector.aws2s3.aggregation.NewlineAggregationStrategy
+
+----
 // kafka-connector options: END
