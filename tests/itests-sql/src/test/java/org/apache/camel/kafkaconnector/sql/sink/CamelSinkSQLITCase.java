@@ -33,13 +33,15 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.sql.client.DatabaseClient;
-import org.apache.camel.kafkaconnector.sql.services.SQLService;
-import org.apache.camel.kafkaconnector.sql.services.SQLServiceFactory;
 import org.apache.camel.kafkaconnector.sql.services.TestDataSource;
+import org.apache.camel.test.infra.jdbc.services.JDBCService;
+import org.apache.camel.test.infra.jdbc.services.JDBCServiceBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.containers.JdbcDatabaseContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -51,10 +53,25 @@ public class CamelSinkSQLITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkSQLITCase.class);
 
     @RegisterExtension
-    public SQLService sqlService = SQLServiceFactory.createService();
+    public JDBCService sqlService;
 
     private final int expect = 1;
     private int received;
+
+    public CamelSinkSQLITCase() {
+        JdbcDatabaseContainer container = new PostgreSQLContainer("postgres:9.6.2")
+                .withDatabaseName("camel")
+                .withUsername("ckc")
+                .withPassword("ckcDevel123")
+                .withInitScript("schema.sql")
+                .withStartupTimeoutSeconds(60);
+
+        sqlService = JDBCServiceBuilder.newBuilder()
+                .withContainer(container)
+                .build();
+
+        sqlService.initialize();
+    }
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -115,7 +132,7 @@ public class CamelSinkSQLITCase extends AbstractKafkaTest {
         LOG.debug("Waiting for indices");
 
         try {
-            DatabaseClient client = new DatabaseClient(sqlService.sqlUrl());
+            DatabaseClient client = new DatabaseClient(sqlService.jdbcUrl());
 
             TestUtils.waitFor(() -> {
                 try {
