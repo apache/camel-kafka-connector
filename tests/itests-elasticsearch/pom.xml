@@ -37,27 +37,26 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- test infra -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-infra-common</artifactId>
+            <version>${camel.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-infra-elasticsearch</artifactId>
+            <version>${camel.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-elasticsearch-rest</artifactId>
-        </dependency>
-
-        <!--
-        This one is (temporarily) needed for providing supporting classes for the
-        ConnectRecordValueToMapTransformer - which is needed to properly convert record formats from
-        ElasticSearch to Kafka
-        -->
-        <dependency>
-            <groupId>org.apache.camel.kafkaconnector</groupId>
-            <artifactId>camel-kafka-connector</artifactId>
-            <version>${project.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
