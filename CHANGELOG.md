@@ -6,15 +6,28 @@
 
 **Closed issues:**
 
+- CamelAmqpSourceConnector example contains wrong camel.sink parameters [\#767](https://github.com/apache/camel-kafka-connector/issues/767)
+- Getting some error logs for camel.connector 3.1.0 with strimzi 0.20.0 update [\#766](https://github.com/apache/camel-kafka-connector/issues/766)
 - Add a removeHeaders option on both source and sink [\#763](https://github.com/apache/camel-kafka-connector/issues/763)
 - Added Camel-SQL kafka connector integration test [\#757](https://github.com/apache/camel-kafka-connector/issues/757)
 - Create binary distribution [\#754](https://github.com/apache/camel-kafka-connector/issues/754)
+- Possibly moving Integration tests in a separated repository? [\#746](https://github.com/apache/camel-kafka-connector/issues/746)
 - Support Poll timeout and key cache size as option for kafka idempotent repository [\#734](https://github.com/apache/camel-kafka-connector/issues/734)
 - Provide validation of properties file from the catalog [\#671](https://github.com/apache/camel-kafka-connector/issues/671)
+- Include possible enum values in Catalog [\#645](https://github.com/apache/camel-kafka-connector/issues/645)
+- \[camel-main-support\] Use camel's built-in support for configuring data formats trough properties [\#497](https://github.com/apache/camel-kafka-connector/issues/497)
 - Create Arangodb examples [\#457](https://github.com/apache/camel-kafka-connector/issues/457)
 
 **Merged pull requests:**
 
+- Upgrade Strimzi to 0.20.1 [\#796](https://github.com/apache/camel-kafka-connector/pull/796) ([oscerd](https://github.com/oscerd))
+- Removed staging repositories for 3.7.0 [\#794](https://github.com/apache/camel-kafka-connector/pull/794) ([oscerd](https://github.com/oscerd))
+- Camel master sync [\#791](https://github.com/apache/camel-kafka-connector/pull/791) ([oscerd](https://github.com/oscerd))
+- Camel-Master updated to 3.7.0 staging [\#789](https://github.com/apache/camel-kafka-connector/pull/789) ([oscerd](https://github.com/oscerd))
+- Couchbase timeout fixes on camel-master [\#787](https://github.com/apache/camel-kafka-connector/pull/787) ([orpiske](https://github.com/orpiske))
+- Rebase camel-master on master by hand [\#783](https://github.com/apache/camel-kafka-connector/pull/783) ([oscerd](https://github.com/oscerd))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#776](https://github.com/apache/camel-kafka-connector/pull/776) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Set the service version to the supported one from Azurite to prevent test failures [\#775](https://github.com/apache/camel-kafka-connector/pull/775) ([orpiske](https://github.com/orpiske))
 - Fix example CamelAmqpSourceConnector using sink instead of source pro… [\#768](https://github.com/apache/camel-kafka-connector/pull/768) ([apupier](https://github.com/apupier))
 - Binary distribution created [\#765](https://github.com/apache/camel-kafka-connector/pull/765) ([valdar](https://github.com/valdar))
 - Remove headers fix [\#764](https://github.com/apache/camel-kafka-connector/pull/764) ([oscerd](https://github.com/oscerd))
@@ -35,7 +48,6 @@
 - Prevent NPEs in the \(unlikely\) case the record value is null [\#730](https://github.com/apache/camel-kafka-connector/pull/730) ([orpiske](https://github.com/orpiske))
 - Added documentation for idempotency in basic configuration docs [\#729](https://github.com/apache/camel-kafka-connector/pull/729) ([oscerd](https://github.com/oscerd))
 - Added Support for KafkaIdempotentRepository [\#725](https://github.com/apache/camel-kafka-connector/pull/725) ([oscerd](https://github.com/oscerd))
-- Updated AWS test services according to interface changes from camel 3.7 [\#724](https://github.com/apache/camel-kafka-connector/pull/724) ([orpiske](https://github.com/orpiske))
 - Use a Registry Ref for IdempotentRepository [\#722](https://github.com/apache/camel-kafka-connector/pull/722) ([oscerd](https://github.com/oscerd))
 - Use the errorHandler variable coming from Builder [\#718](https://github.com/apache/camel-kafka-connector/pull/718) ([oscerd](https://github.com/oscerd))
 - Idempotency [\#716](https://github.com/apache/camel-kafka-connector/pull/716) ([oscerd](https://github.com/oscerd))
@@ -438,6 +450,7 @@
 - Aggregator support for completionTimeout too [\#290](https://github.com/apache/camel-kafka-connector/issues/290)
 - Upgrade to Camel 3.4.0 LTS version [\#283](https://github.com/apache/camel-kafka-connector/issues/283)
 - Camel-MongoDB Kafka connector: example with sink connector [\#212](https://github.com/apache/camel-kafka-connector/issues/212)
+- Connectors doc: Show up only the priority in the table column [\#182](https://github.com/apache/camel-kafka-connector/issues/182)
 
 **Merged pull requests:**
 
@@ -575,7 +588,6 @@
 - Add connector dependencies in distribution package [\#203](https://github.com/apache/camel-kafka-connector/issues/203)
 - Switch to Camel 3.2.0 [\#199](https://github.com/apache/camel-kafka-connector/issues/199)
 - Cannot apply transforms to Telegram Source Connector [\#188](https://github.com/apache/camel-kafka-connector/issues/188)
-- Connectors doc: Show up only the priority in the table column [\#182](https://github.com/apache/camel-kafka-connector/issues/182)
 - Add an index for connectors in docs [\#169](https://github.com/apache/camel-kafka-connector/issues/169)
 - Autogenerate documentation for sink and source connectors [\#167](https://github.com/apache/camel-kafka-connector/issues/167)
 - Provided dependencies management [\#158](https://github.com/apache/camel-kafka-connector/issues/158)
