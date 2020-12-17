@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.googlecalendarstream.CamelGoogle
 ----
 
 
-The camel-google-calendar-stream source connector supports 47 options, which are listed below.
+The camel-google-calendar-stream source connector supports 53 options, which are listed below.
 
 
 
