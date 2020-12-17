@@ -28,12 +28,6 @@
     <artifactId>itests-rabbitmq</artifactId>
     <name>Camel-Kafka-Connector :: Tests :: RabbitMQ</name>
 
-    <properties>
-<!--        <jmx.port>9010</jmx.port>-->
-<!--        <rmi.server>localhost</rmi.server>-->
-<!--        <jvm.user.settings />-->
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.camel.kafkaconnector</groupId>
@@ -43,15 +37,26 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- test infra -->
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-rabbitmq</artifactId>
+            <artifactId>camel-test-infra-common</artifactId>
+            <version>${camel.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>rabbitmq</artifactId>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-infra-rabbitmq</artifactId>
+            <version>${camel.version}</version>
+            <type>test-jar</type>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-rabbitmq</artifactId>
         </dependency>
     </dependencies>
 
