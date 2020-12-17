@@ -23,8 +23,8 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.rabbitmq.clients.RabbitMQClient;
-import org.apache.camel.kafkaconnector.rabbitmq.services.RabbitMQService;
-import org.apache.camel.kafkaconnector.rabbitmq.services.RabbitMQServiceFactory;
+import org.apache.camel.test.infra.rabbitmq.services.RabbitMQService;
+import org.apache.camel.test.infra.rabbitmq.services.RabbitMQServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,11 +32,9 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Testcontainers
 public class RabbitMQSourceITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static RabbitMQService rabbitmqService = RabbitMQServiceFactory.createService();

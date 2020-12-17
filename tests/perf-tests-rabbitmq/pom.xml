@@ -54,10 +54,19 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- test infra -->
         <dependency>
-            <groupId>org.apache.camel.kafkaconnector</groupId>
-            <artifactId>itests-rabbitmq</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-infra-common</artifactId>
+            <version>${camel.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test-infra-rabbitmq</artifactId>
+            <version>${camel.version}</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
