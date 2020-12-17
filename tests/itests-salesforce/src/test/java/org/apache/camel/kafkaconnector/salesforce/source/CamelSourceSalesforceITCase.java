@@ -62,7 +62,7 @@ The it.test.salesforce.sfdx.path property should point to the directory containi
 CLI client configuration. This can be generated using the following steps:
 
 1. Run the Salesforce CLI container:
-docker run --rm --name salesforce-cli -it -v /path/to/sfdx:/root/.sfdx salesforce/salesforcedx
+docker run --rm --privileged --name salesforce-cli -it -v /path/to/sfdx:/root/.sfdx salesforce/salesforcedx
 
 2. Within the container, use the following command to login:
 sfdx force:auth:device:login -s -d -i <client ID>

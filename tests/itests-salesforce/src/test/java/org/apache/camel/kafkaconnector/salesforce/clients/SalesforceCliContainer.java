@@ -33,8 +33,9 @@ public class SalesforceCliContainer extends GenericContainer<SalesforceCliContai
         super("salesforce/salesforcedx");
 
         withFileSystemBind(HOST_PATH, "/root/.sfdx");
+        withPrivilegedMode(true);
 
-        withCommand("/bin/bash", "-c", "echo running ; while true ; do sleep 1 ; echo running ; done");
+        withCommand("/bin/bash", "-c", "chmod 600 /root/.sfdx/key.json ; echo running ; while true ; do sleep 1 ; echo running ; done");
         waitingFor(Wait.forLogMessage(".*running.*", 1));
     }
 
