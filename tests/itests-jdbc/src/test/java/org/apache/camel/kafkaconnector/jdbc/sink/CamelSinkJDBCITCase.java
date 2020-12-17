@@ -33,13 +33,15 @@ import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.jdbc.client.DatabaseClient;
-import org.apache.camel.kafkaconnector.jdbc.services.JDBCService;
-import org.apache.camel.kafkaconnector.jdbc.services.JDBCServiceFactory;
 import org.apache.camel.kafkaconnector.jdbc.services.TestDataSource;
+import org.apache.camel.test.infra.jdbc.services.JDBCService;
+import org.apache.camel.test.infra.jdbc.services.JDBCServiceBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.containers.JdbcDatabaseContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -48,13 +50,29 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @Testcontainers
 public class CamelSinkJDBCITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJDBCITCase.class);
-
     @RegisterExtension
-    public JDBCService jdbcService = JDBCServiceFactory.createService();
+    static JDBCService jdbcService;
+
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJDBCITCase.class);
 
     private final int expect = 10;
     private int received;
+
+    static {
+        final String postgresImage = "postgres:9.6.2";
+
+        JdbcDatabaseContainer container = new PostgreSQLContainer(postgresImage)
+                .withDatabaseName("camel")
+                .withUsername("ckc")
+                .withPassword("ckcDevel123")
+                .withInitScript("schema.sql")
+                .withStartupTimeoutSeconds(60);
+
+        // Let the JDBC Service handle container lifecycle
+        jdbcService = JDBCServiceBuilder.newBuilder()
+                .withContainer(container)
+                .build();
+    }
 
     @Override
     protected String[] getConnectorsInTest() {

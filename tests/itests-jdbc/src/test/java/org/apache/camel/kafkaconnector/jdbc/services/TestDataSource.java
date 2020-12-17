@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.jdbc.services;
 
+import org.apache.camel.test.infra.jdbc.common.JDBCProperties;
 import org.postgresql.ds.PGSimpleDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,7 @@ public class TestDataSource extends PGSimpleDataSource {
     private static final String URL;
 
     static {
-        URL = System.getProperty("jdbc.url");
+        URL = System.getProperty(JDBCProperties.JDBC_CONNECTION_URL);
     }
 
     public TestDataSource() {
