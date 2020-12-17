@@ -17,17 +17,14 @@
 
 package org.apache.camel.kafkaconnector.sql.services;
 
+import org.apache.camel.test.infra.jdbc.common.JDBCProperties;
 import org.postgresql.ds.PGSimpleDataSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class TestDataSource extends PGSimpleDataSource {
-    private static final Logger LOG = LoggerFactory.getLogger(TestDataSource.class);
-
     private static final String URL;
 
     static {
-        URL = System.getProperty("sql.url");
+        URL = System.getProperty(JDBCProperties.JDBC_CONNECTION_URL);
     }
 
     public TestDataSource() {
