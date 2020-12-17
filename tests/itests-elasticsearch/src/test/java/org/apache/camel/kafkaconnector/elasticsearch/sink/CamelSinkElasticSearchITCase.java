@@ -29,8 +29,8 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.elasticsearch.clients.ElasticSearchClient;
 import org.apache.camel.kafkaconnector.elasticsearch.common.ElasticSearchCommon;
-import org.apache.camel.kafkaconnector.elasticsearch.services.ElasticSearchService;
-import org.apache.camel.kafkaconnector.elasticsearch.services.ElasticSearchServiceFactory;
+import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchService;
+import org.apache.camel.test.infra.elasticsearch.services.ElasticSearchServiceFactory;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +39,6 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -47,7 +46,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Testcontainers
 public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static ElasticSearchService elasticSearch = ElasticSearchServiceFactory.createService();
