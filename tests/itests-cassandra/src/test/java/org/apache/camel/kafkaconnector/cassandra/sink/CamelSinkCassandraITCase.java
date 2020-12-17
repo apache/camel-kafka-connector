@@ -25,12 +25,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.cassandra.clients.CassandraClient;
 import org.apache.camel.kafkaconnector.cassandra.clients.dao.TestDataDao;
-import org.apache.camel.kafkaconnector.cassandra.services.CassandraService;
-import org.apache.camel.kafkaconnector.cassandra.services.CassandraServiceFactory;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
+import org.apache.camel.test.infra.cassandra.services.CassandraService;
+import org.apache.camel.test.infra.cassandra.services.CassandraServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,12 +38,10 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Testcontainers
 public class CamelSinkCassandraITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static CassandraService cassandraService = CassandraServiceFactory.createService();
