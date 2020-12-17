@@ -24,9 +24,9 @@ import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
-import org.apache.camel.kafkaconnector.hdfs.services.HDFSService;
-import org.apache.camel.kafkaconnector.hdfs.services.HDFSServiceFactory;
 import org.apache.camel.kafkaconnector.hdfs.utils.HDFSEasy;
+import org.apache.camel.test.infra.hdfs.v2.services.HDFSService;
+import org.apache.camel.test.infra.hdfs.v2.services.HDFSServiceFactory;
 import org.apache.hadoop.fs.LocatedFileStatus;
 import org.apache.hadoop.fs.Path;
 import org.junit.jupiter.api.AfterEach;
@@ -36,14 +36,12 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@Testcontainers
 public class CamelSinkHDFSITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static HDFSService hdfsService = HDFSServiceFactory.createService();
