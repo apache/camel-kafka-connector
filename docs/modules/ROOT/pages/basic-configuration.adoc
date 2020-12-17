@@ -25,6 +25,8 @@ For a Sink connector the basic options are:
 | camel.idempotency.memory.dimension | The Memory dimension of the in memory idempotent Repository | 100 | LOW
 | camel.idempotency.kafka.topic | The Kafka topic name to use for the idempotent repository | kafka_idempotent_repository | LOW
 | camel.idempotency.kafka.bootstrap.servers | A comma-separated list of host and port pairs that are the addresses of the Kafka brokers where the idempotent repository should live | localhost:9092 | LOW
+| camel.idempotency.kafka.max.cache.size | Sets the maximum size of the local key cache | 1000 | LOW
+| camel.idempotency.kafka.poll.duration.ms | Sets the poll duration (in milliseconds) of the Kafka consumer | 100 | LOW
 |===
 
 For a Source connector the basic options are:
@@ -55,6 +57,8 @@ For a Source connector the basic options are:
 | camel.idempotency.memory.dimension | The Memory dimension of the in memory idempotent Repository | 100 | LOW
 | camel.idempotency.kafka.topic | The Kafka topic name to use for the idempotent repository | kafka_idempotent_repository | LOW
 | camel.idempotency.kafka.bootstrap.servers | A comma-separated list of host and port pairs that are the addresses of the Kafka brokers where the idempotent repository should live | localhost:9092 | LOW
+| camel.idempotency.kafka.max.cache.size | Sets the maximum size of the local key cache | 1000 | LOW
+| camel.idempotency.kafka.poll.duration.ms | Sets the poll duration (in milliseconds) of the Kafka consumer | 100 | LOW
 |===
 
 For more options related to single connector you can have a look at xref:connectors.adoc[Connectors list].
