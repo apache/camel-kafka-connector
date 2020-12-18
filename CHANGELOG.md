@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.1...HEAD)
 
+**Fixed bugs:**
+
+- Jetty conflicts in Salesforce connector [\#807](https://github.com/apache/camel-kafka-connector/issues/807)
+
 **Closed issues:**
 
 - CamelAmqpSourceConnector example contains wrong camel.sink parameters [\#767](https://github.com/apache/camel-kafka-connector/issues/767)
@@ -20,6 +24,17 @@
 
 **Merged pull requests:**
 
+- Added Kafka idempotent repository cache size and poll timeout docs in… [\#809](https://github.com/apache/camel-kafka-connector/pull/809) ([oscerd](https://github.com/oscerd))
+- Salesforce fixes [\#808](https://github.com/apache/camel-kafka-connector/pull/808) ([orpiske](https://github.com/orpiske))
+- Removed repeated idempotency.enabled option in source connector basic… [\#806](https://github.com/apache/camel-kafka-connector/pull/806) ([oscerd](https://github.com/oscerd))
+- Align SQL tests with test infra from Camel 3.7 [\#804](https://github.com/apache/camel-kafka-connector/pull/804) ([orpiske](https://github.com/orpiske))
+- Align RabbitMQ tests with test infra from Camel 3.7 [\#803](https://github.com/apache/camel-kafka-connector/pull/803) ([orpiske](https://github.com/orpiske))
+- Align MongoDB tests with test infra from Camel 3.7 [\#802](https://github.com/apache/camel-kafka-connector/pull/802) ([orpiske](https://github.com/orpiske))
+- Align JDBC tests with test infra from Camel 3.7 [\#801](https://github.com/apache/camel-kafka-connector/pull/801) ([orpiske](https://github.com/orpiske))
+- Align HDFS tests with test infra from Camel 3.7 [\#800](https://github.com/apache/camel-kafka-connector/pull/800) ([orpiske](https://github.com/orpiske))
+- Align ElasticSearch tests with test infra from Camel 3.7 [\#799](https://github.com/apache/camel-kafka-connector/pull/799) ([orpiske](https://github.com/orpiske))
+- Align Cassandra tests with test infra from Camel 3.7 [\#798](https://github.com/apache/camel-kafka-connector/pull/798) ([orpiske](https://github.com/orpiske))
+- Add SJMS2 patches to master [\#797](https://github.com/apache/camel-kafka-connector/pull/797) ([orpiske](https://github.com/orpiske))
 - Upgrade Strimzi to 0.20.1 [\#796](https://github.com/apache/camel-kafka-connector/pull/796) ([oscerd](https://github.com/oscerd))
 - Removed staging repositories for 3.7.0 [\#794](https://github.com/apache/camel-kafka-connector/pull/794) ([oscerd](https://github.com/oscerd))
 - Camel master sync [\#791](https://github.com/apache/camel-kafka-connector/pull/791) ([oscerd](https://github.com/oscerd))
@@ -450,7 +465,6 @@
 - Aggregator support for completionTimeout too [\#290](https://github.com/apache/camel-kafka-connector/issues/290)
 - Upgrade to Camel 3.4.0 LTS version [\#283](https://github.com/apache/camel-kafka-connector/issues/283)
 - Camel-MongoDB Kafka connector: example with sink connector [\#212](https://github.com/apache/camel-kafka-connector/issues/212)
-- Connectors doc: Show up only the priority in the table column [\#182](https://github.com/apache/camel-kafka-connector/issues/182)
 
 **Merged pull requests:**
 
@@ -588,6 +602,7 @@
 - Add connector dependencies in distribution package [\#203](https://github.com/apache/camel-kafka-connector/issues/203)
 - Switch to Camel 3.2.0 [\#199](https://github.com/apache/camel-kafka-connector/issues/199)
 - Cannot apply transforms to Telegram Source Connector [\#188](https://github.com/apache/camel-kafka-connector/issues/188)
+- Connectors doc: Show up only the priority in the table column [\#182](https://github.com/apache/camel-kafka-connector/issues/182)
 - Add an index for connectors in docs [\#169](https://github.com/apache/camel-kafka-connector/issues/169)
 - Autogenerate documentation for sink and source connectors [\#167](https://github.com/apache/camel-kafka-connector/issues/167)
 - Provided dependencies management [\#158](https://github.com/apache/camel-kafka-connector/issues/158)
