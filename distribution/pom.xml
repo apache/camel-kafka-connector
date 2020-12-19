@@ -65,6 +65,21 @@
                   </descriptors>
                 </configuration>
               </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <!-- WARNING: this profile generates a zip with all the connectors of ~10GB -->
+      <id>release-binary</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>${maven-assembly-plugin-version}</version>
+            <executions>
               <execution>
                 <id>binary-release</id>
                 <phase>package</phase>
