@@ -214,7 +214,6 @@
 - Camel-kafka-connector-catalog: Adding some more tests [\#596](https://github.com/apache/camel-kafka-connector/pull/596) ([oscerd](https://github.com/oscerd))
 - Slack transforms [\#595](https://github.com/apache/camel-kafka-connector/pull/595) ([oscerd](https://github.com/oscerd))
 - Rename all transformers, converters, aggregationStrategies to reflect the maning convention we have [\#593](https://github.com/apache/camel-kafka-connector/pull/593) ([oscerd](https://github.com/oscerd))
-- Improve readme [\#591](https://github.com/apache/camel-kafka-connector/pull/591) ([orpiske](https://github.com/orpiske))
 - Add converters, transforms and aggregationStrategies to catalog [\#589](https://github.com/apache/camel-kafka-connector/pull/589) ([oscerd](https://github.com/oscerd))
 - Avoid usage of static for Camel Kafka Connector catalog [\#588](https://github.com/apache/camel-kafka-connector/pull/588) ([apupier](https://github.com/apupier))
 - Added GH actions to run the camel-master build using the Strimzi Next profile [\#587](https://github.com/apache/camel-kafka-connector/pull/587) ([orpiske](https://github.com/orpiske))
