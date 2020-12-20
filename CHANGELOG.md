@@ -24,6 +24,7 @@
 
 **Merged pull requests:**
 
+- Fix pre release [\#810](https://github.com/apache/camel-kafka-connector/pull/810) ([valdar](https://github.com/valdar))
 - Added Kafka idempotent repository cache size and poll timeout docs in… [\#809](https://github.com/apache/camel-kafka-connector/pull/809) ([oscerd](https://github.com/oscerd))
 - Salesforce fixes [\#808](https://github.com/apache/camel-kafka-connector/pull/808) ([orpiske](https://github.com/orpiske))
 - Removed repeated idempotency.enabled option in source connector basic… [\#806](https://github.com/apache/camel-kafka-connector/pull/806) ([oscerd](https://github.com/oscerd))
@@ -214,6 +215,7 @@
 - Camel-kafka-connector-catalog: Adding some more tests [\#596](https://github.com/apache/camel-kafka-connector/pull/596) ([oscerd](https://github.com/oscerd))
 - Slack transforms [\#595](https://github.com/apache/camel-kafka-connector/pull/595) ([oscerd](https://github.com/oscerd))
 - Rename all transformers, converters, aggregationStrategies to reflect the maning convention we have [\#593](https://github.com/apache/camel-kafka-connector/pull/593) ([oscerd](https://github.com/oscerd))
+- Improve readme [\#591](https://github.com/apache/camel-kafka-connector/pull/591) ([orpiske](https://github.com/orpiske))
 - Add converters, transforms and aggregationStrategies to catalog [\#589](https://github.com/apache/camel-kafka-connector/pull/589) ([oscerd](https://github.com/oscerd))
 - Avoid usage of static for Camel Kafka Connector catalog [\#588](https://github.com/apache/camel-kafka-connector/pull/588) ([apupier](https://github.com/apupier))
 - Added GH actions to run the camel-master build using the Strimzi Next profile [\#587](https://github.com/apache/camel-kafka-connector/pull/587) ([orpiske](https://github.com/orpiske))
@@ -264,6 +266,7 @@
 - \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
 - Removed folder added for error and regen docs [\#504](https://github.com/apache/camel-kafka-connector/pull/504) ([oscerd](https://github.com/oscerd))
 - Throttles strimzi startup to prevent resource reuse errors [\#503](https://github.com/apache/camel-kafka-connector/pull/503) ([orpiske](https://github.com/orpiske))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#502](https://github.com/apache/camel-kafka-connector/pull/502) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Rabbitmq itest [\#501](https://github.com/apache/camel-kafka-connector/pull/501) ([valdar](https://github.com/valdar))
 - Removed the Jenkinsfile deploy pipeline, we are now using gh action [\#496](https://github.com/apache/camel-kafka-connector/pull/496) ([oscerd](https://github.com/oscerd))
 - Upgrade Maven Wrapper to 0.5.6 [\#495](https://github.com/apache/camel-kafka-connector/pull/495) ([oscerd](https://github.com/oscerd))
