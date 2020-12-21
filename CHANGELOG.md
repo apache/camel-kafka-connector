@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+## [camel-kafka-connector-0.7.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.0) (2020-12-21)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.1...HEAD)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.1...camel-kafka-connector-0.7.0)
 
 **Fixed bugs:**
 
@@ -266,7 +266,6 @@
 - \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
 - Removed folder added for error and regen docs [\#504](https://github.com/apache/camel-kafka-connector/pull/504) ([oscerd](https://github.com/oscerd))
 - Throttles strimzi startup to prevent resource reuse errors [\#503](https://github.com/apache/camel-kafka-connector/pull/503) ([orpiske](https://github.com/orpiske))
-- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#502](https://github.com/apache/camel-kafka-connector/pull/502) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Rabbitmq itest [\#501](https://github.com/apache/camel-kafka-connector/pull/501) ([valdar](https://github.com/valdar))
 - Removed the Jenkinsfile deploy pipeline, we are now using gh action [\#496](https://github.com/apache/camel-kafka-connector/pull/496) ([oscerd](https://github.com/oscerd))
 - Upgrade Maven Wrapper to 0.5.6 [\#495](https://github.com/apache/camel-kafka-connector/pull/495) ([oscerd](https://github.com/oscerd))
