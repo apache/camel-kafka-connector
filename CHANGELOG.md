@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.0...HEAD)
+
+**Merged pull requests:**
+
+- Camel kafka connector 0.7.x [\#811](https://github.com/apache/camel-kafka-connector/pull/811) ([valdar](https://github.com/valdar))
+
 ## [camel-kafka-connector-0.7.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.0) (2020-12-21)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.1...camel-kafka-connector-0.7.0)
@@ -84,30 +92,10 @@
 - Minor SJMS2 test cleanups [\#681](https://github.com/apache/camel-kafka-connector/pull/681) ([orpiske](https://github.com/orpiske))
 - fix typo [\#680](https://github.com/apache/camel-kafka-connector/pull/680) ([apupier](https://github.com/apupier))
 - Use foreach instead of Iterator to simplify code [\#678](https://github.com/apache/camel-kafka-connector/pull/678) ([apupier](https://github.com/apupier))
-- Avoid mix of stream and non-stream; simplify comparison [\#676](https://github.com/apache/camel-kafka-connector/pull/676) ([apupier](https://github.com/apupier))
-- 672 provide description in catalog [\#675](https://github.com/apache/camel-kafka-connector/pull/675) ([apupier](https://github.com/apupier))
-- Use genericity to simplify code in CamelKafkaConnectorUpdateMojo [\#674](https://github.com/apache/camel-kafka-connector/pull/674) ([apupier](https://github.com/apupier))
-- Remove unused private code [\#673](https://github.com/apache/camel-kafka-connector/pull/673) ([apupier](https://github.com/apupier))
-- Decouple the RabbitMQ client from the service to simplify using the test infra from Camel [\#666](https://github.com/apache/camel-kafka-connector/pull/666) ([orpiske](https://github.com/orpiske))
-- Decouple the MongoDB client from the service to simplify using the test infra from Camel [\#662](https://github.com/apache/camel-kafka-connector/pull/662) ([orpiske](https://github.com/orpiske))
-- Added a dataformat archetype for extending connectors [\#661](https://github.com/apache/camel-kafka-connector/pull/661) ([oscerd](https://github.com/oscerd))
-- Update azure-tests [\#659](https://github.com/apache/camel-kafka-connector/pull/659) ([unsortedhashsets](https://github.com/unsortedhashsets))
-- Index.adoc should reflect nav.adoc [\#658](https://github.com/apache/camel-kafka-connector/pull/658) ([oscerd](https://github.com/oscerd))
-- Added a page in docs related to basic configuration of camel kafka co… [\#657](https://github.com/apache/camel-kafka-connector/pull/657) ([oscerd](https://github.com/oscerd))
-- Added specific section in documentation related to archetype [\#656](https://github.com/apache/camel-kafka-connector/pull/656) ([oscerd](https://github.com/oscerd))
-- Update archetypes docs to point to the latest snapshot 0.7.0 [\#654](https://github.com/apache/camel-kafka-connector/pull/654) ([oscerd](https://github.com/oscerd))
-- Error handling 1st part [\#653](https://github.com/apache/camel-kafka-connector/pull/653) ([oscerd](https://github.com/oscerd))
-- Minor fixes [\#652](https://github.com/apache/camel-kafka-connector/pull/652) ([valdar](https://github.com/valdar))
-- Provide an archetype with needed bits to use Apicurio Registry stuff [\#650](https://github.com/apache/camel-kafka-connector/pull/650) ([oscerd](https://github.com/oscerd))
-- Added 0.6.0 to camel compatibility matrix [\#648](https://github.com/apache/camel-kafka-connector/pull/648) ([oscerd](https://github.com/oscerd))
-- Aligned docs and link to 0.6.0 [\#647](https://github.com/apache/camel-kafka-connector/pull/647) ([oscerd](https://github.com/oscerd))
-- Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
-- Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
-- Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.6.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.1) (2020-11-27)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.0...camel-kafka-connector-0.6.1)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/decouple-jms-client-before...camel-kafka-connector-0.6.1)
 
 **Implemented enhancements:**
 
@@ -131,20 +119,12 @@
 - Create Camel Google Mail Stream Source example [\#696](https://github.com/apache/camel-kafka-connector/issues/696)
 - Create Google Calendar Stream Source Example [\#695](https://github.com/apache/camel-kafka-connector/issues/695)
 - Provide API in Camel Connector Catalog to retrieve Camel Kafka Basic configuration [\#679](https://github.com/apache/camel-kafka-connector/issues/679)
-- Provide description for connector in the catalog [\#672](https://github.com/apache/camel-kafka-connector/issues/672)
 - Add RemoteFileTransforms to the connector directly [\#670](https://github.com/apache/camel-kafka-connector/issues/670)
 - Added Git connector examples [\#669](https://github.com/apache/camel-kafka-connector/issues/669)
-- Add SFTP examples [\#668](https://github.com/apache/camel-kafka-connector/issues/668)
 - Add Simple Language support  [\#667](https://github.com/apache/camel-kafka-connector/issues/667)
 - Create example for camel-pgevent connector [\#664](https://github.com/apache/camel-kafka-connector/issues/664)
 - Support Idempotency on source and sink [\#663](https://github.com/apache/camel-kafka-connector/issues/663)
-- Add an extensible connector archetype with dataformat [\#660](https://github.com/apache/camel-kafka-connector/issues/660)
-- Create a Camel-exec example [\#649](https://github.com/apache/camel-kafka-connector/issues/649)
-- Provide an archetype with needed bits to use Apicurio Registry stuff [\#646](https://github.com/apache/camel-kafka-connector/issues/646)
-- Bump to Strimzi 0.20.0 and Kafka 2.6.0 [\#641](https://github.com/apache/camel-kafka-connector/issues/641)
 - Add Twittersearch examples [\#637](https://github.com/apache/camel-kafka-connector/issues/637)
-- Add Openshift instrunctions for Telegram examples [\#636](https://github.com/apache/camel-kafka-connector/issues/636)
-- Create example for camel-resteasy-kafka-source-connector [\#565](https://github.com/apache/camel-kafka-connector/issues/565)
 - Beans aggregation size and timeout [\#487](https://github.com/apache/camel-kafka-connector/issues/487)
 - Camel-telegram wrongly parse chatId from headers [\#463](https://github.com/apache/camel-kafka-connector/issues/463)
 - Release 0.4.4 [\#451](https://github.com/apache/camel-kafka-connector/issues/451)
@@ -154,38 +134,58 @@
 
 - Docs antora 0.6.x [\#655](https://github.com/apache/camel-kafka-connector/pull/655) ([oscerd](https://github.com/oscerd))
 
-## [camel-kafka-connector-0.6.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.0) (2020-10-24)
+## [decouple-jms-client-before](https://github.com/apache/camel-kafka-connector/tree/decouple-jms-client-before) (2020-11-05)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.4...camel-kafka-connector-0.6.0)
-
-**Implemented enhancements:**
-
-- Better handling of property with no default values using `ConfigDef.NO\_DEFAULT\_VALUE` [\#563](https://github.com/apache/camel-kafka-connector/issues/563)
-- camel-kafka-connector-generator-maven-plugin: prevent the ovewrite of exixting classes unless they are @Generated annotated [\#146](https://github.com/apache/camel-kafka-connector/issues/146)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800014...decouple-jms-client-before)
 
 **Closed issues:**
 
-- Add the required field for connector options in docs and catalog [\#617](https://github.com/apache/camel-kafka-connector/issues/617)
-- Move ConnectRecordValueToMapTransformer of Elastisearch IT test in the connector [\#615](https://github.com/apache/camel-kafka-connector/issues/615)
-- Add a Telegram example  [\#613](https://github.com/apache/camel-kafka-connector/issues/613)
-- Remove camel-hipchat from camel-master [\#603](https://github.com/apache/camel-kafka-connector/issues/603)
-- Add a file watch connector example  [\#600](https://github.com/apache/camel-kafka-connector/issues/600)
-- Camel Kafka connector extensible is broken with mvnd [\#598](https://github.com/apache/camel-kafka-connector/issues/598)
-- Rename all transformers, converters, aggregationStrategies to reflect the maning convention we have [\#590](https://github.com/apache/camel-kafka-connector/issues/590)
-- Strimzi 0.20: Lets test early with Release candidate [\#581](https://github.com/apache/camel-kafka-connector/issues/581)
-- Slack Connector: Add the slack transformer from itest to the slack connector ootb [\#580](https://github.com/apache/camel-kafka-connector/issues/580)
-- Provide API on Camel Kafka Connector to add/remove connectors dynamically [\#573](https://github.com/apache/camel-kafka-connector/issues/573)
-- Improve README [\#569](https://github.com/apache/camel-kafka-connector/issues/569)
-- Create an AWS2-Translate example [\#564](https://github.com/apache/camel-kafka-connector/issues/564)
-- Add converters, transforms and aggregationStrategies to catalog [\#559](https://github.com/apache/camel-kafka-connector/issues/559)
-- Add more convenience method to CamelKafkaConnectorCatalog [\#558](https://github.com/apache/camel-kafka-connector/issues/558)
-- Improve Catalog and cleanup [\#537](https://github.com/apache/camel-kafka-connector/issues/537)
-- Create a source distribution module [\#524](https://github.com/apache/camel-kafka-connector/issues/524)
-- Create examples with dataformat in camel-kafka-connector-examples repo [\#509](https://github.com/apache/camel-kafka-connector/issues/509)
-- \[task helper\] use EndpointUriFactory to generate endpoint URIs [\#500](https://github.com/apache/camel-kafka-connector/issues/500)
-- Examples instructions for Openshift too [\#465](https://github.com/apache/camel-kafka-connector/issues/465)
-- Add integration test for archetype [\#462](https://github.com/apache/camel-kafka-connector/issues/462)
-- Provide a catalog of potential configuration properties specific to Camel Kafka Connector [\#430](https://github.com/apache/camel-kafka-connector/issues/430)
+- Provide description for connector in the catalog [\#672](https://github.com/apache/camel-kafka-connector/issues/672)
+- Add SFTP examples [\#668](https://github.com/apache/camel-kafka-connector/issues/668)
+- Add an extensible connector archetype with dataformat [\#660](https://github.com/apache/camel-kafka-connector/issues/660)
+- Create a Camel-exec example [\#649](https://github.com/apache/camel-kafka-connector/issues/649)
+- Provide an archetype with needed bits to use Apicurio Registry stuff [\#646](https://github.com/apache/camel-kafka-connector/issues/646)
+- Create example for camel-resteasy-kafka-source-connector [\#565](https://github.com/apache/camel-kafka-connector/issues/565)
+
+**Merged pull requests:**
+
+- Avoid mix of stream and non-stream; simplify comparison [\#676](https://github.com/apache/camel-kafka-connector/pull/676) ([apupier](https://github.com/apupier))
+- 672 provide description in catalog [\#675](https://github.com/apache/camel-kafka-connector/pull/675) ([apupier](https://github.com/apupier))
+- Use genericity to simplify code in CamelKafkaConnectorUpdateMojo [\#674](https://github.com/apache/camel-kafka-connector/pull/674) ([apupier](https://github.com/apupier))
+- Remove unused private code [\#673](https://github.com/apache/camel-kafka-connector/pull/673) ([apupier](https://github.com/apupier))
+- Decouple the RabbitMQ client from the service to simplify using the test infra from Camel [\#666](https://github.com/apache/camel-kafka-connector/pull/666) ([orpiske](https://github.com/orpiske))
+- Decouple the MongoDB client from the service to simplify using the test infra from Camel [\#662](https://github.com/apache/camel-kafka-connector/pull/662) ([orpiske](https://github.com/orpiske))
+- Added a dataformat archetype for extending connectors [\#661](https://github.com/apache/camel-kafka-connector/pull/661) ([oscerd](https://github.com/oscerd))
+- Update azure-tests [\#659](https://github.com/apache/camel-kafka-connector/pull/659) ([unsortedhashsets](https://github.com/unsortedhashsets))
+- Index.adoc should reflect nav.adoc [\#658](https://github.com/apache/camel-kafka-connector/pull/658) ([oscerd](https://github.com/oscerd))
+- Added a page in docs related to basic configuration of camel kafka co… [\#657](https://github.com/apache/camel-kafka-connector/pull/657) ([oscerd](https://github.com/oscerd))
+- Added specific section in documentation related to archetype [\#656](https://github.com/apache/camel-kafka-connector/pull/656) ([oscerd](https://github.com/oscerd))
+- Update archetypes docs to point to the latest snapshot 0.7.0 [\#654](https://github.com/apache/camel-kafka-connector/pull/654) ([oscerd](https://github.com/oscerd))
+- Error handling 1st part [\#653](https://github.com/apache/camel-kafka-connector/pull/653) ([oscerd](https://github.com/oscerd))
+- Minor fixes [\#652](https://github.com/apache/camel-kafka-connector/pull/652) ([valdar](https://github.com/valdar))
+- Provide an archetype with needed bits to use Apicurio Registry stuff [\#650](https://github.com/apache/camel-kafka-connector/pull/650) ([oscerd](https://github.com/oscerd))
+- Added 0.6.0 to camel compatibility matrix [\#648](https://github.com/apache/camel-kafka-connector/pull/648) ([oscerd](https://github.com/oscerd))
+- Aligned docs and link to 0.6.0 [\#647](https://github.com/apache/camel-kafka-connector/pull/647) ([oscerd](https://github.com/oscerd))
+- Upgrade to Strimzi 0.20.0 and kafka-2.6.0 [\#642](https://github.com/apache/camel-kafka-connector/pull/642) ([oscerd](https://github.com/oscerd))
+- Minor changes to docs - correct the camel-log and camel-timer properties file names, verbiage change on untar/unzip section. [\#639](https://github.com/apache/camel-kafka-connector/pull/639) ([cunningt](https://github.com/cunningt))
+- Decouple the Elasticsearch client from the service to simplify moving the services to Camel core [\#638](https://github.com/apache/camel-kafka-connector/pull/638) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800014](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800014) (2020-10-27)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800013...camel-kafka-connector-0.5.0.fuse-jdk11-800014)
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800013](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800013) (2020-10-27)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.6.0...camel-kafka-connector-0.5.0.fuse-jdk11-800013)
+
+**Closed issues:**
+
+- Bump to Strimzi 0.20.0 and Kafka 2.6.0 [\#641](https://github.com/apache/camel-kafka-connector/issues/641)
+- Add Openshift instrunctions for Telegram examples [\#636](https://github.com/apache/camel-kafka-connector/issues/636)
+
+## [camel-kafka-connector-0.6.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.0) (2020-10-24)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800012...camel-kafka-connector-0.6.0)
 
 **Merged pull requests:**
 
@@ -293,9 +293,60 @@
 - 0.5.0 docs [\#452](https://github.com/apache/camel-kafka-connector/pull/452) ([oscerd](https://github.com/oscerd))
 - Updated SQS example [\#450](https://github.com/apache/camel-kafka-connector/pull/450) ([oscerd](https://github.com/oscerd))
 
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800012](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800012) (2020-10-24)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800011...camel-kafka-connector-0.5.0.fuse-jdk11-800012)
+
+**Closed issues:**
+
+- Add the required field for connector options in docs and catalog [\#617](https://github.com/apache/camel-kafka-connector/issues/617)
+- Move ConnectRecordValueToMapTransformer of Elastisearch IT test in the connector [\#615](https://github.com/apache/camel-kafka-connector/issues/615)
+- Add a Telegram example  [\#613](https://github.com/apache/camel-kafka-connector/issues/613)
+- Add more convenience method to CamelKafkaConnectorCatalog [\#558](https://github.com/apache/camel-kafka-connector/issues/558)
+- \[task helper\] use EndpointUriFactory to generate endpoint URIs [\#500](https://github.com/apache/camel-kafka-connector/issues/500)
+- Provide a catalog of potential configuration properties specific to Camel Kafka Connector [\#430](https://github.com/apache/camel-kafka-connector/issues/430)
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800011](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800011) (2020-10-20)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800010...camel-kafka-connector-0.5.0.fuse-jdk11-800011)
+
+**Closed issues:**
+
+- Remove camel-hipchat from camel-master [\#603](https://github.com/apache/camel-kafka-connector/issues/603)
+- Add a file watch connector example  [\#600](https://github.com/apache/camel-kafka-connector/issues/600)
+- Camel Kafka connector extensible is broken with mvnd [\#598](https://github.com/apache/camel-kafka-connector/issues/598)
+- Rename all transformers, converters, aggregationStrategies to reflect the maning convention we have [\#590](https://github.com/apache/camel-kafka-connector/issues/590)
+- Strimzi 0.20: Lets test early with Release candidate [\#581](https://github.com/apache/camel-kafka-connector/issues/581)
+- Slack Connector: Add the slack transformer from itest to the slack connector ootb [\#580](https://github.com/apache/camel-kafka-connector/issues/580)
+- Improve README [\#569](https://github.com/apache/camel-kafka-connector/issues/569)
+- Add converters, transforms and aggregationStrategies to catalog [\#559](https://github.com/apache/camel-kafka-connector/issues/559)
+- Improve Catalog and cleanup [\#537](https://github.com/apache/camel-kafka-connector/issues/537)
+- Examples instructions for Openshift too [\#465](https://github.com/apache/camel-kafka-connector/issues/465)
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800010](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800010) (2020-10-14)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800009...camel-kafka-connector-0.5.0.fuse-jdk11-800010)
+
+**Implemented enhancements:**
+
+- Better handling of property with no default values using `ConfigDef.NO\_DEFAULT\_VALUE` [\#563](https://github.com/apache/camel-kafka-connector/issues/563)
+- camel-kafka-connector-generator-maven-plugin: prevent the ovewrite of exixting classes unless they are @Generated annotated [\#146](https://github.com/apache/camel-kafka-connector/issues/146)
+
+**Closed issues:**
+
+- Provide API on Camel Kafka Connector to add/remove connectors dynamically [\#573](https://github.com/apache/camel-kafka-connector/issues/573)
+- Create an AWS2-Translate example [\#564](https://github.com/apache/camel-kafka-connector/issues/564)
+- Create a source distribution module [\#524](https://github.com/apache/camel-kafka-connector/issues/524)
+- Create examples with dataformat in camel-kafka-connector-examples repo [\#509](https://github.com/apache/camel-kafka-connector/issues/509)
+- Add integration test for archetype [\#462](https://github.com/apache/camel-kafka-connector/issues/462)
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800009](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800009) (2020-10-11)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.4...camel-kafka-connector-0.5.0.fuse-jdk11-800009)
+
 ## [camel-kafka-connector-0.4.4](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.4) (2020-10-10)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...camel-kafka-connector-0.4.4)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800008...camel-kafka-connector-0.4.4)
 
 **Fixed bugs:**
 
@@ -317,9 +368,6 @@
 - Add an ASF deploy GH Action like other camel projects [\#492](https://github.com/apache/camel-kafka-connector/issues/492)
 - MongoDB Kafka Connector: In the docs add Json as base value converter [\#490](https://github.com/apache/camel-kafka-connector/issues/490)
 - Create an Infinispan example [\#486](https://github.com/apache/camel-kafka-connector/issues/486)
-- Create Minio connector examples [\#456](https://github.com/apache/camel-kafka-connector/issues/456)
-- Support topics.regex  [\#454](https://github.com/apache/camel-kafka-connector/issues/454)
-- Define a default naming for converters, transforms and aggregation packages [\#439](https://github.com/apache/camel-kafka-connector/issues/439)
 - High CPU Usage with RabbitMQ Connector \(polling interface implemented incorrectly?\) [\#414](https://github.com/apache/camel-kafka-connector/issues/414)
 - How to have connector output JSON String? [\#398](https://github.com/apache/camel-kafka-connector/issues/398)
 - Question: Does Camel looks for IAM roles from Env variables [\#282](https://github.com/apache/camel-kafka-connector/issues/282)
@@ -328,20 +376,20 @@
 
 - Added connector class on each connector documentation page [\#406](https://github.com/apache/camel-kafka-connector/pull/406) ([oscerd](https://github.com/oscerd))
 - Removed wrong terminal output from example in archetype docs [\#395](https://github.com/apache/camel-kafka-connector/pull/395) ([oscerd](https://github.com/oscerd))
-- Point to correct branch in gh workflows [\#385](https://github.com/apache/camel-kafka-connector/pull/385) ([oscerd](https://github.com/oscerd))
-- Point to correct branch in github workflows [\#384](https://github.com/apache/camel-kafka-connector/pull/384) ([oscerd](https://github.com/oscerd))
-- Camel 3.4.3 [\#382](https://github.com/apache/camel-kafka-connector/pull/382) ([oscerd](https://github.com/oscerd))
-- Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
-- Make the camel-kafka-connector archetype use the parent POM [\#364](https://github.com/apache/camel-kafka-connector/pull/364) ([oscerd](https://github.com/oscerd))
-- Fixed index adoc [\#353](https://github.com/apache/camel-kafka-connector/pull/353) ([oscerd](https://github.com/oscerd))
-- Added missing connector in connectors pom [\#351](https://github.com/apache/camel-kafka-connector/pull/351) ([oscerd](https://github.com/oscerd))
-- 0.4.1-SNAPSHOT [\#349](https://github.com/apache/camel-kafka-connector/pull/349) ([oscerd](https://github.com/oscerd))
-- Pointing to 0.4.x on this branch for antora [\#348](https://github.com/apache/camel-kafka-connector/pull/348) ([oscerd](https://github.com/oscerd))
-- Release 0.4.0 [\#347](https://github.com/apache/camel-kafka-connector/pull/347) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800008](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800008) (2020-09-30)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0...camel-kafka-connector-0.5.0.fuse-jdk11-800008)
+
+**Closed issues:**
+
+- Create Minio connector examples [\#456](https://github.com/apache/camel-kafka-connector/issues/456)
+- Support topics.regex  [\#454](https://github.com/apache/camel-kafka-connector/issues/454)
+- Define a default naming for converters, transforms and aggregation packages [\#439](https://github.com/apache/camel-kafka-connector/issues/439)
 
 ## [camel-kafka-connector-0.5.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0) (2020-09-09)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0...camel-kafka-connector-0.5.0)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.1.fuse-jdk11-800001...camel-kafka-connector-0.5.0)
 
 **Implemented enhancements:**
 
@@ -351,7 +399,6 @@
 
 **Fixed bugs:**
 
-- flaky syslog integration test  [\#367](https://github.com/apache/camel-kafka-connector/issues/367)
 - UnitOfWork.done\(\) needs to be called on Polled exchanges [\#202](https://github.com/apache/camel-kafka-connector/issues/202)
 
 **Closed issues:**
@@ -362,13 +409,7 @@
 - IMPROVEMENT REQUEST: Add a transformer mode to the connectors to make lightweight edits to the messages while they are being produced/consumed [\#410](https://github.com/apache/camel-kafka-connector/issues/410)
 - aws2-S3-connector: \(gzip/zip\) compression with sink [\#387](https://github.com/apache/camel-kafka-connector/issues/387)
 - Discussion: troubleshooting documentation? [\#381](https://github.com/apache/camel-kafka-connector/issues/381)
-- Bump to Camel 3.4.3 [\#379](https://github.com/apache/camel-kafka-connector/issues/379)
 - Documentation: SJMS2 connector is incompatible with activemq-all [\#378](https://github.com/apache/camel-kafka-connector/issues/378)
-- Unclean startup causes an NPE on shutdown [\#376](https://github.com/apache/camel-kafka-connector/issues/376)
-- Make the camel-kafka-connector archetype use the parent POM [\#362](https://github.com/apache/camel-kafka-connector/issues/362)
-- Exception on endpoint being treated as a polling consumer before createPollingConsumer is called. [\#361](https://github.com/apache/camel-kafka-connector/issues/361)
-- Add a Nats connector examples in camel-kafka-connector-examples repo [\#359](https://github.com/apache/camel-kafka-connector/issues/359)
-- Add a compatibility matrix related to camel version in docs [\#344](https://github.com/apache/camel-kafka-connector/issues/344)
 - aws2S3connector: moveAfterRead true bucket not created [\#339](https://github.com/apache/camel-kafka-connector/issues/339)
 - CamelAwssqsSinkConnector does not work when specifying AWS credentials in camel.sink.endpoint [\#319](https://github.com/apache/camel-kafka-connector/issues/319)
 - Create a Kinesis Firehose Connector example [\#318](https://github.com/apache/camel-kafka-connector/issues/318)
@@ -409,85 +450,288 @@
 - Upgrade to camel 3.4.3 [\#380](https://github.com/apache/camel-kafka-connector/pull/380) ([oscerd](https://github.com/oscerd))
 - Prevent NPEs on shutdown when critical errors occur [\#377](https://github.com/apache/camel-kafka-connector/pull/377) ([orpiske](https://github.com/orpiske))
 - Fixed incorrect number of log arguments in S3 exception handling [\#375](https://github.com/apache/camel-kafka-connector/pull/375) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.4.1.fuse-jdk11-800001](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.1.fuse-jdk11-800001) (2020-08-22)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800007...camel-kafka-connector-0.4.1.fuse-jdk11-800001)
+
+**Fixed bugs:**
+
+- flaky syslog integration test  [\#367](https://github.com/apache/camel-kafka-connector/issues/367)
+
+**Closed issues:**
+
+- Bump to Camel 3.4.3 [\#379](https://github.com/apache/camel-kafka-connector/issues/379)
+- Unclean startup causes an NPE on shutdown [\#376](https://github.com/apache/camel-kafka-connector/issues/376)
+
+**Merged pull requests:**
+
+- Point to correct branch in gh workflows [\#385](https://github.com/apache/camel-kafka-connector/pull/385) ([oscerd](https://github.com/oscerd))
+- Point to correct branch in github workflows [\#384](https://github.com/apache/camel-kafka-connector/pull/384) ([oscerd](https://github.com/oscerd))
+- Camel 3.4.3 [\#382](https://github.com/apache/camel-kafka-connector/pull/382) ([oscerd](https://github.com/oscerd))
+- Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
+- Make the camel-kafka-connector archetype use the parent POM [\#364](https://github.com/apache/camel-kafka-connector/pull/364) ([oscerd](https://github.com/oscerd))
+- Fixed index adoc [\#353](https://github.com/apache/camel-kafka-connector/pull/353) ([oscerd](https://github.com/oscerd))
+- Added missing connector in connectors pom [\#351](https://github.com/apache/camel-kafka-connector/pull/351) ([oscerd](https://github.com/oscerd))
+- 0.4.1-SNAPSHOT [\#349](https://github.com/apache/camel-kafka-connector/pull/349) ([oscerd](https://github.com/oscerd))
+- Pointing to 0.4.x on this branch for antora [\#348](https://github.com/apache/camel-kafka-connector/pull/348) ([oscerd](https://github.com/oscerd))
+- Release 0.4.0 [\#347](https://github.com/apache/camel-kafka-connector/pull/347) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800007](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800007) (2020-08-15)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800006...camel-kafka-connector-0.5.0.fuse-jdk11-800007)
+
+**Closed issues:**
+
+- Exception on endpoint being treated as a polling consumer before createPollingConsumer is called. [\#361](https://github.com/apache/camel-kafka-connector/issues/361)
+
+**Merged pull requests:**
+
 - Defer topic deletion [\#374](https://github.com/apache/camel-kafka-connector/pull/374) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800006](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800006) (2020-08-14)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800005...camel-kafka-connector-0.5.0.fuse-jdk11-800006)
+
+**Merged pull requests:**
+
 - Fixes for edge cases [\#373](https://github.com/apache/camel-kafka-connector/pull/373) ([orpiske](https://github.com/orpiske))
 - Added missing fromUrl to the log message [\#372](https://github.com/apache/camel-kafka-connector/pull/372) ([orpiske](https://github.com/orpiske))
 - Removes debugging message [\#370](https://github.com/apache/camel-kafka-connector/pull/370) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800005](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800005) (2020-08-12)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800004...camel-kafka-connector-0.5.0.fuse-jdk11-800005)
+
+**Merged pull requests:**
+
 - Removing backport gh action. It doesn't work. [\#369](https://github.com/apache/camel-kafka-connector/pull/369) ([oscerd](https://github.com/oscerd))
 - Minor AWS tests cleanups [\#368](https://github.com/apache/camel-kafka-connector/pull/368) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800004](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800004) (2020-08-11)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800003...camel-kafka-connector-0.5.0.fuse-jdk11-800004)
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800003](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800003) (2020-08-10)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800002...camel-kafka-connector-0.5.0.fuse-jdk11-800003)
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800002](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800002) (2020-08-08)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.5.0.fuse-jdk11-800001...camel-kafka-connector-0.5.0.fuse-jdk11-800002)
+
+**Closed issues:**
+
+- Make the camel-kafka-connector archetype use the parent POM [\#362](https://github.com/apache/camel-kafka-connector/issues/362)
+- Add a Nats connector examples in camel-kafka-connector-examples repo [\#359](https://github.com/apache/camel-kafka-connector/issues/359)
+
+**Merged pull requests:**
+
 - Building endpoint uris should for secret options automatic use RAW\(\) … [\#366](https://github.com/apache/camel-kafka-connector/pull/366) ([davsclaus](https://github.com/davsclaus))
 - Cutting down connectors [\#365](https://github.com/apache/camel-kafka-connector/pull/365) ([oscerd](https://github.com/oscerd))
 - Make the camel-kafka-connector archetype use the parent POM [\#363](https://github.com/apache/camel-kafka-connector/pull/363) ([oscerd](https://github.com/oscerd))
 - AWS SDK v2 integration tests: Kinesis [\#358](https://github.com/apache/camel-kafka-connector/pull/358) ([orpiske](https://github.com/orpiske))
 - Use latest Strimzi's docker images [\#357](https://github.com/apache/camel-kafka-connector/pull/357) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.5.0.fuse-jdk11-800001](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.5.0.fuse-jdk11-800001) (2020-08-04)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800015...camel-kafka-connector-0.5.0.fuse-jdk11-800001)
+
+**Closed issues:**
+
+- Add a compatibility matrix related to camel version in docs [\#344](https://github.com/apache/camel-kafka-connector/issues/344)
+
+**Merged pull requests:**
+
 - Fixed camel compatibility matrix table [\#356](https://github.com/apache/camel-kafka-connector/pull/356) ([oscerd](https://github.com/oscerd))
 - Added a camel-compatibility matrix page [\#355](https://github.com/apache/camel-kafka-connector/pull/355) ([oscerd](https://github.com/oscerd))
 - Upgrade Archetype docs [\#354](https://github.com/apache/camel-kafka-connector/pull/354) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#352](https://github.com/apache/camel-kafka-connector/pull/352) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#350](https://github.com/apache/camel-kafka-connector/pull/350) ([oscerd](https://github.com/oscerd))
 - Release 0.4.0 [\#346](https://github.com/apache/camel-kafka-connector/pull/346) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800015](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800015) (2020-08-02)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800014...camel-kafka-connector-0.4.0.fuse-jdk11-800015)
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800014](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800014) (2020-07-31)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800013...camel-kafka-connector-0.4.0.fuse-jdk11-800014)
+
+**Merged pull requests:**
+
 - AWS Kinesis test fixes when in remote mode [\#345](https://github.com/apache/camel-kafka-connector/pull/345) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800013](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800013) (2020-07-30)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0...camel-kafka-connector-0.4.0.fuse-jdk11-800013)
 
 ## [camel-kafka-connector-0.4.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0) (2020-07-29)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.3.0...camel-kafka-connector-0.4.0)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800012...camel-kafka-connector-0.4.0)
 
 **Implemented enhancements:**
 
-- Being able to inject an aggregator in a sink connector [\#274](https://github.com/apache/camel-kafka-connector/issues/274)
-- In case of Sink we need to use toD instead of to [\#252](https://github.com/apache/camel-kafka-connector/issues/252)
-- Upgrade to Kafka 2.5.0 [\#249](https://github.com/apache/camel-kafka-connector/issues/249)
-- Improve integration test support when component dependencies are present [\#211](https://github.com/apache/camel-kafka-connector/issues/211)
 - Support both marshal and unmarshal in source and sinks [\#194](https://github.com/apache/camel-kafka-connector/issues/194)
-- camel-kafka-connector-generator-maven-plugin: implement a component exclusion mechanism [\#148](https://github.com/apache/camel-kafka-connector/issues/148)
-
-**Fixed bugs:**
-
-- BigDecimal values are not handled correctly in Headers serialization and deserialization [\#325](https://github.com/apache/camel-kafka-connector/issues/325)
-- Camel HDFS: does not work due to dependencies conflicts [\#263](https://github.com/apache/camel-kafka-connector/issues/263)
-- NullPointerException during shutdown when using Salesforce component [\#245](https://github.com/apache/camel-kafka-connector/issues/245)
 
 **Closed issues:**
 
 - Camel-Elasticsearch Connector not working on OpenShift [\#342](https://github.com/apache/camel-kafka-connector/issues/342)
 - aws2S3connector connected to minio ClassCastException [\#338](https://github.com/apache/camel-kafka-connector/issues/338)
-- Add documentation for archetype [\#333](https://github.com/apache/camel-kafka-connector/issues/333)
-- Add an archetype to be able to extend the existing connectors with converters/aggregators/transformations/pojo etc. [\#329](https://github.com/apache/camel-kafka-connector/issues/329)
 - The committed block count cannot exceed the maximum limit of 50,000 blocks. [\#324](https://github.com/apache/camel-kafka-connector/issues/324)
-- Upgrade to Camel 3.4.2 once released [\#322](https://github.com/apache/camel-kafka-connector/issues/322)
-- CamelAwssqsSinkConnector is leaking AWS credentials into Kafka Connect log [\#320](https://github.com/apache/camel-kafka-connector/issues/320)
-- How install camel-jira-kafka-connector [\#315](https://github.com/apache/camel-kafka-connector/issues/315)
-- From S3 to kafka, when using Idempotent filter, Do we still fetch S3 file content ? [\#314](https://github.com/apache/camel-kafka-connector/issues/314)
-- How to break messages when ingesting into kafka [\#313](https://github.com/apache/camel-kafka-connector/issues/313)
-- In S3 source connector, how to fetch only new files ? [\#311](https://github.com/apache/camel-kafka-connector/issues/311)
-- CAMEL-15063 work-around may be removed [\#310](https://github.com/apache/camel-kafka-connector/issues/310)
-- Add an aggregation page in docs [\#303](https://github.com/apache/camel-kafka-connector/issues/303)
-- Outdated camel-dependencies version? [\#297](https://github.com/apache/camel-kafka-connector/issues/297)
-- Aggregator support for completionTimeout too [\#290](https://github.com/apache/camel-kafka-connector/issues/290)
-- Upgrade to Camel 3.4.0 LTS version [\#283](https://github.com/apache/camel-kafka-connector/issues/283)
-- Camel-MongoDB Kafka connector: example with sink connector [\#212](https://github.com/apache/camel-kafka-connector/issues/212)
 
 **Merged pull requests:**
 
 - Issue/194 [\#341](https://github.com/apache/camel-kafka-connector/pull/341) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800012](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800012) (2020-07-28)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800011...camel-kafka-connector-0.4.0.fuse-jdk11-800012)
+
+**Merged pull requests:**
+
 - Re-enable a Cassandra test disabled due to CAMEL-15219 [\#337](https://github.com/apache/camel-kafka-connector/pull/337) ([orpiske](https://github.com/orpiske))
 - Add CORE protocol support to SJMS2 connector [\#336](https://github.com/apache/camel-kafka-connector/pull/336) ([fvaleri](https://github.com/fvaleri))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800011](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800011) (2020-07-27)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800010...camel-kafka-connector-0.4.0.fuse-jdk11-800011)
+
+**Merged pull requests:**
+
 - Document how to run camel-kafka-connector on Kubernetes. [\#335](https://github.com/apache/camel-kafka-connector/pull/335) ([fvaleri](https://github.com/fvaleri))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800010](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800010) (2020-07-25)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800009...camel-kafka-connector-0.4.0.fuse-jdk11-800010)
+
+**Closed issues:**
+
+- Add documentation for archetype [\#333](https://github.com/apache/camel-kafka-connector/issues/333)
+
+**Merged pull requests:**
+
 - Archetypes docs [\#334](https://github.com/apache/camel-kafka-connector/pull/334) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800009](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800009) (2020-07-24)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800008...camel-kafka-connector-0.4.0.fuse-jdk11-800009)
+
+**Implemented enhancements:**
+
+- Improve integration test support when component dependencies are present [\#211](https://github.com/apache/camel-kafka-connector/issues/211)
+
+**Fixed bugs:**
+
+- BigDecimal values are not handled correctly in Headers serialization and deserialization [\#325](https://github.com/apache/camel-kafka-connector/issues/325)
+- NullPointerException during shutdown when using Salesforce component [\#245](https://github.com/apache/camel-kafka-connector/issues/245)
+
+**Closed issues:**
+
+- Add an archetype to be able to extend the existing connectors with converters/aggregators/transformations/pojo etc. [\#329](https://github.com/apache/camel-kafka-connector/issues/329)
+- Upgrade to Camel 3.4.2 once released [\#322](https://github.com/apache/camel-kafka-connector/issues/322)
+- CamelAwssqsSinkConnector is leaking AWS credentials into Kafka Connect log [\#320](https://github.com/apache/camel-kafka-connector/issues/320)
+- Add an aggregation page in docs [\#303](https://github.com/apache/camel-kafka-connector/issues/303)
+
+**Merged pull requests:**
+
 - Added Aggregation documentation [\#332](https://github.com/apache/camel-kafka-connector/pull/332) ([oscerd](https://github.com/oscerd))
 - Introducing a camel-kafka-connector-extensible archetype for adding b… [\#330](https://github.com/apache/camel-kafka-connector/pull/330) ([oscerd](https://github.com/oscerd))
 - Adds a new manual integration test for Slack source [\#328](https://github.com/apache/camel-kafka-connector/pull/328) ([orpiske](https://github.com/orpiske))
 - Bump Camel to version 3.4.2 [\#327](https://github.com/apache/camel-kafka-connector/pull/327) ([oscerd](https://github.com/oscerd))
 - Issue/325 [\#326](https://github.com/apache/camel-kafka-connector/pull/326) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800008](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800008) (2020-07-10)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800007...camel-kafka-connector-0.4.0.fuse-jdk11-800008)
+
+**Closed issues:**
+
+- How install camel-jira-kafka-connector [\#315](https://github.com/apache/camel-kafka-connector/issues/315)
+
+**Merged pull requests:**
+
 - Added additional explanation about testing  [\#317](https://github.com/apache/camel-kafka-connector/pull/317) ([orpiske](https://github.com/orpiske))
 - Added tests for JDBC sink [\#316](https://github.com/apache/camel-kafka-connector/pull/316) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800007](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800007) (2020-07-05)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800006...camel-kafka-connector-0.4.0.fuse-jdk11-800007)
+
+**Fixed bugs:**
+
+- Camel HDFS: does not work due to dependencies conflicts [\#263](https://github.com/apache/camel-kafka-connector/issues/263)
+
+**Closed issues:**
+
+- From S3 to kafka, when using Idempotent filter, Do we still fetch S3 file content ? [\#314](https://github.com/apache/camel-kafka-connector/issues/314)
+- How to break messages when ingesting into kafka [\#313](https://github.com/apache/camel-kafka-connector/issues/313)
+- CAMEL-15063 work-around may be removed [\#310](https://github.com/apache/camel-kafka-connector/issues/310)
+
+**Merged pull requests:**
+
 - Reverts the work-around for CAMEL-15063 [\#312](https://github.com/apache/camel-kafka-connector/pull/312) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800006](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800006) (2020-07-01)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800005...camel-kafka-connector-0.4.0.fuse-jdk11-800006)
+
+**Closed issues:**
+
+- In S3 source connector, how to fetch only new files ? [\#311](https://github.com/apache/camel-kafka-connector/issues/311)
+
+**Merged pull requests:**
+
 - Fix HDFS tests with Camel 3.4 \(related to issue \#263\) [\#309](https://github.com/apache/camel-kafka-connector/pull/309) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800005](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800005) (2020-06-30)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800004...camel-kafka-connector-0.4.0.fuse-jdk11-800005)
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800004](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800004) (2020-06-27)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800003...camel-kafka-connector-0.4.0.fuse-jdk11-800004)
+
+**Merged pull requests:**
+
 - Fixes AWS test cases when running with remote AWS services [\#308](https://github.com/apache/camel-kafka-connector/pull/308) ([orpiske](https://github.com/orpiske))
 - Avoid logging the autoconfiguration summary from CamelMain [\#307](https://github.com/apache/camel-kafka-connector/pull/307) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800003](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800003) (2020-06-26)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800002...camel-kafka-connector-0.4.0.fuse-jdk11-800003)
+
+**Implemented enhancements:**
+
+- Upgrade to Kafka 2.5.0 [\#249](https://github.com/apache/camel-kafka-connector/issues/249)
+
+**Closed issues:**
+
+- Aggregator support for completionTimeout too [\#290](https://github.com/apache/camel-kafka-connector/issues/290)
+
+**Merged pull requests:**
+
 - Upgrade Kafka to version 2.5.0 [\#306](https://github.com/apache/camel-kafka-connector/pull/306) ([oscerd](https://github.com/oscerd))
 - Fix Typo in CamelTypeConverterTransform [\#304](https://github.com/apache/camel-kafka-connector/pull/304) ([oscerd](https://github.com/oscerd))
 - Added Aggregation timeout [\#301](https://github.com/apache/camel-kafka-connector/pull/301) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800002](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800002) (2020-06-25)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.4.0.fuse-jdk11-800001...camel-kafka-connector-0.4.0.fuse-jdk11-800002)
+
+**Implemented enhancements:**
+
+- Being able to inject an aggregator in a sink connector [\#274](https://github.com/apache/camel-kafka-connector/issues/274)
+- In case of Sink we need to use toD instead of to [\#252](https://github.com/apache/camel-kafka-connector/issues/252)
+
+**Closed issues:**
+
+- Outdated camel-dependencies version? [\#297](https://github.com/apache/camel-kafka-connector/issues/297)
+- Upgrade to Camel 3.4.0 LTS version [\#283](https://github.com/apache/camel-kafka-connector/issues/283)
+- Camel-MongoDB Kafka connector: example with sink connector [\#212](https://github.com/apache/camel-kafka-connector/issues/212)
+
+**Merged pull requests:**
+
 - Fixes camel-dependencies to point to 3.4.0 [\#298](https://github.com/apache/camel-kafka-connector/pull/298) ([oscerd](https://github.com/oscerd))
 - ToD support [\#296](https://github.com/apache/camel-kafka-connector/pull/296) ([oscerd](https://github.com/oscerd))
 - Add tests for MongoDB [\#295](https://github.com/apache/camel-kafka-connector/pull/295) ([orpiske](https://github.com/orpiske))
@@ -496,6 +740,17 @@
 - Updated the packages docs page [\#292](https://github.com/apache/camel-kafka-connector/pull/292) ([oscerd](https://github.com/oscerd))
 - Aggregate Support [\#289](https://github.com/apache/camel-kafka-connector/pull/289) ([oscerd](https://github.com/oscerd))
 - Cassandra test improvements [\#286](https://github.com/apache/camel-kafka-connector/pull/286) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.4.0.fuse-jdk11-800001](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.4.0.fuse-jdk11-800001) (2020-06-20)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.3.0...camel-kafka-connector-0.4.0.fuse-jdk11-800001)
+
+**Implemented enhancements:**
+
+- camel-kafka-connector-generator-maven-plugin: implement a component exclusion mechanism [\#148](https://github.com/apache/camel-kafka-connector/issues/148)
+
+**Merged pull requests:**
+
 - Backport [\#285](https://github.com/apache/camel-kafka-connector/pull/285) ([oscerd](https://github.com/oscerd))
 - Use release 0.3.0 as lastReleasedVersion [\#284](https://github.com/apache/camel-kafka-connector/pull/284) ([oscerd](https://github.com/oscerd))
 - Fixed component exclusion in combination with filter [\#281](https://github.com/apache/camel-kafka-connector/pull/281) ([oscerd](https://github.com/oscerd))
@@ -504,12 +759,28 @@
 
 ## [camel-kafka-connector-0.3.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.3.0) (2020-06-17)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/container-image-0.3.0...camel-kafka-connector-0.3.0)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.3.0.fuse-jdk11-800004...camel-kafka-connector-0.3.0)
+
+## [camel-kafka-connector-0.3.0.fuse-jdk11-800004](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.3.0.fuse-jdk11-800004) (2020-06-17)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.3.0.fuse-jdk11-800003...camel-kafka-connector-0.3.0.fuse-jdk11-800004)
 
 **Fixed bugs:**
 
 - Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
 - Possible problems in CamelSinkAWSSQSITCase tests [\#215](https://github.com/apache/camel-kafka-connector/issues/215)
+
+**Merged pull requests:**
+
+- Fix a javadoc issue. [\#276](https://github.com/apache/camel-kafka-connector/pull/276) ([valdar](https://github.com/valdar))
+- fix \#259: Camel-elasticsearch-rest-kafka-connector throws java.lang.N… [\#275](https://github.com/apache/camel-kafka-connector/pull/275) ([valdar](https://github.com/valdar))
+- Throw ConnectException due to failed exchanges [\#273](https://github.com/apache/camel-kafka-connector/pull/273) ([omarsmak](https://github.com/omarsmak))
+- Issue/260 [\#272](https://github.com/apache/camel-kafka-connector/pull/272) ([valdar](https://github.com/valdar))
+- Test modularization cleanups [\#271](https://github.com/apache/camel-kafka-connector/pull/271) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.3.0.fuse-jdk11-800003](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.3.0.fuse-jdk11-800003) (2020-06-13)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/container-image-0.3.0...camel-kafka-connector-0.3.0.fuse-jdk11-800003)
 
 **Closed issues:**
 
@@ -519,46 +790,41 @@
 
 **Merged pull requests:**
 
-- Fix a javadoc issue. [\#276](https://github.com/apache/camel-kafka-connector/pull/276) ([valdar](https://github.com/valdar))
-- fix \#259: Camel-elasticsearch-rest-kafka-connector throws java.lang.N… [\#275](https://github.com/apache/camel-kafka-connector/pull/275) ([valdar](https://github.com/valdar))
-- Throw ConnectException due to failed exchanges [\#273](https://github.com/apache/camel-kafka-connector/pull/273) ([omarsmak](https://github.com/omarsmak))
-- Issue/260 [\#272](https://github.com/apache/camel-kafka-connector/pull/272) ([valdar](https://github.com/valdar))
-- Test modularization cleanups [\#271](https://github.com/apache/camel-kafka-connector/pull/271) ([orpiske](https://github.com/orpiske))
 - AWS2-S3 connector: Added the same set of converters/transformers we h… [\#268](https://github.com/apache/camel-kafka-connector/pull/268) ([oscerd](https://github.com/oscerd))
 
 ## [container-image-0.3.0](https://github.com/apache/camel-kafka-connector/tree/container-image-0.3.0) (2020-06-10)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0...container-image-0.3.0)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.3.0.fuse-jdk11-800002...container-image-0.3.0)
 
-**Implemented enhancements:**
+**Closed issues:**
 
-- Use camel-depencencies to import versions of common libraries like Jakson, qpid, log4j etc. [\#241](https://github.com/apache/camel-kafka-connector/issues/241)
-- Autogenerate and example config file for each connector [\#220](https://github.com/apache/camel-kafka-connector/issues/220)
-- S3 source connector delete files from source bucket [\#97](https://github.com/apache/camel-kafka-connector/issues/97)
--  Create example and itest for camel-syslog [\#77](https://github.com/apache/camel-kafka-connector/issues/77)
+- Camel AWS2-S3: Add the same converters and transforms we have for AWS-S3 connector [\#250](https://github.com/apache/camel-kafka-connector/issues/250)
+- Updater the readme of autogenerated connectors doc page [\#219](https://github.com/apache/camel-kafka-connector/issues/219)
 
-**Fixed bugs:**
+**Merged pull requests:**
 
-- Wrong signature of autogenerated method `public static ConfigDef conf\(Map\<String, String\> parsedConfig\)` of each `Camel\*ConnectorConfig` [\#221](https://github.com/apache/camel-kafka-connector/issues/221)
+- Split the tests in modules per service [\#262](https://github.com/apache/camel-kafka-connector/pull/262) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.3.0.fuse-jdk11-800002](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.3.0.fuse-jdk11-800002) (2020-06-10)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.3.0.fuse-jdk11-800001...camel-kafka-connector-0.3.0.fuse-jdk11-800002)
 
 **Closed issues:**
 
 - Add CamelAMQP source and sink example properties [\#264](https://github.com/apache/camel-kafka-connector/issues/264)
 - Add download links to the connectors list page [\#261](https://github.com/apache/camel-kafka-connector/issues/261)
-- Camel AWS2-S3: Add the same converters and transforms we have for AWS-S3 connector [\#250](https://github.com/apache/camel-kafka-connector/issues/250)
-- pls  [\#248](https://github.com/apache/camel-kafka-connector/issues/248)
-- Connectors doc generation shuld be moved from `core` to `connectors` module [\#226](https://github.com/apache/camel-kafka-connector/issues/226)
-- Investigate why syslog documentation result in a missing link [\#225](https://github.com/apache/camel-kafka-connector/issues/225)
-- CamelSinkTask Properties need to be cleaned up before going ahead [\#224](https://github.com/apache/camel-kafka-connector/issues/224)
-- CamelSinkTask headers must be cleaned before sending them ahead [\#223](https://github.com/apache/camel-kafka-connector/issues/223)
-- Updater the readme of autogenerated connectors doc page [\#219](https://github.com/apache/camel-kafka-connector/issues/219)
-- Bump to Camel 3.3.0 [\#217](https://github.com/apache/camel-kafka-connector/issues/217)
 
 **Merged pull requests:**
 
 - Docs download link [\#266](https://github.com/apache/camel-kafka-connector/pull/266) ([oscerd](https://github.com/oscerd))
 - Add AMQP examples for source and sink [\#265](https://github.com/apache/camel-kafka-connector/pull/265) ([rgannu](https://github.com/rgannu))
-- Split the tests in modules per service [\#262](https://github.com/apache/camel-kafka-connector/pull/262) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.3.0.fuse-jdk11-800001](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.3.0.fuse-jdk11-800001) (2020-06-06)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800010...camel-kafka-connector-0.3.0.fuse-jdk11-800001)
+
+**Merged pull requests:**
+
 - chore\(pgp\): update pgp key for Nicola Ferraro [\#256](https://github.com/apache/camel-kafka-connector/pull/256) ([nicolaferraro](https://github.com/nicolaferraro))
 - Updated try-it-out-on-openshift-with-strimzi.adoc [\#255](https://github.com/apache/camel-kafka-connector/pull/255) ([valdar](https://github.com/valdar))
 - Adds integration tests for Salesforce [\#247](https://github.com/apache/camel-kafka-connector/pull/247) ([orpiske](https://github.com/orpiske))
@@ -582,35 +848,60 @@
 - Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
 - Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
 
-## [camel-kafka-connector-0.2.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0) (2020-05-17)
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800010](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800010) (2020-06-01)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.1.0...camel-kafka-connector-0.2.0)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800009...camel-kafka-connector-0.2.0.fuse-jdk11-800010)
 
-**Implemented enhancements:**
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800009](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800009) (2020-05-29)
 
-- Avoid Thread.sleep in test, use Awaitility FTW [\#186](https://github.com/apache/camel-kafka-connector/issues/186)
-- make the topics property consistent between source and sink connectors [\#175](https://github.com/apache/camel-kafka-connector/issues/175)
-- Produce an assembly artifact containing all the released artifacts [\#165](https://github.com/apache/camel-kafka-connector/issues/165)
-- Create and ad hoc connector for syslog [\#145](https://github.com/apache/camel-kafka-connector/issues/145)
-- Take in to account endpoint path options order into connector code generation [\#144](https://github.com/apache/camel-kafka-connector/issues/144)
-
-**Fixed bugs:**
-
-- Ordering of endpoint path options is not taken in account [\#143](https://github.com/apache/camel-kafka-connector/issues/143)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800008...camel-kafka-connector-0.2.0.fuse-jdk11-800009)
 
 **Closed issues:**
 
-- Add connector dependencies in distribution package [\#203](https://github.com/apache/camel-kafka-connector/issues/203)
+- pls  [\#248](https://github.com/apache/camel-kafka-connector/issues/248)
+
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800008](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800008) (2020-05-28)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800007...camel-kafka-connector-0.2.0.fuse-jdk11-800008)
+
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800007](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800007) (2020-05-27)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800006...camel-kafka-connector-0.2.0.fuse-jdk11-800007)
+
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800006](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800006) (2020-05-26)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0...camel-kafka-connector-0.2.0.fuse-jdk11-800006)
+
+**Implemented enhancements:**
+
+- Use camel-depencencies to import versions of common libraries like Jakson, qpid, log4j etc. [\#241](https://github.com/apache/camel-kafka-connector/issues/241)
+- Autogenerate and example config file for each connector [\#220](https://github.com/apache/camel-kafka-connector/issues/220)
+- S3 source connector delete files from source bucket [\#97](https://github.com/apache/camel-kafka-connector/issues/97)
+-  Create example and itest for camel-syslog [\#77](https://github.com/apache/camel-kafka-connector/issues/77)
+
+**Fixed bugs:**
+
+- Wrong signature of autogenerated method `public static ConfigDef conf\(Map\<String, String\> parsedConfig\)` of each `Camel\*ConnectorConfig` [\#221](https://github.com/apache/camel-kafka-connector/issues/221)
+
+**Closed issues:**
+
+- Connectors doc generation shuld be moved from `core` to `connectors` module [\#226](https://github.com/apache/camel-kafka-connector/issues/226)
+- Investigate why syslog documentation result in a missing link [\#225](https://github.com/apache/camel-kafka-connector/issues/225)
+- CamelSinkTask Properties need to be cleaned up before going ahead [\#224](https://github.com/apache/camel-kafka-connector/issues/224)
+- CamelSinkTask headers must be cleaned before sending them ahead [\#223](https://github.com/apache/camel-kafka-connector/issues/223)
+- Bump to Camel 3.3.0 [\#217](https://github.com/apache/camel-kafka-connector/issues/217)
+
+## [camel-kafka-connector-0.2.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0) (2020-05-17)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800005...camel-kafka-connector-0.2.0)
+
+**Implemented enhancements:**
+
+- Create and ad hoc connector for syslog [\#145](https://github.com/apache/camel-kafka-connector/issues/145)
+
+**Closed issues:**
+
 - Switch to Camel 3.2.0 [\#199](https://github.com/apache/camel-kafka-connector/issues/199)
-- Cannot apply transforms to Telegram Source Connector [\#188](https://github.com/apache/camel-kafka-connector/issues/188)
-- Connectors doc: Show up only the priority in the table column [\#182](https://github.com/apache/camel-kafka-connector/issues/182)
-- Add an index for connectors in docs [\#169](https://github.com/apache/camel-kafka-connector/issues/169)
-- Autogenerate documentation for sink and source connectors [\#167](https://github.com/apache/camel-kafka-connector/issues/167)
-- Provided dependencies management [\#158](https://github.com/apache/camel-kafka-connector/issues/158)
-- Checkstyle missing unused imports? [\#156](https://github.com/apache/camel-kafka-connector/issues/156)
-- Generate a table with supported connectors [\#142](https://github.com/apache/camel-kafka-connector/issues/142)
-- Test coverage: springboot autoconfigurations vs kafka-connect configuration format [\#132](https://github.com/apache/camel-kafka-connector/issues/132)
-- Release 0.1.0 [\#130](https://github.com/apache/camel-kafka-connector/issues/130)
 
 **Merged pull requests:**
 
@@ -622,15 +913,89 @@
 - Re-enable Cassandra test using properties [\#207](https://github.com/apache/camel-kafka-connector/pull/207) ([orpiske](https://github.com/orpiske))
 - Bump to Camel 3.2.0 [\#206](https://github.com/apache/camel-kafka-connector/pull/206) ([oscerd](https://github.com/oscerd))
 - Improved CamelSourceTaskTest [\#205](https://github.com/apache/camel-kafka-connector/pull/205) ([fvaleri](https://github.com/fvaleri))
+
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800005](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800005) (2020-05-11)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800004...camel-kafka-connector-0.2.0.fuse-jdk11-800005)
+
+**Implemented enhancements:**
+
+- Avoid Thread.sleep in test, use Awaitility FTW [\#186](https://github.com/apache/camel-kafka-connector/issues/186)
+
+**Closed issues:**
+
+- Add connector dependencies in distribution package [\#203](https://github.com/apache/camel-kafka-connector/issues/203)
+
+**Merged pull requests:**
+
 - Removed Thread.seep\(...\) in unit tests in order to avoid possible sou… [\#204](https://github.com/apache/camel-kafka-connector/pull/204) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800004](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800004) (2020-05-09)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800003...camel-kafka-connector-0.2.0.fuse-jdk11-800004)
+
+**Closed issues:**
+
+- Generate a table with supported connectors [\#142](https://github.com/apache/camel-kafka-connector/issues/142)
+
+**Merged pull requests:**
+
 - Flakey tests [\#200](https://github.com/apache/camel-kafka-connector/pull/200) ([valdar](https://github.com/valdar))
 - Generate a table with supported connectors [\#198](https://github.com/apache/camel-kafka-connector/pull/198) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800003](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800003) (2020-05-07)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800002...camel-kafka-connector-0.2.0.fuse-jdk11-800003)
+
+**Implemented enhancements:**
+
+- make the topics property consistent between source and sink connectors [\#175](https://github.com/apache/camel-kafka-connector/issues/175)
+
+**Merged pull requests:**
+
 - Make the topics property consistent between source and sink connectors [\#196](https://github.com/apache/camel-kafka-connector/pull/196) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800002](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800002) (2020-05-06)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.2.0.fuse-jdk11-800001...camel-kafka-connector-0.2.0.fuse-jdk11-800002)
+
+**Implemented enhancements:**
+
+- Produce an assembly artifact containing all the released artifacts [\#165](https://github.com/apache/camel-kafka-connector/issues/165)
+- Take in to account endpoint path options order into connector code generation [\#144](https://github.com/apache/camel-kafka-connector/issues/144)
+
+**Fixed bugs:**
+
+- Ordering of endpoint path options is not taken in account [\#143](https://github.com/apache/camel-kafka-connector/issues/143)
+
+**Closed issues:**
+
+- Cannot apply transforms to Telegram Source Connector [\#188](https://github.com/apache/camel-kafka-connector/issues/188)
+- Connectors doc: Show up only the priority in the table column [\#182](https://github.com/apache/camel-kafka-connector/issues/182)
+- Test coverage: springboot autoconfigurations vs kafka-connect configuration format [\#132](https://github.com/apache/camel-kafka-connector/issues/132)
+
+**Merged pull requests:**
+
 - Produce an assembly artifact containing all the released artifacts [\#195](https://github.com/apache/camel-kafka-connector/pull/195) ([oscerd](https://github.com/oscerd))
 - Switched to use RuntimeCatalog.asEndpointUri method to construct the … [\#192](https://github.com/apache/camel-kafka-connector/pull/192) ([valdar](https://github.com/valdar))
 - Connectors doc: Show up only the priority in the table column [\#190](https://github.com/apache/camel-kafka-connector/pull/190) ([oscerd](https://github.com/oscerd))
 - Added test on different component properties formats fix \#132 [\#187](https://github.com/apache/camel-kafka-connector/pull/187) ([valdar](https://github.com/valdar))
 - Code cleanup [\#184](https://github.com/apache/camel-kafka-connector/pull/184) ([fvaleri](https://github.com/fvaleri))
+
+## [camel-kafka-connector-0.2.0.fuse-jdk11-800001](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0.fuse-jdk11-800001) (2020-04-30)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.1.0...camel-kafka-connector-0.2.0.fuse-jdk11-800001)
+
+**Closed issues:**
+
+- Add an index for connectors in docs [\#169](https://github.com/apache/camel-kafka-connector/issues/169)
+- Autogenerate documentation for sink and source connectors [\#167](https://github.com/apache/camel-kafka-connector/issues/167)
+- Provided dependencies management [\#158](https://github.com/apache/camel-kafka-connector/issues/158)
+- Checkstyle missing unused imports? [\#156](https://github.com/apache/camel-kafka-connector/issues/156)
+- Release 0.1.0 [\#130](https://github.com/apache/camel-kafka-connector/issues/130)
+
+**Merged pull requests:**
+
 - Lets try to use a shortname of 50 for connectors options [\#181](https://github.com/apache/camel-kafka-connector/pull/181) ([oscerd](https://github.com/oscerd))
 - Camel-kafka-generator-maven-plugin: Use the Strings class from toolin… [\#180](https://github.com/apache/camel-kafka-connector/pull/180) ([oscerd](https://github.com/oscerd))
 - Introduce the shortName method for option name [\#179](https://github.com/apache/camel-kafka-connector/pull/179) ([oscerd](https://github.com/oscerd))
@@ -652,79 +1017,229 @@
 
 ## [camel-kafka-connector-0.1.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.1.0) (2020-04-25)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/ad2bd4dccdb8ac3b339cd94cd764c8ff169ca993...camel-kafka-connector-0.1.0)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800036...camel-kafka-connector-0.1.0)
 
-**Implemented enhancements:**
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800036](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800036) (2020-04-23)
 
-- Migrating to Junit 5 [\#74](https://github.com/apache/camel-kafka-connector/issues/74)
-- Replace `confluentinc/cp-kafka` image with an upstream version [\#43](https://github.com/apache/camel-kafka-connector/issues/43)
-- Test code cleanups: embedded connect runtime improvements [\#24](https://github.com/apache/camel-kafka-connector/issues/24)
-- Add a CI job for PR [\#19](https://github.com/apache/camel-kafka-connector/issues/19)
-- Support Map and List as Headers [\#18](https://github.com/apache/camel-kafka-connector/issues/18)
-- Find a way to manage dependencies [\#15](https://github.com/apache/camel-kafka-connector/issues/15)
-- Unclean shutdown causing lots of warning messages in the logs [\#13](https://github.com/apache/camel-kafka-connector/issues/13)
-
-**Fixed bugs:**
-
-- Unable to initialize REST resources in tests [\#120](https://github.com/apache/camel-kafka-connector/issues/120)
-- ERROR - Plugin class loader for connector: was not found. [\#118](https://github.com/apache/camel-kafka-connector/issues/118)
-- Flaky test: CamelSinkCassandraITCase [\#67](https://github.com/apache/camel-kafka-connector/issues/67)
-- Integrations tests fails if confluentinc/cp-kafka:5.2.1 has not been pulled [\#25](https://github.com/apache/camel-kafka-connector/issues/25)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800035...camel-kafka-connector-0.0.1.fuse-jdk11-800036)
 
 **Closed issues:**
 
-- Create a documentation index and reflect it on the website [\#136](https://github.com/apache/camel-kafka-connector/issues/136)
-- Documentation: Add instructions on how to use the packaged connectors in Kafka Connect [\#134](https://github.com/apache/camel-kafka-connector/issues/134)
 - Generate documentation to be integrated with Antora and camel website [\#128](https://github.com/apache/camel-kafka-connector/issues/128)
-- Define how to package the connectors  [\#127](https://github.com/apache/camel-kafka-connector/issues/127)
-- Upgrade to Kafka 2.4.1 [\#105](https://github.com/apache/camel-kafka-connector/issues/105)
-- Not able to add resource file [\#104](https://github.com/apache/camel-kafka-connector/issues/104)
-- Not able to run aws s3 source connector  [\#95](https://github.com/apache/camel-kafka-connector/issues/95)
-- Bump Kafka to version 2.4.0 [\#69](https://github.com/apache/camel-kafka-connector/issues/69)
-- Unstable test: CamelSourceTaskTest.testSourcePollingTimeout [\#55](https://github.com/apache/camel-kafka-connector/issues/55)
-- Add a sink and sources examples with camel-cassandraql [\#35](https://github.com/apache/camel-kafka-connector/issues/35)
-- Better support for value Schema in the SourceTask [\#32](https://github.com/apache/camel-kafka-connector/issues/32)
-- run integration test insided github actions? [\#31](https://github.com/apache/camel-kafka-connector/issues/31)
-- INFRA - Turn off mail noise to Camel @dev mailing list [\#30](https://github.com/apache/camel-kafka-connector/issues/30)
-- Allow the user to set the key of the SourceRecord explicitly [\#20](https://github.com/apache/camel-kafka-connector/issues/20)
-- support camel type converters [\#16](https://github.com/apache/camel-kafka-connector/issues/16)
-- The camel-kafka-connector artifacts pulls number of dependencies [\#9](https://github.com/apache/camel-kafka-connector/issues/9)
-- Add Release profile [\#7](https://github.com/apache/camel-kafka-connector/issues/7)
 
 **Merged pull requests:**
 
 - Moved from camel-core to camel-core-engine as a dependecnies. [\#140](https://github.com/apache/camel-kafka-connector/pull/140) ([valdar](https://github.com/valdar))
 - Added gpg key for valdar. [\#139](https://github.com/apache/camel-kafka-connector/pull/139) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800035](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800035) (2020-04-22)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800034...camel-kafka-connector-0.0.1.fuse-jdk11-800035)
+
+**Implemented enhancements:**
+
+- Test code cleanups: embedded connect runtime improvements [\#24](https://github.com/apache/camel-kafka-connector/issues/24)
+
+**Fixed bugs:**
+
+- Unable to initialize REST resources in tests [\#120](https://github.com/apache/camel-kafka-connector/issues/120)
+- ERROR - Plugin class loader for connector: was not found. [\#118](https://github.com/apache/camel-kafka-connector/issues/118)
+
+**Closed issues:**
+
+- Create a documentation index and reflect it on the website [\#136](https://github.com/apache/camel-kafka-connector/issues/136)
+- Documentation: Add instructions on how to use the packaged connectors in Kafka Connect [\#134](https://github.com/apache/camel-kafka-connector/issues/134)
+
+**Merged pull requests:**
+
 - Test code fixes for the auto-generated connectors [\#138](https://github.com/apache/camel-kafka-connector/pull/138) ([orpiske](https://github.com/orpiske))
 - Misc [\#133](https://github.com/apache/camel-kafka-connector/pull/133) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800034](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800034) (2020-04-20)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800033...camel-kafka-connector-0.0.1.fuse-jdk11-800034)
+
+**Implemented enhancements:**
+
+- Find a way to manage dependencies [\#15](https://github.com/apache/camel-kafka-connector/issues/15)
+
+**Closed issues:**
+
+- Define how to package the connectors  [\#127](https://github.com/apache/camel-kafka-connector/issues/127)
+
+**Merged pull requests:**
+
 - Packaging the connectors as zip and tar.gz [\#131](https://github.com/apache/camel-kafka-connector/pull/131) ([oscerd](https://github.com/oscerd))
 - Auto gen [\#129](https://github.com/apache/camel-kafka-connector/pull/129) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800033](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800033) (2020-04-18)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800032...camel-kafka-connector-0.0.1.fuse-jdk11-800033)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800032](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800032) (2020-04-15)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800031...camel-kafka-connector-0.0.1.fuse-jdk11-800032)
+
+**Merged pull requests:**
+
 - Upgrade Testcontainers to version 1.14.0 [\#126](https://github.com/apache/camel-kafka-connector/pull/126) ([oscerd](https://github.com/oscerd))
 - Upgrade Junit Jupiter to version 5.6.2 [\#125](https://github.com/apache/camel-kafka-connector/pull/125) ([oscerd](https://github.com/oscerd))
 - Replaces our own connect runtime implementation with the embedded one from Kafka [\#124](https://github.com/apache/camel-kafka-connector/pull/124) ([orpiske](https://github.com/orpiske))
 - Removed unused class HTTPEchoService [\#123](https://github.com/apache/camel-kafka-connector/pull/123) ([orpiske](https://github.com/orpiske))
 - Fixes a misplaced log error message flooding the logs w/ invalid errors [\#122](https://github.com/apache/camel-kafka-connector/pull/122) ([orpiske](https://github.com/orpiske))
 - Sidebar menu Tidy up name -issue 14567 [\#121](https://github.com/apache/camel-kafka-connector/pull/121) ([rimshach](https://github.com/rimshach))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800031](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800031) (2020-04-07)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800030...camel-kafka-connector-0.0.1.fuse-jdk11-800031)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800030](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800030) (2020-04-05)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800029...camel-kafka-connector-0.0.1.fuse-jdk11-800030)
+
+**Merged pull requests:**
+
 - Bump Qpid JMS to version 0.50.0 [\#119](https://github.com/apache/camel-kafka-connector/pull/119) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800029](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800029) (2020-04-02)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800028...camel-kafka-connector-0.0.1.fuse-jdk11-800029)
+
+**Merged pull requests:**
+
 - Improve documentation for the about section [\#116](https://github.com/apache/camel-kafka-connector/pull/116) ([AemieJ](https://github.com/AemieJ))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800028](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800028) (2020-03-31)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800027...camel-kafka-connector-0.0.1.fuse-jdk11-800028)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800027](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800027) (2020-03-28)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800026...camel-kafka-connector-0.0.1.fuse-jdk11-800027)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800026](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800026) (2020-03-28)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800025...camel-kafka-connector-0.0.1.fuse-jdk11-800026)
+
+**Merged pull requests:**
+
 - Binded itests to test phase to better accommodate github actions disk… [\#115](https://github.com/apache/camel-kafka-connector/pull/115) ([valdar](https://github.com/valdar))
 - Auto gen [\#114](https://github.com/apache/camel-kafka-connector/pull/114) ([valdar](https://github.com/valdar))
 - Added a Jenkinsfile for JDK11 [\#113](https://github.com/apache/camel-kafka-connector/pull/113) ([oscerd](https://github.com/oscerd))
 - Added a Jenkinsfile for JDK8 and being able to deploy automatically [\#112](https://github.com/apache/camel-kafka-connector/pull/112) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800025](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800025) (2020-03-23)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800024...camel-kafka-connector-0.0.1.fuse-jdk11-800025)
+
+**Merged pull requests:**
+
 - Pointing to ASF Snapshot and use the apache Parent [\#111](https://github.com/apache/camel-kafka-connector/pull/111) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800024](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800024) (2020-03-23)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800023...camel-kafka-connector-0.0.1.fuse-jdk11-800024)
+
+**Merged pull requests:**
+
 - Bump Junit Jupiter to version 5.6.1 [\#110](https://github.com/apache/camel-kafka-connector/pull/110) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800023](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800023) (2020-03-20)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800022...camel-kafka-connector-0.0.1.fuse-jdk11-800023)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800022](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800022) (2020-03-20)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800021...camel-kafka-connector-0.0.1.fuse-jdk11-800022)
+
+**Merged pull requests:**
+
 - Bump ActiveMQ to version 5.15.12 [\#109](https://github.com/apache/camel-kafka-connector/pull/109) ([oscerd](https://github.com/oscerd))
 - Avoid building all the code for sourcecheck verification [\#108](https://github.com/apache/camel-kafka-connector/pull/108) ([orpiske](https://github.com/orpiske))
 - Added support for remote AWS testing [\#107](https://github.com/apache/camel-kafka-connector/pull/107) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800021](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800021) (2020-03-17)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800020...camel-kafka-connector-0.0.1.fuse-jdk11-800021)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800020](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800020) (2020-03-14)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800019...camel-kafka-connector-0.0.1.fuse-jdk11-800020)
+
+**Closed issues:**
+
+- Upgrade to Kafka 2.4.1 [\#105](https://github.com/apache/camel-kafka-connector/issues/105)
+- Not able to add resource file [\#104](https://github.com/apache/camel-kafka-connector/issues/104)
+
+**Merged pull requests:**
+
 - Upgrade Kafka to version 2.4.1 - fixes \#105 [\#106](https://github.com/apache/camel-kafka-connector/pull/106) ([oscerd](https://github.com/oscerd))
-- Upgrade Jackson to version 2.10.3 [\#103](https://github.com/apache/camel-kafka-connector/pull/103) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800019](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800019) (2020-03-11)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800018...camel-kafka-connector-0.0.1.fuse-jdk11-800019)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800018](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800018) (2020-03-11)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800017...camel-kafka-connector-0.0.1.fuse-jdk11-800018)
+
+**Merged pull requests:**
+
 - Auto gen step 2: generated connectors structure and dependencies. [\#102](https://github.com/apache/camel-kafka-connector/pull/102) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800017](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800017) (2020-03-09)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800016...camel-kafka-connector-0.0.1.fuse-jdk11-800017)
+
+**Merged pull requests:**
+
+- Upgrade Jackson to version 2.10.3 [\#103](https://github.com/apache/camel-kafka-connector/pull/103) ([oscerd](https://github.com/oscerd))
 - Ensure that local containers used during tests are properly shutdown after the test is completed [\#101](https://github.com/apache/camel-kafka-connector/pull/101) ([orpiske](https://github.com/orpiske))
 - Upgrade test containers [\#100](https://github.com/apache/camel-kafka-connector/pull/100) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800016](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800016) (2020-03-02)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800015...camel-kafka-connector-0.0.1.fuse-jdk11-800016)
+
+**Merged pull requests:**
+
 - Bump to Camel 3.1.0 [\#99](https://github.com/apache/camel-kafka-connector/pull/99) ([oscerd](https://github.com/oscerd))
 - Little updates to docs [\#98](https://github.com/apache/camel-kafka-connector/pull/98) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800015](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800015) (2020-03-02)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800014...camel-kafka-connector-0.0.1.fuse-jdk11-800015)
+
+**Closed issues:**
+
+- Not able to run aws s3 source connector  [\#95](https://github.com/apache/camel-kafka-connector/issues/95)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800014](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800014) (2020-02-25)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800013...camel-kafka-connector-0.0.1.fuse-jdk11-800014)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800013](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800013) (2020-02-19)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800012...camel-kafka-connector-0.0.1.fuse-jdk11-800013)
+
+**Merged pull requests:**
+
 - Fix missing licenses [\#94](https://github.com/apache/camel-kafka-connector/pull/94) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800012](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800012) (2020-02-18)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800011...camel-kafka-connector-0.0.1.fuse-jdk11-800012)
+
+**Merged pull requests:**
+
 - Adds support for running tests against external ElasticSearch instances [\#93](https://github.com/apache/camel-kafka-connector/pull/93) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800011](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800011) (2020-02-14)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800010...camel-kafka-connector-0.0.1.fuse-jdk11-800011)
+
+**Merged pull requests:**
+
 - Adds support for running tests against external Cassandra instances [\#92](https://github.com/apache/camel-kafka-connector/pull/92) ([orpiske](https://github.com/orpiske))
 - Small adjustment to sourcechecks. [\#91](https://github.com/apache/camel-kafka-connector/pull/91) ([valdar](https://github.com/valdar))
 - Fixed README.adoc links after Antora init. [\#90](https://github.com/apache/camel-kafka-connector/pull/90) ([valdar](https://github.com/valdar))
@@ -733,31 +1248,156 @@
 - feat\(docs\): setup Antora [\#87](https://github.com/apache/camel-kafka-connector/pull/87) ([zregvart](https://github.com/zregvart))
 - \[SECURITY\] Use HTTPS to resolve dependencies in Maven Build [\#86](https://github.com/apache/camel-kafka-connector/pull/86) ([JLLeitschuh](https://github.com/JLLeitschuh))
 - First step for issue \#15 [\#85](https://github.com/apache/camel-kafka-connector/pull/85) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800010](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800010) (2020-02-04)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800009...camel-kafka-connector-0.0.1.fuse-jdk11-800010)
+
+**Implemented enhancements:**
+
+- Migrating to Junit 5 [\#74](https://github.com/apache/camel-kafka-connector/issues/74)
+
+**Merged pull requests:**
+
 - Upgrade Qpid JMS client to version 0.48.0 [\#84](https://github.com/apache/camel-kafka-connector/pull/84) ([oscerd](https://github.com/oscerd))
 - Added support for using an external JMS broker [\#83](https://github.com/apache/camel-kafka-connector/pull/83) ([orpiske](https://github.com/orpiske))
 - Added support for loading test properties from a properties file [\#82](https://github.com/apache/camel-kafka-connector/pull/82) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800009](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800009) (2020-01-24)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800008...camel-kafka-connector-0.0.1.fuse-jdk11-800009)
+
+**Merged pull requests:**
+
 - Bump TestContainers to version 1.12.5 [\#81](https://github.com/apache/camel-kafka-connector/pull/81) ([oscerd](https://github.com/oscerd))
 - Bump to Camel 3.0.1 [\#80](https://github.com/apache/camel-kafka-connector/pull/80) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800008](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800008) (2020-01-24)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800007...camel-kafka-connector-0.0.1.fuse-jdk11-800008)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800007](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800007) (2020-01-23)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800006...camel-kafka-connector-0.0.1.fuse-jdk11-800007)
+
+**Merged pull requests:**
+
 - Upgrade Junit to version 5.6.0 [\#79](https://github.com/apache/camel-kafka-connector/pull/79) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800006](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800006) (2020-01-21)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/devconf-functional-002...camel-kafka-connector-0.0.1.fuse-jdk11-800006)
+
+## [devconf-functional-002](https://github.com/apache/camel-kafka-connector/tree/devconf-functional-002) (2020-01-20)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/devconf-functional-001...devconf-functional-002)
+
+## [devconf-functional-001](https://github.com/apache/camel-kafka-connector/tree/devconf-functional-001) (2020-01-19)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800005...devconf-functional-001)
+
+**Merged pull requests:**
+
 - Upgrade strimzi images to the latest version [\#78](https://github.com/apache/camel-kafka-connector/pull/78) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800005](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800005) (2020-01-17)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800004...camel-kafka-connector-0.0.1.fuse-jdk11-800005)
+
+**Merged pull requests:**
+
 - Migrates all the test cases to Junit 5 [\#75](https://github.com/apache/camel-kafka-connector/pull/75) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800004](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800004) (2020-01-17)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800003...camel-kafka-connector-0.0.1.fuse-jdk11-800004)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800003](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800003) (2020-01-14)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800002...camel-kafka-connector-0.0.1.fuse-jdk11-800003)
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800002](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800002) (2020-01-13)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse-jdk11-800001...camel-kafka-connector-0.0.1.fuse-jdk11-800002)
+
+**Fixed bugs:**
+
+- Flaky test: CamelSinkCassandraITCase [\#67](https://github.com/apache/camel-kafka-connector/issues/67)
+
+**Closed issues:**
+
+- Bump Kafka to version 2.4.0 [\#69](https://github.com/apache/camel-kafka-connector/issues/69)
+
+**Merged pull requests:**
+
 - Added sourcecheck to github actions, added master push github action … [\#73](https://github.com/apache/camel-kafka-connector/pull/73) ([valdar](https://github.com/valdar))
 - Updated integration test image to kafka 2.4 [\#72](https://github.com/apache/camel-kafka-connector/pull/72) ([valdar](https://github.com/valdar))
 - Fix issue \#67: Flaky test: CamelSinkCassandraITCase [\#71](https://github.com/apache/camel-kafka-connector/pull/71) ([orpiske](https://github.com/orpiske))
 - Bump Kafka to version 2.4.0 [\#70](https://github.com/apache/camel-kafka-connector/pull/70) ([oscerd](https://github.com/oscerd))
 - Upgrade ActiveMQ to version 5.15.11 [\#68](https://github.com/apache/camel-kafka-connector/pull/68) ([oscerd](https://github.com/oscerd))
 - Added support for testing the Kafka service using Strimzi [\#66](https://github.com/apache/camel-kafka-connector/pull/66) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.0.1.fuse-jdk11-800001](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse-jdk11-800001) (2020-01-09)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse.jdk11-800004...camel-kafka-connector-0.0.1.fuse-jdk11-800001)
+
+**Closed issues:**
+
+- run integration test insided github actions? [\#31](https://github.com/apache/camel-kafka-connector/issues/31)
+
+**Merged pull requests:**
+
 - Auto gen [\#65](https://github.com/apache/camel-kafka-connector/pull/65) ([valdar](https://github.com/valdar))
 - Add integration test for Cassandra CQL [\#64](https://github.com/apache/camel-kafka-connector/pull/64) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse.jdk11-800004](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse.jdk11-800004) (2020-01-08)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse.jdk11-800003...camel-kafka-connector-0.0.1.fuse.jdk11-800004)
+
+**Merged pull requests:**
+
 - Bump Jackson to version 2.10.2 [\#63](https://github.com/apache/camel-kafka-connector/pull/63) ([oscerd](https://github.com/oscerd))
 - Use artifactId instead of project.name to build colon-less distro paths [\#62](https://github.com/apache/camel-kafka-connector/pull/62) ([ppalaga](https://github.com/ppalaga))
 - Bump Junit to version 4.13 [\#61](https://github.com/apache/camel-kafka-connector/pull/61) ([oscerd](https://github.com/oscerd))
+
+## [camel-kafka-connector-0.0.1.fuse.jdk11-800003](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse.jdk11-800003) (2019-12-31)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse.jdk11-800002...camel-kafka-connector-0.0.1.fuse.jdk11-800003)
+
+**Closed issues:**
+
+- Unstable test: CamelSourceTaskTest.testSourcePollingTimeout [\#55](https://github.com/apache/camel-kafka-connector/issues/55)
+
+**Merged pull requests:**
+
 - Should use year instead of week year [\#60](https://github.com/apache/camel-kafka-connector/pull/60) ([orpiske](https://github.com/orpiske))
 - Property placeholders [\#59](https://github.com/apache/camel-kafka-connector/pull/59) ([oscerd](https://github.com/oscerd))
 - Relaxing condition to accomodate some timeout glitches, fix \#55 [\#58](https://github.com/apache/camel-kafka-connector/pull/58) ([valdar](https://github.com/valdar))
 - Convert the embeddable Kafka Connect runner to a JUnit rule [\#57](https://github.com/apache/camel-kafka-connector/pull/57) ([orpiske](https://github.com/orpiske))
 - Stop removing JMS-related containers after they are built [\#56](https://github.com/apache/camel-kafka-connector/pull/56) ([orpiske](https://github.com/orpiske))
 - Upgrade test containers to the latest version [\#54](https://github.com/apache/camel-kafka-connector/pull/54) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse.jdk11-800002](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse.jdk11-800002) (2019-12-19)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.0.1.fuse.jdk11-800001...camel-kafka-connector-0.0.1.fuse.jdk11-800002)
+
+**Implemented enhancements:**
+
+- Replace `confluentinc/cp-kafka` image with an upstream version [\#43](https://github.com/apache/camel-kafka-connector/issues/43)
+- Unclean shutdown causing lots of warning messages in the logs [\#13](https://github.com/apache/camel-kafka-connector/issues/13)
+
+**Fixed bugs:**
+
+- Integrations tests fails if confluentinc/cp-kafka:5.2.1 has not been pulled [\#25](https://github.com/apache/camel-kafka-connector/issues/25)
+
+**Closed issues:**
+
+- Add a sink and sources examples with camel-cassandraql [\#35](https://github.com/apache/camel-kafka-connector/issues/35)
+- INFRA - Turn off mail noise to Camel @dev mailing list [\#30](https://github.com/apache/camel-kafka-connector/issues/30)
+- Allow the user to set the key of the SourceRecord explicitly [\#20](https://github.com/apache/camel-kafka-connector/issues/20)
+
+**Merged pull requests:**
+
 - Fixes [\#52](https://github.com/apache/camel-kafka-connector/pull/52) ([valdar](https://github.com/valdar))
 - Rearrange date and time [\#51](https://github.com/apache/camel-kafka-connector/pull/51) ([omarsmak](https://github.com/omarsmak))
 - Fixed missing license [\#50](https://github.com/apache/camel-kafka-connector/pull/50) ([orpiske](https://github.com/orpiske))
@@ -770,8 +1410,27 @@
 - Adds an example configuration for ElasticSearch Index [\#41](https://github.com/apache/camel-kafka-connector/pull/41) ([orpiske](https://github.com/orpiske))
 - Allow to configure a source record key from camel message header key [\#39](https://github.com/apache/camel-kafka-connector/pull/39) ([omarsmak](https://github.com/omarsmak))
 - Replaces artemis with qpid-dispatch router [\#38](https://github.com/apache/camel-kafka-connector/pull/38) ([orpiske](https://github.com/orpiske))
-- Infer the suitable schema in the SourceTask [\#37](https://github.com/apache/camel-kafka-connector/pull/37) ([omarsmak](https://github.com/omarsmak))
 - Adds support for ElasticSearch index operation + tests [\#36](https://github.com/apache/camel-kafka-connector/pull/36) ([orpiske](https://github.com/orpiske))
+
+## [camel-kafka-connector-0.0.1.fuse.jdk11-800001](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.0.1.fuse.jdk11-800001) (2019-12-11)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/ad2bd4dccdb8ac3b339cd94cd764c8ff169ca993...camel-kafka-connector-0.0.1.fuse.jdk11-800001)
+
+**Implemented enhancements:**
+
+- Add a CI job for PR [\#19](https://github.com/apache/camel-kafka-connector/issues/19)
+- Support Map and List as Headers [\#18](https://github.com/apache/camel-kafka-connector/issues/18)
+
+**Closed issues:**
+
+- Better support for value Schema in the SourceTask [\#32](https://github.com/apache/camel-kafka-connector/issues/32)
+- support camel type converters [\#16](https://github.com/apache/camel-kafka-connector/issues/16)
+- The camel-kafka-connector artifacts pulls number of dependencies [\#9](https://github.com/apache/camel-kafka-connector/issues/9)
+- Add Release profile [\#7](https://github.com/apache/camel-kafka-connector/issues/7)
+
+**Merged pull requests:**
+
+- Infer the suitable schema in the SourceTask [\#37](https://github.com/apache/camel-kafka-connector/pull/37) ([omarsmak](https://github.com/omarsmak))
 - Support camel type converter [\#34](https://github.com/apache/camel-kafka-connector/pull/34) ([omarsmak](https://github.com/omarsmak))
 - Send S3ObjectSerializer I/O error to the LOG instead of stdout [\#33](https://github.com/apache/camel-kafka-connector/pull/33) ([orpiske](https://github.com/orpiske))
 - Support using an external Kafka for the tests [\#29](https://github.com/apache/camel-kafka-connector/pull/29) ([orpiske](https://github.com/orpiske))
@@ -785,6 +1444,8 @@
 - Fix Sink File test [\#6](https://github.com/apache/camel-kafka-connector/pull/6) ([orpiske](https://github.com/orpiske))
 - chore: update maven to v3.6.3 [\#5](https://github.com/apache/camel-kafka-connector/pull/5) ([lburgazzoli](https://github.com/lburgazzoli))
 - chore\(build\): set up github actions [\#4](https://github.com/apache/camel-kafka-connector/pull/4) ([lburgazzoli](https://github.com/lburgazzoli))
+- Adding Keys, Notice and License files [\#3](https://github.com/apache/camel-kafka-connector/pull/3) ([oscerd](https://github.com/oscerd))
+- First commit [\#1](https://github.com/apache/camel-kafka-connector/pull/1) ([oscerd](https://github.com/oscerd))
 
 
 
