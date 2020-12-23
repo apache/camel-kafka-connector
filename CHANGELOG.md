@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.0...HEAD)
 
+**Closed issues:**
+
+- Date templating not working in version 0.6.0 [\#812](https://github.com/apache/camel-kafka-connector/issues/812)
+
 **Merged pull requests:**
 
 - Camel kafka connector 0.7.x [\#811](https://github.com/apache/camel-kafka-connector/pull/811) ([valdar](https://github.com/valdar))
@@ -767,7 +771,6 @@
 
 **Fixed bugs:**
 
-- Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
 - Possible problems in CamelSinkAWSSQSITCase tests [\#215](https://github.com/apache/camel-kafka-connector/issues/215)
 
 **Merged pull requests:**
@@ -781,6 +784,10 @@
 ## [camel-kafka-connector-0.3.0.fuse-jdk11-800003](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.3.0.fuse-jdk11-800003) (2020-06-13)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/container-image-0.3.0...camel-kafka-connector-0.3.0.fuse-jdk11-800003)
+
+**Fixed bugs:**
+
+- Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
 
 **Closed issues:**
 
