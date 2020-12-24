@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-sap-netweaver-sink",
 		"type": "sink",
-		"version": "0.7.0",
+		"version": "0.8.0-SNAPSHOT",
 		"description": "Send requests to SAP NetWeaver Gateway using HTTP."
 	},
 	"properties": {

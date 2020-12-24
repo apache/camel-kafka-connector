@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-optaplanner-source",
 		"type": "source",
-		"version": "0.7.0",
+		"version": "0.8.0-SNAPSHOT",
 		"description": "Solve planning problems with OptaPlanner."
 	},
 	"properties": {

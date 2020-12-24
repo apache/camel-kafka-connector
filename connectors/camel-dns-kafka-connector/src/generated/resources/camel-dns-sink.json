@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-dns-sink",
 		"type": "sink",
-		"version": "0.7.0",
+		"version": "0.8.0-SNAPSHOT",
 		"description": "Perform DNS queries using DNSJava."
 	},
 	"properties": {
