@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-hazelcast-replicatedmap-source",
 		"type": "source",
-		"version": "0.7.0",
+		"version": "0.8.0-SNAPSHOT",
 		"description": "Perform operations on Hazelcast replicated map."
 	},
 	"properties": {

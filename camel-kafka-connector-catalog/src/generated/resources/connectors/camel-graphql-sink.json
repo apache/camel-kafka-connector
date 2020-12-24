@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-graphql-sink",
 		"type": "sink",
-		"version": "0.7.0",
+		"version": "0.8.0-SNAPSHOT",
 		"description": "Send GraphQL queries and mutations to external systems."
 	},
 	"properties": {
