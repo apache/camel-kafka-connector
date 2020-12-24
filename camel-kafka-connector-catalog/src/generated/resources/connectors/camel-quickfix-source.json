@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-quickfix-source",
 		"type": "source",
-		"version": "0.7.0",
+		"version": "0.8.0-SNAPSHOT",
 		"description": "Open a Financial Interchange (FIX) session using an embedded QuickFix\/J engine."
 	},
 	"properties": {

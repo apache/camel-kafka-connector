@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-crypto-sink",
 		"type": "sink",
-		"version": "0.7.0",
+		"version": "0.8.0-SNAPSHOT",
 		"description": "Sign and verify exchanges using the Signature Service of the Java Cryptographic Extension (JCE)."
 	},
 	"properties": {
