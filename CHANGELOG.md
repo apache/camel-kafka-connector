@@ -771,6 +771,7 @@
 
 **Fixed bugs:**
 
+- Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
 - Possible problems in CamelSinkAWSSQSITCase tests [\#215](https://github.com/apache/camel-kafka-connector/issues/215)
 
 **Merged pull requests:**
@@ -784,10 +785,6 @@
 ## [camel-kafka-connector-0.3.0.fuse-jdk11-800003](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.3.0.fuse-jdk11-800003) (2020-06-13)
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/container-image-0.3.0...camel-kafka-connector-0.3.0.fuse-jdk11-800003)
-
-**Fixed bugs:**
-
-- Camel-elasticsearch-rest-kafka-connector throws java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager [\#259](https://github.com/apache/camel-kafka-connector/issues/259)
 
 **Closed issues:**
 
