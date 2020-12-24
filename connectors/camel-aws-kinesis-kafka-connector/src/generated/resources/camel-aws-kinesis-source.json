@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws-kinesis-source",
 		"type": "source",
-		"version": "0.7.0",
+		"version": "0.8.0-SNAPSHOT",
 		"description": "Consume and produce records from AWS Kinesis Streams."
 	},
 	"properties": {
