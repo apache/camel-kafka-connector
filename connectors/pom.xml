@@ -163,7 +163,7 @@
                 <artifactId>camel-kafka-connector-docs-maven-plugin</artifactId>
                 <version>${project.version}</version>
                 <configuration>
-                    <lastReleasedVersion>0.6.1</lastReleasedVersion>
+                    <lastReleasedVersion>0.7.0</lastReleasedVersion>
                 </configuration>
                 <executions>
                     <execution>
