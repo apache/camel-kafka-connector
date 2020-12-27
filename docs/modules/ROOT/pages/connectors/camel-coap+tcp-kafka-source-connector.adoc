@@ -50,17 +50,17 @@ The camel-coap-tcp source connector supports 17 options, which are listed below.
 
 
 
-The camel-coap-tcp sink connector has no converters out of the box.
+The camel-coap-tcp source connector has no converters out of the box.
 
 
 
 
 
-The camel-coap-tcp sink connector has no transforms out of the box.
+The camel-coap-tcp source connector has no transforms out of the box.
 
 
 
 
 
-The camel-coap-tcp sink connector has no aggregation strategies out of the box.
+The camel-coap-tcp source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

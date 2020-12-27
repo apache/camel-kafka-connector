@@ -70,17 +70,17 @@ The camel-jt400 source connector supports 37 options, which are listed below.
 
 
 
-The camel-jt400 sink connector has no converters out of the box.
+The camel-jt400 source connector has no converters out of the box.
 
 
 
 
 
-The camel-jt400 sink connector has no transforms out of the box.
+The camel-jt400 source connector has no transforms out of the box.
 
 
 
 
 
-The camel-jt400 sink connector has no aggregation strategies out of the box.
+The camel-jt400 source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

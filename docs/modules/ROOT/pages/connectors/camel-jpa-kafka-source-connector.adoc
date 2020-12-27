@@ -78,17 +78,17 @@ The camel-jpa source connector supports 45 options, which are listed below.
 
 
 
-The camel-jpa sink connector has no converters out of the box.
+The camel-jpa source connector has no converters out of the box.
 
 
 
 
 
-The camel-jpa sink connector has no transforms out of the box.
+The camel-jpa source connector has no transforms out of the box.
 
 
 
 
 
-The camel-jpa sink connector has no aggregation strategies out of the box.
+The camel-jpa source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

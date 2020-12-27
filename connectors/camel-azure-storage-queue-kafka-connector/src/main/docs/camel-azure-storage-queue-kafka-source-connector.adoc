@@ -62,17 +62,17 @@ The camel-azure-storage-queue source connector supports 29 options, which are li
 
 
 
-The camel-azure-storage-queue sink connector has no converters out of the box.
+The camel-azure-storage-queue source connector has no converters out of the box.
 
 
 
 
 
-The camel-azure-storage-queue sink connector has no transforms out of the box.
+The camel-azure-storage-queue source connector has no transforms out of the box.
 
 
 
 
 
-The camel-azure-storage-queue sink connector has no aggregation strategies out of the box.
+The camel-azure-storage-queue source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

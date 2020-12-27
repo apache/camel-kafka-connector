@@ -50,17 +50,17 @@ The camel-reactive-streams source connector supports 17 options, which are liste
 
 
 
-The camel-reactive-streams sink connector has no converters out of the box.
+The camel-reactive-streams source connector has no converters out of the box.
 
 
 
 
 
-The camel-reactive-streams sink connector has no transforms out of the box.
+The camel-reactive-streams source connector has no transforms out of the box.
 
 
 
 
 
-The camel-reactive-streams sink connector has no aggregation strategies out of the box.
+The camel-reactive-streams source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -60,17 +60,17 @@ The camel-cometds source connector supports 27 options, which are listed below.
 
 
 
-The camel-cometds sink connector has no converters out of the box.
+The camel-cometds source connector has no converters out of the box.
 
 
 
 
 
-The camel-cometds sink connector has no transforms out of the box.
+The camel-cometds source connector has no transforms out of the box.
 
 
 
 
 
-The camel-cometds sink connector has no aggregation strategies out of the box.
+The camel-cometds source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

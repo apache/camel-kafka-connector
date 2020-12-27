@@ -51,17 +51,17 @@ The camel-mongodb-gridfs source connector supports 18 options, which are listed 
 
 
 
-The camel-mongodb-gridfs sink connector has no converters out of the box.
+The camel-mongodb-gridfs source connector has no converters out of the box.
 
 
 
 
 
-The camel-mongodb-gridfs sink connector has no transforms out of the box.
+The camel-mongodb-gridfs source connector has no transforms out of the box.
 
 
 
 
 
-The camel-mongodb-gridfs sink connector has no aggregation strategies out of the box.
+The camel-mongodb-gridfs source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

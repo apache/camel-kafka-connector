@@ -45,17 +45,17 @@ The camel-hazelcast-replicatedmap source connector supports 12 options, which ar
 
 
 
-The camel-hazelcast-replicatedmap sink connector has no converters out of the box.
+The camel-hazelcast-replicatedmap source connector has no converters out of the box.
 
 
 
 
 
-The camel-hazelcast-replicatedmap sink connector has no transforms out of the box.
+The camel-hazelcast-replicatedmap source connector has no transforms out of the box.
 
 
 
 
 
-The camel-hazelcast-replicatedmap sink connector has no aggregation strategies out of the box.
+The camel-hazelcast-replicatedmap source connector has no aggregation strategies out of the box.
 // kafka-connector options: END
