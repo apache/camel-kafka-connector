@@ -79,17 +79,17 @@ The camel-aws-ddbstream source connector supports 46 options, which are listed b
 
 
 
-The camel-aws-ddbstream sink connector has no converters out of the box.
+The camel-aws-ddbstream source connector has no converters out of the box.
 
 
 
 
 
-The camel-aws-ddbstream sink connector has no transforms out of the box.
+The camel-aws-ddbstream source connector has no transforms out of the box.
 
 
 
 
 
-The camel-aws-ddbstream sink connector has no aggregation strategies out of the box.
+The camel-aws-ddbstream source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

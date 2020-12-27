@@ -40,17 +40,17 @@ The camel-direct source connector supports 7 options, which are listed below.
 
 
 
-The camel-direct sink connector has no converters out of the box.
+The camel-direct source connector has no converters out of the box.
 
 
 
 
 
-The camel-direct sink connector has no transforms out of the box.
+The camel-direct source connector has no transforms out of the box.
 
 
 
 
 
-The camel-direct sink connector has no aggregation strategies out of the box.
+The camel-direct source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

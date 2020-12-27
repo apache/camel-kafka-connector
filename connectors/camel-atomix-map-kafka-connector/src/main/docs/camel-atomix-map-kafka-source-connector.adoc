@@ -69,17 +69,17 @@ The camel-atomix-map source connector supports 36 options, which are listed belo
 
 
 
-The camel-atomix-map sink connector has no converters out of the box.
+The camel-atomix-map source connector has no converters out of the box.
 
 
 
 
 
-The camel-atomix-map sink connector has no transforms out of the box.
+The camel-atomix-map source connector has no transforms out of the box.
 
 
 
 
 
-The camel-atomix-map sink connector has no aggregation strategies out of the box.
+The camel-atomix-map source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

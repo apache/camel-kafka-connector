@@ -84,17 +84,17 @@ The camel-google-sheets-stream source connector supports 51 options, which are l
 
 
 
-The camel-google-sheets-stream sink connector has no converters out of the box.
+The camel-google-sheets-stream source connector has no converters out of the box.
 
 
 
 
 
-The camel-google-sheets-stream sink connector has no transforms out of the box.
+The camel-google-sheets-stream source connector has no transforms out of the box.
 
 
 
 
 
-The camel-google-sheets-stream sink connector has no aggregation strategies out of the box.
+The camel-google-sheets-stream source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

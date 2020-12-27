@@ -144,13 +144,13 @@ The camel-sftp source connector supports 111 options, which are listed below.
 
 
 
-The camel-sftp sink connector has no converters out of the box.
+The camel-sftp source connector has no converters out of the box.
 
 
 
 
 
-The camel-sftp sink connector supports 0 transforms out of the box, which are listed below.
+The camel-sftp source connector supports 0 transforms out of the box, which are listed below.
 
 
 
@@ -163,5 +163,5 @@ org.apache.camel.kafkaconnector.sftp.transformers.SftpRemoteFileTransforms
 
 
 
-The camel-sftp sink connector has no aggregation strategies out of the box.
+The camel-sftp source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

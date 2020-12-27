@@ -46,17 +46,17 @@ The camel-hazelcast-topic source connector supports 13 options, which are listed
 
 
 
-The camel-hazelcast-topic sink connector has no converters out of the box.
+The camel-hazelcast-topic source connector has no converters out of the box.
 
 
 
 
 
-The camel-hazelcast-topic sink connector has no transforms out of the box.
+The camel-hazelcast-topic source connector has no transforms out of the box.
 
 
 
 
 
-The camel-hazelcast-topic sink connector has no aggregation strategies out of the box.
+The camel-hazelcast-topic source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

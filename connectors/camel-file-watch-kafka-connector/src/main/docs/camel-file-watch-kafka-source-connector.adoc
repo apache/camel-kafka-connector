@@ -54,17 +54,17 @@ The camel-file-watch source connector supports 21 options, which are listed belo
 
 
 
-The camel-file-watch sink connector has no converters out of the box.
+The camel-file-watch source connector has no converters out of the box.
 
 
 
 
 
-The camel-file-watch sink connector has no transforms out of the box.
+The camel-file-watch source connector has no transforms out of the box.
 
 
 
 
 
-The camel-file-watch sink connector has no aggregation strategies out of the box.
+The camel-file-watch source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

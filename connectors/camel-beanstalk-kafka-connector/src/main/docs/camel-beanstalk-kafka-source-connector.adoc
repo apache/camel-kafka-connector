@@ -64,17 +64,17 @@ The camel-beanstalk source connector supports 31 options, which are listed below
 
 
 
-The camel-beanstalk sink connector has no converters out of the box.
+The camel-beanstalk source connector has no converters out of the box.
 
 
 
 
 
-The camel-beanstalk sink connector has no transforms out of the box.
+The camel-beanstalk source connector has no transforms out of the box.
 
 
 
 
 
-The camel-beanstalk sink connector has no aggregation strategies out of the box.
+The camel-beanstalk source connector has no aggregation strategies out of the box.
 // kafka-connector options: END
