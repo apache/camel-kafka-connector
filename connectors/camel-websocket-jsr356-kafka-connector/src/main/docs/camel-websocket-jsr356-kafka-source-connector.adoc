@@ -42,17 +42,17 @@ The camel-websocket-jsr356 source connector supports 9 options, which are listed
 
 
 
-The camel-websocket-jsr356 sink connector has no converters out of the box.
+The camel-websocket-jsr356 source connector has no converters out of the box.
 
 
 
 
 
-The camel-websocket-jsr356 sink connector has no transforms out of the box.
+The camel-websocket-jsr356 source connector has no transforms out of the box.
 
 
 
 
 
-The camel-websocket-jsr356 sink connector has no aggregation strategies out of the box.
+The camel-websocket-jsr356 source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

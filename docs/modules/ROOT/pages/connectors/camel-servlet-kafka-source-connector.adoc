@@ -67,17 +67,17 @@ The camel-servlet source connector supports 34 options, which are listed below.
 
 
 
-The camel-servlet sink connector has no converters out of the box.
+The camel-servlet source connector has no converters out of the box.
 
 
 
 
 
-The camel-servlet sink connector has no transforms out of the box.
+The camel-servlet source connector has no transforms out of the box.
 
 
 
 
 
-The camel-servlet sink connector has no aggregation strategies out of the box.
+The camel-servlet source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

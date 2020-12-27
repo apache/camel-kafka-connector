@@ -52,17 +52,17 @@ The camel-soroush source connector supports 19 options, which are listed below.
 
 
 
-The camel-soroush sink connector has no converters out of the box.
+The camel-soroush source connector has no converters out of the box.
 
 
 
 
 
-The camel-soroush sink connector has no transforms out of the box.
+The camel-soroush source connector has no transforms out of the box.
 
 
 
 
 
-The camel-soroush sink connector has no aggregation strategies out of the box.
+The camel-soroush source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

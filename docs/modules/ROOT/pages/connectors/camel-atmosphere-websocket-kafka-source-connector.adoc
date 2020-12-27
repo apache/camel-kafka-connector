@@ -69,17 +69,17 @@ The camel-atmosphere-websocket source connector supports 36 options, which are l
 
 
 
-The camel-atmosphere-websocket sink connector has no converters out of the box.
+The camel-atmosphere-websocket source connector has no converters out of the box.
 
 
 
 
 
-The camel-atmosphere-websocket sink connector has no transforms out of the box.
+The camel-atmosphere-websocket source connector has no transforms out of the box.
 
 
 
 
 
-The camel-atmosphere-websocket sink connector has no aggregation strategies out of the box.
+The camel-atmosphere-websocket source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

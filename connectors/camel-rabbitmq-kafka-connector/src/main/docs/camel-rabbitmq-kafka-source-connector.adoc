@@ -131,17 +131,17 @@ The camel-rabbitmq source connector supports 98 options, which are listed below.
 
 
 
-The camel-rabbitmq sink connector has no converters out of the box.
+The camel-rabbitmq source connector has no converters out of the box.
 
 
 
 
 
-The camel-rabbitmq sink connector has no transforms out of the box.
+The camel-rabbitmq source connector has no transforms out of the box.
 
 
 
 
 
-The camel-rabbitmq sink connector has no aggregation strategies out of the box.
+The camel-rabbitmq source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

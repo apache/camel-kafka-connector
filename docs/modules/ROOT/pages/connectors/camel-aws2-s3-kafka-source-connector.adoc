@@ -117,7 +117,7 @@ The camel-aws2-s3 source connector supports 84 options, which are listed below.
 
 
 
-The camel-aws2-s3 sink connector supports 1 converters out of the box, which are listed below.
+The camel-aws2-s3 source connector supports 1 converters out of the box, which are listed below.
 
 
 
@@ -130,7 +130,7 @@ org.apache.camel.kafkaconnector.aws2s3.converters.S3ObjectConverter
 
 
 
-The camel-aws2-s3 sink connector supports 1 transforms out of the box, which are listed below.
+The camel-aws2-s3 source connector supports 1 transforms out of the box, which are listed below.
 
 
 
@@ -143,7 +143,7 @@ org.apache.camel.kafkaconnector.aws2s3.transformers.S3ObjectTransforms
 
 
 
-The camel-aws2-s3 sink connector supports 1 aggregation strategies out of the box, which are listed below.
+The camel-aws2-s3 source connector supports 1 aggregation strategies out of the box, which are listed below.
 
 
 

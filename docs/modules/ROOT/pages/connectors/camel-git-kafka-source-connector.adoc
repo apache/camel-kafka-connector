@@ -42,17 +42,17 @@ The camel-git source connector supports 9 options, which are listed below.
 
 
 
-The camel-git sink connector has no converters out of the box.
+The camel-git source connector has no converters out of the box.
 
 
 
 
 
-The camel-git sink connector has no transforms out of the box.
+The camel-git source connector has no transforms out of the box.
 
 
 
 
 
-The camel-git sink connector has no aggregation strategies out of the box.
+The camel-git source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

@@ -60,13 +60,13 @@ The camel-slack source connector supports 27 options, which are listed below.
 
 
 
-The camel-slack sink connector has no converters out of the box.
+The camel-slack source connector has no converters out of the box.
 
 
 
 
 
-The camel-slack sink connector supports 0 transforms out of the box, which are listed below.
+The camel-slack source connector supports 0 transforms out of the box, which are listed below.
 
 
 
@@ -79,5 +79,5 @@ org.apache.camel.kafkaconnector.slack.transformers.SlackTransforms
 
 
 
-The camel-slack sink connector has no aggregation strategies out of the box.
+The camel-slack source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

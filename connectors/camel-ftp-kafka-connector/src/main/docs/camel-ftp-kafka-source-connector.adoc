@@ -133,13 +133,13 @@ The camel-ftp source connector supports 100 options, which are listed below.
 
 
 
-The camel-ftp sink connector has no converters out of the box.
+The camel-ftp source connector has no converters out of the box.
 
 
 
 
 
-The camel-ftp sink connector supports 0 transforms out of the box, which are listed below.
+The camel-ftp source connector supports 0 transforms out of the box, which are listed below.
 
 
 
@@ -152,5 +152,5 @@ org.apache.camel.kafkaconnector.ftp.transformers.FtpRemoteFileTransforms
 
 
 
-The camel-ftp sink connector has no aggregation strategies out of the box.
+The camel-ftp source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

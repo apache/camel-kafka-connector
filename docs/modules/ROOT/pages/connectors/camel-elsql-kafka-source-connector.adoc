@@ -86,17 +86,17 @@ The camel-elsql source connector supports 53 options, which are listed below.
 
 
 
-The camel-elsql sink connector has no converters out of the box.
+The camel-elsql source connector has no converters out of the box.
 
 
 
 
 
-The camel-elsql sink connector has no transforms out of the box.
+The camel-elsql source connector has no transforms out of the box.
 
 
 
 
 
-The camel-elsql sink connector has no aggregation strategies out of the box.
+The camel-elsql source connector has no aggregation strategies out of the box.
 // kafka-connector options: END
