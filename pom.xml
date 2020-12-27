@@ -339,6 +339,8 @@
                                         <include>${project.artifactId}-${project.version}-sources.jar</include>
                                         <include>${project.artifactId}-${project.version}-package.zip</include>
                                         <include>${project.artifactId}-${project.version}-package.tar.gz</include>
+                                        <!--XXX: keep this in sync with distribution/pom.xml <finalName> tag-->
+                                        <include>camel-kafka-connector-${project.version}-src.zip</include>
                                     </includes>
                                 </fileSet>
                             </fileSets>
