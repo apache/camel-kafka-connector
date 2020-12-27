@@ -46,17 +46,17 @@ The camel-pgevent source connector supports 13 options, which are listed below.
 
 
 
-The camel-pgevent sink connector has no converters out of the box.
+The camel-pgevent source connector has no converters out of the box.
 
 
 
 
 
-The camel-pgevent sink connector has no transforms out of the box.
+The camel-pgevent source connector has no transforms out of the box.
 
 
 
 
 
-The camel-pgevent sink connector has no aggregation strategies out of the box.
+The camel-pgevent source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

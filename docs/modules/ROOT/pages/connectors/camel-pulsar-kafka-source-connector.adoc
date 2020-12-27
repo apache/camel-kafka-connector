@@ -79,17 +79,17 @@ The camel-pulsar source connector supports 46 options, which are listed below.
 
 
 
-The camel-pulsar sink connector has no converters out of the box.
+The camel-pulsar source connector has no converters out of the box.
 
 
 
 
 
-The camel-pulsar sink connector has no transforms out of the box.
+The camel-pulsar source connector has no transforms out of the box.
 
 
 
 
 
-The camel-pulsar sink connector has no aggregation strategies out of the box.
+The camel-pulsar source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

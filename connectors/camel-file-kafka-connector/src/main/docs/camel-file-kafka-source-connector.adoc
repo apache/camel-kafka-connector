@@ -112,17 +112,17 @@ The camel-file source connector supports 79 options, which are listed below.
 
 
 
-The camel-file sink connector has no converters out of the box.
+The camel-file source connector has no converters out of the box.
 
 
 
 
 
-The camel-file sink connector has no transforms out of the box.
+The camel-file source connector has no transforms out of the box.
 
 
 
 
 
-The camel-file sink connector has no aggregation strategies out of the box.
+The camel-file source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

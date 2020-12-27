@@ -45,17 +45,17 @@ The camel-jgroups-raft source connector supports 12 options, which are listed be
 
 
 
-The camel-jgroups-raft sink connector has no converters out of the box.
+The camel-jgroups-raft source connector has no converters out of the box.
 
 
 
 
 
-The camel-jgroups-raft sink connector has no transforms out of the box.
+The camel-jgroups-raft source connector has no transforms out of the box.
 
 
 
 
 
-The camel-jgroups-raft sink connector has no aggregation strategies out of the box.
+The camel-jgroups-raft source connector has no aggregation strategies out of the box.
 // kafka-connector options: END

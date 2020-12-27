@@ -58,17 +58,17 @@ The camel-apns source connector supports 25 options, which are listed below.
 
 
 
-The camel-apns sink connector has no converters out of the box.
+The camel-apns source connector has no converters out of the box.
 
 
 
 
 
-The camel-apns sink connector has no transforms out of the box.
+The camel-apns source connector has no transforms out of the box.
 
 
 
 
 
-The camel-apns sink connector has no aggregation strategies out of the box.
+The camel-apns source connector has no aggregation strategies out of the box.
 // kafka-connector options: END
