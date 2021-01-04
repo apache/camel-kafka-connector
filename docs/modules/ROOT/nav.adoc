@@ -13,7 +13,6 @@
 ** xref:getting-started-with-packages.adoc[Packages documentation]
 * xref:connectors.adoc[Connectors list]
 * xref:camel-compatibility-matrix.adoc[Apache Camel compatibility matrix]
-* xref:download.adoc[Camel Kafka Connector Download]
 * xref:testing.adoc[Testing]
 * xref:troubleshooting.adoc[Troubleshooting]
 * xref:contributing.adoc[Contributing]
