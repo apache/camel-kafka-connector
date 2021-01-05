@@ -67,6 +67,10 @@ public abstract class BasicConnectorPropertyFactory<T extends BasicConnectorProp
         return new TransformsConfigBuilder<>((T) this, getProperties(), name);
     }
 
+    public ComponentConfigBuilder<T> withComponentConfig(String name, String value) {
+        return new ComponentConfigBuilder<>((T) this, getProperties(), name, value);
+    }
+
     protected T setProperty(String name, Object value) {
         connectorProps.put(name, value);
 
