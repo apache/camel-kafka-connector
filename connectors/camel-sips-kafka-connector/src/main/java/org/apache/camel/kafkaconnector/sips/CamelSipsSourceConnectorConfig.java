@@ -81,7 +81,7 @@ public class CamelSipsSourceConnectorConfig
     public static final String CAMEL_SOURCE_SIPS_ENDPOINT_CONSUMER_DOC = "This setting is used to determine whether the kind of header (FromHeader,ToHeader etc) that needs to be created for this endpoint";
     public static final Boolean CAMEL_SOURCE_SIPS_ENDPOINT_CONSUMER_DEFAULT = false;
     public static final String CAMEL_SOURCE_SIPS_ENDPOINT_PRESENCE_AGENT_CONF = "camel.source.endpoint.presenceAgent";
-    public static final String CAMEL_SOURCE_SIPS_ENDPOINT_PRESENCE_AGENT_DOC = "This setting is used to distinguish between a Presence Agent & a consumer. This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true.";
+    public static final String CAMEL_SOURCE_SIPS_ENDPOINT_PRESENCE_AGENT_DOC = "This setting is used to distinguish between a Presence Agent and a consumer. This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true.";
     public static final Boolean CAMEL_SOURCE_SIPS_ENDPOINT_PRESENCE_AGENT_DEFAULT = false;
     public static final String CAMEL_SOURCE_SIPS_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_SIPS_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";

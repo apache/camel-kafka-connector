@@ -5,8 +5,8 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jclouds-source",
 		"type": "source",
-		"version": "0.8.0-SNAPSHOT",
-		"description": "Interact with jclouds compute & blobstore service."
+		"version": "0.7.1-SNAPSHOT",
+		"description": "Interact with jclouds compute and blobstore service."
 	},
 	"properties": {
 		"camel.source.path.command": {
