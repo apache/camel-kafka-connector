@@ -17,8 +17,10 @@
 package org.apache.camel.kafkaconnector.utils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import org.apache.camel.AggregationStrategy;
 import org.apache.camel.CamelContext;
@@ -33,6 +35,7 @@ import org.apache.camel.spi.IdempotentRepository;
 import org.apache.camel.support.processor.idempotent.MemoryIdempotentRepository;
 import org.apache.camel.support.service.ServiceHelper;
 import org.apache.camel.util.ObjectHelper;
+import org.apache.camel.util.SensitiveUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -203,6 +206,15 @@ public class CamelKafkaConnectMain extends SimpleMain {
             return this;
         }
 
+        private String filterSensitive(Map.Entry<Object, Object> entry) {
+
+            if (SensitiveUtils.containsSensitive((String) entry.getKey())) {
+                return entry.getKey() + "=xxxxxxx";
+            }
+            return entry.getKey() + "=" + entry.getValue();
+        }
+
+
         public CamelKafkaConnectMain build(CamelContext camelContext) {
             CamelKafkaConnectMain camelMain = new CamelKafkaConnectMain(camelContext);
             camelMain.configure().setAutoConfigurationLogSummary(false);
@@ -210,7 +222,9 @@ public class CamelKafkaConnectMain extends SimpleMain {
             Properties camelProperties = new Properties();
             camelProperties.putAll(props);
 
-            LOG.info("Setting initial properties in Camel context: [{}]", camelProperties);
+            List<String> filteredProps = camelProperties.entrySet().stream().map(this::filterSensitive).collect(Collectors.toList());
+
+            LOG.info("Setting initial properties in Camel context: [{}]", filteredProps);
             camelMain.setInitialProperties(camelProperties);
             
             // Instantianting the idempotent Repository here and inject it in registry to be referenced
