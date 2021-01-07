@@ -1,38 +1,38 @@
 [[Tryitoutk8s-Tryitoutk8s]]
 = Try it out on Kubernetes
 
-You can use CamelKafkaConnector on plain Kubernetes with the https://strimzi.io[Strimzi project],
-which provides a set of operators and container images to easily run Kafka on Kubernetes. This
-procedure assumes that you have `cluster-admin` access to a Kubernetes cluster (i.e. Minikube)
-with Internet access and an external registry for pushing images (i.e. quay.io).
+You can try CamelKafkaConnector using the https://strimzi.io[Strimzi Operator],
+which simplifies Kafka cluster deployment and management on top of plain Kubernetes.
+This procedure assumes that you have `cluster-admin` rights, Internet access and
+an external registry for pushing images (i.e. quay.io).
 
 [[Tryitoutk8s-DeployKafka]]
-== Deploy Kafka and Kafka Connect
+== Deploy Kafka and KafkaConnect
 
-First, we create a new namespace and deploy a single-node Kafka cluster:
+First, we create a new namespace and deploy a 3-nodes Kafka cluster:
 
 [source,bash,options="nowrap"]
 ----
-NAMESPACE="demo"
-STRIMZI_VER="0.18.0"
+NAMESPACE="kafka"
+STRIMZI="0.20.x"
 
 # create a new namespace
 kubectl create namespace $NAMESPACE && kubectl config set-context --current --namespace=$NAMESPACE
 
 # deploy Strimzi operator
-curl -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/$STRIMZI_VER/strimzi-cluster-operator-$STRIMZI_VER.yaml \
+curl -L https://github.com/strimzi/strimzi-kafka-operator/releases/download/$STRIMZI/strimzi-cluster-operator-$STRIMZI.yaml \
     | sed "s/namespace: .*/namespace: $NAMESPACE/g" | kubectl apply -f -
 
 # deploy Kafka cluster
-kubectl apply -f https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/release-${STRIMZI_VER/%.0/.x}/examples/kafka/kafka-persistent-single.yaml
+kubectl apply -f https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/release-$STRIMZI/examples/kafka/kafka-persistent.yaml
 ----
 
 Next, we build a custom KafkaConnect image to include all needed connectors (use your own registry here):
 
 [source,bash,options="nowrap"]
 ----
-CKC_VERSION="0.3.0"
-STRIMZI_IMG="strimzi/kafka:latest-kafka-2.5.0"
+CKC_VERSION="0.7.0"
+STRIMZI_IMG="strimzi/kafka:latest-kafka-2.6.0"
 REGISTRY_URL="quay.io"
 REGISTRY_USR="fvaleri"
 
@@ -43,7 +43,7 @@ PLUGINS=(
     "$BASEURL/camel-sjms2-kafka-connector/$CKC_VERSION/camel-sjms2-kafka-connector-$CKC_VERSION-package.zip"
 )
 
-# dowload connect plugins
+# download connect plugins
 rm -rf $TMP && mkdir -p $TMP/plugins
 for url in "${PLUGINS[@]}"; do
     curl -sL $url -o $TMP/plugins/file.zip && unzip -qq $TMP/plugins/file.zip -d $TMP/plugins
@@ -58,13 +58,13 @@ sudo podman push localhost/$REGISTRY_USR/my-connect:1.0.0 $REGISTRY_URL/$REGISTR
 sudo podman push localhost/$REGISTRY_USR/my-connect:1.0.0 $REGISTRY_URL/$REGISTRY_USR/my-connect:latest
 ----
 
- Note: your plugin must be under a directory in the plugins. An example path would be /opt/kafka/plugins/myplugin/<my-plugin-jars-here>
+Note: your plugin must be under a directory in the plugins (i.e `/opt/kafka/plugins/myplugin/<my-plugin-jars-here>`).
 
-Finally, we deploy the KafkaConnect cluster using our custom image:
+Finally, we deploy the KafkaConnect single-node cluster using our custom image:
 
 [source,bash,options="nowrap"]
 ----
-cat <<'EOF' > $TMP/my-connect.yaml
+kubectl apply -f - <<'EOF'
 apiVersion: kafka.strimzi.io/v1beta1
 kind: KafkaConnect
 metadata:
@@ -74,14 +74,16 @@ metadata:
     strimzi.io/use-connector-resources: "true"
 spec:
   replicas: 1
-  version: 2.5.0
-  image: my/custom/image
+  version: 2.6.0
+  image: $REGISTRY_URL/$REGISTRY_USR/my-connect:1.0.0
   bootstrapServers: my-cluster-kafka-bootstrap:9092
   resources:
     requests:
-      memory: "1Gi"
+      cpu: 250m
+      memory: 512Mi
     limits:
-      memory: "1Gi"
+      cpu: 500m
+      memory: 1Gi
   jvmOptions:
     gcLoggingEnabled: false
   config:
@@ -91,18 +93,14 @@ spec:
     offset.storage.topic: my-connect-offsets
     config.storage.topic: my-connect-configs
     status.storage.topic: my-connect-status
-    # single node setup
-    config.storage.replication.factor: 1
-    offset.storage.replication.factor: 1
-    status.storage.replication.factor: 1
+    config.storage.replication.factor: 3
+    offset.storage.replication.factor: 3
+    status.storage.replication.factor: 3
 EOF
-
-sed "s/image: .*/image: $REGISTRY_URL\/$REGISTRY_USR\/my-connect/g" $TMP/my-connect.yaml \
-    | kubectl apply -f -
 ----
 
 [[Tryitoutk8s-CreateConnectorInstances]]
-== Create connector instance
+== Create KafkaConnector instance
 
 A soon as the infrastructure is running, we can create an instance of a connector plugin:
 
