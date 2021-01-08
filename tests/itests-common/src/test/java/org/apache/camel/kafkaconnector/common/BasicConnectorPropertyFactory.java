@@ -63,6 +63,21 @@ public abstract class BasicConnectorPropertyFactory<T extends BasicConnectorProp
         return (T) this;
     }
 
+    /**
+     * This enables sending failed records to the DLQ. Note: it automatically configure other required/recommended
+     * options!
+     * @param topicName the DLQ topic name
+     * @return this object instance
+     */
+    public T withDeadLetterQueueTopicName(String topicName) {
+        // There's no constant for the DLQ settings
+        connectorProps.put("errors.deadletterqueue.topic.name", topicName);
+        connectorProps.put("errors.deadletterqueue.topic.replication.factor", 1);
+        connectorProps.put(ConnectorConfig.ERRORS_LOG_ENABLE_CONFIG, true);
+
+        return (T) this;
+    }
+
     public TransformsConfigBuilder<T> withTransformsConfig(String name) {
         return new TransformsConfigBuilder<>((T) this, getProperties(), name);
     }
