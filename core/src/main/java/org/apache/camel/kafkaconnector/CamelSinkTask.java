@@ -35,6 +35,7 @@ import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.errors.ConnectException;
 import org.apache.kafka.connect.header.Header;
+import org.apache.kafka.connect.sink.ErrantRecordReporter;
 import org.apache.kafka.connect.sink.SinkRecord;
 import org.apache.kafka.connect.sink.SinkTask;
 import org.slf4j.Logger;
@@ -51,6 +52,7 @@ public class CamelSinkTask extends SinkTask {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkTask.class);
 
     private static final String LOCAL_URL = "direct:start";
+    private ErrantRecordReporter reporter;
 
 
     private CamelKafkaConnectMain cms;
@@ -69,6 +71,10 @@ public class CamelSinkTask extends SinkTask {
             LOG.info("Starting CamelSinkTask connector task");
             Map<String, String> actualProps = TaskHelper.combineDefaultAndLoadedProperties(getDefaultConfig(), props);
             CamelSinkConnectorConfig config = getCamelSinkConnectorConfig(actualProps);
+
+            if (context != null) {
+                reporter = context.errantRecordReporter();
+            }
 
             try {
                 String levelStr = config.getString(CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF);
@@ -175,7 +181,13 @@ public class CamelSinkTask extends SinkTask {
             producer.send(localEndpoint, exchange);
 
             if (exchange.isFailed()) {
-                throw new ConnectException("Exchange delivery has failed!", exchange.getException());
+                if (reporter == null) {
+                    LOG.warn("A delivery has failed and the error reporting is NOT enabled. Records may be lost or ignored");
+                    throw new ConnectException("Exchange delivery has failed!", exchange.getException());
+                }
+
+                LOG.warn("A delivery has failed and the error reporting is enabled. Sending record to the DLQ");
+                reporter.report(record, exchange.getException());
             }
         }
     }
