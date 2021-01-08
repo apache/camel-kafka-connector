@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.cassandra.clients.dao;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.function.Consumer;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
+import com.datastax.oss.driver.api.core.cql.SimpleStatement;
 import com.datastax.oss.driver.api.core.type.DataTypes;
 import com.datastax.oss.driver.api.querybuilder.SchemaBuilder;
 import org.slf4j.Logger;
@@ -72,11 +74,11 @@ public class TestDataDao {
     }
 
     public void createTable() {
-        String statement = SchemaBuilder.createTable(TABLE_NAME)
+        SimpleStatement statement = SchemaBuilder.createTable(TABLE_NAME)
                 .withPartitionKey("id", DataTypes.TIMEUUID)
                 .withClusteringColumn("text", DataTypes.TEXT)
-                .asCql();
-
+                .builder()
+                .setTimeout(Duration.ofSeconds(10)).build();
 
         LOG.info("Executing create table {}", statement);
 
