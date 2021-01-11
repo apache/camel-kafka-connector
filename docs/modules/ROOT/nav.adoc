@@ -2,7 +2,7 @@
 ** xref:basic-concepts.adoc[Basic concepts]
 ** xref:basic-configuration.adoc[Basic configuration]
 ** xref:aggregation.adoc[Aggregation]
-** xref:idempontency.adoc[Idempotency]
+** xref:idempotency.adoc[Idempotency]
 * xref:archetypes.adoc[Archetypes]
 ** xref:archetype-connector.adoc[Extensible connector archetype]
 ** xref:archetype-dataformat-connector.adoc[Extensible Dataformat connector archetype]
