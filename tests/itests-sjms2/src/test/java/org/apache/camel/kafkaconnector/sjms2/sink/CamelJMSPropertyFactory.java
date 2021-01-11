@@ -40,7 +40,7 @@ final class CamelJMSPropertyFactory extends SinkConnectorPropertyFactory<CamelJM
     }
 
     public EndpointUrlBuilder<CamelJMSPropertyFactory> withUrl(String destinationName) {
-        String queueUrl = String.format("sjms2://%s", destinationName);
+        String queueUrl = String.format("sjms2:%s", destinationName);
 
         return new EndpointUrlBuilder<>(this::withSinkUrl, queueUrl);
     }
