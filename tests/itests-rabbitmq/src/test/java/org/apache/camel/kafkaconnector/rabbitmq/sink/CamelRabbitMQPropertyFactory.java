@@ -58,7 +58,7 @@ public class CamelRabbitMQPropertyFactory extends SinkConnectorPropertyFactory<C
     }
 
     public EndpointUrlBuilder<CamelRabbitMQPropertyFactory> withUrl(String exchangeName) {
-        String sourceUrl = String.format("rabbitmq://%s", exchangeName);
+        String sourceUrl = String.format("rabbitmq:%s", exchangeName);
 
         return new EndpointUrlBuilder<>(this::withSinkUrl, sourceUrl);
     }
