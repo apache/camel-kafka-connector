@@ -58,9 +58,12 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 /*
  This test is slow and flaky. It tends to fail on systems with limited resources and slow I/O. Therefore, it is
- disabled by default.
+ disabled by default. Also, suffers from bugs in the couchbase test container:
+ - https://github.com/testcontainers/testcontainers-java/issues/2993
+
+ Therefore, this test is marked as flaky and only runs if specifically enabled.
  */
-@EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
+@EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true")
 public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static CouchbaseService service = CouchbaseServiceFactory.getService();
