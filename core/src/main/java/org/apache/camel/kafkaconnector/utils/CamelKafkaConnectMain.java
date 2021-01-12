@@ -252,11 +252,13 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     //dataformats
                     if (!ObjectHelper.isEmpty(marshallDataFormat)) {
                         LOG.info(".marshal({})", marshallDataFormat);
-                        rd.marshal(marshallDataFormat);
+                        CamelKafkaConnectDataformat.configureMarshalDataformat(rd, camelMain.getCamelContext(), marshallDataFormat, camelProperties);
+                        //rd.marshal(marshallDataFormat).marshal();
                     }
                     if (!ObjectHelper.isEmpty(unmarshallDataFormat)) {
                         LOG.info(".unmarshal({})", unmarshallDataFormat);
-                        rd.unmarshal(unmarshallDataFormat);
+                        CamelKafkaConnectDataformat.configureUnmarshalDataformat(rd, camelMain.getCamelContext(), unmarshallDataFormat, camelProperties);
+
                     }
                     if (getContext().getRegistry().lookupByName("aggregate") != null) {
                         //aggregation

@@ -60,6 +60,34 @@ public class DataFormatTest {
     }
 
     @Test
+    public void testDataFormatFhirJsonSink() {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.sink.url", "direct://test");
+        props.put("camel.sink.kafka.topic", "mytopic");
+     //   props.put("camel.sink.unmarshal", "syslog");
+        props.put("camel.sink.marshal", "fhirJson");
+        props.put("camel.sink.marshal.fhirJson.fhirVersion", "R4");
+        props.put("camel.sink.marshal.fhirJson.prettyPrint", "true");
+        CamelSinkTask camelsinkTask = new CamelSinkTask();
+        camelsinkTask.start(props);
+        camelsinkTask.stop();
+    }
+
+    @Test
+    public void testUnmarshalDataFormatFhirJsonSource() {
+        Map<String, String> props = new HashMap<>();
+        props.put("camel.source.url", "direct://test");
+        props.put("camel.source.kafka.topic", "mytopic");
+        props.put("camel.source.unmarshal", "fhirJson");
+        props.put("camel.source.unmarshal.fhirJson.fhirVersion", "R4");
+        props.put("camel.source.unmarshal.fhirJson.prettyPrint", "true");
+        CamelSourceTask camelsourceTask = new CamelSourceTask();
+        camelsourceTask.start(props);
+        camelsourceTask.stop();
+    }
+
+
+    @Test
     public void testDataFormatNotFound() {
         Map<String, String> props = new HashMap<>();
         props.put("camel.sink.url", "direct://test");
@@ -76,27 +104,27 @@ public class DataFormatTest {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct://test");
         props.put("topics", "mytopic");
-        props.put("camel.source.marshal", "hl7");
-        props.put("camel.source.unmarshal", "syslog");
+        props.put("camel.source.marshal", "myHl7");
+        props.put("camel.source.unmarshal", "mySyslog");
         DefaultCamelContext dcc = new DefaultCamelContext();
 
         CamelKafkaConnectMain cms = CamelKafkaConnectMain.builder("direct://start", "log://test")
             .withProperties(props)
-            .withUnmarshallDataFormat("syslog")
-            .withMarshallDataFormat("hl7")
+            .withUnmarshallDataFormat("mySyslog")
+            .withMarshallDataFormat("myHl7")
             .build(dcc);
 
         HL7DataFormat hl7Df = new HL7DataFormat();
         hl7Df.setValidate(false);
-        dcc.getRegistry().bind("hl7", hl7Df);
+        dcc.getRegistry().bind("myHl7", hl7Df);
 
         SyslogDataFormat syslogDf = new SyslogDataFormat();
-        dcc.getRegistry().bind("syslog", syslogDf);
+        dcc.getRegistry().bind("mySyslog", syslogDf);
 
         cms.start();
-        HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("hl7");
+        HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("myHl7");
         assertNotNull(hl7dfLoaded);
-        SyslogDataFormat syslogDfLoaded = (SyslogDataFormat)dcc.resolveDataFormat("syslog");
+        SyslogDataFormat syslogDfLoaded = (SyslogDataFormat)dcc.resolveDataFormat("mySyslog");
         assertNotNull(syslogDfLoaded);
         cms.stop();
     }
@@ -106,20 +134,20 @@ public class DataFormatTest {
         Map<String, String> props = new HashMap<>();
         props.put("camel.source.url", "direct://test");
         props.put("topics", "mytopic");
-        props.put("camel.source.marshal", "hl7");
+        props.put("camel.source.marshal", "myHl7");
 
         DefaultCamelContext dcc = new DefaultCamelContext();
         CamelKafkaConnectMain cms = CamelKafkaConnectMain.builder("direct://start", "log://test")
             .withProperties(props)
-            .withMarshallDataFormat("hl7")
+            .withMarshallDataFormat("myHl7")
             .build(dcc);
 
         HL7DataFormat hl7df = new HL7DataFormat();
         hl7df.setValidate(false);
-        dcc.getRegistry().bind("hl7", hl7df);
+        dcc.getRegistry().bind("myHl7", hl7df);
 
         cms.start();
-        HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("hl7");
+        HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("myHl7");
         assertFalse(hl7dfLoaded.isValidate());
         cms.stop();
     }

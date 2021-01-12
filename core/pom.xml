@@ -83,6 +83,11 @@
         <!-- Test -->
         <dependency>
             <groupId>org.apache.camel</groupId>
+            <artifactId>camel-fhir</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
             <artifactId>camel-hl7</artifactId>
             <scope>test</scope>
         </dependency>
