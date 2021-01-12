@@ -26,6 +26,8 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.ssh.services.SshService;
 import org.apache.camel.kafkaconnector.ssh.services.SshServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -42,10 +44,21 @@ public class CamelSourceSshITCase extends AbstractKafkaTest {
 
     private final int expect = 1;
     private int received;
+    private String oldUserHome = System.getProperty("user.home");
 
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-ssh-kafka-connector"};
+    }
+
+    @BeforeEach
+    public void setupKeyHome() {
+        System.setProperty("user.home", "target/user-home");
+    }
+
+    @AfterEach
+    public void tearDownKeyHome() {
+        System.setProperty("user.home", oldUserHome);
     }
 
     private <T> boolean checkRecord(ConsumerRecord<String, T> record) {
@@ -74,9 +87,19 @@ public class CamelSourceSshITCase extends AbstractKafkaTest {
     public void testRetrieveFromSsh() throws ExecutionException, InterruptedException {
         String topic = TestUtils.getDefaultTestTopic(this.getClass());
 
-        ConnectorPropertyFactory connectorPropertyFactory = CamelSshPropertyFactory.basic().withKafkaTopic(topic).withHost(sshService.getSshHost())
-            .withPort(Integer.toString(sshService.getSshPort())).withDelay(Integer.toString(10000)).withUsername("root").withPassword("root").withPollcommand("date")
-            .withTransformsConfig("SshTransforms").withEntry("type", "org.apache.camel.kafkaconnector.ssh.transformers.SshTransforms").end();
+        ConnectorPropertyFactory connectorPropertyFactory = CamelSshPropertyFactory
+                .basic()
+                .withKafkaTopic(topic)
+                .withHost(sshService.getSshHost())
+                .withPort(Integer.toString(sshService.getSshPort()))
+                .withDelay(Integer.toString(10000))
+                .withUsername("root")
+                .withPassword("root")
+                .withPollcommand("date")
+                .withTransformsConfig("SshTransforms")
+                    .withEntry("type", "org.apache.camel.kafkaconnector.ssh.transformers.SshTransforms")
+                .end();
+
 
         runTest(connectorPropertyFactory);
     }
