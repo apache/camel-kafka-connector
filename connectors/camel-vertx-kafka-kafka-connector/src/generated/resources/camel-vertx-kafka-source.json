@@ -86,13 +86,14 @@
 		},
 		"camel.source.endpoint.metricsRecordingLevel": {
 			"name": "camel.source.endpoint.metricsRecordingLevel",
-			"description": "The highest recording level for metrics. One of: [INFO] [DEBUG]",
+			"description": "The highest recording level for metrics. One of: [INFO] [DEBUG] [TRACE]",
 			"defaultValue": "\"INFO\"",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"INFO",
-				"DEBUG"
+				"DEBUG",
+				"TRACE"
 			]
 		},
 		"camel.source.endpoint.metricsSampleWindowMs": {
@@ -147,6 +148,20 @@
 			"name": "camel.source.endpoint.sendBufferBytes",
 			"description": "The size of the TCP send buffer (SO_SNDBUF) to use when sending data. If the value is -1, the OS default will be used.",
 			"defaultValue": "131072",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.socketConnectionSetupTimeoutMaxMs": {
+			"name": "camel.source.endpoint.socketConnectionSetupTimeoutMaxMs",
+			"description": "The maximum amount of time the client will wait for the socket connection to be established. The connection setup timeout will increase exponentially for each consecutive connection failure up to this maximum. To avoid connection storms, a randomization factor of 0.2 will be applied to the timeout resulting in a random range between 20% below and 20% above the computed value.",
+			"defaultValue": "127000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.socketConnectionSetupTimeoutMs": {
+			"name": "camel.source.endpoint.socketConnectionSetupTimeoutMs",
+			"description": "The amount of time the client will wait for the socket connection to be established. If the connection is not built before the timeout elapses, clients will close the socket channel.",
+			"defaultValue": "10000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -498,7 +513,19 @@
 		},
 		"camel.source.endpoint.sslKeyPassword": {
 			"name": "camel.source.endpoint.sslKeyPassword",
-			"description": "The password of the private key in the key store file. This is optional for client.",
+			"description": "The password of the private key in the key store file orthe PEM key specified in ssl.keystore.key'. This is required for clients only if two-way authentication is configured.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.sslKeystoreCertificateChain": {
+			"name": "camel.source.endpoint.sslKeystoreCertificateChain",
+			"description": "Certificate chain in the format specified by 'ssl.keystore.type'. Default SSL engine factory supports only PEM format with a list of X.509 certificates",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.sslKeystoreKey": {
+			"name": "camel.source.endpoint.sslKeystoreKey",
+			"description": "Private key in the format specified by 'ssl.keystore.type'. Default SSL engine factory supports only PEM format with PKCS#8 keys. If the key is encrypted, key password must be specified using 'ssl.key.password'",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -510,7 +537,7 @@
 		},
 		"camel.source.endpoint.sslKeystorePassword": {
 			"name": "camel.source.endpoint.sslKeystorePassword",
-			"description": "The store password for the key store file. This is optional for client and only needed if ssl.keystore.location is configured.",
+			"description": "The store password for the key store file. This is optional for client and only needed if 'ssl.keystore.location' is configured. Key store password is not supported for PEM format.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -547,6 +574,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.sslTruststoreCertificates": {
+			"name": "camel.source.endpoint.sslTruststoreCertificates",
+			"description": "Trusted certificates in the format specified by 'ssl.truststore.type'. Default SSL engine factory supports only PEM format with X.509 certificates.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.sslTruststoreLocation": {
 			"name": "camel.source.endpoint.sslTruststoreLocation",
 			"description": "The location of the trust store file.",
@@ -555,7 +588,7 @@
 		},
 		"camel.source.endpoint.sslTruststorePassword": {
 			"name": "camel.source.endpoint.sslTruststorePassword",
-			"description": "The password for the trust store file. If a password is not set access to the truststore is still available, but integrity checking is disabled.",
+			"description": "The password for the trust store file. If a password is not set, trust store file configured will still be used, but integrity checking is disabled. Trust store password is not supported for PEM format.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -643,13 +676,14 @@
 		},
 		"camel.component.vertx-kafka.metricsRecordingLevel": {
 			"name": "camel.component.vertx-kafka.metricsRecordingLevel",
-			"description": "The highest recording level for metrics. One of: [INFO] [DEBUG]",
+			"description": "The highest recording level for metrics. One of: [INFO] [DEBUG] [TRACE]",
 			"defaultValue": "\"INFO\"",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"INFO",
-				"DEBUG"
+				"DEBUG",
+				"TRACE"
 			]
 		},
 		"camel.component.vertx-kafka.metricsSampleWindowMs": {
@@ -704,6 +738,20 @@
 			"name": "camel.component.vertx-kafka.sendBufferBytes",
 			"description": "The size of the TCP send buffer (SO_SNDBUF) to use when sending data. If the value is -1, the OS default will be used.",
 			"defaultValue": "131072",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.socketConnectionSetupTimeoutMaxMs": {
+			"name": "camel.component.vertx-kafka.socketConnectionSetupTimeoutMaxMs",
+			"description": "The maximum amount of time the client will wait for the socket connection to be established. The connection setup timeout will increase exponentially for each consecutive connection failure up to this maximum. To avoid connection storms, a randomization factor of 0.2 will be applied to the timeout resulting in a random range between 20% below and 20% above the computed value.",
+			"defaultValue": "127000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.socketConnectionSetupTimeoutMs": {
+			"name": "camel.component.vertx-kafka.socketConnectionSetupTimeoutMs",
+			"description": "The amount of time the client will wait for the socket connection to be established. If the connection is not built before the timeout elapses, clients will close the socket channel.",
+			"defaultValue": "10000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -1050,7 +1098,19 @@
 		},
 		"camel.component.vertx-kafka.sslKeyPassword": {
 			"name": "camel.component.vertx-kafka.sslKeyPassword",
-			"description": "The password of the private key in the key store file. This is optional for client.",
+			"description": "The password of the private key in the key store file orthe PEM key specified in ssl.keystore.key'. This is required for clients only if two-way authentication is configured.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.sslKeystoreCertificateChain": {
+			"name": "camel.component.vertx-kafka.sslKeystoreCertificateChain",
+			"description": "Certificate chain in the format specified by 'ssl.keystore.type'. Default SSL engine factory supports only PEM format with a list of X.509 certificates",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.sslKeystoreKey": {
+			"name": "camel.component.vertx-kafka.sslKeystoreKey",
+			"description": "Private key in the format specified by 'ssl.keystore.type'. Default SSL engine factory supports only PEM format with PKCS#8 keys. If the key is encrypted, key password must be specified using 'ssl.key.password'",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -1062,7 +1122,7 @@
 		},
 		"camel.component.vertx-kafka.sslKeystorePassword": {
 			"name": "camel.component.vertx-kafka.sslKeystorePassword",
-			"description": "The store password for the key store file. This is optional for client and only needed if ssl.keystore.location is configured.",
+			"description": "The store password for the key store file. This is optional for client and only needed if 'ssl.keystore.location' is configured. Key store password is not supported for PEM format.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -1099,6 +1159,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.vertx-kafka.sslTruststoreCertificates": {
+			"name": "camel.component.vertx-kafka.sslTruststoreCertificates",
+			"description": "Trusted certificates in the format specified by 'ssl.truststore.type'. Default SSL engine factory supports only PEM format with X.509 certificates.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.vertx-kafka.sslTruststoreLocation": {
 			"name": "camel.component.vertx-kafka.sslTruststoreLocation",
 			"description": "The location of the trust store file.",
@@ -1107,7 +1173,7 @@
 		},
 		"camel.component.vertx-kafka.sslTruststorePassword": {
 			"name": "camel.component.vertx-kafka.sslTruststorePassword",
-			"description": "The password for the trust store file. If a password is not set access to the truststore is still available, but integrity checking is disabled.",
+			"description": "The password for the trust store file. If a password is not set, trust store file configured will still be used, but integrity checking is disabled. Trust store password is not supported for PEM format.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

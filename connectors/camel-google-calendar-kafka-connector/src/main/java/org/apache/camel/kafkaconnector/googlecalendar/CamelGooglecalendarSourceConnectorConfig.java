@@ -38,21 +38,12 @@ public class CamelGooglecalendarSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_ID_CONF = "camel.source.endpoint.clientId";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_ID_DOC = "Client ID of the calendar application";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_ID_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_CONF = "camel.source.endpoint.emailAddress";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_DOC = "The emailAddress of the Google Service Account.";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_IN_BODY_CONF = "camel.source.endpoint.inBody";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_IN_BODY_DOC = "Sets the name of a parameter to be passed in the exchange In Body";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_IN_BODY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_CONF = "camel.source.endpoint.p12FileName";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_DOC = "The name of the p12 file which has the private key to use with the Google Service Account.";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SCOPES_CONF = "camel.source.endpoint.scopes";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SCOPES_DOC = "Specifies the level of permissions you want a calendar application to have to a user account. You can separate multiple scopes by comma. See https://developers.google.com/google-apps/calendar/auth for more info.";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SCOPES_DEFAULT = "https://www.googleapis.com/auth/calendar";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_CONF = "camel.source.endpoint.user";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_DOC = "The email address of the user the application is trying to impersonate in the service account flow";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF = "camel.source.endpoint.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -119,9 +110,18 @@ public class CamelGooglecalendarSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_SECRET_CONF = "camel.source.endpoint.clientSecret";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_SECRET_DOC = "Client secret of the calendar application";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_SECRET_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_CONF = "camel.source.endpoint.emailAddress";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_DOC = "The emailAddress of the Google Service Account.";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_CONF = "camel.source.endpoint.p12FileName";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_DOC = "The name of the p12 file which has the private key to use with the Google Service Account.";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_REFRESH_TOKEN_CONF = "camel.source.endpoint.refreshToken";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_REFRESH_TOKEN_DOC = "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_REFRESH_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_CONF = "camel.source.endpoint.user";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_DOC = "The email address of the user the application is trying to impersonate in the service account flow";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_APPLICATION_NAME_CONF = "camel.component.google-calendar.applicationName";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_APPLICATION_NAME_DOC = "Google calendar application name. Example would be camel-google-calendar/1.0";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_APPLICATION_NAME_DEFAULT = null;
@@ -131,18 +131,9 @@ public class CamelGooglecalendarSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CONFIGURATION_CONF = "camel.component.google-calendar.configuration";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CONFIGURATION_DOC = "To use the shared configuration";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CONFIGURATION_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_CONF = "camel.component.google-calendar.emailAddress";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_DOC = "The emailAddress of the Google Service Account.";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_CONF = "camel.component.google-calendar.p12FileName";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_DOC = "The name of the p12 file which has the private key to use with the Google Service Account.";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_SCOPES_CONF = "camel.component.google-calendar.scopes";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_SCOPES_DOC = "Specifies the level of permissions you want a calendar application to have to a user account. You can separate multiple scopes by comma. See https://developers.google.com/google-apps/calendar/auth for more info.";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_SCOPES_DEFAULT = "https://www.googleapis.com/auth/calendar";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_CONF = "camel.component.google-calendar.user";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_DOC = "The email address of the user the application is trying to impersonate in the service account flow";
-    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.google-calendar.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -158,9 +149,18 @@ public class CamelGooglecalendarSourceConnectorConfig
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_SECRET_CONF = "camel.component.google-calendar.clientSecret";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_SECRET_DOC = "Client secret of the calendar application";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_SECRET_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_CONF = "camel.component.google-calendar.emailAddress";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_DOC = "The emailAddress of the Google Service Account.";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_CONF = "camel.component.google-calendar.p12FileName";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_DOC = "The name of the p12 file which has the private key to use with the Google Service Account.";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_DEFAULT = null;
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_REFRESH_TOKEN_CONF = "camel.component.google-calendar.refreshToken";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_REFRESH_TOKEN_DOC = "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.";
     public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_REFRESH_TOKEN_DEFAULT = null;
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_CONF = "camel.component.google-calendar.user";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_DOC = "The email address of the user the application is trying to impersonate in the service account flow";
+    public static final String CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_DEFAULT = null;
 
     public CamelGooglecalendarSourceConnectorConfig(
             ConfigDef config,
@@ -179,11 +179,8 @@ public class CamelGooglecalendarSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_PATH_METHOD_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_PATH_METHOD_NAME_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SOURCE_GOOGLECALENDAR_PATH_METHOD_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_APPLICATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_APPLICATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_APPLICATION_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_ID_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_IN_BODY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_IN_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_IN_BODY_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SCOPES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SCOPES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SCOPES_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_SEND_EMPTY_MESSAGE_WHEN_IDLE_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EXCEPTION_HANDLER_DOC);
@@ -206,20 +203,23 @@ public class CamelGooglecalendarSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USE_FIXED_DELAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USE_FIXED_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USE_FIXED_DELAY_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_CLIENT_SECRET_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_EMAIL_ADDRESS_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_P12FILE_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_REFRESH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_REFRESH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_REFRESH_TOKEN_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_ENDPOINT_USER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_APPLICATION_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_APPLICATION_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_APPLICATION_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_ID_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CONFIGURATION_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_SCOPES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_SCOPES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_SCOPES_DOC);
-        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_CLIENT_SECRET_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_EMAIL_ADDRESS_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_P12FILE_NAME_DOC);
         conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_REFRESH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_REFRESH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_REFRESH_TOKEN_DOC);
+        conf.define(CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GOOGLECALENDAR_COMPONENT_USER_DOC);
         return conf;
     }
 }
