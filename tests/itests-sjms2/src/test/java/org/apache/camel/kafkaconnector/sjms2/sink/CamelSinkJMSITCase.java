@@ -39,6 +39,7 @@ import org.apache.camel.test.infra.messaging.services.MessagingService;
 import org.apache.camel.test.infra.messaging.services.MessagingServiceBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
@@ -52,6 +53,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  * Integration tests for the JMS sink
  */
 @Testcontainers
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkJMSITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static MessagingService jmsService = MessagingServiceBuilder

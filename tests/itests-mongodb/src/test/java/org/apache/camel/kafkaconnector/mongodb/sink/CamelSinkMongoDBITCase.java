@@ -33,6 +33,7 @@ import org.apache.camel.test.infra.mongodb.services.MongoDBServiceFactory;
 import org.bson.Document;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
@@ -41,6 +42,7 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkMongoDBITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static MongoDBService mongoDBService = MongoDBServiceFactory.createService();
