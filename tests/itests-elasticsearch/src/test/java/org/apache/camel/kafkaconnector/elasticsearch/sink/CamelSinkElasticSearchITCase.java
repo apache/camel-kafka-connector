@@ -36,6 +36,7 @@ import org.elasticsearch.search.SearchHits;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +47,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
+        disabledReason = "Hangs when running with the embedded Kafka Connect instance")
 public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static ElasticSearchService elasticSearch = ElasticSearchServiceFactory.createService();
@@ -72,6 +75,7 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     }
 
     private void putRecords(CountDownLatch latch) {
+        LOG.debug("Sending records to Kafka");
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
         try {
@@ -105,12 +109,15 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
 
     public void runTest(ConnectorPropertyFactory propertyFactory) throws ExecutionException, InterruptedException {
         propertyFactory.log();
+        LOG.debug("Performing initialization");
         getKafkaConnectService().initializeConnector(propertyFactory);
 
+        LOG.debug("Initialization complete");
         CountDownLatch latch = new CountDownLatch(1);
         ExecutorService service = Executors.newCachedThreadPool();
         service.submit(() -> putRecords(latch));
 
+        LOG.debug("Waiting for records");
         if (!latch.await(30, TimeUnit.SECONDS)) {
             fail("Timed out wait for data to be added to the Kafka cluster");
         }

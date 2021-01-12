@@ -29,13 +29,18 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisabledIfSystemProperty(named = "kafka.instance.type", matches = "local-(kafka|strimzi)-container",
+        disabledReason = "Hangs when running with the embedded Kafka Connect instance")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceSshITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static SshService sshService = SshServiceFactory.createService();

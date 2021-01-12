@@ -26,6 +26,7 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * messages
  */
 @Testcontainers
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceTimerITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceTimerITCase.class);
 

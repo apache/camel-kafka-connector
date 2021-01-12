@@ -46,6 +46,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -64,6 +65,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  Therefore, this test is marked as flaky and only runs if specifically enabled.
  */
 @EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkCouchbaseITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static CouchbaseService service = CouchbaseServiceFactory.getService();

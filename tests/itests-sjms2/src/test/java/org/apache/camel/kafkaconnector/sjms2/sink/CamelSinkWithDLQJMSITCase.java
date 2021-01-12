@@ -28,6 +28,7 @@ import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,6 +42,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  * ensure that the failed records are added to the DLQ configured in Kafka.
  */
 @Testcontainers
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkWithDLQJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkWithDLQJMSITCase.class);
 

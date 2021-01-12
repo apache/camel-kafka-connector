@@ -32,6 +32,7 @@ import org.apache.camel.test.infra.messaging.services.MessagingServiceBuilder;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
@@ -47,6 +48,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  * messages
  */
 @Testcontainers
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceJMSITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static MessagingService jmsService = MessagingServiceBuilder

@@ -33,6 +33,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
@@ -41,6 +42,7 @@ import org.slf4j.LoggerFactory;
 import static org.apache.camel.kafkaconnector.common.BasicConnectorPropertyFactory.classRef;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceCassandraITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static CassandraService cassandraService = CassandraServiceFactory.createService();
@@ -60,6 +62,7 @@ public class CamelSourceCassandraITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
+        received = 0;
         cassandraClient = new CassandraClient(cassandraService.getCassandraHost(), cassandraService.getCQL3Port());
 
         testDataDao = cassandraClient.newTestDataDao();

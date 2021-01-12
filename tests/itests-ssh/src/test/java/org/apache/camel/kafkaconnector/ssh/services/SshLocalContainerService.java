@@ -27,8 +27,6 @@ public class SshLocalContainerService implements SshService {
 
     public SshLocalContainerService() {
         container = new SshContainer();
-
-        container.start();
     }
 
     @Override
@@ -43,6 +41,7 @@ public class SshLocalContainerService implements SshService {
 
     @Override
     public void initialize() {
+        container.start();
         LOG.info("SSH server running at address {}", getSshEndpoint());
     }
 
