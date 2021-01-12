@@ -41,6 +41,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.decodeFilename": {
+			"name": "camel.source.endpoint.decodeFilename",
+			"description": "If set to true, the MimeUtility.decodeText method will be used to decode the filename. This is similar to setting JVM system property mail.mime.encodefilename.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.delete": {
 			"name": "camel.source.endpoint.delete",
 			"description": "Deletes the messages after they have been processed. This is done by setting the DELETED flag on the mail message. If false, the SEEN flag is set instead. As of Camel 2.10 you can override this configuration option by setting a header with the key delete to determine if the mail should be deleted or not.",
@@ -439,6 +446,13 @@
 		"camel.component.imap.copyTo": {
 			"name": "camel.component.imap.copyTo",
 			"description": "After processing a mail message, it can be copied to a mail folder with the given name. You can override this configuration value, with a header with the key copyTo, allowing you to copy messages to folder names configured at runtime.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.imap.decodeFilename": {
+			"name": "camel.component.imap.decodeFilename",
+			"description": "If set to true, the MimeUtility.decodeText method will be used to decode the filename. This is similar to setting JVM system property mail.mime.encodefilename.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -59,21 +59,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.emailAddress": {
-			"name": "camel.source.endpoint.emailAddress",
-			"description": "The emailAddress of the Google Service Account.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.inBody": {
 			"name": "camel.source.endpoint.inBody",
 			"description": "Sets the name of a parameter to be passed in the exchange In Body",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.p12FileName": {
-			"name": "camel.source.endpoint.p12FileName",
-			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -81,12 +69,6 @@
 			"name": "camel.source.endpoint.scopes",
 			"description": "Specifies the level of permissions you want a calendar application to have to a user account. You can separate multiple scopes by comma. See https:\/\/developers.google.com\/google-apps\/calendar\/auth for more info.",
 			"defaultValue": "\"https:\/\/www.googleapis.com\/auth\/calendar\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.user": {
-			"name": "camel.source.endpoint.user",
-			"description": "The email address of the user the application is trying to impersonate in the service account flow",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -256,9 +238,27 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.emailAddress": {
+			"name": "camel.source.endpoint.emailAddress",
+			"description": "The emailAddress of the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.p12FileName": {
+			"name": "camel.source.endpoint.p12FileName",
+			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.refreshToken": {
 			"name": "camel.source.endpoint.refreshToken",
 			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.user": {
+			"name": "camel.source.endpoint.user",
+			"description": "The email address of the user the application is trying to impersonate in the service account flow",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -280,28 +280,10 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.google-calendar.emailAddress": {
-			"name": "camel.component.google-calendar.emailAddress",
-			"description": "The emailAddress of the Google Service Account.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.google-calendar.p12FileName": {
-			"name": "camel.component.google-calendar.p12FileName",
-			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.google-calendar.scopes": {
 			"name": "camel.component.google-calendar.scopes",
 			"description": "Specifies the level of permissions you want a calendar application to have to a user account. You can separate multiple scopes by comma. See https:\/\/developers.google.com\/google-apps\/calendar\/auth for more info.",
 			"defaultValue": "\"https:\/\/www.googleapis.com\/auth\/calendar\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.google-calendar.user": {
-			"name": "camel.component.google-calendar.user",
-			"description": "The email address of the user the application is trying to impersonate in the service account flow",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -337,9 +319,27 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.google-calendar.emailAddress": {
+			"name": "camel.component.google-calendar.emailAddress",
+			"description": "The emailAddress of the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-calendar.p12FileName": {
+			"name": "camel.component.google-calendar.p12FileName",
+			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.google-calendar.refreshToken": {
 			"name": "camel.component.google-calendar.refreshToken",
 			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-calendar.user": {
+			"name": "camel.component.google-calendar.user",
+			"description": "The email address of the user the application is trying to impersonate in the service account flow",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

@@ -235,6 +235,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.excludeExt": {
+			"name": "camel.source.endpoint.excludeExt",
+			"description": "Is used to exclude files matching file extension name (case insensitive). For example to exclude bak files, then use excludeExt=bak. Multiple extensions can be separated by comma, for example to exclude bak and dat files, use excludeExt=bak,dat.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.filter": {
 			"name": "camel.source.endpoint.filter",
 			"description": "Pluggable filter as a org.apache.camel.component.file.GenericFileFilter class. Will skip files if filter returns false in its accept() method.",
@@ -275,6 +281,12 @@
 		"camel.source.endpoint.include": {
 			"name": "camel.source.endpoint.include",
 			"description": "Is used to include files, if filename matches the regex pattern (matching is case in-sensitive). Notice if you use symbols such as plus sign and others you would need to configure this using the RAW() syntax if configuring this as an endpoint uri. See more details at configuring endpoint uris",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.includeExt": {
+			"name": "camel.source.endpoint.includeExt",
+			"description": "Is used to include files matching file extension name (case insensitive). For example to include txt files, then use includeExt=txt. Multiple extensions can be separated by comma, for example to include txt and xml files, use includeExt=txt,xml",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

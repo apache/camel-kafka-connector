@@ -41,6 +41,9 @@ public class CamelImapsSourceConnectorConfig
     public static final String CAMEL_SOURCE_IMAPS_ENDPOINT_COPY_TO_CONF = "camel.source.endpoint.copyTo";
     public static final String CAMEL_SOURCE_IMAPS_ENDPOINT_COPY_TO_DOC = "After processing a mail message, it can be copied to a mail folder with the given name. You can override this configuration value, with a header with the key copyTo, allowing you to copy messages to folder names configured at runtime.";
     public static final String CAMEL_SOURCE_IMAPS_ENDPOINT_COPY_TO_DEFAULT = null;
+    public static final String CAMEL_SOURCE_IMAPS_ENDPOINT_DECODE_FILENAME_CONF = "camel.source.endpoint.decodeFilename";
+    public static final String CAMEL_SOURCE_IMAPS_ENDPOINT_DECODE_FILENAME_DOC = "If set to true, the MimeUtility.decodeText method will be used to decode the filename. This is similar to setting JVM system property mail.mime.encodefilename.";
+    public static final Boolean CAMEL_SOURCE_IMAPS_ENDPOINT_DECODE_FILENAME_DEFAULT = false;
     public static final String CAMEL_SOURCE_IMAPS_ENDPOINT_DELETE_CONF = "camel.source.endpoint.delete";
     public static final String CAMEL_SOURCE_IMAPS_ENDPOINT_DELETE_DOC = "Deletes the messages after they have been processed. This is done by setting the DELETED flag on the mail message. If false, the SEEN flag is set instead. As of Camel 2.10 you can override this configuration option by setting a header with the key delete to determine if the mail should be deleted or not.";
     public static final Boolean CAMEL_SOURCE_IMAPS_ENDPOINT_DELETE_DEFAULT = false;
@@ -215,6 +218,9 @@ public class CamelImapsSourceConnectorConfig
     public static final String CAMEL_SOURCE_IMAPS_COMPONENT_COPY_TO_CONF = "camel.component.imaps.copyTo";
     public static final String CAMEL_SOURCE_IMAPS_COMPONENT_COPY_TO_DOC = "After processing a mail message, it can be copied to a mail folder with the given name. You can override this configuration value, with a header with the key copyTo, allowing you to copy messages to folder names configured at runtime.";
     public static final String CAMEL_SOURCE_IMAPS_COMPONENT_COPY_TO_DEFAULT = null;
+    public static final String CAMEL_SOURCE_IMAPS_COMPONENT_DECODE_FILENAME_CONF = "camel.component.imaps.decodeFilename";
+    public static final String CAMEL_SOURCE_IMAPS_COMPONENT_DECODE_FILENAME_DOC = "If set to true, the MimeUtility.decodeText method will be used to decode the filename. This is similar to setting JVM system property mail.mime.encodefilename.";
+    public static final Boolean CAMEL_SOURCE_IMAPS_COMPONENT_DECODE_FILENAME_DEFAULT = false;
     public static final String CAMEL_SOURCE_IMAPS_COMPONENT_DELETE_CONF = "camel.component.imaps.delete";
     public static final String CAMEL_SOURCE_IMAPS_COMPONENT_DELETE_DOC = "Deletes the messages after they have been processed. This is done by setting the DELETED flag on the mail message. If false, the SEEN flag is set instead. As of Camel 2.10 you can override this configuration option by setting a header with the key delete to determine if the mail should be deleted or not.";
     public static final Boolean CAMEL_SOURCE_IMAPS_COMPONENT_DELETE_DEFAULT = false;
@@ -326,6 +332,7 @@ public class CamelImapsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_IMAPS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_ENDPOINT_CLOSE_FOLDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_ENDPOINT_CLOSE_FOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_ENDPOINT_CLOSE_FOLDER_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_ENDPOINT_COPY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IMAPS_ENDPOINT_COPY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_ENDPOINT_COPY_TO_DOC);
+        conf.define(CAMEL_SOURCE_IMAPS_ENDPOINT_DECODE_FILENAME_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_ENDPOINT_DECODE_FILENAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_ENDPOINT_DECODE_FILENAME_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_ENDPOINT_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_ENDPOINT_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_ENDPOINT_DELETE_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_ENDPOINT_DISCONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_ENDPOINT_DISCONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_ENDPOINT_DISCONNECT_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_ENDPOINT_HANDLE_FAILED_MESSAGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_ENDPOINT_HANDLE_FAILED_MESSAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_ENDPOINT_HANDLE_FAILED_MESSAGE_DOC);
@@ -384,6 +391,7 @@ public class CamelImapsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_IMAPS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_COMPONENT_CLOSE_FOLDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_COMPONENT_CLOSE_FOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_COMPONENT_CLOSE_FOLDER_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_COMPONENT_COPY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IMAPS_COMPONENT_COPY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_COMPONENT_COPY_TO_DOC);
+        conf.define(CAMEL_SOURCE_IMAPS_COMPONENT_DECODE_FILENAME_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_COMPONENT_DECODE_FILENAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_COMPONENT_DECODE_FILENAME_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_COMPONENT_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_COMPONENT_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_COMPONENT_DELETE_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_COMPONENT_DISCONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_COMPONENT_DISCONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_COMPONENT_DISCONNECT_DOC);
         conf.define(CAMEL_SOURCE_IMAPS_COMPONENT_HANDLE_FAILED_MESSAGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IMAPS_COMPONENT_HANDLE_FAILED_MESSAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IMAPS_COMPONENT_HANDLE_FAILED_MESSAGE_DOC);

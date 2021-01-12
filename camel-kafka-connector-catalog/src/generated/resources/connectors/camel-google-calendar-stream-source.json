@@ -233,9 +233,27 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.emailAddress": {
+			"name": "camel.source.endpoint.emailAddress",
+			"description": "The emailAddress of the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.p12FileName": {
+			"name": "camel.source.endpoint.p12FileName",
+			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.refreshToken": {
 			"name": "camel.source.endpoint.refreshToken",
 			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.user": {
+			"name": "camel.source.endpoint.user",
+			"description": "The email address of the user the application is trying to impersonate in the service account flow.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -329,9 +347,27 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.google-calendar-stream.emailAddress": {
+			"name": "camel.component.google-calendar-stream.emailAddress",
+			"description": "The emailAddress of the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-calendar-stream.p12FileName": {
+			"name": "camel.component.google-calendar-stream.p12FileName",
+			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.google-calendar-stream.refreshToken": {
 			"name": "camel.component.google-calendar-stream.refreshToken",
 			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-calendar-stream.user": {
+			"name": "camel.component.google-calendar-stream.user",
+			"description": "The email address of the user the application is trying to impersonate in the service account flow.",
 			"priority": "MEDIUM",
 			"required": "false"
 		}
