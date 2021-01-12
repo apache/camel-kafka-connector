@@ -35,7 +35,11 @@ public final class KafkaServiceFactory {
             return new EmbeddedKafkaService();
         }
 
-        return org.apache.camel.test.infra.kafka.services.KafkaServiceFactory.createService();
-    }
+        if (kafkaInstanceType.equals("local-strimzi-container")) {
+            return new StrimziService();
+        }
 
+        return org.apache.camel.test.infra.kafka.services.KafkaServiceFactory.createService();
+
+    }
 }
