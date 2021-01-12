@@ -39,6 +39,46 @@
 				"DUPS_OK_ACKNOWLEDGE"
 			]
 		},
+		"camel.source.endpoint.connectionFactory": {
+			"name": "camel.source.endpoint.connectionFactory",
+			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.disableReplyTo": {
+			"name": "camel.source.endpoint.disableReplyTo",
+			"description": "Specifies whether Camel ignores the JMSReplyTo header in messages. If true, Camel does not send a reply back to the destination specified in the JMSReplyTo header. You can use this option if you want Camel to consume from a route and you do not want Camel to automatically send back a reply message because another component in your code handles the reply message. You can also use this option if you want to use Camel as a proxy between different message brokers and you want to route message from one system to another.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.replyTo": {
+			"name": "camel.source.endpoint.replyTo",
+			"description": "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.testConnectionOnStartup": {
+			"name": "camel.source.endpoint.testConnectionOnStartup",
+			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.asyncConsumer": {
+			"name": "camel.source.endpoint.asyncConsumer",
+			"description": "Whether the JmsConsumer processes the Exchange asynchronously. If enabled then the JmsConsumer may pickup the next message from the JMS queue, while the previous message is being processed asynchronously (by the Asynchronous Routing Engine). This means that messages may be processed not 100% strictly in order. If disabled (as default) then the Exchange is fully processed before the JmsConsumer will pickup the next message from the JMS queue. Note if transacted has been enabled, then asyncConsumer=true does not run asynchronously, as transaction must be executed synchronously (Camel 3.0 may support async transactions).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.autoStartup": {
+			"name": "camel.source.endpoint.autoStartup",
+			"description": "Specifies whether the consumer container should auto-startup.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.bridgeErrorHandler": {
 			"name": "camel.source.endpoint.bridgeErrorHandler",
 			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -46,9 +86,15 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.consumerCount": {
-			"name": "camel.source.endpoint.consumerCount",
-			"description": "Sets the number of consumer listeners used for this endpoint.",
+		"camel.source.endpoint.clientId": {
+			"name": "camel.source.endpoint.clientId",
+			"description": "Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance. It is typically only required for durable topic subscriptions. If using Apache ActiveMQ you may prefer to use Virtual Topics instead.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.concurrentConsumers": {
+			"name": "camel.source.endpoint.concurrentConsumers",
+			"description": "Specifies the default number of concurrent consumers when consuming from JMS (not for request\/reply over JMS). See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads. When doing request\/reply over JMS then the option replyToConcurrentConsumers is used to control number of concurrent consumers on the reply message listener.",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -60,22 +106,15 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.durableSubscriptionId": {
-			"name": "camel.source.endpoint.durableSubscriptionId",
-			"description": "Sets the durable subscription Id required for durable topics.",
+		"camel.source.endpoint.durableSubscriptionName": {
+			"name": "camel.source.endpoint.durableSubscriptionName",
+			"description": "The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.reconnectBackOff": {
-			"name": "camel.source.endpoint.reconnectBackOff",
-			"description": "Backoff in millis on consumer pool reconnection attempts",
-			"defaultValue": "5000L",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.reconnectOnError": {
-			"name": "camel.source.endpoint.reconnectOnError",
-			"description": "Try to apply reconnection logic on consumer pool",
+		"camel.source.endpoint.replyToDeliveryPersistent": {
+			"name": "camel.source.endpoint.replyToDeliveryPersistent",
+			"description": "Specifies whether to use persistent delivery by default for replies.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -93,10 +132,17 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "true",
+		"camel.source.endpoint.eagerLoadingOfProperties": {
+			"name": "camel.source.endpoint.eagerLoadingOfProperties",
+			"description": "Enables eager loading of JMS properties and payload as soon as a message is loaded which generally is inefficient as the JMS properties may not be required but sometimes can catch early any issues with the underlying JMS provider and the use of JMS properties. See also the option eagerPoisonBody.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.eagerPoisonBody": {
+			"name": "camel.source.endpoint.eagerPoisonBody",
+			"description": "If eagerLoadingOfProperties is enabled and the JMS message payload (JMS body or JMS properties) is poison (cannot be read\/mapped), then set this text as the message body instead so the message can be processed (the cause of the poison are already stored as exception on the Exchange). This can be turned off by setting eagerPoisonBody=false. See also the option eagerLoadingOfProperties.",
+			"defaultValue": "\"Poison JMS message due to ${exception.message}\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -123,6 +169,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.replyToSameDestinationAllowed": {
+			"name": "camel.source.endpoint.replyToSameDestinationAllowed",
+			"description": "Whether a JMS consumer is allowed to send a reply message to the same destination that the consumer is using to consume from. This prevents an endless loop by consuming and sending back the same message to itself.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.asyncStartListener": {
 			"name": "camel.source.endpoint.asyncStartListener",
 			"description": "Whether to startup the consumer message listener asynchronously, when starting a route. For example if a JmsConsumer cannot get a connection to a remote JMS broker, then it may block while retrying and\/or failover. This will cause Camel to block while starting routes. By setting this option to true, you will let routes startup, while the JmsConsumer connects to the JMS broker using a dedicated thread in asynchronous mode. If this option is used, then beware that if the connection could not be established, then an exception is logged at WARN level, and the consumer will not be able to receive messages; You can then restart the route to retry.",
@@ -134,24 +187,6 @@
 			"name": "camel.source.endpoint.asyncStopListener",
 			"description": "Whether to stop the consumer message listener asynchronously, when stopping a route.",
 			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.connectionCount": {
-			"name": "camel.source.endpoint.connectionCount",
-			"description": "The maximum number of connections available to this endpoint",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.connectionFactory": {
-			"name": "camel.source.endpoint.connectionFactory",
-			"description": "Initializes the connectionFactory for the endpoint, which takes precedence over the component's connectionFactory, if any",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.connectionResource": {
-			"name": "camel.source.endpoint.connectionResource",
-			"description": "Initializes the connectionResource for the endpoint, which takes precedence over the component's connectionResource, if any",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -199,25 +234,24 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.errorHandlerLoggingLevel": {
-			"name": "camel.source.endpoint.errorHandlerLoggingLevel",
-			"description": "Allows to configure the default errorHandler logging level for logging uncaught exceptions. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF]",
-			"defaultValue": "\"WARN\"",
+		"camel.source.endpoint.recoveryInterval": {
+			"name": "camel.source.endpoint.recoveryInterval",
+			"description": "Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds.",
+			"defaultValue": "5000L",
 			"priority": "MEDIUM",
-			"required": "false",
-			"enum": [
-				"TRACE",
-				"DEBUG",
-				"INFO",
-				"WARN",
-				"ERROR",
-				"OFF"
-			]
+			"required": "false"
 		},
-		"camel.source.endpoint.errorHandlerLogStackTrace": {
-			"name": "camel.source.endpoint.errorHandlerLogStackTrace",
-			"description": "Allows to control whether stacktraces should be logged or not, by the default errorHandler.",
-			"defaultValue": "true",
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.transferException": {
+			"name": "camel.source.endpoint.transferException",
+			"description": "If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side, then the caused Exception will be send back in response as a javax.jms.ObjectMessage. If the client is Camel, the returned Exception is rethrown. This allows you to use Camel JMS as a bridge in your routing - for example, using persistent queues to enable robust routing. Notice that if you also have transferExchange enabled, this option takes precedence. The caught exception is required to be serializable. The original Exception on the consumer side can be wrapped in an outer exception such as org.apache.camel.RuntimeCamelException when returned to the producer. Use this with caution as the data is using Java Object serialization and requires the received to be able to deserialize the data at Class level, which forces a strong coupling between the producers and consumer!",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -228,43 +262,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.transactionBatchCount": {
-			"name": "camel.source.endpoint.transactionBatchCount",
-			"description": "If transacted sets the number of messages to process before committing a transaction.",
-			"defaultValue": "-1",
-			"priority": "LOW",
-			"required": "false"
-		},
-		"camel.source.endpoint.transactionBatchTimeout": {
-			"name": "camel.source.endpoint.transactionBatchTimeout",
-			"description": "Sets timeout (in millis) for batch transactions, the value should be 1000 or higher.",
-			"defaultValue": "5000L",
-			"priority": "LOW",
-			"required": "false"
-		},
-		"camel.source.endpoint.transactionCommitStrategy": {
-			"name": "camel.source.endpoint.transactionCommitStrategy",
-			"description": "Sets the commit strategy.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.sharedJMSSession": {
-			"name": "camel.source.endpoint.sharedJMSSession",
-			"description": "Specifies whether to share JMS session with other SJMS endpoints. Turn this off if your route is accessing to multiple JMS providers. If you need transaction against multiple JMS providers, use jms component to leverage XA transaction.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionCount": {
-			"name": "camel.component.sjms2.connectionCount",
-			"description": "The maximum number of connections available to endpoints started under this component",
-			"defaultValue": "\"1\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.sjms2.connectionFactory": {
 			"name": "camel.component.sjms2.connectionFactory",
-			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
+			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -275,49 +275,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.sjms2.reconnectBackOff": {
-			"name": "camel.component.sjms2.reconnectBackOff",
-			"description": "Backoff in millis on consumer pool reconnection attempts",
-			"defaultValue": "5000L",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.reconnectOnError": {
-			"name": "camel.component.sjms2.reconnectOnError",
-			"description": "Try to apply reconnection logic on consumer pool",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.sjms2.autowiredEnabled": {
 			"name": "camel.component.sjms2.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionClientId": {
-			"name": "camel.component.sjms2.connectionClientId",
-			"description": "The client ID to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionMaxWait": {
-			"name": "camel.component.sjms2.connectionMaxWait",
-			"description": "The max wait time in millis to block and wait on free connection when the pool is exhausted when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"defaultValue": "5000L",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionResource": {
-			"name": "camel.component.sjms2.connectionResource",
-			"description": "A ConnectionResource is an interface that allows for customization and container control of the ConnectionFactory. See Plugable Connection Resource Management for further details.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionTestOnBorrow": {
-			"name": "camel.component.sjms2.connectionTestOnBorrow",
-			"description": "When using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource then should each javax.jms.Connection be tested (calling start) before returned from the pool.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -340,33 +300,30 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.sjms2.timedTaskManager": {
-			"name": "camel.component.sjms2.timedTaskManager",
-			"description": "To use a custom TimedTaskManager",
+		"camel.component.sjms2.recoveryInterval": {
+			"name": "camel.component.sjms2.recoveryInterval",
+			"description": "Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds.",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.sjms2.replyToOnTimeoutMaxConcurrentConsumers": {
+			"name": "camel.component.sjms2.replyToOnTimeoutMaxConcurrentConsumers",
+			"description": "Specifies the maximum number of concurrent consumers for continue routing when timeout occurred when using request\/reply over JMS.",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.sjms2.requestTimeoutCheckerInterval": {
+			"name": "camel.component.sjms2.requestTimeoutCheckerInterval",
+			"description": "Configures how often Camel should check for timed out Exchanges when doing request\/reply over JMS. By default Camel checks once per second. But if you must react faster when a timeout occurs, then you can lower this interval, to check more frequently. The timeout is determined by the option requestTimeout.",
+			"defaultValue": "1000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.sjms2.headerFilterStrategy": {
 			"name": "camel.component.sjms2.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionPassword": {
-			"name": "camel.component.sjms2.connectionPassword",
-			"description": "The password to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionUsername": {
-			"name": "camel.component.sjms2.connectionUsername",
-			"description": "The username to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.transactionCommitStrategy": {
-			"name": "camel.component.sjms2.transactionCommitStrategy",
-			"description": "To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch.",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

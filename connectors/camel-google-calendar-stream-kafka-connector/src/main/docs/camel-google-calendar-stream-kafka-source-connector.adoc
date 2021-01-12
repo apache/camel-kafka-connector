@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.googlecalendarstream.CamelGoogle
 ----
 
 
-The camel-google-calendar-stream source connector supports 47 options, which are listed below.
+The camel-google-calendar-stream source connector supports 53 options, which are listed below.
 
 
 
@@ -60,7 +60,10 @@ The camel-google-calendar-stream source connector supports 47 options, which are
 | *camel.source.endpoint.useFixedDelay* | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | false | MEDIUM
 | *camel.source.endpoint.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | false | MEDIUM
 | *camel.source.endpoint.clientSecret* | Client secret of the calendar application | null | false | MEDIUM
+| *camel.source.endpoint.emailAddress* | The emailAddress of the Google Service Account. | null | false | MEDIUM
+| *camel.source.endpoint.p12FileName* | The name of the p12 file which has the private key to use with the Google Service Account. | null | false | MEDIUM
 | *camel.source.endpoint.refreshToken* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | false | MEDIUM
+| *camel.source.endpoint.user* | The email address of the user the application is trying to impersonate in the service account flow. | null | false | MEDIUM
 | *camel.component.google-calendar-stream.application Name* | Google Calendar application name. Example would be camel-google-calendar/1.0 | null | false | MEDIUM
 | *camel.component.google-calendar-stream.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.google-calendar-stream.calendarId* | The calendarId to be used | "primary" | false | MEDIUM
@@ -75,7 +78,10 @@ The camel-google-calendar-stream source connector supports 47 options, which are
 | *camel.component.google-calendar-stream.client Factory* | The client Factory | null | false | MEDIUM
 | *camel.component.google-calendar-stream.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | false | MEDIUM
 | *camel.component.google-calendar-stream.client Secret* | Client secret of the calendar application | null | false | MEDIUM
+| *camel.component.google-calendar-stream.email Address* | The emailAddress of the Google Service Account. | null | false | MEDIUM
+| *camel.component.google-calendar-stream.p12FileName* | The name of the p12 file which has the private key to use with the Google Service Account. | null | false | MEDIUM
 | *camel.component.google-calendar-stream.refresh Token* | OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived. | null | false | MEDIUM
+| *camel.component.google-calendar-stream.user* | The email address of the user the application is trying to impersonate in the service account flow. | null | false | MEDIUM
 |===
 
 

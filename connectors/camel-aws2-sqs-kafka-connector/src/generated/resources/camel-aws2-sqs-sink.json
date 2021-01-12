@@ -178,7 +178,7 @@
 		},
 		"camel.sink.endpoint.policy": {
 			"name": "camel.sink.endpoint.policy",
-			"description": "The policy for this queue",
+			"description": "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -369,7 +369,7 @@
 		},
 		"camel.component.aws2-sqs.policy": {
 			"name": "camel.component.aws2-sqs.policy",
-			"description": "The policy for this queue",
+			"description": "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

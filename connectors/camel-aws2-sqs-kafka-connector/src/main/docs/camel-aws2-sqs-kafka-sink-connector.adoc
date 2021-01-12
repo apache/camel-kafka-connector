@@ -52,7 +52,7 @@ The camel-aws2-sqs sink connector supports 55 options, which are listed below.
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the SQS client | null | false | MEDIUM
 | *camel.sink.endpoint.maximumMessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | false | MEDIUM
 | *camel.sink.endpoint.messageRetentionPeriod* | The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue. | null | false | MEDIUM
-| *camel.sink.endpoint.policy* | The policy for this queue | null | false | MEDIUM
+| *camel.sink.endpoint.policy* | The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.sink.endpoint.receiveMessageWaitTimeSeconds* | If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait. | null | false | MEDIUM
 | *camel.sink.endpoint.redrivePolicy* | Specify the policy that send message to DeadLetter queue. See detail at Amazon docs. | null | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
@@ -79,7 +79,7 @@ The camel-aws2-sqs sink connector supports 55 options, which are listed below.
 | *camel.component.aws2-sqs.proxyPort* | To define a proxy port when instantiating the SQS client | null | false | MEDIUM
 | *camel.component.aws2-sqs.maximumMessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | false | MEDIUM
 | *camel.component.aws2-sqs.messageRetentionPeriod* | The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue. | null | false | MEDIUM
-| *camel.component.aws2-sqs.policy* | The policy for this queue | null | false | MEDIUM
+| *camel.component.aws2-sqs.policy* | The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.component.aws2-sqs.receiveMessageWaitTime Seconds* | If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait. | null | false | MEDIUM
 | *camel.component.aws2-sqs.redrivePolicy* | Specify the policy that send message to DeadLetter queue. See detail at Amazon docs. | null | false | MEDIUM
 | *camel.component.aws2-sqs.accessKey* | Amazon AWS Access Key | null | false | MEDIUM

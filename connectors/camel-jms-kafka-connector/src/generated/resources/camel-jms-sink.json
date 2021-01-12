@@ -133,7 +133,7 @@
 		},
 		"camel.sink.endpoint.priority": {
 			"name": "camel.sink.endpoint.priority",
-			"description": "Values greater than 1 specify the message priority when sending (where 0 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. One of: [1] [2] [3] [4] [5] [6] [7] [8] [9]",
+			"description": "Values greater than 1 specify the message priority when sending (where 1 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. One of: [1] [2] [3] [4] [5] [6] [7] [8] [9]",
 			"defaultValue": "4",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -629,7 +629,7 @@
 		},
 		"camel.component.jms.priority": {
 			"name": "camel.component.jms.priority",
-			"description": "Values greater than 1 specify the message priority when sending (where 0 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. One of: [1] [2] [3] [4] [5] [6] [7] [8] [9]",
+			"description": "Values greater than 1 specify the message priority when sending (where 1 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. One of: [1] [2] [3] [4] [5] [6] [7] [8] [9]",
 			"defaultValue": "4",
 			"priority": "MEDIUM",
 			"required": "false",

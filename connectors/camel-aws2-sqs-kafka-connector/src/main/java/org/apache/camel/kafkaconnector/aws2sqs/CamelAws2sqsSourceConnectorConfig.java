@@ -135,7 +135,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_MESSAGE_RETENTION_PERIOD_DOC = "The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_MESSAGE_RETENTION_PERIOD_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLICY_CONF = "camel.source.endpoint.policy";
-    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLICY_DOC = "The policy for this queue";
+    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLICY_DOC = "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLICY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_CONF = "camel.source.endpoint.receiveMessageWaitTimeSeconds";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_DOC = "If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.";
@@ -282,7 +282,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_MESSAGE_RETENTION_PERIOD_DOC = "The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue.";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_MESSAGE_RETENTION_PERIOD_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_POLICY_CONF = "camel.component.aws2-sqs.policy";
-    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_POLICY_DOC = "The policy for this queue";
+    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_POLICY_DOC = "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_POLICY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_CONF = "camel.component.aws2-sqs.receiveMessageWaitTimeSeconds";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_DOC = "If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.";
