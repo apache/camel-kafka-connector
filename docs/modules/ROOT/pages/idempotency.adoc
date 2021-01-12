@@ -16,13 +16,13 @@ Suppose you're using a source connector of any kind. By using the idempotency fe
 
 This means, in the Kafkish language, you won't ingest the same payload multiple times in the target Kafka topic. 
 
-image::ckc-idempontency-source.png[image]
+image::ckc-idempotency-source.png[image]
 
 In the sink scenario, we'll stream out of a Kafka topic multiple records, transform/convert/manipulate them and send them to an external system, like a messaging broker, a storage infra, a database etc.
 
 In the Kafka topic used as source we may have multiple repeated records with the same payload or same metadata. Based on this information we can choose to skip the same records while sending data to the external system and for doing this we can leverage the idempotency feature of ckc.
 
-image::ckc-idempontency-sink.png[image]
+image::ckc-idempotency-sink.png[image]
 
 == Camel-Kafka-connector idempotency configuration
 
