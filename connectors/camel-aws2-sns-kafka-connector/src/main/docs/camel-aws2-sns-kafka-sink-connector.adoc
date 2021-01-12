@@ -38,7 +38,7 @@ The camel-aws2-sns sink connector supports 45 options, which are listed below.
 | *camel.sink.endpoint.messageDeduplicationIdStrategy* | Only for FIFO Topic. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication] | "useExchangeId" | false | MEDIUM
 | *camel.sink.endpoint.messageGroupIdStrategy* | Only for FIFO Topic. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue] | null | false | MEDIUM
 | *camel.sink.endpoint.messageStructure* | The message structure to use such as json | null | false | MEDIUM
-| *camel.sink.endpoint.policy* | The policy for this queue | null | false | MEDIUM
+| *camel.sink.endpoint.policy* | The policy for this queue. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the SNS client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the SNS client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the SNS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
@@ -60,7 +60,7 @@ The camel-aws2-sns sink connector supports 45 options, which are listed below.
 | *camel.component.aws2-sns.messageDeduplicationId Strategy* | Only for FIFO Topic. Strategy for setting the messageDeduplicationId on the message. Can be one of the following options: useExchangeId, useContentBasedDeduplication. For the useContentBasedDeduplication option, no messageDeduplicationId will be set on the message. One of: [useExchangeId] [useContentBasedDeduplication] | "useExchangeId" | false | MEDIUM
 | *camel.component.aws2-sns.messageGroupIdStrategy* | Only for FIFO Topic. Strategy for setting the messageGroupId on the message. Can be one of the following options: useConstant, useExchangeId, usePropertyValue. For the usePropertyValue option, the value of property CamelAwsMessageGroupId will be used. One of: [useConstant] [useExchangeId] [usePropertyValue] | null | false | MEDIUM
 | *camel.component.aws2-sns.messageStructure* | The message structure to use such as json | null | false | MEDIUM
-| *camel.component.aws2-sns.policy* | The policy for this queue | null | false | MEDIUM
+| *camel.component.aws2-sns.policy* | The policy for this queue. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems. | null | false | MEDIUM
 | *camel.component.aws2-sns.proxyHost* | To define a proxy host when instantiating the SNS client | null | false | MEDIUM
 | *camel.component.aws2-sns.proxyPort* | To define a proxy port when instantiating the SNS client | null | false | MEDIUM
 | *camel.component.aws2-sns.proxyProtocol* | To define a proxy protocol when instantiating the SNS client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM

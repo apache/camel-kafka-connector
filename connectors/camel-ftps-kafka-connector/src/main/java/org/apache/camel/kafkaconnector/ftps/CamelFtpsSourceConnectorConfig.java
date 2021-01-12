@@ -194,6 +194,9 @@ public class CamelFtpsSourceConnectorConfig
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_CONF = "camel.source.endpoint.exclude";
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_DOC = "Is used to exclude files, if filename matches the regex pattern (matching is case in-senstive). Notice if you use symbols such as plus sign and others you would need to configure this using the RAW() syntax if configuring this as an endpoint uri. See more details at configuring endpoint uris";
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_EXT_CONF = "camel.source.endpoint.excludeExt";
+    public static final String CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_EXT_DOC = "Is used to exclude files matching file extension name (case insensitive). For example to exclude bak files, then use excludeExt=bak. Multiple extensions can be separated by comma, for example to exclude bak and dat files, use excludeExt=bak,dat.";
+    public static final String CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_EXT_DEFAULT = null;
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_CONF = "camel.source.endpoint.filter";
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_DOC = "Pluggable filter as a org.apache.camel.component.file.GenericFileFilter class. Will skip files if filter returns false in its accept() method.";
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_DEFAULT = null;
@@ -215,6 +218,9 @@ public class CamelFtpsSourceConnectorConfig
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_CONF = "camel.source.endpoint.include";
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_DOC = "Is used to include files, if filename matches the regex pattern (matching is case in-sensitive). Notice if you use symbols such as plus sign and others you would need to configure this using the RAW() syntax if configuring this as an endpoint uri. See more details at configuring endpoint uris";
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_DEFAULT = null;
+    public static final String CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_EXT_CONF = "camel.source.endpoint.includeExt";
+    public static final String CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_EXT_DOC = "Is used to include files matching file extension name (case insensitive). For example to include txt files, then use includeExt=txt. Multiple extensions can be separated by comma, for example to include txt and xml files, use includeExt=txt,xml";
+    public static final String CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_EXT_DEFAULT = null;
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_MAX_DEPTH_CONF = "camel.source.endpoint.maxDepth";
     public static final String CAMEL_SOURCE_FTPS_ENDPOINT_MAX_DEPTH_DOC = "The maximum depth to traverse when recursively processing a directory.";
     public static final Integer CAMEL_SOURCE_FTPS_ENDPOINT_MAX_DEPTH_DEFAULT = 2147483647;
@@ -422,6 +428,7 @@ public class CamelFtpsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_ANT_INCLUDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_ANT_INCLUDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_ANT_INCLUDE_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_EAGER_MAX_MESSAGES_PER_POLL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_FTPS_ENDPOINT_EAGER_MAX_MESSAGES_PER_POLL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_EAGER_MAX_MESSAGES_PER_POLL_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_DOC);
+        conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_EXT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_EXT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_EXCLUDE_EXT_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_DIRECTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_DIRECTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_DIRECTORY_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_FILTER_FILE_DOC);
@@ -429,6 +436,7 @@ public class CamelFtpsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_IDEMPOTENT_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_IDEMPOTENT_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_IDEMPOTENT_KEY_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_DOC);
+        conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_EXT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_EXT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_INCLUDE_EXT_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_MAX_DEPTH_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FTPS_ENDPOINT_MAX_DEPTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_MAX_DEPTH_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_MAX_MESSAGES_PER_POLL_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FTPS_ENDPOINT_MAX_MESSAGES_PER_POLL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_MAX_MESSAGES_PER_POLL_DOC);
         conf.define(CAMEL_SOURCE_FTPS_ENDPOINT_MIN_DEPTH_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_FTPS_ENDPOINT_MIN_DEPTH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_FTPS_ENDPOINT_MIN_DEPTH_DOC);

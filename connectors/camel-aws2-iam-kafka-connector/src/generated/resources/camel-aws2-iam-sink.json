@@ -30,9 +30,9 @@
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
-			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
-			"priority": "HIGH",
-			"required": "true",
+			"description": "The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
+			"priority": "MEDIUM",
+			"required": "false",
 			"enum": [
 				"listAccessKeys",
 				"createUser",
@@ -133,9 +133,9 @@
 		},
 		"camel.component.aws2-iam.operation": {
 			"name": "camel.component.aws2-iam.operation",
-			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
-			"priority": "HIGH",
-			"required": "true",
+			"description": "The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
+			"priority": "MEDIUM",
+			"required": "false",
 			"enum": [
 				"listAccessKeys",
 				"createUser",

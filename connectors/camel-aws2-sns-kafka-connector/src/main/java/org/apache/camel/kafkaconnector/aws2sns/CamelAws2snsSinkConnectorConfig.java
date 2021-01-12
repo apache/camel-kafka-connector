@@ -52,7 +52,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_STRUCTURE_DOC = "The message structure to use such as json";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_MESSAGE_STRUCTURE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_CONF = "camel.sink.endpoint.policy";
-    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_DOC = "The policy for this queue";
+    public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_DOC = "The policy for this queue. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_POLICY_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_PROXY_HOST_CONF = "camel.sink.endpoint.proxyHost";
     public static final String CAMEL_SINK_AWS2SNS_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SNS client";
@@ -118,7 +118,7 @@ public class CamelAws2snsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_STRUCTURE_DOC = "The message structure to use such as json";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_MESSAGE_STRUCTURE_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_CONF = "camel.component.aws2-sns.policy";
-    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_DOC = "The policy for this queue";
+    public static final String CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_DOC = "The policy for this queue. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_POLICY_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_PROXY_HOST_CONF = "camel.component.aws2-sns.proxyHost";
     public static final String CAMEL_SINK_AWS2SNS_COMPONENT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SNS client";
