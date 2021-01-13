@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
 
 public abstract class BasicConnectorPropertyFactory<T extends BasicConnectorPropertyFactory<T>> implements ConnectorPropertyFactory {
-    private Properties connectorProps = new Properties();
+    private final Properties connectorProps = new Properties();
 
     public T withName(String name) {
         connectorProps.put(ConnectorConfig.NAME_CONFIG, name);
