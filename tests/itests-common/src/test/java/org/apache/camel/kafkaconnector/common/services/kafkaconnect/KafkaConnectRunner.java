@@ -216,7 +216,7 @@ class KafkaConnectRunner {
     public void stop() {
         if (connect != null) {
             LOG.info("Removing topics used during the test");
-            KafkaClient kafkaClient = new KafkaClient(bootstrapServer);
+            KafkaClient<?, ?> kafkaClient = new KafkaClient<>(bootstrapServer);
 
             for (String connector : herder.connectors()) {
                 herder.connectorActiveTopics(connector).topics().forEach(t -> kafkaClient.deleteTopic(t));
