@@ -176,6 +176,10 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         LOG.debug("Putting S3 objects");
 
         File[] files = path.listFiles();
+        if (files == null) {
+            fail("Either I/O error or the path used is not a directory");
+        }
+
         expect = files.length;
 
         if (files.length == 0) {
@@ -297,7 +301,12 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
 
         runTest(connectorPropertyFactory, () -> sendFilesFromPath(path));
 
-        assertEquals(path.list().length, received, "Didn't process the expected amount of messages");
+        String[] files = path.list();
+        if (files == null) {
+            fail("Either I/O error or the path used is not a directory");
+        }
+
+        assertEquals(files.length, received, "Didn't process the expected amount of messages");
     }
 
 }
