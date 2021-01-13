@@ -96,7 +96,9 @@ public class KafkaConnectRunnerService implements KafkaConnectService {
     public void stop() {
         kafkaConnectRunner.stop();
         try {
-            service.awaitTermination(5, TimeUnit.SECONDS);
+            if (!service.awaitTermination(5, TimeUnit.SECONDS)) {
+                LOG.warn("Timed out while waiting for the embedded runner to stop");
+            }
         } catch (InterruptedException e) {
             LOG.warn("The test was interrupted while executing");
         }
