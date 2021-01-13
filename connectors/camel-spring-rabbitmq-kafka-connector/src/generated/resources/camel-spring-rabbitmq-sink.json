@@ -1,0 +1,142 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.springrabbitmq.CamelSpringrabbitmqSinkConnector",
+		"artifactId": "camel-spring-rabbitmq-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-spring-rabbitmq-sink",
+		"type": "sink",
+		"version": "0.8.0-SNAPSHOT",
+		"description": "Send and receive messages from RabbitMQ using Spring RabbitMQ client."
+	},
+	"properties": {
+		"camel.sink.path.exchangeName": {
+			"name": "camel.sink.path.exchangeName",
+			"description": "The exchange name determines the exchange to which the produced messages will be sent to. In the case of consumers, the exchange name determines the exchange the queue will be bound to. Note: to use default exchange then do not use empty name, but use default instead.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.connectionFactory": {
+			"name": "camel.sink.endpoint.connectionFactory",
+			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.disableReplyTo": {
+			"name": "camel.sink.endpoint.disableReplyTo",
+			"description": "Specifies whether Camel ignores the ReplyTo header in messages. If true, Camel does not send a reply back to the destination specified in the ReplyTo header. You can use this option if you want Camel to consume from a route and you do not want Camel to automatically send back a reply message because another component in your code handles the reply message. You can also use this option if you want to use Camel as a proxy between different message brokers and you want to route message from one system to another.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.routingKey": {
+			"name": "camel.sink.endpoint.routingKey",
+			"description": "The value of a routing key to use. Default is empty which is not helpful when using the default (or any direct) exchange, but fine if the exchange is a headers exchange for instance.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.testConnectionOnStartup": {
+			"name": "camel.sink.endpoint.testConnectionOnStartup",
+			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.replyTimeout": {
+			"name": "camel.sink.endpoint.replyTimeout",
+			"description": "Specify the timeout in milliseconds to be used when waiting for a reply message when doing request\/reply messaging. The default value is 5 seconds. A negative value indicates an indefinite timeout.",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.args": {
+			"name": "camel.sink.endpoint.args",
+			"description": "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each element: arg.consumer. arg.exchange. arg.queue. arg.binding. arg.dlq.exchange. arg.dlq.queue. arg.dlq.binding. For example to declare a queue with message ttl argument: args=arg.queue.x-message-ttl=60000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.messageConverter": {
+			"name": "camel.sink.endpoint.messageConverter",
+			"description": "To use a custom MessageConverter so you can be in control how to map to\/from a org.springframework.amqp.core.Message.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.messagePropertiesConverter": {
+			"name": "camel.sink.endpoint.messagePropertiesConverter",
+			"description": "To use a custom MessagePropertiesConverter so you can be in control how to map to\/from a org.springframework.amqp.core.MessageProperties.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.amqpAdmin": {
+			"name": "camel.component.spring-rabbitmq.amqpAdmin",
+			"description": "Optional AMQP Admin service to use for auto declaring elements (queues, exchanges, bindings)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.connectionFactory": {
+			"name": "camel.component.spring-rabbitmq.connectionFactory",
+			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.testConnectionOnStartup": {
+			"name": "camel.component.spring-rabbitmq.testConnectionOnStartup",
+			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.lazyStartProducer": {
+			"name": "camel.component.spring-rabbitmq.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.autowiredEnabled": {
+			"name": "camel.component.spring-rabbitmq.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.ignoreDeclarationExceptions": {
+			"name": "camel.component.spring-rabbitmq.ignoreDeclarationExceptions",
+			"description": "Switch on ignore exceptions such as mismatched properties when declaring",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.messageConverter": {
+			"name": "camel.component.spring-rabbitmq.messageConverter",
+			"description": "To use a custom MessageConverter so you can be in control how to map to\/from a org.springframework.amqp.core.Message.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.messagePropertiesConverter": {
+			"name": "camel.component.spring-rabbitmq.messagePropertiesConverter",
+			"description": "To use a custom MessagePropertiesConverter so you can be in control how to map to\/from a org.springframework.amqp.core.MessageProperties.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.headerFilterStrategy": {
+			"name": "camel.component.spring-rabbitmq.headerFilterStrategy",
+			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}
