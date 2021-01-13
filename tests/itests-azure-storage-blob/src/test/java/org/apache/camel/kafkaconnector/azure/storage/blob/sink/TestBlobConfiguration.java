@@ -19,7 +19,7 @@ package org.apache.camel.kafkaconnector.azure.storage.blob.sink;
 
 import com.azure.storage.blob.BlobServiceClient;
 import org.apache.camel.component.azure.storage.blob.BlobConfiguration;
-import org.apache.camel.kafkaconnector.azure.storage.services.AzureStorageBlobClientUtils;
+import org.apache.camel.test.infra.azure.storage.blob.clients.AzureStorageBlobClientUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
