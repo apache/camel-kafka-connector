@@ -54,7 +54,7 @@ public class DatabaseClient {
         String query = String.format("select count(*) as count from %s", table);
 
         try (ResultSet rs = connection.prepareStatement(query).executeQuery()) {
-            while (rs.next()) {
+            if (rs.next()) {
                 return rs.getInt("count");
             }
         }
