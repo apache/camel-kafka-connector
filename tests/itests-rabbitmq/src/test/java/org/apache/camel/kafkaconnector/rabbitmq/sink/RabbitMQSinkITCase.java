@@ -16,7 +16,7 @@
  */
 package org.apache.camel.kafkaconnector.rabbitmq.sink;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
 
 import com.rabbitmq.client.DeliverCallback;
@@ -63,22 +63,16 @@ public class RabbitMQSinkITCase extends AbstractKafkaTest {
     }
 
     private boolean checkRecord(Delivery rabbitMQDelivery) {
-        try {
-            String message = new String(rabbitMQDelivery.getBody(), "UTF-8");
-            LOG.debug("Received: {}", message);
+        String message = new String(rabbitMQDelivery.getBody(), StandardCharsets.UTF_8);
+        LOG.debug("Received: {}", message);
 
-            received++;
+        received++;
 
-            if (received == expect) {
-                return false;
-            }
-
-            return true;
-        } catch (UnsupportedEncodingException e) {
-            LOG.error("Failed to read message: {}", e.getMessage(), e);
-            fail("Failed to read message: " + e.getMessage());
+        if (received == expect) {
             return false;
         }
+
+        return true;
     }
 
     private void runBasicStringTest(ConnectorPropertyFactory connectorPropertyFactory) throws Exception {
