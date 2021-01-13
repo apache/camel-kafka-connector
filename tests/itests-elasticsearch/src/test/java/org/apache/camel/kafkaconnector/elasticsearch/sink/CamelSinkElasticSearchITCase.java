@@ -97,7 +97,7 @@ public class CamelSinkElasticSearchITCase extends AbstractKafkaTest {
     private void verifyHit(SearchHit searchHit) {
         String source = searchHit.getSourceAsString();
 
-        assertTrue(source != null);
+        assertNotNull(source);
         assertFalse(source.isEmpty());
 
         // TODO: this is not enough, we need to parse the json and check the key itself
