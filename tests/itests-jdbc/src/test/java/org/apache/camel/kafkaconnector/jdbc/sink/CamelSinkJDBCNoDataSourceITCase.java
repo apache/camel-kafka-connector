@@ -62,7 +62,7 @@ public class CamelSinkJDBCNoDataSourceITCase extends AbstractKafkaTest {
     static {
         final String postgresImage = "postgres:9.6.2";
 
-        JdbcDatabaseContainer container = new PostgreSQLContainer(postgresImage)
+        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>(postgresImage)
                 .withDatabaseName("camel")
                 .withUsername("ckc")
                 .withPassword("ckcDevel123")

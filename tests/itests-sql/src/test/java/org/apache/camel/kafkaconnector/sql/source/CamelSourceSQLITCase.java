@@ -52,7 +52,7 @@ public class CamelSourceSQLITCase extends AbstractKafkaTest {
     private int received;
 
     public CamelSourceSQLITCase() {
-        JdbcDatabaseContainer container = new PostgreSQLContainer("postgres:9.6.2")
+        JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:9.6.2")
                 .withDatabaseName("camel")
                 .withUsername("ckc")
                 .withPassword("ckcDevel123")
