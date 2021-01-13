@@ -18,7 +18,6 @@
 package org.apache.camel.kafkaconnector.common.clients.kafka;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
@@ -90,7 +89,7 @@ public class KafkaClient<K, V> {
      * @param recordConsumer the a function to consume the received messages
      */
     public void consumeAvailable(String topic, Consumer<ConsumerRecord<K, V>> recordConsumer) {
-        consumer.subscribe(Arrays.asList(topic));
+        consumer.subscribe(Collections.singletonList(topic));
 
         ConsumerRecords<K, V> records = consumer.poll(Duration.ofMillis(100));
         for (ConsumerRecord<K, V> record : records) {
@@ -106,7 +105,7 @@ public class KafkaClient<K, V> {
      * @param predicate the predicate to test when the messages arrive
      */
     public void consume(String topic, Predicate<ConsumerRecord<K, V>> predicate) {
-        consumer.subscribe(Arrays.asList(topic));
+        consumer.subscribe(Collections.singletonList(topic));
 
         // TODO: handle failures, timeouts, etc
         while (true) {
