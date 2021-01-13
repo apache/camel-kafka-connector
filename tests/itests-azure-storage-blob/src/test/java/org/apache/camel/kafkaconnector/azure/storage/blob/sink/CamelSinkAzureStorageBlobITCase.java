@@ -102,7 +102,7 @@ public class CamelSinkAzureStorageBlobITCase extends AbstractKafkaTest {
                 blobClient.download(outputStream);
                 String contentFile = outputStream.toString();
 
-                LOG.info("Received: \'{}\' with content: \'{}\'", receivedFile, contentFile);
+                LOG.info("Received: '{}' with content: '{}'", receivedFile, contentFile);
                 assertEquals(sentData.get(receivedFile), contentFile, "Did not receive the same message that was sent");
 
                 received++;
