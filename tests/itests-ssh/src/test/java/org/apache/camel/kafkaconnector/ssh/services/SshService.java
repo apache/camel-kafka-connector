@@ -42,12 +42,12 @@ public interface SshService extends BeforeAllCallback, AfterAllCallback {
     void shutdown();
 
     @Override
-    default void beforeAll(ExtensionContext extensionContext) throws Exception {
+    default void beforeAll(ExtensionContext extensionContext) {
         initialize();
     }
 
     @Override
-    default void afterAll(ExtensionContext extensionContext) throws Exception {
+    default void afterAll(ExtensionContext extensionContext) {
         shutdown();
     }
 }

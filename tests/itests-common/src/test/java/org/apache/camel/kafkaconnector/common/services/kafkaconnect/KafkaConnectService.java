@@ -33,12 +33,12 @@ public interface KafkaConnectService extends BeforeTestExecutionCallback, AfterT
     void start();
 
     @Override
-    default void afterTestExecution(ExtensionContext extensionContext) throws Exception {
+    default void afterTestExecution(ExtensionContext extensionContext) {
         stop();
     }
 
     @Override
-    default void beforeTestExecution(ExtensionContext extensionContext) throws Exception {
+    default void beforeTestExecution(ExtensionContext extensionContext) {
         start();
     }
 }

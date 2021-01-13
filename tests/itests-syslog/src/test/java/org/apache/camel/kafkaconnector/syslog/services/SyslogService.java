@@ -44,7 +44,7 @@ public class SyslogService implements BeforeAllCallback, AfterAllCallback {
         CAMEL_CONTEXT.getRegistry().bind("decoder", new Rfc5425FrameDecoder());
         CAMEL_CONTEXT.addRoutes(new RouteBuilder() {
             @Override
-            public void configure() throws Exception {
+            public void configure() {
                 from("netty:" + protocol + ":" + host + ":" + port + "?sync=false&decoders=#decoder").unmarshal(new SyslogDataFormat()).to("seda:syslog");
             }
         });
@@ -52,7 +52,7 @@ public class SyslogService implements BeforeAllCallback, AfterAllCallback {
     }
 
     @Override
-    public void afterAll(ExtensionContext context) throws Exception {
+    public void afterAll(ExtensionContext context) {
         CAMEL_CONTEXT.stop();
     }
 
