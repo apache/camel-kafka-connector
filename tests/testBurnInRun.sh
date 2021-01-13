@@ -1,6 +1,6 @@
 #!/bin/sh
 # Run this script from the project root directory.
-# It will run core module tests in burn in mode (i.e. untill they fail or this scritp is manually terminated)
+# It will run core module tests in burn in mode (i.e. until they fail or this script is manually terminated)
 
 echo "Building the code before running the burn-in"
 mvn clean compile test-compile

@@ -110,7 +110,7 @@ class KafkaConnectRunner {
      *
      */
     private void init() {
-        LOG.info("Started worked initialization");
+        LOG.info("Started worker initialization");
 
         Time time = Time.SYSTEM;
 
