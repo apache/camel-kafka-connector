@@ -135,7 +135,7 @@ public final class PluginPathHelper {
      * ref: https://docs.confluent.io/current/connect/userguide.html
      */
     public String pluginPaths() {
-        String ret = findPluginPaths().stream().collect(Collectors.joining(","));
+        String ret = String.join(",", findPluginPaths());
         LOG.info("Returning the following directories for the plugin path: {}", ret);
 
         return ret;
