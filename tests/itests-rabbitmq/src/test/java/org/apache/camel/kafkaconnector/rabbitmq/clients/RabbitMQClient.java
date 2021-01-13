@@ -17,7 +17,6 @@
 package org.apache.camel.kafkaconnector.rabbitmq.clients;
 
 import java.io.Closeable;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import com.rabbitmq.client.AMQP;
@@ -159,7 +158,6 @@ public class RabbitMQClient {
      *
      * @param queue the queue to send data to
      * @param data  the (string) data to send
-     * @throws IOException
      */
     public void send(final String queue, final String data) {
         try {
