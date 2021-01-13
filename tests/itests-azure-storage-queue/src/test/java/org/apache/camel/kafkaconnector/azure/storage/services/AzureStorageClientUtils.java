@@ -23,8 +23,9 @@ import com.azure.storage.common.StorageSharedKeyCredential;
 import com.azure.storage.queue.QueueServiceClient;
 import com.azure.storage.queue.QueueServiceClientBuilder;
 import com.azure.storage.queue.QueueServiceVersion;
-import org.apache.camel.kafkaconnector.azure.common.AzureConfigs;
+import org.apache.camel.test.infra.azure.common.AzureConfigs;
 
+@Deprecated
 public final class AzureStorageClientUtils {
 
     private AzureStorageClientUtils() {
