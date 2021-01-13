@@ -64,14 +64,14 @@ public class CamelSourceSyslogITCase extends AbstractKafkaTest {
         received = 0;
     }
 
-    private void produceLogMessages(String protocol, String host, String port, String message) throws Exception {
+    private void produceLogMessages(String protocol, String host, String port, String message) {
         CamelContext camelContext = new DefaultCamelContext();
 
         try {
             camelContext.getRegistry().bind("encoder", new Rfc5425Encoder());
             camelContext.addRoutes(new RouteBuilder() {
                 @Override
-                public void configure() throws Exception {
+                public void configure() {
                     from("direct:test").marshal(new SyslogDataFormat()).to("netty:" + protocol + ":" + host + ":" + port + "?sync=false&encoders=#encoder&useByteBuf=true");
                 }
             });

@@ -87,7 +87,7 @@ public class CamelSinkMongoDBITCase extends AbstractKafkaTest {
         return collection.countDocuments() >= expect;
     }
 
-    private void verifyDocuments(String database, String collectionName) throws InterruptedException {
+    private void verifyDocuments(String database, String collectionName) {
         MongoDatabase mongoDatabase = mongoClient.getDatabase(database);
         MongoCollection<Document> collection = mongoDatabase.getCollection(collectionName);
 
