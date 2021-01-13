@@ -495,6 +495,7 @@
         <module>camel-spring-event-kafka-connector</module>
         <module>camel-spring-integration-kafka-connector</module>
         <module>camel-spring-ldap-kafka-connector</module>
+        <module>camel-spring-rabbitmq-kafka-connector</module>
         <module>camel-spring-redis-kafka-connector</module>
         <module>camel-spring-ws-kafka-connector</module>
         <module>camel-sql-kafka-connector</module>
