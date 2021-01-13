@@ -41,7 +41,7 @@ public class KafkaConnectRunnerService implements KafkaConnectService {
 
 
     public KafkaConnectRunnerService(KafkaService kafkaService) {
-        Objects.nonNull(kafkaService);
+        Objects.requireNonNull(kafkaService);
 
         LOG.debug("Connecting the Kafka Connect Runner to {}", kafkaService.getBootstrapServers());
         this.kafkaConnectRunner = new KafkaConnectRunner(kafkaService.getBootstrapServers());
