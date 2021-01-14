@@ -111,7 +111,8 @@ public class SinkPojoToSchemaAndStructTransformTest {
                 Schema.STRING_SCHEMA, "testKeyValue",
                 null, map);
 
-        sinkPojoToSchemaAndStructTransform.apply(cr);
+        ConnectRecord transformedCr = sinkPojoToSchemaAndStructTransform.apply(cr);
+        assertEquals(cr, transformedCr);
     }
 
     @Test()
