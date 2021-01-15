@@ -15,42 +15,13 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.ssh.services;
+package org.apache.camel.kafkaconnector.ssh.common;
 
-import org.apache.camel.kafkaconnector.ssh.common.SshProperties;
+public final class SshProperties {
+    public static final String SSH_HOST = "ssh.host";
+    public static final String SSH_PORT = "ssh.port";
 
-public class SshRemoteService implements SshService {
+    private SshProperties() {
 
-    private static final int DEFAULT_SSH_PORT = 22;
-
-    @Override
-    public void registerProperties() {
-        // NO-OP
-    }
-
-    @Override
-    public void initialize() {
-        registerProperties();
-    }
-
-    @Override
-    public void shutdown() {
-
-    }
-
-    @Override
-    public int getSshPort() {
-        String strPort = System.getProperty(SshProperties.SSH_PORT);
-
-        if (strPort != null) {
-            return Integer.parseInt(strPort);
-        }
-
-        return DEFAULT_SSH_PORT;
-    }
-
-    @Override
-    public String getSshHost() {
-        return System.getProperty(SshProperties.SSH_HOST);
     }
 }

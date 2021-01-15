@@ -17,11 +17,12 @@
 
 package org.apache.camel.kafkaconnector.ssh.services;
 
+import org.apache.camel.test.infra.common.services.TestService;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-public interface SshService extends BeforeAllCallback, AfterAllCallback {
+public interface SshService extends TestService, BeforeAllCallback, AfterAllCallback {
 
     int getSshPort();
 
@@ -30,16 +31,6 @@ public interface SshService extends BeforeAllCallback, AfterAllCallback {
     }
 
     String getSshHost();
-
-    /**
-     * Perform any initialization necessary
-     */
-    void initialize();
-
-    /**
-     * Shuts down the service after the test has completed
-     */
-    void shutdown();
 
     @Override
     default void beforeAll(ExtensionContext extensionContext) {
