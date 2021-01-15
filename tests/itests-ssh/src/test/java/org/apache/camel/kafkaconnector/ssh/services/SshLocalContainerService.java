@@ -17,10 +17,12 @@
 
 package org.apache.camel.kafkaconnector.ssh.services;
 
+import org.apache.camel.kafkaconnector.ssh.common.SshProperties;
+import org.apache.camel.test.infra.common.services.ContainerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SshLocalContainerService implements SshService {
+public class SshLocalContainerService implements SshService, ContainerService<SshContainer> {
     private static final Logger LOG = LoggerFactory.getLogger(SshLocalContainerService.class);
 
     private SshContainer container;
@@ -40,6 +42,12 @@ public class SshLocalContainerService implements SshService {
     }
 
     @Override
+    public void registerProperties() {
+        System.setProperty(SshProperties.SSH_PORT, String.valueOf(getSshPort()));
+        System.setProperty(SshProperties.SSH_HOST, getSshHost());
+    }
+
+    @Override
     public void initialize() {
         container.start();
         LOG.info("SSH server running at address {}", getSshEndpoint());
@@ -49,5 +57,10 @@ public class SshLocalContainerService implements SshService {
     public void shutdown() {
         LOG.info("Stopping the Ssh container");
         container.stop();
+    }
+
+    @Override
+    public SshContainer getContainer() {
+        return container;
     }
 }
