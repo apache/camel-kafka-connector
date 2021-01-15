@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awssqs.CamelAwssqsSourceConnecto
 ----
 
 
-The camel-aws-sqs source connector supports 88 options, which are listed below.
+The camel-aws-sqs source connector supports 87 options, which are listed below.
 
 
 
@@ -59,7 +59,6 @@ The camel-aws-sqs source connector supports 88 options, which are listed below.
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
 | *camel.source.endpoint.delayQueue* | Define if you want to apply delaySeconds option to the queue or on single messages | false | false | MEDIUM
 | *camel.source.endpoint.queueUrl* | To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the SQS client | null | false | MEDIUM
 | *camel.source.endpoint.proxyPort* | To define a proxy port when instantiating the SQS client | null | false | MEDIUM
 | *camel.source.endpoint.maximumMessageSize* | The maximumMessageSize (in bytes) an SQS message can contain for this queue. | null | false | MEDIUM

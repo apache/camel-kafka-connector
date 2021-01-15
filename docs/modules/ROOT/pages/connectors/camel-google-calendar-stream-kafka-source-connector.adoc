@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.googlecalendarstream.CamelGoogle
 ----
 
 
-The camel-google-calendar-stream source connector supports 53 options, which are listed below.
+The camel-google-calendar-stream source connector supports 54 options, which are listed below.
 
 
 
@@ -40,10 +40,10 @@ The camel-google-calendar-stream source connector supports 53 options, which are
 | *camel.source.endpoint.query* | The query to execute on calendar | null | false | MEDIUM
 | *camel.source.endpoint.scopes* | Specifies the level of permissions you want a calendar application to have to a user account. See \https://developers.google.com/calendar/auth for more info. | null | false | MEDIUM
 | *camel.source.endpoint.sendEmptyMessageWhenIdle* | If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead. | false | false | MEDIUM
+| *camel.source.endpoint.syncFlow* | Sync events, see \https://developers.google.com/calendar/v3/sync Note: not compatible with: 'query' and 'considerLastUpdate' parameters | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | false | MEDIUM
@@ -74,6 +74,7 @@ The camel-google-calendar-stream source connector supports 53 options, which are
 | *camel.component.google-calendar-stream.maxResults* | Max results to be returned | 10 | false | MEDIUM
 | *camel.component.google-calendar-stream.query* | The query to execute on calendar | null | false | MEDIUM
 | *camel.component.google-calendar-stream.scopes* | Specifies the level of permissions you want a calendar application to have to a user account. See \https://developers.google.com/calendar/auth for more info. | null | false | MEDIUM
+| *camel.component.google-calendar-stream.syncFlow* | Sync events, see \https://developers.google.com/calendar/v3/sync Note: not compatible with: 'query' and 'considerLastUpdate' parameters | false | false | MEDIUM
 | *camel.component.google-calendar-stream.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.google-calendar-stream.client Factory* | The client Factory | null | false | MEDIUM
 | *camel.component.google-calendar-stream.accessToken* | OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage. | null | false | MEDIUM

@@ -60,9 +60,6 @@ public class CamelAhcSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_CONF = "camel.sink.endpoint.clientConfigOptions";
     public static final String CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_DOC = "To configure the AsyncHttpClientConfig using the key/values from the Map.";
     public static final String CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_DEFAULT = null;
-    public static final String CAMEL_SINK_AHC_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AHC_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AHC_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_REALM_OPTIONS_CONF = "camel.sink.endpoint.clientConfigRealmOptions";
     public static final String CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_REALM_OPTIONS_DOC = "To configure the AsyncHttpClientConfig Realm using the key/values from the Map.";
     public static final String CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_REALM_OPTIONS_DEFAULT = null;
@@ -121,7 +118,6 @@ public class CamelAhcSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AHC_ENDPOINT_BINDING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_BINDING_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_OPTIONS_DOC);
-        conf.define(CAMEL_SINK_AHC_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_REALM_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_REALM_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_CLIENT_CONFIG_REALM_OPTIONS_DOC);
         conf.define(CAMEL_SINK_AHC_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AHC_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_AHC_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AHC_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AHC_COMPONENT_LAZY_START_PRODUCER_DOC);

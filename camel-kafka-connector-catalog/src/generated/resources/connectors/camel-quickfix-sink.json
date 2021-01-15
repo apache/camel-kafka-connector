@@ -35,13 +35,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.quickfix.lazyCreateEngines": {
 			"name": "camel.component.quickfix.lazyCreateEngines",
 			"description": "If set to true, the engines will be created and started when needed (when first message is send)",

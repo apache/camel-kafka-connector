@@ -44,9 +44,6 @@ public class CamelTelegramSinkConnectorConfig
     public static final String CAMEL_SINK_TELEGRAM_ENDPOINT_CLIENT_CONFIG_CONF = "camel.sink.endpoint.clientConfig";
     public static final String CAMEL_SINK_TELEGRAM_ENDPOINT_CLIENT_CONFIG_DOC = "To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.";
     public static final String CAMEL_SINK_TELEGRAM_ENDPOINT_CLIENT_CONFIG_DEFAULT = null;
-    public static final String CAMEL_SINK_TELEGRAM_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_TELEGRAM_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_TELEGRAM_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_HOST_CONF = "camel.sink.endpoint.proxyHost";
     public static final String CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_HOST_DOC = "HTTP proxy host which could be used when sending out the message.";
     public static final String CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -96,7 +93,6 @@ public class CamelTelegramSinkConnectorConfig
         conf.define(CAMEL_SINK_TELEGRAM_ENDPOINT_BASE_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TELEGRAM_ENDPOINT_BASE_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TELEGRAM_ENDPOINT_BASE_URI_DOC);
         conf.define(CAMEL_SINK_TELEGRAM_ENDPOINT_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_TELEGRAM_ENDPOINT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TELEGRAM_ENDPOINT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_TELEGRAM_ENDPOINT_CLIENT_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TELEGRAM_ENDPOINT_CLIENT_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TELEGRAM_ENDPOINT_CLIENT_CONFIG_DOC);
-        conf.define(CAMEL_SINK_TELEGRAM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_TELEGRAM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TELEGRAM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_TELEGRAM_ENDPOINT_PROXY_TYPE_DOC);

@@ -57,6 +57,9 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXF_ENDPOINT_WRAPPED_CONF = "camel.sink.endpoint.wrapped";
     public static final String CAMEL_SINK_CXF_ENDPOINT_WRAPPED_DOC = "Which kind of operation that CXF endpoint producer will invoke";
     public static final Boolean CAMEL_SINK_CXF_ENDPOINT_WRAPPED_DEFAULT = false;
+    public static final String CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
+    public static final String CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
+    public static final Boolean CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_CONF = "camel.sink.endpoint.allowStreaming";
     public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DOC = "This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.";
     public static final String CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DEFAULT = null;
@@ -90,9 +93,6 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_CONF = "camel.sink.endpoint.skipPayloadMessagePartCheck";
     public static final String CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DOC = "Sets whether SOAP message validation should be disabled.";
     public static final Boolean CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DEFAULT = false;
-    public static final String CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF = "camel.sink.endpoint.loggingFeatureEnabled";
     public static final String CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC = "This option enables CXF Logging Feature which writes inbound and outbound SOAP messages to log.";
     public static final Boolean CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT = false;
@@ -165,6 +165,7 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CXF_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_WRAPPED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_WRAPPED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_WRAPPED_DOC);
+        conf.define(CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_ALLOW_STREAMING_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_BUS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_BUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_BUS_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_CONTINUATION_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_CXF_ENDPOINT_CONTINUATION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_CONTINUATION_TIMEOUT_DOC);
@@ -176,7 +177,6 @@ public class CamelCxfSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CXF_ENDPOINT_MTOM_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_MTOM_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_MTOM_ENABLED_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DOC);
-        conf.define(CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_CONF, ConfigDef.Type.INT, CAMEL_SINK_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_DOC);
         conf.define(CAMEL_SINK_CXF_ENDPOINT_SKIP_FAULT_LOGGING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CXF_ENDPOINT_SKIP_FAULT_LOGGING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CXF_ENDPOINT_SKIP_FAULT_LOGGING_DOC);

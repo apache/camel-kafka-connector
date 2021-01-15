@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.vertxkafka.CamelVertxkafkaSource
 ----
 
 
-The camel-vertx-kafka source connector supports 170 options, which are listed below.
+The camel-vertx-kafka source connector supports 169 options, which are listed below.
 
 
 
@@ -78,7 +78,6 @@ The camel-vertx-kafka source connector supports 170 options, which are listed be
 | *camel.source.endpoint.valueDeserializer* | Deserializer class for value that implements the org.apache.kafka.common.serialization.Deserializer interface. | "org.apache.kafka.common.serialization.StringDeserializer" | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.saslClientCallbackHandler Class* | The fully qualified name of a SASL client callback handler class that implements the AuthenticateCallbackHandler interface. | null | false | MEDIUM
 | *camel.source.endpoint.saslJaasConfig* | JAAS login context parameters for SASL connections in the format used by JAAS configuration files. JAAS configuration file format is described here. The format for the value is: 'loginModuleClass controlFlag (optionName=optionValue);'. For brokers, the config must be prefixed with listener prefix and SASL mechanism name in lower-case. For example, listener.name.sasl_ssl.scram-sha-256.sasl.jaas.config=com.example.ScramLoginModule required; | null | false | MEDIUM
 | *camel.source.endpoint.saslKerberosKinitCmd* | Kerberos kinit command path. | "/usr/bin/kinit" | false | MEDIUM

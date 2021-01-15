@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.salesforce.CamelSalesforceSource
 ----
 
 
-The camel-salesforce source connector supports 114 options, which are listed below.
+The camel-salesforce source connector supports 113 options, which are listed below.
 
 
 
@@ -71,7 +71,6 @@ The camel-salesforce source connector supports 114 options, which are listed bel
 | *camel.source.endpoint.replayId* | The replayId value to use when subscribing | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.salesforce.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.component.salesforce.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
 | *camel.component.salesforce.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.miloclient.CamelMiloclientSinkCo
 ----
 
 
-The camel-milo-client sink connector supports 50 options, which are listed below.
+The camel-milo-client sink connector supports 49 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-milo-client sink connector supports 50 options, which are listed below
 | *camel.sink.endpoint.node* | The node definition (see Node ID) | null | false | MEDIUM
 | *camel.sink.endpoint.samplingInterval* | The sampling interval in milliseconds | "0.0" | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.allowedSecurityPolicies* | A set of allowed security policy URIs. Default is to accept all and use the highest. | null | false | MEDIUM
 | *camel.sink.endpoint.applicationName* | The application name | "Apache Camel adapter for Eclipse Milo" | false | MEDIUM
 | *camel.sink.endpoint.applicationUri* | The application URI | "http://camel.apache.org/EclipseMilo/Client" | false | MEDIUM

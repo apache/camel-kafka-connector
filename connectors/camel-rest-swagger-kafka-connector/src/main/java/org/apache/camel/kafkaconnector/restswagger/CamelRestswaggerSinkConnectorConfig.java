@@ -50,9 +50,6 @@ public class CamelRestswaggerSinkConnectorConfig
     public static final String CAMEL_SINK_RESTSWAGGER_ENDPOINT_PRODUCES_CONF = "camel.sink.endpoint.produces";
     public static final String CAMEL_SINK_RESTSWAGGER_ENDPOINT_PRODUCES_DOC = "What payload type this component is producing. For example application/json according to the RFC7231. This equates to the value of Content-Type HTTP header. If set overrides any value present in the Swagger specification. Overrides all other configuration.";
     public static final String CAMEL_SINK_RESTSWAGGER_ENDPOINT_PRODUCES_DEFAULT = null;
-    public static final String CAMEL_SINK_RESTSWAGGER_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_RESTSWAGGER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_RESTSWAGGER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_RESTSWAGGER_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF = "camel.sink.endpoint.sslContextParameters";
     public static final String CAMEL_SINK_RESTSWAGGER_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC = "To configure security using SSLContextParameters.";
     public static final String CAMEL_SINK_RESTSWAGGER_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
@@ -107,7 +104,6 @@ public class CamelRestswaggerSinkConnectorConfig
         conf.define(CAMEL_SINK_RESTSWAGGER_ENDPOINT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTSWAGGER_ENDPOINT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTSWAGGER_ENDPOINT_HOST_DOC);
         conf.define(CAMEL_SINK_RESTSWAGGER_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTSWAGGER_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTSWAGGER_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_RESTSWAGGER_ENDPOINT_PRODUCES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTSWAGGER_ENDPOINT_PRODUCES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTSWAGGER_ENDPOINT_PRODUCES_DOC);
-        conf.define(CAMEL_SINK_RESTSWAGGER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTSWAGGER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTSWAGGER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_RESTSWAGGER_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTSWAGGER_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTSWAGGER_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_RESTSWAGGER_COMPONENT_BASE_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTSWAGGER_COMPONENT_BASE_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTSWAGGER_COMPONENT_BASE_PATH_DOC);
         conf.define(CAMEL_SINK_RESTSWAGGER_COMPONENT_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTSWAGGER_COMPONENT_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTSWAGGER_COMPONENT_COMPONENT_NAME_DOC);

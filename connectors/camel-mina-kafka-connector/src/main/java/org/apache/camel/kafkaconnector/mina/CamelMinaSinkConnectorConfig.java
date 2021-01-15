@@ -63,9 +63,6 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_CONF = "camel.sink.endpoint.orderedThreadPoolExecutor";
     public static final String CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DOC = "Whether to use ordered thread pool, to ensure events are processed orderly on the same channel.";
     public static final Boolean CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DEFAULT = true;
-    public static final String CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_CONF = "camel.sink.endpoint.transferExchange";
     public static final String CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_DOC = "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.";
     public static final Boolean CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_DEFAULT = false;
@@ -197,7 +194,6 @@ public class CamelMinaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_LAZY_SESSION_CREATION_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_MAXIMUM_POOL_SIZE_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_ORDERED_THREAD_POOL_EXECUTOR_DOC);
-        conf.define(CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_TRANSFER_EXCHANGE_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_ALLOW_DEFAULT_CODEC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINA_ENDPOINT_ALLOW_DEFAULT_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_ALLOW_DEFAULT_CODEC_DOC);
         conf.define(CAMEL_SINK_MINA_ENDPOINT_CODEC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINA_ENDPOINT_CODEC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINA_ENDPOINT_CODEC_DOC);

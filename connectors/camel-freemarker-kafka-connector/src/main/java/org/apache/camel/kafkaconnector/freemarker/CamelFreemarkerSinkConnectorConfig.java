@@ -50,9 +50,6 @@ public class CamelFreemarkerSinkConnectorConfig
     public static final String CAMEL_SINK_FREEMARKER_ENDPOINT_TEMPLATE_UPDATE_DELAY_CONF = "camel.sink.endpoint.templateUpdateDelay";
     public static final String CAMEL_SINK_FREEMARKER_ENDPOINT_TEMPLATE_UPDATE_DELAY_DOC = "Number of seconds the loaded template resource will remain in the cache.";
     public static final Integer CAMEL_SINK_FREEMARKER_ENDPOINT_TEMPLATE_UPDATE_DELAY_DEFAULT = null;
-    public static final String CAMEL_SINK_FREEMARKER_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_FREEMARKER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_FREEMARKER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_CONTEXT_MAP_ALL_CONF = "camel.component.freemarker.allowContextMapAll";
     public static final String CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DOC = "Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API.";
     public static final Boolean CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DEFAULT = false;
@@ -89,7 +86,6 @@ public class CamelFreemarkerSinkConnectorConfig
         conf.define(CAMEL_SINK_FREEMARKER_ENDPOINT_ENCODING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FREEMARKER_ENDPOINT_ENCODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FREEMARKER_ENDPOINT_ENCODING_DOC);
         conf.define(CAMEL_SINK_FREEMARKER_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FREEMARKER_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FREEMARKER_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_FREEMARKER_ENDPOINT_TEMPLATE_UPDATE_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SINK_FREEMARKER_ENDPOINT_TEMPLATE_UPDATE_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FREEMARKER_ENDPOINT_TEMPLATE_UPDATE_DELAY_DOC);
-        conf.define(CAMEL_SINK_FREEMARKER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FREEMARKER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FREEMARKER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_CONTEXT_MAP_ALL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DOC);
         conf.define(CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FREEMARKER_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DOC);
         conf.define(CAMEL_SINK_FREEMARKER_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FREEMARKER_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FREEMARKER_COMPONENT_LAZY_START_PRODUCER_DOC);

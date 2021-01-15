@@ -66,9 +66,6 @@ public class CamelRestSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_CONF = "camel.sink.endpoint.queryParameters";
     public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DOC = "Query parameters for the HTTP service to call. The query parameters can contain multiple parameters separated by ampersand such such as foo=123&bar=456.";
     public static final String CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DEFAULT = null;
-    public static final String CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_REST_COMPONENT_API_DOC_CONF = "camel.component.rest.apiDoc";
     public static final String CAMEL_SINK_REST_COMPONENT_API_DOC_DOC = "The swagger api doc resource to use. The resource is loaded from classpath by default and must be in JSON format.";
     public static final String CAMEL_SINK_REST_COMPONENT_API_DOC_DEFAULT = null;
@@ -114,7 +111,6 @@ public class CamelRestSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_REST_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_REST_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_REST_ENDPOINT_PRODUCER_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_ENDPOINT_PRODUCER_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_PRODUCER_COMPONENT_NAME_DOC);
         conf.define(CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_QUERY_PARAMETERS_DOC);
-        conf.define(CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_REST_COMPONENT_API_DOC_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_COMPONENT_API_DOC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_COMPONENT_API_DOC_DOC);
         conf.define(CAMEL_SINK_REST_COMPONENT_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_COMPONENT_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_REST_COMPONENT_COMPONENT_NAME_DOC);
         conf.define(CAMEL_SINK_REST_COMPONENT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_REST_COMPONENT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_REST_COMPONENT_HOST_DOC);

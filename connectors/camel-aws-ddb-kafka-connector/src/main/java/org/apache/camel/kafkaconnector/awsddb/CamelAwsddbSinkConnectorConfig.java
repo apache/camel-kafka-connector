@@ -66,9 +66,6 @@ public class CamelAwsddbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_WRITE_CAPACITY_CONF = "camel.sink.endpoint.writeCapacity";
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_WRITE_CAPACITY_DOC = "The provisioned throughput to reserved for writing resources to your table";
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_WRITE_CAPACITY_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSDDB_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AWSDDB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AWSDDB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -153,7 +150,6 @@ public class CamelAwsddbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_READ_CAPACITY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_READ_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_READ_CAPACITY_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_WRITE_CAPACITY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_WRITE_CAPACITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_WRITE_CAPACITY_DOC);
-        conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSDDB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSDDB_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSDDB_COMPONENT_AMAZON_DDBCLIENT_DOC);

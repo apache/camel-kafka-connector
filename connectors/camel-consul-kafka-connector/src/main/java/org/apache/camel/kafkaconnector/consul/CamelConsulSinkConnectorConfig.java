@@ -81,9 +81,6 @@ public class CamelConsulSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_NODE_META_CONF = "camel.sink.endpoint.nodeMeta";
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_NODE_META_DOC = "The note meta-data to use for queries.";
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_NODE_META_DEFAULT = null;
-    public static final String CAMEL_SINK_CONSUL_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_CONSUL_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_CONSUL_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_ACL_TOKEN_CONF = "camel.sink.endpoint.aclToken";
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_ACL_TOKEN_DOC = "Sets the ACL token to be used with Consul";
     public static final String CAMEL_SINK_CONSUL_ENDPOINT_ACL_TOKEN_DEFAULT = null;
@@ -203,7 +200,6 @@ public class CamelConsulSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_DATACENTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_DATACENTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_DATACENTER_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_NEAR_NODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_NEAR_NODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_NEAR_NODE_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_NODE_META_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_NODE_META_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_NODE_META_DOC);
-        conf.define(CAMEL_SINK_CONSUL_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CONSUL_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_ACL_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_ACL_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_ACL_TOKEN_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_CONSUL_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CONSUL_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CONSUL_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);

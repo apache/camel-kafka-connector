@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.graphql.CamelGraphqlSinkConnecto
 ----
 
 
-The camel-graphql sink connector supports 14 options, which are listed below.
+The camel-graphql sink connector supports 13 options, which are listed below.
 
 
 
@@ -36,7 +36,6 @@ The camel-graphql sink connector supports 14 options, which are listed below.
 | *camel.sink.endpoint.query* | The query text. | null | false | MEDIUM
 | *camel.sink.endpoint.queryFile* | The query file name located in the classpath. | null | false | MEDIUM
 | *camel.sink.endpoint.variables* | The JsonObject instance containing the operation variables. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessToken* | The access token sent in the Authorization header. | null | false | MEDIUM
 | *camel.sink.endpoint.jwtAuthorizationType* | The JWT Authorization type. Default is Bearer. | "Bearer" | false | MEDIUM
 | *camel.sink.endpoint.password* | The password for Basic authentication. | null | false | MEDIUM

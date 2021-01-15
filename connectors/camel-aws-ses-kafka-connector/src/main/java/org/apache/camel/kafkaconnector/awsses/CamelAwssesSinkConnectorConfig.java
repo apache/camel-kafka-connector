@@ -60,9 +60,6 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_TO_CONF = "camel.sink.endpoint.to";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_TO_DOC = "List of destination email address. Can be overriden with 'CamelAwsSesTo' header.";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_TO_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -139,7 +136,6 @@ public class CamelAwssesSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_RETURN_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_RETURN_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_RETURN_PATH_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_SUBJECT_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_TO_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_TO_DOC);
-        conf.define(CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSSES_COMPONENT_AMAZON_SESCLIENT_DOC);

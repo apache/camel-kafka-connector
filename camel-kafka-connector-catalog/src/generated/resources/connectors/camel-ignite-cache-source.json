@@ -100,13 +100,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.ignite-cache.configurationResource": {
 			"name": "camel.component.ignite-cache.configurationResource",
 			"description": "The resource from where to load the configuration. It can be a: URL, String or InputStream type.",

@@ -36,9 +36,6 @@ public class CamelWorkdaySinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_WORKDAY_ENDPOINT_HTTP_CONNECTION_MANAGER_CONF = "camel.sink.endpoint.httpConnectionManager";
     public static final String CAMEL_SINK_WORKDAY_ENDPOINT_HTTP_CONNECTION_MANAGER_DOC = "Pool connection manager for advanced configuration.";
     public static final String CAMEL_SINK_WORKDAY_ENDPOINT_HTTP_CONNECTION_MANAGER_DEFAULT = null;
-    public static final String CAMEL_SINK_WORKDAY_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_WORKDAY_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_WORKDAY_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_WORKDAY_ENDPOINT_REPORT_FORMAT_CONF = "camel.sink.endpoint.reportFormat";
     public static final String CAMEL_SINK_WORKDAY_ENDPOINT_REPORT_FORMAT_DOC = "Workday Report as a service output format. One of: [json]";
     public static final String CAMEL_SINK_WORKDAY_ENDPOINT_REPORT_FORMAT_DEFAULT = "json";
@@ -80,7 +77,6 @@ public class CamelWorkdaySinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_WORKDAY_PATH_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WORKDAY_PATH_PATH_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_WORKDAY_PATH_PATH_DOC);
         conf.define(CAMEL_SINK_WORKDAY_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WORKDAY_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WORKDAY_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_WORKDAY_ENDPOINT_HTTP_CONNECTION_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WORKDAY_ENDPOINT_HTTP_CONNECTION_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WORKDAY_ENDPOINT_HTTP_CONNECTION_MANAGER_DOC);
-        conf.define(CAMEL_SINK_WORKDAY_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WORKDAY_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WORKDAY_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_WORKDAY_ENDPOINT_REPORT_FORMAT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WORKDAY_ENDPOINT_REPORT_FORMAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WORKDAY_ENDPOINT_REPORT_FORMAT_DOC);
         conf.define(CAMEL_SINK_WORKDAY_ENDPOINT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WORKDAY_ENDPOINT_HOST_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_WORKDAY_ENDPOINT_HOST_DOC);
         conf.define(CAMEL_SINK_WORKDAY_ENDPOINT_CLIENT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WORKDAY_ENDPOINT_CLIENT_ID_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_WORKDAY_ENDPOINT_CLIENT_ID_DOC);

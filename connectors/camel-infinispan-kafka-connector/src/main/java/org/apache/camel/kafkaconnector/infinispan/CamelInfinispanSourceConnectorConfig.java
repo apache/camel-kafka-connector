@@ -98,9 +98,6 @@ public class CamelInfinispanSourceConnectorConfig
     public static final String CAMEL_SOURCE_INFINISPAN_ENDPOINT_RESULT_HEADER_CONF = "camel.source.endpoint.resultHeader";
     public static final String CAMEL_SOURCE_INFINISPAN_ENDPOINT_RESULT_HEADER_DOC = "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader";
     public static final String CAMEL_SOURCE_INFINISPAN_ENDPOINT_RESULT_HEADER_DEFAULT = null;
-    public static final String CAMEL_SOURCE_INFINISPAN_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_INFINISPAN_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_INFINISPAN_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_INFINISPAN_COMPONENT_CONFIGURATION_CONF = "camel.component.infinispan.configuration";
     public static final String CAMEL_SOURCE_INFINISPAN_COMPONENT_CONFIGURATION_DOC = "Component configuration";
     public static final String CAMEL_SOURCE_INFINISPAN_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -207,7 +204,6 @@ public class CamelInfinispanSourceConnectorConfig
         conf.define(CAMEL_SOURCE_INFINISPAN_ENDPOINT_FLAGS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_INFINISPAN_ENDPOINT_FLAGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_INFINISPAN_ENDPOINT_FLAGS_DOC);
         conf.define(CAMEL_SOURCE_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_DOC);
         conf.define(CAMEL_SOURCE_INFINISPAN_ENDPOINT_RESULT_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_INFINISPAN_ENDPOINT_RESULT_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_INFINISPAN_ENDPOINT_RESULT_HEADER_DOC);
-        conf.define(CAMEL_SOURCE_INFINISPAN_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_INFINISPAN_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_INFINISPAN_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_INFINISPAN_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_INFINISPAN_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_INFINISPAN_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SOURCE_INFINISPAN_COMPONENT_HOSTS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_INFINISPAN_COMPONENT_HOSTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_INFINISPAN_COMPONENT_HOSTS_DOC);
         conf.define(CAMEL_SOURCE_INFINISPAN_COMPONENT_QUERY_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_INFINISPAN_COMPONENT_QUERY_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_INFINISPAN_COMPONENT_QUERY_BUILDER_DOC);

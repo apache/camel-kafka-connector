@@ -39,9 +39,6 @@ public class CamelDirectSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_DIRECT_ENDPOINT_TIMEOUT_CONF = "camel.sink.endpoint.timeout";
     public static final String CAMEL_SINK_DIRECT_ENDPOINT_TIMEOUT_DOC = "The timeout value to use if block is enabled.";
     public static final Long CAMEL_SINK_DIRECT_ENDPOINT_TIMEOUT_DEFAULT = 30000L;
-    public static final String CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_DIRECT_COMPONENT_BLOCK_CONF = "camel.component.direct.block";
     public static final String CAMEL_SINK_DIRECT_COMPONENT_BLOCK_DOC = "If sending a message to a direct endpoint which has no active consumer, then we can tell the producer to block and wait for the consumer to become active.";
     public static final Boolean CAMEL_SINK_DIRECT_COMPONENT_BLOCK_DEFAULT = true;
@@ -72,7 +69,6 @@ public class CamelDirectSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_DIRECT_ENDPOINT_FAIL_IF_NO_CONSUMERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECT_ENDPOINT_FAIL_IF_NO_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECT_ENDPOINT_FAIL_IF_NO_CONSUMERS_DOC);
         conf.define(CAMEL_SINK_DIRECT_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECT_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECT_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_DIRECT_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_DIRECT_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECT_ENDPOINT_TIMEOUT_DOC);
-        conf.define(CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_DIRECT_COMPONENT_BLOCK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECT_COMPONENT_BLOCK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECT_COMPONENT_BLOCK_DOC);
         conf.define(CAMEL_SINK_DIRECT_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECT_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECT_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_DIRECT_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_DIRECT_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECT_COMPONENT_TIMEOUT_DOC);

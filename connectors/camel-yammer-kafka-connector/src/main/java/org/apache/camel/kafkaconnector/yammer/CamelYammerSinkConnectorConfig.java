@@ -36,9 +36,6 @@ public class CamelYammerSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_YAMMER_ENDPOINT_REQUESTOR_CONF = "camel.sink.endpoint.requestor";
     public static final String CAMEL_SINK_YAMMER_ENDPOINT_REQUESTOR_DOC = "To use a specific requester to communicate with Yammer.";
     public static final String CAMEL_SINK_YAMMER_ENDPOINT_REQUESTOR_DEFAULT = null;
-    public static final String CAMEL_SINK_YAMMER_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_YAMMER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_YAMMER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_YAMMER_ENDPOINT_ACCESS_TOKEN_CONF = "camel.sink.endpoint.accessToken";
     public static final String CAMEL_SINK_YAMMER_ENDPOINT_ACCESS_TOKEN_DOC = "The access token";
     public static final String CAMEL_SINK_YAMMER_ENDPOINT_ACCESS_TOKEN_DEFAULT = null;
@@ -89,7 +86,6 @@ public class CamelYammerSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_YAMMER_ENDPOINT_USE_JSON_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_YAMMER_ENDPOINT_USE_JSON_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_YAMMER_ENDPOINT_USE_JSON_DOC);
         conf.define(CAMEL_SINK_YAMMER_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_YAMMER_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_YAMMER_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_YAMMER_ENDPOINT_REQUESTOR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_YAMMER_ENDPOINT_REQUESTOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_YAMMER_ENDPOINT_REQUESTOR_DOC);
-        conf.define(CAMEL_SINK_YAMMER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_YAMMER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_YAMMER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_YAMMER_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_YAMMER_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_YAMMER_ENDPOINT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SINK_YAMMER_ENDPOINT_CONSUMER_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_YAMMER_ENDPOINT_CONSUMER_KEY_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_YAMMER_ENDPOINT_CONSUMER_KEY_DOC);
         conf.define(CAMEL_SINK_YAMMER_ENDPOINT_CONSUMER_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SINK_YAMMER_ENDPOINT_CONSUMER_SECRET_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_YAMMER_ENDPOINT_CONSUMER_SECRET_DOC);

@@ -141,7 +141,7 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_KAFKA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SCHEMA_REGISTRY_URLCONF = "camel.source.endpoint.schemaRegistryURL";
     public static final String CAMEL_SOURCE_KAFKA_ENDPOINT_SCHEMA_REGISTRY_URLDOC = "URL of the Confluent Platform schema registry servers to use. The format is host1:port1,host2:port2. This is known as schema.registry.url in the Confluent Platform documentation. This option is only available in the Confluent Platform (not standard Apache Kafka)";
@@ -320,6 +320,9 @@ public class CamelKafkaSourceConnectorConfig
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_CONF = "camel.component.kafka.autowiredEnabled";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_DOC = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.";
     public static final Boolean CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT = true;
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_CONF = "camel.component.kafka.synchronous";
+    public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
+    public static final Boolean CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLCONF = "camel.component.kafka.schemaRegistryURL";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLDOC = "URL of the Confluent Platform schema registry servers to use. The format is host1:port1,host2:port2. This is known as schema.registry.url in the Confluent Platform documentation. This option is only available in the Confluent Platform (not standard Apache Kafka)";
     public static final String CAMEL_SOURCE_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLDEFAULT = null;
@@ -497,6 +500,7 @@ public class CamelKafkaSourceConnectorConfig
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_VALUE_DESERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_VALUE_DESERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_VALUE_DESERIALIZER_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_KAFKA_MANUAL_COMMIT_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_AUTOWIRED_ENABLED_DOC);
+        conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLCONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_SCHEMA_REGISTRY_URLDOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_INTERCEPTOR_CLASSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_INTERCEPTOR_CLASSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_INTERCEPTOR_CLASSES_DOC);
         conf.define(CAMEL_SOURCE_KAFKA_COMPONENT_KERBEROS_BEFORE_RELOGIN_MIN_TIME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_KAFKA_COMPONENT_KERBEROS_BEFORE_RELOGIN_MIN_TIME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_KAFKA_COMPONENT_KERBEROS_BEFORE_RELOGIN_MIN_TIME_DOC);

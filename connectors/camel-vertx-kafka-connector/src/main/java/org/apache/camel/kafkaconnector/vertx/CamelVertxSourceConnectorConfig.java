@@ -41,9 +41,6 @@ public class CamelVertxSourceConnectorConfig
     public static final String CAMEL_SOURCE_VERTX_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_VERTX_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_VERTX_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_VERTX_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_VERTX_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_VERTX_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_VERTX_COMPONENT_HOST_CONF = "camel.component.vertx.host";
     public static final String CAMEL_SOURCE_VERTX_COMPONENT_HOST_DOC = "Hostname for creating an embedded clustered EventBus";
     public static final String CAMEL_SOURCE_VERTX_COMPONENT_HOST_DEFAULT = null;
@@ -86,7 +83,6 @@ public class CamelVertxSourceConnectorConfig
         conf.define(CAMEL_SOURCE_VERTX_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_VERTX_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VERTX_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_VERTX_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_VERTX_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VERTX_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_VERTX_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_VERTX_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VERTX_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_VERTX_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_VERTX_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VERTX_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_VERTX_COMPONENT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_VERTX_COMPONENT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VERTX_COMPONENT_HOST_DOC);
         conf.define(CAMEL_SOURCE_VERTX_COMPONENT_PORT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_VERTX_COMPONENT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VERTX_COMPONENT_PORT_DOC);
         conf.define(CAMEL_SOURCE_VERTX_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_VERTX_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VERTX_COMPONENT_TIMEOUT_DOC);

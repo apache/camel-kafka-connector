@@ -111,7 +111,7 @@ public class CamelFileSourceConnectorConfig
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DOC = "Perform rename operations using a copy and delete strategy. This is primarily used in environments where the regular rename operation is unreliable (e.g. across different file systems or networks). This option takes precedence over the copyAndDeleteOnRenameFail parameter that will automatically fall back to the copy and delete strategy, but only after additional delays.";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_RENAME_USING_COPY_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_FILE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_FILE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_FILE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_ANT_EXCLUDE_CONF = "camel.source.endpoint.antExclude";
     public static final String CAMEL_SOURCE_FILE_ENDPOINT_ANT_EXCLUDE_DOC = "Ant style filter exclusion. If both antInclude and antExclude are used, antExclude takes precedence over antInclude. Multiple exclusions may be specified in comma-delimited format.";

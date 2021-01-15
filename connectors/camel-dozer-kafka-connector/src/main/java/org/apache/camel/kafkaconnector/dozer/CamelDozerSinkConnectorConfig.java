@@ -48,9 +48,6 @@ public class CamelDozerSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_DOZER_ENDPOINT_UNMARSHAL_ID_CONF = "camel.sink.endpoint.unmarshalId";
     public static final String CAMEL_SINK_DOZER_ENDPOINT_UNMARSHAL_ID_DOC = "The id of a dataFormat defined within the Camel Context to use for unmarshalling the mapping input from a non-Java type.";
     public static final String CAMEL_SINK_DOZER_ENDPOINT_UNMARSHAL_ID_DEFAULT = null;
-    public static final String CAMEL_SINK_DOZER_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_DOZER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_DOZER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_DOZER_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.dozer.lazyStartProducer";
     public static final String CAMEL_SINK_DOZER_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_DOZER_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -78,7 +75,6 @@ public class CamelDozerSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_DOZER_ENDPOINT_SOURCE_MODEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DOZER_ENDPOINT_SOURCE_MODEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOZER_ENDPOINT_SOURCE_MODEL_DOC);
         conf.define(CAMEL_SINK_DOZER_ENDPOINT_TARGET_MODEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DOZER_ENDPOINT_TARGET_MODEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_DOZER_ENDPOINT_TARGET_MODEL_DOC);
         conf.define(CAMEL_SINK_DOZER_ENDPOINT_UNMARSHAL_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DOZER_ENDPOINT_UNMARSHAL_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOZER_ENDPOINT_UNMARSHAL_ID_DOC);
-        conf.define(CAMEL_SINK_DOZER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DOZER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOZER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_DOZER_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DOZER_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOZER_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_DOZER_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DOZER_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOZER_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;

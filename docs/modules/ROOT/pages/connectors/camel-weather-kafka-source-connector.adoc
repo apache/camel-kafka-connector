@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.weather.CamelWeatherSourceConnec
 ----
 
 
-The camel-weather source connector supports 43 options, which are listed below.
+The camel-weather source connector supports 42 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-weather source connector supports 43 options, which are listed below.
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
 | *camel.source.endpoint.geoLocationProvider* | A custum geolocation provider to determine the longitude and latitude to use when no location information is set. The default implementaion uses the ipstack API and requires geolocationAccessKey and geolocationRequestHostIP | null | false | MEDIUM
 | *camel.source.endpoint.httpClient* | To use an existing configured http client (for example with http proxy) | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.cnt* | Number of results to be found | null | false | MEDIUM
 | *camel.source.endpoint.ids* | List of id's of city/stations. You can separate multiple ids by comma. | null | false | MEDIUM
 | *camel.source.endpoint.lat* | Latitude of location. You can use lat and lon options instead of location. For boxed queries this is the bottom latitude. | null | false | MEDIUM

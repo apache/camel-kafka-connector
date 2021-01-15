@@ -98,6 +98,9 @@ public class CamelJbpmSourceConnectorConfig
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
+    public static final String CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
+    public static final String CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
+    public static final Boolean CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_ENTITIES_CONF = "camel.source.endpoint.entities";
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_ENTITIES_DOC = "The potentialOwners when nominateTask operation is performed";
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_ENTITIES_DEFAULT = null;
@@ -107,9 +110,6 @@ public class CamelJbpmSourceConnectorConfig
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_PARAMETERS_CONF = "camel.source.endpoint.parameters";
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_PARAMETERS_DOC = "the variables that should be set for various operations";
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_PARAMETERS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_STATUSES_CONF = "camel.source.endpoint.statuses";
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_STATUSES_DOC = "The list of status to use when filtering tasks";
     public static final String CAMEL_SOURCE_JBPM_ENDPOINT_STATUSES_DEFAULT = null;
@@ -162,10 +162,10 @@ public class CamelJbpmSourceConnectorConfig
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JBPM_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JBPM_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JBPM_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_EXCHANGE_PATTERN_DOC);
+        conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_ENTITIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JBPM_ENDPOINT_ENTITIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_ENTITIES_DOC);
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_EXTRA_JAXB_CLASSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JBPM_ENDPOINT_EXTRA_JAXB_CLASSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_EXTRA_JAXB_CLASSES_DOC);
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JBPM_ENDPOINT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_PARAMETERS_DOC);
-        conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_STATUSES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JBPM_ENDPOINT_STATUSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_STATUSES_DOC);
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JBPM_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SOURCE_JBPM_ENDPOINT_USER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JBPM_ENDPOINT_USER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JBPM_ENDPOINT_USER_NAME_DOC);

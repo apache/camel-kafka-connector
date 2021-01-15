@@ -66,9 +66,6 @@ public class CamelDockerSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_DOCKER_ENDPOINT_SOCKET_CONF = "camel.sink.endpoint.socket";
     public static final String CAMEL_SINK_DOCKER_ENDPOINT_SOCKET_DOC = "Socket connection mode";
     public static final Boolean CAMEL_SINK_DOCKER_ENDPOINT_SOCKET_DEFAULT = true;
-    public static final String CAMEL_SINK_DOCKER_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_DOCKER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_DOCKER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_DOCKER_ENDPOINT_CERT_PATH_CONF = "camel.sink.endpoint.certPath";
     public static final String CAMEL_SINK_DOCKER_ENDPOINT_CERT_PATH_DOC = "Location containing the SSL certificate chain";
     public static final String CAMEL_SINK_DOCKER_ENDPOINT_CERT_PATH_DEFAULT = null;
@@ -171,7 +168,6 @@ public class CamelDockerSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_DOCKER_ENDPOINT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DOCKER_ENDPOINT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOCKER_ENDPOINT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_DOCKER_ENDPOINT_SERVER_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DOCKER_ENDPOINT_SERVER_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOCKER_ENDPOINT_SERVER_ADDRESS_DOC);
         conf.define(CAMEL_SINK_DOCKER_ENDPOINT_SOCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DOCKER_ENDPOINT_SOCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOCKER_ENDPOINT_SOCKET_DOC);
-        conf.define(CAMEL_SINK_DOCKER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DOCKER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOCKER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_DOCKER_ENDPOINT_CERT_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DOCKER_ENDPOINT_CERT_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOCKER_ENDPOINT_CERT_PATH_DOC);
         conf.define(CAMEL_SINK_DOCKER_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DOCKER_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOCKER_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_DOCKER_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DOCKER_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DOCKER_ENDPOINT_SECURE_DOC);

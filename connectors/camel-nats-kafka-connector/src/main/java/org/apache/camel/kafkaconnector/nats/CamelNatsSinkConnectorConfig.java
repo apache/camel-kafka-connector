@@ -78,9 +78,6 @@ public class CamelNatsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NATS_ENDPOINT_CONNECTION_CONF = "camel.sink.endpoint.connection";
     public static final String CAMEL_SINK_NATS_ENDPOINT_CONNECTION_DOC = "Reference an already instantiated connection to Nats server";
     public static final String CAMEL_SINK_NATS_ENDPOINT_CONNECTION_DEFAULT = null;
-    public static final String CAMEL_SINK_NATS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_NATS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_NATS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_NATS_ENDPOINT_TRACE_CONNECTION_CONF = "camel.sink.endpoint.traceConnection";
     public static final String CAMEL_SINK_NATS_ENDPOINT_TRACE_CONNECTION_DOC = "Whether or not connection trace messages should be printed to standard out for fine grained debugging of connection issues.";
     public static final Boolean CAMEL_SINK_NATS_ENDPOINT_TRACE_CONNECTION_DEFAULT = false;
@@ -136,7 +133,6 @@ public class CamelNatsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NATS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_NATS_ENDPOINT_REPLY_SUBJECT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATS_ENDPOINT_REPLY_SUBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_REPLY_SUBJECT_DOC);
         conf.define(CAMEL_SINK_NATS_ENDPOINT_CONNECTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATS_ENDPOINT_CONNECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_CONNECTION_DOC);
-        conf.define(CAMEL_SINK_NATS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_NATS_ENDPOINT_TRACE_CONNECTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_ENDPOINT_TRACE_CONNECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_TRACE_CONNECTION_DOC);
         conf.define(CAMEL_SINK_NATS_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NATS_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SINK_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);

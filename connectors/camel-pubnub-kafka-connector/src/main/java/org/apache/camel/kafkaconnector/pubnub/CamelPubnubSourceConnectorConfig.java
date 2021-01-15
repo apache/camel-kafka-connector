@@ -47,9 +47,6 @@ public class CamelPubnubSourceConnectorConfig
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_CONF = "camel.source.endpoint.pubnub";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_DOC = "Reference to a Pubnub client in the registry.";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_DEFAULT = null;
-    public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_CONF = "camel.source.endpoint.authKey";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_DOC = "If Access Manager is utilized, client will use this authKey in all restricted requests.";
     public static final String CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_DEFAULT = null;
@@ -94,7 +91,6 @@ public class CamelPubnubSourceConnectorConfig
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBNUB_DOC);
-        conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_AUTH_KEY_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_CIPHER_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_CIPHER_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_CIPHER_KEY_DOC);
         conf.define(CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBLISH_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBLISH_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_PUBNUB_ENDPOINT_PUBLISH_KEY_DOC);

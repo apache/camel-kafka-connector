@@ -51,13 +51,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.guava-eventbus.eventBus": {
 			"name": "camel.component.guava-eventbus.eventBus",
 			"description": "To use the given Guava EventBus instance",

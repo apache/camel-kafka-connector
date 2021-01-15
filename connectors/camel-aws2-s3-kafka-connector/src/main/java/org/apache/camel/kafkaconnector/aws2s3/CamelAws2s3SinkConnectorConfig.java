@@ -105,9 +105,6 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_CONF = "camel.sink.endpoint.useCustomerKey";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_DOC = "Define if Customer Key must be used or not";
     public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_DEFAULT = false;
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -244,7 +241,6 @@ public class CamelAws2s3SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_AWS_KMSKEY_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_AWS_KMSKEY_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_AWS_KMSKEY_ID_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_USE_AWS_KMSCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_USE_AWS_KMSDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_USE_AWS_KMSDOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_USE_CUSTOMER_KEY_DOC);
-        conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2S3_COMPONENT_AMAZON_S3CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2S3_COMPONENT_AMAZON_S3CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2S3_COMPONENT_AMAZON_S3CLIENT_DOC);

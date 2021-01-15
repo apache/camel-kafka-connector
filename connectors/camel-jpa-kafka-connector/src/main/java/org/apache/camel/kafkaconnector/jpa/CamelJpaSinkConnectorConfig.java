@@ -75,9 +75,6 @@ public class CamelJpaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_CONF = "camel.sink.endpoint.sharedEntityManager";
     public static final String CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_DOC = "Whether to use Spring's SharedEntityManager for the consumer/producer. Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager.";
     public static final Boolean CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_DEFAULT = false;
-    public static final String CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_JPA_COMPONENT_ENTITY_MANAGER_FACTORY_CONF = "camel.component.jpa.entityManagerFactory";
     public static final String CAMEL_SINK_JPA_COMPONENT_ENTITY_MANAGER_FACTORY_DOC = "To use the EntityManagerFactory. This is strongly recommended to configure.";
     public static final String CAMEL_SINK_JPA_COMPONENT_ENTITY_MANAGER_FACTORY_DEFAULT = null;
@@ -126,7 +123,6 @@ public class CamelJpaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_USE_PASSED_IN_ENTITY_MANAGER_DOC);
         conf.define(CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_ENTITY_MANAGER_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_SHARED_ENTITY_MANAGER_DOC);
-        conf.define(CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_JPA_COMPONENT_ENTITY_MANAGER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JPA_COMPONENT_ENTITY_MANAGER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_COMPONENT_ENTITY_MANAGER_FACTORY_DOC);
         conf.define(CAMEL_SINK_JPA_COMPONENT_JOIN_TRANSACTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_COMPONENT_JOIN_TRANSACTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_COMPONENT_JOIN_TRANSACTION_DOC);
         conf.define(CAMEL_SINK_JPA_COMPONENT_SHARED_ENTITY_MANAGER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JPA_COMPONENT_SHARED_ENTITY_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JPA_COMPONENT_SHARED_ENTITY_MANAGER_DOC);

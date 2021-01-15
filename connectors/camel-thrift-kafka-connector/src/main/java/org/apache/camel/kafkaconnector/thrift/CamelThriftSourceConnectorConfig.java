@@ -60,7 +60,7 @@ public class CamelThriftSourceConnectorConfig
     public static final String CAMEL_SOURCE_THRIFT_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_THRIFT_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_THRIFT_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_THRIFT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_THRIFT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_THRIFT_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_THRIFT_ENDPOINT_NEGOTIATION_TYPE_CONF = "camel.source.endpoint.negotiationType";
     public static final String CAMEL_SOURCE_THRIFT_ENDPOINT_NEGOTIATION_TYPE_DOC = "Security negotiation type One of: [PLAINTEXT] [SSL] [SASL]";

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.azurequeue.CamelAzurequeueSinkCo
 ----
 
 
-The camel-azure-queue sink connector supports 24 options, which are listed below.
+The camel-azure-queue sink connector supports 23 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-azure-queue sink connector supports 24 options, which are listed below
 | *camel.sink.endpoint.messageVisibilityDelay* | Message Visibility Delay in seconds | null | false | MEDIUM
 | *camel.sink.endpoint.operation* | Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [addMessage] [retrieveMessage] [peekMessage] [updateMessage] [deleteMessage] | "listQueues" | false | MEDIUM
 | *camel.sink.endpoint.queuePrefix* | Set a prefix which can be used for listing the queues | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
 | *camel.sink.endpoint.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM
 | *camel.component.azure-queue.azureQueueClient* | The queue service client | null | false | MEDIUM

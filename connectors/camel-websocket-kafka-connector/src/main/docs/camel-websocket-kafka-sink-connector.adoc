@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.websocket.CamelWebsocketSinkConn
 ----
 
 
-The camel-websocket sink connector supports 30 options, which are listed below.
+The camel-websocket sink connector supports 29 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-websocket sink connector supports 30 options, which are listed below.
 | *camel.sink.endpoint.maxIdleTime* | Set the time in ms that the websocket created by the websocketServlet may be idle before closing. (default is 300000) | "300000" | false | MEDIUM
 | *camel.sink.endpoint.maxTextMessageSize* | Can be used to set the size in characters that the websocket created by the websocketServlet may be accept before closing. | null | false | MEDIUM
 | *camel.sink.endpoint.minVersion* | Can be used to set the minimum protocol version accepted for the websocketServlet. (Default 13 - the RFC6455 version) | "13" | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.allowedOrigins* | The CORS allowed origins. Use to allow all. | null | false | MEDIUM
 | *camel.sink.endpoint.crossOriginFilterOn* | Whether to enable CORS | false | false | MEDIUM
 | *camel.sink.endpoint.filterPath* | Context path for filtering CORS | null | false | MEDIUM

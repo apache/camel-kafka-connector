@@ -69,7 +69,7 @@ public class CamelGrpcSourceConnectorConfig
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_GRPC_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_GRPC_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_GRPC_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_AUTHENTICATION_TYPE_CONF = "camel.source.endpoint.authenticationType";
     public static final String CAMEL_SOURCE_GRPC_ENDPOINT_AUTHENTICATION_TYPE_DOC = "Authentication method type in advance to the SSL/TLS negotiation One of: [NONE] [GOOGLE] [JWT]";

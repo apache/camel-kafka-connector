@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2sns.CamelAws2snsSinkConnecto
 ----
 
 
-The camel-aws2-sns sink connector supports 45 options, which are listed below.
+The camel-aws2-sns sink connector supports 44 options, which are listed below.
 
 
 
@@ -49,7 +49,6 @@ The camel-aws2-sns sink connector supports 45 options, which are listed below.
 | *camel.sink.endpoint.subscribeSNStoSQS* | Define if the subscription between SNS Topic and SQS must be done or not | false | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.sink.endpoint.useDefaultCredentialsProvider* | Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-sns.amazonSNSClient* | To use the AmazonSNS as the client | null | false | MEDIUM

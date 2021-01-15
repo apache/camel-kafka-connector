@@ -60,9 +60,6 @@ public class CamelMongodbSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_CONF = "camel.sink.endpoint.readPreference";
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_DOC = "Configure how MongoDB clients route read operations to the members of a replica set. Possible values are PRIMARY, PRIMARY_PREFERRED, SECONDARY, SECONDARY_PREFERRED or NEAREST One of: [PRIMARY] [PRIMARY_PREFERRED] [SECONDARY] [SECONDARY_PREFERRED] [NEAREST]";
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_DEFAULT = "PRIMARY";
-    public static final String CAMEL_SINK_MONGODB_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_MONGODB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_MONGODB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_WRITE_CONCERN_CONF = "camel.sink.endpoint.writeConcern";
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_WRITE_CONCERN_DOC = "Configure the connection bean with the level of acknowledgment requested from MongoDB for write operations to a standalone mongod, replicaset or cluster. Possible values are ACKNOWLEDGED, W1, W2, W3, UNACKNOWLEDGED, JOURNALED or MAJORITY. One of: [ACKNOWLEDGED] [W1] [W2] [W3] [UNACKNOWLEDGED] [JOURNALED] [MAJORITY]";
     public static final String CAMEL_SINK_MONGODB_ENDPOINT_WRITE_CONCERN_DEFAULT = "ACKNOWLEDGED";
@@ -124,7 +121,6 @@ public class CamelMongodbSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_CONF, ConfigDef.Type.LONG, CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_CURSOR_REGENERATION_DELAY_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_DYNAMICITY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_ENDPOINT_DYNAMICITY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_DYNAMICITY_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_READ_PREFERENCE_DOC);
-        conf.define(CAMEL_SINK_MONGODB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_WRITE_CONCERN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODB_ENDPOINT_WRITE_CONCERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_WRITE_CONCERN_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_WRITE_RESULT_AS_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MONGODB_ENDPOINT_WRITE_RESULT_AS_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_WRITE_RESULT_AS_HEADER_DOC);
         conf.define(CAMEL_SINK_MONGODB_ENDPOINT_STREAM_FILTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MONGODB_ENDPOINT_STREAM_FILTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MONGODB_ENDPOINT_STREAM_FILTER_DOC);

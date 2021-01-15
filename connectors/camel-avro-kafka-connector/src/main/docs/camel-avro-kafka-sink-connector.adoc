@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.avro.CamelAvroSinkConnector
 ----
 
 
-The camel-avro sink connector supports 21 options, which are listed below.
+The camel-avro sink connector supports 20 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-avro sink connector supports 21 options, which are listed below.
 | *camel.sink.endpoint.singleParameter* | If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message | false | false | MEDIUM
 | *camel.sink.endpoint.uriAuthority* | Authority to use (username and password) | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.avro.protocol* | Avro protocol to use | null | false | MEDIUM
 | *camel.component.avro.protocolClassName* | Avro protocol to use defined by the FQN class name | null | false | MEDIUM
 | *camel.component.avro.protocolLocation* | Avro protocol location | null | false | MEDIUM

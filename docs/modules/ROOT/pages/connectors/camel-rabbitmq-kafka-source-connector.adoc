@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.rabbitmq.CamelRabbitmqSourceConn
 ----
 
 
-The camel-rabbitmq source connector supports 98 options, which are listed below.
+The camel-rabbitmq source connector supports 97 options, which are listed below.
 
 
 
@@ -76,7 +76,6 @@ The camel-rabbitmq source connector supports 98 options, which are listed below.
 | *camel.source.endpoint.requestedHeartbeat* | Connection requested heartbeat (heart-beat in seconds offered) | 60 | false | MEDIUM
 | *camel.source.endpoint.requestTimeout* | Set timeout for waiting for a reply when using the InOut Exchange Pattern (in milliseconds) | 20000L | false | MEDIUM
 | *camel.source.endpoint.requestTimeoutChecker Interval* | Set requestTimeoutCheckerInterval for inOut exchange | 1000L | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.topologyRecoveryEnabled* | Enables connection topology recovery (should topology recovery be performed) | null | false | MEDIUM
 | *camel.source.endpoint.transferException* | When true and an inOut Exchange failed on the consumer side send the caused Exception back in the response | false | false | MEDIUM
 | *camel.source.endpoint.password* | Password for authenticated access | "guest" | false | MEDIUM

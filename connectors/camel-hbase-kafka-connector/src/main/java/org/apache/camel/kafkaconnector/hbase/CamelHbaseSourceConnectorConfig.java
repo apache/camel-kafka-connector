@@ -71,9 +71,6 @@ public class CamelHbaseSourceConnectorConfig
     public static final String CAMEL_SOURCE_HBASE_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_HBASE_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_HBASE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_HBASE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_HBASE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_HBASE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_HBASE_COMPONENT_POOL_MAX_SIZE_CONF = "camel.component.hbase.poolMaxSize";
     public static final String CAMEL_SOURCE_HBASE_COMPONENT_POOL_MAX_SIZE_DOC = "Maximum number of references to keep for each table in the HTable pool. The default value is 10.";
     public static final Integer CAMEL_SOURCE_HBASE_COMPONENT_POOL_MAX_SIZE_DEFAULT = 10;
@@ -114,7 +111,6 @@ public class CamelHbaseSourceConnectorConfig
         conf.define(CAMEL_SOURCE_HBASE_ENDPOINT_REMOVE_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HBASE_ENDPOINT_REMOVE_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HBASE_ENDPOINT_REMOVE_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_HBASE_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HBASE_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HBASE_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_HBASE_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_HBASE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HBASE_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_HBASE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HBASE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HBASE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_HBASE_COMPONENT_POOL_MAX_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_HBASE_COMPONENT_POOL_MAX_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HBASE_COMPONENT_POOL_MAX_SIZE_DOC);
         conf.define(CAMEL_SOURCE_HBASE_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HBASE_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HBASE_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_HBASE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_HBASE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_HBASE_COMPONENT_AUTOWIRED_ENABLED_DOC);

@@ -60,9 +60,6 @@ public class CamelAwscwSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSCW_ENDPOINT_VALUE_CONF = "camel.sink.endpoint.value";
     public static final String CAMEL_SINK_AWSCW_ENDPOINT_VALUE_DOC = "The metric value";
     public static final String CAMEL_SINK_AWSCW_ENDPOINT_VALUE_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSCW_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AWSCW_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AWSCW_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AWSCW_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWSCW_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWSCW_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -139,7 +136,6 @@ public class CamelAwscwSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSCW_ENDPOINT_TIMESTAMP_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCW_ENDPOINT_TIMESTAMP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSCW_ENDPOINT_TIMESTAMP_DOC);
         conf.define(CAMEL_SINK_AWSCW_ENDPOINT_UNIT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCW_ENDPOINT_UNIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSCW_ENDPOINT_UNIT_DOC);
         conf.define(CAMEL_SINK_AWSCW_ENDPOINT_VALUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCW_ENDPOINT_VALUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSCW_ENDPOINT_VALUE_DOC);
-        conf.define(CAMEL_SINK_AWSCW_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSCW_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSCW_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSCW_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCW_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSCW_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSCW_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCW_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSCW_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWSCW_COMPONENT_AMAZON_CW_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSCW_COMPONENT_AMAZON_CW_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSCW_COMPONENT_AMAZON_CW_CLIENT_DOC);

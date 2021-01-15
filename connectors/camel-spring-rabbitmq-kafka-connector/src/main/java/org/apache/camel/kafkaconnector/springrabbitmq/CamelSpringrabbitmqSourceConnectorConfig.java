@@ -96,7 +96,7 @@ public class CamelSpringrabbitmqSourceConnectorConfig
     public static final String CAMEL_SOURCE_SPRINGRABBITMQ_ENDPOINT_MESSAGE_PROPERTIES_CONVERTER_DOC = "To use a custom MessagePropertiesConverter so you can be in control how to map to/from a org.springframework.amqp.core.MessageProperties.";
     public static final String CAMEL_SOURCE_SPRINGRABBITMQ_ENDPOINT_MESSAGE_PROPERTIES_CONVERTER_DEFAULT = null;
     public static final String CAMEL_SOURCE_SPRINGRABBITMQ_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SPRINGRABBITMQ_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_SPRINGRABBITMQ_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_SPRINGRABBITMQ_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SPRINGRABBITMQ_COMPONENT_AMQP_ADMIN_CONF = "camel.component.spring-rabbitmq.amqpAdmin";
     public static final String CAMEL_SOURCE_SPRINGRABBITMQ_COMPONENT_AMQP_ADMIN_DOC = "Optional AMQP Admin service to use for auto declaring elements (queues, exchanges, bindings)";
