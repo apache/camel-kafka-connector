@@ -132,9 +132,6 @@ public class CamelWeb3jSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_WEB3J_ENDPOINT_VALUE_CONF = "camel.sink.endpoint.value";
     public static final String CAMEL_SINK_WEB3J_ENDPOINT_VALUE_DOC = "The value sent within a transaction.";
     public static final String CAMEL_SINK_WEB3J_ENDPOINT_VALUE_DEFAULT = null;
-    public static final String CAMEL_SINK_WEB3J_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_WEB3J_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_WEB3J_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_WEB3J_COMPONENT_ADDRESSES_CONF = "camel.component.web3j.addresses";
     public static final String CAMEL_SINK_WEB3J_COMPONENT_ADDRESSES_DOC = "Contract address or a list of addresses.";
     public static final String CAMEL_SINK_WEB3J_COMPONENT_ADDRESSES_DEFAULT = null;
@@ -295,7 +292,6 @@ public class CamelWeb3jSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_WEB3J_ENDPOINT_TRANSACTION_HASH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEB3J_ENDPOINT_TRANSACTION_HASH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEB3J_ENDPOINT_TRANSACTION_HASH_DOC);
         conf.define(CAMEL_SINK_WEB3J_ENDPOINT_TTL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEB3J_ENDPOINT_TTL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEB3J_ENDPOINT_TTL_DOC);
         conf.define(CAMEL_SINK_WEB3J_ENDPOINT_VALUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEB3J_ENDPOINT_VALUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEB3J_ENDPOINT_VALUE_DOC);
-        conf.define(CAMEL_SINK_WEB3J_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_WEB3J_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEB3J_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_WEB3J_COMPONENT_ADDRESSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEB3J_COMPONENT_ADDRESSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEB3J_COMPONENT_ADDRESSES_DOC);
         conf.define(CAMEL_SINK_WEB3J_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEB3J_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEB3J_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_WEB3J_COMPONENT_FROM_ADDRESS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_WEB3J_COMPONENT_FROM_ADDRESS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_WEB3J_COMPONENT_FROM_ADDRESS_DOC);

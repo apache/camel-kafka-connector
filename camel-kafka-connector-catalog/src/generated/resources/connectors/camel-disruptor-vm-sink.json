@@ -66,13 +66,6 @@
 				"Always"
 			]
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.disruptor-vm.bufferSize": {
 			"name": "camel.component.disruptor-vm.bufferSize",
 			"description": "To configure the ring buffer size",

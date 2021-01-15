@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.ignitecache.CamelIgnitecacheSour
 ----
 
 
-The camel-ignite-cache source connector supports 19 options, which are listed below.
+The camel-ignite-cache source connector supports 18 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-ignite-cache source connector supports 19 options, which are listed be
 | *camel.source.endpoint.timeInterval* | The time interval for the Continuous Query Consumer. Default value notice: ContinuousQuery.DFLT_TIME_INTERVAL | 0L | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.ignite-cache.configurationResource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | false | MEDIUM
 | *camel.component.ignite-cache.ignite* | To use an existing Ignite instance. | null | false | MEDIUM
 | *camel.component.ignite-cache.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | false | MEDIUM

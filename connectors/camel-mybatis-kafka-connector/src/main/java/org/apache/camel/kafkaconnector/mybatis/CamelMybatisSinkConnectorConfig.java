@@ -42,9 +42,6 @@ public class CamelMybatisSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_CONF = "camel.sink.endpoint.statementType";
     public static final String CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_DOC = "Mandatory to specify for the producer to control which kind of operation to invoke. One of: [SelectOne] [SelectList] [Insert] [InsertList] [Update] [UpdateList] [Delete] [DeleteList]";
     public static final String CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_DEFAULT = null;
-    public static final String CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_CONF = "camel.component.mybatis.configurationUri";
     public static final String CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_DOC = "Location of MyBatis xml configuration file. The default value is: SqlMapConfig.xml loaded from the classpath";
     public static final String CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_DEFAULT = "SqlMapConfig.xml";
@@ -76,7 +73,6 @@ public class CamelMybatisSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_OUTPUT_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_ENDPOINT_OUTPUT_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_OUTPUT_HEADER_DOC);
         conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_STATEMENT_TYPE_DOC);
-        conf.define(CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_COMPONENT_CONFIGURATION_URI_DOC);
         conf.define(CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MYBATIS_COMPONENT_AUTOWIRED_ENABLED_DOC);

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.azureblob.CamelAzureblobSinkConn
 ----
 
 
-The camel-azure-blob sink connector supports 42 options, which are listed below.
+The camel-azure-blob sink connector supports 41 options, which are listed below.
 
 
 
@@ -47,7 +47,6 @@ The camel-azure-blob sink connector supports 42 options, which are listed below.
 | *camel.sink.endpoint.operation* | Blob service operation hint to the producer One of: [getBlob] [deleteBlob] [listBlobs] [updateBlockBlob] [uploadBlobBlocks] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [updateAppendBlob] [createPageBlob] [updatePageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobs" | false | MEDIUM
 | *camel.sink.endpoint.streamWriteSize* | Set the size of the buffer for writing block and page blocks | null | false | MEDIUM
 | *camel.sink.endpoint.useFlatListing* | Specify if the flat or hierarchical blob listing should be used | true | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.credentialsAccountKey* | Set the storage account key used during authentication phase | null | false | MEDIUM
 | *camel.sink.endpoint.credentialsAccountName* | Set the storage account name used during authentication phase | null | false | MEDIUM
 | *camel.component.azure-blob.azureBlobClient* | The blob service client | null | false | MEDIUM

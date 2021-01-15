@@ -47,9 +47,6 @@ public class CamelDisruptorSinkConnectorConfig
     public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_CONF = "camel.sink.endpoint.waitForTaskToComplete";
     public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DOC = "Option to specify whether the caller should wait for the async task to complete or not before continuing. The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory. The last value, IfReplyExpected, will only wait if the message is Request Reply based. One of: [Never] [IfReplyExpected] [Always]";
     public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DEFAULT = "IfReplyExpected";
-    public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_CONF = "camel.component.disruptor.bufferSize";
     public static final String CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_DOC = "To configure the ring buffer size";
     public static final Integer CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_DEFAULT = 1024;
@@ -85,7 +82,6 @@ public class CamelDisruptorSinkConnectorConfig
         conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_PRODUCER_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DISRUPTOR_ENDPOINT_PRODUCER_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_PRODUCER_TYPE_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_DISRUPTOR_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DOC);
-        conf.define(CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_COMPONENT_BUFFER_SIZE_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DOC);
         conf.define(CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_PRODUCER_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_PRODUCER_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DISRUPTOR_COMPONENT_DEFAULT_PRODUCER_TYPE_DOC);

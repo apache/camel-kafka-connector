@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.box.CamelBoxSourceConnector
 ----
 
 
-The camel-box source connector supports 39 options, which are listed below.
+The camel-box source connector supports 38 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-box source connector supports 39 options, which are listed below.
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.httpParams* | Custom HTTP params for settings like proxy host | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.authenticationType* | The type of authentication for connection. Types of Authentication: STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION - OAuth 2.0 with JSON Web Tokens | "APP_USER_AUTHENTICATION" | false | MEDIUM
 | *camel.source.endpoint.accessTokenCache* | Custom Access Token Cache for storing and retrieving access tokens. | null | false | MEDIUM
 | *camel.source.endpoint.clientSecret* | Box application client secret | null | false | MEDIUM

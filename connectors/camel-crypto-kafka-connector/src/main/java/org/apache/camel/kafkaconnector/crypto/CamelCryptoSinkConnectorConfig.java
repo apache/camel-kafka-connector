@@ -84,9 +84,6 @@ public class CamelCryptoSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_CONF = "camel.sink.endpoint.secureRandom";
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_DOC = "Set the SecureRandom used to initialize the Signature service";
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_DEFAULT = null;
-    public static final String CAMEL_SINK_CRYPTO_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_CRYPTO_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_CRYPTO_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_PASSWORD_CONF = "camel.sink.endpoint.password";
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_PASSWORD_DOC = "Sets the password used to access an aliased PrivateKey in the KeyStore.";
     public static final String CAMEL_SINK_CRYPTO_ENDPOINT_PASSWORD_DEFAULT = null;
@@ -186,7 +183,6 @@ public class CamelCryptoSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_KEY_STORE_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_KEY_STORE_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_KEY_STORE_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_PUBLIC_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_PUBLIC_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_PUBLIC_KEY_DOC);
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_SECURE_RANDOM_DOC);
-        conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CRYPTO_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_CRYPTO_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_CRYPTO_COMPONENT_ALGORITHM_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_COMPONENT_ALGORITHM_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_ALGORITHM_DOC);
         conf.define(CAMEL_SINK_CRYPTO_COMPONENT_ALIAS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CRYPTO_COMPONENT_ALIAS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CRYPTO_COMPONENT_ALIAS_DOC);

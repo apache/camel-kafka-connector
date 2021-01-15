@@ -60,7 +60,7 @@ public class CamelTimerSourceConnectorConfig
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_PATTERN_DOC = "Allows you to specify a custom Date pattern to use for setting the time option using URI syntax.";
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_TIMER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_TIMER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_TIMER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_TIME_CONF = "camel.source.endpoint.time";
     public static final String CAMEL_SOURCE_TIMER_ENDPOINT_TIME_DOC = "A java.util.Date the first event should be generated. If using the URI, the pattern expected is: yyyy-MM-dd HH:mm:ss or yyyy-MM-dd'T'HH:mm:ss.";

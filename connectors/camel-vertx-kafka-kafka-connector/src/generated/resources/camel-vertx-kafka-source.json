@@ -365,13 +365,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.saslClientCallbackHandlerClass": {
 			"name": "camel.source.endpoint.saslClientCallbackHandlerClass",
 			"description": "The fully qualified name of a SASL client callback handler class that implements the AuthenticateCallbackHandler interface.",

@@ -54,9 +54,6 @@ public class CamelHbaseSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HBASE_ENDPOINT_MAX_RESULTS_CONF = "camel.sink.endpoint.maxResults";
     public static final String CAMEL_SINK_HBASE_ENDPOINT_MAX_RESULTS_DOC = "The maximum number of rows to scan.";
     public static final Integer CAMEL_SINK_HBASE_ENDPOINT_MAX_RESULTS_DEFAULT = 100;
-    public static final String CAMEL_SINK_HBASE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_HBASE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_HBASE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_HBASE_COMPONENT_POOL_MAX_SIZE_CONF = "camel.component.hbase.poolMaxSize";
     public static final String CAMEL_SINK_HBASE_COMPONENT_POOL_MAX_SIZE_DOC = "Maximum number of references to keep for each table in the HTable pool. The default value is 10.";
     public static final Integer CAMEL_SINK_HBASE_COMPONENT_POOL_MAX_SIZE_DEFAULT = 10;
@@ -92,7 +89,6 @@ public class CamelHbaseSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HBASE_ENDPOINT_USER_GROUP_INFORMATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HBASE_ENDPOINT_USER_GROUP_INFORMATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HBASE_ENDPOINT_USER_GROUP_INFORMATION_DOC);
         conf.define(CAMEL_SINK_HBASE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HBASE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HBASE_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_HBASE_ENDPOINT_MAX_RESULTS_CONF, ConfigDef.Type.INT, CAMEL_SINK_HBASE_ENDPOINT_MAX_RESULTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HBASE_ENDPOINT_MAX_RESULTS_DOC);
-        conf.define(CAMEL_SINK_HBASE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HBASE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HBASE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_HBASE_COMPONENT_POOL_MAX_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_HBASE_COMPONENT_POOL_MAX_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HBASE_COMPONENT_POOL_MAX_SIZE_DOC);
         conf.define(CAMEL_SINK_HBASE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HBASE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HBASE_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_HBASE_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HBASE_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HBASE_COMPONENT_AUTOWIRED_ENABLED_DOC);

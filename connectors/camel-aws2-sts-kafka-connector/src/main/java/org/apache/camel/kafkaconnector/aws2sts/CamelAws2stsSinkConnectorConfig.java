@@ -54,9 +54,6 @@ public class CamelAws2stsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF = "camel.sink.endpoint.trustAllCertificates";
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC = "If we want to trust all certificates in case of overriding the endpoint";
     public static final Boolean CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT = false;
-    public static final String CAMEL_SINK_AWS2STS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AWS2STS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AWS2STS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Access Key";
     public static final String CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -125,7 +122,6 @@ public class CamelAws2stsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_STS_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_ENDPOINT_STS_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_STS_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
-        conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2STS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2STS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_AWS2STS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2STS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2STS_COMPONENT_CONFIGURATION_DOC);

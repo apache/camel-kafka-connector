@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.consul.CamelConsulSinkConnector
 ----
 
 
-The camel-consul sink connector supports 49 options, which are listed below.
+The camel-consul sink connector supports 48 options, which are listed below.
 
 
 
@@ -48,7 +48,6 @@ The camel-consul sink connector supports 49 options, which are listed below.
 | *camel.sink.endpoint.datacenter* | The data center | null | false | MEDIUM
 | *camel.sink.endpoint.nearNode* | The near node to use for queries. | null | false | MEDIUM
 | *camel.sink.endpoint.nodeMeta* | The note meta-data to use for queries. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.aclToken* | Sets the ACL token to be used with Consul | null | false | MEDIUM
 | *camel.sink.endpoint.password* | Sets the password to be used for basic authentication | null | false | MEDIUM
 | *camel.sink.endpoint.sslContextParameters* | SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance. | null | false | MEDIUM

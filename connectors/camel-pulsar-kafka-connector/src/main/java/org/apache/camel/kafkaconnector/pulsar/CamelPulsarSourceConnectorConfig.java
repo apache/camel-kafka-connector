@@ -96,8 +96,8 @@ public class CamelPulsarSourceConnectorConfig
     public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
     public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT = true;
+    public static final String CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
+    public static final Boolean CAMEL_SOURCE_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_CONFIGURATION_CONF = "camel.component.pulsar.configuration";
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_CONFIGURATION_DOC = "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.";
     public static final String CAMEL_SOURCE_PULSAR_COMPONENT_CONFIGURATION_DEFAULT = null;

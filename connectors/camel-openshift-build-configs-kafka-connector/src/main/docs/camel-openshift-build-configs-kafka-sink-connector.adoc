@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.openshiftbuildconfigs.CamelOpens
 ----
 
 
-The camel-openshift-build-configs sink connector supports 24 options, which are listed below.
+The camel-openshift-build-configs sink connector supports 23 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-openshift-build-configs sink connector supports 24 options, which are 
 | *camel.sink.endpoint.portName* | The port name, used for ServiceCall EIP | null | false | MEDIUM
 | *camel.sink.endpoint.portProtocol* | The port protocol, used for ServiceCall EIP | "tcp" | false | MEDIUM
 | *camel.sink.endpoint.connectionTimeout* | Connection timeout in milliseconds to use when making requests to the Kubernetes API server. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.caCertData* | The CA Cert Data | null | false | MEDIUM
 | *camel.sink.endpoint.caCertFile* | The CA Cert File | null | false | MEDIUM
 | *camel.sink.endpoint.clientCertData* | The Client Cert Data | null | false | MEDIUM

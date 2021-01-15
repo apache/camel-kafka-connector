@@ -49,13 +49,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.container": {
 			"name": "camel.source.endpoint.container",
 			"description": "The name of the blob container.",

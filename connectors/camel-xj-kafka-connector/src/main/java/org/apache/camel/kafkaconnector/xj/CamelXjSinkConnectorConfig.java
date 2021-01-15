@@ -66,9 +66,6 @@ public class CamelXjSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_XJ_ENDPOINT_SAXON_EXTENSION_FUNCTIONS_CONF = "camel.sink.endpoint.saxonExtensionFunctions";
     public static final String CAMEL_SINK_XJ_ENDPOINT_SAXON_EXTENSION_FUNCTIONS_DOC = "Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition. You would need to add camel-saxon to the classpath. The function is looked up in the registry, where you can comma to separate multiple values to lookup.";
     public static final String CAMEL_SINK_XJ_ENDPOINT_SAXON_EXTENSION_FUNCTIONS_DEFAULT = null;
-    public static final String CAMEL_SINK_XJ_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_XJ_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_XJ_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_CONF = "camel.sink.endpoint.transformerFactory";
     public static final String CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_DOC = "To use a custom XSLT transformer factory";
     public static final String CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_DEFAULT = null;
@@ -138,7 +135,6 @@ public class CamelXjSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_XJ_ENDPOINT_RESULT_HANDLER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XJ_ENDPOINT_RESULT_HANDLER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XJ_ENDPOINT_RESULT_HANDLER_FACTORY_DOC);
         conf.define(CAMEL_SINK_XJ_ENDPOINT_SAXON_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XJ_ENDPOINT_SAXON_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XJ_ENDPOINT_SAXON_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_XJ_ENDPOINT_SAXON_EXTENSION_FUNCTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XJ_ENDPOINT_SAXON_EXTENSION_FUNCTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XJ_ENDPOINT_SAXON_EXTENSION_FUNCTIONS_DOC);
-        conf.define(CAMEL_SINK_XJ_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XJ_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XJ_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_DOC);
         conf.define(CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_CLASS_DOC);
         conf.define(CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_CONFIGURATION_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_CONFIGURATION_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XJ_ENDPOINT_TRANSFORMER_FACTORY_CONFIGURATION_STRATEGY_DOC);

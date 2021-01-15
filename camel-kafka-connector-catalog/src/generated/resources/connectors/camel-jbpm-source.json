@@ -159,6 +159,13 @@
 				"InOptionalOut"
 			]
 		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.entities": {
 			"name": "camel.source.endpoint.entities",
 			"description": "The potentialOwners when nominateTask operation is performed",
@@ -174,13 +181,6 @@
 		"camel.source.endpoint.parameters": {
 			"name": "camel.source.endpoint.parameters",
 			"description": "the variables that should be set for various operations",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

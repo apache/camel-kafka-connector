@@ -63,9 +63,6 @@ public class CamelXmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_CONF = "camel.sink.endpoint.connectionConfig";
     public static final String CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_DOC = "To use an existing connection configuration. Currently org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration is only supported (XMPP over TCP).";
     public static final String CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_DEFAULT = null;
-    public static final String CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_CONF = "camel.sink.endpoint.headerFilterStrategy";
     public static final String CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_DOC = "To use a custom HeaderFilterStrategy to filter header to and from Camel message.";
     public static final String CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT = null;
@@ -110,7 +107,6 @@ public class CamelXmppSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_RESOURCE_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_CONNECTION_CONFIG_DOC);
-        conf.define(CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_XMPP_ENDPOINT_ROOM_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XMPP_ENDPOINT_ROOM_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XMPP_ENDPOINT_ROOM_PASSWORD_DOC);

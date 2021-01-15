@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.https.CamelHttpsSinkConnector
 ----
 
 
-The camel-https sink connector supports 79 options, which are listed below.
+The camel-https sink connector supports 78 options, which are listed below.
 
 
 
@@ -61,7 +61,6 @@ The camel-https sink connector supports 79 options, which are listed below.
 | *camel.sink.endpoint.mapHttpMessageFormUrlEncoded Body* | If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping. | true | false | MEDIUM
 | *camel.sink.endpoint.mapHttpMessageHeaders* | If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping. | true | false | MEDIUM
 | *camel.sink.endpoint.maxTotalConnections* | The maximum number of connections. | 200 | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.useSystemProperties* | To use System Properties as fallback for configuration | false | false | MEDIUM
 | *camel.sink.endpoint.proxyAuthDomain* | Proxy authentication domain to use with NTML | null | false | MEDIUM
 | *camel.sink.endpoint.proxyAuthHost* | Proxy authentication host | null | false | MEDIUM

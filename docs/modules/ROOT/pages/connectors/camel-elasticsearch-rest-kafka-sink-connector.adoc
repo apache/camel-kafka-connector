@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.elasticsearchrest.CamelElasticse
 ----
 
 
-The camel-elasticsearch-rest sink connector supports 32 options, which are listed below.
+The camel-elasticsearch-rest sink connector supports 31 options, which are listed below.
 
 
 
@@ -47,7 +47,6 @@ The camel-elasticsearch-rest sink connector supports 32 options, which are liste
 | *camel.sink.endpoint.socketTimeout* | The timeout in ms to wait before the socket will timeout. | 30000 | false | MEDIUM
 | *camel.sink.endpoint.useScroll* | Enable scroll usage | false | false | MEDIUM
 | *camel.sink.endpoint.waitForActiveShards* | Index creation waits for the write consistency number of shards to be available | 1 | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.elasticsearch-rest.lazyStart Producer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.elasticsearch-rest.autowired Enabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.elasticsearch-rest.client* | To use an existing configured Elasticsearch client, instead of creating a client per endpoint. This allow to customize the client with specific settings. | null | false | MEDIUM

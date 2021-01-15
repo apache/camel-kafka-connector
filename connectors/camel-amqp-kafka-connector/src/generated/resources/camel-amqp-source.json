@@ -418,7 +418,7 @@
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"description": "Sets whether synchronous processing should be strictly used",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -934,6 +934,13 @@
 			"name": "camel.component.amqp.requestTimeoutCheckerInterval",
 			"description": "Configures how often Camel should check for timed out Exchanges when doing request\/reply over JMS. By default Camel checks once per second. But if you must react faster when a timeout occurs, then you can lower this interval, to check more frequently. The timeout is determined by the option requestTimeout.",
 			"defaultValue": "1000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.amqp.synchronous": {
+			"name": "camel.component.amqp.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

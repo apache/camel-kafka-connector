@@ -51,9 +51,6 @@ public class CamelSshSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_CONF = "camel.sink.endpoint.sleepForShellPrompt";
     public static final String CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DOC = "Sets the sleep period in milliseconds to wait reading response from shell prompt. Defaults to 100 milliseconds.";
     public static final Long CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DEFAULT = 100L;
-    public static final String CAMEL_SINK_SSH_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_SSH_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_SSH_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_CONF = "camel.sink.endpoint.certResource";
     public static final String CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_DOC = "Sets the resource path of the certificate to use for Authentication. Will use ResourceHelperKeyPairProvider to resolve file based certificate, and depends on keyType setting.";
     public static final String CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_DEFAULT = null;
@@ -139,7 +136,6 @@ public class CamelSshSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_CHANNEL_TYPE_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_SHELL_PROMPT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_ENDPOINT_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_SHELL_PROMPT_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DOC);
-        conf.define(CAMEL_SINK_SSH_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SSH_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_CERT_RESOURCE_PASSWORD_DOC);
         conf.define(CAMEL_SINK_SSH_ENDPOINT_KEY_PAIR_PROVIDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SSH_ENDPOINT_KEY_PAIR_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SSH_ENDPOINT_KEY_PAIR_PROVIDER_DOC);

@@ -57,7 +57,7 @@ The camel-file source connector supports 81 options, which are listed below.
 | *camel.source.endpoint.bufferSize* | Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files). | 131072 | false | MEDIUM
 | *camel.source.endpoint.copyAndDeleteOnRenameFail* | Whether to fallback and do a copy and delete file, in case the file could not be renamed directly. This option is not available for the FTP component. | true | false | MEDIUM
 | *camel.source.endpoint.renameUsingCopy* | Perform rename operations using a copy and delete strategy. This is primarily used in environments where the regular rename operation is unreliable (e.g. across different file systems or networks). This option takes precedence over the copyAndDeleteOnRenameFail parameter that will automatically fall back to the copy and delete strategy, but only after additional delays. | false | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.source.endpoint.antExclude* | Ant style filter exclusion. If both antInclude and antExclude are used, antExclude takes precedence over antInclude. Multiple exclusions may be specified in comma-delimited format. | null | false | MEDIUM
 | *camel.source.endpoint.antFilterCaseSensitive* | Sets case sensitive flag on ant filter. | true | false | MEDIUM
 | *camel.source.endpoint.antInclude* | Ant style filter inclusion. Multiple inclusions may be specified in comma-delimited format. | null | false | MEDIUM

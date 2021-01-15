@@ -93,9 +93,6 @@ public class CamelPahoSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_CONF = "camel.sink.endpoint.executorServiceTimeout";
     public static final String CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_DOC = "Set the time in seconds that the executor service should wait when terminating before forcefully terminating. It is not recommended to change this value unless you are absolutely sure that you need to.";
     public static final Integer CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_DEFAULT = 1;
-    public static final String CAMEL_SINK_PAHO_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_PAHO_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_PAHO_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_PAHO_ENDPOINT_HTTPS_HOSTNAME_VERIFICATION_ENABLED_CONF = "camel.sink.endpoint.httpsHostnameVerificationEnabled";
     public static final String CAMEL_SINK_PAHO_ENDPOINT_HTTPS_HOSTNAME_VERIFICATION_ENABLED_DOC = "Whether SSL HostnameVerifier is enabled or not. The default value is true.";
     public static final Boolean CAMEL_SINK_PAHO_ENDPOINT_HTTPS_HOSTNAME_VERIFICATION_ENABLED_DEFAULT = true;
@@ -240,7 +237,6 @@ public class CamelPahoSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_ENDPOINT_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_CLIENT_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_CUSTOM_WEB_SOCKET_HEADERS_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_EXECUTOR_SERVICE_TIMEOUT_DOC);
-        conf.define(CAMEL_SINK_PAHO_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_HTTPS_HOSTNAME_VERIFICATION_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PAHO_ENDPOINT_HTTPS_HOSTNAME_VERIFICATION_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_HTTPS_HOSTNAME_VERIFICATION_ENABLED_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_PAHO_ENDPOINT_SOCKET_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PAHO_ENDPOINT_SOCKET_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PAHO_ENDPOINT_SOCKET_FACTORY_DOC);

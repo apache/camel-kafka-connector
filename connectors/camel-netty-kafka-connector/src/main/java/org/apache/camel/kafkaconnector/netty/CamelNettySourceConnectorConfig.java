@@ -129,7 +129,7 @@ public class CamelNettySourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_SEND_BUFFER_SIZE_DOC = "The TCP/UDP buffer sizes to be used during outbound communication. Size is bytes.";
     public static final Integer CAMEL_SOURCE_NETTY_ENDPOINT_SEND_BUFFER_SIZE_DEFAULT = 65536;
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_NETTY_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_NETTY_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_NETTY_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_TRANSFER_EXCHANGE_CONF = "camel.source.endpoint.transferExchange";
     public static final String CAMEL_SOURCE_NETTY_ENDPOINT_TRANSFER_EXCHANGE_DOC = "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.";

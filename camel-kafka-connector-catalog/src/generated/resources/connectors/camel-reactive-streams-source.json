@@ -74,13 +74,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.reactive-streams.threadPoolMaxSize": {
 			"name": "camel.component.reactive-streams.threadPoolMaxSize",
 			"description": "The maximum number of threads used by the reactive streams internal engine.",

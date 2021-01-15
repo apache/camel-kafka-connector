@@ -51,9 +51,6 @@ public class CamelOaipmhSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_OAIPMH_ENDPOINT_ONLY_FIRST_CONF = "camel.sink.endpoint.onlyFirst";
     public static final String CAMEL_SINK_OAIPMH_ENDPOINT_ONLY_FIRST_DOC = "Returns the response of a single request. Otherwise it will make requests until there is no more data to return.";
     public static final Boolean CAMEL_SINK_OAIPMH_ENDPOINT_ONLY_FIRST_DEFAULT = false;
-    public static final String CAMEL_SINK_OAIPMH_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_OAIPMH_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_OAIPMH_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_OAIPMH_ENDPOINT_IGNORE_SSLWARNINGS_CONF = "camel.sink.endpoint.ignoreSSLWarnings";
     public static final String CAMEL_SINK_OAIPMH_ENDPOINT_IGNORE_SSLWARNINGS_DOC = "Ignore SSL certificate warnings";
     public static final Boolean CAMEL_SINK_OAIPMH_ENDPOINT_IGNORE_SSLWARNINGS_DEFAULT = false;
@@ -88,7 +85,6 @@ public class CamelOaipmhSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_OAIPMH_ENDPOINT_VERB_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OAIPMH_ENDPOINT_VERB_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OAIPMH_ENDPOINT_VERB_DOC);
         conf.define(CAMEL_SINK_OAIPMH_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OAIPMH_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OAIPMH_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_OAIPMH_ENDPOINT_ONLY_FIRST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OAIPMH_ENDPOINT_ONLY_FIRST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OAIPMH_ENDPOINT_ONLY_FIRST_DOC);
-        conf.define(CAMEL_SINK_OAIPMH_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OAIPMH_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OAIPMH_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_OAIPMH_ENDPOINT_IGNORE_SSLWARNINGS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OAIPMH_ENDPOINT_IGNORE_SSLWARNINGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OAIPMH_ENDPOINT_IGNORE_SSLWARNINGS_DOC);
         conf.define(CAMEL_SINK_OAIPMH_ENDPOINT_SSL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OAIPMH_ENDPOINT_SSL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OAIPMH_ENDPOINT_SSL_DOC);
         conf.define(CAMEL_SINK_OAIPMH_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OAIPMH_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OAIPMH_COMPONENT_LAZY_START_PRODUCER_DOC);

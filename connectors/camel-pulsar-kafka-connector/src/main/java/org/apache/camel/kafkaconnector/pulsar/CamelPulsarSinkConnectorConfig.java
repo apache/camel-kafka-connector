@@ -79,8 +79,8 @@ public class CamelPulsarSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DOC = "Send timeout in milliseconds";
     public static final Integer CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DEFAULT = 30000;
     public static final String CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT = true;
+    public static final String CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
+    public static final Boolean CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_CONF = "camel.component.pulsar.configuration";
     public static final String CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_DOC = "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.";
     public static final String CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_DEFAULT = null;

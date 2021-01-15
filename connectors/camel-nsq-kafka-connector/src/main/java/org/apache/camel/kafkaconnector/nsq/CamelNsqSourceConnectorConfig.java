@@ -66,9 +66,6 @@ public class CamelNsqSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_NSQ_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_NSQ_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_NSQ_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_SECURE_CONF = "camel.source.endpoint.secure";
     public static final String CAMEL_SOURCE_NSQ_ENDPOINT_SECURE_DOC = "Set secure option indicating TLS is required";
     public static final Boolean CAMEL_SOURCE_NSQ_ENDPOINT_SECURE_DEFAULT = false;
@@ -114,7 +111,6 @@ public class CamelNsqSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_NSQ_ENDPOINT_REQUEUE_INTERVAL_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_NSQ_ENDPOINT_REQUEUE_INTERVAL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NSQ_ENDPOINT_REQUEUE_INTERVAL_DOC);
         conf.define(CAMEL_SOURCE_NSQ_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NSQ_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NSQ_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_NSQ_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NSQ_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NSQ_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_NSQ_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NSQ_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NSQ_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_NSQ_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NSQ_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NSQ_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SOURCE_NSQ_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NSQ_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NSQ_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SOURCE_NSQ_COMPONENT_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NSQ_COMPONENT_SERVERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NSQ_COMPONENT_SERVERS_DOC);

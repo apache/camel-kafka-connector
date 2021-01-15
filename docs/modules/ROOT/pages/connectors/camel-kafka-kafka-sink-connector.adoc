@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.kafka.CamelKafkaSinkConnector
 ----
 
 
-The camel-kafka sink connector supports 133 options, which are listed below.
+The camel-kafka sink connector supports 134 options, which are listed below.
 
 
 
@@ -68,7 +68,7 @@ The camel-kafka sink connector supports 133 options, which are listed below.
 | *camel.sink.endpoint.workerPool* | To use a custom worker pool for continue routing Exchange after kafka server has acknowledge the message that was sent to it from KafkaProducer using asynchronous non-blocking processing. If using this option then you must handle the lifecycle of the thread pool to shut the pool down when no longer needed. | null | false | MEDIUM
 | *camel.sink.endpoint.workerPoolCoreSize* | Number of core threads for the worker pool for continue routing Exchange after kafka server has acknowledge the message that was sent to it from KafkaProducer using asynchronous non-blocking processing. | "10" | false | MEDIUM
 | *camel.sink.endpoint.workerPoolMaxSize* | Maximum number of threads for the worker pool for continue routing Exchange after kafka server has acknowledge the message that was sent to it from KafkaProducer using asynchronous non-blocking processing. | "20" | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.sink.endpoint.schemaRegistryURL* | URL of the Confluent Platform schema registry servers to use. The format is host1:port1,host2:port2. This is known as schema.registry.url in the Confluent Platform documentation. This option is only available in the Confluent Platform (not standard Apache Kafka) | null | false | MEDIUM
 | *camel.sink.endpoint.interceptorClasses* | Sets interceptors for producer or consumers. Producer interceptors have to be classes implementing org.apache.kafka.clients.producer.ProducerInterceptor Consumer interceptors have to be classes implementing org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if you use Producer interceptor on a consumer it will throw a class cast exception in runtime | null | false | MEDIUM
 | *camel.sink.endpoint.kerberosBeforeReloginMinTime* | Login thread sleep time between refresh attempts. | "60000" | false | MEDIUM
@@ -135,6 +135,7 @@ The camel-kafka sink connector supports 133 options, which are listed below.
 | *camel.component.kafka.workerPoolCoreSize* | Number of core threads for the worker pool for continue routing Exchange after kafka server has acknowledge the message that was sent to it from KafkaProducer using asynchronous non-blocking processing. | "10" | false | MEDIUM
 | *camel.component.kafka.workerPoolMaxSize* | Maximum number of threads for the worker pool for continue routing Exchange after kafka server has acknowledge the message that was sent to it from KafkaProducer using asynchronous non-blocking processing. | "20" | false | MEDIUM
 | *camel.component.kafka.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
+| *camel.component.kafka.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.component.kafka.schemaRegistryURL* | URL of the Confluent Platform schema registry servers to use. The format is host1:port1,host2:port2. This is known as schema.registry.url in the Confluent Platform documentation. This option is only available in the Confluent Platform (not standard Apache Kafka) | null | false | MEDIUM
 | *camel.component.kafka.interceptorClasses* | Sets interceptors for producer or consumers. Producer interceptors have to be classes implementing org.apache.kafka.clients.producer.ProducerInterceptor Consumer interceptors have to be classes implementing org.apache.kafka.clients.consumer.ConsumerInterceptor Note that if you use Producer interceptor on a consumer it will throw a class cast exception in runtime | null | false | MEDIUM
 | *camel.component.kafka.kerberosBeforeReloginMinTime* | Login thread sleep time between refresh attempts. | "60000" | false | MEDIUM

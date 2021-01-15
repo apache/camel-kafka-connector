@@ -39,9 +39,6 @@ public class CamelNsqSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NSQ_ENDPOINT_PORT_CONF = "camel.sink.endpoint.port";
     public static final String CAMEL_SINK_NSQ_ENDPOINT_PORT_DOC = "The port of the nsqd server";
     public static final Integer CAMEL_SINK_NSQ_ENDPOINT_PORT_DEFAULT = 4150;
-    public static final String CAMEL_SINK_NSQ_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_NSQ_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_NSQ_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_NSQ_ENDPOINT_SECURE_CONF = "camel.sink.endpoint.secure";
     public static final String CAMEL_SINK_NSQ_ENDPOINT_SECURE_DOC = "Set secure option indicating TLS is required";
     public static final Boolean CAMEL_SINK_NSQ_ENDPOINT_SECURE_DEFAULT = false;
@@ -78,7 +75,6 @@ public class CamelNsqSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NSQ_ENDPOINT_USER_AGENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NSQ_ENDPOINT_USER_AGENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NSQ_ENDPOINT_USER_AGENT_DOC);
         conf.define(CAMEL_SINK_NSQ_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NSQ_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NSQ_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_NSQ_ENDPOINT_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_NSQ_ENDPOINT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NSQ_ENDPOINT_PORT_DOC);
-        conf.define(CAMEL_SINK_NSQ_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NSQ_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NSQ_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_NSQ_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NSQ_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NSQ_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SINK_NSQ_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NSQ_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NSQ_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_NSQ_COMPONENT_SERVERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NSQ_COMPONENT_SERVERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NSQ_COMPONENT_SERVERS_DOC);

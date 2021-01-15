@@ -81,6 +81,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.syncFlow": {
+			"name": "camel.source.endpoint.syncFlow",
+			"description": "Sync events, see https:\/\/developers.google.com\/calendar\/v3\/sync Note: not compatible with: 'query' and 'considerLastUpdate' parameters",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -101,13 +108,6 @@
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -319,6 +319,13 @@
 		"camel.component.google-calendar-stream.scopes": {
 			"name": "camel.component.google-calendar-stream.scopes",
 			"description": "Specifies the level of permissions you want a calendar application to have to a user account. See https:\/\/developers.google.com\/calendar\/auth for more info.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-calendar-stream.syncFlow": {
+			"name": "camel.component.google-calendar-stream.syncFlow",
+			"description": "Sync events, see https:\/\/developers.google.com\/calendar\/v3\/sync Note: not compatible with: 'query' and 'considerLastUpdate' parameters",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

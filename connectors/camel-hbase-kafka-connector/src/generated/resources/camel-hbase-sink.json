@@ -75,13 +75,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.hbase.poolMaxSize": {
 			"name": "camel.component.hbase.poolMaxSize",
 			"description": "Maximum number of references to keep for each table in the HTable pool. The default value is 10.",

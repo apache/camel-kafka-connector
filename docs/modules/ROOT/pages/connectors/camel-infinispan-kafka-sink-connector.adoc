@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.infinispan.CamelInfinispanSinkCo
 ----
 
 
-The camel-infinispan sink connector supports 46 options, which are listed below.
+The camel-infinispan sink connector supports 45 options, which are listed below.
 
 
 
@@ -51,7 +51,6 @@ The camel-infinispan sink connector supports 46 options, which are listed below.
 | *camel.sink.endpoint.flags* | A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches. | null | false | MEDIUM
 | *camel.sink.endpoint.remappingFunction* | Set a specific remappingFunction to use in a compute operation | null | false | MEDIUM
 | *camel.sink.endpoint.resultHeader* | Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.infinispan.configuration* | Component configuration | null | false | MEDIUM
 | *camel.component.infinispan.hosts* | Specifies the host of the cache on Infinispan instance | null | false | MEDIUM
 | *camel.component.infinispan.queryBuilder* | Specifies the query builder. | null | false | MEDIUM

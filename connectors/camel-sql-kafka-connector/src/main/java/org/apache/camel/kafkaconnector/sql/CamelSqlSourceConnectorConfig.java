@@ -105,9 +105,6 @@ public class CamelSqlSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_CONF = "camel.source.endpoint.prepareStatementStrategy";
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DOC = "Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement.";
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SQL_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SQL_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SQL_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_TEMPLATE_OPTIONS_CONF = "camel.source.endpoint.templateOptions";
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_TEMPLATE_OPTIONS_DOC = "Configures the Spring JdbcTemplate with the key/values from the Map";
     public static final String CAMEL_SOURCE_SQL_ENDPOINT_TEMPLATE_OPTIONS_DEFAULT = null;
@@ -208,7 +205,6 @@ public class CamelSqlSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_PARAMETERS_COUNT_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_PLACEHOLDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_ENDPOINT_PLACEHOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_PLACEHOLDER_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DOC);
-        conf.define(CAMEL_SOURCE_SQL_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_TEMPLATE_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SQL_ENDPOINT_TEMPLATE_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_TEMPLATE_OPTIONS_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_USE_PLACEHOLDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SQL_ENDPOINT_USE_PLACEHOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_USE_PLACEHOLDER_DOC);
         conf.define(CAMEL_SOURCE_SQL_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SQL_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SQL_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);

@@ -74,9 +74,6 @@ public class CamelAzureeventhubsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_CONNECTION_STRING_CONF = "camel.source.endpoint.connectionString";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_CONNECTION_STRING_DOC = "Instead of supplying namespace, sharedAccessKey, sharedAccessName ... etc, you can just supply the connection string for your eventHub. The connection string for EventHubs already include all the necessary information to connection to your EventHub. To learn on how to generate the connection string, take a look at this documentation: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-get-connection-string";
     public static final String CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_CONNECTION_STRING_DEFAULT = null;
@@ -167,7 +164,6 @@ public class CamelAzureeventhubsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_PREFETCH_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_PREFETCH_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_PREFETCH_COUNT_DOC);
         conf.define(CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_CONNECTION_STRING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_CONNECTION_STRING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_CONNECTION_STRING_DOC);
         conf.define(CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_KEY_DOC);
         conf.define(CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AZUREEVENTHUBS_ENDPOINT_SHARED_ACCESS_NAME_DOC);

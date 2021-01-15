@@ -159,7 +159,7 @@ public class CamelSftpSourceConnectorConfig
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_STEPWISE_DOC = "Sets whether we should stepwise change directories while traversing file structures when downloading files, or as well when uploading a file to a directory. You can disable this if you for example are in a situation where you cannot change directory on the FTP server due security reasons. Stepwise cannot be used together with streamDownload.";
     public static final Boolean CAMEL_SOURCE_SFTP_ENDPOINT_STEPWISE_DEFAULT = true;
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SFTP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_SFTP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_SFTP_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_THROW_EXCEPTION_ON_CONNECT_FAILED_CONF = "camel.source.endpoint.throwExceptionOnConnectFailed";
     public static final String CAMEL_SOURCE_SFTP_ENDPOINT_THROW_EXCEPTION_ON_CONNECT_FAILED_DOC = "Should an exception be thrown if connection failed (exhausted) By default exception is not thrown and a WARN is logged. You can use this to enable exception being thrown and handle the thrown exception from the org.apache.camel.spi.PollingConsumerPollStrategy rollback method.";

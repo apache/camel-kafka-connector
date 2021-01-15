@@ -56,9 +56,6 @@ public class CamelGithubSourceConnectorConfig
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_POLL_STRATEGY_CONF = "camel.source.endpoint.pollStrategy";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_POLL_STRATEGY_DOC = "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_POLL_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_GITHUB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF = "camel.source.endpoint.backoffErrorThreshold";
     public static final String CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC = "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.";
     public static final Integer CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT = null;
@@ -136,7 +133,6 @@ public class CamelGithubSourceConnectorConfig
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_GITHUB_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_POLL_STRATEGY_DOC);
-        conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_GITHUB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_MULTIPLIER_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_GITHUB_ENDPOINT_BACKOFF_MULTIPLIER_DOC);

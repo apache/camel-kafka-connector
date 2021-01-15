@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.pubnub.CamelPubnubSinkConnector
 ----
 
 
-The camel-pubnub sink connector supports 14 options, which are listed below.
+The camel-pubnub sink connector supports 13 options, which are listed below.
 
 
 
@@ -34,7 +34,6 @@ The camel-pubnub sink connector supports 14 options, which are listed below.
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.operation* | The operation to perform. PUBLISH: Default. Send a message to all subscribers of a channel. FIRE: allows the client to send a message to BLOCKS Event Handlers. These messages will go directly to any Event Handlers registered on the channel. HERENOW: Obtain information about the current state of a channel including a list of unique user-ids currently subscribed to the channel and the total occupancy count. WHERENOW: Obtain information about the current list of channels to which a uuid is subscribed to. GETSTATE: Used to get key/value pairs specific to a subscriber uuid. State information is supplied as a JSON object of key/value pairs SETSTATE: Used to set key/value pairs specific to a subscriber uuid GETHISTORY: Fetches historical messages of a channel. One of: [HERENOW] [WHERENOW] [GETSTATE] [SETSTATE] [GETHISTORY] [PUBLISH] [FIRE] | null | false | MEDIUM
 | *camel.sink.endpoint.pubnub* | Reference to a Pubnub client in the registry. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.authKey* | If Access Manager is utilized, client will use this authKey in all restricted requests. | null | false | MEDIUM
 | *camel.sink.endpoint.cipherKey* | If cipher is passed, all communications to/from PubNub will be encrypted. | null | false | MEDIUM
 | *camel.sink.endpoint.publishKey* | The publish key obtained from your PubNub account. Required when publishing messages. | null | false | MEDIUM

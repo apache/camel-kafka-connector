@@ -74,9 +74,6 @@ public class CamelStreamSourceConnectorConfig
     public static final String CAMEL_SOURCE_STREAM_ENDPOINT_READ_TIMEOUT_CONF = "camel.source.endpoint.readTimeout";
     public static final String CAMEL_SOURCE_STREAM_ENDPOINT_READ_TIMEOUT_DOC = "Sets the read timeout to a specified timeout, in milliseconds. A non-zero value specifies the timeout when reading from Input stream when a connection is established to a resource. If the timeout expires before there is data available for read, a java.net.SocketTimeoutException is raised. A timeout of zero is interpreted as an infinite timeout.";
     public static final Integer CAMEL_SOURCE_STREAM_ENDPOINT_READ_TIMEOUT_DEFAULT = null;
-    public static final String CAMEL_SOURCE_STREAM_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_STREAM_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_STREAM_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_STREAM_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.stream.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_STREAM_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_STREAM_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -112,7 +109,6 @@ public class CamelStreamSourceConnectorConfig
         conf.define(CAMEL_SOURCE_STREAM_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STREAM_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STREAM_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_STREAM_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_STREAM_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STREAM_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_STREAM_ENDPOINT_READ_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_STREAM_ENDPOINT_READ_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STREAM_ENDPOINT_READ_TIMEOUT_DOC);
-        conf.define(CAMEL_SOURCE_STREAM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STREAM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STREAM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_STREAM_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STREAM_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STREAM_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_STREAM_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_STREAM_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_STREAM_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;

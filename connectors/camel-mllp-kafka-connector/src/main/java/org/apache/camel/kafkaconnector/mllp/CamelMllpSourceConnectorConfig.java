@@ -59,9 +59,6 @@ public class CamelMllpSourceConnectorConfig
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = "InOut";
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used (this component only supports synchronous operations).";
-    public static final Boolean CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_DEFAULT = true;
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_CONF = "camel.source.endpoint.charsetName";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_DOC = "Set the CamelCharsetName property on the exchange";
     public static final String CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_DEFAULT = null;
@@ -143,7 +140,6 @@ public class CamelMllpSourceConnectorConfig
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_CHARSET_NAME_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_BACKLOG_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_MLLP_ENDPOINT_BACKLOG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_BACKLOG_DOC);
         conf.define(CAMEL_SOURCE_MLLP_ENDPOINT_LENIENT_BIND_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_MLLP_ENDPOINT_LENIENT_BIND_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_MLLP_ENDPOINT_LENIENT_BIND_DOC);

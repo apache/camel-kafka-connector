@@ -95,9 +95,6 @@ public class CamelServletSourceConnectorConfig
     public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_CONF = "camel.source.endpoint.mapHttpMessageHeaders";
     public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DOC = "If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping.";
     public static final Boolean CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DEFAULT = true;
-    public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SERVLET_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SERVLET_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SERVLET_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.servlet.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_SERVLET_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_SERVLET_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -164,7 +161,6 @@ public class CamelServletSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DOC);
-        conf.define(CAMEL_SOURCE_SERVLET_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_SERVLET_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SERVLET_COMPONENT_SERVLET_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_SERVLET_NAME_DOC);
         conf.define(CAMEL_SOURCE_SERVLET_COMPONENT_ATTACHMENT_MULTIPART_BINDING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SERVLET_COMPONENT_ATTACHMENT_MULTIPART_BINDING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SERVLET_COMPONENT_ATTACHMENT_MULTIPART_BINDING_DOC);

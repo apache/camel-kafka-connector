@@ -28,13 +28,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.apns.apnsService": {
 			"name": "camel.component.apns.apnsService",
 			"description": "The ApnsService to use. The org.apache.camel.component.apns.factory.ApnsServiceFactory can be used to build a ApnsService",

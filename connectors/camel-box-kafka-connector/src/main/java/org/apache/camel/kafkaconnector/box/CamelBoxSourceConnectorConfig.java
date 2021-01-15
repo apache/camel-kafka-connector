@@ -51,9 +51,6 @@ public class CamelBoxSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_BOX_ENDPOINT_HTTP_PARAMS_CONF = "camel.source.endpoint.httpParams";
     public static final String CAMEL_SOURCE_BOX_ENDPOINT_HTTP_PARAMS_DOC = "Custom HTTP params for settings like proxy host";
     public static final String CAMEL_SOURCE_BOX_ENDPOINT_HTTP_PARAMS_DEFAULT = null;
-    public static final String CAMEL_SOURCE_BOX_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_BOX_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_BOX_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_BOX_ENDPOINT_AUTHENTICATION_TYPE_CONF = "camel.source.endpoint.authenticationType";
     public static final String CAMEL_SOURCE_BOX_ENDPOINT_AUTHENTICATION_TYPE_DOC = "The type of authentication for connection. Types of Authentication: STANDARD_AUTHENTICATION - OAuth 2.0 (3-legged) SERVER_AUTHENTICATION - OAuth 2.0 with JSON Web Tokens";
     public static final String CAMEL_SOURCE_BOX_ENDPOINT_AUTHENTICATION_TYPE_DEFAULT = "APP_USER_AUTHENTICATION";
@@ -163,7 +160,6 @@ public class CamelBoxSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_BOX_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BOX_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BOX_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_BOX_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BOX_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BOX_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_BOX_ENDPOINT_HTTP_PARAMS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BOX_ENDPOINT_HTTP_PARAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BOX_ENDPOINT_HTTP_PARAMS_DOC);
-        conf.define(CAMEL_SOURCE_BOX_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_BOX_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BOX_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_BOX_ENDPOINT_AUTHENTICATION_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BOX_ENDPOINT_AUTHENTICATION_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BOX_ENDPOINT_AUTHENTICATION_TYPE_DOC);
         conf.define(CAMEL_SOURCE_BOX_ENDPOINT_ACCESS_TOKEN_CACHE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BOX_ENDPOINT_ACCESS_TOKEN_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BOX_ENDPOINT_ACCESS_TOKEN_CACHE_DOC);
         conf.define(CAMEL_SOURCE_BOX_ENDPOINT_CLIENT_SECRET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_BOX_ENDPOINT_CLIENT_SECRET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_BOX_ENDPOINT_CLIENT_SECRET_DOC);

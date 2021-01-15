@@ -48,9 +48,6 @@ public class CamelJoltSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JOLT_ENDPOINT_TRANSFORM_DSL_CONF = "camel.sink.endpoint.transformDsl";
     public static final String CAMEL_SINK_JOLT_ENDPOINT_TRANSFORM_DSL_DOC = "Specifies the Transform DSL of the endpoint resource. If none is specified Chainr will be used. One of: [Chainr] [Shiftr] [Defaultr] [Removr] [Sortr]";
     public static final String CAMEL_SINK_JOLT_ENDPOINT_TRANSFORM_DSL_DEFAULT = "Chainr";
-    public static final String CAMEL_SINK_JOLT_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_JOLT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_JOLT_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_JOLT_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_CONF = "camel.component.jolt.allowTemplateFromHeader";
     public static final String CAMEL_SINK_JOLT_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DOC = "Whether to allow to use resource template from header or not (default false). Enabling this allows to specify dynamic templates via message header. However this can be seen as a potential security vulnerability if the header is coming from a malicious user, so use this with care.";
     public static final Boolean CAMEL_SINK_JOLT_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT = false;
@@ -84,7 +81,6 @@ public class CamelJoltSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JOLT_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOLT_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOLT_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_JOLT_ENDPOINT_OUTPUT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOLT_ENDPOINT_OUTPUT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOLT_ENDPOINT_OUTPUT_TYPE_DOC);
         conf.define(CAMEL_SINK_JOLT_ENDPOINT_TRANSFORM_DSL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JOLT_ENDPOINT_TRANSFORM_DSL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOLT_ENDPOINT_TRANSFORM_DSL_DOC);
-        conf.define(CAMEL_SINK_JOLT_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOLT_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOLT_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_JOLT_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOLT_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOLT_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DOC);
         conf.define(CAMEL_SINK_JOLT_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOLT_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOLT_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_JOLT_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JOLT_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JOLT_COMPONENT_AUTOWIRED_ENABLED_DOC);

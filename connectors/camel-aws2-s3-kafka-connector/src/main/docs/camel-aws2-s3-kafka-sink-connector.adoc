@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SinkConnector
 ----
 
 
-The camel-aws2-s3 sink connector supports 60 options, which are listed below.
+The camel-aws2-s3 sink connector supports 59 options, which are listed below.
 
 
 
@@ -56,7 +56,6 @@ The camel-aws2-s3 sink connector supports 60 options, which are listed below.
 | *camel.sink.endpoint.awsKMSKeyId* | Define the id of KMS key to use in case KMS is enabled | null | false | MEDIUM
 | *camel.sink.endpoint.useAwsKMS* | Define if KMS must be used or not | false | false | MEDIUM
 | *camel.sink.endpoint.useCustomerKey* | Define if Customer Key must be used or not | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-s3.amazonS3Client* | Reference to a com.amazonaws.services.s3.AmazonS3 in the registry. | null | false | MEDIUM

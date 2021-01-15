@@ -60,9 +60,6 @@ public class CamelIrcSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_IRC_ENDPOINT_COLORS_CONF = "camel.sink.endpoint.colors";
     public static final String CAMEL_SINK_IRC_ENDPOINT_COLORS_DOC = "Whether or not the server supports color codes.";
     public static final Boolean CAMEL_SINK_IRC_ENDPOINT_COLORS_DEFAULT = true;
-    public static final String CAMEL_SINK_IRC_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_IRC_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_IRC_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_IRC_ENDPOINT_ON_JOIN_CONF = "camel.sink.endpoint.onJoin";
     public static final String CAMEL_SINK_IRC_ENDPOINT_ON_JOIN_DOC = "Handle user join events.";
     public static final Boolean CAMEL_SINK_IRC_ENDPOINT_ON_JOIN_DEFAULT = true;
@@ -139,7 +136,6 @@ public class CamelIrcSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_IRC_ENDPOINT_REALNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IRC_ENDPOINT_REALNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRC_ENDPOINT_REALNAME_DOC);
         conf.define(CAMEL_SINK_IRC_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRC_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRC_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_IRC_ENDPOINT_COLORS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRC_ENDPOINT_COLORS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRC_ENDPOINT_COLORS_DOC);
-        conf.define(CAMEL_SINK_IRC_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRC_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRC_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_IRC_ENDPOINT_ON_JOIN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRC_ENDPOINT_ON_JOIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRC_ENDPOINT_ON_JOIN_DOC);
         conf.define(CAMEL_SINK_IRC_ENDPOINT_ON_KICK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRC_ENDPOINT_ON_KICK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRC_ENDPOINT_ON_KICK_DOC);
         conf.define(CAMEL_SINK_IRC_ENDPOINT_ON_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRC_ENDPOINT_ON_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRC_ENDPOINT_ON_MODE_DOC);

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.cryptocms.CamelCryptocmsSinkConn
 ----
 
 
-The camel-crypto-cms sink connector supports 22 options, which are listed below.
+The camel-crypto-cms sink connector supports 21 options, which are listed below.
 
 
 
@@ -34,7 +34,6 @@ The camel-crypto-cms sink connector supports 22 options, which are listed below.
 | *camel.sink.endpoint.keyStore* | Keystore which contains signer private keys, verifier public keys, encryptor public keys, decryptor private keys depending on the operation. Use either this parameter or the parameter 'keyStoreParameters'. | null | false | MEDIUM
 | *camel.sink.endpoint.keyStoreParameters* | Keystore containing signer private keys, verifier public keys, encryptor public keys, decryptor private keys depending on the operation. Use either this parameter or the parameter 'keystore'. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.password* | Sets the password of the private keys. It is assumed that all private keys in the keystore have the same password. If not set then it is assumed that the password of the private keys is given by the keystore password given in the KeyStoreParameters. | null | false | MEDIUM
 | *camel.sink.endpoint.fromBase64* | If true then the CMS message is base 64 encoded and must be decoded during the processing. Default value is false. | false | false | MEDIUM
 | *camel.sink.endpoint.contentEncryptionAlgorithm* | Encryption algorithm, for example DESede/CBC/PKCS5Padding. Further possible values: DESede/CBC/PKCS5Padding, AES/CBC/PKCS5Padding, Camellia/CBC/PKCS5Padding, CAST5/CBC/PKCS5Padding. One of: [AES/CBC/PKCS5Padding] [DESede/CBC/PKCS5Padding] [Camellia/CBC/PKCS5Padding] [CAST5/CBC/PKCS5Padding] | null | false | MEDIUM
