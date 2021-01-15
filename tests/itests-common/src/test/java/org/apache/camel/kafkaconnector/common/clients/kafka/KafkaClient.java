@@ -20,7 +20,6 @@ package org.apache.camel.kafkaconnector.common.clients.kafka;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Map;
-import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.function.Consumer;
@@ -156,14 +155,18 @@ public class KafkaClient<K, V> {
         future.get();
     }
 
+    public AdminClient getAdminClient() {
+        return AdminClient.create(producerPropertyFactory.getProperties());
+    }
+
     /**
      * Delete a topic
      *
      * @param topic the topic to be deleted
      */
     public void deleteTopic(String topic) {
-        Properties props = producerPropertyFactory.getProperties();
-        AdminClient admClient = AdminClient.create(props);
-        admClient.deleteTopics(Collections.singleton(topic));
+        AdminClient adminClient = getAdminClient();
+
+        adminClient.deleteTopics(Collections.singleton(topic));
     }
 }
