@@ -24,10 +24,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.test.infra.kafka.services.KafkaService;
 import org.apache.kafka.connect.runtime.ConnectorConfig;
+import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,5 +118,9 @@ public class KafkaConnectRunnerService implements KafkaConnectService {
         } catch (InterruptedException e) {
             LOG.error("The test was interrupted while executing");
         }
+    }
+
+    public void connectorStateCheck(Consumer<ConnectorStateInfo> taskStateConsumer) {
+        kafkaConnectRunner.connectorStateCheck(taskStateConsumer);
     }
 }
