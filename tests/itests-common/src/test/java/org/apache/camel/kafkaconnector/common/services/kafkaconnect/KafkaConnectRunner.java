@@ -39,6 +39,7 @@ import org.apache.kafka.connect.runtime.WorkerInfo;
 import org.apache.kafka.connect.runtime.isolation.Plugins;
 import org.apache.kafka.connect.runtime.rest.RestServer;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorInfo;
+import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
 import org.apache.kafka.connect.runtime.standalone.StandaloneHerder;
 import org.apache.kafka.connect.storage.FileOffsetBackingStore;
@@ -226,5 +227,13 @@ class KafkaConnectRunner {
         } else {
             LOG.warn("Trying to stop an uninitialized Kafka Connect Runner");
         }
+    }
+
+    private ConnectorStateInfo getConnectorStatus(String connectorName) {
+        return herder.connectorStatus(connectorName);
+    }
+
+    public void connectorStateCheck(Consumer<ConnectorStateInfo> taskStateConsumer) {
+        herder.connectors().forEach(c -> taskStateConsumer.accept(getConnectorStatus(c)));
     }
 }

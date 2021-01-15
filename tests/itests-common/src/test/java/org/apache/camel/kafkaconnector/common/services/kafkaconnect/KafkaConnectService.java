@@ -18,8 +18,10 @@
 package org.apache.camel.kafkaconnector.common.services.kafkaconnect;
 
 import java.util.concurrent.ExecutionException;
+import java.util.function.Consumer;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -31,6 +33,8 @@ public interface KafkaConnectService extends BeforeTestExecutionCallback, AfterT
 
     void stop();
     void start();
+
+    void connectorStateCheck(Consumer<ConnectorStateInfo> taskStateConsumer);
 
     @Override
     default void afterTestExecution(ExtensionContext extensionContext) {

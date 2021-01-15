@@ -19,6 +19,7 @@ package org.apache.camel.kafkaconnector.common.services.kafkaconnect;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.services.kafka.EmbeddedKafkaService;
@@ -98,5 +99,14 @@ public class KafkaConnectEmbedded implements KafkaConnectService {
     @Override
     public void start() {
         // NO-OP
+    }
+
+    private ConnectorStateInfo getConnectorStatus(String connectorName) {
+        return cluster.connectorStatus(connectorName);
+    }
+
+
+    public void connectorStateCheck(Consumer<ConnectorStateInfo> taskStateConsumer) {
+        cluster.connectors().forEach(c -> taskStateConsumer.accept(getConnectorStatus(c)));
     }
 }
