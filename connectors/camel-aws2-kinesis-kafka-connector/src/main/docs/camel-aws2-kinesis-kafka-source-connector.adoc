@@ -91,9 +91,16 @@ The camel-aws2-kinesis source connector has no converters out of the box.
 
 
 
-The camel-aws2-kinesis source connector has no transforms out of the box.
+The camel-aws2-kinesis source connector supports 0 transforms out of the box, which are listed below.
 
 
+
+[source,java]
+----
+
+org.apache.camel.kafkaconnector.aws2kinesis.transformers.KinesisRecordDataTransforms
+
+----
 
 
 
