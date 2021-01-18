@@ -59,8 +59,8 @@
         <gmavenplus-plugin-version>1.6.2</gmavenplus-plugin-version>
         <groovy-version>2.5.8</groovy-version>
 
-        <itest.zookeeper.container.image>strimzi/kafka:0.20.1-kafka-2.6.0</itest.zookeeper.container.image>
-        <itest.strimzi.container.image>strimzi/kafka:0.20.1-kafka-2.6.0</itest.strimzi.container.image>
+        <itest.zookeeper.container.image>strimzi/kafka:0.21.0-kafka-2.7.0</itest.zookeeper.container.image>
+        <itest.strimzi.container.image>strimzi/kafka:0.21.0-kafka-2.7.0</itest.strimzi.container.image>
 
         <checkstyle.failOnViolation>false</checkstyle.failOnViolation>
     </properties>
