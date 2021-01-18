@@ -338,7 +338,6 @@
                 <groupId>com.couchbase.client</groupId>
                 <artifactId>java-client</artifactId>
                 <version>${couchbase-client-version}</version>
-                <scope>test</scope>
             </dependency>
 
         </dependencies>
