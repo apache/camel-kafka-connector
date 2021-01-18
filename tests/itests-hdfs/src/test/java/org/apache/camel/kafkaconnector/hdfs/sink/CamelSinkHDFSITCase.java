@@ -69,7 +69,7 @@ public class CamelSinkHDFSITCase extends AbstractKafkaTest {
 
         if (!hdfsEasy.delete(currentBasePath)) {
             // This is OK: directory may not exist on the path
-            LOG.debug("The directory at {} was not removed", currentBasePath.getName());
+            LOG.debug("The directory at {} was not removed ", currentBasePath.getName());
         }
     }
 
