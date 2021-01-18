@@ -95,6 +95,7 @@ jobs:
             clean test
       - name: archive logs
         uses: actions/upload-artifact@v2
+        if: ${{ always() }}
         with:
           name: test-logs
           path: tests/**/target/tests.log
