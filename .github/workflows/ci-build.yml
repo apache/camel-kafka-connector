@@ -80,5 +80,10 @@ jobs:
             -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 \
             -pl '!:camel-kafka-connector-generator-maven-plugin' \
             clean test
+      - name: archive logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-logs
+          path: tests/**/target/tests.log
 
 
