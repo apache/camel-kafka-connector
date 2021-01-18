@@ -24,7 +24,6 @@ import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.transforms.Transformation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import software.amazon.awssdk.services.kinesis.model.Record;
 
 public class KinesisRecordDataTransforms <R extends ConnectRecord<R>> implements Transformation<R> {
