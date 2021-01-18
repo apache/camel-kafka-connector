@@ -43,6 +43,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkHDFSITCase extends AbstractKafkaTest {
     @RegisterExtension
