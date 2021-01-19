@@ -30,7 +30,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -38,7 +37,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
-@Testcontainers
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceTimerITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceTimerITCase.class);

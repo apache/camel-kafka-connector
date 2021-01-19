@@ -37,7 +37,6 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -47,7 +46,6 @@ import static org.junit.jupiter.api.Assertions.fail;
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
-@Testcontainers
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceJMSITCase extends AbstractKafkaTest {
     @RegisterExtension

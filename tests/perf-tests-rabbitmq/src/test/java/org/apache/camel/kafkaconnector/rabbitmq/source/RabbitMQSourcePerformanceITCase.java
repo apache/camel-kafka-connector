@@ -29,9 +29,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
-@Testcontainers
 @EnabledIfSystemProperty(named = "it.test.perf.enabled", matches = "true")
 public class RabbitMQSourcePerformanceITCase extends AbstractKafkaTest {
     @RegisterExtension
