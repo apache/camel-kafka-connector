@@ -28,14 +28,12 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * Integration tests for the JMS sink
  */
-@Testcontainers
 /* This test is disabled by default because requires manual verification on Slack end.
 
 You need to set 3 system properties to run this test:

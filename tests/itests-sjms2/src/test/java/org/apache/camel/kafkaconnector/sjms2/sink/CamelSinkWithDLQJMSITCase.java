@@ -32,7 +32,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -41,7 +40,6 @@ import static org.junit.jupiter.api.Assertions.fail;
  * Integration tests for the JMS sink with a DLQ configuration. This test forces a failure in the sink connector to
  * ensure that the failed records are added to the DLQ configured in Kafka.
  */
-@Testcontainers
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkWithDLQJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkWithDLQJMSITCase.class);
