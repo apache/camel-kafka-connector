@@ -141,7 +141,7 @@ public class DataFormatTest {
 
         cms.start();
         HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("hl7");
-        assertTrue(hl7dfLoaded.isValidate());
+        assertFalse(hl7dfLoaded.isValidate());
         cms.stop();
     }
 }
