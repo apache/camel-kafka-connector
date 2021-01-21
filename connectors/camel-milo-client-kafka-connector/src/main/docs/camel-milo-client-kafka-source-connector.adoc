@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.miloclient.CamelMiloclientSource
 ----
 
 
-The camel-milo-client source connector supports 51 options, which are listed below.
+The camel-milo-client source connector supports 55 options, which are listed below.
 
 
 
@@ -31,10 +31,14 @@ The camel-milo-client source connector supports 51 options, which are listed bel
 | Name | Description | Default | Required | Priority
 | *camel.source.path.endpointUri* | The OPC UA server endpoint | null | true | HIGH
 | *camel.source.endpoint.clientId* | A virtual client id to force the creation of a new connection instance | null | false | MEDIUM
+| *camel.source.endpoint.dataChangeFilterDeadbandType* | Deadband type for MonitorFilterType DataChangeFilter. | "0" | false | MEDIUM
+| *camel.source.endpoint.dataChangeFilterDeadband Value* | Deadband value for MonitorFilterType DataChangeFilter. | "0.0" | false | MEDIUM
+| *camel.source.endpoint.dataChangeFilterTrigger* | Daata change trigger for data change monitor filter type. One of: [Status] [StatusValue] [StatusValueTimestamp] | null | false | MEDIUM
 | *camel.source.endpoint.defaultAwaitWrites* | Default await setting for writes | false | false | MEDIUM
 | *camel.source.endpoint.discoveryEndpointSuffix* | A suffix for endpoint URI when discovering | null | false | MEDIUM
 | *camel.source.endpoint.discoveryEndpointUri* | An alternative discovery URI | null | false | MEDIUM
 | *camel.source.endpoint.method* | The method definition (see Method ID) | null | false | MEDIUM
+| *camel.source.endpoint.monitorFilterType* | Monitor Filter Type for MonitoredItems. One of: [dataChangeFilter] | null | false | MEDIUM
 | *camel.source.endpoint.node* | The node definition (see Node ID) | null | false | MEDIUM
 | *camel.source.endpoint.samplingInterval* | The sampling interval in milliseconds | "0.0" | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM

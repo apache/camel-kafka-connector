@@ -21,6 +21,31 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.dataChangeFilterDeadbandType": {
+			"name": "camel.sink.endpoint.dataChangeFilterDeadbandType",
+			"description": "Deadband type for MonitorFilterType DataChangeFilter.",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.dataChangeFilterDeadbandValue": {
+			"name": "camel.sink.endpoint.dataChangeFilterDeadbandValue",
+			"description": "Deadband value for MonitorFilterType DataChangeFilter.",
+			"defaultValue": "\"0.0\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.dataChangeFilterTrigger": {
+			"name": "camel.sink.endpoint.dataChangeFilterTrigger",
+			"description": "Daata change trigger for data change monitor filter type. One of: [Status] [StatusValue] [StatusValueTimestamp]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"Status",
+				"StatusValue",
+				"StatusValueTimestamp"
+			]
+		},
 		"camel.sink.endpoint.defaultAwaitWrites": {
 			"name": "camel.sink.endpoint.defaultAwaitWrites",
 			"description": "Default await setting for writes",
@@ -45,6 +70,15 @@
 			"description": "The method definition (see Method ID)",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.sink.endpoint.monitorFilterType": {
+			"name": "camel.sink.endpoint.monitorFilterType",
+			"description": "Monitor Filter Type for MonitoredItems. One of: [dataChangeFilter]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"dataChangeFilter"
+			]
 		},
 		"camel.sink.endpoint.node": {
 			"name": "camel.sink.endpoint.node",

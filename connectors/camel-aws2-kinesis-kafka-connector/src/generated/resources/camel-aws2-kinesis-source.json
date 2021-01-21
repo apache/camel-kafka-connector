@@ -28,6 +28,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.overrideEndpoint": {
+			"name": "camel.source.endpoint.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.proxyHost": {
 			"name": "camel.source.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the Kinesis client",
@@ -61,6 +68,12 @@
 			"name": "camel.source.endpoint.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.uriEndpointOverride": {
+			"name": "camel.source.endpoint.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -288,6 +301,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.aws2-kinesis.overrideEndpoint": {
+			"name": "camel.component.aws2-kinesis.overrideEndpoint",
+			"description": "Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.aws2-kinesis.proxyHost": {
 			"name": "camel.component.aws2-kinesis.proxyHost",
 			"description": "To define a proxy host when instantiating the Kinesis client",
@@ -321,6 +341,12 @@
 			"name": "camel.component.aws2-kinesis.trustAllCertificates",
 			"description": "If we want to trust all certificates in case of overriding the endpoint",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-kinesis.uriEndpointOverride": {
+			"name": "camel.component.aws2-kinesis.uriEndpointOverride",
+			"description": "Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.springrabbitmq.CamelSpringrabbit
 ----
 
 
-The camel-spring-rabbitmq sink connector supports 20 options, which are listed below.
+The camel-spring-rabbitmq sink connector supports 21 options, which are listed below.
 
 
 
@@ -36,6 +36,7 @@ The camel-spring-rabbitmq sink connector supports 20 options, which are listed b
 | *camel.sink.endpoint.testConnectionOnStartup* | Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well. | false | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.replyTimeout* | Specify the timeout in milliseconds to be used when waiting for a reply message when doing request/reply messaging. The default value is 5 seconds. A negative value indicates an indefinite timeout. | 5000L | false | MEDIUM
+| *camel.sink.endpoint.usePublisherConnection* | Use a separate connection for publishers and consumers | false | false | MEDIUM
 | *camel.sink.endpoint.args* | Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each element: arg.consumer. arg.exchange. arg.queue. arg.binding. arg.dlq.exchange. arg.dlq.queue. arg.dlq.binding. For example to declare a queue with message ttl argument: args=arg.queue.x-message-ttl=60000 | null | false | MEDIUM
 | *camel.sink.endpoint.messageConverter* | To use a custom MessageConverter so you can be in control how to map to/from a org.springframework.amqp.core.Message. | null | false | MEDIUM
 | *camel.sink.endpoint.messagePropertiesConverter* | To use a custom MessagePropertiesConverter so you can be in control how to map to/from a org.springframework.amqp.core.MessageProperties. | null | false | MEDIUM
