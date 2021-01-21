@@ -31,7 +31,7 @@
 		},
 		"camel.sink.endpoint.inputType": {
 			"name": "camel.sink.endpoint.inputType",
-			"description": "Specifies if the output should be Jackson JsonNode or a JSON String. One of: [Jackson] [JsonString]",
+			"description": "Specifies if the input should be Jackson JsonNode or a JSON String. One of: [Jackson] [JsonString]",
 			"defaultValue": "\"Jackson\"",
 			"priority": "MEDIUM",
 			"required": "false",

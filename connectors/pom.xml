@@ -444,6 +444,7 @@
         <module>camel-openstack-swift-kafka-connector</module>
         <module>camel-optaplanner-kafka-connector</module>
         <module>camel-paho-kafka-connector</module>
+        <module>camel-paho-mqtt5-kafka-connector</module>
         <module>camel-pdf-kafka-connector</module>
         <module>camel-pg-replication-slot-kafka-connector</module>
         <module>camel-pgevent-kafka-connector</module>

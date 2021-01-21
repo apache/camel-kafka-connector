@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.googlepubsub.CamelGooglepubsubSi
 ----
 
 
-The camel-google-pubsub sink connector supports 15 options, which are listed below.
+The camel-google-pubsub sink connector supports 17 options, which are listed below.
 
 
 
@@ -37,6 +37,8 @@ The camel-google-pubsub sink connector supports 15 options, which are listed bel
 | *camel.sink.endpoint.maxMessagesPerPoll* | The max number of messages to receive from the server in a single API call | "1" | false | MEDIUM
 | *camel.sink.endpoint.synchronousPull* | Synchronously pull batches of messages | false | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.sink.endpoint.messageOrderingEnabled* | Should message ordering be enabled | false | false | MEDIUM
+| *camel.sink.endpoint.pubsubEndpoint* | Pub/Sub endpoint to use. Required when using message ordering, and ensures that messages are received in order even when multiple publishers are used | null | false | MEDIUM
 | *camel.sink.endpoint.serializer* | A custom GooglePubsubSerializer to use for serializing message payloads in the producer | null | false | MEDIUM
 | *camel.component.google-pubsub.endpoint* | Endpoint to use with local Pub/Sub emulator. | null | false | MEDIUM
 | *camel.component.google-pubsub.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM

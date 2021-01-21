@@ -47,6 +47,9 @@ public class CamelSpringrabbitmqSinkConnectorConfig
     public static final String CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_REPLY_TIMEOUT_CONF = "camel.sink.endpoint.replyTimeout";
     public static final String CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_REPLY_TIMEOUT_DOC = "Specify the timeout in milliseconds to be used when waiting for a reply message when doing request/reply messaging. The default value is 5 seconds. A negative value indicates an indefinite timeout.";
     public static final Long CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_REPLY_TIMEOUT_DEFAULT = 5000L;
+    public static final String CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_USE_PUBLISHER_CONNECTION_CONF = "camel.sink.endpoint.usePublisherConnection";
+    public static final String CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_USE_PUBLISHER_CONNECTION_DOC = "Use a separate connection for publishers and consumers";
+    public static final Boolean CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_USE_PUBLISHER_CONNECTION_DEFAULT = false;
     public static final String CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_ARGS_CONF = "camel.sink.endpoint.args";
     public static final String CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_ARGS_DOC = "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each element: arg.consumer. arg.exchange. arg.queue. arg.binding. arg.dlq.exchange. arg.dlq.queue. arg.dlq.binding. For example to declare a queue with message ttl argument: args=arg.queue.x-message-ttl=60000";
     public static final String CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_ARGS_DEFAULT = null;
@@ -107,6 +110,7 @@ public class CamelSpringrabbitmqSinkConnectorConfig
         conf.define(CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC);
         conf.define(CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_REPLY_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_REPLY_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_REPLY_TIMEOUT_DOC);
+        conf.define(CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_USE_PUBLISHER_CONNECTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_USE_PUBLISHER_CONNECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_USE_PUBLISHER_CONNECTION_DOC);
         conf.define(CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_ARGS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_ARGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_ARGS_DOC);
         conf.define(CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_MESSAGE_CONVERTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_MESSAGE_CONVERTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_MESSAGE_CONVERTER_DOC);
         conf.define(CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_MESSAGE_PROPERTIES_CONVERTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_MESSAGE_PROPERTIES_CONVERTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPRINGRABBITMQ_ENDPOINT_MESSAGE_PROPERTIES_CONVERTER_DOC);

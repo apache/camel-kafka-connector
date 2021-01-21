@@ -50,6 +50,12 @@ public class CamelGooglepubsubSinkConnectorConfig
     public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_CONF = "camel.sink.endpoint.messageOrderingEnabled";
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_DOC = "Should message ordering be enabled";
+    public static final Boolean CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_DEFAULT = false;
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_CONF = "camel.sink.endpoint.pubsubEndpoint";
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_DOC = "Pub/Sub endpoint to use. Required when using message ordering, and ensures that messages are received in order even when multiple publishers are used";
+    public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_DEFAULT = null;
     public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_CONF = "camel.sink.endpoint.serializer";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_DOC = "A custom GooglePubsubSerializer to use for serializing message payloads in the producer";
     public static final String CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_DEFAULT = null;
@@ -92,6 +98,8 @@ public class CamelGooglepubsubSinkConnectorConfig
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MAX_MESSAGES_PER_POLL_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SYNCHRONOUS_PULL_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_MESSAGE_ORDERING_ENABLED_DOC);
+        conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_PUBSUB_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_ENDPOINT_SERIALIZER_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_ENDPOINT_DOC);
         conf.define(CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GOOGLEPUBSUB_COMPONENT_LAZY_START_PRODUCER_DOC);
