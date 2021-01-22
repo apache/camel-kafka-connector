@@ -20,14 +20,11 @@ package org.apache.camel.kafkaconnector.aws.v2.sqs.sink;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
-import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
+import org.apache.camel.kafkaconnector.aws.v2.common.CamelSinkAWSTestSupport;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
@@ -53,12 +50,11 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
-public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
+public class CamelSinkAWSSQSITCase extends CamelSinkAWSTestSupport {
 
     @RegisterExtension
     public static AWSService awsService = AWSServiceFactory.createSQSService();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSSQSITCase.class);
-
 
     private AWSSQSClient awssqsClient;
     private String queueName;
@@ -91,6 +87,16 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
         }
     }
 
+    @Override
+    protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
+        if (latch.await(110, TimeUnit.SECONDS)) {
+            assertEquals(expect, received, "Didn't process the expected amount of messages: " + received + " != " + expect);
+        } else {
+            fail(String.format("Failed to receive the messages within the specified time: received %d of %d",
+                    received, expect));
+        }
+    }
+
     private boolean checkMessages(List<Message> messages) {
         for (Message message : messages) {
             LOG.info("Received: {}", message.body());
@@ -106,7 +112,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
     }
 
 
-    private void consumeMessages(CountDownLatch latch) {
+    protected void consumeMessages(CountDownLatch latch) {
         try {
             awssqsClient.receive(queueName, this::checkMessages);
         } catch (Throwable t) {
@@ -115,42 +121,6 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
             latch.countDown();
         }
     }
-
-    private void produceMessages()  {
-        try {
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-
-            for (int i = 0; i < expect; i++) {
-                kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
-            }
-        } catch (Throwable t) {
-            LOG.error("Unable to publish messages to the broker: {}", t.getMessage(), t);
-            fail(String.format("Unable to publish messages to the broker: %s", t.getMessage()));
-        }
-    }
-
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws Exception {
-        connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
-
-        LOG.debug("Creating the consumer ...");
-        ExecutorService service = Executors.newCachedThreadPool();
-
-        CountDownLatch latch = new CountDownLatch(1);
-        service.submit(() -> consumeMessages(latch));
-
-        LOG.debug("Creating the producer and sending messages ...");
-        produceMessages();
-
-        LOG.debug("Waiting for the test to complete");
-        if (latch.await(110, TimeUnit.SECONDS)) {
-            assertEquals(expect, received, "Didn't process the expected amount of messages: " + received + " != " + expect);
-        } else {
-            fail(String.format("Failed to receive the messages within the specified time: received %d of %d",
-                    received, expect));
-        }
-    }
-
 
     @Test
     @Timeout(value = 120)
@@ -165,7 +135,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
                     .withAmazonConfig(amazonProperties)
                     .withQueueNameOrArn(queueName);
 
-            runTest(testProperties);
+            runTest(testProperties, expect);
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
@@ -186,7 +156,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
                     .withAmazonConfig(amazonProperties, CamelAWSSQSPropertyFactory.KAFKA_STYLE)
                     .withQueueNameOrArn(queueName);
 
-            runTest(testProperties);
+            runTest(testProperties, expect);
 
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
@@ -214,7 +184,7 @@ public class CamelSinkAWSSQSITCase extends AbstractKafkaTest {
                         .append("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST))
                         .buildUrl();
 
-            runTest(testProperties);
+            runTest(testProperties, expect);
 
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
