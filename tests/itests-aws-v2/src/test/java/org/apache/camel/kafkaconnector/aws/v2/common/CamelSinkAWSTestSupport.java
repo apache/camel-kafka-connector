@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.aws.v2.common;
 
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -24,7 +25,6 @@ import java.util.concurrent.Executors;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,13 +33,21 @@ import static org.junit.jupiter.api.Assertions.fail;
 public abstract class CamelSinkAWSTestSupport extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSTestSupport.class);
 
+    protected abstract Map<String, String> messageHeaders(String text, int current);
 
-    protected void produceMessages(int count)  {
+    protected void produceMessages(String topicName, int count)  {
         try {
             KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
             for (int i = 0; i < count; i++) {
-                kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), "Sink test message " + i);
+                String message = "Sink test message " + i;
+                Map<String, String> headers = messageHeaders(message, i);
+
+                if (headers == null) {
+                    kafkaClient.produce(topicName, message);
+                } else {
+                    kafkaClient.produce(topicName, message, headers);
+                }
             }
         } catch (Throwable t) {
             LOG.error("Unable to publish messages to the broker: {}", t.getMessage(), t);
@@ -47,7 +55,7 @@ public abstract class CamelSinkAWSTestSupport extends AbstractKafkaTest {
         }
     }
 
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory, int count) throws Exception {
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory, String topic, int count) throws Exception {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
 
@@ -58,7 +66,7 @@ public abstract class CamelSinkAWSTestSupport extends AbstractKafkaTest {
         service.submit(() -> consumeMessages(latch));
 
         LOG.debug("Creating the producer and sending messages ...");
-        produceMessages(count);
+        produceMessages(topic, count);
 
         LOG.debug("Waiting for the test to complete");
         verifyMessages(latch);

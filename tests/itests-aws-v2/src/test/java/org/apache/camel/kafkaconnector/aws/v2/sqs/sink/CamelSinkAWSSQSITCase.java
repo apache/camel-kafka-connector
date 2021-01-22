@@ -18,6 +18,7 @@
 package org.apache.camel.kafkaconnector.aws.v2.sqs.sink;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -88,6 +89,11 @@ public class CamelSinkAWSSQSITCase extends CamelSinkAWSTestSupport {
     }
 
     @Override
+    protected Map<String, String> messageHeaders(String text, int current) {
+        return null;
+    }
+
+    @Override
     protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
         if (latch.await(110, TimeUnit.SECONDS)) {
             assertEquals(expect, received, "Didn't process the expected amount of messages: " + received + " != " + expect);
@@ -127,15 +133,16 @@ public class CamelSinkAWSSQSITCase extends CamelSinkAWSTestSupport {
     public void testBasicSendReceive() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
+            String topicName = TestUtils.getDefaultTestTopic(this.getClass());
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()
                     .withName("CamelAwssqsSinkConnectorSpringBootStyle")
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
+                    .withTopics(topicName)
                     .withAmazonConfig(amazonProperties)
                     .withQueueNameOrArn(queueName);
 
-            runTest(testProperties, expect);
+            runTest(testProperties, topicName, expect);
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
@@ -148,15 +155,16 @@ public class CamelSinkAWSSQSITCase extends CamelSinkAWSTestSupport {
     public void testBasicSendReceiveUsingKafkaStyle() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
+            String topicName = TestUtils.getDefaultTestTopic(this.getClass());
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()
                     .withName("CamelAwssqsSinkConnectorKafkaStyle")
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
+                    .withTopics(topicName)
                     .withAmazonConfig(amazonProperties, CamelAWSSQSPropertyFactory.KAFKA_STYLE)
                     .withQueueNameOrArn(queueName);
 
-            runTest(testProperties, expect);
+            runTest(testProperties, topicName, expect);
 
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
@@ -170,11 +178,12 @@ public class CamelSinkAWSSQSITCase extends CamelSinkAWSTestSupport {
     public void testBasicSendReceiveUsingUrl() {
         try {
             Properties amazonProperties = awsService.getConnectionProperties();
+            String topicName = TestUtils.getDefaultTestTopic(this.getClass());
 
             ConnectorPropertyFactory testProperties = CamelAWSSQSPropertyFactory
                     .basic()
                     .withName("CamelAwssqsSinkConnectorUsingUrl")
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
+                    .withTopics(topicName)
                     .withUrl(queueName)
                         .append("autoCreateQueue", "true")
                         .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
@@ -184,7 +193,7 @@ public class CamelSinkAWSSQSITCase extends CamelSinkAWSTestSupport {
                         .append("amazonAWSHost", amazonProperties.getProperty(AWSConfigs.AMAZON_AWS_HOST))
                         .buildUrl();
 
-            runTest(testProperties, expect);
+            runTest(testProperties, topicName, expect);
 
         } catch (Exception e) {
             LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
