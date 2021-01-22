@@ -154,7 +154,7 @@ public class CamelSinkAWSCWITCase extends CamelSinkAWSTestSupport {
 
             runTest(testProperties, topicName, expect);
         } catch (Exception e) {
-            LOG.error("Amazon SQS test failed: {}", e.getMessage(), e);
+            LOG.error("Amazon CloudWatch test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
         }
     }
