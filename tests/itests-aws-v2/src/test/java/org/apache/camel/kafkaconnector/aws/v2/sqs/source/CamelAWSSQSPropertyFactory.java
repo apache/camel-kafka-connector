@@ -21,10 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.camel.kafkaconnector.aws.v2.common.AWSPropertiesUtils;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
-import software.amazon.awssdk.regions.Region;
 
 /**
  * Creates the set of properties used by a Camel JMS Sink Connector
@@ -56,28 +56,7 @@ final class CamelAWSSQSPropertyFactory extends SourceConnectorPropertyFactory<Ca
     }
 
     public CamelAWSSQSPropertyFactory withAmazonConfig(Properties amazonConfigs, Map<String, String> style) {
-        String accessKeyKey = style.get(AWSConfigs.ACCESS_KEY);
-        String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
-        String regionKey = style.get(AWSConfigs.REGION);
-        String protocolKey = style.get(AWSConfigs.PROTOCOL);
-        String hostKey = style.get(AWSConfigs.AMAZON_AWS_HOST);
-
-        setProperty(accessKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        setProperty(secretKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        setProperty(regionKey,
-                amazonConfigs.getProperty(AWSConfigs.REGION, Region.US_EAST_1.toString()));
-
-        String protocol = amazonConfigs.getProperty(AWSConfigs.PROTOCOL, "");
-        if (protocol != null && !protocol.isEmpty()) {
-            setProperty(protocolKey, protocol);
-        }
-
-        String amazonAwsHost = amazonConfigs.getProperty(AWSConfigs.AMAZON_AWS_HOST, "");
-        if (amazonAwsHost != null && !amazonAwsHost.isEmpty()) {
-            setProperty(hostKey, amazonAwsHost);
-        }
+        AWSPropertiesUtils.setCommonProperties(amazonConfigs, style, this);
 
         return this;
     }
