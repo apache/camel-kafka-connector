@@ -21,10 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.camel.kafkaconnector.aws.v2.common.AWSPropertiesUtils;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
-import software.amazon.awssdk.regions.Region;
 
 
 /**
@@ -53,16 +53,9 @@ final class CamelAWSS3PropertyFactory extends SourceConnectorPropertyFactory<Cam
     }
 
     public CamelAWSS3PropertyFactory withAmazonConfig(Properties amazonConfigs, Map<String, String> style) {
-        String accessKeyKey = style.get(AWSConfigs.ACCESS_KEY);
-        String secretKeyKey = style.get(AWSConfigs.SECRET_KEY);
-        String regionKey = style.get(AWSConfigs.REGION);
+        AWSPropertiesUtils.setCommonProperties(amazonConfigs, style, this);
 
-        setProperty(accessKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.ACCESS_KEY, ""));
-        setProperty(secretKeyKey,
-                amazonConfigs.getProperty(AWSConfigs.SECRET_KEY, ""));
-        return setProperty(regionKey,
-                amazonConfigs.getProperty(AWSConfigs.REGION, Region.US_EAST_1.toString()));
+        return this;
     }
 
     public EndpointUrlBuilder<CamelAWSS3PropertyFactory> withUrl(String bucket) {
