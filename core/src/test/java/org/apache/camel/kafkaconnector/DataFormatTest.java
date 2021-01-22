@@ -29,7 +29,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataFormatTest {
 
@@ -141,7 +140,7 @@ public class DataFormatTest {
 
         cms.start();
         HL7DataFormat hl7dfLoaded = (HL7DataFormat)dcc.resolveDataFormat("hl7");
-        assertTrue(hl7dfLoaded.isValidate());
+        assertFalse(hl7dfLoaded.isValidate());
         cms.stop();
     }
 }
