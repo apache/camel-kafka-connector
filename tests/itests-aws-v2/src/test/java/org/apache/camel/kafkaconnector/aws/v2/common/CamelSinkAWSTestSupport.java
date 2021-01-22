@@ -17,6 +17,7 @@
 
 package org.apache.camel.kafkaconnector.aws.v2.common;
 
+import java.time.Duration;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -70,6 +71,17 @@ public abstract class CamelSinkAWSTestSupport extends AbstractKafkaTest {
 
         LOG.debug("Waiting for the test to complete");
         verifyMessages(latch);
+    }
+
+    protected boolean waitForData() {
+        try {
+            Thread.sleep(Duration.ofSeconds(1).toMillis());
+            return true;
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+
+            return false;
+        }
     }
 
     protected abstract void consumeMessages(CountDownLatch latch);
