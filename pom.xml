@@ -48,11 +48,11 @@
 
     <modules>
         <module>parent</module>
-        <module>archetypes</module>
         <module>core</module>
         <module>buildingtools</module>
         <module>tooling</module>
         <module>connectors</module>
+        <module>archetypes</module>
         <module>camel-kafka-connector-catalog</module>
         <module>tests</module>
         <module>distribution</module>
