@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-openshift-builds-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.1",
 		"description": "Perform operations on OpenShift Builds."
 	},
 	"properties": {

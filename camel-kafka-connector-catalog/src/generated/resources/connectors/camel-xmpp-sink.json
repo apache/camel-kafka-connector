@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-xmpp-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.1",
 		"description": "Send and receive messages to\/from an XMPP chat server."
 	},
 	"properties": {

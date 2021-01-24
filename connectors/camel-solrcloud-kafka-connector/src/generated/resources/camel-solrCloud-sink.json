@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-solrCloud-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.1",
 		"description": "Perform operations against Apache Lucene Solr."
 	},
 	"properties": {

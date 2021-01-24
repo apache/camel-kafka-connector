@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-reactive-streams-source",
 		"type": "source",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.1",
 		"description": "Exchange messages with reactive stream processing libraries compatible with the reactive streams standard."
 	},
 	"properties": {

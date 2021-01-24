@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-pg-replication-slot-source",
 		"type": "source",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.1",
 		"description": "Poll for PostgreSQL Write-Ahead Log (WAL) records using Streaming Replication Slots."
 	},
 	"properties": {

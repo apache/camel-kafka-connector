@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-wordpress-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.1",
 		"description": "Manage posts and users using Wordpress API."
 	},
 	"properties": {

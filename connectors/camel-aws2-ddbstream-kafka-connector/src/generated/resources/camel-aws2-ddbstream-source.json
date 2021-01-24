@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-aws2-ddbstream-source",
 		"type": "source",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.1",
 		"description": "Receive messages from AWS DynamoDB Stream service using AWS SDK version 2.x."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jbpm-source",
 		"type": "source",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.1",
 		"description": "Interact with jBPM workflow engine over REST."
 	},
 	"properties": {
