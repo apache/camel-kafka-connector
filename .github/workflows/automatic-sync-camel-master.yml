@@ -97,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: test-logs
+          name: test-logs-java-${{ matrix.java }}
           path: tests/**/target/tests.log
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v2.4.1

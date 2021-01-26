@@ -81,5 +81,5 @@ jobs:
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: test-logs
+          name: test-logs-java-${{ matrix.java }}
           path: tests/**/target/tests.log
