@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.aws.v2.kinesis.source;
+package org.apache.camel.kafkaconnector.aws.v2.kinesis.common;
 
 import org.apache.camel.component.aws2.kinesis.Kinesis2Configuration;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
