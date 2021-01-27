@@ -4,12 +4,15 @@ The Camel Kafka Connector generator plugin allows you to generator connectors ba
 
 === Goals Supported
 
+|===============
 | Goal | Description |
 | ------------- | ----------- |
 | generate-camel-kafka-connectors | Generate connectors based off of a catalog |
+|===============
 
 === Options
 
+|===============
 | Parameter | Default Value | Description |
 | --------- | ------------- | ----------- |
 | excludedComponents | empty | components to exclude from connector generation |
@@ -20,3 +23,4 @@ The Camel Kafka Connector generator plugin allows you to generator connectors ba
 | fixDependenciesProperties | Properties file to configure additional dependencies |
 | packageFileTemplate | Package file template to be placed in src/main/assembly/package.xml |
 | exampleSinkPropertiesFileTemplate | Example connector sink file template |
+|===============
