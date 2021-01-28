@@ -68,11 +68,15 @@ public class CamelSourceTask extends SourceTask {
     private Integer maxNotCommittedRecords;
     private String camelMessageHeaderKey;
     private LoggingLevel loggingLevel = LoggingLevel.OFF;
+<<<<<<< HEAD
     private Exchange[] exchangesWaitingForAck;
     //the assumption is that at most 1 thread is running poll() method and at most 1 thread is running commitRecord()
     private SpscArrayQueue<Integer> freeSlots;
     private boolean mapProperties;
     private boolean mapHeaders;
+=======
+    private boolean mapProperties;
+>>>>>>> a108cf158... Add a map Camel Properties to Kafka headers option to make the behavior configurable
 
     @Override
     public String version() {
@@ -237,7 +241,11 @@ public class CamelSourceTask extends SourceTask {
                 
                 if (mapProperties) {
                     if (exchange.hasProperties()) {
+<<<<<<< HEAD
                         setAdditionalHeaders(camelRecord, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
+=======
+                        setAdditionalHeaders(record, exchange.getProperties(), PROPERTY_CAMEL_PREFIX);
+>>>>>>> a108cf158... Add a map Camel Properties to Kafka headers option to make the behavior configurable
                     }
                 }
 
