@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.aws.v2.s3.source;
+package org.apache.camel.kafkaconnector.aws.v2.s3.common;
 
 import org.apache.camel.component.aws2.s3.AWS2S3Configuration;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
