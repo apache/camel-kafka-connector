@@ -9,7 +9,7 @@ You can do that through the following command.
 
 [source,bash]
 ----
-> mvn archetype:generate  -DarchetypeGroupId=org.apache.camel.kafkaconnector.archetypes  -DarchetypeArtifactId=camel-kafka-connector-extensible-archetype  -DarchetypeVersion=0.7.0-SNAPSHOT
+> mvn archetype:generate  -DarchetypeGroupId=org.apache.camel.kafkaconnector.archetypes  -DarchetypeArtifactId=camel-kafka-connector-extensible-archetype  -DarchetypeVersion=0.8.0-SNAPSHOT
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ------------------< org.apache.maven:standalone-pom >-------------------
@@ -29,17 +29,17 @@ Define value for property 'artifactId': myconnector-extended
 Define value for property 'version' 1.0-SNAPSHOT: : 
 Define value for property 'package' org.apache.camel.kafkaconnector.extended: : 
 Define value for property 'camel-kafka-connector-name': camel-aws2-s3-kafka-connector
-[INFO] Using property: camel-kafka-connector-version = 0.7.0-SNAPSHOT
+[INFO] Using property: camel-kafka-connector-version = 0.8.0-SNAPSHOT
 Confirm properties configuration:
 groupId: org.apache.camel.kafkaconnector.extended
 artifactId: myconnector-extended
 version: 1.0-SNAPSHOT
 package: org.apache.camel.kafkaconnector.extended
 camel-kafka-connector-name: camel-aws2-s3-kafka-connector
-camel-kafka-connector-version: 0.7.0-SNAPSHOT
+camel-kafka-connector-version: 0.8.0-SNAPSHOT
  Y: : Y
 [INFO] ----------------------------------------------------------------------------
-[INFO] Using following parameters for creating project from Archetype: camel-kafka-connector-extensible-archetype:0.7.0-SNAPSHOT
+[INFO] Using following parameters for creating project from Archetype: camel-kafka-connector-extensible-archetype:0.8.0-SNAPSHOT
 [INFO] ----------------------------------------------------------------------------
 [INFO] Parameter: groupId, Value: org.apache.camel.kafkaconnector.extended
 [INFO] Parameter: artifactId, Value: myconnector-extended
@@ -50,7 +50,7 @@ camel-kafka-connector-version: 0.7.0-SNAPSHOT
 [INFO] Parameter: version, Value: 1.0-SNAPSHOT
 [INFO] Parameter: groupId, Value: org.apache.camel.kafkaconnector.extended
 [INFO] Parameter: camel-kafka-connector-name, Value: camel-aws2-s3-kafka-connector
-[INFO] Parameter: camel-kafka-connector-version, Value: 0.7.0-SNAPSHOT
+[INFO] Parameter: camel-kafka-connector-version, Value: 0.8.0-SNAPSHOT
 [INFO] Parameter: artifactId, Value: myconnector-extended
 [INFO] Project created from Archetype in dir: /home/workspace/myconnector-extended
 [INFO] ------------------------------------------------------------------------
@@ -76,7 +76,7 @@ This is the resulting POM
   <parent>
      <groupId>org.apache.camel.kafkaconnector</groupId>
      <artifactId>parent</artifactId>
-     <version>0.7.0-SNAPSHOT</version>
+     <version>0.8.0-SNAPSHOT</version>
   </parent>
 
   <groupId>org.apache.camel.kafkaconnector.extended</groupId>
@@ -108,12 +108,12 @@ This is the resulting POM
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-kafka-connector</artifactId>
-      <version>0.7.0-SNAPSHOT</version>
+      <version>0.8.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
       <artifactId>camel-aws2-s3-kafka-connector</artifactId>
-      <version>0.7.0-SNAPSHOT</version>
+      <version>0.8.0-SNAPSHOT</version>
     </dependency>
     <!-- Add your optional dependencies here -->
   </dependencies>
