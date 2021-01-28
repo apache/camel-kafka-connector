@@ -59,6 +59,7 @@ public class CamelSinkTask extends SinkTask {
     private ProducerTemplate producer;
     private Endpoint localEndpoint;
     private LoggingLevel loggingLevel = LoggingLevel.OFF;
+    private boolean mapProperties;
 
     @Override
     public String version() {
@@ -101,6 +102,7 @@ public class CamelSinkTask extends SinkTask {
             final int idempotentRepositoryKafkaMaxCacheSize = config.getInt(CamelSinkConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_MAX_CACHE_SIZE_CONF);
             final int idempotentRepositoryKafkaPollDuration = config.getInt(CamelSinkConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_CONF);
             final String headersRemovePattern = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
+            mapProperties = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
             
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
@@ -173,7 +175,9 @@ public class CamelSinkTask extends SinkTask {
                 if (header.key().startsWith(HEADER_CAMEL_PREFIX)) {
                     mapHeader(header, HEADER_CAMEL_PREFIX, exchange.getMessage().getHeaders());
                 } else if (header.key().startsWith(PROPERTY_CAMEL_PREFIX)) {
-                    mapHeader(header, PROPERTY_CAMEL_PREFIX, exchange.getProperties());
+                	if (mapProperties) {
+                        mapHeader(header, PROPERTY_CAMEL_PREFIX, exchange.getProperties());
+                	}
                 }
             }
 
