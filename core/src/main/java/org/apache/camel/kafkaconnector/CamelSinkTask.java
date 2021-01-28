@@ -175,9 +175,9 @@ public class CamelSinkTask extends SinkTask {
                 if (header.key().startsWith(HEADER_CAMEL_PREFIX)) {
                     mapHeader(header, HEADER_CAMEL_PREFIX, exchange.getMessage().getHeaders());
                 } else if (header.key().startsWith(PROPERTY_CAMEL_PREFIX)) {
-                	if (mapProperties) {
+                    if (mapProperties) {
                         mapHeader(header, PROPERTY_CAMEL_PREFIX, exchange.getProperties());
-                	}
+                    }
                 }
             }
 
