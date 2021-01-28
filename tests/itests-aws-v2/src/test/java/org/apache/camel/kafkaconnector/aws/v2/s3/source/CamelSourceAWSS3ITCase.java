@@ -23,6 +23,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.kafkaconnector.aws.v2.s3.common.TestS3Configuration;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
@@ -44,14 +45,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
-import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
-import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
-import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
-import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
-import software.amazon.awssdk.services.s3.model.S3Object;
 
+import static org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils.createBucket;
+import static org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils.deleteBucket;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -79,41 +76,6 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         return new String[] {"camel-aws2-s3-kafka-connector"};
     }
 
-    /**
-     * Delete an S3 bucket using the provided client. Coming from AWS documentation:
-     * https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html
-     *
-     * AWS SDK v1 doc for reference:
-     * https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-or-empty-bucket.html#delete-bucket-sdk-java
-     * @param s3Client the AmazonS3 client instance used to delete the bucket
-     * @param bucketName a String containing the bucket name
-     */
-    private static void deleteBucket(S3Client s3Client, String bucketName) {
-        // Delete all objects from the bucket. This is sufficient
-        // for non versioned buckets. For versioned buckets, when you attempt to delete objects, Amazon S3 inserts
-        // delete markers for all objects, but doesn't delete the object versions.
-        // To delete objects from versioned buckets, delete all of the object versions before deleting
-        // the bucket (see below for an example).
-        ListObjectsV2Request listObjectsRequest = ListObjectsV2Request.builder()
-                .bucket(bucketName)
-                .build();
-
-        ListObjectsV2Response objectListing;
-        do {
-            objectListing = s3Client.listObjectsV2(listObjectsRequest);
-
-            for (S3Object s3Object : objectListing.contents()) {
-                s3Client.deleteObject(DeleteObjectRequest.builder().bucket(bucketName).key(s3Object.key()).build());
-            }
-
-            listObjectsRequest = ListObjectsV2Request.builder().bucket(bucketName)
-                    .continuationToken(objectListing.nextContinuationToken())
-                    .build();
-        } while (objectListing.isTruncated());
-
-        s3Client.deleteBucket(DeleteBucketRequest.builder().bucket(bucketName).build());
-    }
-
     @BeforeEach
     public void setUp() {
         awsS3Client = AWSSDKClientUtils.newS3Client();
@@ -121,16 +83,14 @@ public class CamelSourceAWSS3ITCase extends AbstractKafkaTest {
         bucketName = AWSCommon.DEFAULT_S3_BUCKET + TestUtils.randomWithRange(0, 100);
 
         try {
-            CreateBucketRequest request = CreateBucketRequest.builder()
-                    .bucket(bucketName)
-                    .build();
-
-            awsS3Client.createBucket(request);
+            createBucket(awsS3Client, bucketName);
         } catch (Exception e) {
             LOG.error("Unable to create bucket: {}", e.getMessage(), e);
             fail("Unable to create bucket");
         }
     }
+
+
 
     @AfterEach
     public void tearDown() {
