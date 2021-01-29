@@ -59,7 +59,7 @@ public class CamelSourceTask extends SourceTask {
     private String camelMessageHeaderKey;
     private LoggingLevel loggingLevel = LoggingLevel.OFF;
     private boolean mapProperties;
-	private boolean mapHeaders;
+    private boolean mapHeaders;
 
     @Override
     public String version() {
