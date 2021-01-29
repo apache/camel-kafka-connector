@@ -120,6 +120,14 @@ public abstract class AbstractCamelKafkaConnectorMojo extends AbstractMojo {
     protected String connectorsProjectName;
 
     /**
+     *  If "true" and if there is a <camel-component>-kafka-connector submodule in connectors directory,
+     *  and it is missing from the camel catalog or is in the excludedComponents list, then
+     *  remove the directory and remove the module from connectors/pom.xml.
+     */
+    @Parameter(property = "remove-missing-components", defaultValue = "false")
+    protected boolean removeMissingComponents;
+
+    /**
      * Execute goal.
      *
      * @throws MojoExecutionException execution of the main class or one of the

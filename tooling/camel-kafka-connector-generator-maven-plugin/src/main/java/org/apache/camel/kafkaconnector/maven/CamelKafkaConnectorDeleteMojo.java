@@ -39,9 +39,6 @@ public class CamelKafkaConnectorDeleteMojo extends AbstractCamelKafkaConnectorMo
     @Parameter(property = "name", required = true)
     protected String name;
 
-    @Parameter(property = "componentJson", required = true)
-    protected String componentJson;
-
     @Override
     protected String getMainDepArtifactId() {
         return "camel-" + name;
@@ -66,11 +63,11 @@ public class CamelKafkaConnectorDeleteMojo extends AbstractCamelKafkaConnectorMo
     }
 
     private void deleteConnector() throws MojoFailureException, IOException {
-        getLog().info("Deleting starter for " + name);
+        getLog().info("Deleting camel kafka connector for " + name);
         String sanitizedName = sanitizeMavenArtifactId(name);
-        File directory = new File(projectDir, "camel-" + sanitizedName + "-starter");
+        File directory = new File(projectDir, "camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX);
         if (!directory.exists()) {
-            throw new MojoFailureException("Starter does not exist: " + name);
+            throw new MojoFailureException("Camel kafka connector does not exist: " + name);
         }
         FileUtils.deleteDirectory(directory);
         Path parent = new File(projectDir, "pom.xml").toPath();
@@ -87,7 +84,7 @@ public class CamelKafkaConnectorDeleteMojo extends AbstractCamelKafkaConnectorMo
         }
         lines = concat(lines.subList(0, modulesStart).stream(),
                 lines.subList(modulesStart, modulesEnd).stream()
-                        .filter(s -> !s.contains("<module>camel-" + sanitizedName + "-starter</module>")),
+                        .filter(s -> !s.contains("<module>camel-" + sanitizedName + KAFKA_CONNECTORS_SUFFIX + "</module>")),
                 lines.subList(modulesEnd, lines.size()).stream())
                 .collect(Collectors.toList());
         Files.write(parent, lines);
