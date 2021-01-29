@@ -355,6 +355,31 @@ public class CamelSourceTaskTest {
             sourceTask.stop();
         }
     }
+    
+    @Test
+    public void testSourceByteArrayHeaderMapping() {
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(mapOf(
+            CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME,
+            CamelSourceConnectorConfig.CAMEL_SOURCE_COMPONENT_CONF, "direct",
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF, "false",
+            CamelSourceConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF, "false",
+            CamelSourceTask.getCamelSourcePathConfigPrefix() + "name", "start"
+        ));
+
+        sourceTask.getCms().getProducerTemplate().sendBodyAndHeader(DIRECT_URI, "test", "byteArray", new Byte[] {
+            1, 2
+        });
+
+        try {
+            List<SourceRecord> results = sourceTask.poll();
+            assertThat(results).hasSize(1);
+
+            assertEquals(0, results.get(0).headers().size());
+        } finally {
+            sourceTask.stop();
+        }
+    }
 
     @Test
     public void testSourceDateHeader() {

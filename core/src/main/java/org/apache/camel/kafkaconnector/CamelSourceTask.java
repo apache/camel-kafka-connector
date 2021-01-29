@@ -59,6 +59,7 @@ public class CamelSourceTask extends SourceTask {
     private String camelMessageHeaderKey;
     private LoggingLevel loggingLevel = LoggingLevel.OFF;
     private boolean mapProperties;
+	private boolean mapHeaders;
 
     @Override
     public String version() {
@@ -103,6 +104,7 @@ public class CamelSourceTask extends SourceTask {
             final int idempotentRepositoryKafkaPollDuration = config.getInt(CamelSourceConnectorConfig.CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_CONF);
             final String headersRemovePattern = config.getString(CamelSourceConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
             mapProperties = config.getBoolean(CamelSourceConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
+            mapHeaders = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF);
             
             topics = config.getString(CamelSourceConnectorConfig.TOPIC_CONF).split(",");
 
@@ -187,8 +189,10 @@ public class CamelSourceTask extends SourceTask {
                 SourceRecord record = new SourceRecord(sourcePartition, sourceOffset, singleTopic, null, messageKeySchema,
                         messageHeaderKey, messageBodySchema, messageBodyValue, timestamp);
 
-                if (exchange.getMessage().hasHeaders()) {
-                    setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
+                if (mapHeaders) {
+                    if (exchange.getMessage().hasHeaders()) {
+                        setAdditionalHeaders(record, exchange.getMessage().getHeaders(), HEADER_CAMEL_PREFIX);
+                    }
                 }
                 
                 if (mapProperties) {
