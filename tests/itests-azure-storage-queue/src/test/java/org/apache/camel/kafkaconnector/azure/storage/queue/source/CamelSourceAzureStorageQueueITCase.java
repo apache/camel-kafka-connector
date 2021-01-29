@@ -15,17 +15,13 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.azure.storage.queue.sink;
+package org.apache.camel.kafkaconnector.azure.storage.queue.source;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import com.azure.storage.queue.QueueClient;
 import com.azure.storage.queue.QueueServiceClient;
-import com.azure.storage.queue.models.PeekedMessageItem;
-import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.azure.storage.queue.common.TestQueueConfiguration;
 import org.apache.camel.kafkaconnector.azure.storage.services.AzureStorageClientUtils;
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -35,6 +31,7 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.azure.common.AzureCredentialsHolder;
 import org.apache.camel.test.infra.azure.common.services.AzureService;
 import org.apache.camel.test.infra.azure.storage.queue.services.AzureStorageQueueServiceFactory;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,11 +44,10 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CamelSinkAzureStorageQueueITCase extends AbstractKafkaTest {
+public class CamelSourceAzureStorageQueueITCase extends AbstractKafkaTest {
     @RegisterExtension
     public static AzureService service = AzureStorageQueueServiceFactory.createAzureService();
-
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAzureStorageQueueITCase.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAzureStorageQueueITCase.class);
 
     private QueueServiceClient client;
     private QueueClient queueClient;
@@ -80,54 +76,37 @@ public class CamelSinkAzureStorageQueueITCase extends AbstractKafkaTest {
         }
     }
 
-    private void acknowledgeReceived(PeekedMessageItem peekedMessageItem) {
-        received++;
-        LOG.info("Received: {}", peekedMessageItem.getMessageText());
-    }
-
-    private boolean canConsume() {
-        return queueClient.getProperties().getApproximateMessagesCount() >= expect;
-    }
-
-    private void consume() {
-        LOG.debug("Created the consumer ...");
-        TestUtils.waitFor(this::canConsume);
-
-        LOG.debug("About to receive messages");
-        int count = queueClient.getProperties().getApproximateMessagesCount();
-
-        queueClient.peekMessages(count, null, null).forEach(this::acknowledgeReceived);
-
-    }
-
-    private void putRecords() {
-        Map<String, String> messageParameters = new HashMap<>();
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-
+    private void sendMessages() {
         for (int i = 0; i < expect; i++) {
-            try {
-                // This is for 3.4 only. From 3.5 and newer, the text is taken from the body
-                messageParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAzureStorageQueueMessageText", "test " + i);
-
-                kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), "test " + i, messageParameters);
-            } catch (ExecutionException e) {
-                LOG.error("Unable to produce messages: {}", e.getMessage(), e);
-            } catch (InterruptedException e) {
-                break;
-            }
+            queueClient.sendMessage("Test message " + i);
         }
     }
 
+    private boolean checkRecord(ConsumerRecord<String, String> record) {
+        LOG.debug("Received: {}", record.value());
+        received++;
 
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
+        if (received == expect) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void runtTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
-        putRecords();
+        sendMessages();
 
-        consume();
+        LOG.debug("Initialized the connector and put the data for the test execution");
 
-        assertEquals(expect, received, "Did not receive the same amount of messages that were sent");
+        LOG.debug("Creating the consumer ...");
+        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
+        kafkaClient.consume(TestUtils.getDefaultTestTopic(this.getClass()), this::checkRecord);
+        LOG.debug("Created the consumer ...");
+
+        assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
 
 
@@ -136,33 +115,15 @@ public class CamelSinkAzureStorageQueueITCase extends AbstractKafkaTest {
     public void testBasicSendReceive() throws InterruptedException, ExecutionException, IOException {
         AzureCredentialsHolder azureCredentialsHolder = service.azureCredentials();
 
-        ConnectorPropertyFactory connectorPropertyFactory = CamelSinkAzureStorageQueuePropertyFactory
+        ConnectorPropertyFactory connectorPropertyFactory = CamelSourceAzureStorageQueuePropertyFactory
                 .basic()
                 .withConfiguration(TestQueueConfiguration.class.getName())
-                .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
                 .withAccessKey(azureCredentialsHolder.accountKey())
                 .withAccountName(azureCredentialsHolder.accountName())
-                .withOperation("sendMessage")
                 .withQueueName(queueName);
 
-        runTest(connectorPropertyFactory);
+        runtTest(connectorPropertyFactory);
     }
 
-
-    @Test
-    @Timeout(90)
-    public void testBasicSendReceiveUrl() throws InterruptedException, ExecutionException, IOException {
-        AzureCredentialsHolder azureCredentialsHolder = service.azureCredentials();
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelSinkAzureStorageQueuePropertyFactory
-                .basic()
-                .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                .withConfiguration(TestQueueConfiguration.class.getName())
-                .withUrl(azureCredentialsHolder.accountName() + "/" + queueName)
-                .append("accessKey", azureCredentialsHolder.accountKey())
-                .append("operation", "sendMessage")
-                .buildUrl();
-
-        runTest(connectorPropertyFactory);
-    }
 }
