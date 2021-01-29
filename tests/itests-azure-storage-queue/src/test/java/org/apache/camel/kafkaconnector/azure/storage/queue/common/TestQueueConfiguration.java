@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.azure.storage.queue.sink;
+package org.apache.camel.kafkaconnector.azure.storage.queue.common;
 
 import com.azure.storage.queue.QueueServiceClient;
 import org.apache.camel.component.azure.storage.queue.QueueConfiguration;
