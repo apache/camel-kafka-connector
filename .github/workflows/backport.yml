@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-18.04
     name: Backport
     steps:
+      - name: "Checkout camel-kafka-connector"
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          submodules: recursive
       - name: Backport
         uses: ./.github/actions/backport
         with:
