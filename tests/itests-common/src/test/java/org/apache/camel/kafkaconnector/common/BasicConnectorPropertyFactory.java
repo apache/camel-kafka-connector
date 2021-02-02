@@ -63,6 +63,10 @@ public abstract class BasicConnectorPropertyFactory<T extends BasicConnectorProp
         return (T) this;
     }
 
+    public IdempotencyConfigBuilder<T> withIdempotency() {
+        return new IdempotencyConfigBuilder<>((T) this, connectorProps);
+    }
+
     /**
      * This enables sending failed records to the DLQ. Note: it automatically configure other required/recommended
      * options!
