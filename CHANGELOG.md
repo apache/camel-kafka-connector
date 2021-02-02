@@ -2,16 +2,156 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.0...HEAD)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.1...HEAD)
+
+**Implemented enhancements:**
+
+- camel-kafka-connector-generator-maven-plugin: optionally delete submodules not in catalog [\#149](https://github.com/apache/camel-kafka-connector/issues/149)
+
+**Fixed bugs:**
+
+- Java 14 support: gmavenplus-plugin likely not compatible [\#910](https://github.com/apache/camel-kafka-connector/issues/910)
 
 **Closed issues:**
 
-- Date templating not working in version 0.6.0 [\#812](https://github.com/apache/camel-kafka-connector/issues/812)
+- Add a map Camel Headers to Kafka headers option to make the behavior configurable [\#923](https://github.com/apache/camel-kafka-connector/issues/923)
+- Add a map Camel Properties to Kafka headers option to make the behavior configurable [\#922](https://github.com/apache/camel-kafka-connector/issues/922)
+- Java 14 support [\#913](https://github.com/apache/camel-kafka-connector/issues/913)
+- create a toHeader SMT  [\#902](https://github.com/apache/camel-kafka-connector/issues/902)
+- Upgrade to Camel 3.7.1 the 0.7.x branch and release [\#872](https://github.com/apache/camel-kafka-connector/issues/872)
+- Camel-Master: SJMS2 it test is failing [\#844](https://github.com/apache/camel-kafka-connector/issues/844)
+- Support camel dataformat configuration for marshaller/unmarshaller [\#816](https://github.com/apache/camel-kafka-connector/issues/816)
 
 **Merged pull requests:**
 
+- Re-introduce changelog [\#956](https://github.com/apache/camel-kafka-connector/pull/956) ([oscerd](https://github.com/oscerd))
+- Backport action: Added license [\#954](https://github.com/apache/camel-kafka-connector/pull/954) ([oscerd](https://github.com/oscerd))
+- Removed node setup from backport action [\#952](https://github.com/apache/camel-kafka-connector/pull/952) ([oscerd](https://github.com/oscerd))
+- Remove rebase camel-master on master, it is too buggy [\#950](https://github.com/apache/camel-kafka-connector/pull/950) ([oscerd](https://github.com/oscerd))
+- Removed newline from README [\#948](https://github.com/apache/camel-kafka-connector/pull/948) ([oscerd](https://github.com/oscerd))
+- Test for Backport action - DO NOT MERGE [\#947](https://github.com/apache/camel-kafka-connector/pull/947) ([oscerd](https://github.com/oscerd))
+- Backport.yml updated [\#946](https://github.com/apache/camel-kafka-connector/pull/946) ([oscerd](https://github.com/oscerd))
+- Update documentation for testing backport action [\#944](https://github.com/apache/camel-kafka-connector/pull/944) ([oscerd](https://github.com/oscerd))
+- The backport action is not allowed in ASF [\#943](https://github.com/apache/camel-kafka-connector/pull/943) ([oscerd](https://github.com/oscerd))
+- Backport action test: Fixed some grammar on README [\#942](https://github.com/apache/camel-kafka-connector/pull/942) ([oscerd](https://github.com/oscerd))
+- Added an example of backport yml action [\#941](https://github.com/apache/camel-kafka-connector/pull/941) ([oscerd](https://github.com/oscerd))
+- Added Azure Storage Queue source test case [\#938](https://github.com/apache/camel-kafka-connector/pull/938) ([orpiske](https://github.com/orpiske))
+- Add a map Camel Headers to Kafka headers option to make the behavior … [\#937](https://github.com/apache/camel-kafka-connector/pull/937) ([oscerd](https://github.com/oscerd))
+- Provide option to delete camel kafka submodule if they are not in camel catalog [\#936](https://github.com/apache/camel-kafka-connector/pull/936) ([claudio4j](https://github.com/claudio4j))
+- create a toHeader SMT \#902 [\#935](https://github.com/apache/camel-kafka-connector/pull/935) ([luigidemasi](https://github.com/luigidemasi))
+- Upgrade archetype instructions to version 0.8.0 [\#934](https://github.com/apache/camel-kafka-connector/pull/934) ([oscerd](https://github.com/oscerd))
+- Bump docs to 0.7.1 [\#932](https://github.com/apache/camel-kafka-connector/pull/932) ([oscerd](https://github.com/oscerd))
+- Added AWS v2 S3 sink test case [\#931](https://github.com/apache/camel-kafka-connector/pull/931) ([orpiske](https://github.com/orpiske))
+- Added AWS v2 KMS sink test case [\#930](https://github.com/apache/camel-kafka-connector/pull/930) ([orpiske](https://github.com/orpiske))
+- Added a daily workflow for building with newer Java versions \(\#928\) [\#929](https://github.com/apache/camel-kafka-connector/pull/929) ([orpiske](https://github.com/orpiske))
+- Add a map Camel Properties to Kafka headers option to make the behavi… [\#927](https://github.com/apache/camel-kafka-connector/pull/927) ([oscerd](https://github.com/oscerd))
+- Removes the daily JDK 14 github action because it is already being run on the default CI action [\#926](https://github.com/apache/camel-kafka-connector/pull/926) ([orpiske](https://github.com/orpiske))
+- Fix table doc and rename connecotr word [\#925](https://github.com/apache/camel-kafka-connector/pull/925) ([claudio4j](https://github.com/claudio4j))
+- Added AWS v2 Kinesis sink test case [\#921](https://github.com/apache/camel-kafka-connector/pull/921) ([orpiske](https://github.com/orpiske))
+- Prevent matrix jobs from rewriting the archived log on github actions [\#920](https://github.com/apache/camel-kafka-connector/pull/920) ([orpiske](https://github.com/orpiske))
+- Added AWS v2 IAM sink test case [\#919](https://github.com/apache/camel-kafka-connector/pull/919) ([orpiske](https://github.com/orpiske))
+- Java 14 changes [\#918](https://github.com/apache/camel-kafka-connector/pull/918) ([orpiske](https://github.com/orpiske))
+- \(chores\) fixed typo in AWS v2 Cloud Watch test [\#916](https://github.com/apache/camel-kafka-connector/pull/916) ([orpiske](https://github.com/orpiske))
+- Added new integration test for AWS 2 EC2 [\#915](https://github.com/apache/camel-kafka-connector/pull/915) ([orpiske](https://github.com/orpiske))
+- Added integration tests for AWS2 cloud watch [\#914](https://github.com/apache/camel-kafka-connector/pull/914) ([orpiske](https://github.com/orpiske))
+- Camel-Cron connector: We need to add at least camel-quartz as dependency [\#909](https://github.com/apache/camel-kafka-connector/pull/909) ([oscerd](https://github.com/oscerd))
+- Added new daily JDK 14 build on github actions [\#907](https://github.com/apache/camel-kafka-connector/pull/907) ([orpiske](https://github.com/orpiske))
+- Strimzi project is now using Quay for their images [\#901](https://github.com/apache/camel-kafka-connector/pull/901) ([orpiske](https://github.com/orpiske))
+- \(chores\) Cleanup unused annotations [\#900](https://github.com/apache/camel-kafka-connector/pull/900) ([orpiske](https://github.com/orpiske))
+- Removed unused HDFS test files that were migrated to camel-test-infra [\#899](https://github.com/apache/camel-kafka-connector/pull/899) ([orpiske](https://github.com/orpiske))
+- Fixed version in compatibility matrix for 0.6.1 [\#898](https://github.com/apache/camel-kafka-connector/pull/898) ([oscerd](https://github.com/oscerd))
+- Add a column to compatibility matrix about Kafka version [\#897](https://github.com/apache/camel-kafka-connector/pull/897) ([oscerd](https://github.com/oscerd))
+- Bump Strimzi to version 0.21.1 [\#895](https://github.com/apache/camel-kafka-connector/pull/895) ([oscerd](https://github.com/oscerd))
+- Fix HDFS tests incompatibilities [\#893](https://github.com/apache/camel-kafka-connector/pull/893) ([orpiske](https://github.com/orpiske))
+- Compatibility matrix: added ckc 0.7.0 [\#891](https://github.com/apache/camel-kafka-connector/pull/891) ([oscerd](https://github.com/oscerd))
+- Bump Apicurio Registry to version 1.3.2.Final [\#890](https://github.com/apache/camel-kafka-connector/pull/890) ([oscerd](https://github.com/oscerd))
+- Fix using an incorrect format for the continuity check logic [\#888](https://github.com/apache/camel-kafka-connector/pull/888) ([orpiske](https://github.com/orpiske))
+- Always run the archiving step so we can have log files on failure and cancelled [\#887](https://github.com/apache/camel-kafka-connector/pull/887) ([orpiske](https://github.com/orpiske))
+- Modify the Github Actions configuration to allow archiving test logs \(\#882\) [\#885](https://github.com/apache/camel-kafka-connector/pull/885) ([orpiske](https://github.com/orpiske))
+- Upgrade Strimzi to version 0.21.0.kafka-2.7.0 [\#884](https://github.com/apache/camel-kafka-connector/pull/884) ([oscerd](https://github.com/oscerd))
+- AWS2-Kinesis SMT for extracting data [\#883](https://github.com/apache/camel-kafka-connector/pull/883) ([oscerd](https://github.com/oscerd))
+- Ensures that Couchbase client dependencies are packed with the connector \(GH issue \#878\) [\#880](https://github.com/apache/camel-kafka-connector/pull/880) ([orpiske](https://github.com/orpiske))
+- Bump to Kafka 2.7.0 [\#877](https://github.com/apache/camel-kafka-connector/pull/877) ([oscerd](https://github.com/oscerd))
+- \(chores\) Cleanup topic deletion code and allow public access to the admin client [\#871](https://github.com/apache/camel-kafka-connector/pull/871) ([orpiske](https://github.com/orpiske))
+- Added a test to make sure we retain original exception data on errors [\#870](https://github.com/apache/camel-kafka-connector/pull/870) ([orpiske](https://github.com/orpiske))
+- Updates SSH tests to Camel's 3.7 test infra interfaces [\#869](https://github.com/apache/camel-kafka-connector/pull/869) ([orpiske](https://github.com/orpiske))
+- Smt struct to json [\#867](https://github.com/apache/camel-kafka-connector/pull/867) ([valdar](https://github.com/valdar))
+- Remove Github changelog action [\#864](https://github.com/apache/camel-kafka-connector/pull/864) ([oscerd](https://github.com/oscerd))
+- Test cleanups [\#863](https://github.com/apache/camel-kafka-connector/pull/863) ([orpiske](https://github.com/orpiske))
+- \(chores\) Fixed typos [\#862](https://github.com/apache/camel-kafka-connector/pull/862) ([orpiske](https://github.com/orpiske))
+- Added an EventTypeTransforms to Github Source connector [\#861](https://github.com/apache/camel-kafka-connector/pull/861) ([oscerd](https://github.com/oscerd))
+- Removed unused AWS common modules that was moved to Camel Core [\#860](https://github.com/apache/camel-kafka-connector/pull/860) ([orpiske](https://github.com/orpiske))
+- Migrate Azure tests to the new test infra [\#859](https://github.com/apache/camel-kafka-connector/pull/859) ([orpiske](https://github.com/orpiske))
+- Test cleanups when using Strimzi containers [\#856](https://github.com/apache/camel-kafka-connector/pull/856) ([orpiske](https://github.com/orpiske))
+- Prevent the source ssh test from trying to load the user's private key during the test [\#854](https://github.com/apache/camel-kafka-connector/pull/854) ([orpiske](https://github.com/orpiske))
+- Fixed idempotency images names [\#851](https://github.com/apache/camel-kafka-connector/pull/851) ([oscerd](https://github.com/oscerd))
+- Idempotency [\#849](https://github.com/apache/camel-kafka-connector/pull/849) ([oscerd](https://github.com/oscerd))
+- Added docs for idempotency first draft [\#848](https://github.com/apache/camel-kafka-connector/pull/848) ([oscerd](https://github.com/oscerd))
+- Disable couchbase tests by default because they are too unreliable [\#847](https://github.com/apache/camel-kafka-connector/pull/847) ([orpiske](https://github.com/orpiske))
+- Create timeout when creating Cassandra's test table [\#841](https://github.com/apache/camel-kafka-connector/pull/841) ([orpiske](https://github.com/orpiske))
+- Ensure the DLQ configuration from Kafka Connect is correctly handled \(issue \#835\) [\#836](https://github.com/apache/camel-kafka-connector/pull/836) ([orpiske](https://github.com/orpiske))
+- Update try-it-out-on-kubernetes procedure [\#828](https://github.com/apache/camel-kafka-connector/pull/828) ([fvaleri](https://github.com/fvaleri))
+- Added a JDBC test case that does not use a custom test data source [\#827](https://github.com/apache/camel-kafka-connector/pull/827) ([orpiske](https://github.com/orpiske))
+- Removed download page [\#826](https://github.com/apache/camel-kafka-connector/pull/826) ([oscerd](https://github.com/oscerd))
+- Fix docs link [\#819](https://github.com/apache/camel-kafka-connector/pull/819) ([oscerd](https://github.com/oscerd))
+- Added src distribution to sha512 generation list includes. [\#818](https://github.com/apache/camel-kafka-connector/pull/818) ([valdar](https://github.com/valdar))
 - 0.7.0 docs [\#814](https://github.com/apache/camel-kafka-connector/pull/814) ([oscerd](https://github.com/oscerd))
 - Camel kafka connector 0.7.x [\#811](https://github.com/apache/camel-kafka-connector/pull/811) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.7.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.1) (2021-01-24)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.0...camel-kafka-connector-0.7.1)
+
+**Implemented enhancements:**
+
+- Produce a download/release page [\#163](https://github.com/apache/camel-kafka-connector/issues/163)
+
+**Fixed bugs:**
+
+- Error reporting configuration incorrectly handled [\#835](https://github.com/apache/camel-kafka-connector/issues/835)
+
+**Closed issues:**
+
+- Camel-Cron connector: We need to add at least camel-quartz as dependency [\#908](https://github.com/apache/camel-kafka-connector/issues/908)
+- Add a column to compatibility matrix about Kafka version [\#896](https://github.com/apache/camel-kafka-connector/issues/896)
+- Bump to Strimzi 0.21.1 [\#894](https://github.com/apache/camel-kafka-connector/issues/894)
+- Bump Apicurio Registry to 1.3.2.Final [\#889](https://github.com/apache/camel-kafka-connector/issues/889)
+- Modify the Github Actions configuration to allow archiving test logs [\#882](https://github.com/apache/camel-kafka-connector/issues/882)
+- HDFS tests running suspiciously flaky on Github actions [\#879](https://github.com/apache/camel-kafka-connector/issues/879)
+- Couchbase dependency missing? [\#878](https://github.com/apache/camel-kafka-connector/issues/878)
+- Bump to Strimzi 0.21.0 [\#876](https://github.com/apache/camel-kafka-connector/issues/876)
+- Bump to Kafka 2.7.0 [\#875](https://github.com/apache/camel-kafka-connector/issues/875)
+- \[Question\] liveness and readiness probes example for camel-kafka-connector [\#874](https://github.com/apache/camel-kafka-connector/issues/874)
+- AWS2-Kinesis: Add examples [\#866](https://github.com/apache/camel-kafka-connector/issues/866)
+- AWS2-Kinesis connector: Add a transformation to extract only the data from a source stream [\#857](https://github.com/apache/camel-kafka-connector/issues/857)
+- Github source connector: Add some transforms to deal with the different possible events [\#853](https://github.com/apache/camel-kafka-connector/issues/853)
+- \[Question\] How to process avro message in S3 connector [\#843](https://github.com/apache/camel-kafka-connector/issues/843)
+- Remove changelog gh action [\#842](https://github.com/apache/camel-kafka-connector/issues/842)
+- Support Parquet input Files using HDFS \(compressed or not compressed\) [\#840](https://github.com/apache/camel-kafka-connector/issues/840)
+- Add Github examples [\#825](https://github.com/apache/camel-kafka-connector/issues/825)
+- Add JDBC examples [\#824](https://github.com/apache/camel-kafka-connector/issues/824)
+- Add Mongodb examples [\#823](https://github.com/apache/camel-kafka-connector/issues/823)
+- Investigate usage of NO\_DEFAULT\_VALUE instead of null for properties [\#821](https://github.com/apache/camel-kafka-connector/issues/821)
+- Reading data from AMQP protocal using Strimzi kafka connector [\#817](https://github.com/apache/camel-kafka-connector/issues/817)
+- Date templating not working in version 0.6.0 [\#812](https://github.com/apache/camel-kafka-connector/issues/812)
+- Camel-AWS2-S3 connector: Add out of the box specific Aggregation Strategies [\#784](https://github.com/apache/camel-kafka-connector/issues/784)
+- using aws2-s3 source and sink to move files between buckets [\#762](https://github.com/apache/camel-kafka-connector/issues/762)
+- Add Braintree examples [\#628](https://github.com/apache/camel-kafka-connector/issues/628)
+- Create example for Couchbase connector [\#597](https://github.com/apache/camel-kafka-connector/issues/597)
+- Create a Google calendar example [\#424](https://github.com/apache/camel-kafka-connector/issues/424)
+
+**Merged pull requests:**
+
+- Upgrade to 3.7.1 and regen [\#917](https://github.com/apache/camel-kafka-connector/pull/917) ([oscerd](https://github.com/oscerd))
+- Camel-Cron connector: We need to add at least camel-quartz as dependency [\#911](https://github.com/apache/camel-kafka-connector/pull/911) ([oscerd](https://github.com/oscerd))
+- Ensures that Couchbase client dependencies are packed with the connector \(GH issue \#878\) [\#892](https://github.com/apache/camel-kafka-connector/pull/892) ([orpiske](https://github.com/orpiske))
+- Idempotency docs 0.7.x [\#852](https://github.com/apache/camel-kafka-connector/pull/852) ([oscerd](https://github.com/oscerd))
+- \(backport\) Ensure the DLQ configuration from Kafka Connect is correctly handled \(issue \#835\) [\#837](https://github.com/apache/camel-kafka-connector/pull/837) ([orpiske](https://github.com/orpiske))
+- \(backport\) Bump camel dependency to use camel 3.7.1-SNAPSHOT [\#832](https://github.com/apache/camel-kafka-connector/pull/832) ([orpiske](https://github.com/orpiske))
+- Set version to 0.7.1-SNAPSHOT [\#831](https://github.com/apache/camel-kafka-connector/pull/831) ([orpiske](https://github.com/orpiske))
+- \(backport 0.7.x\) Fix issue \#159: camel components secret options are showed in logs [\#830](https://github.com/apache/camel-kafka-connector/pull/830) ([orpiske](https://github.com/orpiske))
+- Fix docs links 0.7.x [\#820](https://github.com/apache/camel-kafka-connector/pull/820) ([oscerd](https://github.com/oscerd))
+- 0.7.x docs align [\#815](https://github.com/apache/camel-kafka-connector/pull/815) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.7.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.0) (2020-12-21)
 
