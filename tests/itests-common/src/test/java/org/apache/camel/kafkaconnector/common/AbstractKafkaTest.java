@@ -21,6 +21,7 @@ import org.apache.camel.kafkaconnector.common.services.kafka.KafkaServiceFactory
 import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnectRunnerFactory;
 import org.apache.camel.kafkaconnector.common.services.kafkaconnect.KafkaConnectService;
 import org.apache.camel.kafkaconnector.common.utils.PropertyUtils;
+import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.kafka.services.KafkaService;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
@@ -53,5 +54,9 @@ public abstract class AbstractKafkaTest {
 
     public KafkaConnectService getKafkaConnectService() {
         return kafkaConnectService;
+    }
+
+    protected String getTopicForTest(Object testObject) {
+        return TestUtils.getDefaultTestTopic(testObject.getClass()) + "." + TestUtils.randomWithRange(0, 1000);
     }
 }
