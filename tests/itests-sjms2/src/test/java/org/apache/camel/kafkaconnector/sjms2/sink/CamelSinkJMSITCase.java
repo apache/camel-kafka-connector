@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
+import javax.jms.MessageConsumer;
 import javax.jms.TextMessage;
 
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
@@ -175,9 +176,10 @@ public class CamelSinkJMSITCase extends AbstractKafkaTest {
             jmsClient = JMSClient.newClient(jmsService.defaultEndpoint());
 
             jmsClient.start();
-
-            for (int i = 0; i < expect; i++) {
-                jmsClient.receive(SJMS2Common.DEFAULT_JMS_QUEUE, this::checkRecord);
+            try (MessageConsumer consumer = jmsClient.createConsumer(SJMS2Common.DEFAULT_JMS_QUEUE)) {
+                for (int i = 0; i < expect; i++) {
+                    jmsClient.receive(consumer, this::checkRecord);
+                }
             }
 
         } catch (Exception e) {
