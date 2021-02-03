@@ -1,0 +1,8 @@
+@if{!options.isEmpty()}
+
+@foreach{connector : options}** ${connector.getName()}
+@if{connector.isSource()}*** ${connector.getDocsSource()}
+@end{}@if{connector.isSink()}*** ${connector.getDocsSink()}
+@end{}@end{}
+
+@end{}
