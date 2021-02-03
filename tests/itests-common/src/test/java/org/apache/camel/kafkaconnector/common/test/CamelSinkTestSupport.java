@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.aws.v2.common;
+package org.apache.camel.kafkaconnector.common.test;
 
 import java.time.Duration;
 import java.util.Map;
@@ -31,8 +31,8 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-public abstract class CamelSinkAWSTestSupport extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSTestSupport.class);
+public abstract class CamelSinkTestSupport extends AbstractKafkaTest {
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkTestSupport.class);
 
     protected abstract Map<String, String> messageHeaders(String text, int current);
 

@@ -25,9 +25,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
-import org.apache.camel.kafkaconnector.aws.v2.common.CamelSinkAWSTestSupport;
 import org.apache.camel.kafkaconnector.aws.v2.cw.sink.TestCloudWatchConfiguration;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
@@ -45,7 +45,7 @@ import software.amazon.awssdk.services.ec2.model.InstanceStatus;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class CamelSinkAWSEC2ITCase extends CamelSinkAWSTestSupport {
+public class CamelSinkAWSEC2ITCase extends CamelSinkTestSupport {
     @RegisterExtension
     public static AWSService awsService = AWSServiceFactory.createEC2Service();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSEC2ITCase.class);
