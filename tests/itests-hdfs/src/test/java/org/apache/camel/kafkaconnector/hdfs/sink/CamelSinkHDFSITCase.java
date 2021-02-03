@@ -19,12 +19,12 @@ package org.apache.camel.kafkaconnector.hdfs.sink;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.hdfs.utils.HDFSEasy;
 import org.apache.camel.test.infra.hdfs.v2.services.HDFSService;
@@ -57,6 +57,17 @@ public class CamelSinkHDFSITCase extends CamelSinkTestSupport {
 
     private final int expect = 10;
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return "Sink test message: " + current;
+        }
+    }
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-hdfs-kafka-connector"};
@@ -81,16 +92,6 @@ public class CamelSinkHDFSITCase extends CamelSinkTestSupport {
         if (!hdfsEasy.delete(currentBasePath)) {
             LOG.warn("The directory at {} was not removed", currentBasePath.getName());
         }
-    }
-
-    @Override
-    protected String testMessageContent(int current) {
-        return "Sink test message: " + current;
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
     }
 
     @Override
@@ -153,6 +154,6 @@ public class CamelSinkHDFSITCase extends CamelSinkTestSupport {
                 .withPath(currentBasePath.getName())
                 .withSplitStrategy("MESSAGES:1,IDLE:1000");
 
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

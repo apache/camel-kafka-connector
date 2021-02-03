@@ -17,12 +17,12 @@
 
 package org.apache.camel.kafkaconnector.ssh.sink;
 
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.ssh.services.SshService;
 import org.apache.camel.kafkaconnector.ssh.services.SshServiceFactory;
@@ -47,6 +47,17 @@ public class CamelSinkSshITCase extends CamelSinkTestSupport {
     private final int expect = 3;
     private String topic;
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return "date";
+        }
+    }
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-ssh-kafka-connector"};
@@ -57,15 +68,7 @@ public class CamelSinkSshITCase extends CamelSinkTestSupport {
         topic = TestUtils.getDefaultTestTopic(this.getClass());
     }
 
-    @Override
-    protected String testMessageContent(int current) {
-        return "date";
-    }
 
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
-    }
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {
@@ -90,6 +93,6 @@ public class CamelSinkSshITCase extends CamelSinkTestSupport {
                 .withUsername("root")
                 .withPassword("root");
 
-        runTest(connectorPropertyFactory, topic, expect);
+        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topic, expect));
     }
 }

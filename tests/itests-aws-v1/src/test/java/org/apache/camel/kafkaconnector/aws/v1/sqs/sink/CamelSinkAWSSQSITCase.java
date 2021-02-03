@@ -18,7 +18,6 @@
 package org.apache.camel.kafkaconnector.aws.v1.sqs.sink;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -88,11 +87,6 @@ public class CamelSinkAWSSQSITCase extends CamelSinkTestSupport {
         if (!awssqsClient.deleteQueue(queueName)) {
             fail("Failed to delete queue");
         }
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
     }
 
     @Override

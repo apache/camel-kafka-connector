@@ -90,10 +90,6 @@ public class CamelSinkIdempotentJMSITCase extends CamelSinkTestSupport {
         destinationName = SJMS2Common.DEFAULT_JMS_QUEUE + "-" + TestUtils.randomWithRange(0, 100);
     }
 
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
-    }
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {

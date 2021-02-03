@@ -18,7 +18,6 @@
 package org.apache.camel.kafkaconnector.common.test;
 
 import java.time.Duration;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -26,40 +25,11 @@ import java.util.concurrent.Executors;
 
 import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 public abstract class CamelSinkTestSupport extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkTestSupport.class);
-
-    protected abstract Map<String, String> messageHeaders(String text, int current);
-
-    protected String testMessageContent(int current) {
-        return  "Sink test message " + current;
-    }
-
-    protected void produceMessages(String topicName, int count)  {
-        try {
-            KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-
-            for (int i = 0; i < count; i++) {
-                String message = testMessageContent(i);
-                Map<String, String> headers = messageHeaders(message, i);
-
-                if (headers == null) {
-                    kafkaClient.produce(topicName, message);
-                } else {
-                    kafkaClient.produce(topicName, message, headers);
-                }
-            }
-        } catch (Throwable t) {
-            LOG.error("Unable to publish messages to the broker: {}", t.getMessage(), t);
-            fail(String.format("Unable to publish messages to the broker: %s", t.getMessage()));
-        }
-    }
 
     /**
      * A simple test runner that follows the steps: initialize, start consumer, produce messages, verify results
@@ -70,17 +40,19 @@ public abstract class CamelSinkTestSupport extends AbstractKafkaTest {
      * @throws Exception For test-specific exceptions
      */
     protected void runTest(ConnectorPropertyFactory connectorPropertyFactory, String topic, int count) throws Exception {
-        runTest(connectorPropertyFactory, () -> produceMessages(topic, count));
+        StringMessageProducer stringMessageProducer = new StringMessageProducer(getKafkaService().getBootstrapServers(),
+                topic, count);
+
+        runTest(connectorPropertyFactory, stringMessageProducer);
     }
 
     /**
-     * A more flexible test runner that can use a custom producer of test messages
-     * @param connectorPropertyFactory a factory for connector properties
-     * @param producer the test message producer
-     * @throws ExecutionException
-     * @throws InterruptedException
+     * A simple test runner that follows the steps: initialize, start consumer, produce messages, verify results
+     *
+     * @param connectorPropertyFactory A factory for connector properties
+     * @throws Exception For test-specific exceptions
      */
-    protected void runTest(ConnectorPropertyFactory connectorPropertyFactory, TestMessageProducer producer) throws ExecutionException, InterruptedException {
+    protected void runTest(ConnectorPropertyFactory connectorPropertyFactory, TestMessageProducer producer) throws Exception {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
 
@@ -90,7 +62,33 @@ public abstract class CamelSinkTestSupport extends AbstractKafkaTest {
         CountDownLatch latch = new CountDownLatch(1);
         service.submit(() -> consumeMessages(latch));
 
-        producer.producerMessages();
+        producer.produceMessages();
+
+        LOG.debug("Waiting for the messages to be processed");
+        service.shutdown();
+
+        LOG.debug("Waiting for the test to complete");
+        verifyMessages(latch);
+    }
+
+    /**
+     * A more flexible test runner that can use a custom producer of test messages
+     * @param connectorPropertyFactory a factory for connector properties
+     * @param producer the test message producer
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    protected void runTest(ConnectorPropertyFactory connectorPropertyFactory, FunctionalTestMessageProducer producer) throws ExecutionException, InterruptedException {
+        connectorPropertyFactory.log();
+        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
+
+        LOG.debug("Creating the consumer ...");
+        ExecutorService service = Executors.newCachedThreadPool();
+
+        CountDownLatch latch = new CountDownLatch(1);
+        service.submit(() -> consumeMessages(latch));
+
+        producer.produceMessages();
 
         LOG.debug("Waiting for the messages to be processed");
         service.shutdown();

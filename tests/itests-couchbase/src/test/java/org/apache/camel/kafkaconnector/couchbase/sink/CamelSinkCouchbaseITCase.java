@@ -34,6 +34,7 @@ import com.couchbase.client.java.query.QueryResult;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.couchbase.services.CouchbaseService;
 import org.apache.camel.test.infra.couchbase.services.CouchbaseServiceFactory;
@@ -74,6 +75,28 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
 
     private final int expect = 10;
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            JsonObject jsonObject = JsonObject.create().put("data", String.format("test-%d", current));
+
+            return jsonObject.toString();
+        }
+
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> parameters = new HashMap<>();
+
+            parameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CCB_ID", String.valueOf(current));
+
+            return parameters;
+        }
+    }
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-couchbase-kafka-connector"};
@@ -113,22 +136,6 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
         LOG.debug("Bucket dropped");
 
         cluster.disconnect();
-    }
-
-    @Override
-    protected String testMessageContent(int current) {
-        JsonObject jsonObject = JsonObject.create().put("data", String.format("test-%d", current));
-
-        return jsonObject.toString();
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> parameters = new HashMap<>();
-
-        parameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CCB_ID", String.valueOf(current));
-
-        return parameters;
     }
 
     @Override
@@ -210,7 +217,7 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
                 .withUsername(service.getUsername())
                 .withPassword(service.getPassword());
 
-        runTest(factory, topic, expect);
+        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topic, expect));
     }
 
     @RepeatedTest(10)
@@ -229,6 +236,6 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
                     .buildUrl();
 
 
-        runTest(factory, topic, expect);
+        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topic, expect));
     }
 }
