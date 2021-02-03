@@ -20,6 +20,7 @@ package org.apache.camel.kafkaconnector.common.test;
 import java.time.Duration;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -60,7 +61,26 @@ public abstract class CamelSinkTestSupport extends AbstractKafkaTest {
         }
     }
 
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory, String topic, int count) throws Exception {
+    /**
+     * A simple test runner that follows the steps: initialize, start consumer, produce messages, verify results
+     *
+     * @param connectorPropertyFactory A factory for connector properties
+     * @param topic the topic to send the messages to
+     * @param count the number of messages to send
+     * @throws Exception For test-specific exceptions
+     */
+    protected void runTest(ConnectorPropertyFactory connectorPropertyFactory, String topic, int count) throws Exception {
+        runTest(connectorPropertyFactory, () -> produceMessages(topic, count));
+    }
+
+    /**
+     * A more flexible test runner that can use a custom producer of test messages
+     * @param connectorPropertyFactory a factory for connector properties
+     * @param producer the test message producer
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    protected void runTest(ConnectorPropertyFactory connectorPropertyFactory, TestMessageProducer producer) throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
 
@@ -70,12 +90,15 @@ public abstract class CamelSinkTestSupport extends AbstractKafkaTest {
         CountDownLatch latch = new CountDownLatch(1);
         service.submit(() -> consumeMessages(latch));
 
-        LOG.debug("Creating the producer and sending messages ...");
-        produceMessages(topic, count);
+        producer.producerMessages();
+
+        LOG.debug("Waiting for the messages to be processed");
+        service.shutdown();
 
         LOG.debug("Waiting for the test to complete");
         verifyMessages(latch);
     }
+
 
     protected boolean waitForData() {
         try {

@@ -20,9 +20,7 @@ package org.apache.camel.kafkaconnector.sjms2.sink;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import javax.jms.JMSException;
@@ -31,9 +29,9 @@ import javax.jms.MessageConsumer;
 import javax.jms.TextMessage;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
-import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.sjms2.clients.JMSClient;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
@@ -55,12 +53,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  * Integration tests for the JMS sink using idempotent features
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CamelSinkIdempotentJMSITCase extends AbstractKafkaTest {
-    @FunctionalInterface
-    interface Producer {
-        void producerMessages();
-    }
-
+public class CamelSinkIdempotentJMSITCase extends CamelSinkTestSupport {
     @RegisterExtension
     public static MessagingService jmsService = MessagingServiceBuilder
             .newBuilder(DispatchRouterContainer::new)
@@ -97,25 +90,13 @@ public class CamelSinkIdempotentJMSITCase extends AbstractKafkaTest {
         destinationName = SJMS2Common.DEFAULT_JMS_QUEUE + "-" + TestUtils.randomWithRange(0, 100);
     }
 
-    private boolean checkRecord(Message jmsMessage) {
-        if (jmsMessage instanceof TextMessage) {
-            try {
-                LOG.debug("Received: {}", ((TextMessage) jmsMessage).getText());
-
-                received++;
-
-                return true;
-            } catch (JMSException e) {
-                LOG.error("Failed to read message: {}", e.getMessage(), e);
-                fail("Failed to read message: " + e.getMessage());
-            }
-        }
-
-        return false;
+    @Override
+    protected Map<String, String> messageHeaders(String text, int current) {
+        return null;
     }
 
-
-    private void consumeJMSMessages() {
+    @Override
+    protected void consumeMessages(CountDownLatch latch) {
         JMSClient jmsClient = null;
 
         try {
@@ -145,31 +126,39 @@ public class CamelSinkIdempotentJMSITCase extends AbstractKafkaTest {
             LOG.error("JMS test failed: {}", e.getMessage(), e);
             fail(e.getMessage());
         } finally {
+            latch.countDown();
+
             if (jmsClient != null) {
                 jmsClient.stop();
             }
         }
     }
 
-    private void runTest(ConnectorPropertyFactory connectorPropertyFactory, Producer producer) throws ExecutionException, InterruptedException {
-        connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
-
-        ExecutorService service = Executors.newCachedThreadPool();
-
-        LOG.debug("Creating the consumer ...");
-        service.submit(() -> consumeJMSMessages());
-
-        producer.producerMessages();
-
-        LOG.debug("Waiting for the messages to be processed");
-        service.shutdown();
-
-        if (service.awaitTermination(25, TimeUnit.SECONDS)) {
-            assertEquals(received, expect, "Didn't process the expected amount of messages: " + received + " != " + expect);
+    @Override
+    protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
+        if (latch.await(25, TimeUnit.SECONDS)) {
+            assertEquals(received, expect, "Didn't process the expected amount of messages: " + received
+                    + " != " + expect);
         } else {
             fail("Failed to receive the messages within the specified time");
         }
+    }
+
+    private boolean checkRecord(Message jmsMessage) {
+        if (jmsMessage instanceof TextMessage) {
+            try {
+                LOG.debug("Received: {}", ((TextMessage) jmsMessage).getText());
+
+                received++;
+
+                return true;
+            } catch (JMSException e) {
+                LOG.error("Failed to read message: {}", e.getMessage(), e);
+                fail("Failed to read message: " + e.getMessage());
+            }
+        }
+
+        return false;
     }
 
     private void produceMessagesNoProperties() {
