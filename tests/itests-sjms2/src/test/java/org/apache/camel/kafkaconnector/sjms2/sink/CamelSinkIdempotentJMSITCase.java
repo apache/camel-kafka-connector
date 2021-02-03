@@ -62,6 +62,7 @@ public class CamelSinkIdempotentJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkIdempotentJMSITCase.class);
 
     private String topic;
+    private String destinationName;
     private int received;
     private final int expect = 10;
 
@@ -84,6 +85,7 @@ public class CamelSinkIdempotentJMSITCase extends AbstractKafkaTest {
         LOG.info("JMS service running at {}", jmsService.defaultEndpoint());
         received = 0;
         topic = TestUtils.getDefaultTestTopic(this.getClass());
+        destinationName = SJMS2Common.DEFAULT_JMS_QUEUE + "-" + TestUtils.randomWithRange(0, 100);
     }
 
     private boolean checkRecord(Message jmsMessage) {
@@ -111,7 +113,7 @@ public class CamelSinkIdempotentJMSITCase extends AbstractKafkaTest {
             jmsClient = JMSClient.newClient(jmsService.defaultEndpoint());
             jmsClient.start();
 
-            try (MessageConsumer consumer = jmsClient.createConsumer(SJMS2Common.DEFAULT_JMS_QUEUE)) {
+            try (MessageConsumer consumer = jmsClient.createConsumer(destinationName)) {
                 // number of retries until stale
                 int retries = 10;
 
@@ -176,7 +178,7 @@ public class CamelSinkIdempotentJMSITCase extends AbstractKafkaTest {
                     .basic()
                     .withTopics(topic)
                     .withConnectionProperties(connectionProperties())
-                    .withDestinationName(SJMS2Common.DEFAULT_JMS_QUEUE)
+                    .withDestinationName(destinationName)
                     .withIdempotency()
                         .withRepositoryType("memory")
                         .withExpressionType("body")
