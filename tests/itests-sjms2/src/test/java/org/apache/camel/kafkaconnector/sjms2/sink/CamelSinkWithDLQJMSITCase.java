@@ -44,7 +44,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class CamelSinkWithDLQJMSITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkWithDLQJMSITCase.class);
 
-    private int received;
     private final int expect = 10;
     private int errors;
     private final int expectedErrors = 1;
@@ -65,7 +64,6 @@ public class CamelSinkWithDLQJMSITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
-        received = 0;
         errors = 0;
     }
 
