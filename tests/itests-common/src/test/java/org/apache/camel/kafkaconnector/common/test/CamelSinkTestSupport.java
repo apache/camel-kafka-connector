@@ -36,12 +36,16 @@ public abstract class CamelSinkTestSupport extends AbstractKafkaTest {
 
     protected abstract Map<String, String> messageHeaders(String text, int current);
 
+    protected String testMessageContent(int current) {
+        return  "Sink test message " + current;
+    }
+
     protected void produceMessages(String topicName, int count)  {
         try {
             KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
             for (int i = 0; i < count; i++) {
-                String message = "Sink test message " + i;
+                String message = testMessageContent(i);
                 Map<String, String> headers = messageHeaders(message, i);
 
                 if (headers == null) {
