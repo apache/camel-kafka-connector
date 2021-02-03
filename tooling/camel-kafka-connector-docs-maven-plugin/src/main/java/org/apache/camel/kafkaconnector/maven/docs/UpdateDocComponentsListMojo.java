@@ -169,14 +169,21 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                 tableModel.setOptions(options);
             }
         }
-        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/pages/");
-        File docFileWebsite = new File(docFolderWebsite, "connectors.adoc");
+        File docFolderWebsite = new File(projectBaseDir, "docs/modules/ROOT/");
+        File docFileWebsite = new File(docFolderWebsite, "pages/connectors.adoc");
         String changed = templateConnnectorsTable(tableModel);
         boolean updated = updateConnectorsTable(docFileWebsite, changed);
         if (updated) {
             getLog().info("Updated connectors table file: " + docFileWebsite);
         } else {
             getLog().debug("No changes to connectors table file: " + docFileWebsite);
+        }
+        File navWebsite = new File(docFolderWebsite, "nav.adoc");
+        boolean navUpdated = updateNav(navWebsite, tableModel);
+        if (navUpdated) {
+            getLog().info("Updated nav file: " + navWebsite);
+        } else {
+            getLog().debug("No changes to nav file: " + navWebsite);
         }
     }
 
@@ -222,6 +229,44 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                 getLog().warn("Add the following markers");
                 getLog().warn("\t// kafka-connectors list: START");
                 getLog().warn("\t// kafka-connectors list: END");
+                return false;
+            }
+        } catch (Exception e) {
+            throw new MojoExecutionException("Error reading file " + file + " Reason: " + e, e);
+        }
+    }
+
+    private boolean updateNav(File file, CamelKafkaConnectorTableModel model) throws MojoExecutionException {
+        String changed = null;
+        try {
+            String template = loadText(UpdateDocComponentsListMojo.class.getClassLoader().getResourceAsStream("nav.mvel"));
+            changed = (String)TemplateRuntime.eval(template, model, Collections.singletonMap("util", MvelHelper.INSTANCE));
+        } catch (Exception e) {
+            throw new MojoExecutionException("Error processing mvel template. Reason: " + e, e);
+        }
+
+        try {
+            String text = loadText(file);
+
+            String existing = Strings.between(text, "// connectors: START", "// connectors: END");
+            if (existing != null) {
+                // remove leading line breaks etc
+                existing = existing.trim();
+                changed = changed.trim();
+                if (existing.equals(changed)) {
+                    return false;
+                } else {
+                    String before = Strings.before(text, "// connectors: START");
+                    String after = Strings.after(text, "// connectors: END");
+                    text = before + "// connectors: START\n" + changed + "\n// connectors: END" + after;
+                    writeText(file, text);
+                    return true;
+                }
+            } else {
+                getLog().warn("Cannot find markers in file " + file);
+                getLog().warn("Add the following markers");
+                getLog().warn("\t// connectors: START");
+                getLog().warn("\t// connectors: END");
                 return false;
             }
         } catch (Exception e) {
