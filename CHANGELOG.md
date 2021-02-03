@@ -24,6 +24,7 @@
 
 **Merged pull requests:**
 
+- Added a basic test for idempotency [\#960](https://github.com/apache/camel-kafka-connector/pull/960) ([orpiske](https://github.com/orpiske))
 - Re-introduce changelog [\#956](https://github.com/apache/camel-kafka-connector/pull/956) ([oscerd](https://github.com/oscerd))
 - Backport action: Added license [\#954](https://github.com/apache/camel-kafka-connector/pull/954) ([oscerd](https://github.com/oscerd))
 - Removed node setup from backport action [\#952](https://github.com/apache/camel-kafka-connector/pull/952) ([oscerd](https://github.com/oscerd))
@@ -437,6 +438,7 @@
 - .asf.yaml: Enabled only rebase and squash button on PR [\#471](https://github.com/apache/camel-kafka-connector/pull/471) ([oscerd](https://github.com/oscerd))
 - Replaced the use of kubectl with oc command. [\#468](https://github.com/apache/camel-kafka-connector/pull/468) ([valdar](https://github.com/valdar))
 - Updated opesnhift documentation to strimzi 0.19.0 and compatible with… [\#467](https://github.com/apache/camel-kafka-connector/pull/467) ([valdar](https://github.com/valdar))
+- Changelog on camel-master should push on camel-master [\#466](https://github.com/apache/camel-kafka-connector/pull/466) ([oscerd](https://github.com/oscerd))
 - Document update [\#464](https://github.com/apache/camel-kafka-connector/pull/464) ([NiteshKoushik](https://github.com/NiteshKoushik))
 - Document Update [\#461](https://github.com/apache/camel-kafka-connector/pull/461) ([NiteshKoushik](https://github.com/NiteshKoushik))
 - Document Update [\#460](https://github.com/apache/camel-kafka-connector/pull/460) ([NiteshKoushik](https://github.com/NiteshKoushik))
