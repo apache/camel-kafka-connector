@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.jdbc.client.DatabaseClient;
 import org.apache.camel.kafkaconnector.jdbc.services.TestDataSource;
@@ -73,6 +74,28 @@ public class CamelSinkJDBCITCase extends CamelSinkTestSupport {
                 .build();
     }
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return "insert into test(test_name, test_data) values(:?TestName, :?TestData)";
+        }
+
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> jdbcParameters = new HashMap<>();
+
+            // The prefix 'CamelHeader' is removed by the SinkTask
+            jdbcParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestName", "SomeName" + TestUtils.randomWithRange(0, 100));
+            jdbcParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestData", "test data " + current);
+
+            return jdbcParameters;
+        }
+    }
+
     @BeforeEach
     public void setUp() throws SQLException {
         topicName = getTopicForTest(this);
@@ -83,22 +106,6 @@ public class CamelSinkJDBCITCase extends CamelSinkTestSupport {
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-jdbc-kafka-connector"};
-    }
-
-    @Override
-    protected String testMessageContent(int current) {
-        return "insert into test(test_name, test_data) values(:?TestName, :?TestData)";
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> jdbcParameters = new HashMap<>();
-
-        // The prefix 'CamelHeader' is removed by the SinkTask
-        jdbcParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestName", "SomeName" + TestUtils.randomWithRange(0, 100));
-        jdbcParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestData", "test data " + current);
-
-        return jdbcParameters;
     }
 
     @Override
@@ -159,6 +166,6 @@ public class CamelSinkJDBCITCase extends CamelSinkTestSupport {
                 .withUseHeaderAsParameters(true)
                 .withTopics(topicName);
 
-        runTest(factory, topicName, expect);
+        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

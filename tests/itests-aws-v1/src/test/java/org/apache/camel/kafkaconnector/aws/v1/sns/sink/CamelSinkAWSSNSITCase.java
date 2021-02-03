@@ -18,7 +18,6 @@
 package org.apache.camel.kafkaconnector.aws.v1.sns.sink;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -78,11 +77,6 @@ public class CamelSinkAWSSNSITCase extends CamelSinkTestSupport {
 
         LOG.info("Created SQS queue {}", sqsQueueUrl);
         received = 0;
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
     }
 
     @Override

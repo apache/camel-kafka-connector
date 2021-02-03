@@ -30,6 +30,7 @@ import com.azure.storage.blob.models.BlobItem;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.azure.common.AzureCredentialsHolder;
 import org.apache.camel.test.infra.azure.common.services.AzureService;
@@ -62,6 +63,30 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
     private int expect = 10;
     private int received;
 
+    private class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return "test " + current + " data";
+        }
+
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> messageParameters = new HashMap<>();
+
+            String sentFile = "test " + current;
+
+            sentData.put(sentFile, testMessageContent(current));
+
+            messageParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAzureStorageBlobBlobName", sentFile);
+
+            return messageParameters;
+        }
+    }
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[]{"camel-azure-storage-blob-kafka-connector"};
@@ -81,24 +106,6 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
         if (client != null) {
             client.deleteBlobContainer(blobContainerName);
         }
-    }
-
-    @Override
-    protected String testMessageContent(int current) {
-        return "test " + current + " data";
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> messageParameters = new HashMap<>();
-
-        String sentFile = "test " + current;
-
-        sentData.put(sentFile, testMessageContent(current));
-
-        messageParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAzureStorageBlobBlobName", sentFile);
-
-        return messageParameters;
     }
 
     @Override
@@ -163,7 +170,7 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
                 .withContainerName(blobContainerName)
                 .withOperation("uploadBlockBlob");
 
-        runTest(factory, topicName, expect);
+        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 
     @Test
@@ -180,6 +187,6 @@ public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
                     .append("operation", "uploadBlockBlob")
                     .buildUrl();
 
-        runTest(factory, topicName, expect);
+        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }
