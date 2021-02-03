@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.cassandra.sink;
 
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -82,11 +81,6 @@ public class CamelSinkCassandraITCase extends CamelSinkTestSupport {
                 LOG.warn("Unable to drop the table: {}", e.getMessage(), e);
             }
         }
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
     }
 
     @Override

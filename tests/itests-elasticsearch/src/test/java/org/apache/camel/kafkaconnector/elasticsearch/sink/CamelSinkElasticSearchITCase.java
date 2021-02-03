@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.elasticsearch.sink;
 
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -74,11 +73,6 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
     }
 
     @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
-    }
-
-    @Override
     protected void consumeMessages(CountDownLatch latch) {
         try {
             client.waitForIndex();
@@ -88,7 +82,6 @@ public class CamelSinkElasticSearchITCase extends CamelSinkTestSupport {
         } finally {
             latch.countDown();
         }
-
     }
 
     @Override

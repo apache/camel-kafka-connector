@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
@@ -62,6 +63,23 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
     private volatile int received;
     private final int expect = 10;
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> headers = new HashMap<>();
+
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsCwMetricDimensionName",
+                    "test-dimension-" + current);
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsCwMetricDimensionValue", String.valueOf(current));
+
+            return headers;
+        }
+    }
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-aws2-cw-kafka-connector"};
@@ -75,17 +93,6 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
         LOG.debug("Using namespace {} for the test", namespace);
 
         received = 0;
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> headers = new HashMap<>();
-
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsCwMetricDimensionName",
-                "test-dimension-" + current);
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsCwMetricDimensionValue", String.valueOf(current));
-
-        return headers;
     }
 
     @Override
@@ -134,23 +141,18 @@ public class CamelSinkAWSCWITCase extends CamelSinkTestSupport {
 
     @Test
     @Timeout(value = 120)
-    public void testBasicSendReceive() {
-        try {
-            Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = TestUtils.getDefaultTestTopic(this.getClass());
+    public void testBasicSendReceive() throws Exception {
+        Properties amazonProperties = awsService.getConnectionProperties();
+        String topicName = TestUtils.getDefaultTestTopic(this.getClass());
 
-            ConnectorPropertyFactory testProperties = CamelAWSCWPropertyFactory
-                    .basic()
-                    .withTopics(topicName)
-                    .withConfiguration(TestCloudWatchConfiguration.class.getName())
-                    .withAmazonConfig(amazonProperties)
-                    .withName(metricName)
-                    .withSinkPathNamespace(namespace);
+        ConnectorPropertyFactory testProperties = CamelAWSCWPropertyFactory
+                .basic()
+                .withTopics(topicName)
+                .withConfiguration(TestCloudWatchConfiguration.class.getName())
+                .withAmazonConfig(amazonProperties)
+                .withName(metricName)
+                .withSinkPathNamespace(namespace);
 
-            runTest(testProperties, topicName, expect);
-        } catch (Exception e) {
-            LOG.error("Amazon CloudWatch test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
-        }
+        runTest(testProperties, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

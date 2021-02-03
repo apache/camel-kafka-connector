@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.sql.client.DatabaseClient;
 import org.apache.camel.kafkaconnector.sql.services.TestDataSource;
@@ -54,6 +55,28 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
     private final int expect = 1;
     private int received;
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return "test";
+        }
+
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> sqlParameters = new HashMap<>();
+
+            // The prefix 'CamelHeader' is removed by the SinkTask
+            sqlParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestName", "SomeName" + TestUtils.randomWithRange(0, 100));
+            sqlParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestData", "test data " + current);
+
+            return sqlParameters;
+        }
+    }
+
     public CamelSinkSQLITCase() {
         JdbcDatabaseContainer<?> container = new PostgreSQLContainer<>("postgres:9.6.2")
                 .withDatabaseName("camel")
@@ -80,21 +103,6 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
         client = new DatabaseClient(sqlService.jdbcUrl());
     }
 
-    @Override
-    protected String testMessageContent(int current) {
-        return "test";
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> sqlParameters = new HashMap<>();
-
-        // The prefix 'CamelHeader' is removed by the SinkTask
-        sqlParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestName", "SomeName" + TestUtils.randomWithRange(0, 100));
-        sqlParameters.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "TestData", "test data " + current);
-
-        return sqlParameters;
-    }
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {
@@ -149,6 +157,6 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
                 .withQuery("insert into test(test_name, test_data) values(:#TestName,:#TestData)")
                 .withTopics(topicName);
 
-        runTest(factory, topicName, expect);
+        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

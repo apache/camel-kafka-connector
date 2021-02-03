@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.azure.storage.queue.sink;
 
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -79,11 +78,6 @@ public class CamelSinkAzureStorageQueueITCase extends CamelSinkTestSupport {
         if (client != null) {
             client.deleteQueue(queueName);
         }
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
     }
 
     @Override

@@ -16,12 +16,12 @@
  */
 package org.apache.camel.kafkaconnector.syslog.sink;
 
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.kafkaconnector.syslog.services.SyslogService;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,6 +49,17 @@ public class CamelSinkSyslogITCase extends CamelSinkTestSupport {
     private String topicName;
     private final int expect = 1;
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return TEST_TXT;
+        }
+    }
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-syslog-kafka-connector"};
@@ -59,15 +70,6 @@ public class CamelSinkSyslogITCase extends CamelSinkTestSupport {
         topicName = getTopicForTest(this);
     }
 
-    @Override
-    protected String testMessageContent(int current) {
-        return TEST_TXT;
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
-    }
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {
@@ -94,6 +96,6 @@ public class CamelSinkSyslogITCase extends CamelSinkTestSupport {
                 .withPort(FREE_PORT)
                 .withProtocol("udp");
 
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

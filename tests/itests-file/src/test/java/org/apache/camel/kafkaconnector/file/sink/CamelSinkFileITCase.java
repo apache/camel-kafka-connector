@@ -27,12 +27,12 @@ import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -57,6 +57,17 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
     private String topicName;
     private final int expect = 1;
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return "test";
+        }
+    }
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-file-kafka-connector"};
@@ -78,16 +89,6 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
         if (doneFile.exists()) {
             doneFile.delete();
         }
-    }
-
-    @Override
-    protected String testMessageContent(int current) {
-        return "test";
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
     }
 
     @Override
@@ -195,7 +196,7 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
                 .withFileName(FILENAME)
                 .withDoneFileName(FILENAME + ".done");
 
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 
     @Test
@@ -208,6 +209,6 @@ public class CamelSinkFileITCase extends CamelSinkTestSupport {
                 .append("doneFileName", FILENAME + ".done")
                 .buildUrl();
 
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

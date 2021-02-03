@@ -17,7 +17,6 @@
 package org.apache.camel.kafkaconnector.rabbitmq.sink;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -71,11 +70,6 @@ public class RabbitMQSinkITCase extends CamelSinkTestSupport {
     @AfterEach
     public void tearDown() {
         rabbitMQClient.stop();
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
     }
 
     @Override

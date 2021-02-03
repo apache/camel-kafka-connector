@@ -17,7 +17,6 @@
 
 package org.apache.camel.kafkaconnector.mongodb.sink;
 
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -27,6 +26,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.apache.camel.kafkaconnector.common.BasicConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.mongodb.services.MongoDBService;
 import org.apache.camel.test.infra.mongodb.services.MongoDBServiceFactory;
@@ -56,6 +56,17 @@ public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
 
     private final int expect = 10;
 
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public String testMessageContent(int current) {
+            return String.format("{\"test\": \"value %d\"}", current);
+        }
+    }
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[]{"camel-mongodb-kafka-connector"};
@@ -66,16 +77,6 @@ public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
     public void setUp() {
         topicName = getTopicForTest(this);
         mongoClient = MongoClients.create(mongoDBService.getReplicaSetUrl());
-    }
-
-    @Override
-    protected String testMessageContent(int current) {
-        return String.format("{\"test\": \"value %d\"}", current);
-    }
-
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
     }
 
     @Override
@@ -127,6 +128,6 @@ public class CamelSinkMongoDBITCase extends CamelSinkTestSupport {
                 .withCollection("testRecords")
                 .withOperation("insert");
 
-        runTest(factory, topicName, expect);
+        runTest(factory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }
