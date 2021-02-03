@@ -20,7 +20,6 @@ package org.apache.camel.kafkaconnector.http.sink;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -85,10 +84,6 @@ public class CamelSinkHTTPITCase extends CamelSinkTestSupport {
         }
     }
 
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        return null;
-    }
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {

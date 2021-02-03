@@ -17,14 +17,7 @@
 
 package org.apache.camel.kafkaconnector.common.test;
 
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
-
-/**
- * A producer of test messages
- */
-public interface TestMessageProducer<T> {
-    Map<String, String> messageHeaders(T text, int current);
-    T testMessageContent(int current);
-    void produceMessages() throws ExecutionException, InterruptedException;
+@FunctionalInterface
+public interface FunctionalTestMessageProducer {
+    void produceMessages();
 }

@@ -18,13 +18,29 @@
 package org.apache.camel.kafkaconnector.common.test;
 
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
+
+import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 
 /**
- * A producer of test messages
+ * A producer that sends the 'count' amount of text messages to the Kafka broker
  */
-public interface TestMessageProducer<T> {
-    Map<String, String> messageHeaders(T text, int current);
-    T testMessageContent(int current);
-    void produceMessages() throws ExecutionException, InterruptedException;
+public class StringMessageProducer extends AbstractTestMessageProducer<String> {
+
+    public StringMessageProducer(String bootStrapServer, String topicName, int count) {
+        super(bootStrapServer, topicName, count);
+    }
+
+    public StringMessageProducer(KafkaClient<String, String> kafkaClient, String topicName, int count) {
+        super(kafkaClient, topicName, count);
+    }
+
+    @Override
+    public Map<String, String> messageHeaders(String text, int current) {
+        return null;
+    }
+
+    @Override
+    public String testMessageContent(int current) {
+        return "Sink test message " + current;
+    }
 }
