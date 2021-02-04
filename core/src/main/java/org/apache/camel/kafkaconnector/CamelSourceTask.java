@@ -73,11 +73,11 @@ public class CamelSourceTask extends SourceTask {
             Map<String, String> actualProps = TaskHelper.combineDefaultAndLoadedProperties(getDefaultConfig(), props);
             CamelSourceConnectorConfig config = getCamelSourceConnectorConfig(actualProps);
 
+            String levelStr = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF);
             try {
-                String levelStr = config.getString(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF);
-                loggingLevel = LoggingLevel.valueOf(levelStr.toLowerCase());
+                loggingLevel = LoggingLevel.valueOf(levelStr.toUpperCase());
             } catch (Exception e) {
-                LOG.debug("Invalid value for {} property", CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF);
+                LOG.error("Invalid value {} for {} property", levelStr.toUpperCase(), CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF);
             }
 
             maxBatchPollSize = config.getLong(CamelSourceConnectorConfig.CAMEL_SOURCE_MAX_BATCH_POLL_SIZE_CONF);
@@ -152,7 +152,6 @@ public class CamelSourceTask extends SourceTask {
     private long remaining(long startPollEpochMilli, long maxPollDuration)  {
         return maxPollDuration - (Instant.now().toEpochMilli() - startPollEpochMilli);
     }
-
 
     @Override
     public synchronized List<SourceRecord> poll() {
@@ -312,5 +311,13 @@ public class CamelSourceTask extends SourceTask {
 
     CamelKafkaConnectMain getCms() {
         return cms;
+    }
+
+    public LoggingLevel getLoggingLevel() {
+        return loggingLevel;
+    }
+
+    public void setLoggingLevel(LoggingLevel loggingLevel) {
+        this.loggingLevel = loggingLevel;
     }
 }
