@@ -14,6 +14,7 @@
 
 **Closed issues:**
 
+- Camel-master: Let's change the gh action to be triggered when a push on master has been done [\#939](https://github.com/apache/camel-kafka-connector/issues/939)
 - Add a map Camel Headers to Kafka headers option to make the behavior configurable [\#923](https://github.com/apache/camel-kafka-connector/issues/923)
 - Add a map Camel Properties to Kafka headers option to make the behavior configurable [\#922](https://github.com/apache/camel-kafka-connector/issues/922)
 - Java 14 support [\#913](https://github.com/apache/camel-kafka-connector/issues/913)
@@ -21,9 +22,16 @@
 - Upgrade to Camel 3.7.1 the 0.7.x branch and release [\#872](https://github.com/apache/camel-kafka-connector/issues/872)
 - Camel-Master: SJMS2 it test is failing [\#844](https://github.com/apache/camel-kafka-connector/issues/844)
 - Support camel dataformat configuration for marshaller/unmarshaller [\#816](https://github.com/apache/camel-kafka-connector/issues/816)
+- Introduce Error Handling Options possibilities [\#407](https://github.com/apache/camel-kafka-connector/issues/407)
 
 **Merged pull requests:**
 
+- Cleanup sink test cases [\#970](https://github.com/apache/camel-kafka-connector/pull/970) ([orpiske](https://github.com/orpiske))
+- Revert "Test PR" [\#968](https://github.com/apache/camel-kafka-connector/pull/968) ([oscerd](https://github.com/oscerd))
+- Test PR [\#965](https://github.com/apache/camel-kafka-connector/pull/965) ([oscerd](https://github.com/oscerd))
+- Add connector entries to doc nav [\#964](https://github.com/apache/camel-kafka-connector/pull/964) ([tadayosi](https://github.com/tadayosi))
+- Added idempotency test using header expressions [\#963](https://github.com/apache/camel-kafka-connector/pull/963) ([orpiske](https://github.com/orpiske))
+- SJMS2 itests: Avoid creating a new consumer for every message received [\#962](https://github.com/apache/camel-kafka-connector/pull/962) ([orpiske](https://github.com/orpiske))
 - Added a basic test for idempotency [\#960](https://github.com/apache/camel-kafka-connector/pull/960) ([orpiske](https://github.com/orpiske))
 - Re-introduce changelog [\#956](https://github.com/apache/camel-kafka-connector/pull/956) ([oscerd](https://github.com/oscerd))
 - Backport action: Added license [\#954](https://github.com/apache/camel-kafka-connector/pull/954) ([oscerd](https://github.com/oscerd))
@@ -97,7 +105,6 @@
 - Fix docs link [\#819](https://github.com/apache/camel-kafka-connector/pull/819) ([oscerd](https://github.com/oscerd))
 - Added src distribution to sha512 generation list includes. [\#818](https://github.com/apache/camel-kafka-connector/pull/818) ([valdar](https://github.com/valdar))
 - 0.7.0 docs [\#814](https://github.com/apache/camel-kafka-connector/pull/814) ([oscerd](https://github.com/oscerd))
-- Camel kafka connector 0.7.x [\#811](https://github.com/apache/camel-kafka-connector/pull/811) ([valdar](https://github.com/valdar))
 
 ## [camel-kafka-connector-0.7.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.1) (2021-01-24)
 
@@ -178,6 +185,7 @@
 
 **Merged pull requests:**
 
+- Camel kafka connector 0.7.x [\#811](https://github.com/apache/camel-kafka-connector/pull/811) ([valdar](https://github.com/valdar))
 - Fix pre release [\#810](https://github.com/apache/camel-kafka-connector/pull/810) ([valdar](https://github.com/valdar))
 - Added Kafka idempotent repository cache size and poll timeout docs in… [\#809](https://github.com/apache/camel-kafka-connector/pull/809) ([oscerd](https://github.com/oscerd))
 - Salesforce fixes [\#808](https://github.com/apache/camel-kafka-connector/pull/808) ([orpiske](https://github.com/orpiske))
@@ -438,7 +446,6 @@
 - .asf.yaml: Enabled only rebase and squash button on PR [\#471](https://github.com/apache/camel-kafka-connector/pull/471) ([oscerd](https://github.com/oscerd))
 - Replaced the use of kubectl with oc command. [\#468](https://github.com/apache/camel-kafka-connector/pull/468) ([valdar](https://github.com/valdar))
 - Updated opesnhift documentation to strimzi 0.19.0 and compatible with… [\#467](https://github.com/apache/camel-kafka-connector/pull/467) ([valdar](https://github.com/valdar))
-- Changelog on camel-master should push on camel-master [\#466](https://github.com/apache/camel-kafka-connector/pull/466) ([oscerd](https://github.com/oscerd))
 - Document update [\#464](https://github.com/apache/camel-kafka-connector/pull/464) ([NiteshKoushik](https://github.com/NiteshKoushik))
 - Document Update [\#461](https://github.com/apache/camel-kafka-connector/pull/461) ([NiteshKoushik](https://github.com/NiteshKoushik))
 - Document Update [\#460](https://github.com/apache/camel-kafka-connector/pull/460) ([NiteshKoushik](https://github.com/NiteshKoushik))
@@ -554,6 +561,7 @@
 - Added connector class on each connector documentation page [\#405](https://github.com/apache/camel-kafka-connector/pull/405) ([oscerd](https://github.com/oscerd))
 - Added a pipeline for deploying on daily basis [\#404](https://github.com/apache/camel-kafka-connector/pull/404) ([oscerd](https://github.com/oscerd))
 - \#389 - Fix doc- Kubernetes command [\#401](https://github.com/apache/camel-kafka-connector/pull/401) ([rogeriob2br](https://github.com/rogeriob2br))
+- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#397](https://github.com/apache/camel-kafka-connector/pull/397) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Fix mongodb test [\#396](https://github.com/apache/camel-kafka-connector/pull/396) ([unsortedhashsets](https://github.com/unsortedhashsets))
 - Removed wrong terminal output from example in archetype docs [\#394](https://github.com/apache/camel-kafka-connector/pull/394) ([oscerd](https://github.com/oscerd))
 - Kafka-clients is not a test dependency [\#393](https://github.com/apache/camel-kafka-connector/pull/393) ([oscerd](https://github.com/oscerd))
@@ -722,7 +730,6 @@
 - Fixed con cong autogen [\#222](https://github.com/apache/camel-kafka-connector/pull/222) ([valdar](https://github.com/valdar))
 - Remove core from test plugin path [\#218](https://github.com/apache/camel-kafka-connector/pull/218) ([orpiske](https://github.com/orpiske))
 - Sink test refactoring [\#216](https://github.com/apache/camel-kafka-connector/pull/216) ([fvaleri](https://github.com/fvaleri))
-- Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
 
 ## [camel-kafka-connector-0.2.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.2.0) (2020-05-17)
 
@@ -769,6 +776,7 @@
 - Generate a table with supported connectors [\#198](https://github.com/apache/camel-kafka-connector/pull/198) ([oscerd](https://github.com/oscerd))
 - Make the topics property consistent between source and sink connectors [\#196](https://github.com/apache/camel-kafka-connector/pull/196) ([oscerd](https://github.com/oscerd))
 - Produce an assembly artifact containing all the released artifacts [\#195](https://github.com/apache/camel-kafka-connector/pull/195) ([oscerd](https://github.com/oscerd))
+- Add contentLogLevel task property [\#193](https://github.com/apache/camel-kafka-connector/pull/193) ([fvaleri](https://github.com/fvaleri))
 - Switched to use RuntimeCatalog.asEndpointUri method to construct the … [\#192](https://github.com/apache/camel-kafka-connector/pull/192) ([valdar](https://github.com/valdar))
 - Connectors doc: Show up only the priority in the table column [\#190](https://github.com/apache/camel-kafka-connector/pull/190) ([oscerd](https://github.com/oscerd))
 - Added test on different component properties formats fix \#132 [\#187](https://github.com/apache/camel-kafka-connector/pull/187) ([valdar](https://github.com/valdar))
