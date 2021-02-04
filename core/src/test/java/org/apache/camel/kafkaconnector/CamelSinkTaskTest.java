@@ -1111,4 +1111,17 @@ public class CamelSinkTaskTest {
         }
     }
 
+    @Test
+    public void testContentLogLevelConfiguration() {
+        Map<String, String> props = new HashMap<>();
+        props.put(TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF, "INFO");
+
+        CamelSinkTask sinkTask = new CamelSinkTask();
+        sinkTask.start(props);
+        assertEquals(LoggingLevel.INFO, sinkTask.getLoggingLevel());
+
+        sinkTask.stop();
+    }
 }
