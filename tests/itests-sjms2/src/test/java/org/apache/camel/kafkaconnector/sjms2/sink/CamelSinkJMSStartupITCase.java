@@ -52,7 +52,7 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
         Properties properties = new Properties();
 
         properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
-        properties.put("camel.component.sjms2.connection-factory.remoteURI", "tcp://invalid");
+        properties.put("camel.component.sjms2.connection-factory.remoteURI", "amqp://invalid");
 
         return properties;
     }
@@ -100,7 +100,7 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
         assertFalse(running, "The connector should be in a failed state");
 
         LOG.trace(trace);
-        assertTrue(trace.contains("Failed to resolve endpoint"),
+        assertTrue(trace.contains("Name or service not known"),
                 "Trace should contain a Camel error message");
     }
 
