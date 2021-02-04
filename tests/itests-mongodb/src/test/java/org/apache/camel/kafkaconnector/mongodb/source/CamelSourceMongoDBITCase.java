@@ -36,6 +36,7 @@ import org.apache.camel.test.infra.mongodb.services.MongoDBServiceFactory;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.bson.Document;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -45,6 +46,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Disabled(value = "Disabled due to issue #974")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceMongoDBITCase extends AbstractKafkaTest {
     @RegisterExtension
