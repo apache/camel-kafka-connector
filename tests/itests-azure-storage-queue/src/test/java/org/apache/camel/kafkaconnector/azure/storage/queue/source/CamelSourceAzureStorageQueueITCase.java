@@ -34,6 +34,7 @@ import org.apache.camel.test.infra.azure.storage.queue.services.AzureStorageQueu
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -43,6 +44,7 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Disabled(value = "Disabled due to issue #976")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceAzureStorageQueueITCase extends AbstractKafkaTest {
     @RegisterExtension
