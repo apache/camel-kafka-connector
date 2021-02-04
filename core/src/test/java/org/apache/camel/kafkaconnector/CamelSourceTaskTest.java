@@ -607,4 +607,18 @@ public class CamelSourceTaskTest {
             sourceTask.stop();
         }
     }
+
+    @Test
+    public void testContentLogLevelConfiguration() {
+        Map<String, String> props = new HashMap<>();
+        props.put(CamelSourceConnectorConfig.TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF, DIRECT_URI);
+        props.put(CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF, "INFO");
+
+        CamelSourceTask sourceTask = new CamelSourceTask();
+        sourceTask.start(props);
+        assertEquals(LoggingLevel.INFO, sourceTask.getLoggingLevel());
+
+        sourceTask.stop();
+    }
 }
