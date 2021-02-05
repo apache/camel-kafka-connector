@@ -53,9 +53,6 @@ public class CamelArangodbSinkConnectorConfig
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_CONF = "camel.sink.endpoint.vertexCollection";
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_DOC = "Collection name of vertices, when using ArangoDb as a Graph Database. Set the vertexCollection name to perform CRUD operation on vertices using these operations : SAVE_EDGE, FIND_EDGE_BY_KEY, UPDATE_EDGE, DELETE_EDGE. The graph attribute is mandatory.";
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_DEFAULT = null;
-    public static final String CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_CONF = "camel.sink.endpoint.password";
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_DOC = "ArangoDB password. If user and password are default, this field is Optional.";
     public static final String CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_DEFAULT = null;
@@ -120,7 +117,6 @@ public class CamelArangodbSinkConnectorConfig
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_ARANGODB_ENDPOINT_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_PORT_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_VERTEX_COLLECTION_DOC);
-        conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_ARANGODB_ENDPOINT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_ENDPOINT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_ENDPOINT_USER_DOC);
         conf.define(CAMEL_SINK_ARANGODB_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ARANGODB_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ARANGODB_COMPONENT_CONFIGURATION_DOC);

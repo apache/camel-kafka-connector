@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.cxf.CamelCxfSourceConnector
 ----
 
 
-The camel-cxf source connector supports 35 options, which are listed below.
+The camel-cxf source connector supports 34 options, which are listed below.
 
 
 
@@ -47,7 +47,6 @@ The camel-cxf source connector supports 35 options, which are listed below.
 | *camel.source.endpoint.mtomEnabled* | To enable MTOM (attachments). This requires to use POJO or PAYLOAD data format mode. | false | false | MEDIUM
 | *camel.source.endpoint.properties* | To set additional CXF options using the key/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true | null | false | MEDIUM
 | *camel.source.endpoint.skipPayloadMessagePartCheck* | Sets whether SOAP message validation should be disabled. | false | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.loggingFeatureEnabled* | This option enables CXF Logging Feature which writes inbound and outbound SOAP messages to log. | false | false | MEDIUM
 | *camel.source.endpoint.loggingSizeLimit* | To limit the total size of number of bytes the logger will output when logging feature has been enabled and -1 for no limit. | 49152 | false | MEDIUM
 | *camel.source.endpoint.skipFaultLogging* | This option controls whether the PhaseInterceptorChain skips logging the Fault that it catches. | false | false | MEDIUM

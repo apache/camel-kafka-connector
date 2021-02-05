@@ -186,6 +186,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.queryLocator": {
+			"name": "camel.source.endpoint.queryLocator",
+			"description": "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.rawPayload": {
 			"name": "camel.source.endpoint.rawPayload",
 			"description": "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default",
@@ -301,13 +307,6 @@
 				"InOut",
 				"InOptionalOut"
 			]
-		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.component.salesforce.apexMethod": {
 			"name": "camel.component.salesforce.apexMethod",
@@ -510,6 +509,12 @@
 		"camel.component.salesforce.packages": {
 			"name": "camel.component.salesforce.packages",
 			"description": "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters\/header values. Multiple packages can be separated by comma.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.queryLocator": {
+			"name": "camel.component.salesforce.queryLocator",
+			"description": "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

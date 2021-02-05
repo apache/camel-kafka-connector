@@ -69,9 +69,6 @@ public class CamelOlingo2SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_CLIENT_BUILDER_CONF = "camel.sink.endpoint.httpClientBuilder";
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_CLIENT_BUILDER_DOC = "Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely";
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_CLIENT_BUILDER_DEFAULT = null;
-    public static final String CAMEL_SINK_OLINGO2_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_OLINGO2_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_OLINGO2_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF = "camel.sink.endpoint.sslContextParameters";
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC = "To configure security using SSLContextParameters";
     public static final String CAMEL_SINK_OLINGO2_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT = null;
@@ -151,7 +148,6 @@ public class CamelOlingo2SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OLINGO2_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_DOC);
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_HTTP_CLIENT_BUILDER_DOC);
-        conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OLINGO2_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_OLINGO2_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_OLINGO2_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_OLINGO2_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_OLINGO2_COMPONENT_CONNECT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_OLINGO2_COMPONENT_CONNECT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OLINGO2_COMPONENT_CONNECT_TIMEOUT_DOC);

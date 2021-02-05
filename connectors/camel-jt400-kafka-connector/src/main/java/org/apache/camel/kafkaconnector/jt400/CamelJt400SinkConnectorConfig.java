@@ -66,9 +66,6 @@ public class CamelJt400SinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JT400_ENDPOINT_PROCEDURE_NAME_CONF = "camel.sink.endpoint.procedureName";
     public static final String CAMEL_SINK_JT400_ENDPOINT_PROCEDURE_NAME_DOC = "Procedure name from a service program to call";
     public static final String CAMEL_SINK_JT400_ENDPOINT_PROCEDURE_NAME_DEFAULT = null;
-    public static final String CAMEL_SINK_JT400_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_JT400_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_JT400_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_JT400_ENDPOINT_SECURED_CONF = "camel.sink.endpoint.secured";
     public static final String CAMEL_SINK_JT400_ENDPOINT_SECURED_DOC = "Whether connections to IBM i are secured with SSL.";
     public static final Boolean CAMEL_SINK_JT400_ENDPOINT_SECURED_DEFAULT = false;
@@ -108,7 +105,6 @@ public class CamelJt400SinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JT400_ENDPOINT_OUTPUT_FIELDS_IDX_ARRAY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JT400_ENDPOINT_OUTPUT_FIELDS_IDX_ARRAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JT400_ENDPOINT_OUTPUT_FIELDS_IDX_ARRAY_DOC);
         conf.define(CAMEL_SINK_JT400_ENDPOINT_OUTPUT_FIELDS_LENGTH_ARRAY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JT400_ENDPOINT_OUTPUT_FIELDS_LENGTH_ARRAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JT400_ENDPOINT_OUTPUT_FIELDS_LENGTH_ARRAY_DOC);
         conf.define(CAMEL_SINK_JT400_ENDPOINT_PROCEDURE_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JT400_ENDPOINT_PROCEDURE_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JT400_ENDPOINT_PROCEDURE_NAME_DOC);
-        conf.define(CAMEL_SINK_JT400_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JT400_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JT400_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_JT400_ENDPOINT_SECURED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JT400_ENDPOINT_SECURED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JT400_ENDPOINT_SECURED_DOC);
         conf.define(CAMEL_SINK_JT400_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JT400_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JT400_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_JT400_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JT400_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JT400_COMPONENT_AUTOWIRED_ENABLED_DOC);

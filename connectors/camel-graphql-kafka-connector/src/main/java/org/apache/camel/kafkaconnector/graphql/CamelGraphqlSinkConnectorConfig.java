@@ -45,9 +45,6 @@ public class CamelGraphqlSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_CONF = "camel.sink.endpoint.variables";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_DOC = "The JsonObject instance containing the operation variables.";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_DEFAULT = null;
-    public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_GRAPHQL_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_CONF = "camel.sink.endpoint.accessToken";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_DOC = "The access token sent in the Authorization header.";
     public static final String CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_DEFAULT = null;
@@ -86,7 +83,6 @@ public class CamelGraphqlSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_QUERY_FILE_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_VARIABLES_DOC);
-        conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GRAPHQL_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_ACCESS_TOKEN_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_JWT_AUTHORIZATION_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_JWT_AUTHORIZATION_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_JWT_AUTHORIZATION_TYPE_DOC);
         conf.define(CAMEL_SINK_GRAPHQL_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GRAPHQL_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GRAPHQL_ENDPOINT_PASSWORD_DOC);

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.azurestorageblob.CamelAzurestora
 ----
 
 
-The camel-azure-storage-blob sink connector supports 56 options, which are listed below.
+The camel-azure-storage-blob sink connector supports 55 options, which are listed below.
 
 
 
@@ -56,7 +56,6 @@ The camel-azure-storage-blob sink connector supports 56 options, which are liste
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.operation* | The blob operation that can be used with this component on the producer One of: [listBlobContainers] [createBlobContainer] [deleteBlobContainer] [listBlobs] [getBlob] [deleteBlob] [downloadBlobToFile] [downloadLink] [uploadBlockBlob] [stageBlockBlobList] [commitBlobBlockList] [getBlobBlockList] [createAppendBlob] [commitAppendBlob] [createPageBlob] [uploadPageBlob] [resizePageBlob] [clearPageBlob] [getPageBlobRanges] | "listBlobContainers" | false | MEDIUM
 | *camel.sink.endpoint.pageBlobSize* | Specifies the maximum size for the page blob, up to 8 TB. The page blob size must be aligned to a 512-byte boundary. | "512" | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | false | MEDIUM
 | *camel.component.azure-storage-blob.autoDiscover Client* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.azure-storage-blob.blobName* | The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level | null | false | MEDIUM

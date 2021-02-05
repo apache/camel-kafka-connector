@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.elsql.CamelElsqlSourceConnector
 ----
 
 
-The camel-elsql source connector supports 53 options, which are listed below.
+The camel-elsql source connector supports 52 options, which are listed below.
 
 
 
@@ -59,7 +59,6 @@ The camel-elsql source connector supports 53 options, which are listed below.
 | *camel.source.endpoint.parametersCount* | If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead. | null | false | MEDIUM
 | *camel.source.endpoint.placeholder* | Specifies a character that will be replaced to in SQL query. Notice, that it is simple String.replaceAll() operation and no SQL parsing is involved (quoted strings will also change). | "#" | false | MEDIUM
 | *camel.source.endpoint.prepareStatementStrategy* | Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.templateOptions* | Configures the Spring JdbcTemplate with the key/values from the Map | null | false | MEDIUM
 | *camel.source.endpoint.usePlaceholder* | Sets whether to use placeholder and replace all placeholder characters with sign in the SQL queries. | true | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM

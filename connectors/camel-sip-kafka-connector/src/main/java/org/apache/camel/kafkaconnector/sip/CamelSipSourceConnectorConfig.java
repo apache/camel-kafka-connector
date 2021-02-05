@@ -79,7 +79,7 @@ public class CamelSipSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_CONSUMER_DOC = "This setting is used to determine whether the kind of header (FromHeader,ToHeader etc) that needs to be created for this endpoint";
     public static final Boolean CAMEL_SOURCE_SIP_ENDPOINT_CONSUMER_DEFAULT = false;
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_PRESENCE_AGENT_CONF = "camel.source.endpoint.presenceAgent";
-    public static final String CAMEL_SOURCE_SIP_ENDPOINT_PRESENCE_AGENT_DOC = "This setting is used to distinguish between a Presence Agent & a consumer. This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true.";
+    public static final String CAMEL_SOURCE_SIP_ENDPOINT_PRESENCE_AGENT_DOC = "This setting is used to distinguish between a Presence Agent and a consumer. This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true.";
     public static final Boolean CAMEL_SOURCE_SIP_ENDPOINT_PRESENCE_AGENT_DEFAULT = false;
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_EXCEPTION_HANDLER_CONF = "camel.source.endpoint.exceptionHandler";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_EXCEPTION_HANDLER_DOC = "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
@@ -135,9 +135,6 @@ public class CamelSipSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_SIP_URI_CONF = "camel.source.endpoint.sipUri";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_SIP_URI_DOC = "To use a custom SipURI. If none configured, then the SipUri fallback to use the options toUser toHost:toPort";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_SIP_URI_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SIP_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SIP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SIP_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_TO_HEADER_CONF = "camel.source.endpoint.toHeader";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_TO_HEADER_DOC = "A custom Header object containing message receiver settings. Must implement the type javax.sip.header.ToHeader";
     public static final String CAMEL_SOURCE_SIP_ENDPOINT_TO_HEADER_DEFAULT = null;
@@ -215,7 +212,6 @@ public class CamelSipSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_SIP_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_SIP_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_SIP_FACTORY_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_SIP_STACK_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_SIP_STACK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_SIP_STACK_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_SIP_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_SIP_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_SIP_URI_DOC);
-        conf.define(CAMEL_SOURCE_SIP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SIP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_TO_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_TO_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_TO_HEADER_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_VIA_HEADERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_VIA_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_VIA_HEADERS_DOC);
         conf.define(CAMEL_SOURCE_SIP_ENDPOINT_IMPLEMENTATION_DEBUG_LOG_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SIP_ENDPOINT_IMPLEMENTATION_DEBUG_LOG_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SIP_ENDPOINT_IMPLEMENTATION_DEBUG_LOG_FILE_DOC);

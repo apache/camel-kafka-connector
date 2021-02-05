@@ -43,7 +43,7 @@ The camel-grpc source connector supports 28 options, which are listed below.
 | *camel.source.endpoint.routeControlledStream Observer* | Lets the route to take control over stream observer. If this value is set to true, then the response observer of gRPC call will be set with the name GrpcConstants.GRPC_RESPONSE_OBSERVER in the Exchange object. Please note that the stream observer's onNext(), onError(), onCompleted() methods should be called in the route. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.source.endpoint.authenticationType* | Authentication method type in advance to the SSL/TLS negotiation One of: [NONE] [GOOGLE] [JWT] | "NONE" | false | MEDIUM
 | *camel.source.endpoint.jwtAlgorithm* | JSON Web Token sign algorithm One of: [HMAC256] [HMAC384] [HMAC512] | "HMAC256" | false | MEDIUM
 | *camel.source.endpoint.jwtIssuer* | JSON Web Token issuer | null | false | MEDIUM

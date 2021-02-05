@@ -70,13 +70,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used (this component only supports synchronous operations).",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.charsetName": {
 			"name": "camel.sink.endpoint.charsetName",
 			"description": "Set the CamelCharsetName property on the exchange",

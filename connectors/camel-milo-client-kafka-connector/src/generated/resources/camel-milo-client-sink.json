@@ -21,6 +21,31 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.dataChangeFilterDeadbandType": {
+			"name": "camel.sink.endpoint.dataChangeFilterDeadbandType",
+			"description": "Deadband type for MonitorFilterType DataChangeFilter.",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.dataChangeFilterDeadbandValue": {
+			"name": "camel.sink.endpoint.dataChangeFilterDeadbandValue",
+			"description": "Deadband value for MonitorFilterType DataChangeFilter.",
+			"defaultValue": "\"0.0\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.dataChangeFilterTrigger": {
+			"name": "camel.sink.endpoint.dataChangeFilterTrigger",
+			"description": "Daata change trigger for data change monitor filter type. One of: [Status] [StatusValue] [StatusValueTimestamp]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"Status",
+				"StatusValue",
+				"StatusValueTimestamp"
+			]
+		},
 		"camel.sink.endpoint.defaultAwaitWrites": {
 			"name": "camel.sink.endpoint.defaultAwaitWrites",
 			"description": "Default await setting for writes",
@@ -46,6 +71,15 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.monitorFilterType": {
+			"name": "camel.sink.endpoint.monitorFilterType",
+			"description": "Monitor Filter Type for MonitoredItems. One of: [dataChangeFilter]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"dataChangeFilter"
+			]
+		},
 		"camel.sink.endpoint.node": {
 			"name": "camel.sink.endpoint.node",
 			"description": "The node definition (see Node ID)",
@@ -62,13 +96,6 @@
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

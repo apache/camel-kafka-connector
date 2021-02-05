@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.webhook.CamelWebhookSourceConnec
 ----
 
 
-The camel-webhook source connector supports 18 options, which are listed below.
+The camel-webhook source connector supports 17 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-webhook source connector supports 18 options, which are listed below.
 | *camel.source.endpoint.webhookPath* | The path where the webhook endpoint will be exposed (relative to basePath, if any) | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.webhook.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.webhook.webhookAutoRegister* | Automatically register the webhook at startup and unregister it on shutdown. | true | false | MEDIUM
 | *camel.component.webhook.webhookBasePath* | The first (base) path element where the webhook will be exposed. It's a good practice to set it to a random string, so that it cannot be guessed by unauthorized parties. | null | false | MEDIUM

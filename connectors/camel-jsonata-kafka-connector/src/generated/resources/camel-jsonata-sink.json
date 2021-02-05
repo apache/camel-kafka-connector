@@ -6,7 +6,7 @@
 		"id": "camel-jsonata-sink",
 		"type": "sink",
 		"version": "0.8.0-SNAPSHOT",
-		"description": "JSON to JSON transformation using JSONATA."
+		"description": "Transforms JSON payload using JSONata transformation."
 	},
 	"properties": {
 		"camel.sink.path.resourceUri": {
@@ -31,7 +31,7 @@
 		},
 		"camel.sink.endpoint.inputType": {
 			"name": "camel.sink.endpoint.inputType",
-			"description": "Specifies if the output should be Jackson JsonNode or a JSON String. One of: [Jackson] [JsonString]",
+			"description": "Specifies if the input should be Jackson JsonNode or a JSON String. One of: [Jackson] [JsonString]",
 			"defaultValue": "\"Jackson\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -57,13 +57,6 @@
 				"Jackson",
 				"JsonString"
 			]
-		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.component.jsonata.lazyStartProducer": {
 			"name": "camel.component.jsonata.lazyStartProducer",

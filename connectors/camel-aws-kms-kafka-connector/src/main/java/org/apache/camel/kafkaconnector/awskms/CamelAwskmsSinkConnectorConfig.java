@@ -57,9 +57,6 @@ public class CamelAwskmsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWSKMS_ENDPOINT_SECRET_KEY_CONF = "camel.sink.endpoint.secretKey";
     public static final String CAMEL_SINK_AWSKMS_ENDPOINT_SECRET_KEY_DOC = "Amazon AWS Secret Key";
     public static final String CAMEL_SINK_AWSKMS_ENDPOINT_SECRET_KEY_DEFAULT = null;
-    public static final String CAMEL_SINK_AWSKMS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AWSKMS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AWSKMS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AWSKMS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF = "camel.component.aws-kms.autoDiscoverClient";
     public static final String CAMEL_SINK_AWSKMS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC = "Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking.";
     public static final Boolean CAMEL_SINK_AWSKMS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT = true;
@@ -120,7 +117,6 @@ public class CamelAwskmsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWSKMS_ENDPOINT_PROXY_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSKMS_ENDPOINT_PROXY_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKMS_ENDPOINT_PROXY_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_AWSKMS_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSKMS_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKMS_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWSKMS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSKMS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKMS_ENDPOINT_SECRET_KEY_DOC);
-        conf.define(CAMEL_SINK_AWSKMS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSKMS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKMS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWSKMS_COMPONENT_AUTO_DISCOVER_CLIENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWSKMS_COMPONENT_AUTO_DISCOVER_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKMS_COMPONENT_AUTO_DISCOVER_CLIENT_DOC);
         conf.define(CAMEL_SINK_AWSKMS_COMPONENT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSKMS_COMPONENT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKMS_COMPONENT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_AWSKMS_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWSKMS_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWSKMS_COMPONENT_CONFIGURATION_DOC);

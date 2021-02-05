@@ -124,6 +124,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.binding": {
 			"name": "camel.sink.endpoint.binding",
 			"description": "To use a custom CxfBinding to control the binding between Camel Message and CXF Message.",
@@ -172,13 +179,6 @@
 		"camel.sink.endpoint.propagateContexts": {
 			"name": "camel.sink.endpoint.propagateContexts",
 			"description": "When the option is true, JAXRS UriInfo, HttpHeaders, Request and SecurityContext contexts will be available to custom CXFRS processors as typed Camel exchange properties. These contexts can be used to analyze the current requests using JAX-RS API.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

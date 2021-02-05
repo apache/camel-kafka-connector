@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.stomp.CamelStompSourceConnector
 ----
 
 
-The camel-stomp source connector supports 25 options, which are listed below.
+The camel-stomp source connector supports 24 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-stomp source connector supports 25 options, which are listed below.
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.login* | The username | null | false | MEDIUM
 | *camel.source.endpoint.passcode* | The password | null | false | MEDIUM
 | *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters | null | false | MEDIUM

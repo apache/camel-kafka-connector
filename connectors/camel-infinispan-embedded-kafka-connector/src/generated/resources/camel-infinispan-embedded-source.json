@@ -1,0 +1,199 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.infinispanembedded.CamelInfinispanembeddedSourceConnector",
+		"artifactId": "camel-infinispan-embedded-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-infinispan-embedded-source",
+		"type": "source",
+		"version": "0.8.0-SNAPSHOT",
+		"description": "Read and write from\/to Infinispan distributed key\/value store and data grid."
+	},
+	"properties": {
+		"camel.source.path.cacheName": {
+			"name": "camel.source.path.cacheName",
+			"description": "The name of the cache to use. Use current to use the existing cache name from the currently configured cached manager. Or use default for the default cache manager name.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.source.endpoint.queryBuilder": {
+			"name": "camel.source.endpoint.queryBuilder",
+			"description": "Specifies the query builder.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.clusteredListener": {
+			"name": "camel.source.endpoint.clusteredListener",
+			"description": "If true, the listener will be installed for the entire cluster",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.customListener": {
+			"name": "camel.source.endpoint.customListener",
+			"description": "Returns the custom listener in use, if provided",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.eventTypes": {
+			"name": "camel.source.endpoint.eventTypes",
+			"description": "Specifies the set of event types to register by the consumer.Multiple event can be separated by comma. The possible event types are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED, CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED, CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED, TRANSACTION_COMPLETED, TRANSACTION_REGISTERED, CACHE_ENTRY_INVALIDATED, CACHE_ENTRY_EXPIRED, DATA_REHASHED, TOPOLOGY_CHANGED, PARTITION_STATUS_CHANGED, PERSISTENCE_AVAILABILITY_CHANGED",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.sync": {
+			"name": "camel.source.endpoint.sync",
+			"description": "If true, the consumer will receive notifications synchronously",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
+		},
+		"camel.source.endpoint.cacheContainer": {
+			"name": "camel.source.endpoint.cacheContainer",
+			"description": "Specifies the cache Container to connect",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.cacheContainerConfiguration": {
+			"name": "camel.source.endpoint.cacheContainerConfiguration",
+			"description": "The CacheContainer configuration. Used if the cacheContainer is not defined.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.configurationUri": {
+			"name": "camel.source.endpoint.configurationUri",
+			"description": "An implementation specific URI for the CacheManager",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.flags": {
+			"name": "camel.source.endpoint.flags",
+			"description": "A comma separated list of org.infinispan.context.Flag to be applied by default on each cache invocation",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.remappingFunction": {
+			"name": "camel.source.endpoint.remappingFunction",
+			"description": "Set a specific remappingFunction to use in a compute operation.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.resultHeader": {
+			"name": "camel.source.endpoint.resultHeader",
+			"description": "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.configuration": {
+			"name": "camel.component.infinispan-embedded.configuration",
+			"description": "Component configuration",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.queryBuilder": {
+			"name": "camel.component.infinispan-embedded.queryBuilder",
+			"description": "Specifies the query builder.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.bridgeErrorHandler": {
+			"name": "camel.component.infinispan-embedded.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.clusteredListener": {
+			"name": "camel.component.infinispan-embedded.clusteredListener",
+			"description": "If true, the listener will be installed for the entire cluster",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.customListener": {
+			"name": "camel.component.infinispan-embedded.customListener",
+			"description": "Returns the custom listener in use, if provided",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.eventTypes": {
+			"name": "camel.component.infinispan-embedded.eventTypes",
+			"description": "Specifies the set of event types to register by the consumer.Multiple event can be separated by comma. The possible event types are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED, CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED, CACHE_ENTRY_EVICTED, CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED, TRANSACTION_COMPLETED, TRANSACTION_REGISTERED, CACHE_ENTRY_INVALIDATED, CACHE_ENTRY_EXPIRED, DATA_REHASHED, TOPOLOGY_CHANGED, PARTITION_STATUS_CHANGED, PERSISTENCE_AVAILABILITY_CHANGED",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.sync": {
+			"name": "camel.component.infinispan-embedded.sync",
+			"description": "If true, the consumer will receive notifications synchronously",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.autowiredEnabled": {
+			"name": "camel.component.infinispan-embedded.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.cacheContainer": {
+			"name": "camel.component.infinispan-embedded.cacheContainer",
+			"description": "Specifies the cache Container to connect",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.cacheContainerConfiguration": {
+			"name": "camel.component.infinispan-embedded.cacheContainerConfiguration",
+			"description": "The CacheContainer configuration. Used if the cacheContainer is not defined.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.configurationUri": {
+			"name": "camel.component.infinispan-embedded.configurationUri",
+			"description": "An implementation specific URI for the CacheManager",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.flags": {
+			"name": "camel.component.infinispan-embedded.flags",
+			"description": "A comma separated list of org.infinispan.context.Flag to be applied by default on each cache invocation",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.remappingFunction": {
+			"name": "camel.component.infinispan-embedded.remappingFunction",
+			"description": "Set a specific remappingFunction to use in a compute operation.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.infinispan-embedded.resultHeader": {
+			"name": "camel.component.infinispan-embedded.resultHeader",
+			"description": "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

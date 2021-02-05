@@ -45,9 +45,6 @@ public class CamelGithubSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_GITHUB_ENDPOINT_TARGET_URL_CONF = "camel.sink.endpoint.targetUrl";
     public static final String CAMEL_SINK_GITHUB_ENDPOINT_TARGET_URL_DOC = "To set git commit status target url";
     public static final String CAMEL_SINK_GITHUB_ENDPOINT_TARGET_URL_DEFAULT = null;
-    public static final String CAMEL_SINK_GITHUB_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_GITHUB_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_GITHUB_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_CONF = "camel.sink.endpoint.oauthToken";
     public static final String CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_DOC = "GitHub OAuth token. Must be configured on either component or endpoint.";
     public static final String CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_DEFAULT = null;
@@ -80,7 +77,6 @@ public class CamelGithubSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_GITHUB_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GITHUB_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GITHUB_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_GITHUB_ENDPOINT_STATE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GITHUB_ENDPOINT_STATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GITHUB_ENDPOINT_STATE_DOC);
         conf.define(CAMEL_SINK_GITHUB_ENDPOINT_TARGET_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GITHUB_ENDPOINT_TARGET_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GITHUB_ENDPOINT_TARGET_URL_DOC);
-        conf.define(CAMEL_SINK_GITHUB_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GITHUB_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GITHUB_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GITHUB_ENDPOINT_OAUTH_TOKEN_DOC);
         conf.define(CAMEL_SINK_GITHUB_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GITHUB_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GITHUB_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_GITHUB_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GITHUB_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GITHUB_COMPONENT_AUTOWIRED_ENABLED_DOC);

@@ -66,9 +66,6 @@ public class CamelSshSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_CONF = "camel.source.endpoint.sleepForShellPrompt";
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DOC = "Sets the sleep period in milliseconds to wait reading response from shell prompt. Defaults to 100 milliseconds.";
     public static final Long CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DEFAULT = 100L;
-    public static final String CAMEL_SOURCE_SSH_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SSH_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SSH_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF = "camel.source.endpoint.backoffErrorThreshold";
     public static final String CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC = "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.";
     public static final Integer CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT = null;
@@ -204,7 +201,6 @@ public class CamelSshSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_CHANNEL_TYPE_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_SHELL_PROMPT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SSH_ENDPOINT_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_SHELL_PROMPT_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_SLEEP_FOR_SHELL_PROMPT_DOC);
-        conf.define(CAMEL_SOURCE_SSH_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SSH_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_MULTIPLIER_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SSH_ENDPOINT_BACKOFF_MULTIPLIER_DOC);

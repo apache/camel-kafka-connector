@@ -80,9 +80,6 @@ public class CamelOlingo4SourceConnectorConfig
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_CONF = "camel.source.endpoint.httpClientBuilder";
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_DOC = "Custom HTTP client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext. Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely";
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_DEFAULT = null;
-    public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF = "camel.source.endpoint.backoffErrorThreshold";
     public static final String CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC = "The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in.";
     public static final Integer CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT = null;
@@ -204,7 +201,6 @@ public class CamelOlingo4SourceConnectorConfig
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_ASYNC_CLIENT_BUILDER_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_HTTP_CLIENT_BUILDER_DOC);
-        conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_ERROR_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_ERROR_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_IDLE_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_IDLE_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_MULTIPLIER_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_MULTIPLIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_OLINGO4_ENDPOINT_BACKOFF_MULTIPLIER_DOC);

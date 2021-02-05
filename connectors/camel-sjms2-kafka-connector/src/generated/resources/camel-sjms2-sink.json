@@ -39,6 +39,49 @@
 				"DUPS_OK_ACKNOWLEDGE"
 			]
 		},
+		"camel.sink.endpoint.connectionFactory": {
+			"name": "camel.sink.endpoint.connectionFactory",
+			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.disableReplyTo": {
+			"name": "camel.sink.endpoint.disableReplyTo",
+			"description": "Specifies whether Camel ignores the JMSReplyTo header in messages. If true, Camel does not send a reply back to the destination specified in the JMSReplyTo header. You can use this option if you want Camel to consume from a route and you do not want Camel to automatically send back a reply message because another component in your code handles the reply message. You can also use this option if you want to use Camel as a proxy between different message brokers and you want to route message from one system to another.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.replyTo": {
+			"name": "camel.sink.endpoint.replyTo",
+			"description": "Provides an explicit ReplyTo destination (overrides any incoming value of Message.getJMSReplyTo() in consumer).",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.testConnectionOnStartup": {
+			"name": "camel.sink.endpoint.testConnectionOnStartup",
+			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.deliveryMode": {
+			"name": "camel.sink.endpoint.deliveryMode",
+			"description": "Specifies the delivery mode to be used. Possible values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT = 2. One of: [1] [2]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"1",
+				"2"
+			]
+		},
+		"camel.sink.endpoint.deliveryPersistent": {
+			"name": "camel.sink.endpoint.deliveryPersistent",
+			"description": "Specifies whether persistent delivery is used by default.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
@@ -46,29 +89,57 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.namedReplyTo": {
-			"name": "camel.sink.endpoint.namedReplyTo",
-			"description": "Sets the reply to destination name used for InOut producer endpoints. The type of the reply to destination can be determined by the starting prefix (topic: or queue:) in its name.",
+		"camel.sink.endpoint.priority": {
+			"name": "camel.sink.endpoint.priority",
+			"description": "Values greater than 1 specify the message priority when sending (where 1 is the lowest priority and 9 is the highest). The explicitQosEnabled option must also be enabled in order for this option to have any effect. One of: [1] [2] [3] [4] [5] [6] [7] [8] [9]",
+			"defaultValue": "4",
 			"priority": "MEDIUM",
-			"required": "false"
+			"required": "false",
+			"enum": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"7",
+				"8",
+				"9"
+			]
 		},
-		"camel.sink.endpoint.persistent": {
-			"name": "camel.sink.endpoint.persistent",
-			"description": "Flag used to enable\/disable message persistence.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.producerCount": {
-			"name": "camel.sink.endpoint.producerCount",
-			"description": "Sets the number of producers used for this endpoint.",
+		"camel.sink.endpoint.replyToConcurrentConsumers": {
+			"name": "camel.sink.endpoint.replyToConcurrentConsumers",
+			"description": "Specifies the default number of concurrent consumers when doing request\/reply over JMS. See also the maxMessagesPerTask option to control dynamic scaling up\/down of threads.",
 			"defaultValue": "1",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.ttl": {
-			"name": "camel.sink.endpoint.ttl",
-			"description": "Flag used to adjust the Time To Live value of produced messages.",
+		"camel.sink.endpoint.replyToOverride": {
+			"name": "camel.sink.endpoint.replyToOverride",
+			"description": "Provides an explicit ReplyTo destination in the JMS message, which overrides the setting of replyTo. It is useful if you want to forward the message to a remote Queue and receive the reply message from the ReplyTo destination.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.replyToType": {
+			"name": "camel.sink.endpoint.replyToType",
+			"description": "Allows for explicitly specifying which kind of strategy to use for replyTo queues when doing request\/reply over JMS. Possible values are: Temporary or Exclusive. By default Camel will use temporary queues. However if replyTo has been configured, then Exclusive is used. One of: [Temporary] [Exclusive]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"Temporary",
+				"Exclusive"
+			]
+		},
+		"camel.sink.endpoint.requestTimeout": {
+			"name": "camel.sink.endpoint.requestTimeout",
+			"description": "The timeout for waiting for a reply when using the InOut Exchange Pattern (in milliseconds). The default is 20 seconds. You can include the header CamelJmsRequestTimeout to override this endpoint configured timeout value, and thus have per message individual timeout values. See also the requestTimeoutCheckerInterval option.",
+			"defaultValue": "20000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.timeToLive": {
+			"name": "camel.sink.endpoint.timeToLive",
+			"description": "When sending messages, specifies the time-to-live of the message (in milliseconds).",
 			"defaultValue": "-1L",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -80,17 +151,24 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.prefillPool": {
-			"name": "camel.sink.endpoint.prefillPool",
-			"description": "Whether to prefill the producer connection pool on startup, or create connections lazy when needed.",
-			"defaultValue": "true",
+		"camel.sink.endpoint.disableTimeToLive": {
+			"name": "camel.sink.endpoint.disableTimeToLive",
+			"description": "Use this option to force disabling time to live. For example when you do request\/reply over JMS, then Camel will by default use the requestTimeout value as time to live on the message being sent. The problem is that the sender and receiver systems have to have their clocks synchronized, so they are in sync. This is not always so easy to archive. So you can use disableTimeToLive=true to not set a time to live value on the sent message. Then the message will not expire on the receiver system. See below in section About time to live for more details.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.responseTimeOut": {
-			"name": "camel.sink.endpoint.responseTimeOut",
-			"description": "Sets the amount of time we should wait before timing out a InOut response.",
-			"defaultValue": "5000L",
+		"camel.sink.endpoint.explicitQosEnabled": {
+			"name": "camel.sink.endpoint.explicitQosEnabled",
+			"description": "Set if the deliveryMode, priority or timeToLive qualities of service should be used when sending messages. This option is based on Spring's JmsTemplate. The deliveryMode, priority and timeToLive options are applied to the current endpoint. This contrasts with the preserveMessageQos option, which operates at message granularity, reading QoS properties exclusively from the Camel In message headers.",
+			"defaultValue": "\"false\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.preserveMessageQos": {
+			"name": "camel.sink.endpoint.preserveMessageQos",
+			"description": "Set to true, if you want to send message using the QoS settings specified on the message, instead of the QoS settings on the JMS endpoint. The following three headers are considered JMSPriority, JMSDeliveryMode, and JMSExpiration. You can provide all or only some of them. If not provided, Camel will fall back to use the values from the endpoint instead. So, when using this option, the headers override the values from the endpoint. The explicitQosEnabled option, by contrast, will only use options set on the endpoint, and not values from the message header.",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -105,24 +183,6 @@
 			"name": "camel.sink.endpoint.asyncStopListener",
 			"description": "Whether to stop the consumer message listener asynchronously, when stopping a route.",
 			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.connectionCount": {
-			"name": "camel.sink.endpoint.connectionCount",
-			"description": "The maximum number of connections available to this endpoint",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.connectionFactory": {
-			"name": "camel.sink.endpoint.connectionFactory",
-			"description": "Initializes the connectionFactory for the endpoint, which takes precedence over the component's connectionFactory, if any",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.connectionResource": {
-			"name": "camel.sink.endpoint.connectionResource",
-			"description": "Initializes the connectionResource for the endpoint, which takes precedence over the component's connectionResource, if any",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -170,29 +230,37 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.transactionCommitStrategy": {
-			"name": "camel.sink.endpoint.transactionCommitStrategy",
-			"description": "Sets the commit strategy.",
+		"camel.sink.endpoint.recoveryInterval": {
+			"name": "camel.sink.endpoint.recoveryInterval",
+			"description": "Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds.",
+			"defaultValue": "5000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.sharedJMSSession": {
-			"name": "camel.sink.endpoint.sharedJMSSession",
-			"description": "Specifies whether to share JMS session with other SJMS endpoints. Turn this off if your route is accessing to multiple JMS providers. If you need transaction against multiple JMS providers, use jms component to leverage XA transaction.",
-			"defaultValue": "true",
+		"camel.sink.endpoint.synchronous": {
+			"name": "camel.sink.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.sjms2.connectionCount": {
-			"name": "camel.component.sjms2.connectionCount",
-			"description": "The maximum number of connections available to endpoints started under this component",
-			"defaultValue": "\"1\"",
+		"camel.sink.endpoint.transferException": {
+			"name": "camel.sink.endpoint.transferException",
+			"description": "If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side, then the caused Exception will be send back in response as a javax.jms.ObjectMessage. If the client is Camel, the returned Exception is rethrown. This allows you to use Camel JMS as a bridge in your routing - for example, using persistent queues to enable robust routing. Notice that if you also have transferExchange enabled, this option takes precedence. The caught exception is required to be serializable. The original Exception on the consumer side can be wrapped in an outer exception such as org.apache.camel.RuntimeCamelException when returned to the producer. Use this with caution as the data is using Java Object serialization and requires the received to be able to deserialize the data at Class level, which forces a strong coupling between the producers and consumer!",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.transacted": {
+			"name": "camel.sink.endpoint.transacted",
+			"description": "Specifies whether to use transacted mode",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.sjms2.connectionFactory": {
 			"name": "camel.component.sjms2.connectionFactory",
-			"description": "A ConnectionFactory is required to enable the SjmsComponent. It can be set directly or set set as part of a ConnectionResource.",
+			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -206,32 +274,6 @@
 		"camel.component.sjms2.autowiredEnabled": {
 			"name": "camel.component.sjms2.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionClientId": {
-			"name": "camel.component.sjms2.connectionClientId",
-			"description": "The client ID to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionMaxWait": {
-			"name": "camel.component.sjms2.connectionMaxWait",
-			"description": "The max wait time in millis to block and wait on free connection when the pool is exhausted when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"defaultValue": "5000L",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionResource": {
-			"name": "camel.component.sjms2.connectionResource",
-			"description": "A ConnectionResource is an interface that allows for customization and container control of the ConnectionFactory. See Plugable Connection Resource Management for further details.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionTestOnBorrow": {
-			"name": "camel.component.sjms2.connectionTestOnBorrow",
-			"description": "When using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource then should each javax.jms.Connection be tested (calling start) before returned from the pool.",
 			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -254,33 +296,30 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.component.sjms2.timedTaskManager": {
-			"name": "camel.component.sjms2.timedTaskManager",
-			"description": "To use a custom TimedTaskManager",
+		"camel.component.sjms2.recoveryInterval": {
+			"name": "camel.component.sjms2.recoveryInterval",
+			"description": "Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds. The default is 5000 ms, that is, 5 seconds.",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.sjms2.replyToOnTimeoutMaxConcurrentConsumers": {
+			"name": "camel.component.sjms2.replyToOnTimeoutMaxConcurrentConsumers",
+			"description": "Specifies the maximum number of concurrent consumers for continue routing when timeout occurred when using request\/reply over JMS.",
+			"defaultValue": "1",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.sjms2.requestTimeoutCheckerInterval": {
+			"name": "camel.component.sjms2.requestTimeoutCheckerInterval",
+			"description": "Configures how often Camel should check for timed out Exchanges when doing request\/reply over JMS. By default Camel checks once per second. But if you must react faster when a timeout occurs, then you can lower this interval, to check more frequently. The timeout is determined by the option requestTimeout.",
+			"defaultValue": "1000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.sjms2.headerFilterStrategy": {
 			"name": "camel.component.sjms2.headerFilterStrategy",
 			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionPassword": {
-			"name": "camel.component.sjms2.connectionPassword",
-			"description": "The password to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.connectionUsername": {
-			"name": "camel.component.sjms2.connectionUsername",
-			"description": "The username to use when creating javax.jms.Connection when using the default org.apache.camel.component.sjms.jms.ConnectionFactoryResource.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.sjms2.transactionCommitStrategy": {
-			"name": "camel.component.sjms2.transactionCommitStrategy",
-			"description": "To configure which kind of commit strategy to use. Camel provides two implementations out of the box, default and batch.",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

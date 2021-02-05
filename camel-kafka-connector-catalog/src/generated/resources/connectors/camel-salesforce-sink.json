@@ -11,7 +11,7 @@
 	"properties": {
 		"camel.sink.path.operationName": {
 			"name": "camel.sink.path.operationName",
-			"description": "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite]",
+			"description": "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob]",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
@@ -57,7 +57,23 @@
 				"approvals",
 				"composite-tree",
 				"composite-batch",
-				"composite"
+				"composite",
+				"bulk2GetAllJobs",
+				"bulk2CreateJob",
+				"bulk2GetJob",
+				"bulk2CreateBatch",
+				"bulk2CloseJob",
+				"bulk2AbortJob",
+				"bulk2DeleteJob",
+				"bulk2GetSuccessfulResults",
+				"bulk2GetFailedResults",
+				"bulk2GetUnprocessedRecords",
+				"bulk2CreateQueryJob",
+				"bulk2GetQueryJob",
+				"bulk2GetAllQueryJobs",
+				"bulk2GetQueryJobResults",
+				"bulk2AbortQueryJob",
+				"bulk2DeleteQueryJob"
 			]
 		},
 		"camel.sink.endpoint.apexMethod": {
@@ -231,6 +247,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.queryLocator": {
+			"name": "camel.sink.endpoint.queryLocator",
+			"description": "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.rawPayload": {
 			"name": "camel.sink.endpoint.rawPayload",
 			"description": "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default",
@@ -332,13 +354,6 @@
 		"camel.sink.endpoint.lazyStartProducer": {
 			"name": "camel.sink.endpoint.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -544,6 +559,12 @@
 		"camel.component.salesforce.packages": {
 			"name": "camel.component.salesforce.packages",
 			"description": "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters\/header values. Multiple packages can be separated by comma.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.queryLocator": {
+			"name": "camel.component.salesforce.queryLocator",
+			"description": "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

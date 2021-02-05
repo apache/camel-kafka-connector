@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.paho.CamelPahoSourceConnector
 ----
 
 
-The camel-paho source connector supports 62 options, which are listed below.
+The camel-paho source connector supports 61 options, which are listed below.
 
 
 
@@ -54,7 +54,6 @@ The camel-paho source connector supports 62 options, which are listed below.
 | *camel.source.endpoint.client* | To use an existing mqtt client | null | false | MEDIUM
 | *camel.source.endpoint.customWebSocketHeaders* | Sets the Custom WebSocket Headers for the WebSocket Connection. | null | false | MEDIUM
 | *camel.source.endpoint.executorServiceTimeout* | Set the time in seconds that the executor service should wait when terminating before forcefully terminating. It is not recommended to change this value unless you are absolutely sure that you need to. | 1 | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.httpsHostnameVerification Enabled* | Whether SSL HostnameVerifier is enabled or not. The default value is true. | true | false | MEDIUM
 | *camel.source.endpoint.password* | Password to be used for authentication against the MQTT broker | null | false | MEDIUM
 | *camel.source.endpoint.socketFactory* | Sets the SocketFactory to use. This allows an application to apply its own policies around the creation of network sockets. If using an SSL connection, an SSLSocketFactory can be used to supply application-specific security settings. | null | false | MEDIUM

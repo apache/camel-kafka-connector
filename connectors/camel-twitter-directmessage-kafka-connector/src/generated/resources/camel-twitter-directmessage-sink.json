@@ -22,13 +22,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.httpProxyHost": {
 			"name": "camel.sink.endpoint.httpProxyHost",
 			"description": "The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.",

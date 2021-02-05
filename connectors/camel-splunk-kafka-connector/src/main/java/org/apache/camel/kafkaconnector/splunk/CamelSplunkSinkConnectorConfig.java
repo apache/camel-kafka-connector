@@ -66,9 +66,6 @@ public class CamelSplunkSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_CONF = "camel.sink.endpoint.tcpReceiverPort";
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_DOC = "Splunk tcp receiver port";
     public static final Integer CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_DEFAULT = null;
-    public static final String CAMEL_SINK_SPLUNK_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_SPLUNK_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_SPLUNK_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_CONF = "camel.sink.endpoint.password";
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_DOC = "Password for Splunk";
     public static final String CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_DEFAULT = null;
@@ -117,7 +114,6 @@ public class CamelSplunkSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_SOURCE_TYPE_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_TCP_RECEIVER_PORT_DOC);
-        conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SPLUNK_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_SSL_PROTOCOL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_SSL_PROTOCOL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_SSL_PROTOCOL_DOC);
         conf.define(CAMEL_SINK_SPLUNK_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SPLUNK_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SPLUNK_ENDPOINT_USERNAME_DOC);

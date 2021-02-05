@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.sip.CamelSipSinkConnector
 ----
 
 
-The camel-sip sink connector supports 43 options, which are listed below.
+The camel-sip sink connector supports 42 options, which are listed below.
 
 
 
@@ -62,7 +62,6 @@ The camel-sip sink connector supports 43 options, which are listed below.
 | *camel.sink.endpoint.sipFactory* | To use a custom SipFactory to create the SipStack to be used | null | false | MEDIUM
 | *camel.sink.endpoint.sipStack* | To use a custom SipStack | null | false | MEDIUM
 | *camel.sink.endpoint.sipUri* | To use a custom SipURI. If none configured, then the SipUri fallback to use the options toUser toHost:toPort | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.toHeader* | A custom Header object containing message receiver settings. Must implement the type javax.sip.header.ToHeader | null | false | MEDIUM
 | *camel.sink.endpoint.viaHeaders* | List of custom Header objects of the type javax.sip.header.ViaHeader. Each ViaHeader containing a proxy address for request forwarding. (Note this header is automatically updated by each proxy when the request arrives at its listener) | null | false | MEDIUM
 | *camel.sink.endpoint.implementationDebugLogFile* | Name of client debug log file to use for logging | null | false | MEDIUM

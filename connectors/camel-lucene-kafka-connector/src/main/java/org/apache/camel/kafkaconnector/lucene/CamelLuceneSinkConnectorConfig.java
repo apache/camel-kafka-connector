@@ -45,9 +45,6 @@ public class CamelLuceneSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_CONF = "camel.sink.endpoint.srcDir";
     public static final String CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_DOC = "An optional directory containing files to be used to be analyzed and added to the index at producer startup.";
     public static final String CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_DEFAULT = null;
-    public static final String CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_CONF = "camel.component.lucene.analyzer";
     public static final String CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_DOC = "An Analyzer builds TokenStreams, which analyze text. It thus represents a policy for extracting index terms from text. The value for analyzer can be any class that extends the abstract class org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of analyzers out of the box";
     public static final String CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_DEFAULT = null;
@@ -89,7 +86,6 @@ public class CamelLuceneSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_LUCENE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_LUCENE_ENDPOINT_MAX_HITS_CONF, ConfigDef.Type.INT, CAMEL_SINK_LUCENE_ENDPOINT_MAX_HITS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_MAX_HITS_DOC);
         conf.define(CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_SRC_DIR_DOC);
-        conf.define(CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_ANALYZER_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_INDEX_DIR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LUCENE_COMPONENT_INDEX_DIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_INDEX_DIR_DOC);
         conf.define(CAMEL_SINK_LUCENE_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LUCENE_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LUCENE_COMPONENT_LAZY_START_PRODUCER_DOC);

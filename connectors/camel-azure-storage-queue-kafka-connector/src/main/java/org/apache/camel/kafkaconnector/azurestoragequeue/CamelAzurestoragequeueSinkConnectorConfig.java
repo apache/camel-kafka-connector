@@ -47,9 +47,6 @@ public class CamelAzurestoragequeueSinkConnectorConfig
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_OPERATION_DOC = "Queue service operation hint to the producer One of: [listQueues] [createQueue] [deleteQueue] [clearQueue] [sendMessage] [deleteMessage] [receiveMessages] [peekMessages] [updateMessage]";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_OPERATION_DEFAULT = null;
-    public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MAX_MESSAGES_CONF = "camel.sink.endpoint.maxMessages";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MAX_MESSAGES_DOC = "Maximum number of messages to get, if there are less messages exist in the queue than requested all the messages will be returned. If left empty only 1 message will be retrieved, the allowed range is 1 to 32 messages.";
     public static final String CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MAX_MESSAGES_DEFAULT = "1";
@@ -140,7 +137,6 @@ public class CamelAzurestoragequeueSinkConnectorConfig
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_CREATE_QUEUE_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_OPERATION_DOC);
-        conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MAX_MESSAGES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MAX_MESSAGES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MAX_MESSAGES_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MESSAGE_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MESSAGE_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_MESSAGE_ID_DOC);
         conf.define(CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_POP_RECEIPT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_POP_RECEIPT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AZURESTORAGEQUEUE_ENDPOINT_POP_RECEIPT_DOC);

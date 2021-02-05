@@ -54,9 +54,6 @@ public class CamelLogSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_LOG_ENDPOINT_EXCHANGE_FORMATTER_CONF = "camel.sink.endpoint.exchangeFormatter";
     public static final String CAMEL_SINK_LOG_ENDPOINT_EXCHANGE_FORMATTER_DOC = "To use a custom exchange formatter";
     public static final String CAMEL_SINK_LOG_ENDPOINT_EXCHANGE_FORMATTER_DEFAULT = null;
-    public static final String CAMEL_SINK_LOG_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_LOG_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_LOG_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_CONF = "camel.sink.endpoint.maxChars";
     public static final String CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_DOC = "Limits the number of characters logged per line.";
     public static final Integer CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_DEFAULT = 10000;
@@ -140,7 +137,6 @@ public class CamelLogSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_LOG_ENDPOINT_LOG_MASK_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LOG_ENDPOINT_LOG_MASK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_LOG_MASK_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_MARKER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LOG_ENDPOINT_MARKER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_MARKER_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_EXCHANGE_FORMATTER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_LOG_ENDPOINT_EXCHANGE_FORMATTER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_EXCHANGE_FORMATTER_DOC);
-        conf.define(CAMEL_SINK_LOG_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_CONF, ConfigDef.Type.INT, CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_MAX_CHARS_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_MULTILINE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_MULTILINE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_MULTILINE_DOC);
         conf.define(CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_LOG_ENDPOINT_SHOW_ALL_DOC);

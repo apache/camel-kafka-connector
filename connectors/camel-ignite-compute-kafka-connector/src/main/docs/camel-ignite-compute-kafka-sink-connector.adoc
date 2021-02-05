@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.ignitecompute.CamelIgnitecompute
 ----
 
 
-The camel-ignite-compute sink connector supports 15 options, which are listed below.
+The camel-ignite-compute sink connector supports 14 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-ignite-compute sink connector supports 15 options, which are listed be
 | *camel.sink.endpoint.taskName* | The task name, only applicable if using the IgniteComputeExecutionType#EXECUTE execution type. | null | false | MEDIUM
 | *camel.sink.endpoint.timeoutMillis* | The timeout interval for triggered jobs, in milliseconds, which will be set via IgniteCompute#withTimeout(long). | null | false | MEDIUM
 | *camel.sink.endpoint.treatCollectionsAsCacheObjects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.ignite-compute.configuration Resource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | false | MEDIUM
 | *camel.component.ignite-compute.ignite* | To use an existing Ignite instance. | null | false | MEDIUM
 | *camel.component.ignite-compute.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | false | MEDIUM

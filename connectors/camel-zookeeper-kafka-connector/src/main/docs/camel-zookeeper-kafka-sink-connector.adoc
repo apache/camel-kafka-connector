@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.zookeeper.CamelZookeeperSinkConn
 ----
 
 
-The camel-zookeeper sink connector supports 15 options, which are listed below.
+The camel-zookeeper sink connector supports 14 options, which are listed below.
 
 
 
@@ -36,7 +36,6 @@ The camel-zookeeper sink connector supports 15 options, which are listed below.
 | *camel.sink.endpoint.create* | Should the endpoint create the node if it does not currently exist. | false | false | MEDIUM
 | *camel.sink.endpoint.createMode* | The create mode that should be used for the newly created node One of: [PERSISTENT] [PERSISTENT_SEQUENTIAL] [EPHEMERAL] [EPHEMERAL_SEQUENTIAL] | "EPHEMERAL" | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.zookeeper.listChildren* | Whether the children of the node should be listed | false | false | MEDIUM
 | *camel.component.zookeeper.timeout* | The time interval to wait on connection before timing out. | 5000 | false | MEDIUM
 | *camel.component.zookeeper.create* | Should the endpoint create the node if it does not currently exist. | false | false | MEDIUM

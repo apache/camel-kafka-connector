@@ -54,9 +54,6 @@ public class CamelXsltSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_XSLT_ENDPOINT_RESULT_HANDLER_FACTORY_CONF = "camel.sink.endpoint.resultHandlerFactory";
     public static final String CAMEL_SINK_XSLT_ENDPOINT_RESULT_HANDLER_FACTORY_DOC = "Allows you to use a custom org.apache.camel.builder.xml.ResultHandlerFactory which is capable of using custom org.apache.camel.builder.xml.ResultHandler types.";
     public static final String CAMEL_SINK_XSLT_ENDPOINT_RESULT_HANDLER_FACTORY_DEFAULT = null;
-    public static final String CAMEL_SINK_XSLT_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_XSLT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_XSLT_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_CONF = "camel.sink.endpoint.transformerFactory";
     public static final String CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_DOC = "To use a custom XSLT transformer factory";
     public static final String CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_DEFAULT = null;
@@ -113,7 +110,6 @@ public class CamelXsltSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_XSLT_ENDPOINT_ENTITY_RESOLVER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLT_ENDPOINT_ENTITY_RESOLVER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLT_ENDPOINT_ENTITY_RESOLVER_DOC);
         conf.define(CAMEL_SINK_XSLT_ENDPOINT_ERROR_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLT_ENDPOINT_ERROR_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLT_ENDPOINT_ERROR_LISTENER_DOC);
         conf.define(CAMEL_SINK_XSLT_ENDPOINT_RESULT_HANDLER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLT_ENDPOINT_RESULT_HANDLER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLT_ENDPOINT_RESULT_HANDLER_FACTORY_DOC);
-        conf.define(CAMEL_SINK_XSLT_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_XSLT_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLT_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_DOC);
         conf.define(CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_CLASS_DOC);
         conf.define(CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_CONFIGURATION_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_CONFIGURATION_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_XSLT_ENDPOINT_TRANSFORMER_FACTORY_CONFIGURATION_STRATEGY_DOC);

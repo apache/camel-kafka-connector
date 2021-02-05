@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.undertow.CamelUndertowSinkConnec
 ----
 
 
-The camel-undertow sink connector supports 30 options, which are listed below.
+The camel-undertow sink connector supports 29 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-undertow sink connector supports 30 options, which are listed below.
 | *camel.sink.endpoint.transferException* | If enabled and an Exchange failed processing on the consumer side and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk. | "false" | false | MEDIUM
 | *camel.sink.endpoint.accessLogReceiver* | Which Undertow AccessLogReceiver should be used Will use JBossLoggingAccessLogReceiver if not specified | null | false | MEDIUM
 | *camel.sink.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.undertowHttpBinding* | To use a custom UndertowHttpBinding to control the mapping between Camel message and undertow. | null | false | MEDIUM
 | *camel.sink.endpoint.allowedRoles* | Configuration used by UndertowSecurityProvider. Comma separated list of allowed roles. | null | false | MEDIUM
 | *camel.sink.endpoint.securityConfiguration* | OConfiguration used by UndertowSecurityProvider. Security configuration object for use from UndertowSecurityProvider. Configuration is UndertowSecurityProvider specific. Each provider decides whether accepts configuration. | null | false | MEDIUM

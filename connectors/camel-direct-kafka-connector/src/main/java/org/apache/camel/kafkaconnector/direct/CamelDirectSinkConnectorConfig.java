@@ -40,7 +40,7 @@ public class CamelDirectSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_DIRECT_ENDPOINT_TIMEOUT_DOC = "The timeout value to use if block is enabled.";
     public static final Long CAMEL_SINK_DIRECT_ENDPOINT_TIMEOUT_DEFAULT = 30000L;
     public static final String CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_DOC = "Whether synchronous processing is forced. If enabled then the producer thread, will be forced to wait until the message has been completed before the same thread will continue processing. If disabled (default) then the producer thread may be freed and can do other work while the message is continued processed by other threads (reactive).";
     public static final Boolean CAMEL_SINK_DIRECT_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_DIRECT_COMPONENT_BLOCK_CONF = "camel.component.direct.block";
     public static final String CAMEL_SINK_DIRECT_COMPONENT_BLOCK_DOC = "If sending a message to a direct endpoint which has no active consumer, then we can tell the producer to block and wait for the consumer to become active.";

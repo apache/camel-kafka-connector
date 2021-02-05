@@ -40,6 +40,7 @@ The camel-cxf sink connector supports 39 options, which are listed below.
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.sslContextParameters* | The Camel SSL setting reference. Use the # notation to reference the SSL Context. | null | false | MEDIUM
 | *camel.sink.endpoint.wrapped* | Which kind of operation that CXF endpoint producer will invoke | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.sink.endpoint.allowStreaming* | This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases. | null | false | MEDIUM
 | *camel.sink.endpoint.bus* | To use a custom configured CXF Bus. | null | false | MEDIUM
 | *camel.sink.endpoint.continuationTimeout* | This option is used to set the CXF continuation timeout which could be used in CxfConsumer by default when the CXF server is using Jetty or Servlet transport. | 30000L | false | MEDIUM
@@ -51,7 +52,6 @@ The camel-cxf sink connector supports 39 options, which are listed below.
 | *camel.sink.endpoint.mtomEnabled* | To enable MTOM (attachments). This requires to use POJO or PAYLOAD data format mode. | false | false | MEDIUM
 | *camel.sink.endpoint.properties* | To set additional CXF options using the key/value pairs from the Map. For example to turn on stacktraces in SOAP faults, properties.faultStackTraceEnabled=true | null | false | MEDIUM
 | *camel.sink.endpoint.skipPayloadMessagePartCheck* | Sets whether SOAP message validation should be disabled. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.loggingFeatureEnabled* | This option enables CXF Logging Feature which writes inbound and outbound SOAP messages to log. | false | false | MEDIUM
 | *camel.sink.endpoint.loggingSizeLimit* | To limit the total size of number of bytes the logger will output when logging feature has been enabled and -1 for no limit. | 49152 | false | MEDIUM
 | *camel.sink.endpoint.skipFaultLogging* | This option controls whether the PhaseInterceptorChain skips logging the Fault that it catches. | false | false | MEDIUM

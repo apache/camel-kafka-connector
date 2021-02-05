@@ -132,7 +132,7 @@
 		},
 		"camel.source.endpoint.presenceAgent": {
 			"name": "camel.source.endpoint.presenceAgent",
-			"description": "This setting is used to distinguish between a Presence Agent & a consumer. This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true.",
+			"description": "This setting is used to distinguish between a Presence Agent and a consumer. This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -248,13 +248,6 @@
 		"camel.source.endpoint.sipUri": {
 			"name": "camel.source.endpoint.sipUri",
 			"description": "To use a custom SipURI. If none configured, then the SipUri fallback to use the options toUser toHost:toPort",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.log.CamelLogSinkConnector
 ----
 
 
-The camel-log sink connector supports 31 options, which are listed below.
+The camel-log sink connector supports 30 options, which are listed below.
 
 
 
@@ -39,7 +39,6 @@ The camel-log sink connector supports 31 options, which are listed below.
 | *camel.sink.endpoint.logMask* | If true, mask sensitive information like password or passphrase in the log. | null | false | MEDIUM
 | *camel.sink.endpoint.marker* | An optional Marker name to use. | null | false | MEDIUM
 | *camel.sink.endpoint.exchangeFormatter* | To use a custom exchange formatter | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.maxChars* | Limits the number of characters logged per line. | 10000 | false | MEDIUM
 | *camel.sink.endpoint.multiline* | If enabled then each information is outputted on a newline. | false | false | MEDIUM
 | *camel.sink.endpoint.showAll* | Quick option for turning all options on. (multiline, maxChars has to be manually set if to be used) | false | false | MEDIUM

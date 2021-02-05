@@ -258,6 +258,7 @@
         <module>camel-azure-eventhubs-kafka-connector</module>
         <module>camel-azure-queue-kafka-connector</module>
         <module>camel-azure-storage-blob-kafka-connector</module>
+        <module>camel-azure-storage-datalake-kafka-connector</module>
         <module>camel-azure-storage-queue-kafka-connector</module>
         <module>camel-bean-kafka-connector</module>
         <module>camel-beanstalk-kafka-connector</module>
@@ -349,6 +350,7 @@
         <module>camel-hdfs-kafka-connector</module>
         <module>camel-http-kafka-connector</module>
         <module>camel-https-kafka-connector</module>
+        <module>camel-hwcloud-smn-kafka-connector</module>
         <module>camel-iec60870-client-kafka-connector</module>
         <module>camel-iec60870-server-kafka-connector</module>
         <module>camel-ignite-cache-kafka-connector</module>
@@ -360,6 +362,7 @@
         <module>camel-ignite-set-kafka-connector</module>
         <module>camel-imap-kafka-connector</module>
         <module>camel-imaps-kafka-connector</module>
+        <module>camel-infinispan-embedded-kafka-connector</module>
         <module>camel-infinispan-kafka-connector</module>
         <module>camel-influxdb-kafka-connector</module>
         <module>camel-iota-kafka-connector</module>
@@ -386,6 +389,7 @@
         <module>camel-jsonata-kafka-connector</module>
         <module>camel-jt400-kafka-connector</module>
         <module>camel-kafka-kafka-connector</module>
+        <module>camel-kamelet-kafka-connector</module>
         <module>camel-kubernetes-config-maps-kafka-connector</module>
         <module>camel-kubernetes-custom-resources-kafka-connector</module>
         <module>camel-kubernetes-deployments-kafka-connector</module>
@@ -444,6 +448,7 @@
         <module>camel-openstack-swift-kafka-connector</module>
         <module>camel-optaplanner-kafka-connector</module>
         <module>camel-paho-kafka-connector</module>
+        <module>camel-paho-mqtt5-kafka-connector</module>
         <module>camel-pdf-kafka-connector</module>
         <module>camel-pg-replication-slot-kafka-connector</module>
         <module>camel-pgevent-kafka-connector</module>
@@ -495,12 +500,14 @@
         <module>camel-spring-event-kafka-connector</module>
         <module>camel-spring-integration-kafka-connector</module>
         <module>camel-spring-ldap-kafka-connector</module>
+        <module>camel-spring-rabbitmq-kafka-connector</module>
         <module>camel-spring-redis-kafka-connector</module>
         <module>camel-spring-ws-kafka-connector</module>
         <module>camel-sql-kafka-connector</module>
         <module>camel-sql-stored-kafka-connector</module>
         <module>camel-ssh-kafka-connector</module>
         <module>camel-stax-kafka-connector</module>
+        <module>camel-stitch-kafka-connector</module>
         <module>camel-stomp-kafka-connector</module>
         <module>camel-stream-kafka-connector</module>
         <module>camel-string-template-kafka-connector</module>

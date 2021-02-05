@@ -47,9 +47,6 @@ public class CamelOptaplannerSinkConnectorConfig
     public static final String CAMEL_SINK_OPTAPLANNER_ENDPOINT_THREAD_POOL_SIZE_CONF = "camel.sink.endpoint.threadPoolSize";
     public static final String CAMEL_SINK_OPTAPLANNER_ENDPOINT_THREAD_POOL_SIZE_DOC = "Specifies the thread pool size to use when async is true";
     public static final Integer CAMEL_SINK_OPTAPLANNER_ENDPOINT_THREAD_POOL_SIZE_DEFAULT = 10;
-    public static final String CAMEL_SINK_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_OPTAPLANNER_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.optaplanner.lazyStartProducer";
     public static final String CAMEL_SINK_OPTAPLANNER_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_OPTAPLANNER_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -76,7 +73,6 @@ public class CamelOptaplannerSinkConnectorConfig
         conf.define(CAMEL_SINK_OPTAPLANNER_ENDPOINT_ASYNC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OPTAPLANNER_ENDPOINT_ASYNC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OPTAPLANNER_ENDPOINT_ASYNC_DOC);
         conf.define(CAMEL_SINK_OPTAPLANNER_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OPTAPLANNER_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OPTAPLANNER_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_OPTAPLANNER_ENDPOINT_THREAD_POOL_SIZE_CONF, ConfigDef.Type.INT, CAMEL_SINK_OPTAPLANNER_ENDPOINT_THREAD_POOL_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OPTAPLANNER_ENDPOINT_THREAD_POOL_SIZE_DOC);
-        conf.define(CAMEL_SINK_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OPTAPLANNER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_OPTAPLANNER_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OPTAPLANNER_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OPTAPLANNER_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_OPTAPLANNER_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_OPTAPLANNER_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_OPTAPLANNER_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;

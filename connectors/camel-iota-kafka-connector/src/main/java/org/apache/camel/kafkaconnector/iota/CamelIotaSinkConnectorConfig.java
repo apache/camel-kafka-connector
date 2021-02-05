@@ -45,9 +45,6 @@ public class CamelIotaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_IOTA_ENDPOINT_URL_CONF = "camel.sink.endpoint.url";
     public static final String CAMEL_SINK_IOTA_ENDPOINT_URL_DOC = "Node url";
     public static final String CAMEL_SINK_IOTA_ENDPOINT_URL_DEFAULT = null;
-    public static final String CAMEL_SINK_IOTA_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_IOTA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_IOTA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_CONF = "camel.sink.endpoint.securityLevel";
     public static final String CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_DOC = "Address security level";
     public static final String CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_DEFAULT = "1";
@@ -77,7 +74,6 @@ public class CamelIotaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_IOTA_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IOTA_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_IOTA_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_IOTA_ENDPOINT_TAG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IOTA_ENDPOINT_TAG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IOTA_ENDPOINT_TAG_DOC);
         conf.define(CAMEL_SINK_IOTA_ENDPOINT_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IOTA_ENDPOINT_URL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_IOTA_ENDPOINT_URL_DOC);
-        conf.define(CAMEL_SINK_IOTA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IOTA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IOTA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IOTA_ENDPOINT_SECURITY_LEVEL_DOC);
         conf.define(CAMEL_SINK_IOTA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IOTA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IOTA_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_IOTA_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IOTA_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IOTA_COMPONENT_AUTOWIRED_ENABLED_DOC);

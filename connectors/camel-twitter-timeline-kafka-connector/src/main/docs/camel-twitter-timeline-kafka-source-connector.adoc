@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.twittertimeline.CamelTwittertime
 ----
 
 
-The camel-twitter-timeline source connector supports 54 options, which are listed below.
+The camel-twitter-timeline source connector supports 53 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-twitter-timeline source connector supports 54 options, which are liste
 | *camel.source.endpoint.longitude* | Used by the geography search to search by longitude. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
 | *camel.source.endpoint.radius* | Used by the geography search to search by radius. You need to configure all the following options: longitude, latitude, radius, and distanceMetric. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.count* | Limiting number of results per page. | "5" | false | MEDIUM
 | *camel.source.endpoint.filterOld* | Filter out old tweets, that has previously been polled. This state is stored in memory only, and based on last tweet id. | true | false | MEDIUM
 | *camel.source.endpoint.lang* | The lang string ISO_639-1 which will be used for searching | null | false | MEDIUM
