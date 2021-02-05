@@ -71,9 +71,6 @@ public class CamelWeatherSourceConnectorConfig
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_CONF = "camel.source.endpoint.httpClient";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_DOC = "To use an existing configured http client (for example with http proxy)";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_DEFAULT = null;
-    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_CONF = "camel.source.endpoint.cnt";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_DOC = "Number of results to be found";
     public static final String CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_DEFAULT = null;
@@ -183,7 +180,6 @@ public class CamelWeatherSourceConnectorConfig
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_GEO_LOCATION_PROVIDER_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_HTTP_CLIENT_DOC);
-        conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_CNT_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_IDS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_IDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_IDS_DOC);
         conf.define(CAMEL_SOURCE_WEATHER_ENDPOINT_LAT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_WEATHER_ENDPOINT_LAT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_WEATHER_ENDPOINT_LAT_DOC);

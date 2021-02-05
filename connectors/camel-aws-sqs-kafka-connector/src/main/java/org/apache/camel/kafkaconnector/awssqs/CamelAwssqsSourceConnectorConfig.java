@@ -116,9 +116,6 @@ public class CamelAwssqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_CONF = "camel.source.endpoint.queueUrl";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_DOC = "To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes.";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_HOST_CONF = "camel.source.endpoint.proxyHost";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SQS client";
     public static final String CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -333,7 +330,6 @@ public class CamelAwssqsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_DELAY_QUEUE_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_QUEUE_URL_DOC);
-        conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SOURCE_AWSSQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWSSQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWSSQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_DOC);

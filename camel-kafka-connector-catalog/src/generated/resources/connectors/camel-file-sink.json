@@ -169,7 +169,7 @@
 		},
 		"camel.sink.endpoint.synchronous": {
 			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"description": "Sets whether synchronous processing should be strictly used",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

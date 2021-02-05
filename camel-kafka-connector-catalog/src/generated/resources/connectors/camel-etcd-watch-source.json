@@ -80,13 +80,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.password": {
 			"name": "camel.source.endpoint.password",
 			"description": "The password to use for basic authentication.",

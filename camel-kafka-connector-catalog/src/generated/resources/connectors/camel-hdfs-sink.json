@@ -208,13 +208,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.kerberosConfigFileLocation": {
 			"name": "camel.sink.endpoint.kerberosConfigFileLocation",
 			"description": "The location of the kerb5.conf file (https:\/\/web.mit.edu\/kerberos\/krb5-1.12\/doc\/admin\/conf_files\/krb5_conf.html)",

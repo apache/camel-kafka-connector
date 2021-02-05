@@ -57,9 +57,6 @@ public class CamelSedaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SEDA_ENDPOINT_QUEUE_CONF = "camel.sink.endpoint.queue";
     public static final String CAMEL_SINK_SEDA_ENDPOINT_QUEUE_DOC = "Define the queue instance which will be used by the endpoint";
     public static final String CAMEL_SINK_SEDA_ENDPOINT_QUEUE_DEFAULT = null;
-    public static final String CAMEL_SINK_SEDA_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_SEDA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_SEDA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_SEDA_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_CONF = "camel.component.seda.defaultBlockWhenFull";
     public static final String CAMEL_SINK_SEDA_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DOC = "Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted. By default, an exception will be thrown stating that the queue is full. By enabling this option, the calling thread will instead block and wait until the message can be accepted.";
     public static final Boolean CAMEL_SINK_SEDA_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DEFAULT = false;
@@ -105,7 +102,6 @@ public class CamelSedaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_SEDA_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SEDA_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SEDA_ENDPOINT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_SEDA_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SEDA_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SEDA_ENDPOINT_WAIT_FOR_TASK_TO_COMPLETE_DOC);
         conf.define(CAMEL_SINK_SEDA_ENDPOINT_QUEUE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SEDA_ENDPOINT_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SEDA_ENDPOINT_QUEUE_DOC);
-        conf.define(CAMEL_SINK_SEDA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SEDA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SEDA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_SEDA_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SEDA_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SEDA_COMPONENT_DEFAULT_BLOCK_WHEN_FULL_DOC);
         conf.define(CAMEL_SINK_SEDA_COMPONENT_DEFAULT_DISCARD_WHEN_FULL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SEDA_COMPONENT_DEFAULT_DISCARD_WHEN_FULL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SEDA_COMPONENT_DEFAULT_DISCARD_WHEN_FULL_DOC);
         conf.define(CAMEL_SINK_SEDA_COMPONENT_DEFAULT_OFFER_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_SEDA_COMPONENT_DEFAULT_OFFER_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SEDA_COMPONENT_DEFAULT_OFFER_TIMEOUT_DOC);

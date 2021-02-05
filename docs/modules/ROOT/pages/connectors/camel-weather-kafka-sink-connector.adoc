@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.weather.CamelWeatherSinkConnecto
 ----
 
 
-The camel-weather sink connector supports 25 options, which are listed below.
+The camel-weather sink connector supports 24 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-weather sink connector supports 25 options, which are listed below.
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.geoLocationProvider* | A custum geolocation provider to determine the longitude and latitude to use when no location information is set. The default implementaion uses the ipstack API and requires geolocationAccessKey and geolocationRequestHostIP | null | false | MEDIUM
 | *camel.sink.endpoint.httpClient* | To use an existing configured http client (for example with http proxy) | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.cnt* | Number of results to be found | null | false | MEDIUM
 | *camel.sink.endpoint.ids* | List of id's of city/stations. You can separate multiple ids by comma. | null | false | MEDIUM
 | *camel.sink.endpoint.lat* | Latitude of location. You can use lat and lon options instead of location. For boxed queries this is the bottom latitude. | null | false | MEDIUM

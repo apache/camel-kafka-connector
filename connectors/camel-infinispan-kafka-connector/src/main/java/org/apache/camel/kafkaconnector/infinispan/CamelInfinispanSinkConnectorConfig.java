@@ -51,7 +51,7 @@ public class CamelInfinispanSinkConnectorConfig
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_OLD_VALUE_DOC = "Set a specific old value for some producer operations";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_OLD_VALUE_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_OPERATION_CONF = "camel.sink.endpoint.operation";
-    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_OPERATION_DOC = "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]";
+    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_OPERATION_DOC = "The operation to perform One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_OPERATION_DEFAULT = "PUT";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_VALUE_CONF = "camel.sink.endpoint.value";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_VALUE_DOC = "Set a specific value for producer operations";
@@ -75,7 +75,7 @@ public class CamelInfinispanSinkConnectorConfig
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CACHE_CONTAINER_DOC = "Specifies the cache Container to connect";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CACHE_CONTAINER_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CACHE_CONTAINER_CONFIGURATION_CONF = "camel.sink.endpoint.cacheContainerConfiguration";
-    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CACHE_CONTAINER_CONFIGURATION_DOC = "The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;";
+    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CACHE_CONTAINER_CONFIGURATION_DOC = "The CacheContainer configuration. Used if the cacheContainer is not defined.";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CACHE_CONTAINER_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CONFIGURATION_PROPERTIES_CONF = "camel.sink.endpoint.configurationProperties";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CONFIGURATION_PROPERTIES_DOC = "Implementation specific properties for the CacheManager";
@@ -84,17 +84,14 @@ public class CamelInfinispanSinkConnectorConfig
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CONFIGURATION_URI_DOC = "An implementation specific URI for the CacheManager";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_CONFIGURATION_URI_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_FLAGS_CONF = "camel.sink.endpoint.flags";
-    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_FLAGS_DOC = "A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches.";
+    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_FLAGS_DOC = "A comma separated list of org.infinispan.client.hotrod.Flag to be applied by default on each cache invocation.";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_FLAGS_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_CONF = "camel.sink.endpoint.remappingFunction";
-    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_DOC = "Set a specific remappingFunction to use in a compute operation";
+    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_DOC = "Set a specific remappingFunction to use in a compute operation.";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_RESULT_HEADER_CONF = "camel.sink.endpoint.resultHeader";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_RESULT_HEADER_DOC = "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader";
     public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_RESULT_HEADER_DEFAULT = null;
-    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_INFINISPAN_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_INFINISPAN_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_CONF = "camel.component.infinispan.configuration";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_DOC = "Component configuration";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -120,7 +117,7 @@ public class CamelInfinispanSinkConnectorConfig
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_OLD_VALUE_DOC = "Set a specific old value for some producer operations";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_OLD_VALUE_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_OPERATION_CONF = "camel.component.infinispan.operation";
-    public static final String CAMEL_SINK_INFINISPAN_COMPONENT_OPERATION_DOC = "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]";
+    public static final String CAMEL_SINK_INFINISPAN_COMPONENT_OPERATION_DOC = "The operation to perform One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_OPERATION_DEFAULT = "PUT";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_VALUE_CONF = "camel.component.infinispan.value";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_VALUE_DOC = "Set a specific value for producer operations";
@@ -147,7 +144,7 @@ public class CamelInfinispanSinkConnectorConfig
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CACHE_CONTAINER_DOC = "Specifies the cache Container to connect";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CACHE_CONTAINER_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CACHE_CONTAINER_CONFIGURATION_CONF = "camel.component.infinispan.cacheContainerConfiguration";
-    public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CACHE_CONTAINER_CONFIGURATION_DOC = "The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;";
+    public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CACHE_CONTAINER_CONFIGURATION_DOC = "The CacheContainer configuration. Used if the cacheContainer is not defined.";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CACHE_CONTAINER_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_PROPERTIES_CONF = "camel.component.infinispan.configurationProperties";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_PROPERTIES_DOC = "Implementation specific properties for the CacheManager";
@@ -156,10 +153,10 @@ public class CamelInfinispanSinkConnectorConfig
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_URI_DOC = "An implementation specific URI for the CacheManager";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_URI_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_FLAGS_CONF = "camel.component.infinispan.flags";
-    public static final String CAMEL_SINK_INFINISPAN_COMPONENT_FLAGS_DOC = "A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches.";
+    public static final String CAMEL_SINK_INFINISPAN_COMPONENT_FLAGS_DOC = "A comma separated list of org.infinispan.client.hotrod.Flag to be applied by default on each cache invocation.";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_FLAGS_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_REMAPPING_FUNCTION_CONF = "camel.component.infinispan.remappingFunction";
-    public static final String CAMEL_SINK_INFINISPAN_COMPONENT_REMAPPING_FUNCTION_DOC = "Set a specific remappingFunction to use in a compute operation";
+    public static final String CAMEL_SINK_INFINISPAN_COMPONENT_REMAPPING_FUNCTION_DOC = "Set a specific remappingFunction to use in a compute operation.";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_REMAPPING_FUNCTION_DEFAULT = null;
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_RESULT_HEADER_CONF = "camel.component.infinispan.resultHeader";
     public static final String CAMEL_SINK_INFINISPAN_COMPONENT_RESULT_HEADER_DOC = "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader";
@@ -199,7 +196,6 @@ public class CamelInfinispanSinkConnectorConfig
         conf.define(CAMEL_SINK_INFINISPAN_ENDPOINT_FLAGS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFINISPAN_ENDPOINT_FLAGS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFINISPAN_ENDPOINT_FLAGS_DOC);
         conf.define(CAMEL_SINK_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFINISPAN_ENDPOINT_REMAPPING_FUNCTION_DOC);
         conf.define(CAMEL_SINK_INFINISPAN_ENDPOINT_RESULT_HEADER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFINISPAN_ENDPOINT_RESULT_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFINISPAN_ENDPOINT_RESULT_HEADER_DOC);
-        conf.define(CAMEL_SINK_INFINISPAN_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_INFINISPAN_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFINISPAN_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFINISPAN_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_INFINISPAN_COMPONENT_HOSTS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFINISPAN_COMPONENT_HOSTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFINISPAN_COMPONENT_HOSTS_DOC);
         conf.define(CAMEL_SINK_INFINISPAN_COMPONENT_QUERY_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_INFINISPAN_COMPONENT_QUERY_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_INFINISPAN_COMPONENT_QUERY_BUILDER_DOC);

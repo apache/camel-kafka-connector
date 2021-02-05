@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.platformhttp.CamelPlatformhttpSo
 ----
 
 
-The camel-platform-http source connector supports 15 options, which are listed below.
+The camel-platform-http source connector supports 14 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-platform-http source connector supports 15 options, which are listed b
 | *camel.source.endpoint.fileNameExtWhitelist* | A comma or whitespace separated list of file extensions. Uploads having these extensions will be stored locally. Null value or asterisk () will allow all files. | null | false | MEDIUM
 | *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter headers to and from Camel message. | null | false | MEDIUM
 | *camel.source.endpoint.platformHttpEngine* | An HTTP Server engine implementation to serve the requests of this endpoint. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.platform-http.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.platform-http.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.platform-http.engine* | An HTTP Server engine implementation to serve the requests | null | false | MEDIUM

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.awscw.CamelAwscwSinkConnector
 ----
 
 
-The camel-aws-cw sink connector supports 30 options, which are listed below.
+The camel-aws-cw sink connector supports 29 options, which are listed below.
 
 
 
@@ -41,7 +41,6 @@ The camel-aws-cw sink connector supports 30 options, which are listed below.
 | *camel.sink.endpoint.timestamp* | The metric timestamp | null | false | MEDIUM
 | *camel.sink.endpoint.unit* | The metric unit | null | false | MEDIUM
 | *camel.sink.endpoint.value* | The metric value | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws-cw.amazonCwClient* | To use the AmazonCloudWatch as the client | null | false | MEDIUM

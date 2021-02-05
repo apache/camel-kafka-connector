@@ -1,0 +1,411 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.azurestoragedatalake.CamelAzurestoragedatalakeSourceConnector",
+		"artifactId": "camel-azure-storage-datalake-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-azure-storage-datalake-source",
+		"type": "source",
+		"version": "0.8.0-SNAPSHOT",
+		"description": "Camel Azure Datalake Gen2 Component"
+	},
+	"properties": {
+		"camel.source.path.accountName": {
+			"name": "camel.source.path.accountName",
+			"description": "name of the azure account",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.path.fileSystemName": {
+			"name": "camel.source.path.fileSystemName",
+			"description": "name of filesystem to be used",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.accountKey": {
+			"name": "camel.source.endpoint.accountKey",
+			"description": "account key for authentication",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.clientId": {
+			"name": "camel.source.endpoint.clientId",
+			"description": "client id for azure account",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.clientSecret": {
+			"name": "camel.source.endpoint.clientSecret",
+			"description": "client secret for azure account",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.clientSecretCredential": {
+			"name": "camel.source.endpoint.clientSecretCredential",
+			"description": "client secret credential for authentication",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.close": {
+			"name": "camel.source.endpoint.close",
+			"description": "Whether or not a file changed event raised indicates completion (true) or modification (false)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.closeStreamAfterRead": {
+			"name": "camel.source.endpoint.closeStreamAfterRead",
+			"description": "check for closing stream after read",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.dataCount": {
+			"name": "camel.source.endpoint.dataCount",
+			"description": "count number of bytes to download",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.dataLakeServiceClient": {
+			"name": "camel.source.endpoint.dataLakeServiceClient",
+			"description": "service client of datalake",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.directoryName": {
+			"name": "camel.source.endpoint.directoryName",
+			"description": "directory of the file to be handled in component",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.downloadLinkExpiration": {
+			"name": "camel.source.endpoint.downloadLinkExpiration",
+			"description": "download link expiration time",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.expression": {
+			"name": "camel.source.endpoint.expression",
+			"description": "expression for queryInputStream",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.fileDir": {
+			"name": "camel.source.endpoint.fileDir",
+			"description": "directory of file to do operations in the local system",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.fileName": {
+			"name": "camel.source.endpoint.fileName",
+			"description": "name of file to be handled in component",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.fileOffset": {
+			"name": "camel.source.endpoint.fileOffset",
+			"description": "offset position in file for different operations",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.maxResults": {
+			"name": "camel.source.endpoint.maxResults",
+			"description": "maximum number of results to show at a time",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.maxRetryRequests": {
+			"name": "camel.source.endpoint.maxRetryRequests",
+			"description": "no of retries to a given request",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.openOptions": {
+			"name": "camel.source.endpoint.openOptions",
+			"description": "set open options for creating file",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.path": {
+			"name": "camel.source.endpoint.path",
+			"description": "path in azure datalake for operations",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.permission": {
+			"name": "camel.source.endpoint.permission",
+			"description": "permission string for the file",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.position": {
+			"name": "camel.source.endpoint.position",
+			"description": "This parameter allows the caller to upload data in parallel and control the order in which it is appended to the file.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.recursive": {
+			"name": "camel.source.endpoint.recursive",
+			"description": "recursively include all paths",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.regex": {
+			"name": "camel.source.endpoint.regex",
+			"description": "regular expression for matching file names",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.retainUncommitedData": {
+			"name": "camel.source.endpoint.retainUncommitedData",
+			"description": "Whether or not uncommitted data is to be retained after the operation",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.serviceClient": {
+			"name": "camel.source.endpoint.serviceClient",
+			"description": "datalake service client for azure storage datalake",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.sharedKeyCredential": {
+			"name": "camel.source.endpoint.sharedKeyCredential",
+			"description": "shared key credential for azure datalake gen2",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.tenantId": {
+			"name": "camel.source.endpoint.tenantId",
+			"description": "tenant id for azure account",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.timeout": {
+			"name": "camel.source.endpoint.timeout",
+			"description": "Timeout for operation",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.umask": {
+			"name": "camel.source.endpoint.umask",
+			"description": "umask permission for file",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.userPrincipalNameReturned": {
+			"name": "camel.source.endpoint.userPrincipalNameReturned",
+			"description": "whether or not to use upn",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
+		},
+		"camel.component.azure-storage-datalake.accountKey": {
+			"name": "camel.component.azure-storage-datalake.accountKey",
+			"description": "account key for authentication",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.clientId": {
+			"name": "camel.component.azure-storage-datalake.clientId",
+			"description": "client id for azure account",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.clientSecret": {
+			"name": "camel.component.azure-storage-datalake.clientSecret",
+			"description": "client secret for azure account",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.clientSecretCredential": {
+			"name": "camel.component.azure-storage-datalake.clientSecretCredential",
+			"description": "client secret credential for authentication",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.close": {
+			"name": "camel.component.azure-storage-datalake.close",
+			"description": "Whether or not a file changed event raised indicates completion (true) or modification (false)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.closeStreamAfterRead": {
+			"name": "camel.component.azure-storage-datalake.closeStreamAfterRead",
+			"description": "check for closing stream after read",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.configuration": {
+			"name": "camel.component.azure-storage-datalake.configuration",
+			"description": "configuration object for datalake",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.dataCount": {
+			"name": "camel.component.azure-storage-datalake.dataCount",
+			"description": "count number of bytes to download",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.directoryName": {
+			"name": "camel.component.azure-storage-datalake.directoryName",
+			"description": "directory of the file to be handled in component",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.downloadLinkExpiration": {
+			"name": "camel.component.azure-storage-datalake.downloadLinkExpiration",
+			"description": "download link expiration time",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.expression": {
+			"name": "camel.component.azure-storage-datalake.expression",
+			"description": "expression for queryInputStream",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.fileDir": {
+			"name": "camel.component.azure-storage-datalake.fileDir",
+			"description": "directory of file to do operations in the local system",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.fileName": {
+			"name": "camel.component.azure-storage-datalake.fileName",
+			"description": "name of file to be handled in component",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.fileOffset": {
+			"name": "camel.component.azure-storage-datalake.fileOffset",
+			"description": "offset position in file for different operations",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.maxResults": {
+			"name": "camel.component.azure-storage-datalake.maxResults",
+			"description": "maximum number of results to show at a time",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.maxRetryRequests": {
+			"name": "camel.component.azure-storage-datalake.maxRetryRequests",
+			"description": "no of retries to a given request",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.openOptions": {
+			"name": "camel.component.azure-storage-datalake.openOptions",
+			"description": "set open options for creating file",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.path": {
+			"name": "camel.component.azure-storage-datalake.path",
+			"description": "path in azure datalake for operations",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.permission": {
+			"name": "camel.component.azure-storage-datalake.permission",
+			"description": "permission string for the file",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.position": {
+			"name": "camel.component.azure-storage-datalake.position",
+			"description": "This parameter allows the caller to upload data in parallel and control the order in which it is appended to the file.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.recursive": {
+			"name": "camel.component.azure-storage-datalake.recursive",
+			"description": "recursively include all paths",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.regex": {
+			"name": "camel.component.azure-storage-datalake.regex",
+			"description": "regular expression for matching file names",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.retainUncommitedData": {
+			"name": "camel.component.azure-storage-datalake.retainUncommitedData",
+			"description": "Whether or not uncommitted data is to be retained after the operation",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.serviceClient": {
+			"name": "camel.component.azure-storage-datalake.serviceClient",
+			"description": "datalake service client for azure storage datalake",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.sharedKeyCredential": {
+			"name": "camel.component.azure-storage-datalake.sharedKeyCredential",
+			"description": "shared key credential for azure datalake gen2",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.tenantId": {
+			"name": "camel.component.azure-storage-datalake.tenantId",
+			"description": "tenant id for azure account",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.timeout": {
+			"name": "camel.component.azure-storage-datalake.timeout",
+			"description": "Timeout for operation",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.umask": {
+			"name": "camel.component.azure-storage-datalake.umask",
+			"description": "umask permission for file",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.userPrincipalNameReturned": {
+			"name": "camel.component.azure-storage-datalake.userPrincipalNameReturned",
+			"description": "whether or not to use upn",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.bridgeErrorHandler": {
+			"name": "camel.component.azure-storage-datalake.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.azure-storage-datalake.autowiredEnabled": {
+			"name": "camel.component.azure-storage-datalake.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

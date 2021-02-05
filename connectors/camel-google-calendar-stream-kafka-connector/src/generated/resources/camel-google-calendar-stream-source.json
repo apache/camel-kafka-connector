@@ -81,6 +81,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.syncFlow": {
+			"name": "camel.source.endpoint.syncFlow",
+			"description": "Sync events, see https:\/\/developers.google.com\/calendar\/v3\/sync Note: not compatible with: 'query' and 'considerLastUpdate' parameters",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.exceptionHandler": {
 			"name": "camel.source.endpoint.exceptionHandler",
 			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
@@ -101,13 +108,6 @@
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -233,9 +233,27 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.emailAddress": {
+			"name": "camel.source.endpoint.emailAddress",
+			"description": "The emailAddress of the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.p12FileName": {
+			"name": "camel.source.endpoint.p12FileName",
+			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.refreshToken": {
 			"name": "camel.source.endpoint.refreshToken",
 			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.user": {
+			"name": "camel.source.endpoint.user",
+			"description": "The email address of the user the application is trying to impersonate in the service account flow.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -304,6 +322,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.google-calendar-stream.syncFlow": {
+			"name": "camel.component.google-calendar-stream.syncFlow",
+			"description": "Sync events, see https:\/\/developers.google.com\/calendar\/v3\/sync Note: not compatible with: 'query' and 'considerLastUpdate' parameters",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.google-calendar-stream.autowiredEnabled": {
 			"name": "camel.component.google-calendar-stream.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
@@ -329,9 +354,27 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.google-calendar-stream.emailAddress": {
+			"name": "camel.component.google-calendar-stream.emailAddress",
+			"description": "The emailAddress of the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-calendar-stream.p12FileName": {
+			"name": "camel.component.google-calendar-stream.p12FileName",
+			"description": "The name of the p12 file which has the private key to use with the Google Service Account.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.google-calendar-stream.refreshToken": {
 			"name": "camel.component.google-calendar-stream.refreshToken",
 			"description": "OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.google-calendar-stream.user": {
+			"name": "camel.component.google-calendar-stream.user",
+			"description": "The email address of the user the application is trying to impersonate in the service account flow.",
 			"priority": "MEDIUM",
 			"required": "false"
 		}

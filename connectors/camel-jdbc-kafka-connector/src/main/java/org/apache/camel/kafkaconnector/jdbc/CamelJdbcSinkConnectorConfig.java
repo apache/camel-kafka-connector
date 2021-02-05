@@ -66,9 +66,6 @@ public class CamelJdbcSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JDBC_ENDPOINT_PREPARE_STATEMENT_STRATEGY_CONF = "camel.sink.endpoint.prepareStatementStrategy";
     public static final String CAMEL_SINK_JDBC_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DOC = "Allows the plugin to use a custom org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to control preparation of the query and prepared statement.";
     public static final String CAMEL_SINK_JDBC_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SINK_JDBC_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_JDBC_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_JDBC_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_JDBC_COMPONENT_DATA_SOURCE_CONF = "camel.component.jdbc.dataSource";
     public static final String CAMEL_SINK_JDBC_COMPONENT_DATA_SOURCE_DOC = "To use the DataSource instance instead of looking up the data source by name from the registry.";
     public static final String CAMEL_SINK_JDBC_COMPONENT_DATA_SOURCE_DEFAULT = null;
@@ -105,7 +102,6 @@ public class CamelJdbcSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JDBC_ENDPOINT_USE_JDBC4COLUMN_NAME_AND_LABEL_SEMANTICS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JDBC_ENDPOINT_USE_JDBC4COLUMN_NAME_AND_LABEL_SEMANTICS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JDBC_ENDPOINT_USE_JDBC4COLUMN_NAME_AND_LABEL_SEMANTICS_DOC);
         conf.define(CAMEL_SINK_JDBC_ENDPOINT_BEAN_ROW_MAPPER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JDBC_ENDPOINT_BEAN_ROW_MAPPER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JDBC_ENDPOINT_BEAN_ROW_MAPPER_DOC);
         conf.define(CAMEL_SINK_JDBC_ENDPOINT_PREPARE_STATEMENT_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JDBC_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JDBC_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DOC);
-        conf.define(CAMEL_SINK_JDBC_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JDBC_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JDBC_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_JDBC_COMPONENT_DATA_SOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JDBC_COMPONENT_DATA_SOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JDBC_COMPONENT_DATA_SOURCE_DOC);
         conf.define(CAMEL_SINK_JDBC_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JDBC_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JDBC_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_JDBC_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JDBC_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JDBC_COMPONENT_AUTOWIRED_ENABLED_DOC);

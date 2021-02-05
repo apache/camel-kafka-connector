@@ -42,9 +42,6 @@ public class CamelBeanSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_CONF = "camel.sink.endpoint.parameters";
     public static final String CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_DOC = "Used for configuring additional properties on the bean";
     public static final String CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_DEFAULT = null;
-    public static final String CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_BEAN_COMPONENT_CACHE_CONF = "camel.component.bean.cache";
     public static final String CAMEL_SINK_BEAN_COMPONENT_CACHE_DOC = "Use singleton option instead.";
     public static final String CAMEL_SINK_BEAN_COMPONENT_CACHE_DEFAULT = "true";
@@ -76,7 +73,6 @@ public class CamelBeanSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_SCOPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_ENDPOINT_SCOPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_SCOPE_DOC);
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_PARAMETERS_DOC);
-        conf.define(CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_BEAN_COMPONENT_CACHE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_COMPONENT_CACHE_DEFAULT, ConfigDef.Importance.LOW, CAMEL_SINK_BEAN_COMPONENT_CACHE_DOC);
         conf.define(CAMEL_SINK_BEAN_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_BEAN_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_BEAN_COMPONENT_SCOPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_BEAN_COMPONENT_SCOPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_BEAN_COMPONENT_SCOPE_DOC);

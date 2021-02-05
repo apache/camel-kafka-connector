@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.websocket.CamelWebsocketSourceCo
 ----
 
 
-The camel-websocket source connector supports 33 options, which are listed below.
+The camel-websocket source connector supports 32 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-websocket source connector supports 33 options, which are listed below
 | *camel.source.endpoint.maxIdleTime* | Set the time in ms that the websocket created by the websocketServlet may be idle before closing. (default is 300000) | "300000" | false | MEDIUM
 | *camel.source.endpoint.maxTextMessageSize* | Can be used to set the size in characters that the websocket created by the websocketServlet may be accept before closing. | null | false | MEDIUM
 | *camel.source.endpoint.minVersion* | Can be used to set the minimum protocol version accepted for the websocketServlet. (Default 13 - the RFC6455 version) | "13" | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.allowedOrigins* | The CORS allowed origins. Use to allow all. | null | false | MEDIUM
 | *camel.source.endpoint.crossOriginFilterOn* | Whether to enable CORS | false | false | MEDIUM
 | *camel.source.endpoint.filterPath* | Context path for filtering CORS | null | false | MEDIUM

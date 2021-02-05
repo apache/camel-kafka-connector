@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.sips.CamelSipsSourceConnector
 ----
 
 
-The camel-sips source connector supports 47 options, which are listed below.
+The camel-sips source connector supports 46 options, which are listed below.
 
 
 
@@ -47,7 +47,7 @@ The camel-sips source connector supports 47 options, which are listed below.
 | *camel.source.endpoint.transport* | Setting for choice of transport protocol. Valid choices are tcp or udp. One of: [tcp] [udp] | "tcp" | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.consumer* | This setting is used to determine whether the kind of header (FromHeader,ToHeader etc) that needs to be created for this endpoint | false | false | MEDIUM
-| *camel.source.endpoint.presenceAgent* | This setting is used to distinguish between a Presence Agent & a consumer. This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true. | false | false | MEDIUM
+| *camel.source.endpoint.presenceAgent* | This setting is used to distinguish between a Presence Agent and a consumer. This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.addressFactory* | To use a custom AddressFactory | null | false | MEDIUM
@@ -66,7 +66,6 @@ The camel-sips source connector supports 47 options, which are listed below.
 | *camel.source.endpoint.sipFactory* | To use a custom SipFactory to create the SipStack to be used | null | false | MEDIUM
 | *camel.source.endpoint.sipStack* | To use a custom SipStack | null | false | MEDIUM
 | *camel.source.endpoint.sipUri* | To use a custom SipURI. If none configured, then the SipUri fallback to use the options toUser toHost:toPort | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.toHeader* | A custom Header object containing message receiver settings. Must implement the type javax.sip.header.ToHeader | null | false | MEDIUM
 | *camel.source.endpoint.viaHeaders* | List of custom Header objects of the type javax.sip.header.ViaHeader. Each ViaHeader containing a proxy address for request forwarding. (Note this header is automatically updated by each proxy when the request arrives at its listener) | null | false | MEDIUM
 | *camel.source.endpoint.implementationDebugLogFile* | Name of client debug log file to use for logging | null | false | MEDIUM

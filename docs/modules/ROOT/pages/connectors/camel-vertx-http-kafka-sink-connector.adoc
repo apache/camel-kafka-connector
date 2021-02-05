@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.vertxhttp.CamelVertxhttpSinkConn
 ----
 
 
-The camel-vertx-http sink connector supports 41 options, which are listed below.
+The camel-vertx-http sink connector supports 40 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-vertx-http sink connector supports 41 options, which are listed below.
 | *camel.sink.endpoint.useCompression* | Set whether compression is enabled to handled compressed (E.g gzipped) responses | false | false | MEDIUM
 | *camel.sink.endpoint.vertxHttpBinding* | A custom VertxHttpBinding which can control how to bind between Vert.x and Camel. | null | false | MEDIUM
 | *camel.sink.endpoint.webClientOptions* | Sets customized options for configuring the Vert.x WebClient | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | The proxy server host address | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPassword* | The proxy server password if authentication is required | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | The proxy server port | null | false | MEDIUM

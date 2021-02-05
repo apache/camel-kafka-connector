@@ -186,13 +186,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.component.pulsar.configuration": {
 			"name": "camel.component.pulsar.configuration",
 			"description": "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.",

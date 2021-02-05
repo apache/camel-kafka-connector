@@ -66,9 +66,6 @@ public class CamelIrcSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_IRC_ENDPOINT_COLORS_CONF = "camel.source.endpoint.colors";
     public static final String CAMEL_SOURCE_IRC_ENDPOINT_COLORS_DOC = "Whether or not the server supports color codes.";
     public static final Boolean CAMEL_SOURCE_IRC_ENDPOINT_COLORS_DEFAULT = true;
-    public static final String CAMEL_SOURCE_IRC_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_IRC_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_IRC_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_IRC_ENDPOINT_ON_JOIN_CONF = "camel.source.endpoint.onJoin";
     public static final String CAMEL_SOURCE_IRC_ENDPOINT_ON_JOIN_DOC = "Handle user join events.";
     public static final Boolean CAMEL_SOURCE_IRC_ENDPOINT_ON_JOIN_DEFAULT = true;
@@ -147,7 +144,6 @@ public class CamelIrcSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_IRC_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IRC_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IRC_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_IRC_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_IRC_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IRC_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_IRC_ENDPOINT_COLORS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IRC_ENDPOINT_COLORS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IRC_ENDPOINT_COLORS_DOC);
-        conf.define(CAMEL_SOURCE_IRC_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IRC_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IRC_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_IRC_ENDPOINT_ON_JOIN_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IRC_ENDPOINT_ON_JOIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IRC_ENDPOINT_ON_JOIN_DOC);
         conf.define(CAMEL_SOURCE_IRC_ENDPOINT_ON_KICK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IRC_ENDPOINT_ON_KICK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IRC_ENDPOINT_ON_KICK_DOC);
         conf.define(CAMEL_SOURCE_IRC_ENDPOINT_ON_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_IRC_ENDPOINT_ON_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_IRC_ENDPOINT_ON_MODE_DOC);

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.atomixvalue.CamelAtomixvalueSink
 ----
 
 
-The camel-atomix-value sink connector supports 32 options, which are listed below.
+The camel-atomix-value sink connector supports 31 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-atomix-value sink connector supports 32 options, which are listed belo
 | *camel.sink.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
 | *camel.sink.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
 | *camel.sink.endpoint.resourceOptions* | Local resources configurations | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.atomix-value.atomix* | The Atomix instance to use | null | false | MEDIUM
 | *camel.component.atomix-value.configuration* | The shared component configuration | null | false | MEDIUM
 | *camel.component.atomix-value.configurationUri* | The path to the AtomixClient configuration | null | false | MEDIUM

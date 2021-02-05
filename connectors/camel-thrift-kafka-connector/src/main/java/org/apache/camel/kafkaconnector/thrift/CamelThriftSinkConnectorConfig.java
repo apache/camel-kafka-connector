@@ -46,7 +46,7 @@ public class CamelThriftSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_THRIFT_ENDPOINT_METHOD_DOC = "The Thrift invoked method name";
     public static final String CAMEL_SINK_THRIFT_ENDPOINT_METHOD_DEFAULT = null;
     public static final String CAMEL_SINK_THRIFT_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_THRIFT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SINK_THRIFT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SINK_THRIFT_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_THRIFT_ENDPOINT_NEGOTIATION_TYPE_CONF = "camel.sink.endpoint.negotiationType";
     public static final String CAMEL_SINK_THRIFT_ENDPOINT_NEGOTIATION_TYPE_DOC = "Security negotiation type One of: [PLAINTEXT] [SSL] [SASL]";

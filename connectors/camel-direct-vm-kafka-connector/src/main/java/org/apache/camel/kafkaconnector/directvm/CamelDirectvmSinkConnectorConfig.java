@@ -47,9 +47,6 @@ public class CamelDirectvmSinkConnectorConfig
     public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_CONF = "camel.sink.endpoint.propagateProperties";
     public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_DOC = "Whether to propagate or not properties from the producer side to the consumer side, and vice versa. Default value: true.";
     public static final Boolean CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_DEFAULT = true;
-    public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_CONF = "camel.component.direct-vm.block";
     public static final String CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_DOC = "If sending a message to a direct endpoint which has no active consumer, then we can tell the producer to block and wait for the consumer to become active.";
     public static final Boolean CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_DEFAULT = true;
@@ -88,7 +85,6 @@ public class CamelDirectvmSinkConnectorConfig
         conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_DIRECTVM_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_HEADER_FILTER_STRATEGY_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_PROPAGATE_PROPERTIES_DOC);
-        conf.define(CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_BLOCK_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_DIRECTVM_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_DIRECTVM_COMPONENT_TIMEOUT_DOC);

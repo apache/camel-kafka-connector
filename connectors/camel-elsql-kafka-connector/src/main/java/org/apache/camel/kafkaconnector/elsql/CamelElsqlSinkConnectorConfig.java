@@ -81,9 +81,6 @@ public class CamelElsqlSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_ELSQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_CONF = "camel.sink.endpoint.prepareStatementStrategy";
     public static final String CAMEL_SINK_ELSQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DOC = "Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement.";
     public static final String CAMEL_SINK_ELSQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DEFAULT = null;
-    public static final String CAMEL_SINK_ELSQL_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_ELSQL_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_ELSQL_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_ELSQL_ENDPOINT_TEMPLATE_OPTIONS_CONF = "camel.sink.endpoint.templateOptions";
     public static final String CAMEL_SINK_ELSQL_ENDPOINT_TEMPLATE_OPTIONS_DOC = "Configures the Spring JdbcTemplate with the key/values from the Map";
     public static final String CAMEL_SINK_ELSQL_ENDPOINT_TEMPLATE_OPTIONS_DEFAULT = null;
@@ -140,7 +137,6 @@ public class CamelElsqlSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_ELSQL_ENDPOINT_PARAMETERS_COUNT_CONF, ConfigDef.Type.INT, CAMEL_SINK_ELSQL_ENDPOINT_PARAMETERS_COUNT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELSQL_ENDPOINT_PARAMETERS_COUNT_DOC);
         conf.define(CAMEL_SINK_ELSQL_ENDPOINT_PLACEHOLDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ELSQL_ENDPOINT_PLACEHOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELSQL_ENDPOINT_PLACEHOLDER_DOC);
         conf.define(CAMEL_SINK_ELSQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ELSQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELSQL_ENDPOINT_PREPARE_STATEMENT_STRATEGY_DOC);
-        conf.define(CAMEL_SINK_ELSQL_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ELSQL_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELSQL_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_ELSQL_ENDPOINT_TEMPLATE_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ELSQL_ENDPOINT_TEMPLATE_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELSQL_ENDPOINT_TEMPLATE_OPTIONS_DOC);
         conf.define(CAMEL_SINK_ELSQL_ENDPOINT_USE_PLACEHOLDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_ELSQL_ENDPOINT_USE_PLACEHOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELSQL_ENDPOINT_USE_PLACEHOLDER_DOC);
         conf.define(CAMEL_SINK_ELSQL_COMPONENT_DATABASE_VENDOR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_ELSQL_COMPONENT_DATABASE_VENDOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_ELSQL_COMPONENT_DATABASE_VENDOR_DOC);

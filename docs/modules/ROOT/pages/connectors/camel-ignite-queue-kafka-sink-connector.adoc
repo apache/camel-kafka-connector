@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.ignitequeue.CamelIgnitequeueSink
 ----
 
 
-The camel-ignite-queue sink connector supports 14 options, which are listed below.
+The camel-ignite-queue sink connector supports 13 options, which are listed below.
 
 
 
@@ -37,7 +37,6 @@ The camel-ignite-queue sink connector supports 14 options, which are listed belo
 | *camel.sink.endpoint.propagateIncomingBodyIfNo ReturnValue* | Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void. | true | false | MEDIUM
 | *camel.sink.endpoint.timeoutMillis* | The queue timeout in milliseconds. Default: no timeout. | null | false | MEDIUM
 | *camel.sink.endpoint.treatCollectionsAsCacheObjects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.ignite-queue.configurationResource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | false | MEDIUM
 | *camel.component.ignite-queue.ignite* | To use an existing Ignite instance. | null | false | MEDIUM
 | *camel.component.ignite-queue.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | false | MEDIUM

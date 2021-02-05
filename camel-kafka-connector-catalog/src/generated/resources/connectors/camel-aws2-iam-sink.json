@@ -30,9 +30,9 @@
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
-			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
-			"priority": "HIGH",
-			"required": "true",
+			"description": "The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
+			"priority": "MEDIUM",
+			"required": "false",
 			"enum": [
 				"listAccessKeys",
 				"createUser",
@@ -93,13 +93,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.accessKey": {
 			"name": "camel.sink.endpoint.accessKey",
 			"description": "Amazon AWS Access Key",
@@ -133,9 +126,9 @@
 		},
 		"camel.component.aws2-iam.operation": {
 			"name": "camel.component.aws2-iam.operation",
-			"description": "The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
-			"priority": "HIGH",
-			"required": "true",
+			"description": "The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup]",
+			"priority": "MEDIUM",
+			"required": "false",
 			"enum": [
 				"listAccessKeys",
 				"createUser",

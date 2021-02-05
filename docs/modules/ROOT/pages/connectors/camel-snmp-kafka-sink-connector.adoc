@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.snmp.CamelSnmpSinkConnector
 ----
 
 
-The camel-snmp sink connector supports 21 options, which are listed below.
+The camel-snmp sink connector supports 20 options, which are listed below.
 
 
 
@@ -41,7 +41,6 @@ The camel-snmp sink connector supports 21 options, which are listed below.
 | *camel.sink.endpoint.timeout* | Sets the timeout value for the request in millis. | 1500 | false | MEDIUM
 | *camel.sink.endpoint.type* | Which operation to perform such as poll, trap, etc. One of: [TRAP] [POLL] [GET_NEXT] | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.authenticationPassphrase* | The authentication passphrase. If not null, authenticationProtocol must also be not null. RFC3414 11.2 requires passphrases to have a minimum length of 8 bytes. If the length of authenticationPassphrase is less than 8 bytes an IllegalArgumentException is thrown. | null | false | MEDIUM
 | *camel.sink.endpoint.authenticationProtocol* | Authentication protocol to use if security level is set to enable authentication The possible values are: MD5, SHA1 One of: [MD5] [SHA1] | null | false | MEDIUM
 | *camel.sink.endpoint.privacyPassphrase* | The privacy passphrase. If not null, privacyProtocol must also be not null. RFC3414 11.2 requires passphrases to have a minimum length of 8 bytes. If the length of authenticationPassphrase is less than 8 bytes an IllegalArgumentException is thrown. | null | false | MEDIUM

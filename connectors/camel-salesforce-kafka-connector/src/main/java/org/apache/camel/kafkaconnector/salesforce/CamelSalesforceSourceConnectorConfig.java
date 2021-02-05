@@ -98,6 +98,9 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_OBJECT_MAPPER_CONF = "camel.source.endpoint.objectMapper";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_OBJECT_MAPPER_DOC = "Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_OBJECT_MAPPER_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_QUERY_LOCATOR_CONF = "camel.source.endpoint.queryLocator";
+    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_QUERY_LOCATOR_DOC = "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.";
+    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_QUERY_LOCATOR_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_RAW_PAYLOAD_CONF = "camel.source.endpoint.rawPayload";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default";
     public static final Boolean CAMEL_SOURCE_SALESFORCE_ENDPOINT_RAW_PAYLOAD_DEFAULT = false;
@@ -152,9 +155,6 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_CONF = "camel.component.salesforce.apexMethod";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_DOC = "APEX method name";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_DEFAULT = null;
@@ -239,6 +239,9 @@ public class CamelSalesforceSourceConnectorConfig
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_CONF = "camel.component.salesforce.packages";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_QUERY_LOCATOR_CONF = "camel.component.salesforce.queryLocator";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_QUERY_LOCATOR_DOC = "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.";
+    public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_QUERY_LOCATOR_DEFAULT = null;
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF = "camel.component.salesforce.rawPayload";
     public static final String CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default";
     public static final Boolean CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_DEFAULT = false;
@@ -405,6 +408,7 @@ public class CamelSalesforceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UNDELETE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UNDELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UNDELETE_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UPDATE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UPDATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UPDATE_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_OBJECT_MAPPER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_OBJECT_MAPPER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_OBJECT_MAPPER_DOC);
+        conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_QUERY_LOCATOR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_QUERY_LOCATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_QUERY_LOCATOR_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_RAW_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCE_ENDPOINT_RAW_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_RAW_PAYLOAD_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPORT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPORT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPORT_ID_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPORT_METADATA_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPORT_METADATA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPORT_METADATA_DOC);
@@ -423,7 +427,6 @@ public class CamelSalesforceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPLAY_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPLAY_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_REPLAY_ID_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_METHOD_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_API_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_API_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_API_VERSION_DOC);
@@ -452,6 +455,7 @@ public class CamelSalesforceSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_OBJECT_MAPPER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_OBJECT_MAPPER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_OBJECT_MAPPER_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_PACKAGES_DOC);
+        conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_QUERY_LOCATOR_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_QUERY_LOCATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_QUERY_LOCATOR_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_REPORT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_REPORT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_REPORT_ID_DOC);
         conf.define(CAMEL_SOURCE_SALESFORCE_COMPONENT_REPORT_METADATA_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SALESFORCE_COMPONENT_REPORT_METADATA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SALESFORCE_COMPONENT_REPORT_METADATA_DOC);

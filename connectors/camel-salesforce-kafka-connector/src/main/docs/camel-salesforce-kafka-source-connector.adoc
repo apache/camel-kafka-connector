@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.salesforce.CamelSalesforceSource
 ----
 
 
-The camel-salesforce source connector supports 114 options, which are listed below.
+The camel-salesforce source connector supports 115 options, which are listed below.
 
 
 
@@ -53,6 +53,7 @@ The camel-salesforce source connector supports 114 options, which are listed bel
 | *camel.source.endpoint.notifyForOperationUndelete* | Notify for un-delete operation, defaults to false (API version = 29.0) | null | false | MEDIUM
 | *camel.source.endpoint.notifyForOperationUpdate* | Notify for update operation, defaults to false (API version = 29.0) | null | false | MEDIUM
 | *camel.source.endpoint.objectMapper* | Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects. | null | false | MEDIUM
+| *camel.source.endpoint.queryLocator* | Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records. | null | false | MEDIUM
 | *camel.source.endpoint.rawPayload* | Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default | false | false | MEDIUM
 | *camel.source.endpoint.reportId* | Salesforce1 Analytics report Id | null | false | MEDIUM
 | *camel.source.endpoint.reportMetadata* | Salesforce1 Analytics report metadata for filtering | null | false | MEDIUM
@@ -71,7 +72,6 @@ The camel-salesforce source connector supports 114 options, which are listed bel
 | *camel.source.endpoint.replayId* | The replayId value to use when subscribing | null | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.salesforce.apexMethod* | APEX method name | null | false | MEDIUM
 | *camel.component.salesforce.apexQueryParams* | Query params for APEX method | null | false | MEDIUM
 | *camel.component.salesforce.apiVersion* | Salesforce API version. | "50.0" | false | MEDIUM
@@ -100,6 +100,7 @@ The camel-salesforce source connector supports 114 options, which are listed bel
 | *camel.component.salesforce.notifyForOperation Update* | Notify for update operation, defaults to false (API version = 29.0) | null | false | MEDIUM
 | *camel.component.salesforce.objectMapper* | Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects. | null | false | MEDIUM
 | *camel.component.salesforce.packages* | In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma. | null | false | MEDIUM
+| *camel.component.salesforce.queryLocator* | Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records. | null | false | MEDIUM
 | *camel.component.salesforce.rawPayload* | Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default | false | false | MEDIUM
 | *camel.component.salesforce.reportId* | Salesforce1 Analytics report Id | null | false | MEDIUM
 | *camel.component.salesforce.reportMetadata* | Salesforce1 Analytics report metadata for filtering | null | false | MEDIUM

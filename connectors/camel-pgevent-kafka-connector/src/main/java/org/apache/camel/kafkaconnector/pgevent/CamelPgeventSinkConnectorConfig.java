@@ -42,9 +42,6 @@ public class CamelPgeventSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PGEVENT_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_PGEVENT_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_PGEVENT_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_PGEVENT_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_PGEVENT_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_PGEVENT_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_PGEVENT_ENDPOINT_PASS_CONF = "camel.sink.endpoint.pass";
     public static final String CAMEL_SINK_PGEVENT_ENDPOINT_PASS_DOC = "Password for login";
     public static final String CAMEL_SINK_PGEVENT_ENDPOINT_PASS_DEFAULT = null;
@@ -76,7 +73,6 @@ public class CamelPgeventSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PGEVENT_PATH_CHANNEL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PGEVENT_PATH_CHANNEL_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_PGEVENT_PATH_CHANNEL_DOC);
         conf.define(CAMEL_SINK_PGEVENT_ENDPOINT_DATASOURCE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PGEVENT_ENDPOINT_DATASOURCE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PGEVENT_ENDPOINT_DATASOURCE_DOC);
         conf.define(CAMEL_SINK_PGEVENT_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PGEVENT_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PGEVENT_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_PGEVENT_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PGEVENT_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PGEVENT_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_PGEVENT_ENDPOINT_PASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PGEVENT_ENDPOINT_PASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PGEVENT_ENDPOINT_PASS_DOC);
         conf.define(CAMEL_SINK_PGEVENT_ENDPOINT_USER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PGEVENT_ENDPOINT_USER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PGEVENT_ENDPOINT_USER_DOC);
         conf.define(CAMEL_SINK_PGEVENT_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PGEVENT_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PGEVENT_COMPONENT_LAZY_START_PRODUCER_DOC);

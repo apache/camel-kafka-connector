@@ -168,13 +168,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.traceConnection": {
 			"name": "camel.source.endpoint.traceConnection",
 			"description": "Whether or not connection trace messages should be printed to standard out for fine grained debugging of connection issues.",

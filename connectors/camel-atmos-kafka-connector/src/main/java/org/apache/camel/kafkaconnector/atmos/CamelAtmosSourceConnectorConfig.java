@@ -53,9 +53,6 @@ public class CamelAtmosSourceConnectorConfig
     public static final String CAMEL_SOURCE_ATMOS_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_ATMOS_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_ATMOS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_ATMOS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_ATMOS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_ATMOS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_ATMOS_ENDPOINT_URI_CONF = "camel.source.endpoint.uri";
     public static final String CAMEL_SOURCE_ATMOS_ENDPOINT_URI_DOC = "Atomos server uri";
     public static final String CAMEL_SOURCE_ATMOS_ENDPOINT_URI_DEFAULT = null;
@@ -108,7 +105,6 @@ public class CamelAtmosSourceConnectorConfig
         conf.define(CAMEL_SOURCE_ATMOS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ATMOS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ATMOS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_ATMOS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ATMOS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ATMOS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_ATMOS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ATMOS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ATMOS_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_ATMOS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_ATMOS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ATMOS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_ATMOS_ENDPOINT_URI_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ATMOS_ENDPOINT_URI_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ATMOS_ENDPOINT_URI_DOC);
         conf.define(CAMEL_SOURCE_ATMOS_ENDPOINT_FULL_TOKEN_ID_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ATMOS_ENDPOINT_FULL_TOKEN_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ATMOS_ENDPOINT_FULL_TOKEN_ID_DOC);
         conf.define(CAMEL_SOURCE_ATMOS_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_ATMOS_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_ATMOS_ENDPOINT_SECRET_KEY_DOC);

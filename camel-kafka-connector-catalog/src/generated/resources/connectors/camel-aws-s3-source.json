@@ -123,6 +123,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.doneFileName": {
+			"name": "camel.source.endpoint.doneFileName",
+			"description": "If provided, Camel will only consume files if a done file exists.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.fileName": {
 			"name": "camel.source.endpoint.fileName",
 			"description": "To get the object from the bucket with the given file name",
@@ -224,13 +230,6 @@
 		"camel.source.endpoint.payloadSigningEnabled": {
 			"name": "camel.source.endpoint.payloadSigningEnabled",
 			"description": "Define if Payload Signing enabled is true or false",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -468,6 +467,12 @@
 		"camel.component.aws-s3.delimiter": {
 			"name": "camel.component.aws-s3.delimiter",
 			"description": "The delimiter which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws-s3.doneFileName": {
+			"name": "camel.component.aws-s3.doneFileName",
+			"description": "If provided, Camel will only consume files if a done file exists.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

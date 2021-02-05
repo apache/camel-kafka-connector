@@ -50,9 +50,6 @@ public class CamelSoroushSourceConnectorConfig
     public static final String CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCHANGE_PATTERN_CONF = "camel.source.endpoint.exchangePattern";
     public static final String CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCHANGE_PATTERN_DOC = "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]";
     public static final String CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCHANGE_PATTERN_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SOROUSH_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SOROUSH_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SOROUSH_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SOROUSH_ENDPOINT_BACK_OFF_STRATEGY_CONF = "camel.source.endpoint.backOffStrategy";
     public static final String CAMEL_SOURCE_SOROUSH_ENDPOINT_BACK_OFF_STRATEGY_DOC = "The strategy to backoff in case of connection failure. Currently 3 strategies are supported: 1. Exponential (default): It multiply retryWaitingTime by retryExponentialCoefficient after each connection failure. 2. Linear: It increase retryWaitingTime by retryLinearIncrement after each connection failure. 3. Fixed: Always use retryWaitingTime as the time between retries.";
     public static final String CAMEL_SOURCE_SOROUSH_ENDPOINT_BACK_OFF_STRATEGY_DEFAULT = "Exponential";
@@ -104,7 +101,6 @@ public class CamelSoroushSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SOROUSH_ENDPOINT_QUEUE_CAPACITY_PER_THREAD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_SOROUSH_ENDPOINT_QUEUE_CAPACITY_PER_THREAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SOROUSH_ENDPOINT_QUEUE_CAPACITY_PER_THREAD_DOC);
         conf.define(CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SOROUSH_ENDPOINT_EXCHANGE_PATTERN_DOC);
-        conf.define(CAMEL_SOURCE_SOROUSH_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SOROUSH_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SOROUSH_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SOROUSH_ENDPOINT_BACK_OFF_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SOROUSH_ENDPOINT_BACK_OFF_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SOROUSH_ENDPOINT_BACK_OFF_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_SOROUSH_ENDPOINT_MAX_RETRY_WAITING_TIME_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SOROUSH_ENDPOINT_MAX_RETRY_WAITING_TIME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SOROUSH_ENDPOINT_MAX_RETRY_WAITING_TIME_DOC);
         conf.define(CAMEL_SOURCE_SOROUSH_ENDPOINT_RECONNECT_IDLE_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SOURCE_SOROUSH_ENDPOINT_RECONNECT_IDLE_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SOROUSH_ENDPOINT_RECONNECT_IDLE_CONNECTION_TIMEOUT_DOC);

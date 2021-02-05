@@ -86,13 +86,14 @@
 		},
 		"camel.sink.endpoint.metricsRecordingLevel": {
 			"name": "camel.sink.endpoint.metricsRecordingLevel",
-			"description": "The highest recording level for metrics. One of: [INFO] [DEBUG]",
+			"description": "The highest recording level for metrics. One of: [INFO] [DEBUG] [TRACE]",
 			"defaultValue": "\"INFO\"",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"INFO",
-				"DEBUG"
+				"DEBUG",
+				"TRACE"
 			]
 		},
 		"camel.sink.endpoint.metricsSampleWindowMs": {
@@ -147,6 +148,20 @@
 			"name": "camel.sink.endpoint.sendBufferBytes",
 			"description": "The size of the TCP send buffer (SO_SNDBUF) to use when sending data. If the value is -1, the OS default will be used.",
 			"defaultValue": "131072",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.socketConnectionSetupTimeoutMaxMs": {
+			"name": "camel.sink.endpoint.socketConnectionSetupTimeoutMaxMs",
+			"description": "The maximum amount of time the client will wait for the socket connection to be established. The connection setup timeout will increase exponentially for each consecutive connection failure up to this maximum. To avoid connection storms, a randomization factor of 0.2 will be applied to the timeout resulting in a random range between 20% below and 20% above the computed value.",
+			"defaultValue": "127000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.socketConnectionSetupTimeoutMs": {
+			"name": "camel.sink.endpoint.socketConnectionSetupTimeoutMs",
+			"description": "The amount of time the client will wait for the socket connection to be established. If the connection is not built before the timeout elapses, clients will close the socket channel.",
+			"defaultValue": "10000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -221,7 +236,7 @@
 		},
 		"camel.sink.endpoint.maxBlockMs": {
 			"name": "camel.sink.endpoint.maxBlockMs",
-			"description": "The configuration controls how long KafkaProducer.send() and KafkaProducer.partitionsFor() will block.These methods can be blocked either because the buffer is full or metadata unavailable.Blocking in the user-supplied serializers or partitioner will not be counted against this timeout.",
+			"description": "The configuration controls how long the KafkaProducer's send(), partitionsFor(), initTransactions(), sendOffsetsToTransaction(), commitTransaction() and abortTransaction() methods will block. For send() this timeout bounds the total time waiting for both metadata fetch and buffer allocation (blocking in the user-supplied serializers or partitioner is not counted against this timeout). For partitionsFor() this timeout bounds the time spent waiting for metadata if it is unavailable. The transaction-related methods always block, but may timeout if the transaction coordinator could not be discovered or did not respond within the timeout.",
 			"defaultValue": "60000L",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -269,7 +284,7 @@
 		},
 		"camel.sink.endpoint.transactionTimeoutMs": {
 			"name": "camel.sink.endpoint.transactionTimeoutMs",
-			"description": "The maximum amount of time in ms that the transaction coordinator will wait for a transaction status update from the producer before proactively aborting the ongoing transaction.If this value is larger than the transaction.max.timeout.ms setting in the broker, the request will fail with a InvalidTransactionTimeout error.",
+			"description": "The maximum amount of time in ms that the transaction coordinator will wait for a transaction status update from the producer before proactively aborting the ongoing transaction.If this value is larger than the transaction.max.timeout.ms setting in the broker, the request will fail with a InvalidTxnTimeoutException error.",
 			"defaultValue": "60000",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -281,10 +296,9 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
+		"camel.sink.endpoint.vertxKafkaClientFactory": {
+			"name": "camel.sink.endpoint.vertxKafkaClientFactory",
+			"description": "Factory to use for creating io.vertx.kafka.client.consumer.KafkaConsumer and io.vertx.kafka.client.consumer.KafkaProducer instances. This allows to configure a custom factory to create custom KafkaConsumer and KafkaProducer instances with logic that extends the vanilla VertX Kafka clients.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -429,7 +443,19 @@
 		},
 		"camel.sink.endpoint.sslKeyPassword": {
 			"name": "camel.sink.endpoint.sslKeyPassword",
-			"description": "The password of the private key in the key store file. This is optional for client.",
+			"description": "The password of the private key in the key store file orthe PEM key specified in ssl.keystore.key'. This is required for clients only if two-way authentication is configured.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.sslKeystoreCertificateChain": {
+			"name": "camel.sink.endpoint.sslKeystoreCertificateChain",
+			"description": "Certificate chain in the format specified by 'ssl.keystore.type'. Default SSL engine factory supports only PEM format with a list of X.509 certificates",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.sslKeystoreKey": {
+			"name": "camel.sink.endpoint.sslKeystoreKey",
+			"description": "Private key in the format specified by 'ssl.keystore.type'. Default SSL engine factory supports only PEM format with PKCS#8 keys. If the key is encrypted, key password must be specified using 'ssl.key.password'",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -441,7 +467,7 @@
 		},
 		"camel.sink.endpoint.sslKeystorePassword": {
 			"name": "camel.sink.endpoint.sslKeystorePassword",
-			"description": "The store password for the key store file. This is optional for client and only needed if ssl.keystore.location is configured.",
+			"description": "The store password for the key store file. This is optional for client and only needed if 'ssl.keystore.location' is configured. Key store password is not supported for PEM format.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -478,6 +504,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.sslTruststoreCertificates": {
+			"name": "camel.sink.endpoint.sslTruststoreCertificates",
+			"description": "Trusted certificates in the format specified by 'ssl.truststore.type'. Default SSL engine factory supports only PEM format with X.509 certificates.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.sslTruststoreLocation": {
 			"name": "camel.sink.endpoint.sslTruststoreLocation",
 			"description": "The location of the trust store file.",
@@ -486,7 +518,7 @@
 		},
 		"camel.sink.endpoint.sslTruststorePassword": {
 			"name": "camel.sink.endpoint.sslTruststorePassword",
-			"description": "The password for the trust store file. If a password is not set access to the truststore is still available, but integrity checking is disabled.",
+			"description": "The password for the trust store file. If a password is not set, trust store file configured will still be used, but integrity checking is disabled. Trust store password is not supported for PEM format.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -574,13 +606,14 @@
 		},
 		"camel.component.vertx-kafka.metricsRecordingLevel": {
 			"name": "camel.component.vertx-kafka.metricsRecordingLevel",
-			"description": "The highest recording level for metrics. One of: [INFO] [DEBUG]",
+			"description": "The highest recording level for metrics. One of: [INFO] [DEBUG] [TRACE]",
 			"defaultValue": "\"INFO\"",
 			"priority": "MEDIUM",
 			"required": "false",
 			"enum": [
 				"INFO",
-				"DEBUG"
+				"DEBUG",
+				"TRACE"
 			]
 		},
 		"camel.component.vertx-kafka.metricsSampleWindowMs": {
@@ -635,6 +668,20 @@
 			"name": "camel.component.vertx-kafka.sendBufferBytes",
 			"description": "The size of the TCP send buffer (SO_SNDBUF) to use when sending data. If the value is -1, the OS default will be used.",
 			"defaultValue": "131072",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.socketConnectionSetupTimeoutMaxMs": {
+			"name": "camel.component.vertx-kafka.socketConnectionSetupTimeoutMaxMs",
+			"description": "The maximum amount of time the client will wait for the socket connection to be established. The connection setup timeout will increase exponentially for each consecutive connection failure up to this maximum. To avoid connection storms, a randomization factor of 0.2 will be applied to the timeout resulting in a random range between 20% below and 20% above the computed value.",
+			"defaultValue": "127000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.socketConnectionSetupTimeoutMs": {
+			"name": "camel.component.vertx-kafka.socketConnectionSetupTimeoutMs",
+			"description": "The amount of time the client will wait for the socket connection to be established. If the connection is not built before the timeout elapses, clients will close the socket channel.",
+			"defaultValue": "10000L",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -709,7 +756,7 @@
 		},
 		"camel.component.vertx-kafka.maxBlockMs": {
 			"name": "camel.component.vertx-kafka.maxBlockMs",
-			"description": "The configuration controls how long KafkaProducer.send() and KafkaProducer.partitionsFor() will block.These methods can be blocked either because the buffer is full or metadata unavailable.Blocking in the user-supplied serializers or partitioner will not be counted against this timeout.",
+			"description": "The configuration controls how long the KafkaProducer's send(), partitionsFor(), initTransactions(), sendOffsetsToTransaction(), commitTransaction() and abortTransaction() methods will block. For send() this timeout bounds the total time waiting for both metadata fetch and buffer allocation (blocking in the user-supplied serializers or partitioner is not counted against this timeout). For partitionsFor() this timeout bounds the time spent waiting for metadata if it is unavailable. The transaction-related methods always block, but may timeout if the transaction coordinator could not be discovered or did not respond within the timeout.",
 			"defaultValue": "60000L",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -757,7 +804,7 @@
 		},
 		"camel.component.vertx-kafka.transactionTimeoutMs": {
 			"name": "camel.component.vertx-kafka.transactionTimeoutMs",
-			"description": "The maximum amount of time in ms that the transaction coordinator will wait for a transaction status update from the producer before proactively aborting the ongoing transaction.If this value is larger than the transaction.max.timeout.ms setting in the broker, the request will fail with a InvalidTransactionTimeout error.",
+			"description": "The maximum amount of time in ms that the transaction coordinator will wait for a transaction status update from the producer before proactively aborting the ongoing transaction.If this value is larger than the transaction.max.timeout.ms setting in the broker, the request will fail with a InvalidTxnTimeoutException error.",
 			"defaultValue": "60000",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -779,6 +826,12 @@
 		"camel.component.vertx-kafka.vertx": {
 			"name": "camel.component.vertx-kafka.vertx",
 			"description": "To use an existing vertx instead of creating a new instance",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.vertxKafkaClientFactory": {
+			"name": "camel.component.vertx-kafka.vertxKafkaClientFactory",
+			"description": "Factory to use for creating io.vertx.kafka.client.consumer.KafkaConsumer and io.vertx.kafka.client.consumer.KafkaProducer instances. This allows to configure a custom factory to create custom KafkaConsumer and KafkaProducer instances with logic that extends the vanilla VertX Kafka clients.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -929,7 +982,19 @@
 		},
 		"camel.component.vertx-kafka.sslKeyPassword": {
 			"name": "camel.component.vertx-kafka.sslKeyPassword",
-			"description": "The password of the private key in the key store file. This is optional for client.",
+			"description": "The password of the private key in the key store file orthe PEM key specified in ssl.keystore.key'. This is required for clients only if two-way authentication is configured.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.sslKeystoreCertificateChain": {
+			"name": "camel.component.vertx-kafka.sslKeystoreCertificateChain",
+			"description": "Certificate chain in the format specified by 'ssl.keystore.type'. Default SSL engine factory supports only PEM format with a list of X.509 certificates",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-kafka.sslKeystoreKey": {
+			"name": "camel.component.vertx-kafka.sslKeystoreKey",
+			"description": "Private key in the format specified by 'ssl.keystore.type'. Default SSL engine factory supports only PEM format with PKCS#8 keys. If the key is encrypted, key password must be specified using 'ssl.key.password'",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -941,7 +1006,7 @@
 		},
 		"camel.component.vertx-kafka.sslKeystorePassword": {
 			"name": "camel.component.vertx-kafka.sslKeystorePassword",
-			"description": "The store password for the key store file. This is optional for client and only needed if ssl.keystore.location is configured.",
+			"description": "The store password for the key store file. This is optional for client and only needed if 'ssl.keystore.location' is configured. Key store password is not supported for PEM format.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -978,6 +1043,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.vertx-kafka.sslTruststoreCertificates": {
+			"name": "camel.component.vertx-kafka.sslTruststoreCertificates",
+			"description": "Trusted certificates in the format specified by 'ssl.truststore.type'. Default SSL engine factory supports only PEM format with X.509 certificates.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.vertx-kafka.sslTruststoreLocation": {
 			"name": "camel.component.vertx-kafka.sslTruststoreLocation",
 			"description": "The location of the trust store file.",
@@ -986,7 +1057,7 @@
 		},
 		"camel.component.vertx-kafka.sslTruststorePassword": {
 			"name": "camel.component.vertx-kafka.sslTruststorePassword",
-			"description": "The password for the trust store file. If a password is not set access to the truststore is still available, but integrity checking is disabled.",
+			"description": "The password for the trust store file. If a password is not set, trust store file configured will still be used, but integrity checking is disabled. Trust store password is not supported for PEM format.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

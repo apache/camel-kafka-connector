@@ -78,9 +78,6 @@ public class CamelPulsarSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_CONF = "camel.sink.endpoint.sendTimeoutMs";
     public static final String CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DOC = "Send timeout in milliseconds";
     public static final Integer CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DEFAULT = 30000;
-    public static final String CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT = true;
     public static final String CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_CONF = "camel.component.pulsar.configuration";
     public static final String CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_DOC = "Allows to pre-configure the Pulsar component with common options that the endpoints will reuse.";
     public static final String CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_DEFAULT = null;
@@ -166,7 +163,6 @@ public class CamelPulsarSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_PULSAR_ENDPOINT_MESSAGE_ROUTING_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_ENDPOINT_MESSAGE_ROUTING_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_MESSAGE_ROUTING_MODE_DOC);
         conf.define(CAMEL_SINK_PULSAR_ENDPOINT_PRODUCER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_ENDPOINT_PRODUCER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_PRODUCER_NAME_DOC);
         conf.define(CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_CONF, ConfigDef.Type.INT, CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_SEND_TIMEOUT_MS_DOC);
-        conf.define(CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_BATCHER_BUILDER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_PULSAR_COMPONENT_BATCHER_BUILDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_BATCHER_BUILDER_DOC);
         conf.define(CAMEL_SINK_PULSAR_COMPONENT_BATCHING_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_PULSAR_COMPONENT_BATCHING_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_PULSAR_COMPONENT_BATCHING_ENABLED_DOC);

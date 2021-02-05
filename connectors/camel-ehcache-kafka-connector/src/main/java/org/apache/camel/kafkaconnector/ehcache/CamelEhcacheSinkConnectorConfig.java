@@ -57,9 +57,6 @@ public class CamelEhcacheSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_EHCACHE_ENDPOINT_KEY_TYPE_CONF = "camel.sink.endpoint.keyType";
     public static final String CAMEL_SINK_EHCACHE_ENDPOINT_KEY_TYPE_DOC = "The cache key type, default java.lang.Object";
     public static final String CAMEL_SINK_EHCACHE_ENDPOINT_KEY_TYPE_DEFAULT = null;
-    public static final String CAMEL_SINK_EHCACHE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_EHCACHE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_EHCACHE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_EHCACHE_ENDPOINT_VALUE_TYPE_CONF = "camel.sink.endpoint.valueType";
     public static final String CAMEL_SINK_EHCACHE_ENDPOINT_VALUE_TYPE_DOC = "The cache value type, default java.lang.Object";
     public static final String CAMEL_SINK_EHCACHE_ENDPOINT_VALUE_TYPE_DEFAULT = null;
@@ -123,7 +120,6 @@ public class CamelEhcacheSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_EHCACHE_ENDPOINT_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_EHCACHE_ENDPOINT_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_EHCACHE_ENDPOINT_CONFIGURATION_DOC);
         conf.define(CAMEL_SINK_EHCACHE_ENDPOINT_CONFIGURATIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_EHCACHE_ENDPOINT_CONFIGURATIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_EHCACHE_ENDPOINT_CONFIGURATIONS_DOC);
         conf.define(CAMEL_SINK_EHCACHE_ENDPOINT_KEY_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_EHCACHE_ENDPOINT_KEY_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_EHCACHE_ENDPOINT_KEY_TYPE_DOC);
-        conf.define(CAMEL_SINK_EHCACHE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_EHCACHE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_EHCACHE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_EHCACHE_ENDPOINT_VALUE_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_EHCACHE_ENDPOINT_VALUE_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_EHCACHE_ENDPOINT_VALUE_TYPE_DOC);
         conf.define(CAMEL_SINK_EHCACHE_COMPONENT_CACHE_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_EHCACHE_COMPONENT_CACHE_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_EHCACHE_COMPONENT_CACHE_MANAGER_DOC);
         conf.define(CAMEL_SINK_EHCACHE_COMPONENT_CACHE_MANAGER_CONFIGURATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_EHCACHE_COMPONENT_CACHE_MANAGER_CONFIGURATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_EHCACHE_COMPONENT_CACHE_MANAGER_CONFIGURATION_DOC);

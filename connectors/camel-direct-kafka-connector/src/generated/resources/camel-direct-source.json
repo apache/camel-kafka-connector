@@ -41,7 +41,7 @@
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"description": "Whether synchronous processing is forced. If enabled then the producer thread, will be forced to wait until the message has been completed before the same thread will continue processing. If disabled (default) then the producer thread may be freed and can do other work while the message is continued processed by other threads (reactive).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

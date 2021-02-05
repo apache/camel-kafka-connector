@@ -41,6 +41,9 @@ public class CamelSmtpsSourceConnectorConfig
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_COPY_TO_CONF = "camel.source.endpoint.copyTo";
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_COPY_TO_DOC = "After processing a mail message, it can be copied to a mail folder with the given name. You can override this configuration value, with a header with the key copyTo, allowing you to copy messages to folder names configured at runtime.";
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_COPY_TO_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_DECODE_FILENAME_CONF = "camel.source.endpoint.decodeFilename";
+    public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_DECODE_FILENAME_DOC = "If set to true, the MimeUtility.decodeText method will be used to decode the filename. This is similar to setting JVM system property mail.mime.encodefilename.";
+    public static final Boolean CAMEL_SOURCE_SMTPS_ENDPOINT_DECODE_FILENAME_DEFAULT = false;
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_DELETE_CONF = "camel.source.endpoint.delete";
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_DELETE_DOC = "Deletes the messages after they have been processed. This is done by setting the DELETED flag on the mail message. If false, the SEEN flag is set instead. As of Camel 2.10 you can override this configuration option by setting a header with the key delete to determine if the mail should be deleted or not.";
     public static final Boolean CAMEL_SOURCE_SMTPS_ENDPOINT_DELETE_DEFAULT = false;
@@ -137,9 +140,6 @@ public class CamelSmtpsSourceConnectorConfig
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_SESSION_CONF = "camel.source.endpoint.session";
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_SESSION_DOC = "Specifies the mail session that camel should use for all mail interactions. Useful in scenarios where mail sessions are created and managed by some other resource, such as a JavaEE container. When using a custom mail session, then the hostname and port from the mail session will be used (if configured on the session).";
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_SESSION_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SMTPS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_USE_INLINE_ATTACHMENTS_CONF = "camel.source.endpoint.useInlineAttachments";
     public static final String CAMEL_SOURCE_SMTPS_ENDPOINT_USE_INLINE_ATTACHMENTS_DOC = "Whether to use disposition inline or attachment.";
     public static final Boolean CAMEL_SOURCE_SMTPS_ENDPOINT_USE_INLINE_ATTACHMENTS_DEFAULT = false;
@@ -215,6 +215,9 @@ public class CamelSmtpsSourceConnectorConfig
     public static final String CAMEL_SOURCE_SMTPS_COMPONENT_COPY_TO_CONF = "camel.component.smtps.copyTo";
     public static final String CAMEL_SOURCE_SMTPS_COMPONENT_COPY_TO_DOC = "After processing a mail message, it can be copied to a mail folder with the given name. You can override this configuration value, with a header with the key copyTo, allowing you to copy messages to folder names configured at runtime.";
     public static final String CAMEL_SOURCE_SMTPS_COMPONENT_COPY_TO_DEFAULT = null;
+    public static final String CAMEL_SOURCE_SMTPS_COMPONENT_DECODE_FILENAME_CONF = "camel.component.smtps.decodeFilename";
+    public static final String CAMEL_SOURCE_SMTPS_COMPONENT_DECODE_FILENAME_DOC = "If set to true, the MimeUtility.decodeText method will be used to decode the filename. This is similar to setting JVM system property mail.mime.encodefilename.";
+    public static final Boolean CAMEL_SOURCE_SMTPS_COMPONENT_DECODE_FILENAME_DEFAULT = false;
     public static final String CAMEL_SOURCE_SMTPS_COMPONENT_DELETE_CONF = "camel.component.smtps.delete";
     public static final String CAMEL_SOURCE_SMTPS_COMPONENT_DELETE_DOC = "Deletes the messages after they have been processed. This is done by setting the DELETED flag on the mail message. If false, the SEEN flag is set instead. As of Camel 2.10 you can override this configuration option by setting a header with the key delete to determine if the mail should be deleted or not.";
     public static final Boolean CAMEL_SOURCE_SMTPS_COMPONENT_DELETE_DEFAULT = false;
@@ -326,6 +329,7 @@ public class CamelSmtpsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_CLOSE_FOLDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_CLOSE_FOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_CLOSE_FOLDER_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_COPY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMTPS_ENDPOINT_COPY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_COPY_TO_DOC);
+        conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_DECODE_FILENAME_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_DECODE_FILENAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_DECODE_FILENAME_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_DELETE_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_DISCONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_DISCONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_DISCONNECT_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_HANDLE_FAILED_MESSAGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_HANDLE_FAILED_MESSAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_HANDLE_FAILED_MESSAGE_DOC);
@@ -358,7 +362,6 @@ public class CamelSmtpsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_IGNORE_URI_SCHEME_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_IGNORE_URI_SCHEME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_IGNORE_URI_SCHEME_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_JAVA_MAIL_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMTPS_ENDPOINT_JAVA_MAIL_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_JAVA_MAIL_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_SESSION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMTPS_ENDPOINT_SESSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_SESSION_DOC);
-        conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_USE_INLINE_ATTACHMENTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_USE_INLINE_ATTACHMENTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_USE_INLINE_ATTACHMENTS_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_REMOVE_ON_COMMIT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_REMOVE_ON_COMMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_ENDPOINT_IDEMPOTENT_REPOSITORY_REMOVE_ON_COMMIT_DOC);
@@ -384,6 +387,7 @@ public class CamelSmtpsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SMTPS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_COMPONENT_CLOSE_FOLDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_COMPONENT_CLOSE_FOLDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_COMPONENT_CLOSE_FOLDER_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_COMPONENT_COPY_TO_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMTPS_COMPONENT_COPY_TO_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_COMPONENT_COPY_TO_DOC);
+        conf.define(CAMEL_SOURCE_SMTPS_COMPONENT_DECODE_FILENAME_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_COMPONENT_DECODE_FILENAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_COMPONENT_DECODE_FILENAME_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_COMPONENT_DELETE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_COMPONENT_DELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_COMPONENT_DELETE_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_COMPONENT_DISCONNECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_COMPONENT_DISCONNECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_COMPONENT_DISCONNECT_DOC);
         conf.define(CAMEL_SOURCE_SMTPS_COMPONENT_HANDLE_FAILED_MESSAGE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMTPS_COMPONENT_HANDLE_FAILED_MESSAGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMTPS_COMPONENT_HANDLE_FAILED_MESSAGE_DOC);

@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.kubernetesdeployments.CamelKuber
 ----
 
 
-The camel-kubernetes-deployments source connector supports 35 options, which are listed below.
+The camel-kubernetes-deployments source connector supports 34 options, which are listed below.
 
 
 
@@ -49,7 +49,6 @@ The camel-kubernetes-deployments source connector supports 35 options, which are
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.connectionTimeout* | Connection timeout in milliseconds to use when making requests to the Kubernetes API server. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.caCertData* | The CA Cert Data | null | false | MEDIUM
 | *camel.source.endpoint.caCertFile* | The CA Cert File | null | false | MEDIUM
 | *camel.source.endpoint.clientCertData* | The Client Cert Data | null | false | MEDIUM

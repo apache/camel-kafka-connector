@@ -33,9 +33,6 @@ public class CamelIpfsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_CONF = "camel.sink.endpoint.outdir";
     public static final String CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_DOC = "The ipfs output directory";
     public static final String CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_DEFAULT = null;
-    public static final String CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_CONF = "camel.component.ipfs.ipfsHost";
     public static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_DOC = "The ipfs host";
     public static final String CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_DEFAULT = "127.0.0.1";
@@ -64,7 +61,6 @@ public class CamelIpfsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_IPFS_PATH_IPFS_CMD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IPFS_PATH_IPFS_CMD_DEFAULT, ConfigDef.Importance.HIGH, CAMEL_SINK_IPFS_PATH_IPFS_CMD_DOC);
         conf.define(CAMEL_SINK_IPFS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IPFS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IPFS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IPFS_ENDPOINT_OUTDIR_DOC);
-        conf.define(CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IPFS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IPFS_COMPONENT_IPFS_HOST_DOC);
         conf.define(CAMEL_SINK_IPFS_COMPONENT_IPFS_PORT_CONF, ConfigDef.Type.INT, CAMEL_SINK_IPFS_COMPONENT_IPFS_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IPFS_COMPONENT_IPFS_PORT_DOC);
         conf.define(CAMEL_SINK_IPFS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IPFS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IPFS_COMPONENT_LAZY_START_PRODUCER_DOC);

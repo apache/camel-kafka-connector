@@ -119,9 +119,6 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_URL_CONF = "camel.source.endpoint.queueUrl";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_URL_DOC = "To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_URL_DEFAULT = null;
-    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_AWS2SQS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_HOST_CONF = "camel.source.endpoint.proxyHost";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SQS client";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -135,7 +132,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_MESSAGE_RETENTION_PERIOD_DOC = "The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_MESSAGE_RETENTION_PERIOD_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLICY_CONF = "camel.source.endpoint.policy";
-    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLICY_DOC = "The policy for this queue";
+    public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLICY_DOC = "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLICY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_CONF = "camel.source.endpoint.receiveMessageWaitTimeSeconds";
     public static final String CAMEL_SOURCE_AWS2SQS_ENDPOINT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_DOC = "If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.";
@@ -282,7 +279,7 @@ public class CamelAws2sqsSourceConnectorConfig
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_MESSAGE_RETENTION_PERIOD_DOC = "The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue.";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_MESSAGE_RETENTION_PERIOD_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_POLICY_CONF = "camel.component.aws2-sqs.policy";
-    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_POLICY_DOC = "The policy for this queue";
+    public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_POLICY_DOC = "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_POLICY_DEFAULT = null;
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_CONF = "camel.component.aws2-sqs.receiveMessageWaitTimeSeconds";
     public static final String CAMEL_SOURCE_AWS2SQS_COMPONENT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_DOC = "If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.";
@@ -340,7 +337,6 @@ public class CamelAws2sqsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLL_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLL_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_POLL_STRATEGY_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_DELAY_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_ENDPOINT_DELAY_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_DELAY_QUEUE_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_URL_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_QUEUE_URL_DOC);
-        conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_AWS2SQS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SOURCE_AWS2SQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_AWS2SQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_AWS2SQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_DOC);

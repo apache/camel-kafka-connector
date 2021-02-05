@@ -124,13 +124,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.testConnectionOnStartup": {
 			"name": "camel.source.endpoint.testConnectionOnStartup",
 			"description": "If true the consumer will throw an exception if unable to establish the JMX connection upon startup. If false, the consumer will attempt to establish the JMX connection every 'x' seconds until the connection is made -- where 'x' is the configured reconnectionDelay",

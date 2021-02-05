@@ -97,13 +97,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.transferExchange": {
 			"name": "camel.sink.endpoint.transferExchange",
 			"description": "Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.",

@@ -159,6 +159,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.doneFileName": {
+			"name": "camel.source.endpoint.doneFileName",
+			"description": "If provided, Camel will only consume files if a done file exists.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.source.endpoint.fileName": {
 			"name": "camel.source.endpoint.fileName",
 			"description": "To get the object from the bucket with the given file name",
@@ -240,13 +246,6 @@
 		"camel.source.endpoint.pollStrategy": {
 			"name": "camel.source.endpoint.pollStrategy",
 			"description": "A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -519,6 +518,12 @@
 		"camel.component.aws2-s3.destinationBucketSuffix": {
 			"name": "camel.component.aws2-s3.destinationBucketSuffix",
 			"description": "Define the destination bucket suffix to use when an object must be moved and moveAfterRead is set to true.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.aws2-s3.doneFileName": {
+			"name": "camel.component.aws2-s3.doneFileName",
+			"description": "If provided, Camel will only consume files if a done file exists.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

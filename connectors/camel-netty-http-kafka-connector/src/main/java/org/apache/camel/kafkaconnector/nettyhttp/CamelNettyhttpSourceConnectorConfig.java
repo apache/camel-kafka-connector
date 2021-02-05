@@ -168,7 +168,7 @@ public class CamelNettyhttpSourceConnectorConfig
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SEND_BUFFER_SIZE_DOC = "The TCP/UDP buffer sizes to be used during outbound communication. Size is bytes.";
     public static final Integer CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SEND_BUFFER_SIZE_DEFAULT = 65536;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SOURCE_NETTYHTTP_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCEPTION_CONF = "camel.source.endpoint.transferException";
     public static final String CAMEL_SOURCE_NETTYHTTP_ENDPOINT_TRANSFER_EXCEPTION_DOC = "If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized in the response as a application/x-java-serialized-object content type. On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException. The caused exception is required to be serialized. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";

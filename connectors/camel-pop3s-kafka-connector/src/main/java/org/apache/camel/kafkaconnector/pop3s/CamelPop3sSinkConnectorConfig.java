@@ -96,9 +96,6 @@ public class CamelPop3sSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_POP3S_ENDPOINT_SESSION_CONF = "camel.sink.endpoint.session";
     public static final String CAMEL_SINK_POP3S_ENDPOINT_SESSION_DOC = "Specifies the mail session that camel should use for all mail interactions. Useful in scenarios where mail sessions are created and managed by some other resource, such as a JavaEE container. When using a custom mail session, then the hostname and port from the mail session will be used (if configured on the session).";
     public static final String CAMEL_SINK_POP3S_ENDPOINT_SESSION_DEFAULT = null;
-    public static final String CAMEL_SINK_POP3S_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_POP3S_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_POP3S_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_POP3S_ENDPOINT_USE_INLINE_ATTACHMENTS_CONF = "camel.sink.endpoint.useInlineAttachments";
     public static final String CAMEL_SINK_POP3S_ENDPOINT_USE_INLINE_ATTACHMENTS_DOC = "Whether to use disposition inline or attachment.";
     public static final Boolean CAMEL_SINK_POP3S_ENDPOINT_USE_INLINE_ATTACHMENTS_DEFAULT = false;
@@ -232,7 +229,6 @@ public class CamelPop3sSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_POP3S_ENDPOINT_IGNORE_URI_SCHEME_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_POP3S_ENDPOINT_IGNORE_URI_SCHEME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_POP3S_ENDPOINT_IGNORE_URI_SCHEME_DOC);
         conf.define(CAMEL_SINK_POP3S_ENDPOINT_JAVA_MAIL_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_POP3S_ENDPOINT_JAVA_MAIL_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_POP3S_ENDPOINT_JAVA_MAIL_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_POP3S_ENDPOINT_SESSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_POP3S_ENDPOINT_SESSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_POP3S_ENDPOINT_SESSION_DOC);
-        conf.define(CAMEL_SINK_POP3S_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_POP3S_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_POP3S_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_POP3S_ENDPOINT_USE_INLINE_ATTACHMENTS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_POP3S_ENDPOINT_USE_INLINE_ATTACHMENTS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_POP3S_ENDPOINT_USE_INLINE_ATTACHMENTS_DOC);
         conf.define(CAMEL_SINK_POP3S_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_POP3S_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_POP3S_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_POP3S_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_POP3S_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_POP3S_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);

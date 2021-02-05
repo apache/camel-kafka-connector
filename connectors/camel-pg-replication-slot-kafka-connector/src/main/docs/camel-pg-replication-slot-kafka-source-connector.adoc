@@ -22,7 +22,7 @@ connector.class=org.apache.camel.kafkaconnector.pgreplicationslot.CamelPgreplica
 ----
 
 
-The camel-pg-replication-slot source connector supports 32 options, which are listed below.
+The camel-pg-replication-slot source connector supports 31 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-pg-replication-slot source connector supports 32 options, which are li
 | *camel.source.endpoint.autoCreateSlot* | Auto create slot if it does not exist | "true" | false | MEDIUM
 | *camel.source.endpoint.slotOptions* | Slot options to be passed to the output plugin. | null | false | MEDIUM
 | *camel.source.endpoint.statusInterval* | Specifies the number of seconds between status packets sent back to Postgres server. | "10" | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | false | MEDIUM

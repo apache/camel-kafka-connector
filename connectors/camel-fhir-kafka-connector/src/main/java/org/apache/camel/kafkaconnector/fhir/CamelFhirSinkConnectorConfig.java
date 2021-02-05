@@ -81,9 +81,6 @@ public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_FHIR_ENDPOINT_SUMMARY_CONF = "camel.sink.endpoint.summary";
     public static final String CAMEL_SINK_FHIR_ENDPOINT_SUMMARY_DOC = "Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE]";
     public static final String CAMEL_SINK_FHIR_ENDPOINT_SUMMARY_DEFAULT = null;
-    public static final String CAMEL_SINK_FHIR_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_FHIR_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_FHIR_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_FHIR_ENDPOINT_VALIDATION_MODE_CONF = "camel.sink.endpoint.validationMode";
     public static final String CAMEL_SINK_FHIR_ENDPOINT_VALIDATION_MODE_DOC = "When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE]";
     public static final String CAMEL_SINK_FHIR_ENDPOINT_VALIDATION_MODE_DEFAULT = "ONCE";
@@ -218,7 +215,6 @@ public class CamelFhirSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_SESSION_COOKIE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_SESSION_COOKIE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_SESSION_COOKIE_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_SOCKET_TIMEOUT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_SOCKET_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_SOCKET_TIMEOUT_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_SUMMARY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_SUMMARY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_SUMMARY_DOC);
-        conf.define(CAMEL_SINK_FHIR_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_FHIR_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_VALIDATION_MODE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_VALIDATION_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_VALIDATION_MODE_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_FHIR_ENDPOINT_PROXY_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_FHIR_ENDPOINT_PROXY_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_FHIR_ENDPOINT_PROXY_PASSWORD_DOC);

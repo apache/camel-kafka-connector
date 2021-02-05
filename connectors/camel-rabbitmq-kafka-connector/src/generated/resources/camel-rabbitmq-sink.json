@@ -260,6 +260,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.allowMessageBodySerialization": {
+			"name": "camel.sink.endpoint.allowMessageBodySerialization",
+			"description": "Whether to allow Java serialization of the message body or not. If this value is true, the message body will be serialized on the producer side using Java serialization, if no type converter can handle the message body. On the consumer side, it will deserialize the message body if this value is true and the message contains a CamelSerialize header. Setting this value to true may introduce a security vulnerability as it allows an attacker to attempt to deserialize to a gadget object which could result in a RCE or other security vulnerability.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.args": {
 			"name": "camel.sink.endpoint.args",
 			"description": "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each: Exchange: arg.exchange. Queue: arg.queue. Binding: arg.binding. DLQ: arg.dlq.queue. DLQ binding: arg.dlq.binding. For example to declare a queue with message ttl argument: http:\/\/localhost:5672\/exchange\/queueargs=arg.queue.x-message-ttl=60000",
@@ -327,13 +334,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.topologyRecoveryEnabled": {
 			"name": "camel.sink.endpoint.topologyRecoveryEnabled",
 			"description": "Enables connection topology recovery (should topology recovery be performed)",
@@ -343,13 +343,6 @@
 		"camel.sink.endpoint.transferException": {
 			"name": "camel.sink.endpoint.transferException",
 			"description": "When true and an inOut Exchange failed on the consumer side send the caused Exception back in the response",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.allowMessageBodySerialization": {
-			"name": "camel.sink.endpoint.allowMessageBodySerialization",
-			"description": "Whether to allow Java serialization of the message body or not. If this value is true, the message body will be serialized on the producer side using Java serialization, if no type converter can handle the message body. On the consumer side, it will deserialize the message body if this value is true and the message contains a CamelSerialize header. Setting this value to true may introduce a security vulnerability as it allows an attacker to attempt to deserialize to a gadget object which could result in a RCE or other security vulnerability.",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"

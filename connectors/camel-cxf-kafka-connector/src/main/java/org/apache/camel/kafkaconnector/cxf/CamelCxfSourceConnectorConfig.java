@@ -78,9 +78,6 @@ public class CamelCxfSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_CONF = "camel.source.endpoint.skipPayloadMessagePartCheck";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DOC = "Sets whether SOAP message validation should be disabled.";
     public static final Boolean CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DEFAULT = false;
-    public static final String CAMEL_SOURCE_CXF_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_CXF_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_CXF_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF = "camel.source.endpoint.loggingFeatureEnabled";
     public static final String CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC = "This option enables CXF Logging Feature which writes inbound and outbound SOAP messages to log.";
     public static final Boolean CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT = false;
@@ -160,7 +157,6 @@ public class CamelCxfSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_MTOM_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_MTOM_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_MTOM_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_SKIP_PAYLOAD_MESSAGE_PART_CHECK_DOC);
-        conf.define(CAMEL_SOURCE_CXF_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_FEATURE_ENABLED_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_LOGGING_SIZE_LIMIT_DOC);
         conf.define(CAMEL_SOURCE_CXF_ENDPOINT_SKIP_FAULT_LOGGING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_CXF_ENDPOINT_SKIP_FAULT_LOGGING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_CXF_ENDPOINT_SKIP_FAULT_LOGGING_DOC);
