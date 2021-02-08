@@ -19,9 +19,8 @@ package org.apache.camel.kafkaconnector.aws.v2.s3.source;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.Properties;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils;
 import org.apache.camel.kafkaconnector.aws.v2.s3.common.TestS3Configuration;
@@ -30,7 +29,6 @@ import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
-import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
@@ -44,7 +42,6 @@ import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 
 import static org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils.createBucket;
@@ -52,12 +49,24 @@ import static org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils.deleteBuc
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+
+/* To run this test create (large) files in the a test directory
+   (ie.: dd if=/dev/random of=large.test bs=512 count=50000)
+
+   Note: they must have the .test extension.
+
+   Then run it with:
+
+   mvn -DskipIntegrationTests=false -Daws-service.s3.test.directory=/path/to/manual-s3
+       -Dit.test=CamelSourceAWSS3LargeFilesITCase verify
+*/
+@EnabledIfSystemProperty(named = "aws-service.s3.test.directory", matches = ".*",
+        disabledReason = "Manual test that requires the user to provide a directory with files")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
-public class CamelSourceAWSS3ITCase extends CamelSourceTestSupport {
+public class CamelSourceAWSS3LargeFilesITCase extends CamelSourceTestSupport {
     @RegisterExtension
     public static AWSService service = AWSServiceFactory.createS3Service();
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSS3ITCase.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSS3LargeFilesITCase.class);
 
     private S3Client awsS3Client;
     private String bucketName;
@@ -73,8 +82,8 @@ public class CamelSourceAWSS3ITCase extends CamelSourceTestSupport {
 
     @BeforeAll
     public void setupTestFiles() throws IOException {
-        final URL resourceDir = this.getClass().getResource(".");
-        final File baseTestDir = new File(resourceDir.getFile());
+        String filePath = System.getProperty("aws-service.s3.test.directory");
+        File baseTestDir = new File(filePath);
 
         files = S3Utils.getFilesToSend(baseTestDir);
 
@@ -84,7 +93,7 @@ public class CamelSourceAWSS3ITCase extends CamelSourceTestSupport {
 
     @BeforeEach
     public void setUp() {
-        topicName = getTopicForTest(this);
+        topicName = TestUtils.getDefaultTestTopic(this.getClass());
 
         awsS3Client = AWSSDKClientUtils.newS3Client();
         bucketName = AWSCommon.DEFAULT_S3_BUCKET + TestUtils.randomWithRange(0, 100);
@@ -120,60 +129,14 @@ public class CamelSourceAWSS3ITCase extends CamelSourceTestSupport {
 
 
     @Test
-    @Timeout(180)
-    public void testBasicSendReceive() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withBucketNameOrArn(bucketName)
-                .withAmazonConfig(service.getConnectionProperties());
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(180)
-    public void testBasicSendReceiveWithMaxMessagesPerPoll() throws ExecutionException, InterruptedException {
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withMaxMessagesPerPoll(5)
-                .withBucketNameOrArn(bucketName)
-                .withAmazonConfig(service.getConnectionProperties());
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(180)
-    public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
+    @Timeout(value = 60, unit = TimeUnit.MINUTES)
+    public void testBasicSendReceiveWithKafkaStyleLargeFile() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
                 .basic()
                 .withKafkaTopic(topicName)
                 .withConfiguration(TestS3Configuration.class.getName())
                 .withBucketNameOrArn(bucketName)
                 .withAmazonConfig(service.getConnectionProperties(), CamelAWSS3PropertyFactory.KAFKA_STYLE);
-
-        runTest(connectorPropertyFactory, topicName, expect);
-    }
-
-    @Test
-    @Timeout(180)
-    public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
-        Properties amazonProperties = service.getConnectionProperties();
-
-        ConnectorPropertyFactory connectorPropertyFactory = CamelAWSS3PropertyFactory
-                .basic()
-                .withKafkaTopic(topicName)
-                .withConfiguration(TestS3Configuration.class.getName())
-                .withUrl(bucketName)
-                    .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
-                    .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
-                    .appendIfAvailable("proxyProtocol", amazonProperties.getProperty(AWSConfigs.PROTOCOL))
-                    .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Region.US_EAST_1.id()))
-                .buildUrl();
 
         runTest(connectorPropertyFactory, topicName, expect);
     }
