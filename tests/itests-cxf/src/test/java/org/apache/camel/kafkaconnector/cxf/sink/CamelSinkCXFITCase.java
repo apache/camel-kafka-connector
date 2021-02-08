@@ -120,20 +120,17 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
             try {
                 kafkaClient.produce(TestUtils.getDefaultTestTopic(this.getClass()), message);
             } catch (ExecutionException e) {
-                e.printStackTrace();
+                LOG.error("Unable to produce messages: {}", e.getMessage(), e);
             } catch (InterruptedException e) {
-                e.printStackTrace();
                 break;
-            } catch (Throwable  e) {
-                e.printStackTrace();
-            }
+            } 
         }
     }
 
     public void runTest(ConnectorPropertyFactory connectorPropertyFactory, String message) throws ExecutionException, InterruptedException, TimeoutException {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
-        Thread.sleep(5000);
+        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
         ExecutorService service = Executors.newCachedThreadPool();
         Runnable r = () -> this.putRecords(message);
         service.submit(r);

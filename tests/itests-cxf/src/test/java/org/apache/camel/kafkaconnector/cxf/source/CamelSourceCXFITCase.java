@@ -36,7 +36,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -46,7 +45,6 @@ import static org.junit.jupiter.api.Assertions.fail;
  * A simple test case that checks whether the CXF Consumer Endpoint produces the expected number of
  * messages
  */
-@Testcontainers
 public class CamelSourceCXFITCase extends AbstractKafkaTest {
     
     protected static final int PORT = NetworkUtils.getFreePort("localhost");
