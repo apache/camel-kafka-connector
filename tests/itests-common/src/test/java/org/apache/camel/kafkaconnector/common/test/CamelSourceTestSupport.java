@@ -33,7 +33,7 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
     protected abstract void verifyMessages(TestMessageConsumer<?> consumer);
 
     /**
-     * A simple blocking test runner that follows the steps: initialize, start producer, consume messages, verify results
+     * A simple test runner that follows the steps: initialize, start producer, consume messages, verify results
      *
      * @param connectorPropertyFactory A factory for connector properties
      * @param topic the topic to send the messages to
@@ -49,7 +49,7 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
 
 
     /**
-     * A simple blocking test runner that follows the steps: initialize, start producer, consume messages, verify results
+     * A simple test runner that follows the steps: initialize, start producer, consume messages, verify results
      *
      * @param connectorPropertyFactory A factory for connector properties
      * @param consumer A Kafka consumer consumer for the test messages
@@ -60,7 +60,7 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
     }
 
     /**
-     * A simple blocking test runner that follows the steps: initialize, start producer, consume messages, verify results
+     * A simple test runner that follows the steps: initialize, start producer, consume messages, verify results
      *
      * @param connectorPropertyFactory A factory for connector properties
      * @param consumer A Kafka consumer consumer for the test messages
@@ -71,7 +71,6 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
                         FunctionalTestMessageProducer producer) throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
         LOG.debug("Initialized the connector and put the data for the test execution");
-//        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
         LOG.debug("Producing test data to be collected by the connector and sent to Kafka");
@@ -85,5 +84,43 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
         verifyMessages(consumer);
         LOG.debug("Verified messages");
     }
+
+    /**
+     * A simple blocking test runner that follows the steps: initialize, start producer, consume messages, verify results
+     *
+     * @param connectorPropertyFactory A factory for connector properties
+     * @param consumer A Kafka consumer consumer for the test messages
+     * @throws Exception For test-specific exceptions
+     */
+    public void runTestBlocking(ConnectorPropertyFactory connectorPropertyFactory, TestMessageConsumer<?> consumer) throws ExecutionException, InterruptedException {
+        runTestBlocking(connectorPropertyFactory, consumer, this::produceTestData);
+    }
+
+    /**
+     * A simple blocking test runner that follows the steps: initialize, start producer, consume messages, verify results
+     *
+     * @param connectorPropertyFactory A factory for connector properties
+     * @param consumer A Kafka consumer consumer for the test messages
+     * @param producer A producer for the test messages
+     * @throws Exception For test-specific exceptions
+     */
+    public void runTestBlocking(ConnectorPropertyFactory connectorPropertyFactory, TestMessageConsumer<?> consumer,
+                        FunctionalTestMessageProducer producer) throws ExecutionException, InterruptedException {
+        connectorPropertyFactory.log();
+        LOG.debug("Initialized the connector and put the data for the test execution");
+        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
+
+        LOG.debug("Producing test data to be collected by the connector and sent to Kafka");
+        producer.produceMessages();
+
+        LOG.debug("Creating the Kafka consumer ...");
+        consumer.consumeMessages();
+        LOG.debug("Ran the Kafka consumer ...");
+
+        LOG.debug("Verifying messages");
+        verifyMessages(consumer);
+        LOG.debug("Verified messages");
+    }
+
 
 }
