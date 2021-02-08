@@ -25,13 +25,23 @@ on:
     branches:
       - master
       - camel-master
+      - gh-actions-tests
   pull_request:
     branches:
       - master
       - camel-master
+      - gh-actions-tests
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      registry:
+        image: registry
+        ports:
+          - 5000:5000
+        options: --restart always
+        volumes:
+          - /tmp/registry:/var/lib/registry
     strategy:
       matrix:
         java: [ '8', '11', '14' ]
