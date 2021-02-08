@@ -25,10 +25,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
-import org.apache.camel.kafkaconnector.aws.v2.common.CamelSinkAWSTestSupport;
 import org.apache.camel.kafkaconnector.aws.v2.kinesis.common.KinesisUtils;
 import org.apache.camel.kafkaconnector.aws.v2.kinesis.common.TestKinesisConfiguration;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
@@ -53,7 +54,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
-public class CamelSinkAWSKinesisITCase  extends CamelSinkAWSTestSupport {
+public class CamelSinkAWSKinesisITCase  extends CamelSinkTestSupport {
     @RegisterExtension
     public static AWSService awsService = AWSServiceFactory.createKinesisService();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSKinesisITCase.class);
@@ -64,14 +65,20 @@ public class CamelSinkAWSKinesisITCase  extends CamelSinkAWSTestSupport {
     private volatile int received;
     private final int expect = 10;
 
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> headers = new HashMap<>();
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
 
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsKinesisPartitionKey",
-                "partition-" + current);
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> headers = new HashMap<>();
 
-        return headers;
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsKinesisPartitionKey",
+                    "partition-" + current);
+
+            return headers;
+        }
     }
 
     @Override
@@ -143,6 +150,6 @@ public class CamelSinkAWSKinesisITCase  extends CamelSinkAWSTestSupport {
                 .withConfiguration(TestKinesisConfiguration.class.getName())
                 .withStreamName(streamName);
 
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

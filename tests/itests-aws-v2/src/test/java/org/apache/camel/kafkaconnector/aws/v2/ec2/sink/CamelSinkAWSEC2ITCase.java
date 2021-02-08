@@ -25,9 +25,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
-import org.apache.camel.kafkaconnector.aws.v2.common.CamelSinkAWSTestSupport;
 import org.apache.camel.kafkaconnector.aws.v2.cw.sink.TestCloudWatchConfiguration;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
@@ -45,7 +46,7 @@ import software.amazon.awssdk.services.ec2.model.InstanceStatus;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class CamelSinkAWSEC2ITCase extends CamelSinkAWSTestSupport {
+public class CamelSinkAWSEC2ITCase extends CamelSinkTestSupport {
     @RegisterExtension
     public static AWSService awsService = AWSServiceFactory.createEC2Service();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSEC2ITCase.class);
@@ -55,6 +56,26 @@ public class CamelSinkAWSEC2ITCase extends CamelSinkAWSTestSupport {
 
     private volatile int received;
     private final int expect = 10;
+
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
+
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> headers = new HashMap<>();
+
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2ImageId",
+                    "image-id-" + current);
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2InstanceType", "T1_MICRO");
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2InstanceMinCount", "1");
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2InstanceMaxCount", "1");
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2InstanceSecurityGroups", "default");
+
+            return headers;
+        }
+    }
 
     @Override
     protected String[] getConnectorsInTest() {
@@ -69,19 +90,6 @@ public class CamelSinkAWSEC2ITCase extends CamelSinkAWSTestSupport {
         received = 0;
     }
 
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> headers = new HashMap<>();
-
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2ImageId",
-                "image-id-" + current);
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2InstanceType", "T1_MICRO");
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2InstanceMinCount", "1");
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2InstanceMaxCount", "1");
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsEC2InstanceSecurityGroups", "default");
-
-        return headers;
-    }
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {
@@ -119,31 +127,24 @@ public class CamelSinkAWSEC2ITCase extends CamelSinkAWSTestSupport {
             fail(String.format("Failed to receive the messages within the specified time: received %d of %d",
                     received, expect));
         }
-
-
     }
 
     @Test
     @Timeout(90)
-    public void testBasicSendReceive() {
-        try {
-            Properties amazonProperties = awsService.getConnectionProperties();
-            String topicName = TestUtils.getDefaultTestTopic(this.getClass());
+    public void testBasicSendReceive() throws Exception {
+        Properties amazonProperties = awsService.getConnectionProperties();
+        String topicName = TestUtils.getDefaultTestTopic(this.getClass());
 
-            ConnectorPropertyFactory testProperties = CamelAWSEC2PropertyFactory
-                    .basic()
-                    .withTopics(topicName)
-                    .withConfiguration(TestCloudWatchConfiguration.class.getName())
-                    .withAmazonConfig(amazonProperties)
-                    .withSinkPathLabel(logicalName)
-                    .withConfiguration(TestEC2Configuration.class.getName())
-                    .withSinkEndpointOperation("createAndRunInstances");
+        ConnectorPropertyFactory testProperties = CamelAWSEC2PropertyFactory
+                .basic()
+                .withTopics(topicName)
+                .withConfiguration(TestCloudWatchConfiguration.class.getName())
+                .withAmazonConfig(amazonProperties)
+                .withSinkPathLabel(logicalName)
+                .withConfiguration(TestEC2Configuration.class.getName())
+                .withSinkEndpointOperation("createAndRunInstances");
 
-            runTest(testProperties, topicName, expect);
-        } catch (Exception e) {
-            LOG.error("Amazon EC2 test failed: {}", e.getMessage(), e);
-            fail(e.getMessage());
-        }
+        runTest(testProperties, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 
 

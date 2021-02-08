@@ -25,8 +25,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
-import org.apache.camel.kafkaconnector.aws.v2.common.CamelSinkAWSTestSupport;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
@@ -50,7 +51,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
-public class CamelSinkAWSKMSITCase extends CamelSinkAWSTestSupport {
+public class CamelSinkAWSKMSITCase extends CamelSinkTestSupport {
 
     @RegisterExtension
     public static AWSService awsService = AWSServiceFactory.createKMSService();
@@ -62,18 +63,24 @@ public class CamelSinkAWSKMSITCase extends CamelSinkAWSTestSupport {
     private volatile int received;
     private final int expect = 10;
 
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> headers = new HashMap<>();
+    private static class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
 
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsKMSKeyId",
-                String.valueOf(current));
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> headers = new HashMap<>();
 
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsKMSDescription",
-                "test key " + current);
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsKMSKeyId",
+                    String.valueOf(current));
+
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsKMSDescription",
+                    "test key " + current);
 
 
-        return headers;
+            return headers;
+        }
     }
 
     @Override
@@ -146,6 +153,6 @@ public class CamelSinkAWSKMSITCase extends CamelSinkAWSTestSupport {
                 .withSinkEndpointOperation("createKey")
                 .withSinkPathLabel(logicalName);
 
-        runTest(connectorPropertyFactory, topicName, expect);
+        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

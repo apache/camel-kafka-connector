@@ -25,10 +25,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.CamelSinkTask;
-import org.apache.camel.kafkaconnector.aws.v2.common.CamelSinkAWSTestSupport;
 import org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils;
 import org.apache.camel.kafkaconnector.aws.v2.s3.common.TestS3Configuration;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
+import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
+import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
@@ -48,7 +49,7 @@ import static org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils.deleteBuc
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class CamelSinkAWSS3ITCase extends CamelSinkAWSTestSupport {
+public class CamelSinkAWSS3ITCase extends CamelSinkTestSupport {
     @RegisterExtension
     public static AWSService service = AWSServiceFactory.createS3Service();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkAWSS3ITCase.class);
@@ -59,17 +60,24 @@ public class CamelSinkAWSS3ITCase extends CamelSinkAWSTestSupport {
     private volatile int received;
     private int expect = 10;
 
-    @Override
-    protected Map<String, String> messageHeaders(String text, int current) {
-        Map<String, String> headers = new HashMap<>();
+    private class CustomProducer extends StringMessageProducer {
+        public CustomProducer(String bootstrapServer, String topicName, int count) {
+            super(bootstrapServer, topicName, count);
+        }
 
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsS3Key",
-                "file" + current + ".txt");
-        headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsS3BucketName",
-                bucketName);
+        @Override
+        public Map<String, String> messageHeaders(String text, int current) {
+            Map<String, String> headers = new HashMap<>();
 
-        return headers;
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsS3Key",
+                    "file" + current + ".txt");
+            headers.put(CamelSinkTask.HEADER_CAMEL_PREFIX + "CamelAwsS3BucketName",
+                    bucketName);
+
+            return headers;
+        }
     }
+
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {
@@ -147,6 +155,6 @@ public class CamelSinkAWSS3ITCase extends CamelSinkAWSTestSupport {
                 .withBucketNameOrArn(bucketName)
                 .withAutoCreateBucket(true);
 
-        runTest(testProperties, topicName, expect);
+        runTest(testProperties, new CustomProducer(getKafkaService().getBootstrapServers(), topicName, expect));
     }
 }

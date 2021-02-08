@@ -161,6 +161,37 @@ public class JMSClient {
         }
     }
 
+    /**
+     * Receives data from a JMS queue or topic
+     *
+     * @param predicate the predicate used to test each received message
+     * @throws JMSException
+     */
+    public void receive(MessageConsumer consumer, Predicate<Message> predicate, long timeout) throws JMSException {
+        while (true) {
+            final Message message = consumer.receive(timeout);
+
+            if (!predicate.test(message)) {
+                return;
+            }
+        }
+    }
+
+
+    /**
+     * Receives data from a JMS queue or topic
+     *
+     * @param predicate the predicate used to test each received message
+     * @throws JMSException
+     */
+    public void receive(MessageConsumer consumer, Predicate<Message> predicate) throws JMSException {
+        receive(consumer, predicate, 3000);
+    }
+
+    public MessageConsumer createConsumer(String queue) throws JMSException {
+        return session.createConsumer(createDestination(queue));
+    }
+
 
     /**
      * Receives data from a JMS queue or topic
@@ -170,20 +201,12 @@ public class JMSClient {
      * @throws JMSException
      */
     public void receive(final String queue, Predicate<Message> predicate) throws JMSException {
-        final long timeout = 3000;
-
         MessageConsumer consumer = null;
 
         try {
-            consumer = session.createConsumer(createDestination(queue));
+            consumer = createConsumer(queue);
 
-            while (true) {
-                final Message message = consumer.receive(timeout);
-
-                if (!predicate.test(message)) {
-                    return;
-                }
-            }
+            receive(consumer, predicate);
         } finally {
             capturingClose(consumer);
         }
