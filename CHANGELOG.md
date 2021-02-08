@@ -343,6 +343,7 @@
 - Create an AWS2-Translate example [\#564](https://github.com/apache/camel-kafka-connector/issues/564)
 - Add converters, transforms and aggregationStrategies to catalog [\#559](https://github.com/apache/camel-kafka-connector/issues/559)
 - Add more convenience method to CamelKafkaConnectorCatalog [\#558](https://github.com/apache/camel-kafka-connector/issues/558)
+- source: better handling of headers of type Data [\#544](https://github.com/apache/camel-kafka-connector/issues/544)
 - Improve Catalog and cleanup [\#537](https://github.com/apache/camel-kafka-connector/issues/537)
 - Create a source distribution module [\#524](https://github.com/apache/camel-kafka-connector/issues/524)
 - Create examples with dataformat in camel-kafka-connector-examples repo [\#509](https://github.com/apache/camel-kafka-connector/issues/509)
@@ -467,7 +468,6 @@
 
 **Closed issues:**
 
-- source: better handling of headers of type Data [\#544](https://github.com/apache/camel-kafka-connector/issues/544)
 - Catalog: expose an API for consuming connectors catalog metadata and options [\#542](https://github.com/apache/camel-kafka-connector/issues/542)
 - Catalog: Rename the json file to reflect the id and connectors.properties content [\#534](https://github.com/apache/camel-kafka-connector/issues/534)
 - Add a Maven Plugin to collect the connector descriptors for catalog purpose [\#529](https://github.com/apache/camel-kafka-connector/issues/529)
