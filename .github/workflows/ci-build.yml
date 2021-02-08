@@ -38,9 +38,7 @@ jobs:
       image: registry
       ports:
         - 5000:5000
-      options: --restart always
-      volumes:
-        - /tmp/registry:/var/lib/registry
+      options: -v /tmp/registry:/var/lib/registry --restart always
     strategy:
       matrix:
         java: [ '8', '11', '14' ]
