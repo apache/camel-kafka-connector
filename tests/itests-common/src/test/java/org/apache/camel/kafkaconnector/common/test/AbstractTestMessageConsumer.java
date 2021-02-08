@@ -28,8 +28,8 @@ import org.slf4j.LoggerFactory;
 public abstract class AbstractTestMessageConsumer<T> implements TestMessageConsumer<T> {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractTestMessageConsumer.class);
 
-    private final KafkaClient<String, T> kafkaClient;
-    private final String topicName;
+    protected final KafkaClient<String, T> kafkaClient;
+    protected final String topicName;
     private final int count;
     private final List<ConsumerRecord<String, T>> receivedMessages;
     private volatile int received;
@@ -42,7 +42,7 @@ public abstract class AbstractTestMessageConsumer<T> implements TestMessageConsu
         receivedMessages = new ArrayList<>(count);
     }
 
-    private boolean checkRecord(ConsumerRecord<String, T> record) {
+    public boolean checkRecord(ConsumerRecord<String, T> record) {
         LOG.debug("Received: {}", record.value());
         received++;
         receivedMessages.add(record);
@@ -63,4 +63,6 @@ public abstract class AbstractTestMessageConsumer<T> implements TestMessageConsu
     public List<ConsumerRecord<String, T>> consumedMessages() {
         return receivedMessages;
     }
+
+
 }
