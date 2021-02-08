@@ -17,6 +17,8 @@
 
 package org.apache.camel.kafkaconnector.aws.v2.s3.common;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -27,6 +29,7 @@ import software.amazon.awssdk.services.s3.model.DeleteBucketRequest;
 import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Object;
 
 public final class S3Utils {
@@ -93,5 +96,34 @@ public final class S3Utils {
                 .build();
 
         s3Client.createBucket(request);
+    }
+
+    public static File[] getFilesToSend(File dir) throws IOException {
+        File[] files = dir.listFiles(f -> f.getName().endsWith(".test"));
+        if (files == null) {
+            throw new IOException("Either I/O error or the path used is not a directory");
+        }
+
+        if (files.length == 0) {
+            throw new IOException("Not enough files to run the test");
+        }
+
+        return files;
+    }
+
+    public static void sendFilesFromPath(S3Client s3Client, String bucketName, File[] files) {
+        LOG.debug("Putting S3 objects");
+
+        for (File file : files) {
+            LOG.debug("Trying to read file {}", file.getName());
+
+
+            PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(file.getName())
+                    .build();
+
+            s3Client.putObject(putObjectRequest, file.toPath());
+        }
     }
 }

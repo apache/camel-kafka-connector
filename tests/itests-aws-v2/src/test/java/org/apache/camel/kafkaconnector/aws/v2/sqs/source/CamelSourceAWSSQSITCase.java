@@ -21,16 +21,15 @@ import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.aws.v2.clients.AWSSQSClient;
-import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
+import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.AWSConfigs;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,16 +47,15 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
-public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
-
+public class CamelSourceAWSSQSITCase extends CamelSourceTestSupport {
     @RegisterExtension
     public static AWSService service = AWSServiceFactory.createSQSService();
     private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSSQSITCase.class);
 
     private AWSSQSClient awssqsClient;
     private String queueName;
+    private String topicName;
 
-    private volatile int received;
     private final int expect = 10;
 
     @Override
@@ -67,12 +65,13 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
+        topicName = getTopicForTest(this);
+
         awssqsClient = new AWSSQSClient(AWSSDKClientUtils.newSQSClient());
         queueName = AWSCommon.BASE_SQS_QUEUE_NAME + "-" + TestUtils.randomWithRange(0, 1000);
 
         // TODO: this is a work-around for CAMEL-15833
         awssqsClient.createQueue(queueName);
-        received = 0;
     }
 
     @AfterEach
@@ -82,32 +81,18 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
         }
     }
 
-    private boolean checkRecord(ConsumerRecord<String, String> record) {
-        LOG.debug("Received: {}", record.value());
-        received++;
-
-        if (received == expect) {
-            return false;
-        }
-
-        return true;
-    }
-
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
-        connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
-
+    @Override
+    protected void produceTestData() {
         LOG.debug("Sending SQS messages");
         for (int i = 0; i < expect; i++) {
             awssqsClient.send(queueName, "Source test message " + i);
         }
         LOG.debug("Done sending SQS messages");
+    }
 
-        LOG.debug("Creating the consumer ...");
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-        kafkaClient.consume(TestUtils.getDefaultTestTopic(this.getClass()), this::checkRecord);
-        LOG.debug("Created the consumer ...");
-
+    @Override
+    protected void verifyMessages(TestMessageConsumer<?> consumer) {
+        int received = consumer.consumedMessages().size();
         assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
 
@@ -116,11 +101,11 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
                 .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withQueueOrArn(queueName)
                 .withAmazonConfig(service.getConnectionProperties());
 
-        runTest(connectorPropertyFactory);
+        runTest(connectorPropertyFactory, topicName, expect);
     }
 
     // This test does not run remotely because SQS has a cool down period for
@@ -131,11 +116,11 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
     public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
                 .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withQueueOrArn(queueName)
                 .withAmazonConfig(service.getConnectionProperties(), CamelAWSSQSPropertyFactory.KAFKA_STYLE);
 
-        runTest(connectorPropertyFactory);
+        runTest(connectorPropertyFactory, topicName, expect);
     }
 
     // This test does not run remotely because SQS has a cool down period for
@@ -148,7 +133,7 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
 
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSSQSPropertyFactory
                 .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withUrl(queueName)
                 .append("accessKey", amazonProperties.getProperty(AWSConfigs.ACCESS_KEY))
                 .append("secretKey", amazonProperties.getProperty(AWSConfigs.SECRET_KEY))
@@ -157,6 +142,6 @@ public class CamelSourceAWSSQSITCase extends AbstractKafkaTest {
                 .append("region", amazonProperties.getProperty(AWSConfigs.REGION, Region.US_EAST_1.toString()))
                 .buildUrl();
 
-        runTest(connectorPropertyFactory);
+        runTest(connectorPropertyFactory, topicName, expect);
     }
 }

@@ -56,12 +56,26 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
      * @throws Exception For test-specific exceptions
      */
     public void runTest(ConnectorPropertyFactory connectorPropertyFactory, TestMessageConsumer<?> consumer) throws ExecutionException, InterruptedException {
+        runTest(connectorPropertyFactory, consumer, this::produceTestData);
+    }
+
+    /**
+     * A simple blocking test runner that follows the steps: initialize, start producer, consume messages, verify results
+     *
+     * @param connectorPropertyFactory A factory for connector properties
+     * @param consumer A Kafka consumer consumer for the test messages
+     * @param producer A producer for the test messages
+     * @throws Exception For test-specific exceptions
+     */
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory, TestMessageConsumer<?> consumer,
+                        FunctionalTestMessageProducer producer) throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
         LOG.debug("Initialized the connector and put the data for the test execution");
-        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
+//        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
         LOG.debug("Producing test data to be collected by the connector and sent to Kafka");
-        produceTestData();
+        producer.produceMessages();
 
         LOG.debug("Creating the Kafka consumer ...");
         consumer.consumeMessages();
