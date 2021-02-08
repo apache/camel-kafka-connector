@@ -20,15 +20,14 @@ package org.apache.camel.kafkaconnector.aws.v2.kinesis.source;
 import java.util.concurrent.ExecutionException;
 
 import org.apache.camel.kafkaconnector.aws.v2.kinesis.common.TestKinesisConfiguration;
-import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
-import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
+import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.aws.common.AWSCommon;
 import org.apache.camel.test.infra.aws.common.services.AWSService;
 import org.apache.camel.test.infra.aws2.clients.AWSSDKClientUtils;
 import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,8 +35,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.services.kinesis.KinesisClient;
 
 import static org.apache.camel.kafkaconnector.aws.v2.kinesis.common.KinesisUtils.createStream;
@@ -47,16 +44,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
-public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
+public class CamelSourceAWSKinesisITCase extends CamelSourceTestSupport {
 
     @RegisterExtension
     public static AWSService awsService = AWSServiceFactory.createKinesisService();
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceAWSKinesisITCase.class);
 
     private String streamName;
     private KinesisClient kinesisClient;
+    private String topicName;
 
-    private volatile int received;
     private final int expect = 10;
 
     @Override
@@ -66,10 +62,10 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
 
     @BeforeEach
     public void setUp() {
+        topicName = getTopicForTest(this);
         streamName = AWSCommon.KINESIS_STREAM_BASE_NAME + "-" + TestUtils.randomWithRange(0, 100);
 
         kinesisClient = AWSSDKClientUtils.newKinesisClient();
-        received = 0;
 
         createStream(kinesisClient, streamName);
     }
@@ -80,45 +76,28 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
         deleteStream(kinesisClient, streamName);
     }
 
-    private boolean checkRecord(ConsumerRecord<String, String> record) {
-        LOG.debug("Received: {}", record.value());
-        received++;
-
-        if (received == expect) {
-            return false;
-        }
-
-        return true;
+    protected void produceTestData() {
+        putRecords(kinesisClient, streamName, expect);
     }
 
-
-
-    public void runtTest(ConnectorPropertyFactory connectorPropertyFactory) throws ExecutionException, InterruptedException {
-        connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
-
-        putRecords(kinesisClient, streamName, expect);
-        LOG.debug("Initialized the connector and put the data for the test execution");
-
-        LOG.debug("Creating the consumer ...");
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-        kafkaClient.consume(TestUtils.getDefaultTestTopic(this.getClass()), this::checkRecord);
-        LOG.debug("Created the consumer ...");
+    protected void verifyMessages(TestMessageConsumer<?> consumer) {
+        int received = consumer.consumedMessages().size();
 
         assertEquals(received, expect, "Didn't process the expected amount of messages");
     }
+
 
     @Test
     @Timeout(120)
     public void testBasicSendReceive() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory
                 .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withAmazonConfig(awsService.getConnectionProperties())
                 .withConfiguration(TestKinesisConfiguration.class.getName())
                 .withStreamName(streamName);
 
-        runtTest(connectorPropertyFactory);
+        runTest(connectorPropertyFactory, topicName, expect);
     }
 
     @Test
@@ -126,12 +105,12 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     public void testBasicSendReceiveWithKafkaStyle() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory
                 .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withAmazonConfig(awsService.getConnectionProperties(), CamelAWSKinesisPropertyFactory.KAFKA_STYLE)
                 .withConfiguration(TestKinesisConfiguration.class.getName())
                 .withStreamName(streamName);
 
-        runtTest(connectorPropertyFactory);
+        runTest(connectorPropertyFactory, topicName, expect);
     }
 
     @Test
@@ -139,13 +118,12 @@ public class CamelSourceAWSKinesisITCase extends AbstractKafkaTest {
     public void testBasicSendReceiveUsingUrl() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelAWSKinesisPropertyFactory
                 .basic()
-                .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass()))
+                .withKafkaTopic(topicName)
                 .withAmazonConfig(awsService.getConnectionProperties())
                 .withConfiguration(TestKinesisConfiguration.class.getName())
                 .withUrl(streamName)
                 .buildUrl();
 
-        runtTest(connectorPropertyFactory);
+        runTest(connectorPropertyFactory, topicName, expect);
     }
-
 }
