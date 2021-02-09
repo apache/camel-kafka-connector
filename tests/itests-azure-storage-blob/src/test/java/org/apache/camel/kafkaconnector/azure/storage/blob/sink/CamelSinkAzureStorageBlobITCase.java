@@ -38,6 +38,7 @@ import org.apache.camel.test.infra.azure.storage.blob.clients.AzureStorageBlobCl
 import org.apache.camel.test.infra.azure.storage.blob.services.AzureStorageBlobServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -48,6 +49,7 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@Disabled(value = "Disabled due to GH issue #997")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkAzureStorageBlobITCase extends CamelSinkTestSupport {
     @RegisterExtension
