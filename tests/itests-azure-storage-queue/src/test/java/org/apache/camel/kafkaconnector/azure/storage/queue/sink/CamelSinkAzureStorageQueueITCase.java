@@ -33,6 +33,7 @@ import org.apache.camel.test.infra.azure.common.services.AzureService;
 import org.apache.camel.test.infra.azure.storage.queue.services.AzureStorageQueueServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -43,6 +44,7 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@Disabled(value = "Disabled due to issue #976")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkAzureStorageQueueITCase extends CamelSinkTestSupport {
     @RegisterExtension
