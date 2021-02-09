@@ -111,7 +111,6 @@ public class CamelSinkAWSKinesisITCase  extends CamelSinkTestSupport {
     }
 
 
-
     @Override
     protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
         if (latch.await(110, TimeUnit.SECONDS)) {
