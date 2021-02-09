@@ -2,6 +2,8 @@
 [[camel-jooq-kafka-connector-sink]]
 = camel-jooq-kafka-connector sink configuration
 
+Connector Description: Store and retrieve Java objects from an SQL database using JOOQ.
+
 When using camel-jooq-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

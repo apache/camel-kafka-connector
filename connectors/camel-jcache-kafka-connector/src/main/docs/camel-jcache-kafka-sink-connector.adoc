@@ -2,6 +2,8 @@
 [[camel-jcache-kafka-connector-sink]]
 = camel-jcache-kafka-connector sink configuration
 
+Connector Description: Perform caching operations against JSR107/JCache.
+
 When using camel-jcache-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

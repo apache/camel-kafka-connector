@@ -2,6 +2,8 @@
 [[camel-flatpack-kafka-connector-sink]]
 = camel-flatpack-kafka-connector sink configuration
 
+Connector Description: Parse fixed width and delimited files using the FlatPack library.
+
 When using camel-flatpack-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

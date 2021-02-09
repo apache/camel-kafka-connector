@@ -2,6 +2,8 @@
 [[camel-yammer-kafka-connector-source]]
 = camel-yammer-kafka-connector source configuration
 
+Connector description: Interact with the Yammer enterprise social network.
+
 When using camel-yammer-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

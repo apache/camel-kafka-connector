@@ -2,6 +2,8 @@
 [[camel-splunk-hec-kafka-connector-sink]]
 = camel-splunk-hec-kafka-connector sink configuration
 
+Connector Description: The splunk component allows to publish events in Splunk using the HTTP Event Collector.
+
 When using camel-splunk-hec-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

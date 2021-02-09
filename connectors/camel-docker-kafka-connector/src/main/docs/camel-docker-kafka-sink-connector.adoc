@@ -2,6 +2,8 @@
 [[camel-docker-kafka-connector-sink]]
 = camel-docker-kafka-connector sink configuration
 
+Connector Description: Manage Docker containers.
+
 When using camel-docker-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

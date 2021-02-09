@@ -2,6 +2,8 @@
 [[camel-workday-kafka-connector-sink]]
 = camel-workday-kafka-connector sink configuration
 
+Connector Description: Detect and parse documents using Workday.
+
 When using camel-workday-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

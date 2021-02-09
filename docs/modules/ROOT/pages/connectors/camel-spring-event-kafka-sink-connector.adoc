@@ -2,6 +2,8 @@
 [[camel-spring-event-kafka-connector-sink]]
 = camel-spring-event-kafka-connector sink configuration
 
+Connector Description: Listen for Spring Application Events.
+
 When using camel-spring-event-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

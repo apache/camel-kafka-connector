@@ -2,6 +2,8 @@
 [[camel-google-bigquery-kafka-connector-sink]]
 = camel-google-bigquery-kafka-connector sink configuration
 
+Connector Description: Google BigQuery data warehouse for analytics.
+
 When using camel-google-bigquery-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

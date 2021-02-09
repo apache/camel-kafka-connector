@@ -2,6 +2,8 @@
 [[camel-hazelcast-set-kafka-connector-source]]
 = camel-hazelcast-set-kafka-connector source configuration
 
+Connector description: Perform operations on Hazelcast distributed set.
+
 When using camel-hazelcast-set-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

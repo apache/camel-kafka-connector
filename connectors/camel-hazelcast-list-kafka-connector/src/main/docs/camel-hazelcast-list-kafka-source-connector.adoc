@@ -2,6 +2,8 @@
 [[camel-hazelcast-list-kafka-connector-source]]
 = camel-hazelcast-list-kafka-connector source configuration
 
+Connector description: Perform operations on Hazelcast distributed list.
+
 When using camel-hazelcast-list-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

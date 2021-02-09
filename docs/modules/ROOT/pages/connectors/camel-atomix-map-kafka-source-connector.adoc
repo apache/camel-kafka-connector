@@ -2,6 +2,8 @@
 [[camel-atomix-map-kafka-connector-source]]
 = camel-atomix-map-kafka-connector source configuration
 
+Connector description: Access Atomix's distributed map.
+
 When using camel-atomix-map-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

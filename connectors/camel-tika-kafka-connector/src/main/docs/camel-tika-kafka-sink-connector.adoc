@@ -2,6 +2,8 @@
 [[camel-tika-kafka-connector-sink]]
 = camel-tika-kafka-connector sink configuration
 
+Connector Description: Parse documents and extract metadata and text using Apache Tika.
+
 When using camel-tika-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

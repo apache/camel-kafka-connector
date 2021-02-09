@@ -2,6 +2,8 @@
 [[camel-metrics-kafka-connector-sink]]
 = camel-metrics-kafka-connector sink configuration
 
+Connector Description: Collect various metrics directly from Camel routes using the DropWizard metrics library.
+
 When using camel-metrics-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

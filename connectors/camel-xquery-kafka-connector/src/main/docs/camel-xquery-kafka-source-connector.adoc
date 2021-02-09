@@ -2,6 +2,8 @@
 [[camel-xquery-kafka-connector-source]]
 = camel-xquery-kafka-connector source configuration
 
+Connector description: Query and/or transform XML payloads using XQuery and Saxon.
+
 When using camel-xquery-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

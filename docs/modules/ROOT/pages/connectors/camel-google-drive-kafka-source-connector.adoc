@@ -2,6 +2,8 @@
 [[camel-google-drive-kafka-connector-source]]
 = camel-google-drive-kafka-connector source configuration
 
+Connector description: Manage files in Google Drive.
+
 When using camel-google-drive-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

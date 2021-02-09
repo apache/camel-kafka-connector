@@ -2,6 +2,8 @@
 [[camel-kubernetes-persistent-volumes-kafka-connector-sink]]
 = camel-kubernetes-persistent-volumes-kafka-connector sink configuration
 
+Connector Description: Perform operations on Kubernetes Persistent Volumes and get notified on Persistent Volume changes.
+
 When using camel-kubernetes-persistent-volumes-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

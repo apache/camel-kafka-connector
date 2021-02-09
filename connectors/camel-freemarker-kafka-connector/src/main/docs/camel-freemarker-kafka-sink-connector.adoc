@@ -2,6 +2,8 @@
 [[camel-freemarker-kafka-connector-sink]]
 = camel-freemarker-kafka-connector sink configuration
 
+Connector Description: Transform messages using FreeMarker templates.
+
 When using camel-freemarker-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-dozer-kafka-connector-sink]]
 = camel-dozer-kafka-connector sink configuration
 
+Connector Description: Map between Java beans using the Dozer mapping library.
+
 When using camel-dozer-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

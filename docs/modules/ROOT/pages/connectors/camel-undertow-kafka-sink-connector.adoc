@@ -2,6 +2,8 @@
 [[camel-undertow-kafka-connector-sink]]
 = camel-undertow-kafka-connector sink configuration
 
+Connector Description: Expose HTTP and WebSocket endpoints and access external HTTP/WebSocket servers.
+
 When using camel-undertow-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

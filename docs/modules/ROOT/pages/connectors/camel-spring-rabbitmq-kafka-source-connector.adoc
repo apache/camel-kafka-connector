@@ -2,6 +2,8 @@
 [[camel-spring-rabbitmq-kafka-connector-source]]
 = camel-spring-rabbitmq-kafka-connector source configuration
 
+Connector description: Send and receive messages from RabbitMQ using Spring RabbitMQ client.
+
 When using camel-spring-rabbitmq-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -89,8 +91,4 @@ The camel-spring-rabbitmq source connector has no transforms out of the box.
 
 
 The camel-spring-rabbitmq source connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

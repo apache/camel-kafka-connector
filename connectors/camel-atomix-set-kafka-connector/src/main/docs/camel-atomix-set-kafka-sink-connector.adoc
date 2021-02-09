@@ -2,6 +2,8 @@
 [[camel-atomix-set-kafka-connector-sink]]
 = camel-atomix-set-kafka-connector sink configuration
 
+Connector Description: Access Atomix's distributed set.
+
 When using camel-atomix-set-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

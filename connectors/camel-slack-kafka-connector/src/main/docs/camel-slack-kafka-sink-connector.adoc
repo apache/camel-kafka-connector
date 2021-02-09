@@ -2,6 +2,8 @@
 [[camel-slack-kafka-connector-sink]]
 = camel-slack-kafka-connector sink configuration
 
+Connector Description: Send and receive messages to/from Slack.
+
 When using camel-slack-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

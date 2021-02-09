@@ -2,6 +2,8 @@
 [[camel-ssh-kafka-connector-sink]]
 = camel-ssh-kafka-connector sink configuration
 
+Connector Description: Execute commands on remote hosts using SSH.
+
 When using camel-ssh-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

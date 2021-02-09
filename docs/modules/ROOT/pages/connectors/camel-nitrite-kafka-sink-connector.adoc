@@ -2,6 +2,8 @@
 [[camel-nitrite-kafka-connector-sink]]
 = camel-nitrite-kafka-connector sink configuration
 
+Connector Description: Access Nitrite databases.
+
 When using camel-nitrite-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

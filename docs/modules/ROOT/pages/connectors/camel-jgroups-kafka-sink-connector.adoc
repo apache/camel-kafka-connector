@@ -2,6 +2,8 @@
 [[camel-jgroups-kafka-connector-sink]]
 = camel-jgroups-kafka-connector sink configuration
 
+Connector Description: Exchange messages with JGroups clusters.
+
 When using camel-jgroups-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

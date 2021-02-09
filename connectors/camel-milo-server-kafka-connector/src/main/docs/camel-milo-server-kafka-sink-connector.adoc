@@ -2,6 +2,8 @@
 [[camel-milo-server-kafka-connector-sink]]
 = camel-milo-server-kafka-connector sink configuration
 
+Connector Description: Make telemetry data available as an OPC UA server.
+
 When using camel-milo-server-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

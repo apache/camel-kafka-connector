@@ -2,6 +2,8 @@
 [[camel-web3j-kafka-connector-source]]
 = camel-web3j-kafka-connector source configuration
 
+Connector description: Interact with Ethereum nodes using web3j client API.
+
 When using camel-web3j-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

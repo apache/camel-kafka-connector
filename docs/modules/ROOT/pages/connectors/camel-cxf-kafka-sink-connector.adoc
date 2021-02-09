@@ -2,6 +2,8 @@
 [[camel-cxf-kafka-connector-sink]]
 = camel-cxf-kafka-connector sink configuration
 
+Connector Description: Expose SOAP WebServices using Apache CXF or connect to external WebServices using CXF WS client.
+
 When using camel-cxf-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

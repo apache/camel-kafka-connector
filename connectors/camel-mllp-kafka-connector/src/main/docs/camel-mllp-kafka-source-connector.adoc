@@ -2,6 +2,8 @@
 [[camel-mllp-kafka-connector-source]]
 = camel-mllp-kafka-connector source configuration
 
+Connector description: Communicate with external systems using the MLLP protocol.
+
 When using camel-mllp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

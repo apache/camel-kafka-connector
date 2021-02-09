@@ -2,6 +2,8 @@
 [[camel-xmpp-kafka-connector-source]]
 = camel-xmpp-kafka-connector source configuration
 
+Connector description: Send and receive messages to/from an XMPP chat server.
+
 When using camel-xmpp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

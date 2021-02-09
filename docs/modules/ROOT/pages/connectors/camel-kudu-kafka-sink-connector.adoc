@@ -2,6 +2,8 @@
 [[camel-kudu-kafka-connector-sink]]
 = camel-kudu-kafka-connector sink configuration
 
+Connector Description: Interact with Apache Kudu, a free and open source column-oriented data store of the Apache Hadoop ecosystem.
+
 When using camel-kudu-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-weather-kafka-connector-sink]]
 = camel-weather-kafka-connector sink configuration
 
+Connector Description: Poll the weather information from Open Weather Map.
+
 When using camel-weather-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

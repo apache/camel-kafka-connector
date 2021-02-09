@@ -2,6 +2,8 @@
 [[camel-xchange-kafka-connector-sink]]
 = camel-xchange-kafka-connector sink configuration
 
+Connector Description: Access market data and trade on Bitcoin and Altcoin exchanges.
+
 When using camel-xchange-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -1,0 +1,114 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.hwcloudsmn.CamelHwcloudsmnSinkConnector",
+		"artifactId": "camel-hwcloud-smn-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-hwcloud-smn-sink",
+		"type": "sink",
+		"version": "0.8.0-SNAPSHOT",
+		"description": "Huawei Cloud component to integrate with SimpleNotification services"
+	},
+	"properties": {
+		"camel.sink.path.smnService": {
+			"name": "camel.sink.path.smnService",
+			"description": "Name of SMN service to invoke",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.authKey": {
+			"name": "camel.sink.endpoint.authKey",
+			"description": "Authentication key for the cloud user",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.ignoreSslVerification": {
+			"name": "camel.sink.endpoint.ignoreSslVerification",
+			"description": "Ignore SSL verification",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.messageTtl": {
+			"name": "camel.sink.endpoint.messageTtl",
+			"description": "TTL for published message",
+			"defaultValue": "3600",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.operation": {
+			"name": "camel.sink.endpoint.operation",
+			"description": "Name of operation to perform",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.projectId": {
+			"name": "camel.sink.endpoint.projectId",
+			"description": "Cloud project ID",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.proxyHost": {
+			"name": "camel.sink.endpoint.proxyHost",
+			"description": "Proxy server ip\/hostname",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.proxyPassword": {
+			"name": "camel.sink.endpoint.proxyPassword",
+			"description": "Proxy authentication password",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.proxyPort": {
+			"name": "camel.sink.endpoint.proxyPort",
+			"description": "Proxy server port",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.proxyUser": {
+			"name": "camel.sink.endpoint.proxyUser",
+			"description": "Proxy authentication user",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.region": {
+			"name": "camel.sink.endpoint.region",
+			"description": "SMN service region",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.secretKey": {
+			"name": "camel.sink.endpoint.secretKey",
+			"description": "Secret key for the cloud user",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.sink.endpoint.serviceKeys": {
+			"name": "camel.sink.endpoint.serviceKeys",
+			"description": "Configuration object for cloud service authentication",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.hwcloud-smn.lazyStartProducer": {
+			"name": "camel.component.hwcloud-smn.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.hwcloud-smn.autowiredEnabled": {
+			"name": "camel.component.hwcloud-smn.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

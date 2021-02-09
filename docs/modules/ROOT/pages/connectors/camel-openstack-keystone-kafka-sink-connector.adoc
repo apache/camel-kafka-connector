@@ -2,6 +2,8 @@
 [[camel-openstack-keystone-kafka-connector-sink]]
 = camel-openstack-keystone-kafka-connector sink configuration
 
+Connector Description: Access OpenStack Keystone for API client authentication, service discovery and distributed multi-tenant authorization.
+
 When using camel-openstack-keystone-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

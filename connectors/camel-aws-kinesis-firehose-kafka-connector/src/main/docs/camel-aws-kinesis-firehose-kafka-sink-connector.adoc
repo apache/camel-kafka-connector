@@ -2,6 +2,8 @@
 [[camel-aws-kinesis-firehose-kafka-connector-sink]]
 = camel-aws-kinesis-firehose-kafka-connector sink configuration
 
+Connector Description: Consume data from AWS Kinesis Firehose streams.
+
 When using camel-aws-kinesis-firehose-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

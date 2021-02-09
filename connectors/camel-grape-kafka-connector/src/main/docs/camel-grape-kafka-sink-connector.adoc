@@ -2,6 +2,8 @@
 [[camel-grape-kafka-connector-sink]]
 = camel-grape-kafka-connector sink configuration
 
+Connector Description: Fetch, load and manage additional jars dynamically after Camel Context was started.
+
 When using camel-grape-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

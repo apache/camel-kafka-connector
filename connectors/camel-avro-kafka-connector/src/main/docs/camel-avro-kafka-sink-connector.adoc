@@ -2,6 +2,8 @@
 [[camel-avro-kafka-connector-sink]]
 = camel-avro-kafka-connector sink configuration
 
+Connector Description: Produce or consume Apache Avro RPC services.
+
 When using camel-avro-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

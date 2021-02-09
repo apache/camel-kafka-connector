@@ -2,6 +2,8 @@
 [[camel-quickfix-kafka-connector-source]]
 = camel-quickfix-kafka-connector source configuration
 
+Connector description: Open a Financial Interchange (FIX) session using an embedded QuickFix/J engine.
+
 When using camel-quickfix-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-crypto-kafka-connector-sink]]
 = camel-crypto-kafka-connector sink configuration
 
+Connector Description: Sign and verify exchanges using the Signature Service of the Java Cryptographic Extension (JCE).
+
 When using camel-crypto-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

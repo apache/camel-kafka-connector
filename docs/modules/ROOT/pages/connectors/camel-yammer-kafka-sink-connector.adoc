@@ -2,6 +2,8 @@
 [[camel-yammer-kafka-connector-sink]]
 = camel-yammer-kafka-connector sink configuration
 
+Connector Description: Interact with the Yammer enterprise social network.
+
 When using camel-yammer-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

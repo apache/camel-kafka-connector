@@ -2,6 +2,8 @@
 [[camel-soroush-kafka-connector-sink]]
 = camel-soroush-kafka-connector sink configuration
 
+Connector Description: Send and receive messages as a Soroush chat bot.
+
 When using camel-soroush-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

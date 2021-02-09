@@ -1,0 +1,319 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.springrabbitmq.CamelSpringrabbitmqSourceConnector",
+		"artifactId": "camel-spring-rabbitmq-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-spring-rabbitmq-source",
+		"type": "source",
+		"version": "0.8.0-SNAPSHOT",
+		"description": "Send and receive messages from RabbitMQ using Spring RabbitMQ client."
+	},
+	"properties": {
+		"camel.source.path.exchangeName": {
+			"name": "camel.source.path.exchangeName",
+			"description": "The exchange name determines the exchange to which the produced messages will be sent to. In the case of consumers, the exchange name determines the exchange the queue will be bound to. Note: to use default exchange then do not use empty name, but use default instead.",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.source.endpoint.connectionFactory": {
+			"name": "camel.source.endpoint.connectionFactory",
+			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.disableReplyTo": {
+			"name": "camel.source.endpoint.disableReplyTo",
+			"description": "Specifies whether Camel ignores the ReplyTo header in messages. If true, Camel does not send a reply back to the destination specified in the ReplyTo header. You can use this option if you want Camel to consume from a route and you do not want Camel to automatically send back a reply message because another component in your code handles the reply message. You can also use this option if you want to use Camel as a proxy between different message brokers and you want to route message from one system to another.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.routingKey": {
+			"name": "camel.source.endpoint.routingKey",
+			"description": "The value of a routing key to use. Default is empty which is not helpful when using the default (or any direct) exchange, but fine if the exchange is a headers exchange for instance.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.testConnectionOnStartup": {
+			"name": "camel.source.endpoint.testConnectionOnStartup",
+			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.acknowledgeMode": {
+			"name": "camel.source.endpoint.acknowledgeMode",
+			"description": "Flag controlling the behaviour of the container with respect to message acknowledgement. The most common usage is to let the container handle the acknowledgements (so the listener doesn't need to know about the channel or the message). Set to AcknowledgeMode.MANUAL if the listener will send the acknowledgements itself using Channel.basicAck(long, boolean). Manual acks are consistent with either a transactional or non-transactional channel, but if you are doing no other work on the channel at the same other than receiving a single message then the transaction is probably unnecessary. Set to AcknowledgeMode.NONE to tell the broker not to expect any acknowledgements, and it will assume all messages are acknowledged as soon as they are sent (this is autoack in native Rabbit broker terms). If AcknowledgeMode.NONE then the channel cannot be transactional (so the container will fail on start up if that flag is accidentally set). One of: [NONE] [MANUAL] [AUTO]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"NONE",
+				"MANUAL",
+				"AUTO"
+			]
+		},
+		"camel.source.endpoint.asyncConsumer": {
+			"name": "camel.source.endpoint.asyncConsumer",
+			"description": "Whether the consumer processes the Exchange asynchronously. If enabled then the consumer may pickup the next message from the queue, while the previous message is being processed asynchronously (by the Asynchronous Routing Engine). This means that messages may be processed not 100% strictly in order. If disabled (as default) then the Exchange is fully processed before the consumer will pickup the next message from the queue.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.autoDeclare": {
+			"name": "camel.source.endpoint.autoDeclare",
+			"description": "Specifies whether the consumer should auto declare binding between exchange, queue and routing key when starting.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.autoStartup": {
+			"name": "camel.source.endpoint.autoStartup",
+			"description": "Specifies whether the consumer container should auto-startup.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.bridgeErrorHandler": {
+			"name": "camel.source.endpoint.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.deadLetterExchange": {
+			"name": "camel.source.endpoint.deadLetterExchange",
+			"description": "The name of the dead letter exchange",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.deadLetterExchangeType": {
+			"name": "camel.source.endpoint.deadLetterExchangeType",
+			"description": "The type of the dead letter exchange One of: [direct] [fanout] [headers] [topic]",
+			"defaultValue": "\"direct\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
+		},
+		"camel.source.endpoint.deadLetterQueue": {
+			"name": "camel.source.endpoint.deadLetterQueue",
+			"description": "The name of the dead letter queue",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.deadLetterRoutingKey": {
+			"name": "camel.source.endpoint.deadLetterRoutingKey",
+			"description": "The routing key for the dead letter exchange",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exchangeType": {
+			"name": "camel.source.endpoint.exchangeType",
+			"description": "The type of the exchange One of: [direct] [fanout] [headers] [topic]",
+			"defaultValue": "\"direct\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
+		},
+		"camel.source.endpoint.exclusive": {
+			"name": "camel.source.endpoint.exclusive",
+			"description": "Set to true for an exclusive consumer",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.noLocal": {
+			"name": "camel.source.endpoint.noLocal",
+			"description": "Set to true for an no-local consumer",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.queues": {
+			"name": "camel.source.endpoint.queues",
+			"description": "The queue(s) to use for consuming messages. Multiple queue names can be separated by comma. If none has been configured then Camel will generate an unique id as the queue name for the consumer.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exceptionHandler": {
+			"name": "camel.source.endpoint.exceptionHandler",
+			"description": "To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.exchangePattern": {
+			"name": "camel.source.endpoint.exchangePattern",
+			"description": "Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"InOnly",
+				"InOut",
+				"InOptionalOut"
+			]
+		},
+		"camel.source.endpoint.args": {
+			"name": "camel.source.endpoint.args",
+			"description": "Specify arguments for configuring the different RabbitMQ concepts, a different prefix is required for each element: arg.consumer. arg.exchange. arg.queue. arg.binding. arg.dlq.exchange. arg.dlq.queue. arg.dlq.binding. For example to declare a queue with message ttl argument: args=arg.queue.x-message-ttl=60000",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.messageConverter": {
+			"name": "camel.source.endpoint.messageConverter",
+			"description": "To use a custom MessageConverter so you can be in control how to map to\/from a org.springframework.amqp.core.Message.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.messagePropertiesConverter": {
+			"name": "camel.source.endpoint.messagePropertiesConverter",
+			"description": "To use a custom MessagePropertiesConverter so you can be in control how to map to\/from a org.springframework.amqp.core.MessageProperties.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.synchronous": {
+			"name": "camel.source.endpoint.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.amqpAdmin": {
+			"name": "camel.component.spring-rabbitmq.amqpAdmin",
+			"description": "Optional AMQP Admin service to use for auto declaring elements (queues, exchanges, bindings)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.connectionFactory": {
+			"name": "camel.component.spring-rabbitmq.connectionFactory",
+			"description": "The connection factory to be use. A connection factory must be configured either on the component or endpoint.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.testConnectionOnStartup": {
+			"name": "camel.component.spring-rabbitmq.testConnectionOnStartup",
+			"description": "Specifies whether to test the connection on startup. This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker. If a connection cannot be granted then Camel throws an exception on startup. This ensures that Camel is not started with failed connections. The JMS producers is tested as well.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.autoDeclare": {
+			"name": "camel.component.spring-rabbitmq.autoDeclare",
+			"description": "Specifies whether the consumer should auto declare binding between exchange, queue and routing key when starting. Enabling this can be good for development to make it easy to standup exchanges, queues and bindings on the broker.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.autoStartup": {
+			"name": "camel.component.spring-rabbitmq.autoStartup",
+			"description": "Specifies whether the consumer container should auto-startup.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.bridgeErrorHandler": {
+			"name": "camel.component.spring-rabbitmq.bridgeErrorHandler",
+			"description": "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.deadLetterExchange": {
+			"name": "camel.component.spring-rabbitmq.deadLetterExchange",
+			"description": "The name of the dead letter exchange",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.deadLetterExchangeType": {
+			"name": "camel.component.spring-rabbitmq.deadLetterExchangeType",
+			"description": "The type of the dead letter exchange One of: [direct] [fanout] [headers] [topic]",
+			"defaultValue": "\"direct\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"direct",
+				"fanout",
+				"headers",
+				"topic"
+			]
+		},
+		"camel.component.spring-rabbitmq.deadLetterQueue": {
+			"name": "camel.component.spring-rabbitmq.deadLetterQueue",
+			"description": "The name of the dead letter queue",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.deadLetterRoutingKey": {
+			"name": "camel.component.spring-rabbitmq.deadLetterRoutingKey",
+			"description": "The routing key for the dead letter exchange",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.errorHandler": {
+			"name": "camel.component.spring-rabbitmq.errorHandler",
+			"description": "To use a custom ErrorHandler for handling exceptions from the message listener (consumer)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.listenerContainerFactory": {
+			"name": "camel.component.spring-rabbitmq.listenerContainerFactory",
+			"description": "To use a custom factory for creating and configuring ListenerContainer to be used by the consumer for receiving messages",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.prefetchCount": {
+			"name": "camel.component.spring-rabbitmq.prefetchCount",
+			"description": "Tell the broker how many messages to send to each consumer in a single request. Often this can be set quite high to improve throughput.",
+			"defaultValue": "250",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.shutdownTimeout": {
+			"name": "camel.component.spring-rabbitmq.shutdownTimeout",
+			"description": "The time to wait for workers in milliseconds after the container is stopped. If any workers are active when the shutdown signal comes they will be allowed to finish processing as long as they can finish within this timeout.",
+			"defaultValue": "5000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.autowiredEnabled": {
+			"name": "camel.component.spring-rabbitmq.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.ignoreDeclarationExceptions": {
+			"name": "camel.component.spring-rabbitmq.ignoreDeclarationExceptions",
+			"description": "Switch on ignore exceptions such as mismatched properties when declaring",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.messageConverter": {
+			"name": "camel.component.spring-rabbitmq.messageConverter",
+			"description": "To use a custom MessageConverter so you can be in control how to map to\/from a org.springframework.amqp.core.Message.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.messagePropertiesConverter": {
+			"name": "camel.component.spring-rabbitmq.messagePropertiesConverter",
+			"description": "To use a custom MessagePropertiesConverter so you can be in control how to map to\/from a org.springframework.amqp.core.MessageProperties.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.spring-rabbitmq.headerFilterStrategy": {
+			"name": "camel.component.spring-rabbitmq.headerFilterStrategy",
+			"description": "To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message.",
+			"priority": "MEDIUM",
+			"required": "false"
+		}
+	}
+}

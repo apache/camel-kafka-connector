@@ -2,6 +2,8 @@
 [[camel-ftp-kafka-connector-sink]]
 = camel-ftp-kafka-connector sink configuration
 
+Connector Description: Upload and download files to/from FTP servers.
+
 When using camel-ftp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

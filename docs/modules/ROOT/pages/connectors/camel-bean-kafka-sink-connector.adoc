@@ -2,6 +2,8 @@
 [[camel-bean-kafka-connector-sink]]
 = camel-bean-kafka-connector sink configuration
 
+Connector Description: Invoke methods of Java beans stored in Camel registry.
+
 When using camel-bean-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

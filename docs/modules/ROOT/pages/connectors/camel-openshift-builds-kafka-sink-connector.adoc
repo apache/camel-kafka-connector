@@ -2,6 +2,8 @@
 [[camel-openshift-builds-kafka-connector-sink]]
 = camel-openshift-builds-kafka-connector sink configuration
 
+Connector Description: Perform operations on OpenShift Builds.
+
 When using camel-openshift-builds-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

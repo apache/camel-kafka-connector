@@ -247,6 +247,30 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.pkChunking": {
+			"name": "camel.sink.endpoint.pkChunking",
+			"description": "Use PK Chunking. Only for use in original Bulk API. Bulk 2.0 API performs PK chunking automatically, if necessary.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.pkChunkingChunkSize": {
+			"name": "camel.sink.endpoint.pkChunkingChunkSize",
+			"description": "Chunk size for use with PK Chunking. If unspecified, salesforce default is 100,000. Maximum size is 250,000.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.pkChunkingParent": {
+			"name": "camel.sink.endpoint.pkChunkingParent",
+			"description": "Specifies the parent object when you're enabling PK chunking for queries on sharing objects. The chunks are based on the parent object's records rather than the sharing object's records. For example, when querying on AccountShare, specify Account as the parent object. PK chunking is supported for sharing objects as long as the parent object is supported.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.pkChunkingStartRow": {
+			"name": "camel.sink.endpoint.pkChunkingStartRow",
+			"description": "Specifies the 15-character or 18-character record ID to be used as the lower boundary for the first chunk. Use this parameter to specify a starting ID when restarting a job that failed between batches.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.queryLocator": {
 			"name": "camel.sink.endpoint.queryLocator",
 			"description": "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.",
@@ -559,6 +583,30 @@
 		"camel.component.salesforce.packages": {
 			"name": "camel.component.salesforce.packages",
 			"description": "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters\/header values. Multiple packages can be separated by comma.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.pkChunking": {
+			"name": "camel.component.salesforce.pkChunking",
+			"description": "Use PK Chunking. Only for use in original Bulk API. Bulk 2.0 API performs PK chunking automatically, if necessary.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.pkChunkingChunkSize": {
+			"name": "camel.component.salesforce.pkChunkingChunkSize",
+			"description": "Chunk size for use with PK Chunking. If unspecified, salesforce default is 100,000. Maximum size is 250,000.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.pkChunkingParent": {
+			"name": "camel.component.salesforce.pkChunkingParent",
+			"description": "Specifies the parent object when you're enabling PK chunking for queries on sharing objects. The chunks are based on the parent object's records rather than the sharing object's records. For example, when querying on AccountShare, specify Account as the parent object. PK chunking is supported for sharing objects as long as the parent object is supported.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.salesforce.pkChunkingStartRow": {
+			"name": "camel.component.salesforce.pkChunkingStartRow",
+			"description": "Specifies the 15-character or 18-character record ID to be used as the lower boundary for the first chunk. Use this parameter to specify a starting ID when restarting a job that failed between batches.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

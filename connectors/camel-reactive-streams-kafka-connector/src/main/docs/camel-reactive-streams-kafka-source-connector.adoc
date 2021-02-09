@@ -2,6 +2,8 @@
 [[camel-reactive-streams-kafka-connector-source]]
 = camel-reactive-streams-kafka-connector source configuration
 
+Connector description: Exchange messages with reactive stream processing libraries compatible with the reactive streams standard.
+
 When using camel-reactive-streams-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

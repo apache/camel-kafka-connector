@@ -2,6 +2,8 @@
 [[camel-twitter-timeline-kafka-connector-sink]]
 = camel-twitter-timeline-kafka-connector sink configuration
 
+Connector Description: Send tweets and receive tweets from user's timeline.
+
 When using camel-twitter-timeline-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

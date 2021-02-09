@@ -2,6 +2,8 @@
 [[camel-sjms2-kafka-connector-source]]
 = camel-sjms2-kafka-connector source configuration
 
+Connector description: Send and receive messages to/from a JMS Queue or Topic using plain JMS 2.x API.
+
 When using camel-sjms2-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-google-mail-kafka-connector-sink]]
 = camel-google-mail-kafka-connector sink configuration
 
+Connector Description: Manage messages in Google Mail.
+
 When using camel-google-mail-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

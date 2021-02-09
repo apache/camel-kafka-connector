@@ -2,6 +2,8 @@
 [[camel-xslt-saxon-kafka-connector-sink]]
 = camel-xslt-saxon-kafka-connector sink configuration
 
+Connector Description: Transform XML payloads using an XSLT template using Saxon.
+
 When using camel-xslt-saxon-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

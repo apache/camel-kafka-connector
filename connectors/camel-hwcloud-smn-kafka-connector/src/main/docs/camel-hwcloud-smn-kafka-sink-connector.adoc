@@ -2,6 +2,8 @@
 [[camel-hwcloud-smn-kafka-connector-sink]]
 = camel-hwcloud-smn-kafka-connector sink configuration
 
+Connector Description: Huawei Cloud component to integrate with SimpleNotification services
+
 When using camel-hwcloud-smn-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -62,8 +64,4 @@ The camel-hwcloud-smn sink connector has no transforms out of the box.
 
 
 The camel-hwcloud-smn sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

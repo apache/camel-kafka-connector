@@ -2,6 +2,8 @@
 [[camel-google-calendar-kafka-connector-sink]]
 = camel-google-calendar-kafka-connector sink configuration
 
+Connector Description: Perform various operations on a Google Calendar.
+
 When using camel-google-calendar-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

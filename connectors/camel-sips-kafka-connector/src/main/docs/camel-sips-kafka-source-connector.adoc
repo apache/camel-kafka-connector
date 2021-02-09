@@ -2,6 +2,8 @@
 [[camel-sips-kafka-connector-source]]
 = camel-sips-kafka-connector source configuration
 
+Connector description: Send and receive messages using the SIP protocol (used in telecommunications).
+
 When using camel-sips-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

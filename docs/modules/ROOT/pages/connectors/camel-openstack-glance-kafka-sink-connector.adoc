@@ -2,6 +2,8 @@
 [[camel-openstack-glance-kafka-connector-sink]]
 = camel-openstack-glance-kafka-connector sink configuration
 
+Connector Description: Manage VM images and metadata definitions in OpenStack Glance.
+
 When using camel-openstack-glance-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

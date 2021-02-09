@@ -2,6 +2,8 @@
 [[camel-irc-kafka-connector-source]]
 = camel-irc-kafka-connector source configuration
 
+Connector description: Send and receive messages to/from and IRC chat.
+
 When using camel-irc-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

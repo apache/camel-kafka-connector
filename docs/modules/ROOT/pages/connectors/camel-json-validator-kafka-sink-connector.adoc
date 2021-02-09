@@ -2,6 +2,8 @@
 [[camel-json-validator-kafka-connector-sink]]
 = camel-json-validator-kafka-connector sink configuration
 
+Connector Description: Validate JSON payloads using NetworkNT JSON Schema.
+
 When using camel-json-validator-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

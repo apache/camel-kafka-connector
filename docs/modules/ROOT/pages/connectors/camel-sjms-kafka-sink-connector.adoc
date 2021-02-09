@@ -2,6 +2,8 @@
 [[camel-sjms-kafka-connector-sink]]
 = camel-sjms-kafka-connector sink configuration
 
+Connector Description: Send and receive messages to/from a JMS Queue or Topic using plain JMS 1.x API.
+
 When using camel-sjms-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

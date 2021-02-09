@@ -2,6 +2,8 @@
 [[camel-hazelcast-list-kafka-connector-sink]]
 = camel-hazelcast-list-kafka-connector sink configuration
 
+Connector Description: Perform operations on Hazelcast distributed list.
+
 When using camel-hazelcast-list-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

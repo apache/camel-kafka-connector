@@ -2,6 +2,8 @@
 [[camel-spring-redis-kafka-connector-sink]]
 = camel-spring-redis-kafka-connector sink configuration
 
+Connector Description: Send and receive messages from Redis.
+
 When using camel-spring-redis-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -22,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.springredis.CamelSpringredisSink
 ----
 
 
-The camel-spring-redis sink connector supports 10 options, which are listed below.
+The camel-spring-redis sink connector supports 11 options, which are listed below.
 
 
 
@@ -37,6 +39,7 @@ The camel-spring-redis sink connector supports 10 options, which are listed belo
 | *camel.sink.endpoint.redisTemplate* | Reference to a pre-configured RedisTemplate instance to use. | null | false | MEDIUM
 | *camel.sink.endpoint.serializer* | Reference to a pre-configured RedisSerializer instance to use. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
+| *camel.component.spring-redis.redisTemplate* | Reference to a pre-configured RedisTemplate instance to use. | null | false | MEDIUM
 | *camel.component.spring-redis.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.spring-redis.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===

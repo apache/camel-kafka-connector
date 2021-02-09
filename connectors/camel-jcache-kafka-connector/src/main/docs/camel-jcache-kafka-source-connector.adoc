@@ -2,6 +2,8 @@
 [[camel-jcache-kafka-connector-source]]
 = camel-jcache-kafka-connector source configuration
 
+Connector description: Perform caching operations against JSR107/JCache.
+
 When using camel-jcache-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

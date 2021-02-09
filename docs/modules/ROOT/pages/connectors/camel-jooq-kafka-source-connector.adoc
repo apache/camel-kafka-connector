@@ -2,6 +2,8 @@
 [[camel-jooq-kafka-connector-source]]
 = camel-jooq-kafka-connector source configuration
 
+Connector description: Store and retrieve Java objects from an SQL database using JOOQ.
+
 When using camel-jooq-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

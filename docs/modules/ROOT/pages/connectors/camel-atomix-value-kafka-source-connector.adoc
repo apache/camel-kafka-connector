@@ -2,6 +2,8 @@
 [[camel-atomix-value-kafka-connector-source]]
 = camel-atomix-value-kafka-connector source configuration
 
+Connector description: Access Atomix's distributed value.
+
 When using camel-atomix-value-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

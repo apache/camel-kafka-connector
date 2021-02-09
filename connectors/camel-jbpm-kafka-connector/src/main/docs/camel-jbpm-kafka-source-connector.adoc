@@ -2,6 +2,8 @@
 [[camel-jbpm-kafka-connector-source]]
 = camel-jbpm-kafka-connector source configuration
 
+Connector description: Interact with jBPM workflow engine over REST.
+
 When using camel-jbpm-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

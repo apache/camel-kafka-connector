@@ -2,6 +2,8 @@
 [[camel-etcd-keys-kafka-connector-sink]]
 = camel-etcd-keys-kafka-connector sink configuration
 
+Connector Description: Get, set or delete keys in etcd key-value store.
+
 When using camel-etcd-keys-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

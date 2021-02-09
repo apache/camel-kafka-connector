@@ -2,6 +2,8 @@
 [[camel-iota-kafka-connector-sink]]
 = camel-iota-kafka-connector sink configuration
 
+Connector Description: Manage financial transactions using IOTA distributed ledger.
+
 When using camel-iota-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

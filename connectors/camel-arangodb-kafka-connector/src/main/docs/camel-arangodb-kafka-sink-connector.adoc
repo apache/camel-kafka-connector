@@ -2,6 +2,8 @@
 [[camel-arangodb-kafka-connector-sink]]
 = camel-arangodb-kafka-connector sink configuration
 
+Connector Description: Perform operations on ArangoDb when used as a Document Database, or as a Graph Database
+
 When using camel-arangodb-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

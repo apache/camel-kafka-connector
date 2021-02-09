@@ -2,6 +2,8 @@
 [[camel-amqp-kafka-connector-sink]]
 = camel-amqp-kafka-connector sink configuration
 
+Connector Description: Messaging with AMQP protocol using Apache QPid Client.
+
 When using camel-amqp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

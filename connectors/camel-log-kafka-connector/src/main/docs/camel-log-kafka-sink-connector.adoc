@@ -2,6 +2,8 @@
 [[camel-log-kafka-connector-sink]]
 = camel-log-kafka-connector sink configuration
 
+Connector Description: Log messages to the underlying logging mechanism.
+
 When using camel-log-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

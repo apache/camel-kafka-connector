@@ -2,6 +2,8 @@
 [[camel-google-sheets-stream-kafka-connector-source]]
 = camel-google-sheets-stream-kafka-connector source configuration
 
+Connector description: Poll for changes in Google Sheets.
+
 When using camel-google-sheets-stream-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-cql-kafka-connector-sink]]
 = camel-cql-kafka-connector sink configuration
 
+Connector Description: Integrate with Cassandra 2.0 using the CQL3 API (not the Thrift API). Based on Cassandra Java Driver provided by DataStax.
+
 When using camel-cql-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

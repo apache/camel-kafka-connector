@@ -2,6 +2,8 @@
 [[camel-openstack-neutron-kafka-connector-sink]]
 = camel-openstack-neutron-kafka-connector sink configuration
 
+Connector Description: Access OpenStack Neutron for network services.
+
 When using camel-openstack-neutron-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

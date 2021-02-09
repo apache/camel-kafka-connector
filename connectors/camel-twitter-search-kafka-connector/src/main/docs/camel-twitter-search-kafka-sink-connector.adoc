@@ -2,6 +2,8 @@
 [[camel-twitter-search-kafka-connector-sink]]
 = camel-twitter-search-kafka-connector sink configuration
 
+Connector Description: Access Twitter Search.
+
 When using camel-twitter-search-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

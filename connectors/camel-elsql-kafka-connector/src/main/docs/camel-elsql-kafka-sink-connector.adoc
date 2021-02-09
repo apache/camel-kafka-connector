@@ -2,6 +2,8 @@
 [[camel-elsql-kafka-connector-sink]]
 = camel-elsql-kafka-connector sink configuration
 
+Connector Description: Use ElSql to define SQL queries. Extends the SQL Component.
+
 When using camel-elsql-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

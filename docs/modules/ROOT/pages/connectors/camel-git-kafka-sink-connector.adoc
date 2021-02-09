@@ -2,6 +2,8 @@
 [[camel-git-kafka-connector-sink]]
 = camel-git-kafka-connector sink configuration
 
+Connector Description: Perform operations on git repositories.
+
 When using camel-git-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

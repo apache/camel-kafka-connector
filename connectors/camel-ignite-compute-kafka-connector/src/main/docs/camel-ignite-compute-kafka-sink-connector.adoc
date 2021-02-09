@@ -2,6 +2,8 @@
 [[camel-ignite-compute-kafka-connector-sink]]
 = camel-ignite-compute-kafka-connector sink configuration
 
+Connector Description: Run compute operations on an Ignite cluster.
+
 When using camel-ignite-compute-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

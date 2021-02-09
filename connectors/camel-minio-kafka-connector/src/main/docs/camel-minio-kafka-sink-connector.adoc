@@ -2,6 +2,8 @@
 [[camel-minio-kafka-connector-sink]]
 = camel-minio-kafka-connector sink configuration
 
+Connector Description: Store and retrieve objects from Minio Storage Service using Minio SDK.
+
 When using camel-minio-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

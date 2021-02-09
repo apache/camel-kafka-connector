@@ -2,6 +2,8 @@
 [[camel-file-kafka-connector-sink]]
 = camel-file-kafka-connector sink configuration
 
+Connector Description: Read and write files.
+
 When using camel-file-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-cxf-kafka-connector-source]]
 = camel-cxf-kafka-connector source configuration
 
+Connector description: Expose SOAP WebServices using Apache CXF or connect to external WebServices using CXF WS client.
+
 When using camel-cxf-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

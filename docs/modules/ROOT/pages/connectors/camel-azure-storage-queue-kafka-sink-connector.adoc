@@ -2,6 +2,8 @@
 [[camel-azure-storage-queue-kafka-connector-sink]]
 = camel-azure-storage-queue-kafka-connector sink configuration
 
+Connector Description: The azure-storage-queue component is used for storing and retrieving the messages to/from Azure Storage Queue using Azure SDK v12.
+
 When using camel-azure-storage-queue-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

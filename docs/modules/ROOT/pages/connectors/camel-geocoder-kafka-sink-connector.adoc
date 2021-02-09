@@ -2,6 +2,8 @@
 [[camel-geocoder-kafka-connector-sink]]
 = camel-geocoder-kafka-connector sink configuration
 
+Connector Description: Find geocodes (latitude and longitude) for a given address or the other way round.
+
 When using camel-geocoder-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

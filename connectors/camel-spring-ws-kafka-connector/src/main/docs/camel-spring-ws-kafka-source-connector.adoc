@@ -2,6 +2,8 @@
 [[camel-spring-ws-kafka-connector-source]]
 = camel-spring-ws-kafka-connector source configuration
 
+Connector description: Access external web services as a client or expose your own web services.
+
 When using camel-spring-ws-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

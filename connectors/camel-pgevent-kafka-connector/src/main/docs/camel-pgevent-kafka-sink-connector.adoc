@@ -2,6 +2,8 @@
 [[camel-pgevent-kafka-connector-sink]]
 = camel-pgevent-kafka-connector sink configuration
 
+Connector Description: Send and receive PostgreSQL events via LISTEN and NOTIFY commands.
+
 When using camel-pgevent-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

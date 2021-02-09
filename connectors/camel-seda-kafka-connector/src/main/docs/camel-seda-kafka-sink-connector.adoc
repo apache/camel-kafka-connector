@@ -2,6 +2,8 @@
 [[camel-seda-kafka-connector-sink]]
 = camel-seda-kafka-connector sink configuration
 
+Connector Description: Asynchronously call another endpoint from any Camel Context in the same JVM.
+
 When using camel-seda-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

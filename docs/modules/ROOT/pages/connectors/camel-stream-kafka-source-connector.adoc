@@ -2,6 +2,8 @@
 [[camel-stream-kafka-connector-source]]
 = camel-stream-kafka-connector source configuration
 
+Connector description: Read from system-in and write to system-out and system-err streams.
+
 When using camel-stream-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

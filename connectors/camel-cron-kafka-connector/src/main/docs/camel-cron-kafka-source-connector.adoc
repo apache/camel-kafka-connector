@@ -2,6 +2,8 @@
 [[camel-cron-kafka-connector-source]]
 = camel-cron-kafka-connector source configuration
 
+Connector description: A generic interface for triggering events at times specified through the Unix cron syntax.
+
 When using camel-cron-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

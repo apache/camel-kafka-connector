@@ -2,6 +2,8 @@
 [[camel-mina-kafka-connector-source]]
 = camel-mina-kafka-connector source configuration
 
+Connector description: Socket level networking using TCP or UDP with Apache Mina 2.x.
+
 When using camel-mina-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
