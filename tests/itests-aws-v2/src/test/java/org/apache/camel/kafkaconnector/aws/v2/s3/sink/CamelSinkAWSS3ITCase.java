@@ -38,6 +38,7 @@ import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,6 +50,7 @@ import static org.apache.camel.kafkaconnector.aws.v2.s3.common.S3Utils.deleteBuc
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+@EnabledIfSystemProperty(named = "enable.slow.tests", matches = "true")
 public class CamelSinkAWSS3ITCase extends CamelSinkTestSupport {
     @RegisterExtension
     public static AWSService service = AWSServiceFactory.createS3Service();
