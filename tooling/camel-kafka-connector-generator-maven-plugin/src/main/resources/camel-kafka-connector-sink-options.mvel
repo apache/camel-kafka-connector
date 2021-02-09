@@ -1,6 +1,8 @@
 [[@{title}-kafka-connector-sink]]
 = @{title}-kafka-connector sink configuration
 
+Connector Description: @{description}
+
 When using @{title}-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
