@@ -28,6 +28,7 @@ import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.test.infra.cassandra.services.CassandraService;
 import org.apache.camel.test.infra.cassandra.services.CassandraServiceFactory;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -58,18 +59,22 @@ public class CamelSinkCassandraITCase extends CamelSinkTestSupport {
         return new String[] {"camel-cql-kafka-connector"};
     }
 
-    @BeforeEach
-    public void setUp() {
-        topicName = getTopicForTest(this);
+    @BeforeAll
+    public void setUpTestData() {
         cassandraClient = new CassandraClient(cassandraService.getCassandraHost(), cassandraService.getCQL3Port());
 
         testDataDao = cassandraClient.newTestDataDao();
 
         testDataDao.createKeySpace();
         testDataDao.useKeySpace();
-        testDataDao.createTable();
+    }
 
+    @BeforeEach
+    public void setUp() {
+        topicName = getTopicForTest(this);
         received = 0;
+
+        testDataDao.createTable();
     }
 
     @AfterEach
