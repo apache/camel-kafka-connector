@@ -2,6 +2,8 @@
 [[camel-mustache-kafka-connector-sink]]
 = camel-mustache-kafka-connector sink configuration
 
+Connector Description: Transform messages using a Mustache template.
+
 When using camel-mustache-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

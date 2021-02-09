@@ -2,6 +2,8 @@
 [[camel-cxfrs-kafka-connector-source]]
 = camel-cxfrs-kafka-connector source configuration
 
+Connector description: Expose JAX-RS REST services using Apache CXF or connect to external REST services using CXF REST client.
+
 When using camel-cxfrs-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

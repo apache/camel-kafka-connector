@@ -2,6 +2,8 @@
 [[camel-ignite-messaging-kafka-connector-sink]]
 = camel-ignite-messaging-kafka-connector sink configuration
 
+Connector Description: Send and receive messages from an Ignite topic.
+
 When using camel-ignite-messaging-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

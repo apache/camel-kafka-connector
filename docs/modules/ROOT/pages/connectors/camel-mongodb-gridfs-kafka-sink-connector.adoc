@@ -2,6 +2,8 @@
 [[camel-mongodb-gridfs-kafka-connector-sink]]
 = camel-mongodb-gridfs-kafka-connector sink configuration
 
+Connector Description: Interact with MongoDB GridFS.
+
 When using camel-mongodb-gridfs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

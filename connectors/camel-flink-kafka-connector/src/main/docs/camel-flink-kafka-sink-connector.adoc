@@ -2,6 +2,8 @@
 [[camel-flink-kafka-connector-sink]]
 = camel-flink-kafka-connector sink configuration
 
+Connector Description: Send DataSet jobs to an Apache Flink cluster.
+
 When using camel-flink-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

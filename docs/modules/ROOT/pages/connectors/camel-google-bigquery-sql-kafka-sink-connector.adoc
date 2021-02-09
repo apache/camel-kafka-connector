@@ -2,6 +2,8 @@
 [[camel-google-bigquery-sql-kafka-connector-sink]]
 = camel-google-bigquery-sql-kafka-connector sink configuration
 
+Connector Description: Access Google Cloud BigQuery service using SQL queries.
+
 When using camel-google-bigquery-sql-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

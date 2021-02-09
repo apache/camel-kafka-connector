@@ -2,6 +2,8 @@
 [[camel-gora-kafka-connector-sink]]
 = camel-gora-kafka-connector sink configuration
 
+Connector Description: Access NoSQL databases using the Apache Gora framework.
+
 When using camel-gora-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-paho-kafka-connector-source]]
 = camel-paho-kafka-connector source configuration
 
+Connector description: Communicate with MQTT message brokers using Eclipse Paho MQTT Client.
+
 When using camel-paho-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-validator-kafka-connector-sink]]
 = camel-validator-kafka-connector sink configuration
 
+Connector Description: Validate the payload using XML Schema and JAXP Validation.
+
 When using camel-validator-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-jira-kafka-connector-sink]]
 = camel-jira-kafka-connector sink configuration
 
+Connector Description: Interact with JIRA issue tracker.
+
 When using camel-jira-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

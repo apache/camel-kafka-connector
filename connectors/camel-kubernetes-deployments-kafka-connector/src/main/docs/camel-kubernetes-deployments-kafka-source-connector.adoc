@@ -2,6 +2,8 @@
 [[camel-kubernetes-deployments-kafka-connector-source]]
 = camel-kubernetes-deployments-kafka-connector source configuration
 
+Connector description: Perform operations on Kubernetes Deployments and get notified on Deployment changes.
+
 When using camel-kubernetes-deployments-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

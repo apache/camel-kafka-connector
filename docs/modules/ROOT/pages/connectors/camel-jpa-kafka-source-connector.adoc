@@ -2,6 +2,8 @@
 [[camel-jpa-kafka-connector-source]]
 = camel-jpa-kafka-connector source configuration
 
+Connector description: Store and retrieve Java objects from databases using Java Persistence API (JPA).
+
 When using camel-jpa-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

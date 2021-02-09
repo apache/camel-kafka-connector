@@ -2,6 +2,8 @@
 [[camel-rabbitmq-kafka-connector-source]]
 = camel-rabbitmq-kafka-connector source configuration
 
+Connector description: Send and receive messages from RabbitMQ instances.
+
 When using camel-rabbitmq-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-aws2-ecs-kafka-connector-sink]]
 = camel-aws2-ecs-kafka-connector sink configuration
 
+Connector Description: Manage AWS ECS cluster instances using AWS SDK version 2.x.
+
 When using camel-aws2-ecs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

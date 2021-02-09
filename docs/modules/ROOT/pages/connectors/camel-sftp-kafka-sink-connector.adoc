@@ -2,6 +2,8 @@
 [[camel-sftp-kafka-connector-sink]]
 = camel-sftp-kafka-connector sink configuration
 
+Connector Description: Upload and download files to/from SFTP servers.
+
 When using camel-sftp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

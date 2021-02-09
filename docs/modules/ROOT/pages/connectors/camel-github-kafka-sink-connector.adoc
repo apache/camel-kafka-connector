@@ -2,6 +2,8 @@
 [[camel-github-kafka-connector-sink]]
 = camel-github-kafka-connector sink configuration
 
+Connector Description: Interact with the GitHub API.
+
 When using camel-github-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

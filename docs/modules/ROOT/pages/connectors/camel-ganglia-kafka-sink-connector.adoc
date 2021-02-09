@@ -2,6 +2,8 @@
 [[camel-ganglia-kafka-connector-sink]]
 = camel-ganglia-kafka-connector sink configuration
 
+Connector Description: Send metrics to Ganglia monitoring system.
+
 When using camel-ganglia-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

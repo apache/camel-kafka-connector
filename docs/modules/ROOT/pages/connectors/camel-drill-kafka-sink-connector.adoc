@@ -2,6 +2,8 @@
 [[camel-drill-kafka-connector-sink]]
 = camel-drill-kafka-connector sink configuration
 
+Connector Description: Perform queries against an Apache Drill cluster.
+
 When using camel-drill-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

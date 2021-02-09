@@ -2,6 +2,8 @@
 [[camel-cmis-kafka-connector-sink]]
 = camel-cmis-kafka-connector sink configuration
 
+Connector Description: Read and write data from to/from a CMIS compliant content repositories.
+
 When using camel-cmis-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

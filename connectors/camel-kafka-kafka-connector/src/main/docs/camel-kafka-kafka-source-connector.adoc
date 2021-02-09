@@ -2,6 +2,8 @@
 [[camel-kafka-kafka-connector-source]]
 = camel-kafka-kafka-connector source configuration
 
+Connector description: Sent and receive messages to/from an Apache Kafka broker.
+
 When using camel-kafka-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

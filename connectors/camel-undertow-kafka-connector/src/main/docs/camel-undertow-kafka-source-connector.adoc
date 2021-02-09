@@ -2,6 +2,8 @@
 [[camel-undertow-kafka-connector-source]]
 = camel-undertow-kafka-connector source configuration
 
+Connector description: Expose HTTP and WebSocket endpoints and access external HTTP/WebSocket servers.
+
 When using camel-undertow-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-http-kafka-connector-sink]]
 = camel-http-kafka-connector sink configuration
 
+Connector Description: Send requests to external HTTP servers using Apache HTTP Client 4.x.
+
 When using camel-http-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

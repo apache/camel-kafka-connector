@@ -2,6 +2,8 @@
 [[camel-ignite-cache-kafka-connector-source]]
 = camel-ignite-cache-kafka-connector source configuration
 
+Connector description: Perform cache operations on an Ignite cache or consume changes from a continuous query.
+
 When using camel-ignite-cache-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

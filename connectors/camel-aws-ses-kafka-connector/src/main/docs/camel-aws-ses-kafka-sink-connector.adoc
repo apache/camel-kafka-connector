@@ -2,6 +2,8 @@
 [[camel-aws-ses-kafka-connector-sink]]
 = camel-aws-ses-kafka-connector sink configuration
 
+Connector Description: Send e-mails through AWS SES service.
+
 When using camel-aws-ses-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

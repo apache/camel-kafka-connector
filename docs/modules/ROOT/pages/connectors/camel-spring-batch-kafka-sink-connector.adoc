@@ -2,6 +2,8 @@
 [[camel-spring-batch-kafka-connector-sink]]
 = camel-spring-batch-kafka-connector sink configuration
 
+Connector Description: Send messages to Spring Batch for further processing.
+
 When using camel-spring-batch-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

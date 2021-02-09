@@ -2,6 +2,8 @@
 [[camel-kubernetes-job-kafka-connector-sink]]
 = camel-kubernetes-job-kafka-connector sink configuration
 
+Connector Description: Perform operations on Kubernetes Jobs.
+
 When using camel-kubernetes-job-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

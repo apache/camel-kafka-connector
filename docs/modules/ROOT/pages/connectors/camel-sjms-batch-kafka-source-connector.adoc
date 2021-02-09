@@ -2,6 +2,8 @@
 [[camel-sjms-batch-kafka-connector-source]]
 = camel-sjms-batch-kafka-connector source configuration
 
+Connector description: Highly performant and transactional batch consumption of messages from a JMS queue.
+
 When using camel-sjms-batch-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

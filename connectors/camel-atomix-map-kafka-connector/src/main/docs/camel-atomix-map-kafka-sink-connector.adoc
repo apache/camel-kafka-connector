@@ -2,6 +2,8 @@
 [[camel-atomix-map-kafka-connector-sink]]
 = camel-atomix-map-kafka-connector sink configuration
 
+Connector Description: Access Atomix's distributed map.
+
 When using camel-atomix-map-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

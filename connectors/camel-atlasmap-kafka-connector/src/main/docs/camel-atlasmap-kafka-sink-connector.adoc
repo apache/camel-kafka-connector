@@ -2,6 +2,8 @@
 [[camel-atlasmap-kafka-connector-sink]]
 = camel-atlasmap-kafka-connector sink configuration
 
+Connector Description: Transforms the message using an AtlasMap transformation.
+
 When using camel-atlasmap-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -58,8 +60,4 @@ The camel-atlasmap sink connector has no transforms out of the box.
 
 
 The camel-atlasmap sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

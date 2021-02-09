@@ -2,6 +2,8 @@
 [[camel-ignite-events-kafka-connector-source]]
 = camel-ignite-events-kafka-connector source configuration
 
+Connector description: Receive events from an Ignite cluster by creating a local event listener.
+
 When using camel-ignite-events-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

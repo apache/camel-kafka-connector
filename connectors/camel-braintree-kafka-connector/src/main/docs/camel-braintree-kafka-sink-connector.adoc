@@ -2,6 +2,8 @@
 [[camel-braintree-kafka-connector-sink]]
 = camel-braintree-kafka-connector sink configuration
 
+Connector Description: Process payments using Braintree Payments.
+
 When using camel-braintree-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

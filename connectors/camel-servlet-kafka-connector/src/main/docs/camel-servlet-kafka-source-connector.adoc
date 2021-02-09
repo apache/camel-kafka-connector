@@ -2,6 +2,8 @@
 [[camel-servlet-kafka-connector-source]]
 = camel-servlet-kafka-connector source configuration
 
+Connector description: Serve HTTP requests by a Servlet.
+
 When using camel-servlet-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

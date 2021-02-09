@@ -2,6 +2,8 @@
 [[camel-iec60870-server-kafka-connector-sink]]
 = camel-iec60870-server-kafka-connector sink configuration
 
+Connector Description: IEC 60870 supervisory control and data acquisition (SCADA) server using NeoSCADA implementation.
+
 When using camel-iec60870-server-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

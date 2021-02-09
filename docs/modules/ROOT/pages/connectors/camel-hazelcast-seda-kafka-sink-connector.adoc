@@ -2,6 +2,8 @@
 [[camel-hazelcast-seda-kafka-connector-sink]]
 = camel-hazelcast-seda-kafka-connector sink configuration
 
+Connector Description: Asynchronously send/receive Exchanges between Camel routes running on potentially distinct JVMs/hosts backed by Hazelcast BlockingQueue.
+
 When using camel-hazelcast-seda-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

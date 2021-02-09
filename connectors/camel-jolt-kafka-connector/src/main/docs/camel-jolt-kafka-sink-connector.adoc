@@ -2,6 +2,8 @@
 [[camel-jolt-kafka-connector-sink]]
 = camel-jolt-kafka-connector sink configuration
 
+Connector Description: JSON to JSON transformation using JOLT.
+
 When using camel-jolt-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

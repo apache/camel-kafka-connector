@@ -2,6 +2,8 @@
 [[camel-jdbc-kafka-connector-sink]]
 = camel-jdbc-kafka-connector sink configuration
 
+Connector Description: Access databases through SQL and JDBC.
+
 When using camel-jdbc-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

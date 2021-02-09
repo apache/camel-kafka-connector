@@ -2,6 +2,8 @@
 [[camel-platform-http-kafka-connector-source]]
 = camel-platform-http-kafka-connector source configuration
 
+Connector description: Expose HTTP endpoints using the HTTP server available in the current platform.
+
 When using camel-platform-http-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

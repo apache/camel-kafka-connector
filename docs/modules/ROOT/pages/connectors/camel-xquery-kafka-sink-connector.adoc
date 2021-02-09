@@ -2,6 +2,8 @@
 [[camel-xquery-kafka-connector-sink]]
 = camel-xquery-kafka-connector sink configuration
 
+Connector Description: Query and/or transform XML payloads using XQuery and Saxon.
+
 When using camel-xquery-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-azure-queue-kafka-connector-sink]]
 = camel-azure-queue-kafka-connector sink configuration
 
+Connector Description: Store and retrieve messages from Azure Storage Queue Service.
+
 When using camel-azure-queue-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

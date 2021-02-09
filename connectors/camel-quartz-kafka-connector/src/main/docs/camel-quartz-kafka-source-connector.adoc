@@ -2,6 +2,8 @@
 [[camel-quartz-kafka-connector-source]]
 = camel-quartz-kafka-connector source configuration
 
+Connector description: Schedule sending of messages using the Quartz 2.x scheduler.
+
 When using camel-quartz-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

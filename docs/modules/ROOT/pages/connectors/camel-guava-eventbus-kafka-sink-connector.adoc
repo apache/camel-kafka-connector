@@ -2,6 +2,8 @@
 [[camel-guava-eventbus-kafka-connector-sink]]
 = camel-guava-eventbus-kafka-connector sink configuration
 
+Connector Description: Send and receive messages to/from Guava EventBus.
+
 When using camel-guava-eventbus-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

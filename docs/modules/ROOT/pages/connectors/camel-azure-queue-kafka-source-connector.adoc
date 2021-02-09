@@ -2,6 +2,8 @@
 [[camel-azure-queue-kafka-connector-source]]
 = camel-azure-queue-kafka-connector source configuration
 
+Connector description: Store and retrieve messages from Azure Storage Queue Service.
+
 When using camel-azure-queue-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-stub-kafka-connector-sink]]
 = camel-stub-kafka-connector sink configuration
 
+Connector Description: Stub out any physical endpoints while in development or testing.
+
 When using camel-stub-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

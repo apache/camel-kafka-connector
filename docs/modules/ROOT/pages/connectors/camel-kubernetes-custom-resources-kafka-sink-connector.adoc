@@ -2,6 +2,8 @@
 [[camel-kubernetes-custom-resources-kafka-connector-sink]]
 = camel-kubernetes-custom-resources-kafka-connector sink configuration
 
+Connector Description: Perform operations on Kubernetes Custom Resources and get notified on Deployment changes.
+
 When using camel-kubernetes-custom-resources-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -70,8 +72,4 @@ The camel-kubernetes-custom-resources sink connector has no transforms out of th
 
 
 The camel-kubernetes-custom-resources sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

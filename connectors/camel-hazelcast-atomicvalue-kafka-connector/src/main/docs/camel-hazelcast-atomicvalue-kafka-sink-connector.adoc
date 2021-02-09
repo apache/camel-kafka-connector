@@ -2,6 +2,8 @@
 [[camel-hazelcast-atomicvalue-kafka-connector-sink]]
 = camel-hazelcast-atomicvalue-kafka-connector sink configuration
 
+Connector Description: Increment, decrement, set, etc. Hazelcast atomic number (a grid wide number).
+
 When using camel-hazelcast-atomicvalue-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

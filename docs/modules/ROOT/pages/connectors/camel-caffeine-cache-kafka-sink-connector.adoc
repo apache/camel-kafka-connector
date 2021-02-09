@@ -2,6 +2,8 @@
 [[camel-caffeine-cache-kafka-connector-sink]]
 = camel-caffeine-cache-kafka-connector sink configuration
 
+Connector Description: Perform caching operations using Caffeine Cache.
+
 When using camel-caffeine-cache-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

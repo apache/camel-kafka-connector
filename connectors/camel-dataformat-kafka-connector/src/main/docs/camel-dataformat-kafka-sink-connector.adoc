@@ -2,6 +2,8 @@
 [[camel-dataformat-kafka-connector-sink]]
 = camel-dataformat-kafka-connector sink configuration
 
+Connector Description: Use a Camel Data Format as a regular Camel Component.
+
 When using camel-dataformat-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

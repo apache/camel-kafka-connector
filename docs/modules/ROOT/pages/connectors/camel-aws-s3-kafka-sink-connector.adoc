@@ -2,6 +2,8 @@
 [[camel-aws-s3-kafka-connector-sink]]
 = camel-aws-s3-kafka-connector sink configuration
 
+Connector Description: Store and retrieve objects from AWS S3 Storage Service.
+
 When using camel-aws-s3-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

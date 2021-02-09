@@ -2,6 +2,8 @@
 [[camel-microprofile-metrics-kafka-connector-sink]]
 = camel-microprofile-metrics-kafka-connector sink configuration
 
+Connector Description: Expose metrics from Camel routes.
+
 When using camel-microprofile-metrics-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

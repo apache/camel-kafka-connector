@@ -2,6 +2,8 @@
 [[camel-pgevent-kafka-connector-source]]
 = camel-pgevent-kafka-connector source configuration
 
+Connector description: Send and receive PostgreSQL events via LISTEN and NOTIFY commands.
+
 When using camel-pgevent-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-beanstalk-kafka-connector-sink]]
 = camel-beanstalk-kafka-connector sink configuration
 
+Connector Description: Retrieve and post-process Beanstalk jobs.
+
 When using camel-beanstalk-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

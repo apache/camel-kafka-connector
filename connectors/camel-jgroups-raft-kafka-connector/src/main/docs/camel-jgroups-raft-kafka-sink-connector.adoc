@@ -2,6 +2,8 @@
 [[camel-jgroups-raft-kafka-connector-sink]]
 = camel-jgroups-raft-kafka-connector sink configuration
 
+Connector Description: Exchange messages with JGroups-raft clusters.
+
 When using camel-jgroups-raft-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

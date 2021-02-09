@@ -2,6 +2,8 @@
 [[camel-ldap-kafka-connector-sink]]
 = camel-ldap-kafka-connector sink configuration
 
+Connector Description: Perform searches on LDAP servers.
+
 When using camel-ldap-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-weka-kafka-connector-sink]]
 = camel-weka-kafka-connector sink configuration
 
+Connector Description: Perform machine learning tasks using Weka.
+
 When using camel-weka-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-jbpm-kafka-connector-sink]]
 = camel-jbpm-kafka-connector sink configuration
 
+Connector Description: Interact with jBPM workflow engine over REST.
+
 When using camel-jbpm-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

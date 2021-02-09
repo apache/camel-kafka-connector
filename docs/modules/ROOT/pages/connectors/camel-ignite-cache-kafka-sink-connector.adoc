@@ -2,6 +2,8 @@
 [[camel-ignite-cache-kafka-connector-sink]]
 = camel-ignite-cache-kafka-connector sink configuration
 
+Connector Description: Perform cache operations on an Ignite cache or consume changes from a continuous query.
+
 When using camel-ignite-cache-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

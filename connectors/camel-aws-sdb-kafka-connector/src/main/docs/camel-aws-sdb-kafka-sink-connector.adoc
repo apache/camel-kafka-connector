@@ -2,6 +2,8 @@
 [[camel-aws-sdb-kafka-connector-sink]]
 = camel-aws-sdb-kafka-connector sink configuration
 
+Connector Description: Store and Retrieve data from/to AWS SDB service.
+
 When using camel-aws-sdb-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-openstack-nova-kafka-connector-sink]]
 = camel-openstack-nova-kafka-connector sink configuration
 
+Connector Description: Access OpenStack to manage compute resources.
+
 When using camel-openstack-nova-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

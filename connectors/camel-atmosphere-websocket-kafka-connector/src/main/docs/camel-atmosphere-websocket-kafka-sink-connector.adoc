@@ -2,6 +2,8 @@
 [[camel-atmosphere-websocket-kafka-connector-sink]]
 = camel-atmosphere-websocket-kafka-connector sink configuration
 
+Connector Description: Expose WebSocket endpoints using the Atmosphere framework.
+
 When using camel-atmosphere-websocket-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

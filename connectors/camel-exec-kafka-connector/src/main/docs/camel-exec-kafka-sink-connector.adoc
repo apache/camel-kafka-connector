@@ -2,6 +2,8 @@
 [[camel-exec-kafka-connector-sink]]
 = camel-exec-kafka-connector sink configuration
 
+Connector Description: Execute commands on the underlying operating system.
+
 When using camel-exec-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-asterisk-kafka-connector-sink]]
 = camel-asterisk-kafka-connector sink configuration
 
+Connector Description: Interact with Asterisk PBX Server.
+
 When using camel-asterisk-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

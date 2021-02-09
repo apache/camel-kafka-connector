@@ -2,6 +2,8 @@
 [[camel-chatscript-kafka-connector-sink]]
 = camel-chatscript-kafka-connector sink configuration
 
+Connector Description: Chat with a ChatScript Server.
+
 When using camel-chatscript-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

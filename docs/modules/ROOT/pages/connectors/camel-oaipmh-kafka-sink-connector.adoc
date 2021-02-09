@@ -2,6 +2,8 @@
 [[camel-oaipmh-kafka-connector-sink]]
 = camel-oaipmh-kafka-connector sink configuration
 
+Connector Description: Harvest metadata using OAI-PMH protocol
+
 When using camel-oaipmh-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

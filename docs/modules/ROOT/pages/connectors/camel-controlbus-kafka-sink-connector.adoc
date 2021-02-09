@@ -2,6 +2,8 @@
 [[camel-controlbus-kafka-connector-sink]]
 = camel-controlbus-kafka-connector sink configuration
 
+Connector Description: Manage and monitor Camel routes.
+
 When using camel-controlbus-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

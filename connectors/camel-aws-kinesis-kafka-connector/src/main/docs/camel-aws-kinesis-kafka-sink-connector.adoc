@@ -2,6 +2,8 @@
 [[camel-aws-kinesis-kafka-connector-sink]]
 = camel-aws-kinesis-kafka-connector sink configuration
 
+Connector Description: Consume and produce records from AWS Kinesis Streams.
+
 When using camel-aws-kinesis-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

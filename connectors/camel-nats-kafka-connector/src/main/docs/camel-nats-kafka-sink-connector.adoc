@@ -2,6 +2,8 @@
 [[camel-nats-kafka-connector-sink]]
 = camel-nats-kafka-connector sink configuration
 
+Connector Description: Send and receive messages from NATS messaging system.
+
 When using camel-nats-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

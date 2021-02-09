@@ -2,6 +2,8 @@
 [[camel-mina-kafka-connector-sink]]
 = camel-mina-kafka-connector sink configuration
 
+Connector Description: Socket level networking using TCP or UDP with Apache Mina 2.x.
+
 When using camel-mina-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

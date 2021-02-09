@@ -2,6 +2,8 @@
 [[camel-ignite-idgen-kafka-connector-sink]]
 = camel-ignite-idgen-kafka-connector sink configuration
 
+Connector Description: Interact with Ignite Atomic Sequences and ID Generators .
+
 When using camel-ignite-idgen-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

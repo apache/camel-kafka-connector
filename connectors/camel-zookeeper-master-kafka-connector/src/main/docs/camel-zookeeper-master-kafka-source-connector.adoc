@@ -2,6 +2,8 @@
 [[camel-zookeeper-master-kafka-connector-source]]
 = camel-zookeeper-master-kafka-connector source configuration
 
+Connector description: Have only a single consumer in a cluster consuming from a given endpoint; with automatic failover if the JVM dies.
+
 When using camel-zookeeper-master-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

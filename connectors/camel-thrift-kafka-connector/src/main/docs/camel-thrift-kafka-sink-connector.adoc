@@ -2,6 +2,8 @@
 [[camel-thrift-kafka-connector-sink]]
 = camel-thrift-kafka-connector sink configuration
 
+Connector Description: Call and expose remote procedures (RPC) with Apache Thrift data format and serialization mechanism.
+
 When using camel-thrift-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

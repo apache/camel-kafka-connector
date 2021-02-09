@@ -2,6 +2,8 @@
 [[camel-xmlsecurity-verify-kafka-connector-sink]]
 = camel-xmlsecurity-verify-kafka-connector sink configuration
 
+Connector Description: Verify XML payloads using the XML signature specification.
+
 When using camel-xmlsecurity-verify-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

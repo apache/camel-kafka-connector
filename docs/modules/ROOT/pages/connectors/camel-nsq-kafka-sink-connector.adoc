@@ -2,6 +2,8 @@
 [[camel-nsq-kafka-connector-sink]]
 = camel-nsq-kafka-connector sink configuration
 
+Connector Description: Send and receive messages from NSQ realtime distributed messaging platform.
+
 When using camel-nsq-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
