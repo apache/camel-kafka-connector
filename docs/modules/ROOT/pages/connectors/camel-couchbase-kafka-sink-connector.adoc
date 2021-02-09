@@ -2,6 +2,8 @@
 [[camel-couchbase-kafka-connector-sink]]
 = camel-couchbase-kafka-connector sink configuration
 
+Connector Description: Query Couchbase Views with a poll strategy and/or perform various operations against Couchbase databases.
+
 When using camel-couchbase-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

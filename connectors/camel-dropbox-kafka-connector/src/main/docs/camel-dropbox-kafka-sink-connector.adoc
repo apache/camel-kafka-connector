@@ -2,6 +2,8 @@
 [[camel-dropbox-kafka-connector-sink]]
 = camel-dropbox-kafka-connector sink configuration
 
+Connector Description: Upload, download and manage files, folders, groups, collaborations, etc on Dropbox.
+
 When using camel-dropbox-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

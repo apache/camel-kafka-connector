@@ -2,6 +2,8 @@
 [[camel-minio-kafka-connector-source]]
 = camel-minio-kafka-connector source configuration
 
+Connector description: Store and retrieve objects from Minio Storage Service using Minio SDK.
+
 When using camel-minio-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

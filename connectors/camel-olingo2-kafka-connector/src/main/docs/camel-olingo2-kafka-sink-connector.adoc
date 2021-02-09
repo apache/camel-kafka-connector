@@ -2,6 +2,8 @@
 [[camel-olingo2-kafka-connector-sink]]
 = camel-olingo2-kafka-connector sink configuration
 
+Connector Description: Communicate with OData 2.0 services using Apache Olingo.
+
 When using camel-olingo2-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

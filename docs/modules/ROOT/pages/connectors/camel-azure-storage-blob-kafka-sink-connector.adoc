@@ -2,6 +2,8 @@
 [[camel-azure-storage-blob-kafka-connector-sink]]
 = camel-azure-storage-blob-kafka-connector sink configuration
 
+Connector Description: Store and retrieve blobs from Azure Storage Blob Service using SDK v12.
+
 When using camel-azure-storage-blob-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-azure-storage-datalake-kafka-connector-sink]]
 = camel-azure-storage-datalake-kafka-connector sink configuration
 
+Connector Description: Camel Azure Datalake Gen2 Component
+
 When using camel-azure-storage-datalake-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -111,8 +113,4 @@ The camel-azure-storage-datalake sink connector has no transforms out of the box
 
 
 The camel-azure-storage-datalake sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

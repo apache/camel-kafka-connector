@@ -2,6 +2,8 @@
 [[camel-jing-kafka-connector-sink]]
 = camel-jing-kafka-connector sink configuration
 
+Connector Description: Validate XML against a RelaxNG schema (XML Syntax or Compact Syntax) using Jing library.
+
 When using camel-jing-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

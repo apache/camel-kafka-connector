@@ -2,6 +2,8 @@
 [[camel-smpps-kafka-connector-sink]]
 = camel-smpps-kafka-connector sink configuration
 
+Connector Description: Send and receive SMS messages using a SMSC (Short Message Service Center).
+
 When using camel-smpps-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

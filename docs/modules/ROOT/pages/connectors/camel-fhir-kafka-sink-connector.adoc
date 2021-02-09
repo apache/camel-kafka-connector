@@ -2,6 +2,8 @@
 [[camel-fhir-kafka-connector-sink]]
 = camel-fhir-kafka-connector sink configuration
 
+Connector Description: Exchange information in the healthcare domain using the FHIR (Fast Healthcare Interoperability Resources) standard.
+
 When using camel-fhir-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

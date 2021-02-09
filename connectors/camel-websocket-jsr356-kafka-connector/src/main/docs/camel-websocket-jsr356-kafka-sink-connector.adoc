@@ -2,6 +2,8 @@
 [[camel-websocket-jsr356-kafka-connector-sink]]
 = camel-websocket-jsr356-kafka-connector sink configuration
 
+Connector Description: Expose websocket endpoints using JSR356.
+
 When using camel-websocket-jsr356-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

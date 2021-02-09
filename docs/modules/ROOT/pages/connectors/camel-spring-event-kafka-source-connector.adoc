@@ -2,6 +2,8 @@
 [[camel-spring-event-kafka-connector-source]]
 = camel-spring-event-kafka-connector source configuration
 
+Connector description: Listen for Spring Application Events.
+
 When using camel-spring-event-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

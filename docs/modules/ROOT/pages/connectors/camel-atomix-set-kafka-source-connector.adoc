@@ -2,6 +2,8 @@
 [[camel-atomix-set-kafka-connector-source]]
 = camel-atomix-set-kafka-connector source configuration
 
+Connector description: Access Atomix's distributed set.
+
 When using camel-atomix-set-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

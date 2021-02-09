@@ -2,6 +2,8 @@
 [[camel-google-sheets-kafka-connector-source]]
 = camel-google-sheets-kafka-connector source configuration
 
+Connector description: Manage spreadsheets in Google Sheets.
+
 When using camel-google-sheets-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

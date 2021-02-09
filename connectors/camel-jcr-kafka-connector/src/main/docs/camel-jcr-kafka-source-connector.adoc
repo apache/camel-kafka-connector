@@ -2,6 +2,8 @@
 [[camel-jcr-kafka-connector-source]]
 = camel-jcr-kafka-connector source configuration
 
+Connector description: Read and write nodes to/from a JCR compliant content repository.
+
 When using camel-jcr-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

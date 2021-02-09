@@ -2,6 +2,8 @@
 [[camel-sap-netweaver-kafka-connector-sink]]
 = camel-sap-netweaver-kafka-connector sink configuration
 
+Connector Description: Send requests to SAP NetWeaver Gateway using HTTP.
+
 When using camel-sap-netweaver-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

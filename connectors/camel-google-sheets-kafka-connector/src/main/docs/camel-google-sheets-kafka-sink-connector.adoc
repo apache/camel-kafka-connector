@@ -2,6 +2,8 @@
 [[camel-google-sheets-kafka-connector-sink]]
 = camel-google-sheets-kafka-connector sink configuration
 
+Connector Description: Manage spreadsheets in Google Sheets.
+
 When using camel-google-sheets-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

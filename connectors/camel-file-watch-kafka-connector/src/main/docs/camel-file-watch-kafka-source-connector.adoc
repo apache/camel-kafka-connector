@@ -2,6 +2,8 @@
 [[camel-file-watch-kafka-connector-source]]
 = camel-file-watch-kafka-connector source configuration
 
+Connector description: Get notified about file events in a directory using java.nio.file.WatchService.
+
 When using camel-file-watch-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

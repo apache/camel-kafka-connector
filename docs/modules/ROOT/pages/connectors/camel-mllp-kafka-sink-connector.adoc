@@ -2,6 +2,8 @@
 [[camel-mllp-kafka-connector-sink]]
 = camel-mllp-kafka-connector sink configuration
 
+Connector Description: Communicate with external systems using the MLLP protocol.
+
 When using camel-mllp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-fhir-kafka-connector-source]]
 = camel-fhir-kafka-connector source configuration
 
+Connector description: Exchange information in the healthcare domain using the FHIR (Fast Healthcare Interoperability Resources) standard.
+
 When using camel-fhir-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

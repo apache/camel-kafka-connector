@@ -2,6 +2,8 @@
 [[camel-hazelcast-instance-kafka-connector-source]]
 = camel-hazelcast-instance-kafka-connector source configuration
 
+Connector description: Consume join/leave events of a cache instance in a Hazelcast cluster.
+
 When using camel-hazelcast-instance-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

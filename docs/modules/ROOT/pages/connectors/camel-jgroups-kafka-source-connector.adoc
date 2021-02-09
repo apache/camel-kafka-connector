@@ -2,6 +2,8 @@
 [[camel-jgroups-kafka-connector-source]]
 = camel-jgroups-kafka-connector source configuration
 
+Connector description: Exchange messages with JGroups clusters.
+
 When using camel-jgroups-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

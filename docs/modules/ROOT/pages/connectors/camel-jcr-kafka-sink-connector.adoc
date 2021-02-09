@@ -2,6 +2,8 @@
 [[camel-jcr-kafka-connector-sink]]
 = camel-jcr-kafka-connector sink configuration
 
+Connector Description: Read and write nodes to/from a JCR compliant content repository.
+
 When using camel-jcr-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

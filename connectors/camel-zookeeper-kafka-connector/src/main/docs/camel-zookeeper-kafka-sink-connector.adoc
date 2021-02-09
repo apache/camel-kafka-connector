@@ -2,6 +2,8 @@
 [[camel-zookeeper-kafka-connector-sink]]
 = camel-zookeeper-kafka-connector sink configuration
 
+Connector Description: Manage ZooKeeper clusters.
+
 When using camel-zookeeper-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-google-pubsub-kafka-connector-sink]]
 = camel-google-pubsub-kafka-connector sink configuration
 
+Connector Description: Send and receive messages to/from Google Cloud Platform PubSub Service.
+
 When using camel-google-pubsub-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

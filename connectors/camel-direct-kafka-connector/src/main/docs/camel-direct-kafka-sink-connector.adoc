@@ -2,6 +2,8 @@
 [[camel-direct-kafka-connector-sink]]
 = camel-direct-kafka-connector sink configuration
 
+Connector Description: Call another endpoint from the same Camel Context synchronously.
+
 When using camel-direct-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

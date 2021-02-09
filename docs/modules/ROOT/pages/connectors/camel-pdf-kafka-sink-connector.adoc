@@ -2,6 +2,8 @@
 [[camel-pdf-kafka-connector-sink]]
 = camel-pdf-kafka-connector sink configuration
 
+Connector Description: Create, modify or extract content from PDF documents.
+
 When using camel-pdf-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

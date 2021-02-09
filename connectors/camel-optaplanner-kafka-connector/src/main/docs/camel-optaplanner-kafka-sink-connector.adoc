@@ -2,6 +2,8 @@
 [[camel-optaplanner-kafka-connector-sink]]
 = camel-optaplanner-kafka-connector sink configuration
 
+Connector Description: Solve planning problems with OptaPlanner.
+
 When using camel-optaplanner-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

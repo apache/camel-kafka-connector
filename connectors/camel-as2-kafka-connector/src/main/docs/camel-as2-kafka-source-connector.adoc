@@ -2,6 +2,8 @@
 [[camel-as2-kafka-connector-source]]
 = camel-as2-kafka-connector source configuration
 
+Connector description: Transfer data securely and reliably using the AS2 protocol (RFC4130).
+
 When using camel-as2-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

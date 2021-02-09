@@ -2,6 +2,8 @@
 [[camel-ahc-ws-kafka-connector-sink]]
 = camel-ahc-ws-kafka-connector sink configuration
 
+Connector Description: Exchange data with external Websocket servers using Async Http Client.
+
 When using camel-ahc-ws-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

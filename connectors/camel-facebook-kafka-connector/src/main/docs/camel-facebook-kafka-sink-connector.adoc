@@ -2,6 +2,8 @@
 [[camel-facebook-kafka-connector-sink]]
 = camel-facebook-kafka-connector sink configuration
 
+Connector Description: Send requests to Facebook APIs supported by Facebook4J.
+
 When using camel-facebook-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

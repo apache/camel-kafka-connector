@@ -2,6 +2,8 @@
 [[camel-zendesk-kafka-connector-sink]]
 = camel-zendesk-kafka-connector sink configuration
 
+Connector Description: Manage Zendesk tickets, users, organizations, etc.
+
 When using camel-zendesk-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-xj-kafka-connector-sink]]
 = camel-xj-kafka-connector sink configuration
 
+Connector Description: Transform JSON and XML message using a XSLT.
+
 When using camel-xj-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

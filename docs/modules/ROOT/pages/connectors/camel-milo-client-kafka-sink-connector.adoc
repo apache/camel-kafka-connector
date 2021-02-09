@@ -2,6 +2,8 @@
 [[camel-milo-client-kafka-connector-sink]]
 = camel-milo-client-kafka-connector sink configuration
 
+Connector Description: Connect to OPC UA servers using the binary protocol for acquiring telemetry data.
+
 When using camel-milo-client-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

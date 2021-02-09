@@ -2,6 +2,8 @@
 [[camel-infinispan-embedded-kafka-connector-sink]]
 = camel-infinispan-embedded-kafka-connector sink configuration
 
+Connector Description: Read and write from/to Infinispan distributed key/value store and data grid.
+
 When using camel-infinispan-embedded-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -75,8 +77,4 @@ The camel-infinispan-embedded sink connector has no transforms out of the box.
 
 
 The camel-infinispan-embedded sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

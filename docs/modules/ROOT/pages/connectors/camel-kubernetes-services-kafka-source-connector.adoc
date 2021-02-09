@@ -2,6 +2,8 @@
 [[camel-kubernetes-services-kafka-connector-source]]
 = camel-kubernetes-services-kafka-connector source configuration
 
+Connector description: Perform operations on Kubernetes Services and get notified on Service changes.
+
 When using camel-kubernetes-services-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-cql-kafka-connector-source]]
 = camel-cql-kafka-connector source configuration
 
+Connector description: Integrate with Cassandra 2.0 using the CQL3 API (not the Thrift API). Based on Cassandra Java Driver provided by DataStax.
+
 When using camel-cql-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

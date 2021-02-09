@@ -2,6 +2,8 @@
 [[camel-velocity-kafka-connector-sink]]
 = camel-velocity-kafka-connector sink configuration
 
+Connector Description: Transform messages using a Velocity template.
+
 When using camel-velocity-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

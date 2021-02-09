@@ -2,6 +2,8 @@
 [[camel-cxfrs-kafka-connector-sink]]
 = camel-cxfrs-kafka-connector sink configuration
 
+Connector Description: Expose JAX-RS REST services using Apache CXF or connect to external REST services using CXF REST client.
+
 When using camel-cxfrs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

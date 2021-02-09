@@ -2,6 +2,8 @@
 [[camel-ahc-ws-kafka-connector-source]]
 = camel-ahc-ws-kafka-connector source configuration
 
+Connector description: Exchange data with external Websocket servers using Async Http Client.
+
 When using camel-ahc-ws-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

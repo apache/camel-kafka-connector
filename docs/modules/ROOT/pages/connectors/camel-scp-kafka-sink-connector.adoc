@@ -2,6 +2,8 @@
 [[camel-scp-kafka-connector-sink]]
 = camel-scp-kafka-connector sink configuration
 
+Connector Description: Copy files to/from remote hosts using the secure copy protocol (SCP).
+
 When using camel-scp-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

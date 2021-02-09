@@ -2,6 +2,8 @@
 [[camel-disruptor-kafka-connector-source]]
 = camel-disruptor-kafka-connector source configuration
 
+Connector description: Provides asynchronous SEDA behavior using LMAX Disruptor.
+
 When using camel-disruptor-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

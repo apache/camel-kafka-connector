@@ -2,6 +2,8 @@
 [[camel-aws-iam-kafka-connector-sink]]
 = camel-aws-iam-kafka-connector sink configuration
 
+Connector Description: Manage AWS IAM instances.
+
 When using camel-aws-iam-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

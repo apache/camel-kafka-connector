@@ -2,6 +2,8 @@
 [[camel-rest-kafka-connector-sink]]
 = camel-rest-kafka-connector sink configuration
 
+Connector Description: Expose REST services or call external REST services.
+
 When using camel-rest-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-ftps-kafka-connector-source]]
 = camel-ftps-kafka-connector source configuration
 
+Connector description: Upload and download files to/from FTP servers supporting the FTPS protocol.
+
 When using camel-ftps-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-aws-lambda-kafka-connector-sink]]
 = camel-aws-lambda-kafka-connector sink configuration
 
+Connector Description: Manage and invoke AWS Lambda functions.
+
 When using camel-aws-lambda-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

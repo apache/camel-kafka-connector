@@ -2,6 +2,8 @@
 [[camel-hdfs-kafka-connector-source]]
 = camel-hdfs-kafka-connector source configuration
 
+Connector description: Read and write from/to an HDFS filesystem using Hadoop 2.x.
+
 When using camel-hdfs-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

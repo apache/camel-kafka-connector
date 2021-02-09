@@ -2,6 +2,8 @@
 [[camel-oaipmh-kafka-connector-source]]
 = camel-oaipmh-kafka-connector source configuration
 
+Connector description: Harvest metadata using OAI-PMH protocol
+
 When using camel-oaipmh-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

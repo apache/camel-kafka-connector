@@ -2,6 +2,8 @@
 [[camel-infinispan-kafka-connector-source]]
 = camel-infinispan-kafka-connector source configuration
 
+Connector description: Read and write from/to Infinispan distributed key/value store and data grid.
+
 When using camel-infinispan-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

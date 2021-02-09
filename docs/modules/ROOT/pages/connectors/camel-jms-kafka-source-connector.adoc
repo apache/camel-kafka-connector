@@ -2,6 +2,8 @@
 [[camel-jms-kafka-connector-source]]
 = camel-jms-kafka-connector source configuration
 
+Connector description: Sent and receive messages to/from a JMS Queue or Topic.
+
 When using camel-jms-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

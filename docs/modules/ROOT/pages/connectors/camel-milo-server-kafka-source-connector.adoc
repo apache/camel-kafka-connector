@@ -2,6 +2,8 @@
 [[camel-milo-server-kafka-connector-source]]
 = camel-milo-server-kafka-connector source configuration
 
+Connector description: Make telemetry data available as an OPC UA server.
+
 When using camel-milo-server-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

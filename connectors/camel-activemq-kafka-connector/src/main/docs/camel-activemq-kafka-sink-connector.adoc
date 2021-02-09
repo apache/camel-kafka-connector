@@ -2,6 +2,8 @@
 [[camel-activemq-kafka-connector-sink]]
 = camel-activemq-kafka-connector sink configuration
 
+Connector Description: Send messages to (or consume from) Apache ActiveMQ. This component extends the Camel JMS component.
+
 When using camel-activemq-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

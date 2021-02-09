@@ -2,6 +2,8 @@
 [[camel-coaps-kafka-connector-source]]
 = camel-coaps-kafka-connector source configuration
 
+Connector description: Send and receive messages to/from COAP capable devices.
+
 When using camel-coaps-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

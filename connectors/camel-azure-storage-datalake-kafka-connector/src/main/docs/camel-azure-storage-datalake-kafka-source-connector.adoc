@@ -2,6 +2,8 @@
 [[camel-azure-storage-datalake-kafka-connector-source]]
 = camel-azure-storage-datalake-kafka-connector source configuration
 
+Connector description: Camel Azure Datalake Gen2 Component
+
 When using camel-azure-storage-datalake-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -111,8 +113,4 @@ The camel-azure-storage-datalake source connector has no transforms out of the b
 
 
 The camel-azure-storage-datalake source connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

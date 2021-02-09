@@ -2,6 +2,8 @@
 [[camel-websocket-kafka-connector-sink]]
 = camel-websocket-kafka-connector sink configuration
 
+Connector Description: Expose websocket endpoints using Jetty.
+
 When using camel-websocket-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

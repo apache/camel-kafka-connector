@@ -2,6 +2,8 @@
 [[camel-djl-kafka-connector-sink]]
 = camel-djl-kafka-connector sink configuration
 
+Connector Description: Infer Deep Learning models from message exchanges data using Deep Java Library (DJL).
+
 When using camel-djl-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

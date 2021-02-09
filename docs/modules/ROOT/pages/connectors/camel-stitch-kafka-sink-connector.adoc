@@ -2,6 +2,8 @@
 [[camel-stitch-kafka-connector-sink]]
 = camel-stitch-kafka-connector sink configuration
 
+Connector Description: Stitch is a cloud ETL service that integrates various data sources into a central data warehouse through various integrations.
+
 When using camel-stitch-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
@@ -65,8 +67,4 @@ The camel-stitch sink connector has no transforms out of the box.
 
 
 The camel-stitch sink connector has no aggregation strategies out of the box.
-
-
-
-
 // kafka-connector options: END

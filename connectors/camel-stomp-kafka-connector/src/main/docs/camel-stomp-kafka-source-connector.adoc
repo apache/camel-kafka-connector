@@ -2,6 +2,8 @@
 [[camel-stomp-kafka-connector-source]]
 = camel-stomp-kafka-connector source configuration
 
+Connector description: Send and rececive messages to/from STOMP (Simple Text Oriented Messaging Protocol) compliant message brokers.
+
 When using camel-stomp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

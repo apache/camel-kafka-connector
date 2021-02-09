@@ -125,6 +125,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.requestTimeout": {
+			"name": "camel.sink.endpoint.requestTimeout",
+			"description": "Request timeout in milliseconds",
+			"defaultValue": "20000L",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.connection": {
 			"name": "camel.sink.endpoint.connection",
 			"description": "Reference an already instantiated connection to Nats server",

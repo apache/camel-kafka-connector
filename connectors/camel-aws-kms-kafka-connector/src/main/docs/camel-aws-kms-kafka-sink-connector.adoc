@@ -2,6 +2,8 @@
 [[camel-aws-kms-kafka-connector-sink]]
 = camel-aws-kms-kafka-connector sink configuration
 
+Connector Description: Manage keys stored in AWS KMS instances.
+
 When using camel-aws-kms-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

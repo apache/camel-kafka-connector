@@ -2,6 +2,8 @@
 [[camel-rest-swagger-kafka-connector-sink]]
 = camel-rest-swagger-kafka-connector sink configuration
 
+Connector Description: Configure REST producers based on a Swagger (OpenAPI) specification document delegating to a component implementing the RestProducerFactory interface.
+
 When using camel-rest-swagger-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

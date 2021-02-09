@@ -2,6 +2,8 @@
 [[camel-dns-kafka-connector-sink]]
 = camel-dns-kafka-connector sink configuration
 
+Connector Description: Perform DNS queries using DNSJava.
+
 When using camel-dns-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-kubernetes-hpa-kafka-connector-source]]
 = camel-kubernetes-hpa-kafka-connector source configuration
 
+Connector description: Perform operations on Kubernetes Horizontal Pod Autoscalers (HPA) and get notified on HPA changes.
+
 When using camel-kubernetes-hpa-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

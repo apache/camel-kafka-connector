@@ -2,6 +2,8 @@
 [[camel-optaplanner-kafka-connector-source]]
 = camel-optaplanner-kafka-connector source configuration
 
+Connector description: Solve planning problems with OptaPlanner.
+
 When using camel-optaplanner-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

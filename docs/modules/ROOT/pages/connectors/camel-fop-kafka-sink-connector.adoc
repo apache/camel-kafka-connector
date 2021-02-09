@@ -2,6 +2,8 @@
 [[camel-fop-kafka-connector-sink]]
 = camel-fop-kafka-connector sink configuration
 
+Connector Description: Render messages into PDF and other output formats supported by Apache FOP.
+
 When using camel-fop-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

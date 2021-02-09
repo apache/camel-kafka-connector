@@ -2,6 +2,8 @@
 [[camel-jetty-kafka-connector-source]]
 = camel-jetty-kafka-connector source configuration
 
+Connector description: Expose HTTP endpoints using Jetty 9.
+
 When using camel-jetty-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

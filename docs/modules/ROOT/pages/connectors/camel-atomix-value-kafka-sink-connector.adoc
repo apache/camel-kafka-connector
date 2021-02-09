@@ -2,6 +2,8 @@
 [[camel-atomix-value-kafka-connector-sink]]
 = camel-atomix-value-kafka-connector sink configuration
 
+Connector Description: Access Atomix's distributed value.
+
 When using camel-atomix-value-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

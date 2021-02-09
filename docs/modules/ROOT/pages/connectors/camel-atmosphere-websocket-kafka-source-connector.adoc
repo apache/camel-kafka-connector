@@ -2,6 +2,8 @@
 [[camel-atmosphere-websocket-kafka-connector-source]]
 = camel-atmosphere-websocket-kafka-connector source configuration
 
+Connector description: Expose WebSocket endpoints using the Atmosphere framework.
+
 When using camel-atmosphere-websocket-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

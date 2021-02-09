@@ -2,6 +2,8 @@
 [[camel-google-drive-kafka-connector-sink]]
 = camel-google-drive-kafka-connector sink configuration
 
+Connector Description: Manage files in Google Drive.
+
 When using camel-google-drive-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

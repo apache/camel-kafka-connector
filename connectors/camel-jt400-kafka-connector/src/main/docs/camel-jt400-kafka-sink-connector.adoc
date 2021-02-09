@@ -2,6 +2,8 @@
 [[camel-jt400-kafka-connector-sink]]
 = camel-jt400-kafka-connector sink configuration
 
+Connector Description: Exchanges messages with an IBM i system using data queues, message queues, or program call. IBM i is the replacement for AS/400 and iSeries servers.
+
 When using camel-jt400-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-mybatis-bean-kafka-connector-sink]]
 = camel-mybatis-bean-kafka-connector sink configuration
 
+Connector Description: Perform queries, inserts, updates or deletes in a relational database using MyBatis.
+
 When using camel-mybatis-bean-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

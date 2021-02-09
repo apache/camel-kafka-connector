@@ -2,6 +2,8 @@
 [[camel-corda-kafka-connector-sink]]
 = camel-corda-kafka-connector sink configuration
 
+Connector Description: Perform operations against Corda blockchain platform using corda-rpc library.
+
 When using camel-corda-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

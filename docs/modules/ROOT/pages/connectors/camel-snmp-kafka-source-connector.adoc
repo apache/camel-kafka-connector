@@ -2,6 +2,8 @@
 [[camel-snmp-kafka-connector-source]]
 = camel-snmp-kafka-connector source configuration
 
+Connector description: Receive traps and poll SNMP (Simple Network Management Protocol) capable devices.
+
 When using camel-snmp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-etcd-stats-kafka-connector-sink]]
 = camel-etcd-stats-kafka-connector sink configuration
 
+Connector Description: Access etcd cluster statistcs.
+
 When using camel-etcd-stats-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

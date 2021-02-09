@@ -2,6 +2,8 @@
 [[camel-atomix-messaging-kafka-connector-source]]
 = camel-atomix-messaging-kafka-connector source configuration
 
+Connector description: Access Atomix's group messaging.
+
 When using camel-atomix-messaging-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

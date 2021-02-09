@@ -2,6 +2,8 @@
 [[camel-hazelcast-ringbuffer-kafka-connector-sink]]
 = camel-hazelcast-ringbuffer-kafka-connector sink configuration
 
+Connector Description: Perform operations on Hazelcast distributed ringbuffer.
+
 When using camel-hazelcast-ringbuffer-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

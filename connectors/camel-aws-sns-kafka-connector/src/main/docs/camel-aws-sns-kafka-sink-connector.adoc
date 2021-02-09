@@ -2,6 +2,8 @@
 [[camel-aws-sns-kafka-connector-sink]]
 = camel-aws-sns-kafka-connector sink configuration
 
+Connector Description: Send messages to an AWS Simple Notification Topic.
+
 When using camel-aws-sns-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-aws-translate-kafka-connector-sink]]
 = camel-aws-translate-kafka-connector sink configuration
 
+Connector Description: Translate texts using AWS Translate.
+
 When using camel-aws-translate-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
