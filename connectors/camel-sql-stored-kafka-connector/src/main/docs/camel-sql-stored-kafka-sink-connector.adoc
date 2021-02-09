@@ -2,6 +2,8 @@
 [[camel-sql-stored-kafka-connector-sink]]
 = camel-sql-stored-kafka-connector sink configuration
 
+Connector Description: Perform SQL queries as a JDBC Stored Procedures using Spring JDBC.
+
 When using camel-sql-stored-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

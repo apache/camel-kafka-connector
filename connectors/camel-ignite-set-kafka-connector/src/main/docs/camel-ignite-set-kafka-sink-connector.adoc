@@ -2,6 +2,8 @@
 [[camel-ignite-set-kafka-connector-sink]]
 = camel-ignite-set-kafka-connector sink configuration
 
+Connector Description: Interact with Ignite Set data structures.
+
 When using camel-ignite-set-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

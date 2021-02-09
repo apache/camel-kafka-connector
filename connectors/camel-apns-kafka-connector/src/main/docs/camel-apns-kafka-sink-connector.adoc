@@ -2,6 +2,8 @@
 [[camel-apns-kafka-connector-sink]]
 = camel-apns-kafka-connector sink configuration
 
+Connector Description: Send notifications to Apple iOS devices.
+
 When using camel-apns-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

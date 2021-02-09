@@ -2,6 +2,8 @@
 [[camel-apns-kafka-connector-source]]
 = camel-apns-kafka-connector source configuration
 
+Connector description: Send notifications to Apple iOS devices.
+
 When using camel-apns-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

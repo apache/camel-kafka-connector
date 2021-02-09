@@ -2,6 +2,8 @@
 [[camel-atmos-kafka-connector-sink]]
 = camel-atmos-kafka-connector sink configuration
 
+Connector Description: Integrate with EMC's ViPR object data services using the Atmos Client.
+
 When using camel-atmos-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

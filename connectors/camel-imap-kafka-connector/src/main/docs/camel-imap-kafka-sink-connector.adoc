@@ -2,6 +2,8 @@
 [[camel-imap-kafka-connector-sink]]
 = camel-imap-kafka-connector sink configuration
 
+Connector Description: Send and receive emails using imap, pop3 and smtp protocols.
+
 When using camel-imap-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-asterisk-kafka-connector-source]]
 = camel-asterisk-kafka-connector source configuration
 
+Connector description: Interact with Asterisk PBX Server.
+
 When using camel-asterisk-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

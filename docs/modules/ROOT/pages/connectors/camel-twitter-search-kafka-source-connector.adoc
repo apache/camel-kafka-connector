@@ -2,6 +2,8 @@
 [[camel-twitter-search-kafka-connector-source]]
 = camel-twitter-search-kafka-connector source configuration
 
+Connector description: Access Twitter Search.
+
 When using camel-twitter-search-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

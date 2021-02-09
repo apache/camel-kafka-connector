@@ -2,6 +2,8 @@
 [[camel-splunk-kafka-connector-sink]]
 = camel-splunk-kafka-connector sink configuration
 
+Connector Description: Publish or search for events in Splunk.
+
 When using camel-splunk-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

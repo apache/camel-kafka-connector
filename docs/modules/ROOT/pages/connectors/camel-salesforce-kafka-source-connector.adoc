@@ -2,6 +2,8 @@
 [[camel-salesforce-kafka-connector-source]]
 = camel-salesforce-kafka-connector source configuration
 
+Connector description: Communicate with Salesforce using Java DTOs.
+
 When using camel-salesforce-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

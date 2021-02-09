@@ -2,6 +2,8 @@
 [[camel-salesforce-kafka-connector-sink]]
 = camel-salesforce-kafka-connector sink configuration
 
+Connector Description: Communicate with Salesforce using Java DTOs.
+
 When using camel-salesforce-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

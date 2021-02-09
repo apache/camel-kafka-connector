@@ -2,6 +2,8 @@
 [[camel-schematron-kafka-connector-sink]]
 = camel-schematron-kafka-connector sink configuration
 
+Connector Description: Validate XML payload using the Schematron Library.
+
 When using camel-schematron-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

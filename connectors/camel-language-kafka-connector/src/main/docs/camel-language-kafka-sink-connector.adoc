@@ -2,6 +2,8 @@
 [[camel-language-kafka-connector-sink]]
 = camel-language-kafka-connector sink configuration
 
+Connector Description: Execute scripts in any of the languages supported by Camel.
+
 When using camel-language-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

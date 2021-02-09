@@ -2,6 +2,8 @@
 [[camel-grpc-kafka-connector-source]]
 = camel-grpc-kafka-connector source configuration
 
+Connector description: Expose gRPC endpoints and access external gRPC endpoints.
+
 When using camel-grpc-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

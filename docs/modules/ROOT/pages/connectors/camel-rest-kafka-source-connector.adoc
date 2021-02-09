@@ -2,6 +2,8 @@
 [[camel-rest-kafka-connector-source]]
 = camel-rest-kafka-connector source configuration
 
+Connector description: Expose REST services or call external REST services.
+
 When using camel-rest-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

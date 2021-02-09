@@ -2,6 +2,8 @@
 [[camel-azure-eventhubs-kafka-connector-source]]
 = camel-azure-eventhubs-kafka-connector source configuration
 
+Connector description: The azure-eventhubs component that integrates Azure Event Hubs using AMQP protocol. Azure EventHubs is a highly scalable publish-subscribe service that can ingest millions of events per second and stream them to multiple consumers.
+
 When using camel-azure-eventhubs-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

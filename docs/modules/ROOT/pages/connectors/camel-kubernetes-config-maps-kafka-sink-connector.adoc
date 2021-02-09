@@ -2,6 +2,8 @@
 [[camel-kubernetes-config-maps-kafka-connector-sink]]
 = camel-kubernetes-config-maps-kafka-connector sink configuration
 
+Connector Description: Perform operations on Kubernetes ConfigMaps and get notified on ConfigMaps changes.
+
 When using camel-kubernetes-config-maps-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

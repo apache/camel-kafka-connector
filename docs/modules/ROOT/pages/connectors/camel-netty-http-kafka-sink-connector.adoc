@@ -2,6 +2,8 @@
 [[camel-netty-http-kafka-connector-sink]]
 = camel-netty-http-kafka-connector sink configuration
 
+Connector Description: Netty HTTP server and client using the Netty 4.x.
+
 When using camel-netty-http-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

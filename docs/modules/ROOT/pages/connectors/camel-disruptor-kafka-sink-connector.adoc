@@ -2,6 +2,8 @@
 [[camel-disruptor-kafka-connector-sink]]
 = camel-disruptor-kafka-connector sink configuration
 
+Connector Description: Provides asynchronous SEDA behavior using LMAX Disruptor.
+
 When using camel-disruptor-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

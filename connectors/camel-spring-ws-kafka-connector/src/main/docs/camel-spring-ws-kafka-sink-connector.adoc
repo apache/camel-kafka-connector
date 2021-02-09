@@ -2,6 +2,8 @@
 [[camel-spring-ws-kafka-connector-sink]]
 = camel-spring-ws-kafka-connector sink configuration
 
+Connector Description: Access external web services as a client or expose your own web services.
+
 When using camel-spring-ws-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

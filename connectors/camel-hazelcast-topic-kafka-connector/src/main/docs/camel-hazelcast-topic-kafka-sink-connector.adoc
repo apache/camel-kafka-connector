@@ -2,6 +2,8 @@
 [[camel-hazelcast-topic-kafka-connector-sink]]
 = camel-hazelcast-topic-kafka-connector sink configuration
 
+Connector Description: Send and receive messages to/from Hazelcast distributed topic.
+
 When using camel-hazelcast-topic-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-jgroups-raft-kafka-connector-source]]
 = camel-jgroups-raft-kafka-connector source configuration
 
+Connector description: Exchange messages with JGroups-raft clusters.
+
 When using camel-jgroups-raft-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

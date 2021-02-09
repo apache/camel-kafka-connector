@@ -2,6 +2,8 @@
 [[camel-kafka-kafka-connector-sink]]
 = camel-kafka-kafka-connector sink configuration
 
+Connector Description: Sent and receive messages to/from an Apache Kafka broker.
+
 When using camel-kafka-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

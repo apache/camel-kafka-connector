@@ -2,6 +2,8 @@
 [[camel-ahc-kafka-connector-sink]]
 = camel-ahc-kafka-connector sink configuration
 
+Connector Description: Call external HTTP services using Async Http Client.
+
 When using camel-ahc-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

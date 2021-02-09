@@ -2,6 +2,8 @@
 [[camel-hbase-kafka-connector-sink]]
 = camel-hbase-kafka-connector sink configuration
 
+Connector Description: Reading and write from/to an HBase store (Hadoop database).
+
 When using camel-hbase-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

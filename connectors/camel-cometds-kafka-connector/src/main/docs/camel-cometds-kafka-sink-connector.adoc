@@ -2,6 +2,8 @@
 [[camel-cometds-kafka-connector-sink]]
 = camel-cometds-kafka-connector sink configuration
 
+Connector Description: Offers publish/subscribe, peer-to-peer (via a server), and RPC style messaging using the CometD/Bayeux protocol.
+
 When using camel-cometds-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

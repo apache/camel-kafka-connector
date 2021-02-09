@@ -2,6 +2,8 @@
 [[camel-hazelcast-multimap-kafka-connector-sink]]
 = camel-hazelcast-multimap-kafka-connector sink configuration
 
+Connector Description: Perform operations on Hazelcast distributed multimap.
+
 When using camel-hazelcast-multimap-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

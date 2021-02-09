@@ -2,6 +2,8 @@
 [[camel-kubernetes-namespaces-kafka-connector-sink]]
 = camel-kubernetes-namespaces-kafka-connector sink configuration
 
+Connector Description: Perform operations on Kubernetes Namespaces and get notified on Namespace changes.
+
 When using camel-kubernetes-namespaces-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

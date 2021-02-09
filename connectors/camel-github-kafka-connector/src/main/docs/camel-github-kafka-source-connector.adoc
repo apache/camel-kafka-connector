@@ -2,6 +2,8 @@
 [[camel-github-kafka-connector-source]]
 = camel-github-kafka-connector source configuration
 
+Connector description: Interact with the GitHub API.
+
 When using camel-github-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-ipfs-kafka-connector-sink]]
 = camel-ipfs-kafka-connector sink configuration
 
+Connector Description: Access the Interplanetary File System (IPFS).
+
 When using camel-ipfs-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

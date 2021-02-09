@@ -2,6 +2,8 @@
 [[camel-kubernetes-pods-kafka-connector-sink]]
 = camel-kubernetes-pods-kafka-connector sink configuration
 
+Connector Description: Perform operations on Kubernetes Pods and get notified on Pod changes.
+
 When using camel-kubernetes-pods-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-thrift-kafka-connector-source]]
 = camel-thrift-kafka-connector source configuration
 
+Connector description: Call and expose remote procedures (RPC) with Apache Thrift data format and serialization mechanism.
+
 When using camel-thrift-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

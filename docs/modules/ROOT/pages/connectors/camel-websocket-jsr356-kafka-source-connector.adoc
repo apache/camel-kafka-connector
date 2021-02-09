@@ -2,6 +2,8 @@
 [[camel-websocket-jsr356-kafka-connector-source]]
 = camel-websocket-jsr356-kafka-connector source configuration
 
+Connector description: Expose websocket endpoints using JSR356.
+
 When using camel-websocket-jsr356-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

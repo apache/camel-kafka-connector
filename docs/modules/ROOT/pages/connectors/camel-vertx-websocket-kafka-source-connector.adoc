@@ -2,6 +2,8 @@
 [[camel-vertx-websocket-kafka-connector-source]]
 = camel-vertx-websocket-kafka-connector source configuration
 
+Connector description: Expose WebSocket endpoints and connect to remote WebSocket servers using Vert.x
+
 When using camel-vertx-websocket-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

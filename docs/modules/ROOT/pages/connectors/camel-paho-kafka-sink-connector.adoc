@@ -2,6 +2,8 @@
 [[camel-paho-kafka-connector-sink]]
 = camel-paho-kafka-connector sink configuration
 
+Connector Description: Communicate with MQTT message brokers using Eclipse Paho MQTT Client.
+
 When using camel-paho-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

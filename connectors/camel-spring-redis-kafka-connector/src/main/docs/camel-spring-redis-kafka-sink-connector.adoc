@@ -2,6 +2,8 @@
 [[camel-spring-redis-kafka-connector-sink]]
 = camel-spring-redis-kafka-connector sink configuration
 
+Connector Description: Send and receive messages from Redis.
+
 When using camel-spring-redis-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

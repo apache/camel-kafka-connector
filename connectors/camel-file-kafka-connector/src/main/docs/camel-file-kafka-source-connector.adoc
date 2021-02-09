@@ -2,6 +2,8 @@
 [[camel-file-kafka-connector-source]]
 = camel-file-kafka-connector source configuration
 
+Connector description: Read and write files.
+
 When using camel-file-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

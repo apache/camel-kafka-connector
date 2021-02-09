@@ -2,6 +2,8 @@
 [[camel-stax-kafka-connector-sink]]
 = camel-stax-kafka-connector sink configuration
 
+Connector Description: Process XML payloads by a SAX ContentHandler.
+
 When using camel-stax-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

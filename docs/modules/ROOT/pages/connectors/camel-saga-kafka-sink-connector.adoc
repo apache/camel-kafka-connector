@@ -2,6 +2,8 @@
 [[camel-saga-kafka-connector-sink]]
 = camel-saga-kafka-connector sink configuration
 
+Connector Description: Execute custom actions within a route using the Saga EIP.
+
 When using camel-saga-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

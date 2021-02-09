@@ -2,6 +2,8 @@
 [[camel-pulsar-kafka-connector-sink]]
 = camel-pulsar-kafka-connector sink configuration
 
+Connector Description: Send and receive messages from/to Apache Pulsar messaging system.
+
 When using camel-pulsar-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

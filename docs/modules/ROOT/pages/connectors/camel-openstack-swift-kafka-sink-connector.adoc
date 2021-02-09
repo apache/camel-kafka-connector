@@ -2,6 +2,8 @@
 [[camel-openstack-swift-kafka-connector-sink]]
 = camel-openstack-swift-kafka-connector sink configuration
 
+Connector Description: Access OpenStack Swift object/blob store.
+
 When using camel-openstack-swift-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

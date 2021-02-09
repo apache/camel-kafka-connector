@@ -2,6 +2,8 @@
 [[camel-aws-cw-kafka-connector-sink]]
 = camel-aws-cw-kafka-connector sink configuration
 
+Connector Description: Send metrics to AWS CloudWatch.
+
 When using camel-aws-cw-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

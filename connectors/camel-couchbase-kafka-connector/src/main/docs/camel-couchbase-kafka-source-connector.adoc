@@ -2,6 +2,8 @@
 [[camel-couchbase-kafka-connector-source]]
 = camel-couchbase-kafka-connector source configuration
 
+Connector description: Query Couchbase Views with a poll strategy and/or perform various operations against Couchbase databases.
+
 When using camel-couchbase-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

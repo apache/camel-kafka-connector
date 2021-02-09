@@ -2,6 +2,8 @@
 [[camel-solrCloud-kafka-connector-sink]]
 = camel-solrCloud-kafka-connector sink configuration
 
+Connector Description: Perform operations against Apache Lucene Solr.
+
 When using camel-solrCloud-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

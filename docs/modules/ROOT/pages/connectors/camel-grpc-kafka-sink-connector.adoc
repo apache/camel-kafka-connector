@@ -2,6 +2,8 @@
 [[camel-grpc-kafka-connector-sink]]
 = camel-grpc-kafka-connector sink configuration
 
+Connector Description: Expose gRPC endpoints and access external gRPC endpoints.
+
 When using camel-grpc-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

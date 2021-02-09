@@ -2,6 +2,8 @@
 [[camel-hazelcast-replicatedmap-kafka-connector-source]]
 = camel-hazelcast-replicatedmap-kafka-connector source configuration
 
+Connector description: Perform operations on Hazelcast replicated map.
+
 When using camel-hazelcast-replicatedmap-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

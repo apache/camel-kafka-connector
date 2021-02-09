@@ -2,6 +2,8 @@
 [[camel-netty-kafka-connector-sink]]
 = camel-netty-kafka-connector sink configuration
 
+Connector Description: Socket level networking using TCP or UDP with the Netty 4.x.
+
 When using camel-netty-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

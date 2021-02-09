@@ -2,6 +2,8 @@
 [[camel-vm-kafka-connector-source]]
 = camel-vm-kafka-connector source configuration
 
+Connector description: Call another endpoint in the same CamelContext asynchronously.
+
 When using camel-vm-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

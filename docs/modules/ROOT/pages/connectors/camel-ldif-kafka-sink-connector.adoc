@@ -2,6 +2,8 @@
 [[camel-ldif-kafka-connector-sink]]
 = camel-ldif-kafka-connector sink configuration
 
+Connector Description: Perform updates on an LDAP server from an LDIF body content.
+
 When using camel-ldif-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-jslt-kafka-connector-sink]]
 = camel-jslt-kafka-connector sink configuration
 
+Connector Description: Query or transform JSON payloads using an JSLT.
+
 When using camel-jslt-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

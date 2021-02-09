@@ -2,6 +2,8 @@
 [[camel-kubernetes-resources-quota-kafka-connector-sink]]
 = camel-kubernetes-resources-quota-kafka-connector sink configuration
 
+Connector Description: Perform operations on Kubernetes Resources Quotas.
+
 When using camel-kubernetes-resources-quota-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

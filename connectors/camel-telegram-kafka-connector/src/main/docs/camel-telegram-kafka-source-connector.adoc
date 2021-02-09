@@ -2,6 +2,8 @@
 [[camel-telegram-kafka-connector-source]]
 = camel-telegram-kafka-connector source configuration
 
+Connector description: Send and receive messages acting as a Telegram Bot Telegram Bot API.
+
 When using camel-telegram-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

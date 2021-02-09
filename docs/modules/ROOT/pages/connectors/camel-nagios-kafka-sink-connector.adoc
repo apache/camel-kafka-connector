@@ -2,6 +2,8 @@
 [[camel-nagios-kafka-connector-sink]]
 = camel-nagios-kafka-connector sink configuration
 
+Connector Description: Send passive checks to Nagios using JSendNSCA.
+
 When using camel-nagios-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

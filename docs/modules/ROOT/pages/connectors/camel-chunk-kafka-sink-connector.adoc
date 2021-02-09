@@ -2,6 +2,8 @@
 [[camel-chunk-kafka-connector-sink]]
 = camel-chunk-kafka-connector sink configuration
 
+Connector Description: Transform messages using Chunk templating engine.
+
 When using camel-chunk-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-pubnub-kafka-connector-sink]]
 = camel-pubnub-kafka-connector sink configuration
 
+Connector Description: Send and receive messages to/from PubNub data stream network for connected devices.
+
 When using camel-pubnub-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

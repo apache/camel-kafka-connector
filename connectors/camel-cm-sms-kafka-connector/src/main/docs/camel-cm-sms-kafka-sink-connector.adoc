@@ -2,6 +2,8 @@
 [[camel-cm-sms-kafka-connector-sink]]
 = camel-cm-sms-kafka-connector sink configuration
 
+Connector Description: Send SMS messages via CM SMS Gateway.
+
 When using camel-cm-sms-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

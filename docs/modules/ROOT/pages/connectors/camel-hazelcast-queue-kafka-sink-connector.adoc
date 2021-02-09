@@ -2,6 +2,8 @@
 [[camel-hazelcast-queue-kafka-connector-sink]]
 = camel-hazelcast-queue-kafka-connector sink configuration
 
+Connector Description: Perform operations on Hazelcast distributed queue.
+
 When using camel-hazelcast-queue-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

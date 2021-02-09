@@ -2,6 +2,8 @@
 [[camel-openstack-cinder-kafka-connector-sink]]
 = camel-openstack-cinder-kafka-connector sink configuration
 
+Connector Description: Access data in OpenStack Cinder block storage.
+
 When using camel-openstack-cinder-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

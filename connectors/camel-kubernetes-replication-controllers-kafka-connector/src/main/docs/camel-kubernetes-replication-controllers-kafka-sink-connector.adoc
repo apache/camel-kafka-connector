@@ -2,6 +2,8 @@
 [[camel-kubernetes-replication-controllers-kafka-connector-sink]]
 = camel-kubernetes-replication-controllers-kafka-connector sink configuration
 
+Connector Description: Perform operations on Kubernetes Replication Controllers and get notified on Replication Controllers changes.
+
 When using camel-kubernetes-replication-controllers-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

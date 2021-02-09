@@ -2,6 +2,8 @@
 [[camel-jclouds-kafka-connector-source]]
 = camel-jclouds-kafka-connector source configuration
 
+Connector description: Interact with jclouds compute & blobstore service.
+
 When using camel-jclouds-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

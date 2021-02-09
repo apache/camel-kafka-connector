@@ -2,6 +2,8 @@
 [[camel-resteasy-kafka-connector-sink]]
 = camel-resteasy-kafka-connector sink configuration
 
+Connector Description: Expose REST endpoints and access external REST servers.
+
 When using camel-resteasy-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

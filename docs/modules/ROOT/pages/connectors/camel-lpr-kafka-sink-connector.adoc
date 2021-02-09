@@ -2,6 +2,8 @@
 [[camel-lpr-kafka-connector-sink]]
 = camel-lpr-kafka-connector sink configuration
 
+Connector Description: Send print jobs to printers.
+
 When using camel-lpr-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

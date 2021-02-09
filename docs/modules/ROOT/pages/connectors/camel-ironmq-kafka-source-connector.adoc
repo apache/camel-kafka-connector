@@ -2,6 +2,8 @@
 [[camel-ironmq-kafka-connector-source]]
 = camel-ironmq-kafka-connector source configuration
 
+Connector description: Send and receive messages to/from IronMQ an elastic and durable hosted message queue as a service.
+
 When using camel-ironmq-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

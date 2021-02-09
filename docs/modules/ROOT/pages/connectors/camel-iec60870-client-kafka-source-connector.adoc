@@ -2,6 +2,8 @@
 [[camel-iec60870-client-kafka-connector-source]]
 = camel-iec60870-client-kafka-connector source configuration
 
+Connector description: IEC 60870 supervisory control and data acquisition (SCADA) client using NeoSCADA implementation.
+
 When using camel-iec60870-client-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

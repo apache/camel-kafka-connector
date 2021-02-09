@@ -2,6 +2,8 @@
 [[camel-couchdb-kafka-connector-source]]
 = camel-couchdb-kafka-connector source configuration
 
+Connector description: Consume changesets for inserts, updates and deletes in a CouchDB database, as well as get, save, update and delete documents from a CouchDB database.
+
 When using camel-couchdb-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

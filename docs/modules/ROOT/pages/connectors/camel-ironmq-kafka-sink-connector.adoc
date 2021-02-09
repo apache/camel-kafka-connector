@@ -2,6 +2,8 @@
 [[camel-ironmq-kafka-connector-sink]]
 = camel-ironmq-kafka-connector sink configuration
 
+Connector Description: Send and receive messages to/from IronMQ an elastic and durable hosted message queue as a service.
+
 When using camel-ironmq-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

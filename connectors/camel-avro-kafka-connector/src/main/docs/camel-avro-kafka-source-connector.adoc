@@ -2,6 +2,8 @@
 [[camel-avro-kafka-connector-source]]
 = camel-avro-kafka-connector source configuration
 
+Connector description: Produce or consume Apache Avro RPC services.
+
 When using camel-avro-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

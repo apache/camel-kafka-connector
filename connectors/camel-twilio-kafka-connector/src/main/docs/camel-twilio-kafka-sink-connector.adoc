@@ -2,6 +2,8 @@
 [[camel-twilio-kafka-connector-sink]]
 = camel-twilio-kafka-connector sink configuration
 
+Connector Description: Interact with Twilio REST APIs using Twilio Java SDK.
+
 When using camel-twilio-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

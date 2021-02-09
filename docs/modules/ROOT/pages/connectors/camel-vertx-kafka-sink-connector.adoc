@@ -2,6 +2,8 @@
 [[camel-vertx-kafka-connector-sink]]
 = camel-vertx-kafka-connector sink configuration
 
+Connector Description: Send and receive messages to/from Vert.x Event Bus.
+
 When using camel-vertx-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

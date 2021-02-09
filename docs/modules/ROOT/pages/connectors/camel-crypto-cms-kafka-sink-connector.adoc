@@ -2,6 +2,8 @@
 [[camel-crypto-cms-kafka-connector-sink]]
 = camel-crypto-cms-kafka-connector sink configuration
 
+Connector Description: Encrypt, decrypt, sign and verify data in CMS Enveloped Data format.
+
 When using camel-crypto-cms-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-smtps-kafka-connector-source]]
 = camel-smtps-kafka-connector source configuration
 
+Connector description: Send and receive emails using imap, pop3 and smtp protocols.
+
 When using camel-smtps-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

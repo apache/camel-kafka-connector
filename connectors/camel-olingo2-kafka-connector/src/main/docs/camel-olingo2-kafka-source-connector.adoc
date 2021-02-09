@@ -2,6 +2,8 @@
 [[camel-olingo2-kafka-connector-source]]
 = camel-olingo2-kafka-connector source configuration
 
+Connector description: Communicate with OData 2.0 services using Apache Olingo.
+
 When using camel-olingo2-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

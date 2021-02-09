@@ -2,6 +2,8 @@
 [[camel-influxdb-kafka-connector-sink]]
 = camel-influxdb-kafka-connector sink configuration
 
+Connector Description: Interact with InfluxDB, a time series database.
+
 When using camel-influxdb-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

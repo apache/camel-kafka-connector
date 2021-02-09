@@ -2,6 +2,8 @@
 [[camel-web3j-kafka-connector-sink]]
 = camel-web3j-kafka-connector sink configuration
 
+Connector Description: Interact with Ethereum nodes using web3j client API.
+
 When using camel-web3j-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

@@ -2,6 +2,8 @@
 [[camel-amqp-kafka-connector-source]]
 = camel-amqp-kafka-connector source configuration
 
+Connector description: Messaging with AMQP protocol using Apache QPid Client.
+
 When using camel-amqp-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

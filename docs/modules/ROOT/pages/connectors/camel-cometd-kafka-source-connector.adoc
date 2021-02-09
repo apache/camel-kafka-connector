@@ -2,6 +2,8 @@
 [[camel-cometd-kafka-connector-source]]
 = camel-cometd-kafka-connector source configuration
 
+Connector description: Offers publish/subscribe, peer-to-peer (via a server), and RPC style messaging using the CometD/Bayeux protocol.
+
 When using camel-cometd-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

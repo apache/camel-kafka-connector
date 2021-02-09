@@ -2,6 +2,8 @@
 [[camel-msv-kafka-connector-sink]]
 = camel-msv-kafka-connector sink configuration
 
+Connector Description: Validate XML payloads using Multi-Schema Validator (MSV).
+
 When using camel-msv-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]

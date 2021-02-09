@@ -2,6 +2,8 @@
 [[camel-atmos-kafka-connector-source]]
 = camel-atmos-kafka-connector source configuration
 
+Connector description: Integrate with EMC's ViPR object data services using the Atmos Client.
+
 When using camel-atmos-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
 [source,xml]
