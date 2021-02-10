@@ -14,6 +14,7 @@
 
 **Closed issues:**
 
+- Improve description of connector [\#979](https://github.com/apache/camel-kafka-connector/issues/979)
 - CamelKafkaConnectMain is showing sensitive information in summary [\#973](https://github.com/apache/camel-kafka-connector/issues/973)
 - Camel-master: Let's change the gh action to be triggered when a push on master has been done [\#939](https://github.com/apache/camel-kafka-connector/issues/939)
 - Add a map Camel Headers to Kafka headers option to make the behavior configurable [\#923](https://github.com/apache/camel-kafka-connector/issues/923)
@@ -28,6 +29,12 @@
 
 **Merged pull requests:**
 
+- Avoid creating everything from scratch for every Cassandra sink test [\#999](https://github.com/apache/camel-kafka-connector/pull/999) ([orpiske](https://github.com/orpiske))
+- Regen connectors with descriptions [\#995](https://github.com/apache/camel-kafka-connector/pull/995) ([oscerd](https://github.com/oscerd))
+- Improve description of connector in documentation [\#993](https://github.com/apache/camel-kafka-connector/pull/993) ([oscerd](https://github.com/oscerd))
+- Override Camel's testcontainer version and upgrade to 1.15.1 due to GH issue \#990 [\#991](https://github.com/apache/camel-kafka-connector/pull/991) ([orpiske](https://github.com/orpiske))
+- Added missing slow tests filter to avoid trying to run the AWS v2 test on GH actions [\#989](https://github.com/apache/camel-kafka-connector/pull/989) ([orpiske](https://github.com/orpiske))
+- Cleanup all source integration tests [\#987](https://github.com/apache/camel-kafka-connector/pull/987) ([orpiske](https://github.com/orpiske))
 - Make producing test messages for sink tests more flexible [\#971](https://github.com/apache/camel-kafka-connector/pull/971) ([orpiske](https://github.com/orpiske))
 - Cleanup sink test cases [\#970](https://github.com/apache/camel-kafka-connector/pull/970) ([orpiske](https://github.com/orpiske))
 - Revert "Test PR" [\#968](https://github.com/apache/camel-kafka-connector/pull/968) ([oscerd](https://github.com/oscerd))
@@ -47,6 +54,7 @@
 - The backport action is not allowed in ASF [\#943](https://github.com/apache/camel-kafka-connector/pull/943) ([oscerd](https://github.com/oscerd))
 - Backport action test: Fixed some grammar on README [\#942](https://github.com/apache/camel-kafka-connector/pull/942) ([oscerd](https://github.com/oscerd))
 - Added an example of backport yml action [\#941](https://github.com/apache/camel-kafka-connector/pull/941) ([oscerd](https://github.com/oscerd))
+- \#873 initial cxf Source/Sink connectors test [\#940](https://github.com/apache/camel-kafka-connector/pull/940) ([ffang](https://github.com/ffang))
 - Added Azure Storage Queue source test case [\#938](https://github.com/apache/camel-kafka-connector/pull/938) ([orpiske](https://github.com/orpiske))
 - Add a map Camel Headers to Kafka headers option to make the behavior … [\#937](https://github.com/apache/camel-kafka-connector/pull/937) ([oscerd](https://github.com/oscerd))
 - Provide option to delete camel kafka submodule if they are not in camel catalog [\#936](https://github.com/apache/camel-kafka-connector/pull/936) ([claudio4j](https://github.com/claudio4j))
