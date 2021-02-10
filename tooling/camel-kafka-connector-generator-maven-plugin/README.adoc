@@ -20,7 +20,7 @@ The Camel Kafka Connector generator plugin allows you to generator connectors ba
 | initialPomTemplate | empty | Initial pom template
 | noticeTemplate | empty | Initial NOTICE template
 | licenseTemplate | empty | Inintial LICENSES template
-| fixDependenciesProperties | Properties file to configure additional dependencies
-| packageFileTemplate | Package file template to be placed in src/main/assembly/package.xml
-| exampleSinkPropertiesFileTemplate | Example connector sink file template
+| fixDependenciesProperties | camel-kafka-connector-fix-dependencies.properties | Properties file to configure additional dependencies
+| packageFileTemplate | camel-kafka-connector-template-package.template | Package file template to be placed in src/main/assembly/package.xml
+| exampleSinkPropertiesFileTemplate | camel-kafka-connector-template-example-sink-properties.template | Example connector sink file template
 |===============
