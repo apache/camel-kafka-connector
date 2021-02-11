@@ -55,7 +55,7 @@
         <version.maven.surefire.plugin>3.0.0-M4</version.maven.surefire.plugin>
 
         <!-- Note: we are deliberately overriding this one due to GH issue #990 -->
-        <testcontainers-version>1.15.1</testcontainers-version>
+        <testcontainers-version>1.15.2</testcontainers-version>
 
 
         <mycila-license-version>3.0</mycila-license-version>
