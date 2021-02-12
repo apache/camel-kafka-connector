@@ -69,6 +69,7 @@ jobs:
       - name: build and itests
         run: |
           ./mvnw ${MAVEN_ARGS} \
+            -Dfailsafe.rerunFailingTestsCount=2 \
             -Dcheckstyle.failOnViolation=true \
             -Psourcecheck \
             -DskipIntegrationTests=false \
