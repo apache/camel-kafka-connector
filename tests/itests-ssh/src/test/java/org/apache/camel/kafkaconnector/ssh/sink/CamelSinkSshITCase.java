@@ -94,6 +94,6 @@ public class CamelSinkSshITCase extends CamelSinkTestSupport {
                 .withUsername("root")
                 .withPassword("root");
 
-        runTest(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topic, expect));
+        runTestNonBlocking(connectorPropertyFactory, new CustomProducer(getKafkaService().getBootstrapServers(), topic, expect));
     }
 }
