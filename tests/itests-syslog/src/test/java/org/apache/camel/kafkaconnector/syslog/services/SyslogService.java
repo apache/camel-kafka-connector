@@ -18,45 +18,52 @@ package org.apache.camel.kafkaconnector.syslog.services;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
-import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.syslog.SyslogDataFormat;
-import org.apache.camel.component.syslog.netty.Rfc5425FrameDecoder;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.test.infra.common.TestUtils;
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 public class SyslogService implements BeforeAllCallback, AfterAllCallback {
-    private static final CamelContext CAMEL_CONTEXT = new DefaultCamelContext();
+    private final CamelContext camelContext = new DefaultCamelContext();
 
-    private static String protocol;
-    private static String host;
-    private static int port;
+    private final RouteConfigurator routeConfigurator;
 
-    public SyslogService(String protocol, String host, int port) {
-        this.protocol = protocol;
-        this.host = host;
-        this.port = port;
+    public SyslogService(RouteConfigurator routeConfigurator) {
+        this.routeConfigurator = routeConfigurator;
     }
 
     @Override
     public void beforeAll(ExtensionContext context) throws Exception {
-        CAMEL_CONTEXT.getRegistry().bind("decoder", new Rfc5425FrameDecoder());
-        CAMEL_CONTEXT.addRoutes(new RouteBuilder() {
-            @Override
-            public void configure() {
-                from("netty:" + protocol + ":" + host + ":" + port + "?sync=false&decoders=#decoder").unmarshal(new SyslogDataFormat()).to("seda:syslog");
-            }
-        });
-        CAMEL_CONTEXT.start();
+        routeConfigurator.configure(camelContext);
+
+        camelContext.start();
+        TestUtils.waitFor(camelContext::isStarted);
     }
 
     @Override
     public void afterAll(ExtensionContext context) {
-        CAMEL_CONTEXT.stop();
+        camelContext.stop();
+        TestUtils.waitFor(camelContext::isStopped);
+    }
+
+    public CamelContext getCamelContext() {
+        return camelContext;
     }
 
     public Exchange getFirstExchangeToBeReceived() {
-        return CAMEL_CONTEXT.createConsumerTemplate().receive("seda:syslog", 10000L);
+        return camelContext.createConsumerTemplate().receive("seda:syslog", 10000L);
+    }
+
+    public static SyslogService sinkSyslogServiceFactory(String protocol, String host, int port) {
+        SinkRouteConfigurator sinkRouteConfigurator = new SinkRouteConfigurator(protocol, host, port);
+
+        return new SyslogService(sinkRouteConfigurator);
+    }
+
+    public static SyslogService sourceSyslogServiceFactory(String protocol, String host, int port) {
+        SourceRouteConfigurator sourceRouteConfigurator = new SourceRouteConfigurator(protocol, host, port);
+
+        return new SyslogService(sourceRouteConfigurator);
     }
 }

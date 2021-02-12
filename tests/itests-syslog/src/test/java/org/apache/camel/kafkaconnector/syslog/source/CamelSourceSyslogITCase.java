@@ -19,26 +19,18 @@ package org.apache.camel.kafkaconnector.syslog.source;
 
 import java.util.concurrent.ExecutionException;
 
-import org.apache.camel.CamelContext;
-import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.syslog.SyslogDataFormat;
-import org.apache.camel.component.syslog.netty.Rfc5425Encoder;
-import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageConsumer;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
-import org.apache.camel.kafkaconnector.common.utils.TestUtils;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+import org.apache.camel.kafkaconnector.syslog.services.SyslogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -49,57 +41,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSourceSyslogITCase.class);
     private static final String HOST = "localhost";
     private static final String PROTOCOL = "udp";
     private static final int FREE_PORT = NetworkUtils.getFreePort(HOST, NetworkUtils.Protocol.UDP);
 
-    private final int expect = 1;
-    private ConnectorPropertyFactory connectorPropertyFactory;
-    private String topicName;
+    @RegisterExtension
+    public static SyslogService service = SyslogService.sourceSyslogServiceFactory(PROTOCOL, "localhost", FREE_PORT);
 
-    private CamelContext camelContext;
+    private final int expect = 1;
+    private String topicName;
 
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-syslog-kafka-connector"};
     }
 
-    @BeforeAll
-    public void setupCamelContext() throws Exception {
-        LOG.debug("Creating the Camel context");
-        camelContext = new DefaultCamelContext();
-        camelContext.getRegistry().bind("encoder", new Rfc5425Encoder());
-
-        LOG.debug("Adding routes");
-        camelContext.addRoutes(new RouteBuilder() {
-            @Override
-            public void configure() {
-                from("direct:test")
-                        .marshal(new SyslogDataFormat())
-                        .toF("netty:%s://%s:%d?sync=false&encoders=#encoder&useByteBuf=true", PROTOCOL, HOST, FREE_PORT);
-            }
-        });
-    }
-
     @BeforeEach
     public void setUp() {
         topicName = getTopicForTest(this);
-
-        camelContext.start();
-        TestUtils.waitFor(camelContext::isStarted);
     }
 
-    @AfterEach
-    public void tearDown() {
-        camelContext.stop();
-    }
 
     @Override
     protected void produceTestData() {
         String message = "<13>1 2020-05-14T14:47:01.198+02:00 nathannever myapp - - [timeQuality tzKnown=\"1\" isSynced=\"1\" syncAccuracy=\"11266\"] FOO BAR!";
 
-        camelContext.createProducerTemplate().sendBody("direct:test", message);
+        service.getCamelContext().createProducerTemplate().sendBody("direct:test", message);
     }
 
     @Override
@@ -113,7 +80,7 @@ public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
     @RepeatedTest(3)
     @Timeout(90)
     public void testBasicSend() throws ExecutionException, InterruptedException {
-        connectorPropertyFactory = CamelSyslogPropertyFactory
+        ConnectorPropertyFactory connectorPropertyFactory = CamelSyslogPropertyFactory
                 .basic()
                 .withKafkaTopic(topicName)
                 .withHost(HOST)

@@ -19,6 +19,8 @@ package org.apache.camel.kafkaconnector.syslog.sink;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.camel.Exchange;
+import org.apache.camel.Message;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageProducer;
@@ -31,6 +33,7 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -40,11 +43,13 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkSyslogITCase extends CamelSinkTestSupport {
-    private static final int FREE_PORT = NetworkUtils.getFreePort("localhost", NetworkUtils.Protocol.UDP);
+    private static final String HOST = "localhost";
+    private static final String PROTOCOL = "udp";
+    private static final int FREE_PORT = NetworkUtils.getFreePort(HOST, NetworkUtils.Protocol.UDP);
     private static final String TEST_TXT = "<13>1 2020-05-14T14:47:01.198+02:00 nathannever myapp - - [timeQuality tzKnown=\"1\" isSynced=\"1\" syncAccuracy=\"11266\"] FOO BAR!";
 
     @RegisterExtension
-    public static SyslogService syslogService = new SyslogService("udp", "//localhost", FREE_PORT);
+    public static SyslogService service = SyslogService.sinkSyslogServiceFactory(PROTOCOL, HOST, FREE_PORT);
 
     private String topicName;
     private final int expect = 1;
@@ -79,7 +84,15 @@ public class CamelSinkSyslogITCase extends CamelSinkTestSupport {
     @Override
     protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
         if (latch.await(30, TimeUnit.SECONDS)) {
-            assertEquals(TEST_TXT, syslogService.getFirstExchangeToBeReceived().getIn().getBody(String.class));
+            Exchange exchange = service.getFirstExchangeToBeReceived();
+            assertNotNull(exchange, "There should have been an exchange received");
+            Message message = exchange.getIn();
+            assertNotNull(message, "There should have been a message in the exchange");
+
+            String body = message.getBody(String.class);
+            assertNotNull(body, "The message body should not be null");
+            assertEquals(TEST_TXT, message.getBody(String.class),
+                    "The received message body does not match the expected message");
         } else {
             fail("Timed out wait for data to be added to the Kafka cluster");
         }
