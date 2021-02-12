@@ -97,6 +97,31 @@ public abstract class CamelSinkTestSupport extends AbstractKafkaTest {
         verifyMessages(latch);
     }
 
+    /**
+     * A simple test runner that follows the steps: initialize, start consumer, produce messages, verify results
+     *
+     * @param connectorPropertyFactory A factory for connector properties
+     * @throws Exception For test-specific exceptions
+     */
+    protected void runTestNonBlocking(ConnectorPropertyFactory connectorPropertyFactory, TestMessageProducer producer) throws Exception {
+        connectorPropertyFactory.log();
+        getKafkaConnectService().initializeConnector(connectorPropertyFactory);
+
+        LOG.debug("Creating the consumer ...");
+        ExecutorService service = Executors.newCachedThreadPool();
+
+        CountDownLatch latch = new CountDownLatch(1);
+        service.submit(() -> consumeMessages(latch));
+
+        producer.produceMessages();
+
+        LOG.debug("Waiting for the messages to be processed");
+        service.shutdown();
+
+        LOG.debug("Waiting for the test to complete");
+        verifyMessages(latch);
+    }
+
 
     protected boolean waitForData() {
         try {
