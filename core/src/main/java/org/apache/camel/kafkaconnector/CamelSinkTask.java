@@ -73,7 +73,12 @@ public class CamelSinkTask extends SinkTask {
             CamelSinkConnectorConfig config = getCamelSinkConnectorConfig(actualProps);
 
             if (context != null) {
-                reporter = context.errantRecordReporter();
+                try {
+                    reporter = context.errantRecordReporter();
+                } catch (NoSuchMethodError | NoClassDefFoundError e) {
+                    LOG.warn("Unable to instantiate ErrantRecordReporter.  Method 'SinkTaskContext.errantRecordReporter' does not exist.");
+                    reporter = null;
+                }
             }
 
             try {
