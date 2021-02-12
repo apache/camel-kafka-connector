@@ -240,6 +240,7 @@
 - Use a Registry Ref for IdempotentRepository [\#722](https://github.com/apache/camel-kafka-connector/pull/722) ([oscerd](https://github.com/oscerd))
 - Use the errorHandler variable coming from Builder [\#718](https://github.com/apache/camel-kafka-connector/pull/718) ([oscerd](https://github.com/oscerd))
 - Idempotency [\#716](https://github.com/apache/camel-kafka-connector/pull/716) ([oscerd](https://github.com/oscerd))
+- Issue/692 [\#714](https://github.com/apache/camel-kafka-connector/pull/714) ([valdar](https://github.com/valdar))
 - Decouple the jdbc clients from the service to simplify using the test infra from Camel [\#713](https://github.com/apache/camel-kafka-connector/pull/713) ([orpiske](https://github.com/orpiske))
 - Add RemoteFileTransforms to the FTP connector directly  [\#709](https://github.com/apache/camel-kafka-connector/pull/709) ([oscerd](https://github.com/oscerd))
 - Add RemoteFileTransforms to the FTPS connector directly [\#707](https://github.com/apache/camel-kafka-connector/pull/707) ([oscerd](https://github.com/oscerd))
@@ -808,6 +809,7 @@
 - Release0.1.0 [\#154](https://github.com/apache/camel-kafka-connector/pull/154) ([valdar](https://github.com/valdar))
 - Fixed github action issue with never released builts. [\#153](https://github.com/apache/camel-kafka-connector/pull/153) ([valdar](https://github.com/valdar))
 - Upgrade testcontainers to version 1.14.1 [\#152](https://github.com/apache/camel-kafka-connector/pull/152) ([oscerd](https://github.com/oscerd))
+- Added gpg key for valdar. [\#139](https://github.com/apache/camel-kafka-connector/pull/139) ([valdar](https://github.com/valdar))
 
 ## [camel-kafka-connector-0.1.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.1.0) (2020-04-25)
 
@@ -853,7 +855,6 @@
 **Merged pull requests:**
 
 - Moved from camel-core to camel-core-engine as a dependecnies. [\#140](https://github.com/apache/camel-kafka-connector/pull/140) ([valdar](https://github.com/valdar))
-- Added gpg key for valdar. [\#139](https://github.com/apache/camel-kafka-connector/pull/139) ([valdar](https://github.com/valdar))
 - Test code fixes for the auto-generated connectors [\#138](https://github.com/apache/camel-kafka-connector/pull/138) ([orpiske](https://github.com/orpiske))
 - Misc [\#133](https://github.com/apache/camel-kafka-connector/pull/133) ([valdar](https://github.com/valdar))
 - Packaging the connectors as zip and tar.gz [\#131](https://github.com/apache/camel-kafka-connector/pull/131) ([oscerd](https://github.com/oscerd))
