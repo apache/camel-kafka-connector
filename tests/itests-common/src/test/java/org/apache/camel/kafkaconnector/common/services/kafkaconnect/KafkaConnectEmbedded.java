@@ -64,6 +64,12 @@ public class KafkaConnectEmbedded implements KafkaConnectService {
         LOG.trace("Added the new connector");
     }
 
+    private boolean doCheckState(ConnectorStateInfo connectorStateInfo, Integer expectedTaskNumber) {
+        return connectorStateInfo.tasks().size() >= expectedTaskNumber
+                && connectorStateInfo.connector().state().equals(AbstractStatus.State.RUNNING.toString())
+                && connectorStateInfo.tasks().stream().allMatch(s -> s.state().equals(AbstractStatus.State.RUNNING.toString()));
+    }
+
     @Override
     public void initializeConnectorBlocking(ConnectorPropertyFactory propertyFactory, Integer expectedTaskNumber) throws InterruptedException {
         initializeConnector(propertyFactory);
@@ -73,9 +79,8 @@ public class KafkaConnectEmbedded implements KafkaConnectService {
                 connectorStateInfo = cluster.connectorStatus(connectorName);
                 Thread.sleep(20L);
             } while (connectorStateInfo == null);
-            return  connectorStateInfo.tasks().size() >= expectedTaskNumber
-                    && connectorStateInfo.connector().state().equals(AbstractStatus.State.RUNNING.toString())
-                    && connectorStateInfo.tasks().stream().allMatch(s -> s.state().equals(AbstractStatus.State.RUNNING.toString()));
+
+            return doCheckState(connectorStateInfo, expectedTaskNumber);
         }, 30000L, "The connector " + connectorName + " did not start within a reasonable time");
     }
 
