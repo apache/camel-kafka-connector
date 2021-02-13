@@ -4,13 +4,13 @@
     <parent>
         <groupId>org.apache.camel.kafkaconnector</groupId>
         <artifactId>camel-kafka-connector-aggregator</artifactId>
-        <version>0.7.2-SNAPSHOT</version>
+        <version>0.7.2</version>
         <relativePath>..</relativePath>
     </parent>
 
     <groupId>org.apache.camel.kafkaconnector</groupId>
     <artifactId>parent</artifactId>
-    <version>0.7.2-SNAPSHOT</version>
+    <version>0.7.2</version>
     <packaging>pom</packaging>
 
     <name>Camel-Kafka-Connector :: Parent</name>
