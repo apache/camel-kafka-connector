@@ -330,6 +330,12 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.milo-client.miloClientConnectionManager": {
+			"name": "camel.component.milo-client.miloClientConnectionManager",
+			"description": "Instance for managing client connections",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.milo-client.overrideHost": {
 			"name": "camel.component.milo-client.overrideHost",
 			"description": "Override the server reported endpoint host with the host from the endpoint URI.",
