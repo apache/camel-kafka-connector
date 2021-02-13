@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-tika-sink",
 		"type": "sink",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.2",
 		"description": "Parse documents and extract metadata and text using Apache Tika."
 	},
 	"properties": {

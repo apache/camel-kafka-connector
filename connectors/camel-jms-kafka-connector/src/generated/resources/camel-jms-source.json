@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jms-source",
 		"type": "source",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.2",
 		"description": "Sent and receive messages to\/from a JMS Queue or Topic."
 	},
 	"properties": {

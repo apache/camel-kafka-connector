@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-milo-client-source",
 		"type": "source",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.2",
 		"description": "Connect to OPC UA servers using the binary protocol for acquiring telemetry data."
 	},
 	"properties": {

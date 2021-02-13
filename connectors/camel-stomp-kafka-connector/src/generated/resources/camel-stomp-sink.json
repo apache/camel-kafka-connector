@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-stomp-sink",
 		"type": "sink",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.2",
 		"description": "Send and rececive messages to\/from STOMP (Simple Text Oriented Messaging Protocol) compliant message brokers."
 	},
 	"properties": {

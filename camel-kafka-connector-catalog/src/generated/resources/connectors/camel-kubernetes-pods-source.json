@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kubernetes-pods-source",
 		"type": "source",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.2",
 		"description": "Perform operations on Kubernetes Pods and get notified on Pod changes."
 	},
 	"properties": {
