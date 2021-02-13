@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-xmlsecurity-sign-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.2-SNAPSHOT",
 		"description": "Sign XML payloads using the XML signature specification."
 	},
 	"properties": {

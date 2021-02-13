@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-weka-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.2-SNAPSHOT",
 		"description": "Perform machine learning tasks using Weka."
 	},
 	"properties": {

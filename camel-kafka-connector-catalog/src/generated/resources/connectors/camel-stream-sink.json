@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-stream-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.2-SNAPSHOT",
 		"description": "Read from system-in and write to system-out and system-err streams."
 	},
 	"properties": {

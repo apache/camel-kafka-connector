@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-vertx-http-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.2-SNAPSHOT",
 		"description": "Send requests to external HTTP servers using Vert.x"
 	},
 	"properties": {

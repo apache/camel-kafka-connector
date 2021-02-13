@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kafka-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.2-SNAPSHOT",
 		"description": "Sent and receive messages to\/from an Apache Kafka broker."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-cxfrs-source",
 		"type": "source",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.2-SNAPSHOT",
 		"description": "Expose JAX-RS REST services using Apache CXF or connect to external REST services using CXF REST client."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-sql-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.2-SNAPSHOT",
 		"description": "Perform SQL queries using Spring JDBC."
 	},
 	"properties": {
@@ -24,7 +24,7 @@
 		},
 		"camel.sink.endpoint.dataSource": {
 			"name": "camel.sink.endpoint.dataSource",
-			"description": "Sets the DataSource to use to communicate with the database.",
+			"description": "Sets the DataSource to use to communicate with the databaset at endpoint level.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

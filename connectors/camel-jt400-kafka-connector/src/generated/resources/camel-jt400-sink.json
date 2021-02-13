@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jt400-sink",
 		"type": "sink",
-		"version": "0.7.1-SNAPSHOT",
+		"version": "0.7.2-SNAPSHOT",
 		"description": "Exchanges messages with an IBM i system using data queues, message queues, or program call. IBM i is the replacement for AS\/400 and iSeries servers."
 	},
 	"properties": {

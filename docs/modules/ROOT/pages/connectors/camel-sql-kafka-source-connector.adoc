@@ -31,7 +31,7 @@ The camel-sql source connector supports 48 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.source.path.query* | Sets the SQL query to perform. You can externalize the query by using file: or classpath: as prefix and specify the location of the file. | null | true | HIGH
 | *camel.source.endpoint.allowNamedParameters* | Whether to allow using named parameters in the queries. | true | false | MEDIUM
-| *camel.source.endpoint.dataSource* | Sets the DataSource to use to communicate with the database. | null | false | MEDIUM
+| *camel.source.endpoint.dataSource* | Sets the DataSource to use to communicate with the databaset at endpoint level. | null | false | MEDIUM
 | *camel.source.endpoint.dataSourceRef* | Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database. | null | false | LOW
 | *camel.source.endpoint.outputClass* | Specify the full package and class name to use as conversion when outputType=SelectOne. | null | false | MEDIUM
 | *camel.source.endpoint.outputHeader* | Store the query result in a header instead of the message body. By default, outputHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If outputHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. | null | false | MEDIUM
