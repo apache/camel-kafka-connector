@@ -146,9 +146,6 @@ public class CamelVertxkafkaSinkConnectorConfig
     public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_VALUE_SERIALIZER_CONF = "camel.sink.endpoint.valueSerializer";
     public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_VALUE_SERIALIZER_DOC = "Serializer class for value that implements the org.apache.kafka.common.serialization.Serializer interface.";
     public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_VALUE_SERIALIZER_DEFAULT = "org.apache.kafka.common.serialization.StringSerializer";
-    public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_VERTX_KAFKA_CLIENT_FACTORY_CONF = "camel.sink.endpoint.vertxKafkaClientFactory";
-    public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_VERTX_KAFKA_CLIENT_FACTORY_DOC = "Factory to use for creating io.vertx.kafka.client.consumer.KafkaConsumer and io.vertx.kafka.client.consumer.KafkaProducer instances. This allows to configure a custom factory to create custom KafkaConsumer and KafkaProducer instances with logic that extends the vanilla VertX Kafka clients.";
-    public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_VERTX_KAFKA_CLIENT_FACTORY_DEFAULT = null;
     public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_CLIENT_CALLBACK_HANDLER_CLASS_CONF = "camel.sink.endpoint.saslClientCallbackHandlerClass";
     public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_CLIENT_CALLBACK_HANDLER_CLASS_DOC = "The fully qualified name of a SASL client callback handler class that implements the AuthenticateCallbackHandler interface.";
     public static final String CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_CLIENT_CALLBACK_HANDLER_CLASS_DEFAULT = null;
@@ -544,7 +541,6 @@ public class CamelVertxkafkaSinkConnectorConfig
         conf.define(CAMEL_SINK_VERTXKAFKA_ENDPOINT_TRANSACTIONAL_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXKAFKA_ENDPOINT_TRANSACTIONAL_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXKAFKA_ENDPOINT_TRANSACTIONAL_ID_DOC);
         conf.define(CAMEL_SINK_VERTXKAFKA_ENDPOINT_TRANSACTION_TIMEOUT_MS_CONF, ConfigDef.Type.INT, CAMEL_SINK_VERTXKAFKA_ENDPOINT_TRANSACTION_TIMEOUT_MS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXKAFKA_ENDPOINT_TRANSACTION_TIMEOUT_MS_DOC);
         conf.define(CAMEL_SINK_VERTXKAFKA_ENDPOINT_VALUE_SERIALIZER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXKAFKA_ENDPOINT_VALUE_SERIALIZER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXKAFKA_ENDPOINT_VALUE_SERIALIZER_DOC);
-        conf.define(CAMEL_SINK_VERTXKAFKA_ENDPOINT_VERTX_KAFKA_CLIENT_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXKAFKA_ENDPOINT_VERTX_KAFKA_CLIENT_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXKAFKA_ENDPOINT_VERTX_KAFKA_CLIENT_FACTORY_DOC);
         conf.define(CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_CLIENT_CALLBACK_HANDLER_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_CLIENT_CALLBACK_HANDLER_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_CLIENT_CALLBACK_HANDLER_CLASS_DOC);
         conf.define(CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_JAAS_CONFIG_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_JAAS_CONFIG_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_JAAS_CONFIG_DOC);
         conf.define(CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_KERBEROS_KINIT_CMD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_KERBEROS_KINIT_CMD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXKAFKA_ENDPOINT_SASL_KERBEROS_KINIT_CMD_DOC);

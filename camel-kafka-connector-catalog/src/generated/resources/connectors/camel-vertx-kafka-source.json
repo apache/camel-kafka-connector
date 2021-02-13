@@ -365,12 +365,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.vertxKafkaClientFactory": {
-			"name": "camel.source.endpoint.vertxKafkaClientFactory",
-			"description": "Factory to use for creating io.vertx.kafka.client.consumer.KafkaConsumer and io.vertx.kafka.client.consumer.KafkaProducer instances. This allows to configure a custom factory to create custom KafkaConsumer and KafkaProducer instances with logic that extends the vanilla VertX Kafka clients.",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.saslClientCallbackHandlerClass": {
 			"name": "camel.source.endpoint.saslClientCallbackHandlerClass",
 			"description": "The fully qualified name of a SASL client callback handler class that implements the AuthenticateCallbackHandler interface.",

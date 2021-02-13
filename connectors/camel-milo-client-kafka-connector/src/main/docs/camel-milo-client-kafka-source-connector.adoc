@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.miloclient.CamelMiloclientSource
 ----
 
 
-The camel-milo-client source connector supports 55 options, which are listed below.
+The camel-milo-client source connector supports 56 options, which are listed below.
 
 
 
@@ -80,6 +80,7 @@ The camel-milo-client source connector supports 55 options, which are listed bel
 | *camel.component.milo-client.keyStoreUrl* | The URL where the key should be loaded from | null | false | MEDIUM
 | *camel.component.milo-client.maxPendingPublish Requests* | The maximum number of pending publish requests | null | false | MEDIUM
 | *camel.component.milo-client.maxResponseMessageSize* | The maximum number of bytes a response message may have | null | false | MEDIUM
+| *camel.component.milo-client.miloClientConnection Manager* | Instance for managing client connections | null | false | MEDIUM
 | *camel.component.milo-client.overrideHost* | Override the server reported endpoint host with the host from the endpoint URI. | false | false | MEDIUM
 | *camel.component.milo-client.productUri* | The product URI | "http://camel.apache.org/EclipseMilo" | false | MEDIUM
 | *camel.component.milo-client.requestedPublishing Interval* | The requested publishing interval in milliseconds | "1_000.0" | false | MEDIUM
