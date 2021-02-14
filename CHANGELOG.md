@@ -2,33 +2,11 @@
 
 ## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.1...HEAD)
-
-**Implemented enhancements:**
-
-- camel-kafka-connector-generator-maven-plugin: optionally delete submodules not in catalog [\#149](https://github.com/apache/camel-kafka-connector/issues/149)
-
-**Fixed bugs:**
-
-- Java 14 support: gmavenplus-plugin likely not compatible [\#910](https://github.com/apache/camel-kafka-connector/issues/910)
-
-**Closed issues:**
-
-- Improve description of connector [\#979](https://github.com/apache/camel-kafka-connector/issues/979)
-- CamelKafkaConnectMain is showing sensitive information in summary [\#973](https://github.com/apache/camel-kafka-connector/issues/973)
-- Camel-master: Let's change the gh action to be triggered when a push on master has been done [\#939](https://github.com/apache/camel-kafka-connector/issues/939)
-- Add a map Camel Headers to Kafka headers option to make the behavior configurable [\#923](https://github.com/apache/camel-kafka-connector/issues/923)
-- Add a map Camel Properties to Kafka headers option to make the behavior configurable [\#922](https://github.com/apache/camel-kafka-connector/issues/922)
-- Java 14 support [\#913](https://github.com/apache/camel-kafka-connector/issues/913)
-- create a toHeader SMT  [\#902](https://github.com/apache/camel-kafka-connector/issues/902)
-- Upgrade to Camel 3.7.1 the 0.7.x branch and release [\#872](https://github.com/apache/camel-kafka-connector/issues/872)
-- Camel-Master: SJMS2 it test is failing [\#844](https://github.com/apache/camel-kafka-connector/issues/844)
-- Support camel dataformat configuration for marshaller/unmarshaller [\#816](https://github.com/apache/camel-kafka-connector/issues/816)
-- Create a Twitter timeline example [\#640](https://github.com/apache/camel-kafka-connector/issues/640)
-- Introduce Error Handling Options possibilities [\#407](https://github.com/apache/camel-kafka-connector/issues/407)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.2...HEAD)
 
 **Merged pull requests:**
 
+- Fix problem when call 'context.errantRecordReporter\(\)' will result in a NoSuchMethodException or NoClassDefFoundError when the sink connector is deployed to Connect runtimes older than Kafka 2.6 [\#1007](https://github.com/apache/camel-kafka-connector/pull/1007) ([Evgen1000end](https://github.com/Evgen1000end))
 - Cleanup the check state logic on the KafkaConnectEmbeddedService [\#1006](https://github.com/apache/camel-kafka-connector/pull/1006) ([orpiske](https://github.com/orpiske))
 - Rework the syslog integration tests to let JUnit handle camel's lifecycle in the test [\#1005](https://github.com/apache/camel-kafka-connector/pull/1005) ([orpiske](https://github.com/orpiske))
 - Avoid blocking connector initialization on SSH tests as it leads to failures on GH actions [\#1004](https://github.com/apache/camel-kafka-connector/pull/1004) ([orpiske](https://github.com/orpiske))
@@ -122,6 +100,37 @@
 - Added src distribution to sha512 generation list includes. [\#818](https://github.com/apache/camel-kafka-connector/pull/818) ([valdar](https://github.com/valdar))
 - 0.7.0 docs [\#814](https://github.com/apache/camel-kafka-connector/pull/814) ([oscerd](https://github.com/oscerd))
 - Camel kafka connector 0.7.x [\#811](https://github.com/apache/camel-kafka-connector/pull/811) ([valdar](https://github.com/valdar))
+
+## [camel-kafka-connector-0.7.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.2) (2021-02-13)
+
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.1...camel-kafka-connector-0.7.2)
+
+**Implemented enhancements:**
+
+- camel-kafka-connector-generator-maven-plugin: optionally delete submodules not in catalog [\#149](https://github.com/apache/camel-kafka-connector/issues/149)
+
+**Fixed bugs:**
+
+- Java 14 support: gmavenplus-plugin likely not compatible [\#910](https://github.com/apache/camel-kafka-connector/issues/910)
+
+**Closed issues:**
+
+- Improve description of connector [\#979](https://github.com/apache/camel-kafka-connector/issues/979)
+- CamelKafkaConnectMain is showing sensitive information in summary [\#973](https://github.com/apache/camel-kafka-connector/issues/973)
+- Camel-master: Let's change the gh action to be triggered when a push on master has been done [\#939](https://github.com/apache/camel-kafka-connector/issues/939)
+- Add a map Camel Headers to Kafka headers option to make the behavior configurable [\#923](https://github.com/apache/camel-kafka-connector/issues/923)
+- Add a map Camel Properties to Kafka headers option to make the behavior configurable [\#922](https://github.com/apache/camel-kafka-connector/issues/922)
+- Java 14 support [\#913](https://github.com/apache/camel-kafka-connector/issues/913)
+- create a toHeader SMT  [\#902](https://github.com/apache/camel-kafka-connector/issues/902)
+- Upgrade to Camel 3.7.1 the 0.7.x branch and release [\#872](https://github.com/apache/camel-kafka-connector/issues/872)
+- Camel-Master: SJMS2 it test is failing [\#844](https://github.com/apache/camel-kafka-connector/issues/844)
+- Support camel dataformat configuration for marshaller/unmarshaller [\#816](https://github.com/apache/camel-kafka-connector/issues/816)
+- Create a Twitter timeline example [\#640](https://github.com/apache/camel-kafka-connector/issues/640)
+- Introduce Error Handling Options possibilities [\#407](https://github.com/apache/camel-kafka-connector/issues/407)
+
+**Merged pull requests:**
+
+- Update docs to 0.7.1 [\#933](https://github.com/apache/camel-kafka-connector/pull/933) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.7.1](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.1) (2021-01-24)
 
