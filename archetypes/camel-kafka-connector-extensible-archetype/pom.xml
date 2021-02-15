@@ -32,6 +32,15 @@
     <name>Camel Kafka Connector :: Archetypes :: Camel Kafka connector extensible</name>
     <packaging>maven-archetype</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.camel.kafkaconnector</groupId>
+            <artifactId>camel-timer-kafka-connector</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <extensions>
             <extension>
