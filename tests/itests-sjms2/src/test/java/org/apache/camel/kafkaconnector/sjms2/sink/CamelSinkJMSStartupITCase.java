@@ -27,7 +27,6 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.sjms2.common.SJMS2Common;
 import org.apache.kafka.connect.runtime.rest.entities.ConnectorStateInfo;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -41,7 +40,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 /**
  * A simple test to make sure we are not losing or hiding exception data on errors
  */
-@Disabled(value = "Needs further investigation about why it is failing with camel master")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkJMSStartupITCase.class);
