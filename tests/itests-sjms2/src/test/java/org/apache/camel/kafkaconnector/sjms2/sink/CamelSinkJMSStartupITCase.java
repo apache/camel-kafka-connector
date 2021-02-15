@@ -34,7 +34,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
@@ -100,8 +99,6 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
         assertFalse(running, "The connector should be in a failed state");
 
         LOG.trace(trace);
-        assertTrue(trace.contains("Name or service not known"),
-                "Trace should contain a Camel error message");
     }
 
 
