@@ -25,11 +25,15 @@ import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.StringMessageConsumer;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
+import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.syslog.services.SyslogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -77,11 +81,16 @@ public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
     }
 
 
-    @RepeatedTest(3)
+
+
     @Timeout(90)
+    @Test
+    @DisabledIfSystemProperty(named = "enable.flaky.tests", matches = "true",
+            disabledReason = "Already executed with testBasicSendStress")
     public void testBasicSend() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelSyslogPropertyFactory
                 .basic()
+                .withName("CamelSyslogSourceConnector" + TestUtils.randomWithRange(0, 1000))
                 .withKafkaTopic(topicName)
                 .withHost(HOST)
                 .withPort(FREE_PORT)
@@ -91,5 +100,13 @@ public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
         StringMessageConsumer stringMessageConsumer = new StringMessageConsumer(kafkaClient, topicName, expect);
 
         runTestBlocking(connectorPropertyFactory, stringMessageConsumer);
+    }
+
+    @RepeatedTest(3)
+    @Timeout(90)
+    @EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true",
+            disabledReason = "Quickly spawning multiple Jetty Servers doesn't work well on Github Actions")
+    public void testBasicSendStress() throws ExecutionException, InterruptedException {
+        testBasicSend();
     }
 }
