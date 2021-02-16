@@ -4,8 +4,22 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.2...HEAD)
 
+**Fixed bugs:**
+
+- Azure storage queue failing on Camel Master [\#976](https://github.com/apache/camel-kafka-connector/issues/976)
+- SJMS2 Startup test failing on Camel Master [\#975](https://github.com/apache/camel-kafka-connector/issues/975)
+
+**Closed issues:**
+
+- Azure storage blob failing on camel-master [\#997](https://github.com/apache/camel-kafka-connector/issues/997)
+- Consistent failures in GH tests [\#990](https://github.com/apache/camel-kafka-connector/issues/990)
+- Release 0.7.2 once Camel 3.7.2 will be released [\#978](https://github.com/apache/camel-kafka-connector/issues/978)
+- Add a release notes page in docs [\#302](https://github.com/apache/camel-kafka-connector/issues/302)
+
 **Merged pull requests:**
 
+- Ensure parallel builds with mvnd work on clean environments [\#1014](https://github.com/apache/camel-kafka-connector/pull/1014) ([orpiske](https://github.com/orpiske))
+- Added AWS v2 SNS sink integration test [\#1012](https://github.com/apache/camel-kafka-connector/pull/1012) ([orpiske](https://github.com/orpiske))
 - Fix problem when call 'context.errantRecordReporter\(\)' will result in a NoSuchMethodException or NoClassDefFoundError when the sink connector is deployed to Connect runtimes older than Kafka 2.6 [\#1007](https://github.com/apache/camel-kafka-connector/pull/1007) ([Evgen1000end](https://github.com/Evgen1000end))
 - Cleanup the check state logic on the KafkaConnectEmbeddedService [\#1006](https://github.com/apache/camel-kafka-connector/pull/1006) ([orpiske](https://github.com/orpiske))
 - Rework the syslog integration tests to let JUnit handle camel's lifecycle in the test [\#1005](https://github.com/apache/camel-kafka-connector/pull/1005) ([orpiske](https://github.com/orpiske))
