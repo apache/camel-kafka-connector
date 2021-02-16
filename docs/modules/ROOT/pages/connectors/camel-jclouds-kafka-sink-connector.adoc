@@ -2,11 +2,7 @@
 [[camel-jclouds-kafka-connector-sink]]
 = camel-jclouds-kafka-connector sink configuration
 
-<<<<<<< HEAD
-Connector Description: Interact with jclouds compute & blobstore service.
-=======
 Connector Description: Interact with jclouds compute and blobstore service.
->>>>>>> camel-master
 
 When using camel-jclouds-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 

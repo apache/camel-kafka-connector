@@ -2,11 +2,7 @@
 [[camel-jsonata-kafka-connector-sink]]
 = camel-jsonata-kafka-connector sink configuration
 
-<<<<<<< HEAD
-Connector Description: JSON to JSON transformation using JSONATA.
-=======
 Connector Description: Transforms JSON payload using JSONata transformation.
->>>>>>> camel-master
 
 When using camel-jsonata-kafka-connector as sink make sure to use the following Maven dependency to have support for the connector:
 
