@@ -28,7 +28,6 @@ import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.kafkaconnector.syslog.services.SyslogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
@@ -41,7 +40,6 @@ import static org.junit.jupiter.api.Assertions.fail;
  * A simple test case that checks whether the syslog send the expected number of
  * messages
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkSyslogITCase extends CamelSinkTestSupport {
     private static final String HOST = "localhost";
     private static final String PROTOCOL = "udp";
