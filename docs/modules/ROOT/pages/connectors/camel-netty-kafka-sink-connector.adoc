@@ -60,7 +60,7 @@ The camel-netty sink connector supports 107 options, which are listed below.
 | *camel.sink.endpoint.receiveBufferSize* | The TCP/UDP buffer sizes to be used during inbound communication. Size is bytes. | 65536 | false | MEDIUM
 | *camel.sink.endpoint.receiveBufferSizePredictor* | Configures the buffer size predictor. See details at Jetty documentation and this mail thread. | null | false | MEDIUM
 | *camel.sink.endpoint.sendBufferSize* | The TCP/UDP buffer sizes to be used during outbound communication. Size is bytes. | 65536 | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.sink.endpoint.transferExchange* | Only used for TCP. You can transfer the exchange over the wire instead of just the body. The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception. This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level. | false | false | MEDIUM
 | *camel.sink.endpoint.udpByteArrayCodec* | For UDP only. If enabled the using byte array codec instead of Java serialization protocol. | false | false | MEDIUM
 | *camel.sink.endpoint.workerCount* | When netty works on nio mode, it uses default workerCount parameter from Netty (which is cpu_core_threads x 2). User can use this option to override the default workerCount from Netty. | null | false | MEDIUM

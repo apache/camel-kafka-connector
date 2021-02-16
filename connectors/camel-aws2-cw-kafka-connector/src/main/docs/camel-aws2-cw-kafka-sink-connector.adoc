@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2cw.CamelAws2cwSinkConnector
 ----
 
 
-The camel-aws2-cw sink connector supports 30 options, which are listed below.
+The camel-aws2-cw sink connector supports 29 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-aws2-cw sink connector supports 30 options, which are listed below.
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.sink.endpoint.unit* | The metric unit | null | false | MEDIUM
 | *camel.sink.endpoint.value* | The metric value | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-cw.amazonCwClient* | To use the AmazonCloudWatch as the client | null | false | MEDIUM

@@ -65,9 +65,6 @@ public class CamelSmppSourceConnectorConfig
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_CONF = "camel.source.endpoint.sessionStateListener";
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DOC = "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.";
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SMPP_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SMPP_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_CONF = "camel.source.endpoint.transactionTimer";
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_DOC = "Defines the maximum period of inactivity allowed after a transaction, after which an SMPP entity may assume that the session is no longer active. This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME).";
     public static final String CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_DEFAULT = "10000";
@@ -199,7 +196,6 @@ public class CamelSmppSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DOC);
-        conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SMPP_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_TRANSACTION_TIMER_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_ALPHABET_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_ALPHABET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_ALPHABET_DOC);
         conf.define(CAMEL_SOURCE_SMPP_ENDPOINT_DATA_CODING_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SMPP_ENDPOINT_DATA_CODING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SMPP_ENDPOINT_DATA_CODING_DOC);

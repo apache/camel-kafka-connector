@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.servicenow.CamelServicenowSinkCo
 ----
 
 
-The camel-servicenow sink connector supports 94 options, which are listed below.
+The camel-servicenow sink connector supports 93 options, which are listed below.
 
 
 
@@ -64,7 +64,6 @@ The camel-servicenow sink connector supports 94 options, which are listed below.
 | *camel.sink.endpoint.mapper* | Sets Jackson's ObjectMapper to use for request/reply | null | false | MEDIUM
 | *camel.sink.endpoint.proxyAuthorizationPolicy* | To configure proxy authentication | null | false | MEDIUM
 | *camel.sink.endpoint.retrieveTargetRecordOnImport* | Set this parameter to true to retrieve the target record when using import set api. The import set result is then replaced by the target record | "false" | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.timeFormat* | The time format used for Json serialization/deserialization | "HH:mm:ss" | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | The proxy host name | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | The proxy port number | null | false | MEDIUM

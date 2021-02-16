@@ -76,13 +76,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.uri": {
 			"name": "camel.source.endpoint.uri",
 			"description": "Atomos server uri",

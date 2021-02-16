@@ -48,9 +48,6 @@ public class CamelCmisSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_CMIS_ENDPOINT_SESSION_FACADE_FACTORY_CONF = "camel.sink.endpoint.sessionFacadeFactory";
     public static final String CAMEL_SINK_CMIS_ENDPOINT_SESSION_FACADE_FACTORY_DOC = "To use a custom CMISSessionFacadeFactory to create the CMISSessionFacade instances";
     public static final String CAMEL_SINK_CMIS_ENDPOINT_SESSION_FACADE_FACTORY_DEFAULT = null;
-    public static final String CAMEL_SINK_CMIS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_CMIS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_CMIS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_CMIS_ENDPOINT_PASSWORD_CONF = "camel.sink.endpoint.password";
     public static final String CAMEL_SINK_CMIS_ENDPOINT_PASSWORD_DOC = "Password for the cmis repository";
     public static final String CAMEL_SINK_CMIS_ENDPOINT_PASSWORD_DEFAULT = null;
@@ -87,7 +84,6 @@ public class CamelCmisSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_CMIS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CMIS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CMIS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_CMIS_ENDPOINT_QUERY_MODE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CMIS_ENDPOINT_QUERY_MODE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CMIS_ENDPOINT_QUERY_MODE_DOC);
         conf.define(CAMEL_SINK_CMIS_ENDPOINT_SESSION_FACADE_FACTORY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CMIS_ENDPOINT_SESSION_FACADE_FACTORY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CMIS_ENDPOINT_SESSION_FACADE_FACTORY_DOC);
-        conf.define(CAMEL_SINK_CMIS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CMIS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CMIS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_CMIS_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CMIS_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CMIS_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_CMIS_ENDPOINT_USERNAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_CMIS_ENDPOINT_USERNAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CMIS_ENDPOINT_USERNAME_DOC);
         conf.define(CAMEL_SINK_CMIS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_CMIS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_CMIS_COMPONENT_LAZY_START_PRODUCER_DOC);

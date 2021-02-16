@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.soroush.CamelSoroushSourceConnec
 ----
 
 
-The camel-soroush source connector supports 19 options, which are listed below.
+The camel-soroush source connector supports 18 options, which are listed below.
 
 
 
@@ -39,7 +39,6 @@ The camel-soroush source connector supports 19 options, which are listed below.
 | *camel.source.endpoint.queueCapacityPerThread* | Maximum capacity of each queue when concurrentConsumers is greater than 1. if a queue become full, every message that should go to that queue will be dropped. If bridgeErrorHandler is set to true, an exchange with CongestionException is directed to ErrorHandler. You can then processed the error using onException(CongestionException.class) route. Default value notice: infinite capacity | 0 | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backOffStrategy* | The strategy to backoff in case of connection failure. Currently 3 strategies are supported: 1. Exponential (default): It multiply retryWaitingTime by retryExponentialCoefficient after each connection failure. 2. Linear: It increase retryWaitingTime by retryLinearIncrement after each connection failure. 3. Fixed: Always use retryWaitingTime as the time between retries. | "Exponential" | false | MEDIUM
 | *camel.source.endpoint.maxRetryWaitingTime* | Maximum amount of time (in millisecond) a thread wait before retrying failed request. | 3600000L | false | MEDIUM
 | *camel.source.endpoint.reconnectIdleConnection Timeout* | The timeout in millisecond to reconnect the existing getMessage connection to ensure that the connection is always live and does not dead without notifying the bot. this value should not be changed. | 300000L | false | MEDIUM

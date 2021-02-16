@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.atomixmessaging.CamelAtomixmessa
 ----
 
 
-The camel-atomix-messaging sink connector supports 36 options, which are listed below.
+The camel-atomix-messaging sink connector supports 35 options, which are listed below.
 
 
 
@@ -48,7 +48,6 @@ The camel-atomix-messaging sink connector supports 36 options, which are listed 
 | *camel.sink.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
 | *camel.sink.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
 | *camel.sink.endpoint.resourceOptions* | Local resources configurations | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.atomix-messaging.atomix* | The Atomix instance to use | null | false | MEDIUM
 | *camel.component.atomix-messaging.broadcastType* | The broadcast type. One of: [ALL] [RANDOM] | "ALL" | false | MEDIUM
 | *camel.component.atomix-messaging.channelName* | The messaging channel name | null | false | MEDIUM

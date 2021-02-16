@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.consul.CamelConsulSourceConnecto
 ----
 
 
-The camel-consul source connector supports 53 options, which are listed below.
+The camel-consul source connector supports 52 options, which are listed below.
 
 
 
@@ -50,7 +50,6 @@ The camel-consul source connector supports 53 options, which are listed below.
 | *camel.source.endpoint.datacenter* | The data center | null | false | MEDIUM
 | *camel.source.endpoint.nearNode* | The near node to use for queries. | null | false | MEDIUM
 | *camel.source.endpoint.nodeMeta* | The note meta-data to use for queries. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.aclToken* | Sets the ACL token to be used with Consul | null | false | MEDIUM
 | *camel.source.endpoint.password* | Sets the password to be used for basic authentication | null | false | MEDIUM
 | *camel.source.endpoint.sslContextParameters* | SSL configuration using an org.apache.camel.support.jsse.SSLContextParameters instance. | null | false | MEDIUM

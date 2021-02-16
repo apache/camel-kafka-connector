@@ -66,16 +66,22 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.serializer": {
-			"name": "camel.sink.endpoint.serializer",
-			"description": "A custom GooglePubsubSerializer to use for serializing message payloads in the producer",
+		"camel.sink.endpoint.messageOrderingEnabled": {
+			"name": "camel.sink.endpoint.messageOrderingEnabled",
+			"description": "Should message ordering be enabled",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
+		"camel.sink.endpoint.pubsubEndpoint": {
+			"name": "camel.sink.endpoint.pubsubEndpoint",
+			"description": "Pub\/Sub endpoint to use. Required when using message ordering, and ensures that messages are received in order even when multiple publishers are used",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.serializer": {
+			"name": "camel.sink.endpoint.serializer",
+			"description": "A custom GooglePubsubSerializer to use for serializing message payloads in the producer",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

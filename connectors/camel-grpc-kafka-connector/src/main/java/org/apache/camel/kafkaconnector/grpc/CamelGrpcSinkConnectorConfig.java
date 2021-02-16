@@ -58,7 +58,7 @@ public class CamelGrpcSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_GRPC_ENDPOINT_USER_AGENT_DOC = "The user agent header passed to the server";
     public static final String CAMEL_SINK_GRPC_ENDPOINT_USER_AGENT_DEFAULT = null;
     public static final String CAMEL_SINK_GRPC_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_GRPC_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
+    public static final String CAMEL_SINK_GRPC_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used";
     public static final Boolean CAMEL_SINK_GRPC_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_GRPC_ENDPOINT_AUTHENTICATION_TYPE_CONF = "camel.sink.endpoint.authenticationType";
     public static final String CAMEL_SINK_GRPC_ENDPOINT_AUTHENTICATION_TYPE_DOC = "Authentication method type in advance to the SSL/TLS negotiation One of: [NONE] [GOOGLE] [JWT]";

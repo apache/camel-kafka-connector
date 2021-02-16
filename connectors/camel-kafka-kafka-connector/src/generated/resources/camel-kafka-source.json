@@ -284,7 +284,7 @@
 		},
 		"camel.source.endpoint.synchronous": {
 			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
+			"description": "Sets whether synchronous processing should be strictly used",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -693,6 +693,19 @@
 			"name": "camel.component.kafka.autowiredEnabled",
 			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
 			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.kafka.kafkaClientFactory": {
+			"name": "camel.component.kafka.kafkaClientFactory",
+			"description": "Factory to use for creating org.apache.kafka.clients.consumer.KafkaConsumer and org.apache.kafka.clients.producer.KafkaProducer instances. This allows to configure a custom factory to create instances with logic that extends the vanilla Kafka clients.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.kafka.synchronous": {
+			"name": "camel.component.kafka.synchronous",
+			"description": "Sets whether synchronous processing should be strictly used",
+			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

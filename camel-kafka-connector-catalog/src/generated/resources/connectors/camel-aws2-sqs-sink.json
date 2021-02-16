@@ -85,6 +85,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.sink.endpoint.batchSeparator": {
+			"name": "camel.sink.endpoint.batchSeparator",
+			"description": "Set the separator when passing a String to send batch message operation",
+			"defaultValue": "\",\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.sink.endpoint.delaySeconds": {
 			"name": "camel.sink.endpoint.delaySeconds",
 			"description": "Delay sending messages for a number of seconds.",
@@ -145,13 +152,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.proxyHost": {
 			"name": "camel.sink.endpoint.proxyHost",
 			"description": "To define a proxy host when instantiating the SQS client",
@@ -178,7 +178,7 @@
 		},
 		"camel.sink.endpoint.policy": {
 			"name": "camel.sink.endpoint.policy",
-			"description": "The policy for this queue",
+			"description": "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -276,6 +276,13 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.component.aws2-sqs.batchSeparator": {
+			"name": "camel.component.aws2-sqs.batchSeparator",
+			"description": "Set the separator when passing a String to send batch message operation",
+			"defaultValue": "\",\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
 		"camel.component.aws2-sqs.delaySeconds": {
 			"name": "camel.component.aws2-sqs.delaySeconds",
 			"description": "Delay sending messages for a number of seconds.",
@@ -369,7 +376,7 @@
 		},
 		"camel.component.aws2-sqs.policy": {
 			"name": "camel.component.aws2-sqs.policy",
-			"description": "The policy for this queue",
+			"description": "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

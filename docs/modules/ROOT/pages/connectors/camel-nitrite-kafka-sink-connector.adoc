@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.nitrite.CamelNitriteSinkConnecto
 ----
 
 
-The camel-nitrite sink connector supports 10 options, which are listed below.
+The camel-nitrite sink connector supports 9 options, which are listed below.
 
 
 
@@ -36,7 +36,6 @@ The camel-nitrite sink connector supports 10 options, which are listed below.
 | *camel.sink.endpoint.repositoryClass* | Class of Nitrite ObjectRepository. Cannot be used in combination with collection option. | null | false | MEDIUM
 | *camel.sink.endpoint.repositoryName* | Optional name of ObjectRepository. Can be only used in combination with repositoryClass, otherwise have no effect | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.password* | Password for Nitrite database. Required, if option username specified. | null | false | MEDIUM
 | *camel.sink.endpoint.username* | Username for Nitrite database. Database is not secured if option not specified. | null | false | MEDIUM
 | *camel.component.nitrite.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM

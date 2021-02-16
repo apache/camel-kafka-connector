@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.jbpm.CamelJbpmSinkConnector
 ----
 
 
-The camel-jbpm sink connector supports 32 options, which are listed below.
+The camel-jbpm sink connector supports 31 options, which are listed below.
 
 
 
@@ -57,7 +57,6 @@ The camel-jbpm sink connector supports 32 options, which are listed below.
 | *camel.sink.endpoint.entities* | The potentialOwners when nominateTask operation is performed | null | false | MEDIUM
 | *camel.sink.endpoint.extraJaxbClasses* | To load additional classes when working with XML | null | false | MEDIUM
 | *camel.sink.endpoint.parameters* | the variables that should be set for various operations | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.statuses* | The list of status to use when filtering tasks | null | false | MEDIUM
 | *camel.sink.endpoint.password* | Password for authentication | null | false | MEDIUM
 | *camel.sink.endpoint.userName* | Username for authentication | null | false | MEDIUM

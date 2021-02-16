@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.docker.CamelDockerSourceConnecto
 ----
 
 
-The camel-docker source connector supports 42 options, which are listed below.
+The camel-docker source connector supports 41 options, which are listed below.
 
 
 
@@ -47,7 +47,6 @@ The camel-docker source connector supports 42 options, which are listed below.
 | *camel.source.endpoint.parameters* | Additional configuration parameters as key/value pairs | null | false | MEDIUM
 | *camel.source.endpoint.serverAddress* | Server address for docker registry. | "https://index.docker.io/v1/" | false | MEDIUM
 | *camel.source.endpoint.socket* | Socket connection mode | true | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.certPath* | Location containing the SSL certificate chain | null | false | MEDIUM
 | *camel.source.endpoint.password* | Password to authenticate with | null | false | MEDIUM
 | *camel.source.endpoint.secure* | Use HTTPS communication | false | false | MEDIUM

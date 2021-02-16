@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.pulsar.CamelPulsarSourceConnecto
 ----
 
 
-The camel-pulsar source connector supports 46 options, which are listed below.
+The camel-pulsar source connector supports 45 options, which are listed below.
 
 
 
@@ -54,7 +54,6 @@ The camel-pulsar source connector supports 46 options, which are listed below.
 | *camel.source.endpoint.topicsPattern* | Whether the topic is a pattern (regular expression) that allows the consumer to subscribe to all matching topics in the namespace | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | true | false | MEDIUM
 | *camel.component.pulsar.configuration* | Allows to pre-configure the Pulsar component with common options that the endpoints will reuse. | null | false | MEDIUM
 | *camel.component.pulsar.ackGroupTimeMillis* | Group the consumer acknowledgments for the specified time in milliseconds - defaults to 100 | 100L | false | MEDIUM
 | *camel.component.pulsar.ackTimeoutMillis* | Timeout for unacknowledged messages in milliseconds - defaults to 10000 | 10000L | false | MEDIUM

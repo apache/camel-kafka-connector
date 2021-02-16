@@ -78,9 +78,6 @@ public class CamelMinioSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_CONF = "camel.sink.endpoint.storageClass";
     public static final String CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_DOC = "The storage class to set in the request.";
     public static final String CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_DEFAULT = null;
-    public static final String CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_CONF = "camel.sink.endpoint.accessKey";
     public static final String CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_DOC = "Amazon AWS Secret Access Key or Minio Access Key. If not set camel will connect to service for anonymous access.";
     public static final String CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_DEFAULT = null;
@@ -181,7 +178,6 @@ public class CamelMinioSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_POJO_REQUEST_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_ENDPOINT_POJO_REQUEST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_POJO_REQUEST_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_STORAGE_CLASS_DOC);
-        conf.define(CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_ACCESS_KEY_DOC);
         conf.define(CAMEL_SINK_MINIO_ENDPOINT_SECRET_KEY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_MINIO_ENDPOINT_SECRET_KEY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_ENDPOINT_SECRET_KEY_DOC);
         conf.define(CAMEL_SINK_MINIO_COMPONENT_AUTO_CREATE_BUCKET_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_MINIO_COMPONENT_AUTO_CREATE_BUCKET_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_MINIO_COMPONENT_AUTO_CREATE_BUCKET_DOC);

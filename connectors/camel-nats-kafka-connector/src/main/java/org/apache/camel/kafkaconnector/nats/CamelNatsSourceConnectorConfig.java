@@ -95,9 +95,6 @@ public class CamelNatsSourceConnectorConfig
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_CONF = "camel.source.endpoint.connection";
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_DOC = "Reference an already instantiated connection to Nats server";
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_DEFAULT = null;
-    public static final String CAMEL_SOURCE_NATS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_NATS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_NATS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_TRACE_CONNECTION_CONF = "camel.source.endpoint.traceConnection";
     public static final String CAMEL_SOURCE_NATS_ENDPOINT_TRACE_CONNECTION_DOC = "Whether or not connection trace messages should be printed to standard out for fine grained debugging of connection issues.";
     public static final Boolean CAMEL_SOURCE_NATS_ENDPOINT_TRACE_CONNECTION_DEFAULT = false;
@@ -158,7 +155,6 @@ public class CamelNatsSourceConnectorConfig
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NATS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NATS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_CONNECTION_DOC);
-        conf.define(CAMEL_SOURCE_NATS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NATS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_TRACE_CONNECTION_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NATS_ENDPOINT_TRACE_CONNECTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_TRACE_CONNECTION_DOC);
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_SECURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_NATS_ENDPOINT_SECURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_SECURE_DOC);
         conf.define(CAMEL_SOURCE_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_NATS_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);

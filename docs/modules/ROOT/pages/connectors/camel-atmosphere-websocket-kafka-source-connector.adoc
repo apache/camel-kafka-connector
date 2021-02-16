@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.atmospherewebsocket.CamelAtmosph
 ----
 
 
-The camel-atmosphere-websocket source connector supports 36 options, which are listed below.
+The camel-atmosphere-websocket source connector supports 35 options, which are listed below.
 
 
 
@@ -56,7 +56,6 @@ The camel-atmosphere-websocket source connector supports 36 options, which are l
 | *camel.source.endpoint.mapHttpMessageBody* | If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping. | true | false | MEDIUM
 | *camel.source.endpoint.mapHttpMessageFormUrlEncoded Body* | If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping. | true | false | MEDIUM
 | *camel.source.endpoint.mapHttpMessageHeaders* | If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping. | true | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.atmosphere-websocket.bridgeError Handler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.atmosphere-websocket.servletName* | Default name of servlet to use. The default name is CamelServlet. | "CamelServlet" | false | MEDIUM
 | *camel.component.atmosphere-websocket.attachment MultipartBinding* | Whether to automatic bind multipart/form-data as attachments on the Camel Exchange. The options attachmentMultipartBinding=true and disableStreamCache=false cannot work together. Remove disableStreamCache to use AttachmentMultipartBinding. This is turn off by default as this may require servlet specific configuration to enable this when using Servlet's. | false | false | MEDIUM

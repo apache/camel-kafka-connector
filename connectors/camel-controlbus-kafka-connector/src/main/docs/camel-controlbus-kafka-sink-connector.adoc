@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.controlbus.CamelControlbusSinkCo
 ----
 
 
-The camel-controlbus sink connector supports 11 options, which are listed below.
+The camel-controlbus sink connector supports 10 options, which are listed below.
 
 
 
@@ -39,7 +39,6 @@ The camel-controlbus sink connector supports 11 options, which are listed below.
 | *camel.sink.endpoint.loggingLevel* | Logging level used for logging when task is done, or if any exceptions occurred during processing the task. One of: [TRACE] [DEBUG] [INFO] [WARN] [ERROR] [OFF] | "INFO" | false | MEDIUM
 | *camel.sink.endpoint.restartDelay* | The delay in millis to use when restarting a route. | 1000 | false | MEDIUM
 | *camel.sink.endpoint.routeId* | To specify a route by its id. The special keyword current indicates the current route. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.controlbus.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.controlbus.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===

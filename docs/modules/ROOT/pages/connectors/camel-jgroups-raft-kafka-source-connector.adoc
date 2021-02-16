@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.jgroupsraft.CamelJgroupsraftSour
 ----
 
 
-The camel-jgroups-raft source connector supports 12 options, which are listed below.
+The camel-jgroups-raft source connector supports 11 options, which are listed below.
 
 
 
@@ -36,7 +36,6 @@ The camel-jgroups-raft source connector supports 12 options, which are listed be
 | *camel.source.endpoint.enableRoleChangeEvents* | If set to true, the consumer endpoint will receive roleChange event as well (not just connecting and/or using the state machine). By default it is set to false. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.jgroups-raft.channelProperties* | Specifies configuration properties of the RaftHandle JChannel used by the endpoint (ignored if raftHandle ref is provided). | "raft.xml" | false | MEDIUM
 | *camel.component.jgroups-raft.raftHandle* | RaftHandle to use. | null | false | MEDIUM
 | *camel.component.jgroups-raft.raftId* | Unique raftId to use. | null | true | HIGH

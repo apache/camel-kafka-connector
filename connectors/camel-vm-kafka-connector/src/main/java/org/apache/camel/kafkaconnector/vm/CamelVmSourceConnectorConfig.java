@@ -57,9 +57,6 @@ public class CamelVmSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_VM_ENDPOINT_QUEUE_CONF = "camel.source.endpoint.queue";
     public static final String CAMEL_SOURCE_VM_ENDPOINT_QUEUE_DOC = "Define the queue instance which will be used by the endpoint";
     public static final String CAMEL_SOURCE_VM_ENDPOINT_QUEUE_DEFAULT = null;
-    public static final String CAMEL_SOURCE_VM_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_VM_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_VM_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_VM_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.vm.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_VM_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_VM_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -99,7 +96,6 @@ public class CamelVmSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_VM_ENDPOINT_POLL_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_VM_ENDPOINT_POLL_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VM_ENDPOINT_POLL_TIMEOUT_DOC);
         conf.define(CAMEL_SOURCE_VM_ENDPOINT_PURGE_WHEN_STOPPING_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_VM_ENDPOINT_PURGE_WHEN_STOPPING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VM_ENDPOINT_PURGE_WHEN_STOPPING_DOC);
         conf.define(CAMEL_SOURCE_VM_ENDPOINT_QUEUE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_VM_ENDPOINT_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VM_ENDPOINT_QUEUE_DOC);
-        conf.define(CAMEL_SOURCE_VM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_VM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_VM_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_VM_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VM_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_VM_COMPONENT_CONCURRENT_CONSUMERS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_VM_COMPONENT_CONCURRENT_CONSUMERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VM_COMPONENT_CONCURRENT_CONSUMERS_DOC);
         conf.define(CAMEL_SOURCE_VM_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_VM_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_VM_COMPONENT_AUTOWIRED_ENABLED_DOC);

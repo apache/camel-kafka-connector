@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.telegram.CamelTelegramSinkConnec
 ----
 
 
-The camel-telegram sink connector supports 17 options, which are listed below.
+The camel-telegram sink connector supports 16 options, which are listed below.
 
 
 
@@ -37,7 +37,6 @@ The camel-telegram sink connector supports 17 options, which are listed below.
 | *camel.sink.endpoint.baseUri* | Can be used to set an alternative base URI, e.g. when you want to test the component against a mock Telegram API | null | false | MEDIUM
 | *camel.sink.endpoint.bufferSize* | The initial in-memory buffer size used when transferring data between Camel and AHC Client. | 4096 | false | MEDIUM
 | *camel.sink.endpoint.clientConfig* | To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | HTTP proxy host which could be used when sending out the message. | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | HTTP proxy port which could be used when sending out the message. | null | false | MEDIUM
 | *camel.sink.endpoint.proxyType* | HTTP proxy type which could be used when sending out the message. One of: [HTTP] [SOCKS4] [SOCKS5] | "HTTP" | false | MEDIUM

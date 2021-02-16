@@ -55,10 +55,10 @@ The camel-jbpm source connector supports 33 options, which are listed below.
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.source.endpoint.entities* | The potentialOwners when nominateTask operation is performed | null | false | MEDIUM
 | *camel.source.endpoint.extraJaxbClasses* | To load additional classes when working with XML | null | false | MEDIUM
 | *camel.source.endpoint.parameters* | the variables that should be set for various operations | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.statuses* | The list of status to use when filtering tasks | null | false | MEDIUM
 | *camel.source.endpoint.password* | Password for authentication | null | false | MEDIUM
 | *camel.source.endpoint.userName* | Username for authentication | null | false | MEDIUM

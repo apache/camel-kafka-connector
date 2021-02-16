@@ -102,9 +102,6 @@ public class CamelJbpmSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_JBPM_ENDPOINT_PARAMETERS_CONF = "camel.sink.endpoint.parameters";
     public static final String CAMEL_SINK_JBPM_ENDPOINT_PARAMETERS_DOC = "the variables that should be set for various operations";
     public static final String CAMEL_SINK_JBPM_ENDPOINT_PARAMETERS_DEFAULT = null;
-    public static final String CAMEL_SINK_JBPM_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_JBPM_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_JBPM_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_JBPM_ENDPOINT_STATUSES_CONF = "camel.sink.endpoint.statuses";
     public static final String CAMEL_SINK_JBPM_ENDPOINT_STATUSES_DOC = "The list of status to use when filtering tasks";
     public static final String CAMEL_SINK_JBPM_ENDPOINT_STATUSES_DEFAULT = null;
@@ -159,7 +156,6 @@ public class CamelJbpmSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_JBPM_ENDPOINT_ENTITIES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JBPM_ENDPOINT_ENTITIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JBPM_ENDPOINT_ENTITIES_DOC);
         conf.define(CAMEL_SINK_JBPM_ENDPOINT_EXTRA_JAXB_CLASSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JBPM_ENDPOINT_EXTRA_JAXB_CLASSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JBPM_ENDPOINT_EXTRA_JAXB_CLASSES_DOC);
         conf.define(CAMEL_SINK_JBPM_ENDPOINT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JBPM_ENDPOINT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JBPM_ENDPOINT_PARAMETERS_DOC);
-        conf.define(CAMEL_SINK_JBPM_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_JBPM_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JBPM_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_JBPM_ENDPOINT_STATUSES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JBPM_ENDPOINT_STATUSES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JBPM_ENDPOINT_STATUSES_DOC);
         conf.define(CAMEL_SINK_JBPM_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JBPM_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JBPM_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_JBPM_ENDPOINT_USER_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_JBPM_ENDPOINT_USER_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_JBPM_ENDPOINT_USER_NAME_DOC);

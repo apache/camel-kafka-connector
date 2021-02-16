@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.disruptorvm.CamelDisruptorvmSink
 ----
 
 
-The camel-disruptor-vm sink connector supports 13 options, which are listed below.
+The camel-disruptor-vm sink connector supports 12 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-disruptor-vm sink connector supports 13 options, which are listed belo
 | *camel.sink.endpoint.producerType* | Defines the producers allowed on the Disruptor. The options allowed are: Multi to allow multiple producers and Single to enable certain optimizations only allowed when one concurrent producer (on one thread or otherwise synchronized) is active. One of: [Single] [Multi] | "Multi" | false | MEDIUM
 | *camel.sink.endpoint.timeout* | Timeout (in milliseconds) before a producer will stop waiting for an asynchronous task to complete. You can disable timeout by using 0 or a negative value. | 30000L | false | MEDIUM
 | *camel.sink.endpoint.waitForTaskToComplete* | Option to specify whether the caller should wait for the async task to complete or not before continuing. The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory. The last value, IfReplyExpected, will only wait if the message is Request Reply based. One of: [Never] [IfReplyExpected] [Always] | "IfReplyExpected" | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.disruptor-vm.bufferSize* | To configure the ring buffer size | 1024 | false | MEDIUM
 | *camel.component.disruptor-vm.defaultBlockWhenFull* | To configure the default value for block when full The default value is true. | true | false | MEDIUM
 | *camel.component.disruptor-vm.defaultProducerType* | To configure the default value for DisruptorProducerType The default value is Multi. One of: [Single] [Multi] | "Multi" | false | MEDIUM

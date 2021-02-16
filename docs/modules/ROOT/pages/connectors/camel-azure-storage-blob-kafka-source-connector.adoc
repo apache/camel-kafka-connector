@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.azurestorageblob.CamelAzurestora
 ----
 
 
-The camel-azure-storage-blob source connector supports 40 options, which are listed below.
+The camel-azure-storage-blob source connector supports 39 options, which are listed below.
 
 
 
@@ -51,7 +51,6 @@ The camel-azure-storage-blob source connector supports 40 options, which are lis
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.accessKey* | Access key for the associated azure account name to be used for authentication with azure blob services | null | false | MEDIUM
 | *camel.component.azure-storage-blob.autoDiscover Client* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.azure-storage-blob.blobName* | The blob name, to consume specific blob from a container. However on producer, is only required for the operations on the blob level | null | false | MEDIUM

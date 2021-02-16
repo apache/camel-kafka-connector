@@ -61,7 +61,7 @@
 		},
 		"camel.sink.endpoint.operation": {
 			"name": "camel.sink.endpoint.operation",
-			"description": "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
+			"description": "The operation to perform One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -133,7 +133,7 @@
 		},
 		"camel.sink.endpoint.cacheContainerConfiguration": {
 			"name": "camel.sink.endpoint.cacheContainerConfiguration",
-			"description": "The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;",
+			"description": "The CacheContainer configuration. Used if the cacheContainer is not defined.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -151,26 +151,19 @@
 		},
 		"camel.sink.endpoint.flags": {
 			"name": "camel.sink.endpoint.flags",
-			"description": "A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches.",
+			"description": "A comma separated list of org.infinispan.client.hotrod.Flag to be applied by default on each cache invocation.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.remappingFunction": {
 			"name": "camel.sink.endpoint.remappingFunction",
-			"description": "Set a specific remappingFunction to use in a compute operation",
+			"description": "Set a specific remappingFunction to use in a compute operation.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.sink.endpoint.resultHeader": {
 			"name": "camel.sink.endpoint.resultHeader",
 			"description": "Store the operation result in a header instead of the message body. By default, resultHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If resultHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. This value can be overridden by an in message header named: CamelInfinispanOperationResultHeader",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -226,7 +219,7 @@
 		},
 		"camel.component.infinispan.operation": {
 			"name": "camel.component.infinispan.operation",
-			"description": "The operation to perform. One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
+			"description": "The operation to perform One of: [PUT] [PUTASYNC] [PUTALL] [PUTALLASYNC] [PUTIFABSENT] [PUTIFABSENTASYNC] [GET] [GETORDEFAULT] [CONTAINSKEY] [CONTAINSVALUE] [REMOVE] [REMOVEASYNC] [REPLACE] [REPLACEASYNC] [SIZE] [CLEAR] [CLEARASYNC] [QUERY] [STATS] [COMPUTE] [COMPUTEASYNC]",
 			"defaultValue": "\"PUT\"",
 			"priority": "MEDIUM",
 			"required": "false",
@@ -305,7 +298,7 @@
 		},
 		"camel.component.infinispan.cacheContainerConfiguration": {
 			"name": "camel.component.infinispan.cacheContainerConfiguration",
-			"description": "The CacheContainer configuration. Uses if the cacheContainer is not defined. Must be the following types: org.infinispan.client.hotrod.configuration.Configuration - for remote cache interaction configuration; org.infinispan.configuration.cache.Configuration - for embedded cache interaction configuration;",
+			"description": "The CacheContainer configuration. Used if the cacheContainer is not defined.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -323,13 +316,13 @@
 		},
 		"camel.component.infinispan.flags": {
 			"name": "camel.component.infinispan.flags",
-			"description": "A comma separated list of Flag to be applied by default on each cache invocation, not applicable to remote caches.",
+			"description": "A comma separated list of org.infinispan.client.hotrod.Flag to be applied by default on each cache invocation.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
 		"camel.component.infinispan.remappingFunction": {
 			"name": "camel.component.infinispan.remappingFunction",
-			"description": "Set a specific remappingFunction to use in a compute operation",
+			"description": "Set a specific remappingFunction to use in a compute operation.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

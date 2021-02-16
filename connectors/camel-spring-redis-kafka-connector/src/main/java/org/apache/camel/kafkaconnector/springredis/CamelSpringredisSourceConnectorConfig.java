@@ -59,9 +59,9 @@ public class CamelSpringredisSourceConnectorConfig
     public static final String CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_LISTENER_CONTAINER_CONF = "camel.source.endpoint.listenerContainer";
     public static final String CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_LISTENER_CONTAINER_DOC = "Reference to a pre-configured RedisMessageListenerContainer instance to use.";
     public static final String CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_LISTENER_CONTAINER_DEFAULT = null;
-    public static final String CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
+    public static final String CAMEL_SOURCE_SPRINGREDIS_COMPONENT_REDIS_TEMPLATE_CONF = "camel.component.spring-redis.redisTemplate";
+    public static final String CAMEL_SOURCE_SPRINGREDIS_COMPONENT_REDIS_TEMPLATE_DOC = "Reference to a pre-configured RedisTemplate instance to use.";
+    public static final String CAMEL_SOURCE_SPRINGREDIS_COMPONENT_REDIS_TEMPLATE_DEFAULT = null;
     public static final String CAMEL_SOURCE_SPRINGREDIS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF = "camel.component.spring-redis.bridgeErrorHandler";
     public static final String CAMEL_SOURCE_SPRINGREDIS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC = "Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored.";
     public static final Boolean CAMEL_SOURCE_SPRINGREDIS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT = false;
@@ -93,7 +93,7 @@ public class CamelSpringredisSourceConnectorConfig
         conf.define(CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_EXCEPTION_HANDLER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_EXCEPTION_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_EXCEPTION_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_EXCHANGE_PATTERN_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_EXCHANGE_PATTERN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_EXCHANGE_PATTERN_DOC);
         conf.define(CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_LISTENER_CONTAINER_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_LISTENER_CONTAINER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_LISTENER_CONTAINER_DOC);
-        conf.define(CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGREDIS_ENDPOINT_SYNCHRONOUS_DOC);
+        conf.define(CAMEL_SOURCE_SPRINGREDIS_COMPONENT_REDIS_TEMPLATE_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_SPRINGREDIS_COMPONENT_REDIS_TEMPLATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGREDIS_COMPONENT_REDIS_TEMPLATE_DOC);
         conf.define(CAMEL_SOURCE_SPRINGREDIS_COMPONENT_BRIDGE_ERROR_HANDLER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SPRINGREDIS_COMPONENT_BRIDGE_ERROR_HANDLER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGREDIS_COMPONENT_BRIDGE_ERROR_HANDLER_DOC);
         conf.define(CAMEL_SOURCE_SPRINGREDIS_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_SPRINGREDIS_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_SPRINGREDIS_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;

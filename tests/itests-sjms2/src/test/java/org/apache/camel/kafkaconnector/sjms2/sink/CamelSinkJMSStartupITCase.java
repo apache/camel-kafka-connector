@@ -34,7 +34,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
@@ -52,7 +51,7 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
         Properties properties = new Properties();
 
         properties.put("camel.component.sjms2.connection-factory", "#class:org.apache.qpid.jms.JmsConnectionFactory");
-        properties.put("camel.component.sjms2.connection-factory.remoteURI", "tcp://invalid");
+        properties.put("camel.component.sjms2.connection-factory.remoteURI", "amqp://invalid");
 
         return properties;
     }
@@ -100,8 +99,6 @@ public class CamelSinkJMSStartupITCase extends AbstractKafkaTest {
         assertFalse(running, "The connector should be in a failed state");
 
         LOG.trace(trace);
-        assertTrue(trace.contains("Failed to resolve endpoint"),
-                "Trace should contain a Camel error message");
     }
 
 

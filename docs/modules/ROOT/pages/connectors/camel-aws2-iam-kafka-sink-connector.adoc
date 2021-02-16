@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2iam.CamelAws2iamSinkConnecto
 ----
 
 
-The camel-aws2-iam sink connector supports 26 options, which are listed below.
+The camel-aws2-iam sink connector supports 25 options, which are listed below.
 
 
 
@@ -34,20 +34,19 @@ The camel-aws2-iam sink connector supports 26 options, which are listed below.
 | *camel.sink.path.label* | Logical name | null | true | HIGH
 | *camel.sink.endpoint.iamClient* | To use a existing configured AWS IAM as client | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.operation* | The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup] | null | true | HIGH
+| *camel.sink.endpoint.operation* | The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup] | null | false | MEDIUM
 | *camel.sink.endpoint.pojoRequest* | If we want to use a POJO request as body or not | false | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | To define a proxy host when instantiating the IAM client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPort* | To define a proxy port when instantiating the IAM client | null | false | MEDIUM
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the IAM client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.sink.endpoint.region* | The region in which IAM client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | "aws-global" | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-iam.configuration* | Component configuration | null | false | MEDIUM
 | *camel.component.aws2-iam.iamClient* | To use a existing configured AWS IAM as client | null | false | MEDIUM
 | *camel.component.aws2-iam.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.component.aws2-iam.operation* | The operation to perform One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup] | null | true | HIGH
+| *camel.component.aws2-iam.operation* | The operation to perform. You can configure a default operation on the component level, or the operation as part of the endpoint, or via a message header with the key CamelAwsIAMOperation. One of: [listAccessKeys] [createUser] [deleteUser] [getUser] [listUsers] [createAccessKey] [deleteAccessKey] [updateAccessKey] [createGroup] [deleteGroup] [listGroups] [addUserToGroup] [removeUserFromGroup] | null | false | MEDIUM
 | *camel.component.aws2-iam.pojoRequest* | If we want to use a POJO request as body or not | false | false | MEDIUM
 | *camel.component.aws2-iam.proxyHost* | To define a proxy host when instantiating the IAM client | null | false | MEDIUM
 | *camel.component.aws2-iam.proxyPort* | To define a proxy port when instantiating the IAM client | null | false | MEDIUM

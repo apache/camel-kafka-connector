@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.solrs.CamelSolrsSinkConnector
 ----
 
 
-The camel-solrs sink connector supports 19 options, which are listed below.
+The camel-solrs sink connector supports 18 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-solrs sink connector supports 19 options, which are listed below.
 | *camel.sink.endpoint.soTimeout* | Read timeout on the underlying HttpConnectionManager. This is desirable for queries, but probably not for indexing | null | false | MEDIUM
 | *camel.sink.endpoint.streamingQueueSize* | Set the queue size for the StreamingUpdateSolrServer | 10 | false | MEDIUM
 | *camel.sink.endpoint.streamingThreadCount* | Set the number of threads for the StreamingUpdateSolrServer | 2 | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.password* | Sets password for basic auth plugin enabled servers | null | false | MEDIUM
 | *camel.sink.endpoint.username* | Sets username for basic auth plugin enabled servers | null | false | MEDIUM
 | *camel.sink.endpoint.collection* | Set the collection name which the solrCloud server could use | null | false | MEDIUM

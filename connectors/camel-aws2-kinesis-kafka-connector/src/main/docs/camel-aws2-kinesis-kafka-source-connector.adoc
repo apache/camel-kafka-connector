@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2kinesis.CamelAws2kinesisSour
 ----
 
 
-The camel-aws2-kinesis source connector supports 52 options, which are listed below.
+The camel-aws2-kinesis source connector supports 55 options, which are listed below.
 
 
 
@@ -34,11 +34,13 @@ The camel-aws2-kinesis source connector supports 52 options, which are listed be
 | *camel.source.path.streamName* | Name of the stream | null | true | HIGH
 | *camel.source.endpoint.amazonKinesisClient* | Amazon Kinesis client to use for all requests for this endpoint | null | false | MEDIUM
 | *camel.source.endpoint.cborEnabled* | This option will set the CBOR_ENABLED property during the execution | true | false | MEDIUM
+| *camel.source.endpoint.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.source.endpoint.proxyHost* | To define a proxy host when instantiating the Kinesis client | null | false | MEDIUM
 | *camel.source.endpoint.proxyPort* | To define a proxy port when instantiating the Kinesis client | null | false | MEDIUM
 | *camel.source.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the Kinesis client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.source.endpoint.region* | The region in which Kinesis Firehose client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.source.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.source.endpoint.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.iteratorType* | Defines where in the Kinesis stream to start getting records One of: [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [TRIM_HORIZON] [LATEST] [AT_TIMESTAMP] [null] | "TRIM_HORIZON" | false | MEDIUM
 | *camel.source.endpoint.maxResultsPerRequest* | Maximum number of records that will be fetched in each poll | 1 | false | MEDIUM
@@ -49,7 +51,6 @@ The camel-aws2-kinesis source connector supports 52 options, which are listed be
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | false | MEDIUM
@@ -69,11 +70,13 @@ The camel-aws2-kinesis source connector supports 52 options, which are listed be
 | *camel.component.aws2-kinesis.amazonKinesisClient* | Amazon Kinesis client to use for all requests for this endpoint | null | false | MEDIUM
 | *camel.component.aws2-kinesis.cborEnabled* | This option will set the CBOR_ENABLED property during the execution | true | false | MEDIUM
 | *camel.component.aws2-kinesis.configuration* | Component configuration | null | false | MEDIUM
+| *camel.component.aws2-kinesis.overrideEndpoint* | Set the need for overidding the endpoint. This option needs to be used in combination with uriEndpointOverride option | false | false | MEDIUM
 | *camel.component.aws2-kinesis.proxyHost* | To define a proxy host when instantiating the Kinesis client | null | false | MEDIUM
 | *camel.component.aws2-kinesis.proxyPort* | To define a proxy port when instantiating the Kinesis client | null | false | MEDIUM
 | *camel.component.aws2-kinesis.proxyProtocol* | To define a proxy protocol when instantiating the Kinesis client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.component.aws2-kinesis.region* | The region in which Kinesis Firehose client needs to work. When using this parameter, the configuration will expect the lowercase name of the region (for example ap-east-1) You'll need to use the name Region.EU_WEST_1.id() | null | false | MEDIUM
 | *camel.component.aws2-kinesis.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
+| *camel.component.aws2-kinesis.uriEndpointOverride* | Set the overriding uri endpoint. This option needs to be used in combination with overrideEndpoint option | null | false | MEDIUM
 | *camel.component.aws2-kinesis.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.aws2-kinesis.iteratorType* | Defines where in the Kinesis stream to start getting records One of: [AT_SEQUENCE_NUMBER] [AFTER_SEQUENCE_NUMBER] [TRIM_HORIZON] [LATEST] [AT_TIMESTAMP] [null] | "TRIM_HORIZON" | false | MEDIUM
 | *camel.component.aws2-kinesis.maxResultsPerRequest* | Maximum number of records that will be fetched in each poll | 1 | false | MEDIUM

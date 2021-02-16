@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.quartz.CamelQuartzSourceConnecto
 ----
 
 
-The camel-quartz source connector supports 34 options, which are listed below.
+The camel-quartz source connector supports 33 options, which are listed below.
 
 
 
@@ -45,7 +45,6 @@ The camel-quartz source connector supports 34 options, which are listed below.
 | *camel.source.endpoint.customCalendar* | Specifies a custom calendar to avoid specific range of date | null | false | MEDIUM
 | *camel.source.endpoint.jobParameters* | To configure additional options on the job. | null | false | MEDIUM
 | *camel.source.endpoint.prefixJobNameWithEndpointId* | Whether the job name should be prefixed with endpoint id | false | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.triggerParameters* | To configure additional options on the trigger. | null | false | MEDIUM
 | *camel.source.endpoint.usingFixedCamelContextName* | If it is true, JobDataMap uses the CamelContext name directly to reference the CamelContext, if it is false, JobDataMap uses use the CamelContext management name which could be changed during the deploy time. | false | false | MEDIUM
 | *camel.source.endpoint.autoStartScheduler* | Whether or not the scheduler should be auto started. | true | false | MEDIUM

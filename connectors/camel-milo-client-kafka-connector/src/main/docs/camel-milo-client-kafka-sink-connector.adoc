@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.miloclient.CamelMiloclientSinkCo
 ----
 
 
-The camel-milo-client sink connector supports 50 options, which are listed below.
+The camel-milo-client sink connector supports 54 options, which are listed below.
 
 
 
@@ -33,14 +33,17 @@ The camel-milo-client sink connector supports 50 options, which are listed below
 | Name | Description | Default | Required | Priority
 | *camel.sink.path.endpointUri* | The OPC UA server endpoint | null | true | HIGH
 | *camel.sink.endpoint.clientId* | A virtual client id to force the creation of a new connection instance | null | false | MEDIUM
+| *camel.sink.endpoint.dataChangeFilterDeadbandType* | Deadband type for MonitorFilterType DataChangeFilter. | "0" | false | MEDIUM
+| *camel.sink.endpoint.dataChangeFilterDeadbandValue* | Deadband value for MonitorFilterType DataChangeFilter. | "0.0" | false | MEDIUM
+| *camel.sink.endpoint.dataChangeFilterTrigger* | Daata change trigger for data change monitor filter type. One of: [Status] [StatusValue] [StatusValueTimestamp] | null | false | MEDIUM
 | *camel.sink.endpoint.defaultAwaitWrites* | Default await setting for writes | false | false | MEDIUM
 | *camel.sink.endpoint.discoveryEndpointSuffix* | A suffix for endpoint URI when discovering | null | false | MEDIUM
 | *camel.sink.endpoint.discoveryEndpointUri* | An alternative discovery URI | null | false | MEDIUM
 | *camel.sink.endpoint.method* | The method definition (see Method ID) | null | false | MEDIUM
+| *camel.sink.endpoint.monitorFilterType* | Monitor Filter Type for MonitoredItems. One of: [dataChangeFilter] | null | false | MEDIUM
 | *camel.sink.endpoint.node* | The node definition (see Node ID) | null | false | MEDIUM
 | *camel.sink.endpoint.samplingInterval* | The sampling interval in milliseconds | "0.0" | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.allowedSecurityPolicies* | A set of allowed security policy URIs. Default is to accept all and use the highest. | null | false | MEDIUM
 | *camel.sink.endpoint.applicationName* | The application name | "Apache Camel adapter for Eclipse Milo" | false | MEDIUM
 | *camel.sink.endpoint.applicationUri* | The application URI | "http://camel.apache.org/EclipseMilo/Client" | false | MEDIUM
@@ -75,6 +78,7 @@ The camel-milo-client sink connector supports 50 options, which are listed below
 | *camel.component.milo-client.keyStoreUrl* | The URL where the key should be loaded from | null | false | MEDIUM
 | *camel.component.milo-client.maxPendingPublish Requests* | The maximum number of pending publish requests | null | false | MEDIUM
 | *camel.component.milo-client.maxResponseMessageSize* | The maximum number of bytes a response message may have | null | false | MEDIUM
+| *camel.component.milo-client.miloClientConnection Manager* | Instance for managing client connections | null | false | MEDIUM
 | *camel.component.milo-client.overrideHost* | Override the server reported endpoint host with the host from the endpoint URI. | false | false | MEDIUM
 | *camel.component.milo-client.productUri* | The product URI | "http://camel.apache.org/EclipseMilo" | false | MEDIUM
 | *camel.component.milo-client.requestedPublishing Interval* | The requested publishing interval in milliseconds | "1_000.0" | false | MEDIUM

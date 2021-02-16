@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.hazelcastseda.CamelHazelcastseda
 ----
 
 
-The camel-hazelcast-seda source connector supports 17 options, which are listed below.
+The camel-hazelcast-seda source connector supports 16 options, which are listed below.
 
 
 
@@ -38,7 +38,6 @@ The camel-hazelcast-seda source connector supports 17 options, which are listed 
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.concurrentConsumers* | To use concurrent consumers polling from the SEDA queue. | 1 | false | MEDIUM
 | *camel.source.endpoint.onErrorDelay* | Milliseconds before consumer continues polling after an error has occurred. | 1000 | false | MEDIUM
 | *camel.source.endpoint.pollTimeout* | The timeout used when consuming from the SEDA queue. When a timeout occurs, the consumer can check whether it is allowed to continue running. Setting a lower value allows the consumer to react more quickly upon shutdown. | 1000 | false | MEDIUM

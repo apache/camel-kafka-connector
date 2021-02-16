@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.cxfrs.CamelCxfrsSourceConnector
 ----
 
 
-The camel-cxfrs source connector supports 29 options, which are listed below.
+The camel-cxfrs source connector supports 28 options, which are listed below.
 
 
 
@@ -55,7 +55,6 @@ The camel-cxfrs source connector supports 29 options, which are listed below.
 | *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
 | *camel.source.endpoint.performInvocation* | When the option is true, Camel will perform the invocation of the resource class instance and put the response object into the exchange for further processing. | false | false | MEDIUM
 | *camel.source.endpoint.propagateContexts* | When the option is true, JAXRS UriInfo, HttpHeaders, Request and SecurityContext contexts will be available to custom CXFRS processors as typed Camel exchange properties. These contexts can be used to analyze the current requests using JAX-RS API. | false | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.cxfrs.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.cxfrs.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 | *camel.component.cxfrs.headerFilterStrategy* | To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM

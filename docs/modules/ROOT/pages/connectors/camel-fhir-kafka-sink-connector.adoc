@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.fhir.CamelFhirSinkConnector
 ----
 
 
-The camel-fhir sink connector supports 54 options, which are listed below.
+The camel-fhir sink connector supports 53 options, which are listed below.
 
 
 
@@ -50,7 +50,6 @@ The camel-fhir sink connector supports 54 options, which are listed below.
 | *camel.sink.endpoint.sessionCookie* | HTTP session cookie to add to every request | null | false | MEDIUM
 | *camel.sink.endpoint.socketTimeout* | How long to block for individual read/write operations (in ms) | "10000" | false | MEDIUM
 | *camel.sink.endpoint.summary* | Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE] | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.validationMode* | When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE] | "ONCE" | false | MEDIUM
 | *camel.sink.endpoint.proxyHost* | The proxy host | null | false | MEDIUM
 | *camel.sink.endpoint.proxyPassword* | The proxy password | null | false | MEDIUM

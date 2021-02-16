@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.caffeinecache.CamelCaffeinecache
 ----
 
 
-The camel-caffeine-cache sink connector supports 34 options, which are listed below.
+The camel-caffeine-cache sink connector supports 33 options, which are listed below.
 
 
 
@@ -46,7 +46,6 @@ The camel-caffeine-cache sink connector supports 34 options, which are listed be
 | *camel.sink.endpoint.statsCounter* | Set a specific Stats Counter for the cache stats | null | false | MEDIUM
 | *camel.sink.endpoint.statsEnabled* | To enable stats on the cache | false | false | MEDIUM
 | *camel.sink.endpoint.keyType* | The cache key type, default java.lang.Object | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.valueType* | The cache value type, default java.lang.Object | null | false | MEDIUM
 | *camel.component.caffeine-cache.action* | To configure the default cache action. If an action is set in the message header, then the operation from the header takes precedence. | null | false | MEDIUM
 | *camel.component.caffeine-cache.cacheLoader* | To configure a CacheLoader in case of a LoadCache use | null | false | MEDIUM

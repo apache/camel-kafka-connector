@@ -21,6 +21,31 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
+		"camel.source.endpoint.dataChangeFilterDeadbandType": {
+			"name": "camel.source.endpoint.dataChangeFilterDeadbandType",
+			"description": "Deadband type for MonitorFilterType DataChangeFilter.",
+			"defaultValue": "\"0\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.dataChangeFilterDeadbandValue": {
+			"name": "camel.source.endpoint.dataChangeFilterDeadbandValue",
+			"description": "Deadband value for MonitorFilterType DataChangeFilter.",
+			"defaultValue": "\"0.0\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.source.endpoint.dataChangeFilterTrigger": {
+			"name": "camel.source.endpoint.dataChangeFilterTrigger",
+			"description": "Daata change trigger for data change monitor filter type. One of: [Status] [StatusValue] [StatusValueTimestamp]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"Status",
+				"StatusValue",
+				"StatusValueTimestamp"
+			]
+		},
 		"camel.source.endpoint.defaultAwaitWrites": {
 			"name": "camel.source.endpoint.defaultAwaitWrites",
 			"description": "Default await setting for writes",
@@ -45,6 +70,15 @@
 			"description": "The method definition (see Method ID)",
 			"priority": "MEDIUM",
 			"required": "false"
+		},
+		"camel.source.endpoint.monitorFilterType": {
+			"name": "camel.source.endpoint.monitorFilterType",
+			"description": "Monitor Filter Type for MonitoredItems. One of: [dataChangeFilter]",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"dataChangeFilter"
+			]
 		},
 		"camel.source.endpoint.node": {
 			"name": "camel.source.endpoint.node",
@@ -82,13 +116,6 @@
 				"InOut",
 				"InOptionalOut"
 			]
-		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
 		},
 		"camel.source.endpoint.allowedSecurityPolicies": {
 			"name": "camel.source.endpoint.allowedSecurityPolicies",
@@ -300,6 +327,12 @@
 		"camel.component.milo-client.maxResponseMessageSize": {
 			"name": "camel.component.milo-client.maxResponseMessageSize",
 			"description": "The maximum number of bytes a response message may have",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.milo-client.miloClientConnectionManager": {
+			"name": "camel.component.milo-client.miloClientConnectionManager",
+			"description": "Instance for managing client connections",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

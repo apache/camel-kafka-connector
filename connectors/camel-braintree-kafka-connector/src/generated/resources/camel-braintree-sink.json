@@ -104,13 +104,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.httpLogLevel": {
 			"name": "camel.sink.endpoint.httpLogLevel",
 			"description": "Set logging level for http calls, see java.util.logging.Level One of: [OFF] [SEVERE] [WARNING] [INFO] [CONFIG] [FINE] [FINER] [FINEST] [ALL]",

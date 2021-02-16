@@ -72,9 +72,6 @@ public class CamelJmxSourceConnectorConfig extends CamelSourceConnectorConfig {
     public static final String CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_ON_CONNECTION_FAILURE_CONF = "camel.source.endpoint.reconnectOnConnectionFailure";
     public static final String CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_ON_CONNECTION_FAILURE_DOC = "If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs. The consumer will attempt to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured reconnectionDelay";
     public static final Boolean CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_ON_CONNECTION_FAILURE_DEFAULT = false;
-    public static final String CAMEL_SOURCE_JMX_ENDPOINT_SYNCHRONOUS_CONF = "camel.source.endpoint.synchronous";
-    public static final String CAMEL_SOURCE_JMX_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SOURCE_JMX_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SOURCE_JMX_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF = "camel.source.endpoint.testConnectionOnStartup";
     public static final String CAMEL_SOURCE_JMX_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC = "If true the consumer will throw an exception if unable to establish the JMX connection upon startup. If false, the consumer will attempt to establish the JMX connection every 'x' seconds until the connection is made -- where 'x' is the configured reconnectionDelay";
     public static final Boolean CAMEL_SOURCE_JMX_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT = true;
@@ -152,7 +149,6 @@ public class CamelJmxSourceConnectorConfig extends CamelSourceConnectorConfig {
         conf.define(CAMEL_SOURCE_JMX_ENDPOINT_OBJECT_PROPERTIES_CONF, ConfigDef.Type.STRING, CAMEL_SOURCE_JMX_ENDPOINT_OBJECT_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMX_ENDPOINT_OBJECT_PROPERTIES_DOC);
         conf.define(CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_DELAY_DOC);
         conf.define(CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_ON_CONNECTION_FAILURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_ON_CONNECTION_FAILURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMX_ENDPOINT_RECONNECT_ON_CONNECTION_FAILURE_DOC);
-        conf.define(CAMEL_SOURCE_JMX_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JMX_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMX_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SOURCE_JMX_ENDPOINT_TEST_CONNECTION_ON_STARTUP_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SOURCE_JMX_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMX_ENDPOINT_TEST_CONNECTION_ON_STARTUP_DOC);
         conf.define(CAMEL_SOURCE_JMX_ENDPOINT_INIT_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_JMX_ENDPOINT_INIT_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMX_ENDPOINT_INIT_THRESHOLD_DOC);
         conf.define(CAMEL_SOURCE_JMX_ENDPOINT_MODULUS_CONF, ConfigDef.Type.INT, CAMEL_SOURCE_JMX_ENDPOINT_MODULUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SOURCE_JMX_ENDPOINT_MODULUS_DOC);

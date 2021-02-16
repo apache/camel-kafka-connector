@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.zookeeper.CamelZookeeperSourceCo
 ----
 
 
-The camel-zookeeper source connector supports 19 options, which are listed below.
+The camel-zookeeper source connector supports 18 options, which are listed below.
 
 
 
@@ -41,7 +41,6 @@ The camel-zookeeper source connector supports 19 options, which are listed below
 | *camel.source.endpoint.sendEmptyMessageOnDelete* | Upon the delete of a znode, should an empty message be send to the consumer | true | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.zookeeper.listChildren* | Whether the children of the node should be listed | false | false | MEDIUM
 | *camel.component.zookeeper.timeout* | The time interval to wait on connection before timing out. | 5000 | false | MEDIUM
 | *camel.component.zookeeper.backoff* | The time interval to backoff for after an error before retrying. | 5000L | false | MEDIUM

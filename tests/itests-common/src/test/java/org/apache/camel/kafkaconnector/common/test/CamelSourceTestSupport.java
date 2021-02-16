@@ -70,6 +70,7 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
     public void runTest(ConnectorPropertyFactory connectorPropertyFactory, TestMessageConsumer<?> consumer,
                         FunctionalTestMessageProducer producer) throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
+
         LOG.debug("Initialized the connector and put the data for the test execution");
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
 
@@ -107,6 +108,7 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
     public void runTestBlocking(ConnectorPropertyFactory connectorPropertyFactory, TestMessageConsumer<?> consumer,
                         FunctionalTestMessageProducer producer) throws ExecutionException, InterruptedException {
         connectorPropertyFactory.log();
+
         LOG.debug("Initialized the connector and put the data for the test execution");
         getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
 

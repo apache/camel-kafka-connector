@@ -27,7 +27,7 @@ public class CamelSalesforceSinkConnectorConfig
             CamelSinkConnectorConfig {
 
     public static final String CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_CONF = "camel.sink.path.operationName";
-    public static final String CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_DOC = "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite]";
+    public static final String CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_DOC = "The operation to use One of: [getVersions] [getResources] [getGlobalObjects] [getBasicInfo] [getDescription] [getSObject] [createSObject] [updateSObject] [deleteSObject] [getSObjectWithId] [upsertSObject] [deleteSObjectWithId] [getBlobField] [query] [queryMore] [queryAll] [search] [apexCall] [recent] [createJob] [getJob] [closeJob] [abortJob] [createBatch] [getBatch] [getAllBatches] [getRequest] [getResults] [createBatchQuery] [getQueryResultIds] [getQueryResult] [getRecentReports] [getReportDescription] [executeSyncReport] [executeAsyncReport] [getReportInstances] [getReportResults] [limits] [approval] [approvals] [composite-tree] [composite-batch] [composite] [bulk2GetAllJobs] [bulk2CreateJob] [bulk2GetJob] [bulk2CreateBatch] [bulk2CloseJob] [bulk2AbortJob] [bulk2DeleteJob] [bulk2GetSuccessfulResults] [bulk2GetFailedResults] [bulk2GetUnprocessedRecords] [bulk2CreateQueryJob] [bulk2GetQueryJob] [bulk2GetAllQueryJobs] [bulk2GetQueryJobResults] [bulk2AbortQueryJob] [bulk2DeleteQueryJob]";
     public static final String CAMEL_SINK_SALESFORCE_PATH_OPERATION_NAME_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_METHOD_CONF = "camel.sink.endpoint.apexMethod";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_METHOD_DOC = "APEX method name";
@@ -98,6 +98,21 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_OBJECT_MAPPER_CONF = "camel.sink.endpoint.objectMapper";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_OBJECT_MAPPER_DOC = "Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_OBJECT_MAPPER_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_CONF = "camel.sink.endpoint.pkChunking";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_DOC = "Use PK Chunking. Only for use in original Bulk API. Bulk 2.0 API performs PK chunking automatically, if necessary.";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_CHUNK_SIZE_CONF = "camel.sink.endpoint.pkChunkingChunkSize";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_CHUNK_SIZE_DOC = "Chunk size for use with PK Chunking. If unspecified, salesforce default is 100,000. Maximum size is 250,000.";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_CHUNK_SIZE_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_PARENT_CONF = "camel.sink.endpoint.pkChunkingParent";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_PARENT_DOC = "Specifies the parent object when you're enabling PK chunking for queries on sharing objects. The chunks are based on the parent object's records rather than the sharing object's records. For example, when querying on AccountShare, specify Account as the parent object. PK chunking is supported for sharing objects as long as the parent object is supported.";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_PARENT_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_START_ROW_CONF = "camel.sink.endpoint.pkChunkingStartRow";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_START_ROW_DOC = "Specifies the 15-character or 18-character record ID to be used as the lower boundary for the first chunk. Use this parameter to specify a starting ID when restarting a job that failed between batches.";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_START_ROW_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_QUERY_LOCATOR_CONF = "camel.sink.endpoint.queryLocator";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_QUERY_LOCATOR_DOC = "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.";
+    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_QUERY_LOCATOR_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_RAW_PAYLOAD_CONF = "camel.sink.endpoint.rawPayload";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default";
     public static final Boolean CAMEL_SINK_SALESFORCE_ENDPOINT_RAW_PAYLOAD_DEFAULT = false;
@@ -149,9 +164,6 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_CONF = "camel.sink.endpoint.lazyStartProducer";
     public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT = false;
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_CONF = "camel.component.salesforce.apexMethod";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_DOC = "APEX method name";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_DEFAULT = null;
@@ -236,6 +248,21 @@ public class CamelSalesforceSinkConnectorConfig
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_CONF = "camel.component.salesforce.packages";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DOC = "In what packages are the generated DTO classes. Typically the classes would be generated using camel-salesforce-maven-plugin. This must be set if using the XML format. Also, set it if using the generated DTOs to gain the benefit of using short SObject names in parameters/header values. Multiple packages can be separated by comma.";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_CONF = "camel.component.salesforce.pkChunking";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_DOC = "Use PK Chunking. Only for use in original Bulk API. Bulk 2.0 API performs PK chunking automatically, if necessary.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_CHUNK_SIZE_CONF = "camel.component.salesforce.pkChunkingChunkSize";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_CHUNK_SIZE_DOC = "Chunk size for use with PK Chunking. If unspecified, salesforce default is 100,000. Maximum size is 250,000.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_CHUNK_SIZE_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_PARENT_CONF = "camel.component.salesforce.pkChunkingParent";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_PARENT_DOC = "Specifies the parent object when you're enabling PK chunking for queries on sharing objects. The chunks are based on the parent object's records rather than the sharing object's records. For example, when querying on AccountShare, specify Account as the parent object. PK chunking is supported for sharing objects as long as the parent object is supported.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_PARENT_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_START_ROW_CONF = "camel.component.salesforce.pkChunkingStartRow";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_START_ROW_DOC = "Specifies the 15-character or 18-character record ID to be used as the lower boundary for the first chunk. Use this parameter to specify a starting ID when restarting a job that failed between batches.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_START_ROW_DEFAULT = null;
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_QUERY_LOCATOR_CONF = "camel.component.salesforce.queryLocator";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_QUERY_LOCATOR_DOC = "Query Locator provided by salesforce for use when a query results in more records than can be retrieved in a single call. Use this value in a subsequent call to retrieve additional records.";
+    public static final String CAMEL_SINK_SALESFORCE_COMPONENT_QUERY_LOCATOR_DEFAULT = null;
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF = "camel.component.salesforce.rawPayload";
     public static final String CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC = "Use raw payload String for request and response (either JSON or XML depending on format), instead of DTOs, false by default";
     public static final Boolean CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_DEFAULT = false;
@@ -408,6 +435,11 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UNDELETE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UNDELETE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UNDELETE_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UPDATE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UPDATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_NOTIFY_FOR_OPERATION_UPDATE_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_OBJECT_MAPPER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_OBJECT_MAPPER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_OBJECT_MAPPER_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_CHUNK_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_CHUNK_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_CHUNK_SIZE_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_PARENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_PARENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_PARENT_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_START_ROW_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_START_ROW_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_PK_CHUNKING_START_ROW_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_QUERY_LOCATOR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_QUERY_LOCATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_QUERY_LOCATOR_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_RAW_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_RAW_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_RAW_PAYLOAD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_REPORT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_REPORT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_REPORT_ID_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_REPORT_METADATA_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_REPORT_METADATA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_REPORT_METADATA_DOC);
@@ -425,7 +457,6 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_APEX_URL_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_COMPOSITE_METHOD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_LAZY_START_PRODUCER_DOC);
-        conf.define(CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_METHOD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_APEX_QUERY_PARAMS_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_API_VERSION_DOC);
@@ -454,6 +485,11 @@ public class CamelSalesforceSinkConnectorConfig
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_NOTIFY_FOR_OPERATION_UPDATE_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_OBJECT_MAPPER_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_PACKAGES_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_CHUNK_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_CHUNK_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_CHUNK_SIZE_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_PARENT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_PARENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_PARENT_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_START_ROW_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_START_ROW_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_PK_CHUNKING_START_ROW_DOC);
+        conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_QUERY_LOCATOR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_QUERY_LOCATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_QUERY_LOCATOR_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_RAW_PAYLOAD_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_ID_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_ID_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_ID_DOC);
         conf.define(CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_METADATA_CONF, ConfigDef.Type.STRING, CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_METADATA_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_SALESFORCE_COMPONENT_REPORT_METADATA_DOC);

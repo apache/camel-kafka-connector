@@ -88,13 +88,6 @@
 				"InOptionalOut"
 			]
 		},
-		"camel.source.endpoint.synchronous": {
-			"name": "camel.source.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used (this component only supports synchronous operations).",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.source.endpoint.charsetName": {
 			"name": "camel.source.endpoint.charsetName",
 			"description": "Set the CamelCharsetName property on the exchange",

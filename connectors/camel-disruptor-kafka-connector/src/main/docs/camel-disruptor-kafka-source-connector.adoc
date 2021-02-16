@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.disruptor.CamelDisruptorSourceCo
 ----
 
 
-The camel-disruptor source connector supports 15 options, which are listed below.
+The camel-disruptor source connector supports 14 options, which are listed below.
 
 
 
@@ -39,7 +39,6 @@ The camel-disruptor source connector supports 15 options, which are listed below
 | *camel.source.endpoint.waitStrategy* | Defines the strategy used by consumer threads to wait on new exchanges to be published. The options allowed are:Blocking, Sleeping, BusySpin and Yielding. One of: [Blocking] [Sleeping] [BusySpin] [Yielding] | "Blocking" | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.disruptor.bufferSize* | To configure the ring buffer size | 1024 | false | MEDIUM
 | *camel.component.disruptor.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.component.disruptor.defaultConcurrent Consumers* | To configure the default number of concurrent consumers | 1 | false | MEDIUM

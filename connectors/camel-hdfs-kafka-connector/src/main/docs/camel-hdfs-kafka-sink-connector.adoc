@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.hdfs.CamelHdfsSinkConnector
 ----
 
 
-The camel-hdfs sink connector supports 31 options, which are listed below.
+The camel-hdfs sink connector supports 30 options, which are listed below.
 
 
 
@@ -54,7 +54,6 @@ The camel-hdfs sink connector supports 31 options, which are listed below.
 | *camel.sink.endpoint.readSuffix* | Once the file has been read is renamed with this suffix to avoid to read it again. | "read" | false | MEDIUM
 | *camel.sink.endpoint.replication* | The HDFS replication factor | 3 | false | MEDIUM
 | *camel.sink.endpoint.splitStrategy* | In the current version of Hadoop opening a file in append mode is disabled since it's not very reliable. So, for the moment, it's only possible to create new files. The Camel HDFS endpoint tries to solve this problem in this way: If the split strategy option has been defined, the hdfs path will be used as a directory and files will be created using the configured UuidGenerator. Every time a splitting condition is met, a new file is created. The splitStrategy option is defined as a string with the following syntax: splitStrategy=ST:value,ST:value,... where ST can be: BYTES a new file is created, and the old is closed when the number of written bytes is more than value MESSAGES a new file is created, and the old is closed when the number of written messages is more than value IDLE a new file is created, and the old is closed when no writing happened in the last value milliseconds | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.kerberosConfigFileLocation* | The location of the kerb5.conf file (\https://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html) | null | false | MEDIUM
 | *camel.sink.endpoint.kerberosKeytabLocation* | The location of the keytab file used to authenticate with the kerberos nodes (contains pairs of kerberos principals and encrypted keys (which are derived from the Kerberos password)) | null | false | MEDIUM
 | *camel.sink.endpoint.kerberosUsername* | The username used to authenticate with the kerberos nodes | null | false | MEDIUM

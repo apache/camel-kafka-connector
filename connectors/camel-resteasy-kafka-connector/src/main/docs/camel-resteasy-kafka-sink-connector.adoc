@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.resteasy.CamelResteasySinkConnec
 ----
 
 
-The camel-resteasy sink connector supports 35 options, which are listed below.
+The camel-resteasy sink connector supports 34 options, which are listed below.
 
 
 
@@ -57,7 +57,6 @@ The camel-resteasy sink connector supports 35 options, which are listed below.
 | *camel.sink.endpoint.mapHttpMessageHeaders* | If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping. | true | false | MEDIUM
 | *camel.sink.endpoint.setHttpResponseDuring Processing* | Sets the flag to use the endpoint where you can either populate camel exchange from servlet response or use request itself which may be thought as if it is a proxy. | null | false | MEDIUM
 | *camel.sink.endpoint.skipServletProcessing* | Sets the flag to use skip servlet processing and let camel take over processing | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.useSystemProperties* | To use System Properties as fallback for configuration | false | false | MEDIUM
 | *camel.sink.endpoint.proxyClientClass* | Sets the resteasy proxyClientClass | null | false | MEDIUM
 | *camel.sink.endpoint.password* | Sets the password | null | false | MEDIUM

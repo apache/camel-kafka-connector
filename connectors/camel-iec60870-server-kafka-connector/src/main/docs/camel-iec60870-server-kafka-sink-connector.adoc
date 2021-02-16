@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.iec60870server.CamelIec60870serv
 ----
 
 
-The camel-iec60870-server sink connector supports 23 options, which are listed below.
+The camel-iec60870-server sink connector supports 22 options, which are listed below.
 
 
 
@@ -36,7 +36,6 @@ The camel-iec60870-server sink connector supports 23 options, which are listed b
 | *camel.sink.endpoint.filterNonExecute* | Filter out all requests which don't have the execute bit set | true | false | MEDIUM
 | *camel.sink.endpoint.protocolOptions* | Protocol options | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.acknowledgeWindow* | Parameter W - Acknowledgment window. | 10 | false | MEDIUM
 | *camel.sink.endpoint.adsuAddressType* | The common ASDU address size. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2] | null | false | MEDIUM
 | *camel.sink.endpoint.causeOfTransmissionType* | The cause of transmission type. May be either SIZE_1 or SIZE_2. One of: [SIZE_1] [SIZE_2] | null | false | MEDIUM

@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.file.CamelFileSourceConnector
 ----
 
 
-The camel-file source connector supports 79 options, which are listed below.
+The camel-file source connector supports 81 options, which are listed below.
 
 
 
@@ -59,12 +59,13 @@ The camel-file source connector supports 79 options, which are listed below.
 | *camel.source.endpoint.bufferSize* | Buffer size in bytes used for writing files (or in case of FTP for downloading and uploading files). | 131072 | false | MEDIUM
 | *camel.source.endpoint.copyAndDeleteOnRenameFail* | Whether to fallback and do a copy and delete file, in case the file could not be renamed directly. This option is not available for the FTP component. | true | false | MEDIUM
 | *camel.source.endpoint.renameUsingCopy* | Perform rename operations using a copy and delete strategy. This is primarily used in environments where the regular rename operation is unreliable (e.g. across different file systems or networks). This option takes precedence over the copyAndDeleteOnRenameFail parameter that will automatically fall back to the copy and delete strategy, but only after additional delays. | false | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.source.endpoint.antExclude* | Ant style filter exclusion. If both antInclude and antExclude are used, antExclude takes precedence over antInclude. Multiple exclusions may be specified in comma-delimited format. | null | false | MEDIUM
 | *camel.source.endpoint.antFilterCaseSensitive* | Sets case sensitive flag on ant filter. | true | false | MEDIUM
 | *camel.source.endpoint.antInclude* | Ant style filter inclusion. Multiple inclusions may be specified in comma-delimited format. | null | false | MEDIUM
 | *camel.source.endpoint.eagerMaxMessagesPerPoll* | Allows for controlling whether the limit from maxMessagesPerPoll is eager or not. If eager then the limit is during the scanning of files. Where as false would scan all files, and then perform sorting. Setting this option to false allows for sorting all files first, and then limit the poll. Mind that this requires a higher memory usage as all file details are in memory to perform the sorting. | true | false | MEDIUM
 | *camel.source.endpoint.exclude* | Is used to exclude files, if filename matches the regex pattern (matching is case in-senstive). Notice if you use symbols such as plus sign and others you would need to configure this using the RAW() syntax if configuring this as an endpoint uri. See more details at configuring endpoint uris | null | false | MEDIUM
+| *camel.source.endpoint.excludeExt* | Is used to exclude files matching file extension name (case insensitive). For example to exclude bak files, then use excludeExt=bak. Multiple extensions can be separated by comma, for example to exclude bak and dat files, use excludeExt=bak,dat. | null | false | MEDIUM
 | *camel.source.endpoint.filter* | Pluggable filter as a org.apache.camel.component.file.GenericFileFilter class. Will skip files if filter returns false in its accept() method. | null | false | MEDIUM
 | *camel.source.endpoint.filterDirectory* | Filters the directory based on Simple language. For example to filter on current date, you can use a simple date pattern such as ${date:now:yyyMMdd} | null | false | MEDIUM
 | *camel.source.endpoint.filterFile* | Filters the file based on Simple language. For example to filter on file size, you can use ${file:size} 5000 | null | false | MEDIUM
@@ -72,6 +73,7 @@ The camel-file source connector supports 79 options, which are listed below.
 | *camel.source.endpoint.idempotentKey* | To use a custom idempotent key. By default the absolute path of the file is used. You can use the File Language, for example to use the file name and file size, you can do: idempotentKey=${file:name}-${file:size} | null | false | MEDIUM
 | *camel.source.endpoint.idempotentRepository* | A pluggable repository org.apache.camel.spi.IdempotentRepository which by default use MemoryMessageIdRepository if none is specified and idempotent is true. | null | false | MEDIUM
 | *camel.source.endpoint.include* | Is used to include files, if filename matches the regex pattern (matching is case in-sensitive). Notice if you use symbols such as plus sign and others you would need to configure this using the RAW() syntax if configuring this as an endpoint uri. See more details at configuring endpoint uris | null | false | MEDIUM
+| *camel.source.endpoint.includeExt* | Is used to include files matching file extension name (case insensitive). For example to include txt files, then use includeExt=txt. Multiple extensions can be separated by comma, for example to include txt and xml files, use includeExt=txt,xml | null | false | MEDIUM
 | *camel.source.endpoint.maxDepth* | The maximum depth to traverse when recursively processing a directory. | 2147483647 | false | MEDIUM
 | *camel.source.endpoint.maxMessagesPerPoll* | To define a maximum messages to gather per poll. By default no maximum is set. Can be used to set a limit of e.g. 1000 to avoid when starting up the server that there are thousands of files. Set a value of 0 or negative to disabled it. Notice: If this option is in use then the File and FTP components will limit before any sorting. For example if you have 100000 files and use maxMessagesPerPoll=500, then only the first 500 files will be picked up, and then sorted. You can use the eagerMaxMessagesPerPoll option and set this to false to allow to scan all files first and then sort afterwards. | null | false | MEDIUM
 | *camel.source.endpoint.minDepth* | The minimum depth to start processing when recursively processing a directory. Using minDepth=1 means the base directory. Using minDepth=2 means the first sub directory. | null | false | MEDIUM

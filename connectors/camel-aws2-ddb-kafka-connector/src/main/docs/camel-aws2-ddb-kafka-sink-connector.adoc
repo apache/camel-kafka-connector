@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2ddb.CamelAws2ddbSinkConnecto
 ----
 
 
-The camel-aws2-ddb sink connector supports 34 options, which are listed below.
+The camel-aws2-ddb sink connector supports 33 options, which are listed below.
 
 
 
@@ -45,7 +45,6 @@ The camel-aws2-ddb sink connector supports 34 options, which are listed below.
 | *camel.sink.endpoint.region* | The region in which DDB client needs to work | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
 | *camel.sink.endpoint.writeCapacity* | The provisioned throughput to reserved for writing resources to your table | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-ddb.amazonDDBClient* | To use the AmazonDynamoDB as the client | null | false | MEDIUM

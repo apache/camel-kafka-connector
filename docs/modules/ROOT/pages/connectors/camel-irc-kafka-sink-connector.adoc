@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.irc.CamelIrcSinkConnector
 ----
 
 
-The camel-irc sink connector supports 30 options, which are listed below.
+The camel-irc sink connector supports 29 options, which are listed below.
 
 
 
@@ -43,7 +43,6 @@ The camel-irc sink connector supports 30 options, which are listed below.
 | *camel.sink.endpoint.realname* | The IRC user's actual name. | null | false | MEDIUM
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.colors* | Whether or not the server supports color codes. | true | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.onJoin* | Handle user join events. | true | false | MEDIUM
 | *camel.sink.endpoint.onKick* | Handle kick events. | true | false | MEDIUM
 | *camel.sink.endpoint.onMode* | Handle mode change events. | true | false | MEDIUM

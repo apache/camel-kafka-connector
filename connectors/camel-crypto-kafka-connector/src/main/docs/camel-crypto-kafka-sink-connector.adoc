@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.crypto.CamelCryptoSinkConnector
 ----
 
 
-The camel-crypto sink connector supports 43 options, which are listed below.
+The camel-crypto sink connector supports 42 options, which are listed below.
 
 
 
@@ -51,7 +51,6 @@ The camel-crypto sink connector supports 43 options, which are listed below.
 | *camel.sink.endpoint.keyStoreParameters* | Sets the KeyStore that can contain keys and Certficates for use in signing and verifying exchanges based on the given KeyStoreParameters. A KeyStore is typically used with an alias, either one supplied in the Route definition or dynamically via the message header CamelSignatureKeyStoreAlias. If no alias is supplied and there is only a single entry in the Keystore, then this single entry will be used. | null | false | MEDIUM
 | *camel.sink.endpoint.publicKey* | Set the PublicKey that should be used to verify the signature in the exchange. | null | false | MEDIUM
 | *camel.sink.endpoint.secureRandom* | Set the SecureRandom used to initialize the Signature service | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.password* | Sets the password used to access an aliased PrivateKey in the KeyStore. | null | false | MEDIUM
 | *camel.component.crypto.algorithm* | Sets the JCE name of the Algorithm that should be used for the signer. | "SHA256withRSA" | false | MEDIUM
 | *camel.component.crypto.alias* | Sets the alias used to query the KeyStore for keys and {link java.security.cert.Certificate Certificates} to be used in signing and verifying exchanges. This value can be provided at runtime via the message header org.apache.camel.component.crypto.DigitalSignatureConstants#KEYSTORE_ALIAS | null | false | MEDIUM

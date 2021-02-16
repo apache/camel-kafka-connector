@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.seda.CamelSedaSinkConnector
 ----
 
 
-The camel-seda sink connector supports 19 options, which are listed below.
+The camel-seda sink connector supports 18 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-seda sink connector supports 19 options, which are listed below.
 | *camel.sink.endpoint.timeout* | Timeout (in milliseconds) before a SEDA producer will stop waiting for an asynchronous task to complete. You can disable timeout by using 0 or a negative value. | 30000L | false | MEDIUM
 | *camel.sink.endpoint.waitForTaskToComplete* | Option to specify whether the caller should wait for the async task to complete or not before continuing. The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory. The last value, IfReplyExpected, will only wait if the message is Request Reply based. The default option is IfReplyExpected. One of: [Never] [IfReplyExpected] [Always] | "IfReplyExpected" | false | MEDIUM
 | *camel.sink.endpoint.queue* | Define the queue instance which will be used by the endpoint | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.seda.defaultBlockWhenFull* | Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted. By default, an exception will be thrown stating that the queue is full. By enabling this option, the calling thread will instead block and wait until the message can be accepted. | false | false | MEDIUM
 | *camel.component.seda.defaultDiscardWhenFull* | Whether a thread that sends messages to a full SEDA queue will be discarded. By default, an exception will be thrown stating that the queue is full. By enabling this option, the calling thread will give up sending and continue, meaning that the message was not sent to the SEDA queue. | false | false | MEDIUM
 | *camel.component.seda.defaultOfferTimeout* | Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted. By default, an exception will be thrown stating that the queue is full. By enabling this option, where a configured timeout can be added to the block case. Utilizing the .offer(timeout) method of the underlining java queue | null | false | MEDIUM

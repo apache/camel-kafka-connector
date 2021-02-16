@@ -88,13 +88,13 @@ public class KafkaConnectEmbedded implements KafkaConnectService {
     public void stop() {
         if (connectorName != null) {
             try {
+                LOG.info("Removing connector {}", connectorName);
+                cluster.deleteConnector(connectorName);
+
                 LOG.info("Removing topics used during the test");
                 Admin client = cluster.kafka().createAdminClient();
 
                 client.deleteTopics(cluster.connectorTopics(connectorName).topics());
-
-                LOG.info("Removing connector {}", connectorName);
-                cluster.deleteConnector(connectorName);
             } finally {
                 connectorName = null;
             }

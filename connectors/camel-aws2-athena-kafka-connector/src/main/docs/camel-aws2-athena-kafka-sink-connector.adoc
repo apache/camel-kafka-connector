@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2athena.CamelAws2athenaSinkCo
 ----
 
 
-The camel-aws2-athena sink connector supports 58 options, which are listed below.
+The camel-aws2-athena sink connector supports 57 options, which are listed below.
 
 
 
@@ -59,7 +59,6 @@ The camel-aws2-athena sink connector supports 58 options, which are listed below
 | *camel.sink.endpoint.waitTimeout* | Optional max wait time in millis to wait for a successful query completion. See the section 'Waiting for Query Completion and Retrying Failed Queries' to learn more. | 0L | false | MEDIUM
 | *camel.sink.endpoint.workGroup* | The workgroup to use for running the query. | null | false | MEDIUM
 | *camel.sink.endpoint.clientRequestToken* | A unique string to ensure issues queries are idempotent. It is unlikely you will need to set this. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.aws2-athena.accessKey* | Amazon AWS Access Key. | null | false | MEDIUM
 | *camel.component.aws2-athena.amazonAthenaClient* | The AmazonAthena instance to use as the client. | null | false | MEDIUM
 | *camel.component.aws2-athena.configuration* | The component configuration. | null | false | MEDIUM

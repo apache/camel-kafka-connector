@@ -46,7 +46,7 @@ The camel-scp sink connector supports 29 options, which are listed below.
 | *camel.sink.endpoint.moveExistingFileStrategy* | Strategy (Custom Strategy) used to move file with special naming token to use when fileExist=Move is configured. By default, there is an implementation used if no custom strategy is provided | null | false | MEDIUM
 | *camel.sink.endpoint.connectTimeout* | Sets the connect timeout for waiting for a connection to be established Used by both FTPClient and JSCH | 10000 | false | MEDIUM
 | *camel.sink.endpoint.soTimeout* | Sets the so timeout FTP and FTPS Only for Camel 2.4. SFTP for Camel 2.14.3/2.15.3/2.16 onwards. Is the SocketOptions.SO_TIMEOUT value in millis. Recommended option is to set this to 300000 so as not have a hanged connection. On SFTP this option is set as timeout on the JSCH Session instance. | 300000 | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.sink.endpoint.timeout* | Sets the data timeout for waiting for reply Used only by FTPClient | 30000 | false | MEDIUM
 | *camel.sink.endpoint.knownHostsFile* | Sets the known_hosts file, so that the jsch endpoint can do host key verification. You can prefix with classpath: to load the file from classpath instead of file system. | null | false | MEDIUM
 | *camel.sink.endpoint.password* | Password to use for login | null | false | MEDIUM

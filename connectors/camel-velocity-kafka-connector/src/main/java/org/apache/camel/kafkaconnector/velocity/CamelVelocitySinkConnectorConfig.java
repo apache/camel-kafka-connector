@@ -50,9 +50,6 @@ public class CamelVelocitySinkConnectorConfig
     public static final String CAMEL_SINK_VELOCITY_ENDPOINT_PROPERTIES_FILE_CONF = "camel.sink.endpoint.propertiesFile";
     public static final String CAMEL_SINK_VELOCITY_ENDPOINT_PROPERTIES_FILE_DOC = "The URI of the properties file which is used for VelocityEngine initialization.";
     public static final String CAMEL_SINK_VELOCITY_ENDPOINT_PROPERTIES_FILE_DEFAULT = null;
-    public static final String CAMEL_SINK_VELOCITY_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_VELOCITY_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_VELOCITY_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_CONTEXT_MAP_ALL_CONF = "camel.component.velocity.allowContextMapAll";
     public static final String CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DOC = "Sets whether the context map should allow access to all details. By default only the message body and headers can be accessed. This option can be enabled for full access to the current Exchange and CamelContext. Doing so impose a potential security risk as this opens access to the full power of CamelContext API.";
     public static final Boolean CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DEFAULT = false;
@@ -89,7 +86,6 @@ public class CamelVelocitySinkConnectorConfig
         conf.define(CAMEL_SINK_VELOCITY_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VELOCITY_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VELOCITY_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_VELOCITY_ENDPOINT_LOADER_CACHE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VELOCITY_ENDPOINT_LOADER_CACHE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VELOCITY_ENDPOINT_LOADER_CACHE_DOC);
         conf.define(CAMEL_SINK_VELOCITY_ENDPOINT_PROPERTIES_FILE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VELOCITY_ENDPOINT_PROPERTIES_FILE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VELOCITY_ENDPOINT_PROPERTIES_FILE_DOC);
-        conf.define(CAMEL_SINK_VELOCITY_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VELOCITY_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VELOCITY_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_CONTEXT_MAP_ALL_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_CONTEXT_MAP_ALL_DOC);
         conf.define(CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VELOCITY_COMPONENT_ALLOW_TEMPLATE_FROM_HEADER_DOC);
         conf.define(CAMEL_SINK_VELOCITY_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VELOCITY_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VELOCITY_COMPONENT_LAZY_START_PRODUCER_DOC);

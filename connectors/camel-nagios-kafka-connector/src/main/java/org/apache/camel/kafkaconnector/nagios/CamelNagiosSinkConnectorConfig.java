@@ -42,9 +42,6 @@ public class CamelNagiosSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_NAGIOS_ENDPOINT_TIMEOUT_CONF = "camel.sink.endpoint.timeout";
     public static final String CAMEL_SINK_NAGIOS_ENDPOINT_TIMEOUT_DOC = "Sending timeout in millis.";
     public static final Integer CAMEL_SINK_NAGIOS_ENDPOINT_TIMEOUT_DEFAULT = 5000;
-    public static final String CAMEL_SINK_NAGIOS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_NAGIOS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_NAGIOS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_NAGIOS_ENDPOINT_ENCRYPTION_CONF = "camel.sink.endpoint.encryption";
     public static final String CAMEL_SINK_NAGIOS_ENDPOINT_ENCRYPTION_DOC = "To specify an encryption method. One of: [NONE] [TRIPLE_DES] [XOR] [RIJNDAEL128] [RIJNDAEL192] [RIJNDAEL256] [BLOWFISH]";
     public static final String CAMEL_SINK_NAGIOS_ENDPOINT_ENCRYPTION_DEFAULT = null;
@@ -91,7 +88,6 @@ public class CamelNagiosSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_NAGIOS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NAGIOS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NAGIOS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_NAGIOS_ENDPOINT_SEND_SYNC_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NAGIOS_ENDPOINT_SEND_SYNC_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NAGIOS_ENDPOINT_SEND_SYNC_DOC);
         conf.define(CAMEL_SINK_NAGIOS_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_NAGIOS_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NAGIOS_ENDPOINT_TIMEOUT_DOC);
-        conf.define(CAMEL_SINK_NAGIOS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_NAGIOS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NAGIOS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_NAGIOS_ENDPOINT_ENCRYPTION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NAGIOS_ENDPOINT_ENCRYPTION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NAGIOS_ENDPOINT_ENCRYPTION_DOC);
         conf.define(CAMEL_SINK_NAGIOS_ENDPOINT_PASSWORD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_NAGIOS_ENDPOINT_PASSWORD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NAGIOS_ENDPOINT_PASSWORD_DOC);
         conf.define(CAMEL_SINK_NAGIOS_COMPONENT_CONNECTION_TIMEOUT_CONF, ConfigDef.Type.INT, CAMEL_SINK_NAGIOS_COMPONENT_CONNECTION_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_NAGIOS_COMPONENT_CONNECTION_TIMEOUT_DOC);

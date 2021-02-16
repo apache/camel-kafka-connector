@@ -69,9 +69,6 @@ public class CamelGangliaSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XCONF = "camel.sink.endpoint.wireFormat31x";
     public static final String CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XDOC = "Use the wire format of Ganglia 3.1.0 and later versions. Set this to false to use Ganglia 3.0.x or earlier.";
     public static final Boolean CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XDEFAULT = true;
-    public static final String CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_GANGLIA_COMPONENT_DMAX_CONF = "camel.component.ganglia.dmax";
     public static final String CAMEL_SINK_GANGLIA_COMPONENT_DMAX_DOC = "Minumum time in seconds before Ganglia will purge the metric value if it expires. Set to 0 and the value will remain in Ganglia indefinitely until a gmond agent restart.";
     public static final Integer CAMEL_SINK_GANGLIA_COMPONENT_DMAX_DEFAULT = 0;
@@ -145,7 +142,6 @@ public class CamelGangliaSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_TYPE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_ENDPOINT_TYPE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_TYPE_DOC);
         conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_UNITS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_ENDPOINT_UNITS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_UNITS_DOC);
         conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XCONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XDEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_WIRE_FORMAT_31XDOC);
-        conf.define(CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_DMAX_CONF, ConfigDef.Type.INT, CAMEL_SINK_GANGLIA_COMPONENT_DMAX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_DMAX_DOC);
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_GROUP_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_GANGLIA_COMPONENT_GROUP_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_GROUP_NAME_DOC);
         conf.define(CAMEL_SINK_GANGLIA_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_GANGLIA_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_GANGLIA_COMPONENT_LAZY_START_PRODUCER_DOC);

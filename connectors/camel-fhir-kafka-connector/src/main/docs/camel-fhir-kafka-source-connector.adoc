@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.fhir.CamelFhirSourceConnector
 ----
 
 
-The camel-fhir source connector supports 72 options, which are listed below.
+The camel-fhir source connector supports 71 options, which are listed below.
 
 
 
@@ -54,7 +54,6 @@ The camel-fhir source connector supports 72 options, which are listed below.
 | *camel.source.endpoint.sessionCookie* | HTTP session cookie to add to every request | null | false | MEDIUM
 | *camel.source.endpoint.socketTimeout* | How long to block for individual read/write operations (in ms) | "10000" | false | MEDIUM
 | *camel.source.endpoint.summary* | Request that the server modify the response using the _summary param One of: [COUNT] [TEXT] [DATA] [TRUE] [FALSE] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.validationMode* | When should Camel validate the FHIR Server's conformance statement One of: [NEVER] [ONCE] | "ONCE" | false | MEDIUM
 | *camel.source.endpoint.proxyHost* | The proxy host | null | false | MEDIUM
 | *camel.source.endpoint.proxyPassword* | The proxy password | null | false | MEDIUM

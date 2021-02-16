@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.awsmq.CamelAwsmqSinkConnector
 ----
 
 
-The camel-aws-mq sink connector supports 24 options, which are listed below.
+The camel-aws-mq sink connector supports 23 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-aws-mq sink connector supports 24 options, which are listed below.
 | *camel.sink.endpoint.proxyProtocol* | To define a proxy protocol when instantiating the MQ client One of: [HTTP] [HTTPS] | "HTTPS" | false | MEDIUM
 | *camel.sink.endpoint.region* | The region in which MQ client needs to work. When using this parameter, the configuration will expect the capitalized name of the region (for example AP_EAST_1) You'll need to use the name Regions.EU_WEST_1.name() | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.aws-mq.autoDiscoverClient* | Setting the autoDiscoverClient mechanism, if true, the component will look for a client instance in the registry automatically otherwise it will skip that checking. | true | false | MEDIUM
 | *camel.component.aws-mq.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.component.aws-mq.amazonMqClient* | To use a existing configured AmazonMQClient as client | null | false | MEDIUM

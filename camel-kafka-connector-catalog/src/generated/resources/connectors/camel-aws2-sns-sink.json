@@ -77,7 +77,7 @@
 		},
 		"camel.sink.endpoint.policy": {
 			"name": "camel.sink.endpoint.policy",
-			"description": "The policy for this queue",
+			"description": "The policy for this topic. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -146,13 +146,6 @@
 		"camel.sink.endpoint.useDefaultCredentialsProvider": {
 			"name": "camel.sink.endpoint.useDefaultCredentialsProvider",
 			"description": "Set whether the SNS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
 			"defaultValue": "false",
 			"priority": "MEDIUM",
 			"required": "false"
@@ -231,7 +224,7 @@
 		},
 		"camel.component.aws2-sns.policy": {
 			"name": "camel.component.aws2-sns.policy",
-			"description": "The policy for this queue",
+			"description": "The policy for this topic. Is loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

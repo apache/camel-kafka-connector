@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.atomixmessaging.CamelAtomixmessa
 ----
 
 
-The camel-atomix-messaging source connector supports 38 options, which are listed below.
+The camel-atomix-messaging source connector supports 37 options, which are listed below.
 
 
 
@@ -50,7 +50,6 @@ The camel-atomix-messaging source connector supports 38 options, which are liste
 | *camel.source.endpoint.readConsistency* | The read consistency level. One of: [ATOMIC] [ATOMIC_LEASE] [SEQUENTIAL] [LOCAL] | null | false | MEDIUM
 | *camel.source.endpoint.resourceConfigs* | Cluster wide resources configuration. | null | false | MEDIUM
 | *camel.source.endpoint.resourceOptions* | Local resources configurations | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.atomix-messaging.atomix* | The Atomix instance to use | null | false | MEDIUM
 | *camel.component.atomix-messaging.broadcastType* | The broadcast type. One of: [ALL] [RANDOM] | "ALL" | false | MEDIUM
 | *camel.component.atomix-messaging.channelName* | The messaging channel name | null | false | MEDIUM

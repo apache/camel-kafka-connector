@@ -42,7 +42,7 @@ The camel-timer source connector supports 16 options, which are listed below.
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.daemon* | Specifies whether or not the thread associated with the timer endpoint runs as a daemon. The default value is true. | true | false | MEDIUM
 | *camel.source.endpoint.pattern* | Allows you to specify a custom Date pattern to use for setting the time option using URI syntax. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
+| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used | false | false | MEDIUM
 | *camel.source.endpoint.time* | A java.util.Date the first event should be generated. If using the URI, the pattern expected is: yyyy-MM-dd HH:mm:ss or yyyy-MM-dd'T'HH:mm:ss. | null | false | MEDIUM
 | *camel.source.endpoint.timer* | To use a custom Timer | null | false | MEDIUM
 | *camel.component.timer.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM

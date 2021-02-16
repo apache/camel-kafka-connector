@@ -49,13 +49,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.synchronous": {
-			"name": "camel.sink.endpoint.synchronous",
-			"description": "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).",
-			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.encryption": {
 			"name": "camel.sink.endpoint.encryption",
 			"description": "To specify an encryption method. One of: [NONE] [TRIPLE_DES] [XOR] [RIJNDAEL128] [RIJNDAEL192] [RIJNDAEL256] [BLOWFISH]",

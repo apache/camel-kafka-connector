@@ -50,9 +50,6 @@ public class CamelRestopenapiSinkConnectorConfig
     public static final String CAMEL_SINK_RESTOPENAPI_ENDPOINT_PRODUCES_CONF = "camel.sink.endpoint.produces";
     public static final String CAMEL_SINK_RESTOPENAPI_ENDPOINT_PRODUCES_DOC = "What payload type this component is producing. For example application/json according to the RFC7231. This equates to the value of Content-Type HTTP header. If set overrides any value present in the OpenApi specification. Overrides all other configuration.";
     public static final String CAMEL_SINK_RESTOPENAPI_ENDPOINT_PRODUCES_DEFAULT = null;
-    public static final String CAMEL_SINK_RESTOPENAPI_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_RESTOPENAPI_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_RESTOPENAPI_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_RESTOPENAPI_COMPONENT_BASE_PATH_CONF = "camel.component.rest-openapi.basePath";
     public static final String CAMEL_SINK_RESTOPENAPI_COMPONENT_BASE_PATH_DOC = "API basePath, for example /v2. Default is unset, if set overrides the value present in OpenApi specification.";
     public static final String CAMEL_SINK_RESTOPENAPI_COMPONENT_BASE_PATH_DEFAULT = null;
@@ -104,7 +101,6 @@ public class CamelRestopenapiSinkConnectorConfig
         conf.define(CAMEL_SINK_RESTOPENAPI_ENDPOINT_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPI_ENDPOINT_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPI_ENDPOINT_HOST_DOC);
         conf.define(CAMEL_SINK_RESTOPENAPI_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTOPENAPI_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPI_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_RESTOPENAPI_ENDPOINT_PRODUCES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPI_ENDPOINT_PRODUCES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPI_ENDPOINT_PRODUCES_DOC);
-        conf.define(CAMEL_SINK_RESTOPENAPI_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_RESTOPENAPI_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPI_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_RESTOPENAPI_COMPONENT_BASE_PATH_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPI_COMPONENT_BASE_PATH_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPI_COMPONENT_BASE_PATH_DOC);
         conf.define(CAMEL_SINK_RESTOPENAPI_COMPONENT_COMPONENT_NAME_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPI_COMPONENT_COMPONENT_NAME_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPI_COMPONENT_COMPONENT_NAME_DOC);
         conf.define(CAMEL_SINK_RESTOPENAPI_COMPONENT_CONSUMES_CONF, ConfigDef.Type.STRING, CAMEL_SINK_RESTOPENAPI_COMPONENT_CONSUMES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_RESTOPENAPI_COMPONENT_CONSUMES_DOC);

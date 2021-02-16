@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2translate.CamelAws2translate
 ----
 
 
-The camel-aws2-translate sink connector supports 32 options, which are listed below.
+The camel-aws2-translate sink connector supports 31 options, which are listed below.
 
 
 
@@ -44,7 +44,6 @@ The camel-aws2-translate sink connector supports 32 options, which are listed be
 | *camel.sink.endpoint.targetLanguage* | Target language to use | null | false | MEDIUM
 | *camel.sink.endpoint.translateClient* | To use a existing configured AWS Translate as client | null | false | MEDIUM
 | *camel.sink.endpoint.trustAllCertificates* | If we want to trust all certificates in case of overriding the endpoint | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.accessKey* | Amazon AWS Access Key | null | false | MEDIUM
 | *camel.sink.endpoint.secretKey* | Amazon AWS Secret Key | null | false | MEDIUM
 | *camel.component.aws2-translate.autodetectSource Language* | Being able to autodetect the source language | false | false | MEDIUM

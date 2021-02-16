@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.splunk.CamelSplunkSinkConnector
 ----
 
 
-The camel-splunk sink connector supports 22 options, which are listed below.
+The camel-splunk sink connector supports 21 options, which are listed below.
 
 
 
@@ -45,7 +45,6 @@ The camel-splunk sink connector supports 22 options, which are listed below.
 | *camel.sink.endpoint.source* | Splunk source argument | null | false | MEDIUM
 | *camel.sink.endpoint.sourceType* | Splunk sourcetype argument | null | false | MEDIUM
 | *camel.sink.endpoint.tcpReceiverPort* | Splunk tcp receiver port | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.password* | Password for Splunk | null | false | MEDIUM
 | *camel.sink.endpoint.sslProtocol* | Set the ssl protocol to use One of: [TLSv1.2] [TLSv1.1] [TLSv1] [SSLv3] | "TLSv1.2" | false | MEDIUM
 | *camel.sink.endpoint.username* | Username for Splunk | null | false | MEDIUM

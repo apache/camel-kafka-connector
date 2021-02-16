@@ -50,6 +50,8 @@ public class EmbeddedKafkaService implements KafkaService {
 
         Map<String, String> workerProps = new HashMap<>();
         workerProps.put(WorkerConfig.OFFSET_COMMIT_INTERVAL_MS_CONFIG, String.valueOf(OFFSET_COMMIT_INTERVAL_MS));
+        workerProps.put(WorkerConfig.LISTENERS_CONFIG, "http://localhost:9999");
+
 
         String pluginPaths = PluginPathHelper.getInstance().pluginPaths();
 

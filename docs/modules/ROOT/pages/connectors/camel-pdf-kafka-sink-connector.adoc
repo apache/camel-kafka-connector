@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.pdf.CamelPdfSinkConnector
 ----
 
 
-The camel-pdf sink connector supports 13 options, which are listed below.
+The camel-pdf sink connector supports 12 options, which are listed below.
 
 
 
@@ -41,7 +41,6 @@ The camel-pdf sink connector supports 13 options, which are listed below.
 | *camel.sink.endpoint.marginTop* | Margin top in pixels | 20 | false | MEDIUM
 | *camel.sink.endpoint.pageSize* | Page size One of: [LETTER] [LEGAL] [A0] [A1] [A2] [A3] [A4] [A5] [A6] | "A4" | false | MEDIUM
 | *camel.sink.endpoint.textProcessingFactory* | Text processing to use. autoFormatting: Text is getting sliced by words, then max amount of words that fits in the line will be written into pdf document. With this strategy all words that doesn't fit in the line will be moved to the new line. lineTermination: Builds set of classes for line-termination writing strategy. Text getting sliced by line termination symbol and then it will be written regardless it fits in the line or not. One of: [autoFormatting] [lineTermination] | "lineTermination" | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.pdf.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.component.pdf.autowiredEnabled* | Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc. | true | false | MEDIUM
 |===

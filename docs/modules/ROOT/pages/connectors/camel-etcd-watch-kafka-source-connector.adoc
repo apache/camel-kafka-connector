@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.etcdwatch.CamelEtcdwatchSourceCo
 ----
 
 
-The camel-etcd-watch source connector supports 27 options, which are listed below.
+The camel-etcd-watch source connector supports 26 options, which are listed below.
 
 
 
@@ -41,7 +41,6 @@ The camel-etcd-watch source connector supports 27 options, which are listed belo
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.fromIndex* | The index to watch from | 0L | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.password* | The password to use for basic authentication. | null | false | MEDIUM
 | *camel.source.endpoint.sslContextParameters* | To configure security using SSLContextParameters. | null | false | MEDIUM
 | *camel.source.endpoint.userName* | The user name to use for basic authentication. | null | false | MEDIUM

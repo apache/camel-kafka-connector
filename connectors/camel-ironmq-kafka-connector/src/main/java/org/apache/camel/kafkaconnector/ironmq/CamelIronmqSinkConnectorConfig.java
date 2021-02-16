@@ -48,9 +48,6 @@ public class CamelIronmqSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_IRONMQ_ENDPOINT_VISIBILITY_DELAY_CONF = "camel.sink.endpoint.visibilityDelay";
     public static final String CAMEL_SINK_IRONMQ_ENDPOINT_VISIBILITY_DELAY_DOC = "The item will not be available on the queue until this many seconds have passed. Default is 0 seconds.";
     public static final Integer CAMEL_SINK_IRONMQ_ENDPOINT_VISIBILITY_DELAY_DEFAULT = null;
-    public static final String CAMEL_SINK_IRONMQ_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_IRONMQ_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_IRONMQ_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_IRONMQ_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.ironmq.lazyStartProducer";
     public static final String CAMEL_SINK_IRONMQ_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_IRONMQ_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
@@ -78,7 +75,6 @@ public class CamelIronmqSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_IRONMQ_ENDPOINT_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_IRONMQ_ENDPOINT_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRONMQ_ENDPOINT_TOKEN_DOC);
         conf.define(CAMEL_SINK_IRONMQ_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRONMQ_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRONMQ_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_IRONMQ_ENDPOINT_VISIBILITY_DELAY_CONF, ConfigDef.Type.INT, CAMEL_SINK_IRONMQ_ENDPOINT_VISIBILITY_DELAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRONMQ_ENDPOINT_VISIBILITY_DELAY_DOC);
-        conf.define(CAMEL_SINK_IRONMQ_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRONMQ_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRONMQ_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_IRONMQ_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRONMQ_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRONMQ_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_IRONMQ_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_IRONMQ_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_IRONMQ_COMPONENT_AUTOWIRED_ENABLED_DOC);
         return conf;

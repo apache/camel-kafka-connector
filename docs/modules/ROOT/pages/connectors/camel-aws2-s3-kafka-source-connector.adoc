@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SourceConnecto
 ----
 
 
-The camel-aws2-s3 source connector supports 84 options, which are listed below.
+The camel-aws2-s3 source connector supports 85 options, which are listed below.
 
 
 
@@ -54,6 +54,7 @@ The camel-aws2-s3 source connector supports 84 options, which are listed below.
 | *camel.source.endpoint.destinationBucket* | Define the destination bucket where an object must be moved when moveAfterRead is set to true. | null | false | MEDIUM
 | *camel.source.endpoint.destinationBucketPrefix* | Define the destination bucket prefix to use when an object must be moved and moveAfterRead is set to true. | null | false | MEDIUM
 | *camel.source.endpoint.destinationBucketSuffix* | Define the destination bucket suffix to use when an object must be moved and moveAfterRead is set to true. | null | false | MEDIUM
+| *camel.source.endpoint.doneFileName* | If provided, Camel will only consume files if a done file exists. | null | false | MEDIUM
 | *camel.source.endpoint.fileName* | To get the object from the bucket with the given file name | null | false | MEDIUM
 | *camel.source.endpoint.includeBody* | If it is true, the S3Object exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata. This option is strongly related to autocloseBody option. In case of setting includeBody to true because the S3Object stream will be consumed then it will also be closed in case of includeBody false then it will be up to the caller to close the S3Object stream. However setting autocloseBody to true when includeBody is false it will schedule to close the S3Object stream automatically on exchange completion. | true | false | MEDIUM
 | *camel.source.endpoint.includeFolders* | If it is true, the folders/directories will be consumed. If it is false, they will be ignored, and Exchanges will not be created for those | true | false | MEDIUM
@@ -66,7 +67,6 @@ The camel-aws2-s3 source connector supports 84 options, which are listed below.
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
 | *camel.source.endpoint.pollStrategy* | A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffIdleThreshold* | The number of subsequent idle polls that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
 | *camel.source.endpoint.backoffMultiplier* | To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row. The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again. When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured. | null | false | MEDIUM
@@ -106,6 +106,7 @@ The camel-aws2-s3 source connector supports 84 options, which are listed below.
 | *camel.component.aws2-s3.destinationBucket* | Define the destination bucket where an object must be moved when moveAfterRead is set to true. | null | false | MEDIUM
 | *camel.component.aws2-s3.destinationBucketPrefix* | Define the destination bucket prefix to use when an object must be moved and moveAfterRead is set to true. | null | false | MEDIUM
 | *camel.component.aws2-s3.destinationBucketSuffix* | Define the destination bucket suffix to use when an object must be moved and moveAfterRead is set to true. | null | false | MEDIUM
+| *camel.component.aws2-s3.doneFileName* | If provided, Camel will only consume files if a done file exists. | null | false | MEDIUM
 | *camel.component.aws2-s3.fileName* | To get the object from the bucket with the given file name | null | false | MEDIUM
 | *camel.component.aws2-s3.includeBody* | If it is true, the S3Object exchange will be consumed and put into the body and closed. If false the S3Object stream will be put raw into the body and the headers will be set with the S3 object metadata. This option is strongly related to autocloseBody option. In case of setting includeBody to true because the S3Object stream will be consumed then it will also be closed in case of includeBody false then it will be up to the caller to close the S3Object stream. However setting autocloseBody to true when includeBody is false it will schedule to close the S3Object stream automatically on exchange completion. | true | false | MEDIUM
 | *camel.component.aws2-s3.includeFolders* | If it is true, the folders/directories will be consumed. If it is false, they will be ignored, and Exchanges will not be created for those | true | false | MEDIUM

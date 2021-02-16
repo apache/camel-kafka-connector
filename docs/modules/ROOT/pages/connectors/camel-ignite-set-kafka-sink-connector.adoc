@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.igniteset.CamelIgnitesetSinkConn
 ----
 
 
-The camel-ignite-set sink connector supports 12 options, which are listed below.
+The camel-ignite-set sink connector supports 11 options, which are listed below.
 
 
 
@@ -37,7 +37,6 @@ The camel-ignite-set sink connector supports 12 options, which are listed below.
 | *camel.sink.endpoint.operation* | The operation to invoke on the Ignite Set. Superseded by the IgniteConstants.IGNITE_SETS_OPERATION header in the IN message. Possible values: CONTAINS, ADD, SIZE, REMOVE, ITERATOR, CLEAR, RETAIN_ALL, ARRAY.The set operation to perform. One of: [CONTAINS] [ADD] [SIZE] [REMOVE] [ITERATOR] [CLEAR] [RETAIN_ALL] [ARRAY] | null | false | MEDIUM
 | *camel.sink.endpoint.propagateIncomingBodyIfNo ReturnValue* | Sets whether to propagate the incoming body if the return type of the underlying Ignite operation is void. | true | false | MEDIUM
 | *camel.sink.endpoint.treatCollectionsAsCacheObjects* | Sets whether to treat Collections as cache objects or as Collections of items to insert/update/compute, etc. | false | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.ignite-set.configurationResource* | The resource from where to load the configuration. It can be a: URL, String or InputStream type. | null | false | MEDIUM
 | *camel.component.ignite-set.ignite* | To use an existing Ignite instance. | null | false | MEDIUM
 | *camel.component.ignite-set.igniteConfiguration* | Allows the user to set a programmatic ignite configuration. | null | false | MEDIUM

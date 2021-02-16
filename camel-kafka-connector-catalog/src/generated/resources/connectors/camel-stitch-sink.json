@@ -1,0 +1,140 @@
+{
+	"connector": {
+		"class": "org.apache.camel.kafkaconnector.stitch.CamelStitchSinkConnector",
+		"artifactId": "camel-stitch-kafka-connector",
+		"groupId": "org.apache.camel.kafkaconnector",
+		"id": "camel-stitch-sink",
+		"type": "sink",
+		"version": "0.8.0-SNAPSHOT",
+		"description": "Stitch is a cloud ETL service that integrates various data sources into a central data warehouse through various integrations."
+	},
+	"properties": {
+		"camel.sink.path.tableName": {
+			"name": "camel.sink.path.tableName",
+			"description": "The name of the destination table the data is being pushed to. Table names must be unique in each destination schema, or loading issues will occur. Note: The number of characters in the table name should be within the destinations allowed limits or data will rejected.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.keyNames": {
+			"name": "camel.sink.endpoint.keyNames",
+			"description": "A collection of comma separated strings representing the Primary Key fields in the source table. Stitch use these Primary Keys to de-dupe data during loading If not provided, the table will be loaded in an append-only manner.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.lazyStartProducer": {
+			"name": "camel.sink.endpoint.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.region": {
+			"name": "camel.sink.endpoint.region",
+			"description": "Stitch account region, e.g: europe One of: [NORTH_AMERICA] [EUROPE]",
+			"defaultValue": "\"EUROPE\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"NORTH_AMERICA",
+				"EUROPE"
+			]
+		},
+		"camel.sink.endpoint.stitchSchema": {
+			"name": "camel.sink.endpoint.stitchSchema",
+			"description": "A schema that describes the record(s)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.connectionProvider": {
+			"name": "camel.sink.endpoint.connectionProvider",
+			"description": "ConnectionProvider contain configuration for the HttpClient like Maximum connection limit .. etc, you can inject this ConnectionProvider and the StitchClient will initialize HttpClient with this ConnectionProvider",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.httpClient": {
+			"name": "camel.sink.endpoint.httpClient",
+			"description": "Reactor Netty HttpClient, you can injected it if you want to have custom HttpClient",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.stitchClient": {
+			"name": "camel.sink.endpoint.stitchClient",
+			"description": "Set a custom StitchClient that implements org.apache.camel.component.stitch.client.StitchClient interface",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.token": {
+			"name": "camel.sink.endpoint.token",
+			"description": "Stitch access token for the Stitch Import API",
+			"priority": "HIGH",
+			"required": "true"
+		},
+		"camel.component.stitch.configuration": {
+			"name": "camel.component.stitch.configuration",
+			"description": "The component configurations",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.stitch.keyNames": {
+			"name": "camel.component.stitch.keyNames",
+			"description": "A collection of comma separated strings representing the Primary Key fields in the source table. Stitch use these Primary Keys to de-dupe data during loading If not provided, the table will be loaded in an append-only manner.",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.stitch.lazyStartProducer": {
+			"name": "camel.component.stitch.lazyStartProducer",
+			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
+			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.stitch.region": {
+			"name": "camel.component.stitch.region",
+			"description": "Stitch account region, e.g: europe One of: [NORTH_AMERICA] [EUROPE]",
+			"defaultValue": "\"EUROPE\"",
+			"priority": "MEDIUM",
+			"required": "false",
+			"enum": [
+				"NORTH_AMERICA",
+				"EUROPE"
+			]
+		},
+		"camel.component.stitch.stitchSchema": {
+			"name": "camel.component.stitch.stitchSchema",
+			"description": "A schema that describes the record(s)",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.stitch.connectionProvider": {
+			"name": "camel.component.stitch.connectionProvider",
+			"description": "ConnectionProvider contain configuration for the HttpClient like Maximum connection limit .. etc, you can inject this ConnectionProvider and the StitchClient will initialize HttpClient with this ConnectionProvider",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.stitch.httpClient": {
+			"name": "camel.component.stitch.httpClient",
+			"description": "Reactor Netty HttpClient, you can injected it if you want to have custom HttpClient",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.stitch.autowiredEnabled": {
+			"name": "camel.component.stitch.autowiredEnabled",
+			"description": "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired) by looking up in the registry to find if there is a single instance of matching type, which then gets configured on the component. This can be used for automatic configuring JDBC data sources, JMS connection factories, AWS Clients, etc.",
+			"defaultValue": "true",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.stitch.stitchClient": {
+			"name": "camel.component.stitch.stitchClient",
+			"description": "Set a custom StitchClient that implements org.apache.camel.component.stitch.client.StitchClient interface",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.stitch.token": {
+			"name": "camel.component.stitch.token",
+			"description": "Stitch access token for the Stitch Import API",
+			"priority": "HIGH",
+			"required": "true"
+		}
+	}
+}

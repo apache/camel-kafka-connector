@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.web3j.CamelWeb3jSinkConnector
 ----
 
 
-The camel-web3j sink connector supports 74 options, which are listed below.
+The camel-web3j sink connector supports 73 options, which are listed below.
 
 
 
@@ -67,7 +67,6 @@ The camel-web3j sink connector supports 74 options, which are listed below.
 | *camel.sink.endpoint.transactionHash* | The information about a transaction requested by transaction hash. | null | false | MEDIUM
 | *camel.sink.endpoint.ttl* | The time to live in seconds of a whisper message. | null | false | MEDIUM
 | *camel.sink.endpoint.value* | The value sent within a transaction. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.component.web3j.addresses* | Contract address or a list of addresses. | null | false | MEDIUM
 | *camel.component.web3j.configuration* | Default configuration | null | false | MEDIUM
 | *camel.component.web3j.fromAddress* | The address the transaction is send from | null | false | MEDIUM

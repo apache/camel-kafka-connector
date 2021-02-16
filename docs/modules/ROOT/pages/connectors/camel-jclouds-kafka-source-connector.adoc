@@ -2,7 +2,11 @@
 [[camel-jclouds-kafka-connector-source]]
 = camel-jclouds-kafka-connector source configuration
 
+<<<<<<< HEAD
 Connector description: Interact with jclouds compute & blobstore service.
+=======
+Connector description: Interact with jclouds compute and blobstore service.
+>>>>>>> camel-master
 
 When using camel-jclouds-kafka-connector as source make sure to use the following Maven dependency to have support for the connector:
 
@@ -24,7 +28,7 @@ connector.class=org.apache.camel.kafkaconnector.jclouds.CamelJcloudsSourceConnec
 ----
 
 
-The camel-jclouds source connector supports 12 options, which are listed below.
+The camel-jclouds source connector supports 11 options, which are listed below.
 
 
 
@@ -36,7 +40,6 @@ The camel-jclouds source connector supports 12 options, which are listed below.
 | *camel.source.endpoint.bridgeErrorHandler* | Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler. By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN or ERROR level and ignored. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.container* | The name of the blob container. | null | false | MEDIUM
 | *camel.source.endpoint.directory* | An optional directory name to use | null | false | MEDIUM
 | *camel.component.jclouds.blobStores* | To use the given BlobStore which must be configured when using blobstore. | null | false | MEDIUM

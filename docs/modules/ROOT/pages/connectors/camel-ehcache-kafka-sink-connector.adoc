@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.ehcache.CamelEhcacheSinkConnecto
 ----
 
 
-The camel-ehcache sink connector supports 25 options, which are listed below.
+The camel-ehcache sink connector supports 24 options, which are listed below.
 
 
 
@@ -42,7 +42,6 @@ The camel-ehcache sink connector supports 25 options, which are listed below.
 | *camel.sink.endpoint.configuration* | The default cache configuration to be used to create caches. | null | false | MEDIUM
 | *camel.sink.endpoint.configurations* | A map of cache configuration to be used to create caches. | null | false | MEDIUM
 | *camel.sink.endpoint.keyType* | The cache key type, default java.lang.Object | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.valueType* | The cache value type, default java.lang.Object | null | false | MEDIUM
 | *camel.component.ehcache.cacheManager* | The cache manager | null | false | MEDIUM
 | *camel.component.ehcache.cacheManagerConfiguration* | The cache manager configuration | null | false | MEDIUM

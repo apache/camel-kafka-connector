@@ -57,6 +57,9 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.sink.endpoint.useDefaultCredentialsProvider";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.";
     public static final Boolean CAMEL_SINK_AWS2SQS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_BATCH_SEPARATOR_CONF = "camel.sink.endpoint.batchSeparator";
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_BATCH_SEPARATOR_DOC = "Set the separator when passing a String to send batch message operation";
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_BATCH_SEPARATOR_DEFAULT = ",";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_CONF = "camel.sink.endpoint.delaySeconds";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DOC = "Delay sending messages for a number of seconds.";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DEFAULT = null;
@@ -78,9 +81,6 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_URL_CONF = "camel.sink.endpoint.queueUrl";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_URL_DOC = "To define the queueUrl explicitly. All other parameters, which would influence the queueUrl, are ignored. This parameter is intended to be used, to connect to a mock implementation of SQS, for testing purposes.";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_URL_DEFAULT = null;
-    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_SYNCHRONOUS_CONF = "camel.sink.endpoint.synchronous";
-    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_SYNCHRONOUS_DOC = "Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported).";
-    public static final Boolean CAMEL_SINK_AWS2SQS_ENDPOINT_SYNCHRONOUS_DEFAULT = false;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_HOST_CONF = "camel.sink.endpoint.proxyHost";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_HOST_DOC = "To define a proxy host when instantiating the SQS client";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_HOST_DEFAULT = null;
@@ -94,7 +94,7 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_RETENTION_PERIOD_DOC = "The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue.";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_RETENTION_PERIOD_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_POLICY_CONF = "camel.sink.endpoint.policy";
-    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_POLICY_DOC = "The policy for this queue";
+    public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_POLICY_DOC = "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_POLICY_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_CONF = "camel.sink.endpoint.receiveMessageWaitTimeSeconds";
     public static final String CAMEL_SINK_AWS2SQS_ENDPOINT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_DOC = "If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.";
@@ -138,6 +138,9 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF = "camel.component.aws2-sqs.useDefaultCredentialsProvider";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC = "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.";
     public static final Boolean CAMEL_SINK_AWS2SQS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT = false;
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_BATCH_SEPARATOR_CONF = "camel.component.aws2-sqs.batchSeparator";
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_BATCH_SEPARATOR_DOC = "Set the separator when passing a String to send batch message operation";
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_BATCH_SEPARATOR_DEFAULT = ",";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_CONF = "camel.component.aws2-sqs.delaySeconds";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DOC = "Delay sending messages for a number of seconds.";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DEFAULT = null;
@@ -175,7 +178,7 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_RETENTION_PERIOD_DOC = "The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue.";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_RETENTION_PERIOD_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_POLICY_CONF = "camel.component.aws2-sqs.policy";
-    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_POLICY_DOC = "The policy for this queue";
+    public static final String CAMEL_SINK_AWS2SQS_COMPONENT_POLICY_DOC = "The policy for this queue. It can be loaded by default from classpath, but you can prefix with classpath:, file:, or http: to load the resource from different systems.";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_POLICY_DEFAULT = null;
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_CONF = "camel.component.aws2-sqs.receiveMessageWaitTimeSeconds";
     public static final String CAMEL_SINK_AWS2SQS_COMPONENT_RECEIVE_MESSAGE_WAIT_TIME_SECONDS_DOC = "If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.";
@@ -213,6 +216,7 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
+        conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_BATCH_SEPARATOR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_BATCH_SEPARATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_BATCH_SEPARATOR_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_SECONDS_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DOC);
@@ -220,7 +224,6 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_OPERATION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_OPERATION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_OPERATION_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_QUEUE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_QUEUE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_DELAY_QUEUE_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_URL_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_URL_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_QUEUE_URL_DOC);
-        conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_SYNCHRONOUS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_ENDPOINT_SYNCHRONOUS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_SYNCHRONOUS_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_HOST_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_HOST_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_HOST_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_PORT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_PORT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_PROXY_PORT_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_ENDPOINT_MAXIMUM_MESSAGE_SIZE_DOC);
@@ -240,6 +243,7 @@ public class CamelAws2sqsSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_REGION_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_REGION_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_TRUST_ALL_CERTIFICATES_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_USE_DEFAULT_CREDENTIALS_PROVIDER_DOC);
+        conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_BATCH_SEPARATOR_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_BATCH_SEPARATOR_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_BATCH_SEPARATOR_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_DELAY_SECONDS_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_AWS2SQS_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_CONF, ConfigDef.Type.STRING, CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_AWS2SQS_COMPONENT_MESSAGE_DEDUPLICATION_ID_STRATEGY_DOC);

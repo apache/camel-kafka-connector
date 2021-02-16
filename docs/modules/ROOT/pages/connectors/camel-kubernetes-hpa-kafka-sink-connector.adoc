@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.kuberneteshpa.CamelKuberneteshpa
 ----
 
 
-The camel-kubernetes-hpa sink connector supports 24 options, which are listed below.
+The camel-kubernetes-hpa sink connector supports 23 options, which are listed below.
 
 
 
@@ -40,7 +40,6 @@ The camel-kubernetes-hpa sink connector supports 24 options, which are listed be
 | *camel.sink.endpoint.lazyStartProducer* | Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing. | false | false | MEDIUM
 | *camel.sink.endpoint.operation* | Producer operation to do on Kubernetes | null | false | MEDIUM
 | *camel.sink.endpoint.connectionTimeout* | Connection timeout in milliseconds to use when making requests to the Kubernetes API server. | null | false | MEDIUM
-| *camel.sink.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.sink.endpoint.caCertData* | The CA Cert Data | null | false | MEDIUM
 | *camel.sink.endpoint.caCertFile* | The CA Cert File | null | false | MEDIUM
 | *camel.sink.endpoint.clientCertData* | The Client Cert Data | null | false | MEDIUM

@@ -24,7 +24,7 @@ connector.class=org.apache.camel.kafkaconnector.sql.CamelSqlSourceConnector
 ----
 
 
-The camel-sql source connector supports 48 options, which are listed below.
+The camel-sql source connector supports 47 options, which are listed below.
 
 
 
@@ -33,7 +33,7 @@ The camel-sql source connector supports 48 options, which are listed below.
 | Name | Description | Default | Required | Priority
 | *camel.source.path.query* | Sets the SQL query to perform. You can externalize the query by using file: or classpath: as prefix and specify the location of the file. | null | true | HIGH
 | *camel.source.endpoint.allowNamedParameters* | Whether to allow using named parameters in the queries. | true | false | MEDIUM
-| *camel.source.endpoint.dataSource* | Sets the DataSource to use to communicate with the database. | null | false | MEDIUM
+| *camel.source.endpoint.dataSource* | Sets the DataSource to use to communicate with the databaset at endpoint level. | null | false | MEDIUM
 | *camel.source.endpoint.dataSourceRef* | Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database. | null | false | LOW
 | *camel.source.endpoint.outputClass* | Specify the full package and class name to use as conversion when outputType=SelectOne. | null | false | MEDIUM
 | *camel.source.endpoint.outputHeader* | Store the query result in a header instead of the message body. By default, outputHeader == null and the query result is stored in the message body, any existing content in the message body is discarded. If outputHeader is set, the value is used as the name of the header to store the query result and the original message body is preserved. | null | false | MEDIUM
@@ -58,7 +58,6 @@ The camel-sql source connector supports 48 options, which are listed below.
 | *camel.source.endpoint.parametersCount* | If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead. | null | false | MEDIUM
 | *camel.source.endpoint.placeholder* | Specifies a character that will be replaced to in SQL query. Notice, that it is simple String.replaceAll() operation and no SQL parsing is involved (quoted strings will also change). | "#" | false | MEDIUM
 | *camel.source.endpoint.prepareStatementStrategy* | Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement. | null | false | MEDIUM
-| *camel.source.endpoint.synchronous* | Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported). | false | false | MEDIUM
 | *camel.source.endpoint.templateOptions* | Configures the Spring JdbcTemplate with the key/values from the Map | null | false | MEDIUM
 | *camel.source.endpoint.usePlaceholder* | Sets whether to use placeholder and replace all placeholder characters with sign in the SQL queries. | true | false | MEDIUM
 | *camel.source.endpoint.backoffErrorThreshold* | The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in. | null | false | MEDIUM
