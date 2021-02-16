@@ -17,13 +17,21 @@
 package org.apache.camel.kafkaconnector.common.utils;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class NetworkUtils {
     public static final int  DEFAULT_STARTING_PORT = 49152;
     public static final int  DEFAULT_ENDING_PORT = 65535;
+
+    private static final Logger LOG = LoggerFactory.getLogger(NetworkUtils.class);
 
     private NetworkUtils() {
         // utils class
@@ -76,6 +84,23 @@ public final class NetworkUtils {
                     return false;
             }
         } catch (IOException e) {
+            return false;
+        }
+    }
+
+    public static boolean portIsOpen(String host, int port) {
+        try (Socket socket = new Socket(host, port)) {
+            return true;
+        } catch (UnknownHostException e) {
+            LOG.warn("Unknown host: {}", host);
+            return false;
+        } catch (IOException e) {
+            if (e instanceof ConnectException) {
+                LOG.info("Port {} is likely closed: {}", port, e.getMessage());
+            } else {
+                LOG.warn("Unhandled I/O exception: {}", e.getMessage(), e);
+            }
+
             return false;
         }
     }

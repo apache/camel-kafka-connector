@@ -30,7 +30,6 @@ import org.apache.camel.kafkaconnector.syslog.services.SyslogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
@@ -43,7 +42,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
     private static final String HOST = "localhost";
     private static final String PROTOCOL = "udp";

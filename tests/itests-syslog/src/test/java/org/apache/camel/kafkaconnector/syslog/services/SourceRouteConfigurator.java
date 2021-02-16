@@ -21,6 +21,8 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.syslog.SyslogDataFormat;
 import org.apache.camel.component.syslog.netty.Rfc5425Encoder;
+import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
+import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,8 +49,11 @@ public class SourceRouteConfigurator implements RouteConfigurator {
             public void configure() {
                 from("direct:test")
                         .marshal(new SyslogDataFormat())
-                        .toF("netty:%s://%s:%d?sync=false&encoders=#encoder&useByteBuf=true", protocol, host, port);
+                        .toF("netty:%s://%s:%d?sync=false&encoders=#encoder&useByteBuf=true&lazyStartProducer=true",
+                                protocol, host, port);
             }
         });
+
+        TestUtils.waitFor(() -> NetworkUtils.portIsOpen(host, port));
     }
 }
