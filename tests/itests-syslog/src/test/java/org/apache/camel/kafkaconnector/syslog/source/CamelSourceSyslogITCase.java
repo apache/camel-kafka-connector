@@ -30,8 +30,6 @@ import org.apache.camel.kafkaconnector.syslog.services.SyslogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
@@ -42,6 +40,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * A simple test case that checks whether the timer produces the expected number of
  * messages
  */
+@EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true",
+        disabledReason = "Quickly spawning multiple Jetty Servers doesn't work well on Github Actions")
 public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
     private static final String HOST = "localhost";
     private static final String PROTOCOL = "udp";
@@ -79,12 +79,8 @@ public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
     }
 
 
-
-
-    @Timeout(90)
+    @RepeatedTest(3)
     @Test
-    @DisabledIfSystemProperty(named = "enable.flaky.tests", matches = "true",
-            disabledReason = "Already executed with testBasicSendStress")
     public void testBasicSend() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelSyslogPropertyFactory
                 .basic()
@@ -98,13 +94,5 @@ public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
         StringMessageConsumer stringMessageConsumer = new StringMessageConsumer(kafkaClient, topicName, expect);
 
         runTestBlocking(connectorPropertyFactory, stringMessageConsumer);
-    }
-
-    @RepeatedTest(3)
-    @Timeout(90)
-    @EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true",
-            disabledReason = "Quickly spawning multiple Jetty Servers doesn't work well on Github Actions")
-    public void testBasicSendStress() throws ExecutionException, InterruptedException {
-        testBasicSend();
     }
 }
