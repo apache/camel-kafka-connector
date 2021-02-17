@@ -23,8 +23,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class HelloServiceImpl implements HelloService {
+    public static int invocationCount;
     private static final Logger LOG = LoggerFactory.getLogger(HelloServiceImpl.class);
-    public static int invocationCount = 0;
 
     private String name;
 
@@ -57,7 +57,7 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String sayHello() {
-        
+
         return "hello" + name;
     }
 
