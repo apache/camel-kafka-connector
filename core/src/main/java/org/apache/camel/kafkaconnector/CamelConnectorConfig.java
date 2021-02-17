@@ -26,6 +26,11 @@ public abstract class CamelConnectorConfig extends AbstractConfig {
     public static final String CAMEL_CONNECTOR_AGGREGATE_NAME = "aggregate";
     public static final String CAMEL_CONNECTOR_AGGREGATE_CONF = "camel.beans." + CAMEL_CONNECTOR_AGGREGATE_NAME;
     public static final String CAMEL_CONNECTOR_AGGREGATE_DOC = "A reference to an aggregate bean, in the form of #class:";
+    
+    public static final String CAMEL_CONNECTOR_PROCESS_DEFAULT = null;
+    public static final String CAMEL_CONNECTOR_PROCESS_NAME = "process";
+    public static final String CAMEL_CONNECTOR_PROCESS_CONF = "camel.beans." + CAMEL_CONNECTOR_PROCESS_NAME;
+    public static final String CAMEL_CONNECTOR_PROCESS_DOC = "A reference to a process bean, in the form of #class:";
 
     public static final Integer CAMEL_CONNECTOR_AGGREGATE_SIZE_DEFAULT = 10;
     public static final String CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF = "camel.aggregation.size";

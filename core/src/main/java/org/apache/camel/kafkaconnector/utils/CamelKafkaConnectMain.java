@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
 import org.apache.camel.AggregationStrategy;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ConsumerTemplate;
+import org.apache.camel.Processor;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.kafkaconnector.CamelConnectorConfig;
@@ -110,6 +111,7 @@ public class CamelKafkaConnectMain extends SimpleMain {
         private int idempotentRepositoryKafkaMaxCacheSize;
         private int idempotentRepositoryKafkaPollDuration;
         private String headersExcludePattern;
+        private String process;
 
         public Builder(String from, String to) {
             this.from = from;
@@ -205,6 +207,11 @@ public class CamelKafkaConnectMain extends SimpleMain {
             this.headersExcludePattern = headersExcludePattern;
             return this;
         }
+        
+        public Builder withProcess(String process) {
+            this.process = process;
+            return this;
+        }
 
         private String filterSensitive(Map.Entry<Object, Object> entry) {
 
@@ -249,6 +256,14 @@ public class CamelKafkaConnectMain extends SimpleMain {
                     //from
                     RouteDefinition rd = from(from);
                     LOG.info("Creating Camel route from({})", from);
+                    if (process != null) {
+                        LOG.info("Creating processor({})", process);
+                        try {
+                            rd.process((Processor)Class.forName(process).newInstance());
+                        } catch (Exception e) {
+                            LOG.error("can't initialise the specified processor", e);
+                        } 
+                    }
                     
                     if (!ObjectHelper.isEmpty(errorHandler)) {
                         switch (errorHandler) {
