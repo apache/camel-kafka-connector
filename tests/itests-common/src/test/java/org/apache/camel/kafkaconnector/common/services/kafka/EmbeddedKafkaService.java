@@ -23,6 +23,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.camel.kafkaconnector.common.PluginPathHelper;
+import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.test.infra.kafka.services.KafkaService;
 import org.apache.kafka.connect.runtime.WorkerConfig;
 import org.apache.kafka.connect.util.clusters.EmbeddedConnectCluster;
@@ -50,8 +51,10 @@ public class EmbeddedKafkaService implements KafkaService {
 
         Map<String, String> workerProps = new HashMap<>();
         workerProps.put(WorkerConfig.OFFSET_COMMIT_INTERVAL_MS_CONFIG, String.valueOf(OFFSET_COMMIT_INTERVAL_MS));
-        workerProps.put(WorkerConfig.LISTENERS_CONFIG, "http://localhost:9999");
 
+        String address = NetworkUtils.getAddress("http");
+        LOG.info("Using the following address for  the listener configuration: {}", address);
+        workerProps.put(WorkerConfig.LISTENERS_CONFIG, address);
 
         String pluginPaths = PluginPathHelper.getInstance().pluginPaths();
 

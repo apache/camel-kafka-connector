@@ -41,7 +41,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  * messages
  */
 public class CamelSinkSyslogITCase extends CamelSinkTestSupport {
-    private static final String HOST = "localhost";
+    private static final String HOST = NetworkUtils.getHostname();
     private static final String PROTOCOL = "udp";
     private static final int FREE_PORT = NetworkUtils.getFreePort(HOST, NetworkUtils.Protocol.UDP);
     private static final String TEST_TXT = "<13>1 2020-05-14T14:47:01.198+02:00 nathannever myapp - - [timeQuality tzKnown=\"1\" isSynced=\"1\" syncAccuracy=\"11266\"] FOO BAR!";
@@ -103,7 +103,7 @@ public class CamelSinkSyslogITCase extends CamelSinkTestSupport {
         ConnectorPropertyFactory connectorPropertyFactory = CamelSyslogPropertyFactory
                 .basic()
                 .withTopics(topicName)
-                .withHost("localhost")
+                .withHost(HOST)
                 .withPort(FREE_PORT)
                 .withProtocol("udp");
 
