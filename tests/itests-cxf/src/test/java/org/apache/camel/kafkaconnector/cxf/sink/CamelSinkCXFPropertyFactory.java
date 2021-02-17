@@ -20,39 +20,33 @@ package org.apache.camel.kafkaconnector.cxf.sink;
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SinkConnectorPropertyFactory;
 
-
 final class CamelSinkCXFPropertyFactory extends SinkConnectorPropertyFactory<CamelSinkCXFPropertyFactory> {
     private CamelSinkCXFPropertyFactory() {
 
     }
-
-    
 
     public EndpointUrlBuilder<CamelSinkCXFPropertyFactory> withUrl(String serviceUrl) {
         String url = String.format("cxf://%s", serviceUrl);
 
         return new EndpointUrlBuilder<>(this::withSinkUrl, url);
     }
-    
+
     public CamelSinkCXFPropertyFactory withDataFormat(String dataFormat) {
         return setProperty("camel.sink.endpoint.dataFormat", dataFormat);
     }
-    
+
     public CamelSinkCXFPropertyFactory withAddress(String address) {
         return setProperty("camel.sink.path.address", address);
     }
-    
+
     public CamelSinkCXFPropertyFactory withServiceClass(String serviceClass) {
         return setProperty("camel.sink.endpoint.serviceClass", serviceClass);
     }
 
     public static CamelSinkCXFPropertyFactory basic() {
-        return new CamelSinkCXFPropertyFactory()
-                .withTasksMax(1)
-                .withName("CamelCXFSinkConnector")
+        return new CamelSinkCXFPropertyFactory().withTasksMax(1).withName("CamelCXFSinkConnector")
                 .withConnectorClass("org.apache.camel.kafkaconnector.cxf.CamelCxfSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
     }
 }
-

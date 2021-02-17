@@ -17,10 +17,8 @@
 
 package org.apache.camel.kafkaconnector.cxf.source;
 
-
 import org.apache.camel.kafkaconnector.common.EndpointUrlBuilder;
 import org.apache.camel.kafkaconnector.common.SourceConnectorPropertyFactory;
-
 
 /**
  * Creates the set of properties used by a Camel CXF Source Connector
@@ -33,23 +31,21 @@ final class CamelSourceCXFPropertyFactory extends SourceConnectorPropertyFactory
     public CamelSourceCXFPropertyFactory withAddress(String address) {
         return setProperty("camel.source.path.address", address);
     }
-    
+
     public CamelSourceCXFPropertyFactory withServiceClass(String serviceClass) {
         return setProperty("camel.source.endpoint.serviceClass", serviceClass);
     }
-    
+
     public CamelSourceCXFPropertyFactory withPublishedEndpointUrl(String publishedEndpointUrl) {
         return setProperty("camel.source.endpoint.publishedEndpointUrl", publishedEndpointUrl);
     }
-    
+
     public CamelSourceCXFPropertyFactory withDataFormat(String dataFormat) {
         return setProperty("camel.source.endpoint.dataFormat", dataFormat);
     }
-        
+
     public static CamelSourceCXFPropertyFactory basic() {
-        return new CamelSourceCXFPropertyFactory()
-                .withName("CamelCXFSourceConnector")
-                .withTasksMax(1)
+        return new CamelSourceCXFPropertyFactory().withName("CamelCXFSourceConnector").withTasksMax(1)
                 .withConnectorClass("org.apache.camel.kafkaconnector.cxf.CamelCxfSourceConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
@@ -60,5 +56,4 @@ final class CamelSourceCXFPropertyFactory extends SourceConnectorPropertyFactory
         return new EndpointUrlBuilder<>(this::withSourceUrl, url);
     }
 
-    
 }
