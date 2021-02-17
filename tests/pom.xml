@@ -65,6 +65,7 @@
         <module>itests-ssh</module>
         <module>itests-sql</module>
         <module>itests-cxf</module>
+        <module>itests-cxfrs</module>
         <module>itests-netty</module>
         <module>itests-netty-http</module>
         <module>itests-google-pubsub</module>
