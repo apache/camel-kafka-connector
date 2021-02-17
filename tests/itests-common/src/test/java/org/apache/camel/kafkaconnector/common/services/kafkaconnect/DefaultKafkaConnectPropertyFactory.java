@@ -20,7 +20,10 @@ package org.apache.camel.kafkaconnector.common.services.kafkaconnect;
 import java.util.Properties;
 
 import org.apache.camel.kafkaconnector.common.PluginPathHelper;
+import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -28,6 +31,8 @@ import org.apache.kafka.connect.runtime.standalone.StandaloneConfig;
  * used for the standalone CLI connect runtime.
  */
 class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory {
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultKafkaConnectPropertyFactory.class);
+
     private final String bootstrapServer;
 
     /**
@@ -48,7 +53,10 @@ class DefaultKafkaConnectPropertyFactory implements KafkaConnectPropertyFactory 
         props.put(StandaloneConfig.VALUE_CONVERTER_CLASS_CONFIG, "org.apache.kafka.connect.json.JsonConverter");
         props.put(StandaloneConfig.OFFSET_STORAGE_FILE_FILENAME_CONFIG, this.getClass().getResource("/").getPath() + "connect.offsets");
         props.put(StandaloneConfig.OFFSET_COMMIT_INTERVAL_MS_CONFIG, "10000");
-        props.put(StandaloneConfig.LISTENERS_CONFIG, "http://localhost:9999");
+
+        String address = NetworkUtils.getAddress("http");
+        LOG.info("Using the following address for  the listener configuration: {}", address);
+        props.put(StandaloneConfig.LISTENERS_CONFIG, address);
 
         String pluginPaths = PluginPathHelper.getInstance().pluginPaths();
         props.put(StandaloneConfig.PLUGIN_PATH_CONFIG, pluginPaths);
