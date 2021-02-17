@@ -16,7 +16,8 @@
  */
 package org.apache.camel.kafkaconnector.maven;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -44,7 +45,6 @@ import org.apache.maven.project.ProjectBuilder;
 import org.codehaus.plexus.resource.loader.FileResourceCreationException;
 import org.codehaus.plexus.resource.loader.ResourceNotFoundException;
 
-import static org.apache.camel.kafkaconnector.maven.utils.MavenUtils.sanitizeMavenArtifactId;
 import static org.twdata.maven.mojoexecutor.MojoExecutor.artifactId;
 import static org.twdata.maven.mojoexecutor.MojoExecutor.configuration;
 import static org.twdata.maven.mojoexecutor.MojoExecutor.element;
@@ -153,7 +153,8 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                             element(name("licenseTemplate"), licenseTemplate),
                             element(name("fixDependenciesProperties"), fixDependenciesProperties),
                             element(name("packageFileTemplate"), packageFileTemplate),
-                            element(name("overridePomFile"), overridePomFile.toString())
+                            element(name("overridePomFile"), overridePomFile.toString()),
+                            element(name("connectorsProjectName"), connectorsProjectName)
                     ),
                     executionEnvironment(
                             project,
@@ -177,7 +178,8 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                             element(name("noticeTemplate"), noticeTemplate),
                             element(name("licenseTemplate"), licenseTemplate),
                             element(name("fixDependenciesProperties"), fixDependenciesProperties),
-                            element(name("packageFileTemplate"), packageFileTemplate)
+                            element(name("packageFileTemplate"), packageFileTemplate),
+                            element(name("connectorsProjectName"), connectorsProjectName)
                     ),
                     executionEnvironment(
                             project,
@@ -211,7 +213,8 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
                                 ),
                                 goal("camel-kafka-connector-delete"),
                                 configuration(
-                                        element(name("name"), component)
+                                        element(name("name"), component),
+                                        element(name("connectorsProjectName"), connectorsProjectName)
                                 ),
                                 executionEnvironment(
                                         project,

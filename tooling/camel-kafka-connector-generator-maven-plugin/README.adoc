@@ -24,3 +24,16 @@ The Camel Kafka Connector generator plugin allows you to generator connectors ba
 | packageFileTemplate | camel-kafka-connector-template-package.template | Package file template to be placed in src/main/assembly/package.xml
 | exampleSinkPropertiesFileTemplate | camel-kafka-connector-template-example-sink-properties.template | Example connector sink file template
 |===============
+
+=== Developers
+
+==== Run Maven plugin integration tests
+
+The link:src/test/java/org/apache/camel/kafkaconnector/maven[Maven IT tests] try to generate all CKC connectors from Camel catalog for testing under `target/`. It's costly and time consuming, so disabled by default.
+
+To run the IT tests manually:
+
+[source,bash]
+----
+mvn clean verify -Pmaven-it
+----
