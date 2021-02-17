@@ -43,12 +43,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @EnabledIfSystemProperty(named = "enable.flaky.tests", matches = "true",
         disabledReason = "Quickly spawning multiple Jetty Servers doesn't work well on Github Actions")
 public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
-    private static final String HOST = "localhost";
+    private static final String HOST = NetworkUtils.getHostname();
     private static final String PROTOCOL = "udp";
     private static final int FREE_PORT = NetworkUtils.getFreePort(HOST, NetworkUtils.Protocol.UDP);
 
     @RegisterExtension
-    public static SyslogService service = SyslogService.sourceSyslogServiceFactory(PROTOCOL, "localhost", FREE_PORT);
+    public static SyslogService service = SyslogService.sourceSyslogServiceFactory(PROTOCOL, HOST, FREE_PORT);
 
     private final int expect = 1;
     private String topicName;
