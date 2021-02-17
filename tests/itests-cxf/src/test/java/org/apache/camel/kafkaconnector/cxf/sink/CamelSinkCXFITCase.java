@@ -63,8 +63,8 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
     protected Server server;
     protected EndpointImpl endpoint;
 
-    private final int simplePort = NetworkUtils.getFreePort("localhost");
-    private final int jaxwsPort = NetworkUtils.getFreePort("localhost");
+    private final int simplePort = NetworkUtils.getFreePort();
+    private final int jaxwsPort = NetworkUtils.getFreePort();
 
     private final int expect = 10;
 
@@ -74,11 +74,11 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
     }
 
     protected String getSimpleServerAddress() {
-        return "http://localhost:" + simplePort + "/" + getClass().getSimpleName() + "/simpletest";
+        return "http://" + NetworkUtils.getHostname() + ":" + simplePort + "/" + getClass().getSimpleName() + "/simpletest";
     }
 
     protected String getJaxWsServerAddress() {
-        return "http://localhost:" + jaxwsPort + "/" + getClass().getSimpleName() + "/jaxwstest";
+        return "http://" + NetworkUtils.getHostname() + ":" + jaxwsPort + "/" + getClass().getSimpleName() + "/jaxwstest";
     }
 
     @BeforeEach
