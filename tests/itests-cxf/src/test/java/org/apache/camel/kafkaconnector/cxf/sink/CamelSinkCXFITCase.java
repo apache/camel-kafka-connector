@@ -37,42 +37,37 @@ import org.apache.cxf.ext.logging.LoggingInInterceptor;
 import org.apache.cxf.ext.logging.LoggingOutInterceptor;
 import org.apache.cxf.frontend.ServerFactoryBean;
 import org.apache.cxf.jaxws.EndpointImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class CamelSinkCXFITCase extends AbstractKafkaTest {
-    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCXFITCase.class);
-      
-
-    private final int expect = 10;
-    
-    private final int simplePort = NetworkUtils.getFreePort("localhost");
-    private final int jaxwsPort = NetworkUtils.getFreePort("localhost");
-
     protected static final String ECHO_OPERATION = "echo";
     protected static final String GREET_ME_OPERATION = "greetMe";
     protected static final String TEST_MESSAGE = "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">"
-        + "<soap:Body><ns1:echo xmlns:ns1=\"http://source.cxf.kafkaconnector.camel.apache.org/\">"
-        + "<arg0 xmlns=\"http://source.cxf.kafkaconnector.camel.apache.org/\">hello world</arg0>"
-        + "</ns1:echo></soap:Body></soap:Envelope>";
-    protected static final String JAXWS_TEST_MESSAGE = "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\"\n" + 
-        "        + \"<soap:Body><ns1:greetMe xmlns:ns1=\"http://apache.org/hello_world_soap_http/types\">\"\n" + 
-        "        + \"<requestType xmlns=\"http://apache.org/hello_world_soap_http/types\">hello world!</requestType>\"\n" + 
-        "        + \"</ns1:greetMe></soap:Body></soap:Envelope>";
+            + "<soap:Body><ns1:echo xmlns:ns1=\"http://source.cxf.kafkaconnector.camel.apache.org/\">"
+            + "<arg0 xmlns=\"http://source.cxf.kafkaconnector.camel.apache.org/\">hello world</arg0>"
+            + "</ns1:echo></soap:Body></soap:Envelope>";
+    protected static final String JAXWS_TEST_MESSAGE = "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\"\n"
+            + "        + \"<soap:Body><ns1:greetMe xmlns:ns1=\"http://apache.org/hello_world_soap_http/types\">\"\n"
+            + "        + \"<requestType xmlns=\"http://apache.org/hello_world_soap_http/types\">hello world!</requestType>\"\n"
+            + "        + \"</ns1:greetMe></soap:Body></soap:Envelope>";
+
+    private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCXFITCase.class);
 
     protected Server server;
     protected EndpointImpl endpoint;
-    
-    
 
-    
+    private final int simplePort = NetworkUtils.getFreePort("localhost");
+    private final int jaxwsPort = NetworkUtils.getFreePort("localhost");
+
+    private final int expect = 10;
+
     @Override
     protected String[] getConnectorsInTest() {
         return new String[] {"camel-cxf-kafka-connector"};
@@ -86,7 +81,6 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
         return "http://localhost:" + jaxwsPort + "/" + getClass().getSimpleName() + "/jaxwstest";
     }
 
-    
     @BeforeEach
     public void setUp() throws IOException {
         // start a simple front service
@@ -100,7 +94,7 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
         server.getEndpoint().getOutInterceptors().add(new LoggingOutInterceptor());
         // start a jaxws front service
         GreeterImpl greeterImpl = new GreeterImpl();
-        endpoint = (EndpointImpl)Endpoint.publish(getJaxWsServerAddress(), greeterImpl);
+        endpoint = (EndpointImpl) Endpoint.publish(getJaxWsServerAddress(), greeterImpl);
         endpoint.getInInterceptors().add(new LoggingInInterceptor());
         endpoint.getOutInterceptors().add(new LoggingOutInterceptor());
     }
@@ -112,7 +106,6 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
         server.destroy();
     }
 
-
     private void putRecords(String message) {
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
@@ -123,11 +116,12 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
                 LOG.error("Unable to produce messages: {}", e.getMessage(), e);
             } catch (InterruptedException e) {
                 break;
-            } 
+            }
         }
     }
 
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory, String message) throws ExecutionException, InterruptedException, TimeoutException {
+    public void runTest(ConnectorPropertyFactory connectorPropertyFactory, String message)
+            throws ExecutionException, InterruptedException, TimeoutException {
         connectorPropertyFactory.log();
         getKafkaConnectService().initializeConnector(connectorPropertyFactory);
         getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
@@ -136,20 +130,17 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
         service.submit(r);
         Thread.sleep(5000);
         LOG.debug("Created the consumer ... About to receive messages");
-                
+
     }
 
     @Test
     @Timeout(90)
     public void testBasicSendReceiveUsingUrl() {
         try {
-            
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelSinkCXFPropertyFactory.basic()
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withAddress(getSimpleServerAddress())
-                    .withServiceClass("org.apache.camel.kafkaconnector.cxf.source.HelloService")
-                    .withDataFormat("RAW");
+                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass())).withAddress(getSimpleServerAddress())
+                    .withServiceClass("org.apache.camel.kafkaconnector.cxf.source.HelloService").withDataFormat("RAW");
 
             runTest(connectorPropertyFactory, TEST_MESSAGE);
         } catch (Exception e) {
@@ -162,11 +153,9 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
     @Timeout(90)
     public void testJaxWsBasicSendReceiveUsingUrl() {
         try {
-            
 
             ConnectorPropertyFactory connectorPropertyFactory = CamelSinkCXFPropertyFactory.basic()
-                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass()))
-                    .withAddress(this.getJaxwsEndpointUri())
+                    .withTopics(TestUtils.getDefaultTestTopic(this.getClass())).withAddress(this.getJaxwsEndpointUri())
                     .withDataFormat("RAW");
 
             runTest(connectorPropertyFactory, JAXWS_TEST_MESSAGE);
@@ -175,15 +164,13 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
             fail(e.getMessage(), e);
         }
     }
-    
+
     protected String getSimpleEndpointUri() {
-        return getSimpleServerAddress()
-               + "?serviceClass=org.apache.camel.kafkaconnector.cxf.source.HelloService";
+        return getSimpleServerAddress() + "?serviceClass=org.apache.camel.kafkaconnector.cxf.source.HelloService";
     }
 
     protected String getJaxwsEndpointUri() {
         return getJaxWsServerAddress() + "?serviceClass=org.apache.hello_world_soap_http.Greeter";
     }
 
-    
 }
