@@ -78,4 +78,10 @@
     <suppress checks="LineLength"
               files=".*/resources/.*request.xml"
               />
+    <suppress checks="MethodName"
+              files=".*/tooling/.+-maven-plugin/src/test/java[\\\/].+IT\.java"
+              />
+    <suppress checks=".*"
+              files=".*/tooling/.+-maven-plugin/src/test/resources/template-connector-package.xml"
+              />
 </suppressions>

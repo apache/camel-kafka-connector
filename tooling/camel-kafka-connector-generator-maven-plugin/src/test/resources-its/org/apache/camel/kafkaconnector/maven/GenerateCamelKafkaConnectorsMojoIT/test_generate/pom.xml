@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.apache.camel.kafkaconnector.test</groupId>
+    <artifactId>test-project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Test Project</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.camel.kafkaconnector</groupId>
+                <artifactId>camel-kafka-connector-generator-maven-plugin</artifactId>
+                <version>@project.version@</version>
+                <configuration>
+                    <connectorsProjectName>\${project.artifactId}</connectorsProjectName>
+                    <!-- set to true to make build fail fast if missing documentation in docs files -->
+                    <!--  <failFast>false</failFast> -->
+                    <!-- set to true to make build fail if an option has no description -->
+                    <!--  <failOnMissingDescription>false</failOnMissingDescription> -->
+                    <!-- Process just this, comma separated, components -->
+                    <!--  <filter></filter>-->
+                    <!-- Regenerate connector pom file completely even if one already exists -->
+                    <!-- WARNING: you may lose some changes done to the pom. -->
+                    <!-- <overridePomFile>false</overridePomFile> -->
+                    <initialPomTemplate>
+                        ${project.build.testOutputDirectory}/template-connector-pom.xml
+                    </initialPomTemplate>
+                    <noticeTemplate>
+                        ${project.build.testOutputDirectory}/camel-kafka-connector-NOTICE.txt
+                    </noticeTemplate>
+                    <licenseTemplate>
+                        ${project.build.testOutputDirectory}/camel-kafka-connector-LICENSE.txt
+                    </licenseTemplate>
+                    <fixDependenciesProperties>
+                        ${project.build.testOutputDirectory}/camel-kafka-connector-fix-dependencies.properties
+                    </fixDependenciesProperties>
+                    <packageFileTemplate>
+                        ${project.build.testOutputDirectory}/template-connector-package.xml
+                    </packageFileTemplate>
+                    <exampleSourcePropertiesFileTemplate>
+                        ${project.build.testOutputDirectory}/camel-kafka-connector-template-example-source-properties.template
+                    </exampleSourcePropertiesFileTemplate>
+                    <exampleSinkPropertiesFileTemplate>
+                        ${project.build.testOutputDirectory}/camel-kafka-connector-template-example-sink-properties.template
+                    </exampleSinkPropertiesFileTemplate>
+                    <excludedComponents>
+                        <param>bonita</param>
+                        <param>bean-validator</param>
+                        <param>browse</param>
+                        <param>class</param>
+                        <param>dataset</param>
+                        <param>dataset-test</param>
+                        <param>debezium-mongodb</param>
+                        <param>debezium-mysql</param>
+                        <param>debezium-postgres</param>
+                        <param>debezium-sqlserver</param>
+                        <param>digitalocean</param>
+                        <param>mock</param>
+                        <param>ref</param>
+                        <param>robotframework</param>
+                    </excludedComponents>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>test_generate</id>
+                        <goals>
+                            <goal>generate-camel-kafka-connectors</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.camel</groupId>
+                        <artifactId>camel-catalog</artifactId>
+                        <version>@camel.version@</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+    </modules>
+</project>
