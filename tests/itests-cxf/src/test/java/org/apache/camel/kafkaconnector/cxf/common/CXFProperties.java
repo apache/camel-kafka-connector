@@ -15,32 +15,13 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.cxf.sink;
+package org.apache.camel.kafkaconnector.cxf.common;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Logger;
+public final class CXFProperties {
+    public static final String SIMPLE_SERVER_ADDRESS = "cxf.simple.server.address";
+    public static final String JAXWS_SERVER_ADDRESS = "cxf.jaxws.server.address";
 
-public class GreeterImpl extends org.apache.hello_world_soap_http.GreeterImpl {
-    private static final Logger LOG = Logger.getLogger(GreeterImpl.class.getName());
+    private CXFProperties() {
 
-    public String greetMe(String hi) {
-        File outputFile = outputFile();
-
-        try {
-            outputFile.createNewFile();
-            LOG.info("jaxws greetMe " + hi);
-
-        } catch (IOException e) {
-            LOG.warning("Failed to create result test file");
-        }
-
-        return "Greet " + hi;
-    }
-
-    public static File outputFile() {
-        String path = GreeterImpl.class.getResource(".").getFile();
-
-        return new File(path, "cxf.test.result");
     }
 }

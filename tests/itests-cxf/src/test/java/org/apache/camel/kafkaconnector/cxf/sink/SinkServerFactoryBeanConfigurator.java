@@ -14,33 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.camel.kafkaconnector.cxf.sink;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Logger;
+import org.apache.camel.kafkaconnector.cxf.services.ServerFactoryBeanConfigurator;
+import org.apache.camel.kafkaconnector.cxf.source.HelloService;
+import org.apache.cxf.frontend.ServerFactoryBean;
 
-public class GreeterImpl extends org.apache.hello_world_soap_http.GreeterImpl {
-    private static final Logger LOG = Logger.getLogger(GreeterImpl.class.getName());
+class SinkServerFactoryBeanConfigurator implements ServerFactoryBeanConfigurator {
+    private HelloService helloService = new HelloServiceImpl();
 
-    public String greetMe(String hi) {
-        File outputFile = outputFile();
-
-        try {
-            outputFile.createNewFile();
-            LOG.info("jaxws greetMe " + hi);
-
-        } catch (IOException e) {
-            LOG.warning("Failed to create result test file");
-        }
-
-        return "Greet " + hi;
+    @Override
+    public void configure(ServerFactoryBean serverFactoryBean) {
+        serverFactoryBean.setServiceClass(HelloService.class);
+        serverFactoryBean.setServiceBean(helloService);
     }
 
-    public static File outputFile() {
-        String path = GreeterImpl.class.getResource(".").getFile();
-
-        return new File(path, "cxf.test.result");
+    public int getInvocationCount() {
+        return helloService.getInvocationCount();
     }
 }
