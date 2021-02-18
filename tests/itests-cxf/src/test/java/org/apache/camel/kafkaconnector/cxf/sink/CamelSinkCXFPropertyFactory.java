@@ -44,7 +44,8 @@ final class CamelSinkCXFPropertyFactory extends SinkConnectorPropertyFactory<Cam
     }
 
     public static CamelSinkCXFPropertyFactory basic() {
-        return new CamelSinkCXFPropertyFactory().withTasksMax(1).withName("CamelCXFSinkConnector")
+        return new CamelSinkCXFPropertyFactory()
+                .withTasksMax(1)
                 .withConnectorClass("org.apache.camel.kafkaconnector.cxf.CamelCxfSinkConnector")
                 .withKeyConverterClass("org.apache.kafka.connect.storage.StringConverter")
                 .withValueConverterClass("org.apache.kafka.connect.storage.StringConverter");
