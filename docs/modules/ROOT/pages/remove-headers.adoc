@@ -1,0 +1,30 @@
+[[RemovedHeaders-RemovedHeaders]]
+= Remove Headers
+
+As you know in Camel Kafka Connector there is a mixing between Camel and Kafka headers. There are scenario where a typical user would like to remove some of the Camel Headers, because otherwise he would 
+trigger a particular behavior while moving record between a source connector and sink connector.
+
+Starting from Camel Kafka connector 0.7.0, we introduced the removeHeaders option "camel.remove.headers.pattern=CamelAwsS3BucketName"
+
+This option is valid for both source and sink connector and support any regex.
+
+For example in Camel AWS2 S3 connector there is a particular header, set while consuming file from a bucket ("CamelAwsS3BucketName"), if this header will be passed to a sink connector the bucket name set in 
+the sink connector configuration will be override. For this particular case a user can specify:
+
+[source,bash]
+----
+name=CamelAWS2S3SinkConnector
+connector.class=org.apache.camel.kafkaconnector.aws2s3.CamelAws2s3SinkConnector
+key.converter=org.apache.kafka.connect.storage.StringConverter
+value.converter=org.apache.kafka.connect.storage.StringConverter
+
+topics=mytopic
+
+camel.sink.path.bucketNameOrArn=camel-kafka-connector-1
+camel.remove.headers.pattern=CamelAwsS3BucketName
+camel.component.aws2-s3.accessKey=<access_key>
+camel.component.aws2-s3.secretKey=<secret_key>
+camel.component.aws2-s3.region=<region>
+----
+
+In this way the header will be removed and the normal flow will go ahead.
