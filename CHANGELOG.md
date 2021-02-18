@@ -12,6 +12,7 @@
 
 - Azure storage queue failing on Camel Master [\#976](https://github.com/apache/camel-kafka-connector/issues/976)
 - SJMS2 Startup test failing on Camel Master [\#975](https://github.com/apache/camel-kafka-connector/issues/975)
+- Add tests to camel-kafka-connector-generator-maven-plugin [\#166](https://github.com/apache/camel-kafka-connector/issues/166)
 
 **Closed issues:**
 
@@ -24,6 +25,10 @@
 
 **Merged pull requests:**
 
+- Temporarily disable the syslog source tests on Github [\#1025](https://github.com/apache/camel-kafka-connector/pull/1025) ([orpiske](https://github.com/orpiske))
+- Fixed checkstyle issues with the CXF integration tests [\#1023](https://github.com/apache/camel-kafka-connector/pull/1023) ([orpiske](https://github.com/orpiske))
+- Make sure CXF tests are included in the test run [\#1021](https://github.com/apache/camel-kafka-connector/pull/1021) ([orpiske](https://github.com/orpiske))
+- Add tests to camel-kafka-connector-generator-maven-plugin [\#1019](https://github.com/apache/camel-kafka-connector/pull/1019) ([tadayosi](https://github.com/tadayosi))
 - \(backport\) Delay starting the producer on the syslog test to avoid failing due to port not being available [\#1017](https://github.com/apache/camel-kafka-connector/pull/1017) ([orpiske](https://github.com/orpiske))
 - Delay starting the producer on the syslog test to avoid failing due to port not being available [\#1016](https://github.com/apache/camel-kafka-connector/pull/1016) ([orpiske](https://github.com/orpiske))
 - \(backport\) Ensure parallel builds with mvnd work on clean environments [\#1015](https://github.com/apache/camel-kafka-connector/pull/1015) ([orpiske](https://github.com/orpiske))
@@ -121,10 +126,7 @@
 - Added a test to make sure we retain original exception data on errors [\#870](https://github.com/apache/camel-kafka-connector/pull/870) ([orpiske](https://github.com/orpiske))
 - Updates SSH tests to Camel's 3.7 test infra interfaces [\#869](https://github.com/apache/camel-kafka-connector/pull/869) ([orpiske](https://github.com/orpiske))
 - Smt struct to json [\#867](https://github.com/apache/camel-kafka-connector/pull/867) ([valdar](https://github.com/valdar))
-- Remove Github changelog action [\#864](https://github.com/apache/camel-kafka-connector/pull/864) ([oscerd](https://github.com/oscerd))
 - Test cleanups [\#863](https://github.com/apache/camel-kafka-connector/pull/863) ([orpiske](https://github.com/orpiske))
-- \(chores\) Fixed typos [\#862](https://github.com/apache/camel-kafka-connector/pull/862) ([orpiske](https://github.com/orpiske))
-- Added an EventTypeTransforms to Github Source connector [\#861](https://github.com/apache/camel-kafka-connector/pull/861) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.7.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.2) (2021-02-13)
 
@@ -283,7 +285,6 @@
 - Decouple the jdbc clients from the service to simplify using the test infra from Camel [\#713](https://github.com/apache/camel-kafka-connector/pull/713) ([orpiske](https://github.com/orpiske))
 - Add RemoteFileTransforms to the FTP connector directly  [\#709](https://github.com/apache/camel-kafka-connector/pull/709) ([oscerd](https://github.com/oscerd))
 - Add RemoteFileTransforms to the FTPS connector directly [\#707](https://github.com/apache/camel-kafka-connector/pull/707) ([oscerd](https://github.com/oscerd))
-- Added missing dependency causing Strimzi tests to fail [\#706](https://github.com/apache/camel-kafka-connector/pull/706) ([orpiske](https://github.com/orpiske))
 - Decouple the Azure clients from the service to simplify using the test infra from Camel [\#704](https://github.com/apache/camel-kafka-connector/pull/704) ([orpiske](https://github.com/orpiske))
 - Review Archetype generation after new dependencies added to core [\#699](https://github.com/apache/camel-kafka-connector/pull/699) ([oscerd](https://github.com/oscerd))
 - Avoid NPE on Windows for Catalog initialization \#697 [\#698](https://github.com/apache/camel-kafka-connector/pull/698) ([apupier](https://github.com/apupier))
