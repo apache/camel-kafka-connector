@@ -14,33 +14,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.apache.camel.kafkaconnector.cxf.services;
 
-package org.apache.camel.kafkaconnector.cxf.sink;
+import org.apache.camel.test.infra.common.services.TestService;
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Logger;
+/**
+ * Test infra service for CXF
+ */
+public interface CXFService extends BeforeEachCallback, AfterEachCallback, TestService {
 
-public class GreeterImpl extends org.apache.hello_world_soap_http.GreeterImpl {
-    private static final Logger LOG = Logger.getLogger(GreeterImpl.class.getName());
+    String getSimpleServerAddress();
 
-    public String greetMe(String hi) {
-        File outputFile = outputFile();
+    String getJaxWsServerAddress();
 
-        try {
-            outputFile.createNewFile();
-            LOG.info("jaxws greetMe " + hi);
-
-        } catch (IOException e) {
-            LOG.warning("Failed to create result test file");
-        }
-
-        return "Greet " + hi;
+    @Override
+    default void beforeEach(ExtensionContext extensionContext) throws Exception {
+        initialize();
     }
 
-    public static File outputFile() {
-        String path = GreeterImpl.class.getResource(".").getFile();
-
-        return new File(path, "cxf.test.result");
+    @Override
+    default void afterEach(ExtensionContext extensionContext) throws Exception {
+        shutdown();
     }
 }

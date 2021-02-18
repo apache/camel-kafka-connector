@@ -14,33 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.apache.camel.kafkaconnector.cxf.sink;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Logger;
+import javax.xml.ws.Endpoint;
 
-public class GreeterImpl extends org.apache.hello_world_soap_http.GreeterImpl {
-    private static final Logger LOG = Logger.getLogger(GreeterImpl.class.getName());
+import org.apache.camel.kafkaconnector.cxf.services.JaxWsServiceConfigurator;
+import org.apache.cxf.jaxws.EndpointImpl;
 
-    public String greetMe(String hi) {
-        File outputFile = outputFile();
-
-        try {
-            outputFile.createNewFile();
-            LOG.info("jaxws greetMe " + hi);
-
-        } catch (IOException e) {
-            LOG.warning("Failed to create result test file");
-        }
-
-        return "Greet " + hi;
-    }
-
-    public static File outputFile() {
-        String path = GreeterImpl.class.getResource(".").getFile();
-
-        return new File(path, "cxf.test.result");
+class SinkJaxWsServiceConfigurator implements JaxWsServiceConfigurator {
+    @Override
+    public EndpointImpl configureEndpoint(String address) {
+        GreeterImpl greeterImpl = new GreeterImpl();
+        return (EndpointImpl) Endpoint.publish(address, greeterImpl);
     }
 }
