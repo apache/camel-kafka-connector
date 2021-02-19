@@ -17,17 +17,18 @@
 
 package org.apache.camel.kafkaconnector.cxf.sink;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeoutException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
-import org.apache.camel.kafkaconnector.common.AbstractKafkaTest;
 import org.apache.camel.kafkaconnector.common.ConnectorPropertyFactory;
 import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
+import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.cxf.services.CXFEmbeddedServerService;
 import org.apache.camel.kafkaconnector.cxf.services.CXFService;
 import org.apache.camel.kafkaconnector.cxf.services.JaxWsServiceConfigurator;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -39,26 +40,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class CamelSinkCXFITCase extends AbstractKafkaTest {
-    protected static final String TEST_MESSAGE = "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">"
-            + "<soap:Body><ns1:echo xmlns:ns1=\"http://source.cxf.kafkaconnector.camel.apache.org/\">"
-            + "<arg0 xmlns=\"http://source.cxf.kafkaconnector.camel.apache.org/\">hello world</arg0>"
-            + "</ns1:echo></soap:Body></soap:Envelope>";
-
-    protected static final String JAXWS_TEST_MESSAGE = "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\"\n"
-            + "        + \"<soap:Body><ns1:greetMe xmlns:ns1=\"http://apache.org/hello_world_soap_http/types\">\"\n"
-            + "        + \"<requestType xmlns=\"http://apache.org/hello_world_soap_http/types\">hello world!</requestType>\"\n"
-            + "        + \"</ns1:greetMe></soap:Body></soap:Envelope>";
-
+public class CamelSinkCXFITCase extends CamelSinkTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkCXFITCase.class);
-    
+
     private SinkServerFactoryBeanConfigurator serverFactoryBeanConfigurator = new SinkServerFactoryBeanConfigurator();
     private JaxWsServiceConfigurator jaxWsServiceConfigurator = new SinkJaxWsServiceConfigurator();
 
     @RegisterExtension
     public CXFService service = new CXFEmbeddedServerService(serverFactoryBeanConfigurator, jaxWsServiceConfigurator);
-
-
 
     private final int expect = 10;
     private String topicName;
@@ -74,17 +63,35 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
         GreeterImpl.outputFile().delete();
     }
 
+    @Override
+    protected void consumeMessages(CountDownLatch latch) {
+        try {
+            // NO-OP (the messages are consumed on each service implementation)
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            LOG.warn("Interrupted");
+        } finally {
+            latch.countDown();
+        }
+    }
+
+    @Override
+    protected void verifyMessages(CountDownLatch latch) throws InterruptedException {
+        // NO-OP (specific for each)
+        if (!latch.await(30, TimeUnit.SECONDS)) {
+            fail("Failed to receive the messages within the specified time: received %d of %d");
+        }
+    }
+
     private void putRecords(String message, int count) {
         KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
 
-        for (int i = 0; i < count; i++) {
-            try {
+        try {
+            for (int i = 0; i < count; i++) {
                 kafkaClient.produce(topicName, message);
-            } catch (ExecutionException e) {
-                LOG.error("Unable to produce messages: {}", e.getMessage(), e);
-            } catch (InterruptedException e) {
-                break;
             }
+        } catch (Exception e) {
+            fail(e.getMessage());
         }
     }
 
@@ -92,54 +99,39 @@ public class CamelSinkCXFITCase extends AbstractKafkaTest {
         return service.getJaxWsServerAddress() + "?serviceClass=org.apache.hello_world_soap_http.Greeter";
     }
 
-    public void runTest(ConnectorPropertyFactory connectorPropertyFactory, String message, int count)
-            throws ExecutionException, InterruptedException, TimeoutException {
-        connectorPropertyFactory.log();
-        getKafkaConnectService().initializeConnectorBlocking(connectorPropertyFactory, 1);
-        ExecutorService service = Executors.newCachedThreadPool();
-        Runnable r = () -> this.putRecords(message, count);
-        service.submit(r);
-        Thread.sleep(5000);
-        LOG.debug("Created the consumer ... About to receive messages");
-    }
-
     @Test
-    public void testBasicSendReceiveUsingUrl() {
-        try {
-            ConnectorPropertyFactory connectorPropertyFactory = CamelSinkCXFPropertyFactory
-                    .basic()
-                    .withName("CamelCXFSinkConnector")
-                    .withTopics(topicName)
-                    .withAddress(service.getSimpleServerAddress())
-                    .withServiceClass("org.apache.camel.kafkaconnector.cxf.source.HelloService")
-                    .withDataFormat("RAW");
+    public void testBasicSendReceiveUsingUrl() throws Exception {
+        InputStream stream = this.getClass().getResource("/hello-service-test.xml").openStream();
+        String testMessage = IOUtils.toString(stream, Charset.defaultCharset());
 
-            runTest(connectorPropertyFactory, TEST_MESSAGE, expect);
+        ConnectorPropertyFactory connectorPropertyFactory = CamelSinkCXFPropertyFactory
+                .basic()
+                .withName("CamelCXFSinkConnector")
+                .withTopics(topicName)
+                .withAddress(service.getSimpleServerAddress())
+                .withServiceClass("org.apache.camel.kafkaconnector.cxf.common.HelloService")
+                .withDataFormat("RAW");
 
-            assertEquals(expect, serverFactoryBeanConfigurator.getInvocationCount());
-        } catch (Exception e) {
-            LOG.error("CXF Sink test failed: {} {}", e.getMessage(), e);
-            fail(e.getMessage(), e);
-        }
+        runTest(connectorPropertyFactory, () -> putRecords(testMessage, expect));
+
+        assertEquals(expect, serverFactoryBeanConfigurator.getInvocationCount());
     }
 
     @Test
     @Timeout(90)
-    public void testJaxWsBasicSendReceiveUsingUrl() {
-        try {
-            ConnectorPropertyFactory connectorPropertyFactory = CamelSinkCXFPropertyFactory
-                    .basic()
-                    .withName("CamelCXFSinkConnectorUrl")
-                    .withTopics(topicName)
-                    .withAddress(getJaxwsEndpointUri())
-                    .withDataFormat("RAW");
+    public void testJaxWsBasicSendReceiveUsingUrl() throws Exception {
+        InputStream stream = this.getClass().getResource("/jaxws-test.xml").openStream();
+        String testMessage = IOUtils.toString(stream, Charset.defaultCharset());
 
-            runTest(connectorPropertyFactory, JAXWS_TEST_MESSAGE, 1);
+        ConnectorPropertyFactory connectorPropertyFactory = CamelSinkCXFPropertyFactory
+                .basic()
+                .withName("CamelCXFSinkConnectorUrl")
+                .withTopics(topicName)
+                .withAddress(getJaxwsEndpointUri())
+                .withDataFormat("RAW");
 
-            assertTrue(GreeterImpl.outputFile().exists(), "The test output file was not created");
-        } catch (Exception e) {
-            LOG.error("CXF Sink test failed: {} {}", e.getMessage(), e);
-            fail(e.getMessage(), e);
-        }
+        runTest(connectorPropertyFactory, () -> putRecords(testMessage, 1));
+
+        assertTrue(GreeterImpl.outputFile().exists(), "The test output file was not created");
     }
 }
