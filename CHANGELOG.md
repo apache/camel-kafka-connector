@@ -19,12 +19,15 @@
 - Azure storage blob failing on camel-master [\#997](https://github.com/apache/camel-kafka-connector/issues/997)
 - Consistent failures in GH tests [\#990](https://github.com/apache/camel-kafka-connector/issues/990)
 - Release 0.7.2 once Camel 3.7.2 will be released [\#978](https://github.com/apache/camel-kafka-connector/issues/978)
+- Add removeHeaders documentation [\#903](https://github.com/apache/camel-kafka-connector/issues/903)
 - Add test for AWS 2 SNS [\#700](https://github.com/apache/camel-kafka-connector/issues/700)
 - Add an example of FHIR connector's usage [\#402](https://github.com/apache/camel-kafka-connector/issues/402)
+- aws2S3connector: camel.source.endpoint.runLoggingLevel=TRACE no trace log [\#340](https://github.com/apache/camel-kafka-connector/issues/340)
 - Add a release notes page in docs [\#302](https://github.com/apache/camel-kafka-connector/issues/302)
 
 **Merged pull requests:**
 
+- Remove headers docs [\#1029](https://github.com/apache/camel-kafka-connector/pull/1029) ([oscerd](https://github.com/oscerd))
 - Temporarily disable the syslog source tests on Github [\#1025](https://github.com/apache/camel-kafka-connector/pull/1025) ([orpiske](https://github.com/orpiske))
 - Fixed checkstyle issues with the CXF integration tests [\#1023](https://github.com/apache/camel-kafka-connector/pull/1023) ([orpiske](https://github.com/orpiske))
 - Make sure CXF tests are included in the test run [\#1021](https://github.com/apache/camel-kafka-connector/pull/1021) ([orpiske](https://github.com/orpiske))
@@ -56,6 +59,7 @@
 - Added missing slow tests filter to avoid trying to run the AWS v2 test on GH actions [\#989](https://github.com/apache/camel-kafka-connector/pull/989) ([orpiske](https://github.com/orpiske))
 - Cleanup all source integration tests [\#987](https://github.com/apache/camel-kafka-connector/pull/987) ([orpiske](https://github.com/orpiske))
 - \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#982](https://github.com/apache/camel-kafka-connector/pull/982) ([github-actions[bot]](https://github.com/apps/github-actions))
+- fixed \#980 : camel.source.contentLogLevel config not honored in sourc… [\#981](https://github.com/apache/camel-kafka-connector/pull/981) ([valdar](https://github.com/valdar))
 - \(Backport\) Make producing test messages for sink tests more flexible [\#977](https://github.com/apache/camel-kafka-connector/pull/977) ([orpiske](https://github.com/orpiske))
 - Backport sink test cleanups to camel-master [\#972](https://github.com/apache/camel-kafka-connector/pull/972) ([orpiske](https://github.com/orpiske))
 - Make producing test messages for sink tests more flexible [\#971](https://github.com/apache/camel-kafka-connector/pull/971) ([orpiske](https://github.com/orpiske))
@@ -142,6 +146,7 @@
 
 **Closed issues:**
 
+- camel.source.contentLogLevel config not honored in source connectors [\#980](https://github.com/apache/camel-kafka-connector/issues/980)
 - Improve description of connector [\#979](https://github.com/apache/camel-kafka-connector/issues/979)
 - CamelKafkaConnectMain is showing sensitive information in summary [\#973](https://github.com/apache/camel-kafka-connector/issues/973)
 - Camel-master: Let's change the gh action to be triggered when a push on master has been done [\#939](https://github.com/apache/camel-kafka-connector/issues/939)
@@ -285,6 +290,7 @@
 - Decouple the jdbc clients from the service to simplify using the test infra from Camel [\#713](https://github.com/apache/camel-kafka-connector/pull/713) ([orpiske](https://github.com/orpiske))
 - Add RemoteFileTransforms to the FTP connector directly  [\#709](https://github.com/apache/camel-kafka-connector/pull/709) ([oscerd](https://github.com/oscerd))
 - Add RemoteFileTransforms to the FTPS connector directly [\#707](https://github.com/apache/camel-kafka-connector/pull/707) ([oscerd](https://github.com/oscerd))
+- Added missing dependency causing Strimzi tests to fail [\#706](https://github.com/apache/camel-kafka-connector/pull/706) ([orpiske](https://github.com/orpiske))
 - Decouple the Azure clients from the service to simplify using the test infra from Camel [\#704](https://github.com/apache/camel-kafka-connector/pull/704) ([orpiske](https://github.com/orpiske))
 - Review Archetype generation after new dependencies added to core [\#699](https://github.com/apache/camel-kafka-connector/pull/699) ([oscerd](https://github.com/oscerd))
 - Avoid NPE on Windows for Catalog initialization \#697 [\#698](https://github.com/apache/camel-kafka-connector/pull/698) ([apupier](https://github.com/apupier))
