@@ -21,7 +21,6 @@
   <!-- Assembles a packaged version targeting OS installation. -->
   <id>package</id>
   <formats>
-    <format>zip</format>
     <format>tar.gz</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
