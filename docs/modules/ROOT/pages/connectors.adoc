@@ -4,7 +4,7 @@
 // kafka-connectors list: START
 Number of Camel Kafka connectors: 356 
 
-[width="100%",cols="4,1,1,1,1,1,1",options="header"]
+[width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
 | Name | Sink Support | Source Suppport | Sink Docs | Source Docs | Download 
 | *camel-activemq-kafka-connector* | true | true | xref:connectors/camel-activemq-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-activemq-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-activemq-kafka-connector/0.7.2/camel-activemq-kafka-connector-0.7.2-package.tar.gz[Download]
