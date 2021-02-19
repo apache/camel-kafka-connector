@@ -16,8 +16,8 @@
  */
 package org.apache.camel.kafkaconnector.cxf.sink;
 
+import org.apache.camel.kafkaconnector.cxf.common.HelloService;
 import org.apache.camel.kafkaconnector.cxf.services.ServerFactoryBeanConfigurator;
-import org.apache.camel.kafkaconnector.cxf.source.HelloService;
 import org.apache.cxf.frontend.ServerFactoryBean;
 
 class SinkServerFactoryBeanConfigurator implements ServerFactoryBeanConfigurator {
