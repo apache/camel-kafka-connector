@@ -152,9 +152,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                     singleConnector.setDocsSource(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SOURCE_CONNECTOR_LINK_SUFFIX_ADOC);
                                 }
                             }
-                            String downloadLinkZip = repositoryPath + singleConnector.getName() + "/" + lastReleasedVersion + "/" + singleConnector.getName() + "-" + lastReleasedVersion + "-package.zip[Download Zip]";
-                            String downloadLinkTar = repositoryPath + singleConnector.getName() + "/" + lastReleasedVersion + "/" + singleConnector.getName() + "-" + lastReleasedVersion + "-package.tar.gz[Download Tar.gz]";
-                            singleConnector.setDownloadLinkZip(downloadLinkZip);
+                            String downloadLinkTar = repositoryPath + singleConnector.getName() + "/" + lastReleasedVersion + "/" + singleConnector.getName() + "-" + lastReleasedVersion + "-package.tar.gz[Download]";
                             singleConnector.setDownloadLinkTar(downloadLinkTar);
                             options.add(singleConnector);
                         }
