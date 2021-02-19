@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.camel.kafkaconnector.cxf.source;
+package org.apache.camel.kafkaconnector.cxf.common;
 
 import java.util.List;
 

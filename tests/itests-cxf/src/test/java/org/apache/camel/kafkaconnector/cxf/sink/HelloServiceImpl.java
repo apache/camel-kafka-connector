@@ -18,7 +18,7 @@ package org.apache.camel.kafkaconnector.cxf.sink;
 
 import java.util.List;
 
-import org.apache.camel.kafkaconnector.cxf.source.HelloService;
+import org.apache.camel.kafkaconnector.cxf.common.HelloService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

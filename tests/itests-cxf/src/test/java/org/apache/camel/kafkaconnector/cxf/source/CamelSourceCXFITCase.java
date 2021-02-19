@@ -25,6 +25,7 @@ import org.apache.camel.kafkaconnector.common.clients.kafka.KafkaClient;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.apache.camel.kafkaconnector.cxf.client.CXFServiceUtil;
+import org.apache.camel.kafkaconnector.cxf.common.HelloService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,7 +44,7 @@ public class CamelSourceCXFITCase extends AbstractKafkaTest {
     protected static final int PORT = NetworkUtils.getFreePort("localhost");
     protected static final String SIMPLE_ENDPOINT_ADDRESS = "http://localhost:" + PORT + "/CxfConsumerTest/test";
     protected static final String SIMPLE_ENDPOINT_URI = SIMPLE_ENDPOINT_ADDRESS
-            + "?serviceClass=org.apache.camel.kafkaconnector.cxf.source.HelloService"
+            + "?serviceClass=org.apache.camel.kafkaconnector.cxf.common.HelloService"
             + "&publishedEndpointUrl=http://www.simple.com/services/test";
 
     private static final String TEST_MESSAGE = "Hello World!";
@@ -104,7 +105,7 @@ public class CamelSourceCXFITCase extends AbstractKafkaTest {
         try {
             ConnectorPropertyFactory connectorPropertyFactory = CamelSourceCXFPropertyFactory.basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass())).withAddress(SIMPLE_ENDPOINT_ADDRESS)
-                    .withServiceClass("org.apache.camel.kafkaconnector.cxf.source.HelloService");
+                    .withServiceClass("org.apache.camel.kafkaconnector.cxf.common.HelloService");
 
             runBasicStringTest(connectorPropertyFactory);
         } catch (Exception e) {
@@ -134,7 +135,7 @@ public class CamelSourceCXFITCase extends AbstractKafkaTest {
         try {
             ConnectorPropertyFactory connectorPropertyFactory = CamelSourceCXFPropertyFactory.basic()
                     .withKafkaTopic(TestUtils.getDefaultTestTopic(this.getClass())).withAddress(SIMPLE_ENDPOINT_ADDRESS)
-                    .withServiceClass("org.apache.camel.kafkaconnector.cxf.source.HelloService").withDataFormat("POJO");
+                    .withServiceClass("org.apache.camel.kafkaconnector.cxf.common.HelloService").withDataFormat("POJO");
 
             runBasicStringTest(connectorPropertyFactory);
         } catch (Exception e) {
