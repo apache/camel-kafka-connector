@@ -16,6 +16,8 @@
 
 **Closed issues:**
 
+- Website: connectors' list formatting problems [\#1041](https://github.com/apache/camel-kafka-connector/issues/1041)
+- Generate just one connector package: .zip or .tar.gz [\#1030](https://github.com/apache/camel-kafka-connector/issues/1030)
 - Azure storage blob failing on camel-master [\#997](https://github.com/apache/camel-kafka-connector/issues/997)
 - Consistent failures in GH tests [\#990](https://github.com/apache/camel-kafka-connector/issues/990)
 - Release 0.7.2 once Camel 3.7.2 will be released [\#978](https://github.com/apache/camel-kafka-connector/issues/978)
@@ -27,6 +29,10 @@
 
 **Merged pull requests:**
 
+- Website: connectors' list formatting problems [\#1042](https://github.com/apache/camel-kafka-connector/pull/1042) ([oscerd](https://github.com/oscerd))
+- Generate just one connector package: .zip or .tar.gz [\#1039](https://github.com/apache/camel-kafka-connector/pull/1039) ([oscerd](https://github.com/oscerd))
+- Last released version is 0.7.2 [\#1033](https://github.com/apache/camel-kafka-connector/pull/1033) ([oscerd](https://github.com/oscerd))
+- Add gh action for daily maven plugins IT [\#1032](https://github.com/apache/camel-kafka-connector/pull/1032) ([tadayosi](https://github.com/tadayosi))
 - Remove headers docs [\#1029](https://github.com/apache/camel-kafka-connector/pull/1029) ([oscerd](https://github.com/oscerd))
 - Temporarily disable the syslog source tests on Github [\#1025](https://github.com/apache/camel-kafka-connector/pull/1025) ([orpiske](https://github.com/orpiske))
 - Fixed checkstyle issues with the CXF integration tests [\#1023](https://github.com/apache/camel-kafka-connector/pull/1023) ([orpiske](https://github.com/orpiske))
@@ -128,9 +134,6 @@
 - Bump to Kafka 2.7.0 [\#877](https://github.com/apache/camel-kafka-connector/pull/877) ([oscerd](https://github.com/oscerd))
 - \(chores\) Cleanup topic deletion code and allow public access to the admin client [\#871](https://github.com/apache/camel-kafka-connector/pull/871) ([orpiske](https://github.com/orpiske))
 - Added a test to make sure we retain original exception data on errors [\#870](https://github.com/apache/camel-kafka-connector/pull/870) ([orpiske](https://github.com/orpiske))
-- Updates SSH tests to Camel's 3.7 test infra interfaces [\#869](https://github.com/apache/camel-kafka-connector/pull/869) ([orpiske](https://github.com/orpiske))
-- Smt struct to json [\#867](https://github.com/apache/camel-kafka-connector/pull/867) ([valdar](https://github.com/valdar))
-- Test cleanups [\#863](https://github.com/apache/camel-kafka-connector/pull/863) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.7.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.2) (2021-02-13)
 
