@@ -133,7 +133,6 @@
 - Ensures that Couchbase client dependencies are packed with the connector \(GH issue \#878\) [\#880](https://github.com/apache/camel-kafka-connector/pull/880) ([orpiske](https://github.com/orpiske))
 - Bump to Kafka 2.7.0 [\#877](https://github.com/apache/camel-kafka-connector/pull/877) ([oscerd](https://github.com/oscerd))
 - \(chores\) Cleanup topic deletion code and allow public access to the admin client [\#871](https://github.com/apache/camel-kafka-connector/pull/871) ([orpiske](https://github.com/orpiske))
-- Added a test to make sure we retain original exception data on errors [\#870](https://github.com/apache/camel-kafka-connector/pull/870) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.7.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.2) (2021-02-13)
 
@@ -300,7 +299,6 @@
 - Added Download page [\#691](https://github.com/apache/camel-kafka-connector/pull/691) ([oscerd](https://github.com/oscerd))
 - SFTP connector: add RemoteFileTransform [\#690](https://github.com/apache/camel-kafka-connector/pull/690) ([oscerd](https://github.com/oscerd))
 - Remove hacktoberfest from label list [\#689](https://github.com/apache/camel-kafka-connector/pull/689) ([oscerd](https://github.com/oscerd))
-- Added PojoToSchemaAndStructTransform to infer POJO kafka connec schem… [\#686](https://github.com/apache/camel-kafka-connector/pull/686) ([valdar](https://github.com/valdar))
 - AWS v2 tests tweaks [\#684](https://github.com/apache/camel-kafka-connector/pull/684) ([orpiske](https://github.com/orpiske))
 - Provide API to retrieve Basic configuration \#679 [\#683](https://github.com/apache/camel-kafka-connector/pull/683) ([apupier](https://github.com/apupier))
 - Minor SJMS2 test cleanups [\#681](https://github.com/apache/camel-kafka-connector/pull/681) ([orpiske](https://github.com/orpiske))
