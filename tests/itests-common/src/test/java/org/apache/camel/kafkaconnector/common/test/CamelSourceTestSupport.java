@@ -138,6 +138,4 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
         verifyMessages(consumer);
         LOG.debug("Verified messages");
     }
-
-
 }
