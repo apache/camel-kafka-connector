@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-seda-source",
 		"type": "source",
-		"version": "0.8.0-SNAPSHOT",
+		"version": "0.8.0",
 		"description": "Asynchronously call another endpoint from any Camel Context in the same JVM."
 	},
 	"properties": {

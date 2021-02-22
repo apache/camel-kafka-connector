@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-ftps-sink",
 		"type": "sink",
-		"version": "0.8.0-SNAPSHOT",
+		"version": "0.8.0",
 		"description": "Upload and download files to\/from FTP servers supporting the FTPS protocol."
 	},
 	"properties": {
