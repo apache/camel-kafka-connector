@@ -85,13 +85,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.batchSeparator": {
-			"name": "camel.sink.endpoint.batchSeparator",
-			"description": "Set the separator when passing a String to send batch message operation",
-			"defaultValue": "\",\"",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.delaySeconds": {
 			"name": "camel.sink.endpoint.delaySeconds",
 			"description": "Delay sending messages for a number of seconds.",
@@ -273,13 +266,6 @@
 			"name": "camel.component.aws2-sqs.useDefaultCredentialsProvider",
 			"description": "Set whether the SQS client should expect to load credentials on an AWS infra instance or to expect static credentials to be passed in.",
 			"defaultValue": "false",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.component.aws2-sqs.batchSeparator": {
-			"name": "camel.component.aws2-sqs.batchSeparator",
-			"description": "Set the separator when passing a String to send batch message operation",
-			"defaultValue": "\",\"",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
