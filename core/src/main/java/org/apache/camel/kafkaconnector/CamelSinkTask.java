@@ -18,6 +18,7 @@ package org.apache.camel.kafkaconnector;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -33,7 +34,9 @@ import org.apache.camel.support.DefaultExchange;
 import org.apache.camel.util.StringHelper;
 import org.apache.kafka.connect.data.Decimal;
 import org.apache.kafka.connect.data.Schema;
+import org.apache.kafka.connect.data.Struct;
 import org.apache.kafka.connect.errors.ConnectException;
+import org.apache.kafka.connect.errors.DataException;
 import org.apache.kafka.connect.header.Header;
 import org.apache.kafka.connect.sink.ErrantRecordReporter;
 import org.apache.kafka.connect.sink.SinkRecord;
@@ -110,7 +113,7 @@ public class CamelSinkTask extends SinkTask {
             final String headersRemovePattern = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
             mapProperties = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
             mapHeaders = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF);
-            
+
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
                 remoteUrl = TaskHelper.buildUrl(camelContext,
@@ -175,8 +178,8 @@ public class CamelSinkTask extends SinkTask {
             TaskHelper.logRecordContent(LOG, loggingLevel, record);
 
             Exchange exchange = new DefaultExchange(producer.getCamelContext());
-            exchange.getMessage().setBody(record.value());
-            exchange.getMessage().setHeader(KAFKA_RECORD_KEY_HEADER, record.key());
+            exchange.getMessage().setBody(convertValueFromStruct(record.valueSchema(), record.value()));
+            exchange.getMessage().setHeader(KAFKA_RECORD_KEY_HEADER, convertValueFromStruct(record.keySchema(), record.key()));
 
             for (Header header : record.headers()) {
                 if (header.key().startsWith(HEADER_CAMEL_PREFIX)) {
@@ -232,8 +235,32 @@ public class CamelSinkTask extends SinkTask {
         if (schema.type().equals(Schema.BYTES_SCHEMA.type()) && Objects.equals(schema.name(), Decimal.LOGICAL_NAME)) {
             destination.put(key, Decimal.toLogical(schema, (byte[]) header.value()));
         } else {
-            destination.put(key, header.value());
+            destination.put(key, convertValueFromStruct(header.schema(), header.value()));
         }
+    }
+
+    private static Object convertValueFromStruct(Schema schema, Object value) {
+        // if we have a schema of type Struct, we convert it to map, otherwise
+        // we just return the value as it
+        if (schema != null && value != null && Schema.Type.STRUCT == schema.type()) {
+            return toMap((Struct) value);
+        }
+
+        return value;
+    }
+
+    private static Map<String, Object> toMap(final Struct struct) {
+        final HashMap<String, Object> fieldsToValues = new HashMap<>();
+
+        struct.schema().fields().forEach(field -> {
+            try {
+                fieldsToValues.put(field.name(), struct.get(field));
+            } catch (DataException e) {
+                fieldsToValues.put(field.name(), null);
+            }
+        });
+
+        return fieldsToValues;
     }
 
     CamelKafkaConnectMain getCms() {
