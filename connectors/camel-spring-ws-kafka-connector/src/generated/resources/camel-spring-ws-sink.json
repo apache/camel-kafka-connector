@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-spring-ws-sink",
 		"type": "sink",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Access external web services as a client or expose your own web services."
 	},
 	"properties": {

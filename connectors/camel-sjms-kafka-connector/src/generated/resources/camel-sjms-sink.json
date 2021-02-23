@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-sjms-sink",
 		"type": "sink",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Send and receive messages to\/from a JMS Queue or Topic using plain JMS 1.x API."
 	},
 	"properties": {

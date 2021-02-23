@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-hazelcast-topic-sink",
 		"type": "sink",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Send and receive messages to\/from Hazelcast distributed topic."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-openstack-keystone-sink",
 		"type": "sink",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Access OpenStack Keystone for API client authentication, service discovery and distributed multi-tenant authorization."
 	},
 	"properties": {

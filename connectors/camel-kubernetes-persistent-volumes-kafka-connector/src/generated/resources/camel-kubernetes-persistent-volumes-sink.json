@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-kubernetes-persistent-volumes-sink",
 		"type": "sink",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Perform operations on Kubernetes Persistent Volumes and get notified on Persistent Volume changes."
 	},
 	"properties": {

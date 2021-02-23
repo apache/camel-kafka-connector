@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-hazelcast-seda-source",
 		"type": "source",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Asynchronously send\/receive Exchanges between Camel routes running on potentially distinct JVMs\/hosts backed by Hazelcast BlockingQueue."
 	},
 	"properties": {

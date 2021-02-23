@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-fhir-source",
 		"type": "source",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Exchange information in the healthcare domain using the FHIR (Fast Healthcare Interoperability Resources) standard."
 	},
 	"properties": {
