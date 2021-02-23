@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/apache/camel-kafka-connector/tree/HEAD)
+## [camel-kafka-connector-0.8.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.8.0) (2021-02-22)
 
-[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.2...HEAD)
+[Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.7.2...camel-kafka-connector-0.8.0)
 
 **Implemented enhancements:**
 
@@ -130,7 +130,6 @@
 - Modify the Github Actions configuration to allow archiving test logs \(\#882\) [\#885](https://github.com/apache/camel-kafka-connector/pull/885) ([orpiske](https://github.com/orpiske))
 - Upgrade Strimzi to version 0.21.0.kafka-2.7.0 [\#884](https://github.com/apache/camel-kafka-connector/pull/884) ([oscerd](https://github.com/oscerd))
 - AWS2-Kinesis SMT for extracting data [\#883](https://github.com/apache/camel-kafka-connector/pull/883) ([oscerd](https://github.com/oscerd))
-- Ensures that Couchbase client dependencies are packed with the connector \(GH issue \#878\) [\#880](https://github.com/apache/camel-kafka-connector/pull/880) ([orpiske](https://github.com/orpiske))
 - Bump to Kafka 2.7.0 [\#877](https://github.com/apache/camel-kafka-connector/pull/877) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.7.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.2) (2021-02-13)
@@ -269,7 +268,6 @@
 - Remove headers fix [\#764](https://github.com/apache/camel-kafka-connector/pull/764) ([oscerd](https://github.com/oscerd))
 - chore: documentation regen for 0.6.1 [\#761](https://github.com/apache/camel-kafka-connector/pull/761) ([valdar](https://github.com/valdar))
 - Support Poll timeout and key cache size as option for kafka idempotent repository [\#760](https://github.com/apache/camel-kafka-connector/pull/760) ([oscerd](https://github.com/oscerd))
-- Docs update website [\#759](https://github.com/apache/camel-kafka-connector/pull/759) ([oscerd](https://github.com/oscerd))
 - Camel-SQL Kafka Connector Added integration tests [\#758](https://github.com/apache/camel-kafka-connector/pull/758) ([oscerd](https://github.com/oscerd))
 - Apicurio archetype docs [\#756](https://github.com/apache/camel-kafka-connector/pull/756) ([oscerd](https://github.com/oscerd))
 - Documentation for dataformat archetype [\#753](https://github.com/apache/camel-kafka-connector/pull/753) ([oscerd](https://github.com/oscerd))
