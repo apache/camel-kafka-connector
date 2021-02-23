@@ -111,6 +111,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
     private static final Map<String, String> RESERVED_WORDS_SUBSTITUTION_MAP;
 
     private static final String CONFIG_DEF_TYPE_STRING = "ConfigDef.Type.STRING";
+    private static final String CONFIG_DEF_TYPE_PASSWORD = "ConfigDef.Type.PASSWORD";
     private static final String CONFIG_DEF_IMPORTANCE_LOW = "ConfigDef.Importance.LOW";
     private static final String CONFIG_DEF_IMPORTANCE_MEDIUM = "ConfigDef.Importance.MEDIUM";
     private static final String CONFIG_DEF_IMPORTANCE_HIGH = "ConfigDef.Importance.HIGH";
@@ -653,7 +654,13 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         javaClass.addField().setFinal(true).setPublic().setStatic(true).setName(defaultFieldName).setType(defaultValueClass)
             .setLiteralInitializer(defaultValueClassLiteralInitializer);
 
-        String confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(baseOptionModel.getShortJavaType(), CONFIG_DEF_TYPE_STRING);
+        String confType;
+
+        if (baseOptionModel.isSecret()) {
+            confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(baseOptionModel.getShortJavaType(), CONFIG_DEF_TYPE_PASSWORD);
+        } else {
+            confType = PRIMITIVE_TYPES_TO_KAFKA_CONFIG_DEF_MAP.getOrDefault(baseOptionModel.getShortJavaType(), CONFIG_DEF_TYPE_STRING);
+        }
         String confPriority = baseOptionModel.isDeprecated() ? CONFIG_DEF_IMPORTANCE_LOW : CONFIG_DEF_IMPORTANCE_MEDIUM;
         confPriority = baseOptionModel.isRequired() ? CONFIG_DEF_IMPORTANCE_HIGH : confPriority;
         confMethod.setBody(confMethod.getBody() + "conf.define(" + confFieldName + ", " + confType + ", " + defaultFieldName + ", " + confPriority + ", " + docFieldName + ");\n");
