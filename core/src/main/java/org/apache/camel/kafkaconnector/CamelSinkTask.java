@@ -64,6 +64,7 @@ public class CamelSinkTask extends SinkTask {
     private LoggingLevel loggingLevel = LoggingLevel.OFF;
     private boolean mapProperties;
     private boolean mapHeaders;
+    private boolean convertStructToMap;
 
     @Override
     public String version() {
@@ -113,6 +114,7 @@ public class CamelSinkTask extends SinkTask {
             final String headersRemovePattern = config.getString(CamelSinkConnectorConfig.CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF);
             mapProperties = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_PROPERTIES_CONF);
             mapHeaders = config.getBoolean(CamelSinkConnectorConfig.CAMEL_CONNECTOR_MAP_HEADERS_CONF);
+            convertStructToMap = config.getBoolean(CamelSinkConnectorConfig.CAMEL_SINK_STRUCT_TO_MAP_CONF);
 
             CamelContext camelContext = new DefaultCamelContext();
             if (remoteUrl == null) {
@@ -228,7 +230,7 @@ public class CamelSinkTask extends SinkTask {
         }
     }
 
-    private static void mapHeader(Header header, String prefix, Map<String, Object> destination) {
+    private void mapHeader(Header header, String prefix, Map<String, Object> destination) {
         final String key = StringHelper.after(header.key(), prefix, header.key());
         final Schema schema = header.schema();
 
@@ -239,10 +241,11 @@ public class CamelSinkTask extends SinkTask {
         }
     }
 
-    private static Object convertValueFromStruct(Schema schema, Object value) {
+    private Object convertValueFromStruct(Schema schema, Object value) {
+        // if we have have the struct to map flag enabled and
         // if we have a schema of type Struct, we convert it to map, otherwise
-        // we just return the value as it
-        if (schema != null && value != null && Schema.Type.STRUCT == schema.type()) {
+        // we just return the value as it is
+        if (convertStructToMap && schema != null && value != null && Schema.Type.STRUCT == schema.type()) {
             return toMap((Struct) value);
         }
 

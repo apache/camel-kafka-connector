@@ -38,6 +38,11 @@ public class CamelSinkConnectorConfig extends CamelConnectorConfig {
     public static final String CAMEL_SINK_URL_DEFAULT = null;
     public static final String CAMEL_SINK_URL_CONF = "camel.sink.url";
 
+    public static final Boolean CAMEL_SINK_STRUCT_TO_MAP_DEFAULT = false;
+    public static final String CAMEL_SINK_STRUCT_TO_MAP_CONF = "camel.sink.struct.to.map";
+    public static final String CAMEL_SINK_STRUCT_TO_MAP_DOC = "The option to enable Camel sink to automatically convert org.apache.kafka.connect.data.Struct to java.util.Map data type"
+            + ", note that by converting data to Map, you will lose any schema information that is in Struct data type downstream. This will enable the conversion for body exchange as well as headers";
+
     public static final String CAMEL_SINK_COMPONENT_DOC = "The camel component to use. This is normally set by default for you. It is ignored if " + CAMEL_SINK_URL_CONF + " is set.";
     public static final String CAMEL_SINK_URL_DOC = "The camel url to configure the destination. If this is set " + CAMEL_SINK_COMPONENT_CONF
             + " and all the properties starting with " + CamelSinkTask.getCamelSinkEndpointConfigPrefix() + ".<" + CAMEL_SINK_COMPONENT_CONF + " value> are ignored.";
@@ -69,8 +74,9 @@ public class CamelSinkConnectorConfig extends CamelConnectorConfig {
         .define(CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_CONF, Type.INT, CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_DEFAULT, Importance.LOW, CAMEL_CONNECTOR_IDEMPOTENCY_KAFKA_POLL_DURATION_DOC)
         .define(CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_CONF, Type.STRING, CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_DEFAULT, Importance.MEDIUM, CAMEL_CONNECTOR_REMOVE_HEADERS_PATTERN_DOC)
         .define(CAMEL_CONNECTOR_MAP_PROPERTIES_CONF, Type.BOOLEAN, CAMEL_CONNECTOR_MAP_PROPERTIES_DEFAULT, Importance.MEDIUM, CAMEL_CONNECTOR_MAP_PROPERTIES_DOC)
-        .define(CAMEL_CONNECTOR_MAP_HEADERS_CONF, Type.BOOLEAN, CAMEL_CONNECTOR_MAP_HEADERS_DEFAULT, Importance.MEDIUM, CAMEL_CONNECTOR_MAP_HEADERS_DOC);
-    
+        .define(CAMEL_CONNECTOR_MAP_HEADERS_CONF, Type.BOOLEAN, CAMEL_CONNECTOR_MAP_HEADERS_DEFAULT, Importance.MEDIUM, CAMEL_CONNECTOR_MAP_HEADERS_DOC)
+        .define(CAMEL_SINK_STRUCT_TO_MAP_CONF, Type.BOOLEAN, CAMEL_SINK_STRUCT_TO_MAP_DEFAULT, Importance.LOW, CAMEL_SINK_STRUCT_TO_MAP_DOC);
+
     public CamelSinkConnectorConfig(ConfigDef config, Map<String, String> parsedConfig) {
         super(config, parsedConfig);
     }

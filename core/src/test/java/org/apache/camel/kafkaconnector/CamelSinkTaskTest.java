@@ -75,10 +75,11 @@ public class CamelSinkTaskTest {
     }
 
     @Test
-    public void testStructBody() {
+    public void testStructBodyAsMap() {
         Map<String, String> props = new HashMap<>();
         props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_STRUCT_TO_MAP_CONF, "true");
 
         CamelSinkTask sinkTask = new CamelSinkTask();
         sinkTask.start(props);
@@ -126,6 +127,54 @@ public class CamelSinkTaskTest {
     }
 
     @Test
+    public void testStructBody() {
+        Map<String, String> props = new HashMap<>();
+        props.put(TOPIC_CONF, TOPIC_NAME);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+
+        CamelSinkTask sinkTask = new CamelSinkTask();
+        sinkTask.start(props);
+
+        List<SinkRecord> records = new ArrayList<SinkRecord>();
+        Schema keySchema = SchemaBuilder.struct()
+                .name("keySchema")
+                .field("id", Schema.INT32_SCHEMA)
+                .build();
+
+        Schema detailsSchema = SchemaBuilder.struct().field("age", SchemaBuilder.INT32_SCHEMA).build();
+
+        Schema valueSchema = SchemaBuilder.struct()
+                .name("valueSchema")
+                .field("id", SchemaBuilder.INT32_SCHEMA)
+                .field("name", SchemaBuilder.STRING_SCHEMA)
+                .field("isAdult", SchemaBuilder.BOOLEAN_SCHEMA)
+                .field("details", detailsSchema)
+                .build();
+
+        Struct key = new Struct(keySchema).put("id", 12);
+        Struct value = new Struct(valueSchema)
+                .put("id", 12)
+                .put("name", "jane doe")
+                .put("isAdult", true)
+                .put("details", new Struct(detailsSchema).put("age", 30));
+
+        SinkRecord record = new SinkRecord(TOPIC_NAME, 1, keySchema, key, valueSchema, value, 42);
+        records.add(record);
+        sinkTask.put(records);
+
+        ConsumerTemplate consumer = sinkTask.getCms().getConsumerTemplate();
+        Exchange exchange = consumer.receive(SEDA_URI, RECEIVE_TIMEOUT);
+
+        assertTrue(exchange.getMessage().getBody() instanceof Struct);
+        assertTrue(exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER) instanceof Struct);
+
+        assertEquals(LoggingLevel.OFF.toString(), sinkTask.getCamelSinkConnectorConfig(props)
+                .getString(CamelSinkConnectorConfig.CAMEL_SINK_CONTENT_LOG_LEVEL_CONF));
+
+        sinkTask.stop();
+    }
+
+    @Test
     public void testTopicsRegex() {
         Map<String, String> props = new HashMap<>();
         props.put("topics.regex", "topic1*");
@@ -159,6 +208,7 @@ public class CamelSinkTaskTest {
         Map<String, String> props = new HashMap<>();
         props.put(TOPIC_CONF, TOPIC_NAME);
         props.put(CamelSinkConnectorConfig.CAMEL_SINK_URL_CONF, SEDA_URI);
+        props.put(CamelSinkConnectorConfig.CAMEL_SINK_STRUCT_TO_MAP_CONF, "true");
 
         CamelSinkTask sinkTask = new CamelSinkTask();
         sinkTask.start(props);
