@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-master-source",
 		"type": "source",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Have only a single consumer in a cluster consuming from a given endpoint; with automatic failover if the JVM dies."
 	},
 	"properties": {

@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-hazelcast-instance-source",
 		"type": "source",
-		"version": "0.7.2-SNAPSHOT",
+		"version": "0.7.3-SNAPSHOT",
 		"description": "Consume join\/leave events of a cache instance in a Hazelcast cluster."
 	},
 	"properties": {
