@@ -254,7 +254,14 @@ public class CamelSinkTask extends SinkTask {
 
         struct.schema().fields().forEach(field -> {
             try {
-                fieldsToValues.put(field.name(), struct.get(field));
+                Object value = struct.get(field);
+
+                // recursive call if we have nested structs
+                if (value instanceof Struct) {
+                    fieldsToValues.put(field.name(), toMap((Struct) value));
+                } else {
+                    fieldsToValues.put(field.name(), value);
+                }
             } catch (DataException e) {
                 fieldsToValues.put(field.name(), null);
             }

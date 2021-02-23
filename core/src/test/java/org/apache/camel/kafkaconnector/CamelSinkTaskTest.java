@@ -89,18 +89,22 @@ public class CamelSinkTaskTest {
                 .field("id", Schema.INT32_SCHEMA)
                 .build();
 
+        Schema detailsSchema = SchemaBuilder.struct().field("age", SchemaBuilder.INT32_SCHEMA).build();
+
         Schema valueSchema = SchemaBuilder.struct()
                 .name("valueSchema")
                 .field("id", SchemaBuilder.INT32_SCHEMA)
                 .field("name", SchemaBuilder.STRING_SCHEMA)
                 .field("isAdult", SchemaBuilder.BOOLEAN_SCHEMA)
+                .field("details", detailsSchema)
                 .build();
 
         Struct key = new Struct(keySchema).put("id", 12);
         Struct value = new Struct(valueSchema)
                 .put("id", 12)
                 .put("name", "jane doe")
-                .put("isAdult", true);
+                .put("isAdult", true)
+                .put("details", new Struct(detailsSchema).put("age", 30));
 
         SinkRecord record = new SinkRecord(TOPIC_NAME, 1, keySchema, key, valueSchema, value, 42);
         records.add(record);
@@ -112,6 +116,7 @@ public class CamelSinkTaskTest {
         assertEquals("jane doe", exchange.getMessage().getBody(Map.class).get("name"));
         assertEquals(12, exchange.getMessage().getBody(Map.class).get("id"));
         assertTrue((Boolean) exchange.getMessage().getBody(Map.class).get("isAdult"));
+        assertEquals(30, ((Map) exchange.getMessage().getBody(Map.class).get("details")).get("age"));
 
         assertEquals(12, ((Map) exchange.getMessage().getHeaders().get(CamelSinkTask.KAFKA_RECORD_KEY_HEADER)).get("id"));
         assertEquals(LoggingLevel.OFF.toString(), sinkTask.getCamelSinkConnectorConfig(props)
