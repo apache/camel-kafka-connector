@@ -47,6 +47,9 @@ public class CamelVertxhttpSinkConnectorConfig
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_OK_STATUS_CODE_RANGE_CONF = "camel.sink.endpoint.okStatusCodeRange";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_OK_STATUS_CODE_RANGE_DOC = "The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_OK_STATUS_CODE_RANGE_DEFAULT = "200-299";
+    public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_CONF = "camel.sink.endpoint.responsePayloadAsByteArray";
+    public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_DOC = "Whether the response body should be byte or as io.vertx.core.buffer.Buffer";
+    public static final Boolean CAMEL_SINK_VERTXHTTP_ENDPOINT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_DEFAULT = true;
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_SESSION_MANAGEMENT_CONF = "camel.sink.endpoint.sessionManagement";
     public static final String CAMEL_SINK_VERTXHTTP_ENDPOINT_SESSION_MANAGEMENT_DOC = "Enables session management via WebClientSession. By default the client is configured to use an in-memory CookieStore. The cookieStore option can be used to override this";
     public static final Boolean CAMEL_SINK_VERTXHTTP_ENDPOINT_SESSION_MANAGEMENT_DEFAULT = false;
@@ -98,6 +101,9 @@ public class CamelVertxhttpSinkConnectorConfig
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.vertx-http.lazyStartProducer";
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_CONF = "camel.component.vertx-http.responsePayloadAsByteArray";
+    public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_DOC = "Whether the response body should be byte or as io.vertx.core.buffer.Buffer";
+    public static final Boolean CAMEL_SINK_VERTXHTTP_COMPONENT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_DEFAULT = true;
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF = "camel.component.vertx-http.allowJavaSerializedObject";
     public static final String CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC = "Whether to allow java serialization when a request has the Content-Type application/x-java-serialized-object This is disabled by default. If you enable this, be aware that Java will deserialize the incoming data from the request. This can be a potential security risk.";
     public static final Boolean CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT = false;
@@ -166,6 +172,7 @@ public class CamelVertxhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_HTTP_METHOD_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_HTTP_METHOD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_HTTP_METHOD_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_ENDPOINT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_LAZY_START_PRODUCER_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_OK_STATUS_CODE_RANGE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_OK_STATUS_CODE_RANGE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_OK_STATUS_CODE_RANGE_DOC);
+        conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_ENDPOINT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_SESSION_MANAGEMENT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_ENDPOINT_SESSION_MANAGEMENT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_SESSION_MANAGEMENT_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_THROW_EXCEPTION_ON_FAILURE_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_TIMEOUT_CONF, ConfigDef.Type.LONG, CAMEL_SINK_VERTXHTTP_ENDPOINT_TIMEOUT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_TIMEOUT_DOC);
@@ -183,6 +190,7 @@ public class CamelVertxhttpSinkConnectorConfig
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_BEARER_TOKEN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_BEARER_TOKEN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_BEARER_TOKEN_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_ENDPOINT_SSL_CONTEXT_PARAMETERS_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_COMPONENT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_RESPONSE_PAYLOAD_AS_BYTE_ARRAY_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_CONF, ConfigDef.Type.STRING, CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_VERTXHTTP_COMPONENT_VERTX_DOC);

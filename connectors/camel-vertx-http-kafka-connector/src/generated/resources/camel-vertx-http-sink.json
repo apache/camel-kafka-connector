@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-vertx-http-sink",
 		"type": "sink",
-		"version": "0.8.0-SNAPSHOT",
+		"version": "0.9.0-SNAPSHOT",
 		"description": "Send requests to external HTTP servers using Vert.x"
 	},
 	"properties": {
@@ -65,6 +65,13 @@
 			"name": "camel.sink.endpoint.okStatusCodeRange",
 			"description": "The status codes which are considered a success response. The values are inclusive. Multiple ranges can be defined, separated by comma, e.g. 200-204,209,301-304. Each range must be a single number or from-to with the dash included",
 			"defaultValue": "\"200-299\"",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.sink.endpoint.responsePayloadAsByteArray": {
+			"name": "camel.sink.endpoint.responsePayloadAsByteArray",
+			"description": "Whether the response body should be byte or as io.vertx.core.buffer.Buffer",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
@@ -178,6 +185,13 @@
 			"name": "camel.component.vertx-http.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.vertx-http.responsePayloadAsByteArray": {
+			"name": "camel.component.vertx-http.responsePayloadAsByteArray",
+			"description": "Whether the response body should be byte or as io.vertx.core.buffer.Buffer",
+			"defaultValue": "true",
 			"priority": "MEDIUM",
 			"required": "false"
 		},

@@ -92,7 +92,7 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SMPP_ENDPOINT_TYPE_OF_NUMBER_DEFAULT = null;
     public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_CONF = "camel.sink.endpoint.enquireLinkTimer";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DOC = "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.";
-    public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DEFAULT = "5000";
+    public static final String CAMEL_SINK_SMPP_ENDPOINT_ENQUIRE_LINK_TIMER_DEFAULT = "60000";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_CONF = "camel.sink.endpoint.sessionStateListener";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DOC = "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.";
     public static final String CAMEL_SINK_SMPP_ENDPOINT_SESSION_STATE_LISTENER_DEFAULT = null;
@@ -200,7 +200,7 @@ public class CamelSmppSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_SMPP_COMPONENT_CONFIGURATION_DEFAULT = null;
     public static final String CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_CONF = "camel.component.smpp.enquireLinkTimer";
     public static final String CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DOC = "Defines the interval in milliseconds between the confidence checks. The confidence check is used to test the communication path between an ESME and an SMSC.";
-    public static final String CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DEFAULT = "5000";
+    public static final String CAMEL_SINK_SMPP_COMPONENT_ENQUIRE_LINK_TIMER_DEFAULT = "60000";
     public static final String CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_CONF = "camel.component.smpp.sessionStateListener";
     public static final String CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_DOC = "You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.";
     public static final String CAMEL_SINK_SMPP_COMPONENT_SESSION_STATE_LISTENER_DEFAULT = null;

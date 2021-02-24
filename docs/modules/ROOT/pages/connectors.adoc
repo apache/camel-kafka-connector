@@ -2,7 +2,7 @@
 = Supported connectors and documentation
 
 // kafka-connectors list: START
-Number of Camel Kafka connectors: 356 
+Number of Camel Kafka connectors: 357 
 
 [width="100%",cols="4,1,1,1,1,1",options="header"]
 |===
@@ -144,6 +144,7 @@ Number of Camel Kafka connectors: 356
 | *camel-google-pubsub-kafka-connector* | true | true | xref:connectors/camel-google-pubsub-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-google-pubsub-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-pubsub-kafka-connector/0.7.2/camel-google-pubsub-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-google-sheets-kafka-connector* | true | true | xref:connectors/camel-google-sheets-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-google-sheets-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-sheets-kafka-connector/0.7.2/camel-google-sheets-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-google-sheets-stream-kafka-connector* | false | true |  | xref:connectors/camel-google-sheets-stream-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-sheets-stream-kafka-connector/0.7.2/camel-google-sheets-stream-kafka-connector-0.7.2-package.tar.gz[Download]
+| *camel-google-storage-kafka-connector* | true | true | xref:connectors/camel-google-storage-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-google-storage-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-google-storage-kafka-connector/0.7.2/camel-google-storage-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-gora-kafka-connector* | true | true | xref:connectors/camel-gora-kafka-sink-connector.adoc[Sink Docs] | xref:connectors/camel-gora-kafka-source-connector.adoc[Source Docs] | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-gora-kafka-connector/0.7.2/camel-gora-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-grape-kafka-connector* | true | false | xref:connectors/camel-grape-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-grape-kafka-connector/0.7.2/camel-grape-kafka-connector-0.7.2-package.tar.gz[Download]
 | *camel-graphql-kafka-connector* | true | false | xref:connectors/camel-graphql-kafka-sink-connector.adoc[Sink Docs] |  | https://repo.maven.apache.org/maven2/org/apache/camel/kafkaconnector/camel-graphql-kafka-connector/0.7.2/camel-graphql-kafka-connector-0.7.2-package.tar.gz[Download]

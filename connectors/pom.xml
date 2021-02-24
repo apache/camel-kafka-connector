@@ -310,6 +310,7 @@
         <module>camel-google-pubsub-kafka-connector</module>
         <module>camel-google-sheets-kafka-connector</module>
         <module>camel-google-sheets-stream-kafka-connector</module>
+        <module>camel-google-storage-kafka-connector</module>
         <module>camel-gora-kafka-connector</module>
         <module>camel-grape-kafka-connector</module>
         <module>camel-graphql-kafka-connector</module>

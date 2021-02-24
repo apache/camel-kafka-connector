@@ -357,6 +357,9 @@
 *** xref:connectors/camel-google-sheets-kafka-sink-connector.adoc[Sink Docs]
 ** camel-google-sheets-stream-kafka-connector
 *** xref:connectors/camel-google-sheets-stream-kafka-source-connector.adoc[Source Docs]
+** camel-google-storage-kafka-connector
+*** xref:connectors/camel-google-storage-kafka-source-connector.adoc[Source Docs]
+*** xref:connectors/camel-google-storage-kafka-sink-connector.adoc[Sink Docs]
 ** camel-gora-kafka-connector
 *** xref:connectors/camel-gora-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-gora-kafka-sink-connector.adoc[Sink Docs]

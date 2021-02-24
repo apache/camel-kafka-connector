@@ -46,12 +46,12 @@ The camel-resteasy source connector supports 32 options, which are listed below.
 | *camel.source.endpoint.eagerCheckContentAvailable* | Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present. This can be turned on in case HTTP clients do not send streamed data. | false | false | MEDIUM
 | *camel.source.endpoint.exceptionHandler* | To let the consumer use a custom ExceptionHandler. Notice if the option bridgeErrorHandler is enabled then this option is not in use. By default the consumer will deal with exceptions, that will be logged at WARN or ERROR level and ignored. | null | false | MEDIUM
 | *camel.source.endpoint.exchangePattern* | Sets the exchange pattern when the consumer creates an exchange. One of: [InOnly] [InOut] [InOptionalOut] | null | false | MEDIUM
-| *camel.source.endpoint.optionsEnabled* | Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off. | false | false | MEDIUM
-| *camel.source.endpoint.traceEnabled* | Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off. | false | false | MEDIUM
-| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
 | *camel.source.endpoint.mapHttpMessageBody* | If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping. | true | false | MEDIUM
 | *camel.source.endpoint.mapHttpMessageFormUrlEncoded Body* | If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping. | true | false | MEDIUM
 | *camel.source.endpoint.mapHttpMessageHeaders* | If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping. | true | false | MEDIUM
+| *camel.source.endpoint.optionsEnabled* | Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off. | false | false | MEDIUM
+| *camel.source.endpoint.traceEnabled* | Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off. | false | false | MEDIUM
+| *camel.source.endpoint.headerFilterStrategy* | To use a custom HeaderFilterStrategy to filter header to and from Camel message. | null | false | MEDIUM
 | *camel.source.endpoint.setHttpResponseDuring Processing* | Sets the flag to use the endpoint where you can either populate camel exchange from servlet response or use request itself which may be thought as if it is a proxy. | null | false | MEDIUM
 | *camel.source.endpoint.skipServletProcessing* | Sets the flag to use skip servlet processing and let camel take over processing | null | false | MEDIUM
 | *camel.source.endpoint.useSystemProperties* | To use System Properties as fallback for configuration | false | false | MEDIUM
