@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-jolt-sink",
 		"type": "sink",
-		"version": "0.8.0-SNAPSHOT",
+		"version": "0.9.0-SNAPSHOT",
 		"description": "JSON to JSON transformation using JOLT."
 	},
 	"properties": {

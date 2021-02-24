@@ -108,15 +108,6 @@ public class CamelHttpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTP_ENDPOINT_HTTP_CONTEXT_CONF = "camel.sink.endpoint.httpContext";
     public static final String CAMEL_SINK_HTTP_ENDPOINT_HTTP_CONTEXT_DOC = "To use a custom HttpContext instance";
     public static final String CAMEL_SINK_HTTP_ENDPOINT_HTTP_CONTEXT_DEFAULT = null;
-    public static final String CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF = "camel.sink.endpoint.mapHttpMessageBody";
-    public static final String CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC = "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.";
-    public static final Boolean CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT = true;
-    public static final String CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_CONF = "camel.sink.endpoint.mapHttpMessageFormUrlEncodedBody";
-    public static final String CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DOC = "If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping.";
-    public static final Boolean CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DEFAULT = true;
-    public static final String CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_CONF = "camel.sink.endpoint.mapHttpMessageHeaders";
-    public static final String CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DOC = "If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping.";
-    public static final Boolean CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DEFAULT = true;
     public static final String CAMEL_SINK_HTTP_ENDPOINT_MAX_TOTAL_CONNECTIONS_CONF = "camel.sink.endpoint.maxTotalConnections";
     public static final String CAMEL_SINK_HTTP_ENDPOINT_MAX_TOTAL_CONNECTIONS_DOC = "The maximum number of connections.";
     public static final Integer CAMEL_SINK_HTTP_ENDPOINT_MAX_TOTAL_CONNECTIONS_DEFAULT = 200;
@@ -186,6 +177,9 @@ public class CamelHttpSinkConnectorConfig extends CamelSinkConnectorConfig {
     public static final String CAMEL_SINK_HTTP_COMPONENT_LAZY_START_PRODUCER_CONF = "camel.component.http.lazyStartProducer";
     public static final String CAMEL_SINK_HTTP_COMPONENT_LAZY_START_PRODUCER_DOC = "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.";
     public static final Boolean CAMEL_SINK_HTTP_COMPONENT_LAZY_START_PRODUCER_DEFAULT = false;
+    public static final String CAMEL_SINK_HTTP_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_CONF = "camel.component.http.responsePayloadStreamingThreshold";
+    public static final String CAMEL_SINK_HTTP_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_DOC = "This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode.";
+    public static final Integer CAMEL_SINK_HTTP_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_DEFAULT = 8192;
     public static final String CAMEL_SINK_HTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF = "camel.component.http.allowJavaSerializedObject";
     public static final String CAMEL_SINK_HTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC = "Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object. This is by default turned off. If you enable this then be aware that Java will deserialize the incoming data from the request to Java and that can be a potential security risk.";
     public static final Boolean CAMEL_SINK_HTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT = false;
@@ -299,9 +293,6 @@ public class CamelHttpSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTP_ENDPOINT_HTTP_CLIENT_CONFIGURER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTP_ENDPOINT_HTTP_CLIENT_CONFIGURER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_HTTP_CLIENT_CONFIGURER_DOC);
         conf.define(CAMEL_SINK_HTTP_ENDPOINT_HTTP_CLIENT_OPTIONS_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTP_ENDPOINT_HTTP_CLIENT_OPTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_HTTP_CLIENT_OPTIONS_DOC);
         conf.define(CAMEL_SINK_HTTP_ENDPOINT_HTTP_CONTEXT_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTP_ENDPOINT_HTTP_CONTEXT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_HTTP_CONTEXT_DOC);
-        conf.define(CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_BODY_DOC);
-        conf.define(CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_FORM_URL_ENCODED_BODY_DOC);
-        conf.define(CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_MAP_HTTP_MESSAGE_HEADERS_DOC);
         conf.define(CAMEL_SINK_HTTP_ENDPOINT_MAX_TOTAL_CONNECTIONS_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTP_ENDPOINT_MAX_TOTAL_CONNECTIONS_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_MAX_TOTAL_CONNECTIONS_DOC);
         conf.define(CAMEL_SINK_HTTP_ENDPOINT_USE_SYSTEM_PROPERTIES_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTP_ENDPOINT_USE_SYSTEM_PROPERTIES_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_USE_SYSTEM_PROPERTIES_DOC);
         conf.define(CAMEL_SINK_HTTP_ENDPOINT_PROXY_AUTH_DOMAIN_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTP_ENDPOINT_PROXY_AUTH_DOMAIN_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_PROXY_AUTH_DOMAIN_DOC);
@@ -325,6 +316,7 @@ public class CamelHttpSinkConnectorConfig extends CamelSinkConnectorConfig {
         conf.define(CAMEL_SINK_HTTP_ENDPOINT_X509HOSTNAME_VERIFIER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTP_ENDPOINT_X509HOSTNAME_VERIFIER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_ENDPOINT_X509HOSTNAME_VERIFIER_DOC);
         conf.define(CAMEL_SINK_HTTP_COMPONENT_COOKIE_STORE_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTP_COMPONENT_COOKIE_STORE_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_COMPONENT_COOKIE_STORE_DOC);
         conf.define(CAMEL_SINK_HTTP_COMPONENT_LAZY_START_PRODUCER_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTP_COMPONENT_LAZY_START_PRODUCER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_COMPONENT_LAZY_START_PRODUCER_DOC);
+        conf.define(CAMEL_SINK_HTTP_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_CONF, ConfigDef.Type.INT, CAMEL_SINK_HTTP_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_COMPONENT_RESPONSE_PAYLOAD_STREAMING_THRESHOLD_DOC);
         conf.define(CAMEL_SINK_HTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_COMPONENT_ALLOW_JAVA_SERIALIZED_OBJECT_DOC);
         conf.define(CAMEL_SINK_HTTP_COMPONENT_AUTOWIRED_ENABLED_CONF, ConfigDef.Type.BOOLEAN, CAMEL_SINK_HTTP_COMPONENT_AUTOWIRED_ENABLED_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_COMPONENT_AUTOWIRED_ENABLED_DOC);
         conf.define(CAMEL_SINK_HTTP_COMPONENT_CLIENT_CONNECTION_MANAGER_CONF, ConfigDef.Type.STRING, CAMEL_SINK_HTTP_COMPONENT_CLIENT_CONNECTION_MANAGER_DEFAULT, ConfigDef.Importance.MEDIUM, CAMEL_SINK_HTTP_COMPONENT_CLIENT_CONNECTION_MANAGER_DOC);

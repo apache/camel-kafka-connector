@@ -5,7 +5,7 @@
 		"groupId": "org.apache.camel.kafkaconnector",
 		"id": "camel-resteasy-sink",
 		"type": "sink",
-		"version": "0.8.0-SNAPSHOT",
+		"version": "0.9.0-SNAPSHOT",
 		"description": "Expose REST endpoints and access external REST servers."
 	},
 	"properties": {
@@ -160,27 +160,6 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		},
-		"camel.sink.endpoint.mapHttpMessageBody": {
-			"name": "camel.sink.endpoint.mapHttpMessageBody",
-			"description": "If this option is true then IN exchange Body of the exchange will be mapped to HTTP body. Setting this to false will avoid the HTTP mapping.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.mapHttpMessageFormUrlEncodedBody": {
-			"name": "camel.sink.endpoint.mapHttpMessageFormUrlEncodedBody",
-			"description": "If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP. Setting this to false will avoid the HTTP Form Encoded body mapping.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
-		"camel.sink.endpoint.mapHttpMessageHeaders": {
-			"name": "camel.sink.endpoint.mapHttpMessageHeaders",
-			"description": "If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers. Setting this to false will avoid the HTTP Headers mapping.",
-			"defaultValue": "true",
-			"priority": "MEDIUM",
-			"required": "false"
-		},
 		"camel.sink.endpoint.setHttpResponseDuringProcessing": {
 			"name": "camel.sink.endpoint.setHttpResponseDuringProcessing",
 			"description": "Sets the flag to use the endpoint where you can either populate camel exchange from servlet response or use request itself which may be thought as if it is a proxy.",
@@ -222,6 +201,13 @@
 			"name": "camel.component.resteasy.lazyStartProducer",
 			"description": "Whether the producer should be started lazy (on the first message). By starting lazy you can use this to allow CamelContext and routes to startup in situations where a producer may otherwise fail during starting and cause the route to fail being started. By deferring this startup to be lazy then the startup failure can be handled during routing messages via Camel's routing error handlers. Beware that when the first message is processed then creating and starting the producer may take a little time and prolong the total processing time of the processing.",
 			"defaultValue": "false",
+			"priority": "MEDIUM",
+			"required": "false"
+		},
+		"camel.component.resteasy.responsePayloadStreamingThreshold": {
+			"name": "camel.component.resteasy.responsePayloadStreamingThreshold",
+			"description": "This threshold in bytes controls whether the response payload should be stored in memory as a byte array or be streaming based. Set this to -1 to always use streaming mode.",
+			"defaultValue": "8192",
 			"priority": "MEDIUM",
 			"required": "false"
 		},
