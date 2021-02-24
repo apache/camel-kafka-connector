@@ -17,8 +17,6 @@
 package org.apache.camel.kafkaconnector.file.transformers;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
@@ -32,11 +30,9 @@ import org.apache.kafka.connect.transforms.Transformation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class FileTransforms <R extends ConnectRecord<R>> implements Transformation<R> {
+public class FileTransforms<R extends ConnectRecord<R>> implements Transformation<R> {
     public static final String FIELD_KEY_CONFIG = "key";
-    public static final ConfigDef CONFIG_DEF = new ConfigDef()
-            .define(FIELD_KEY_CONFIG, ConfigDef.Type.STRING, null, ConfigDef.Importance.MEDIUM,
-                    "Transforms File to String");
+    public static final ConfigDef CONFIG_DEF = new ConfigDef().define(FIELD_KEY_CONFIG, ConfigDef.Type.STRING, null, ConfigDef.Importance.MEDIUM, "Transforms File to String");
 
     private static final Logger LOG = LoggerFactory.getLogger(FileTransforms.class);
 
@@ -46,17 +42,16 @@ public class FileTransforms <R extends ConnectRecord<R>> implements Transformati
 
         if (r.value() instanceof GenericFile) {
             LOG.debug("Converting record from RemoteFile to text");
-            GenericFile<File> message = (GenericFile<File>) r.value();
+            GenericFile<File> message = (GenericFile<File>)r.value();
             String c = null;
-			try {
-				c = FileUtils.readFileToString(message.getFile(), StandardCharsets.UTF_8);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            
-            return r.newRecord(r.topic(), r.kafkaPartition(), null, r.key(),
-                    SchemaHelper.buildSchemaBuilderForType(c), c, r.timestamp());
+            try {
+                c = FileUtils.readFileToString(message.getFile(), StandardCharsets.UTF_8);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return r.newRecord(r.topic(), r.kafkaPartition(), null, r.key(), SchemaHelper.buildSchemaBuilderForType(c), c, r.timestamp());
 
         } else {
             LOG.debug("Unexpected message type: {}", r.value().getClass());
