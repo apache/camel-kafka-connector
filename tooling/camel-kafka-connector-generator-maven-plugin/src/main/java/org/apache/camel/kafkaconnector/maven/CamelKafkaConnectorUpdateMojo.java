@@ -244,7 +244,11 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         // excluded dependencies
         Set<String> configExclusions = new HashSet<>();
         Properties properties = new Properties();
-        properties.load(new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties)));
+
+        try (InputStream stream = new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties))) {
+            properties.load(stream);
+        }
+
         String artExcl = properties.getProperty(EXCLUDE_DEPENDENCY_PROPERTY_PREFIX + getMainDepArtifactId());
         getLog().debug("Configured exclusions: " + artExcl);
         if (artExcl != null && artExcl.trim().length() > 0) {
@@ -266,7 +270,10 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
 
     private void fixAdditionalDependencies(Document pom, String additionalDependencies) throws Exception {
         Properties properties = new Properties();
-        properties.load(new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties)));
+
+        try (InputStream stream = new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties))) {
+            properties.load(stream);
+        }
 
         Set<String> deps = new TreeSet<>();
         deps.addAll(MavenUtils.csvToSet(properties.getProperty(getMainDepArtifactId())));
@@ -374,7 +381,11 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         String packageName = "org.apache.camel.kafkaconnector." + RESERVED_WORDS_SUBSTITUTION_MAP.getOrDefault(sanitizedName.replace("-", ""), sanitizedName.replace("-", ""));
         Map<String, String> additionalProperties = new HashMap<>();
         Properties properties = new Properties();
-        properties.load(new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties)));
+
+        try (InputStream stream = new FileInputStream(rm.getResourceAsFile(fixDependenciesProperties))) {
+            properties.load(stream);
+        }
+
         String commonPropertyValue = properties.getProperty(ADDITIONAL_COMMON_PROPERTIES_PROPERTY_PREFIX + getMainDepArtifactId());
         getLog().debug("Additional common connector properties: " + commonPropertyValue);
         addProperties(additionalProperties, commonPropertyValue);
