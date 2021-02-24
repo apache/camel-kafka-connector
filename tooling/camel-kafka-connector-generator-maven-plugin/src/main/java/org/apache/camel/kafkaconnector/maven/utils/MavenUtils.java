@@ -27,6 +27,7 @@ import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -302,9 +303,10 @@ public final class MavenUtils {
         String relativePath = baseDir.toPath().relativize(targetFile.toPath()).toString();
         File mainArtifactFile = new File(baseDir, relativePath);
         if (mainArtifactFile.exists()) {
-            boolean deleted = mainArtifactFile.delete();
-            if (!deleted) {
-                throw new IllegalStateException("Cannot delete file " + mainArtifactFile);
+            try {
+                Files.delete(mainArtifactFile.toPath());
+            } catch (IOException e) {
+                throw new IllegalStateException("Cannot delete file " + mainArtifactFile, e);
             }
         }
     }
