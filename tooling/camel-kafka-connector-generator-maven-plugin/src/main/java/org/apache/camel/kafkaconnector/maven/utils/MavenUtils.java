@@ -182,7 +182,7 @@ public final class MavenUtils {
         XPath xpath = XPathFactory.newInstance().newXPath();
         Node dependencies = ((NodeList) xpath.compile("/project/dependencies").evaluate(pom, XPathConstants.NODESET)).item(0);
 
-        if (deps.size() > 0) {
+        if (!deps.isEmpty()) {
             dependencies.appendChild(pom.createComment(generatedSectionStartMarker));
             for (String dep : deps) {
                 Element dependency = pom.createElement("dependency");
