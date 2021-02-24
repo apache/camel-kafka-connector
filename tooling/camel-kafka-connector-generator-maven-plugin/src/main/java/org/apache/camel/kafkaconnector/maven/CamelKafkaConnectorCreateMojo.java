@@ -84,7 +84,7 @@ public class CamelKafkaConnectorCreateMojo extends AbstractCamelKafkaConnectorMo
         if (directory.exists()) {
             if (directory.isDirectory()) {
                 getLog().info("Connector " + name + " already exists since a sub directory named: " + directory.getName() + " already exists.");
-                if (overridePomFile) {
+                if (Boolean.TRUE.equals(overridePomFile)) {
                     getLog().info("Since overridePomFile is " + overridePomFile + " regenerating pom file for connector:" + name + " in directory named: " + directory.getName());
                     generateAndWritePom(sanitizedName, directory);
                     addConnectorAsProjectSubmodule(sanitizedName);
