@@ -67,7 +67,7 @@ The camel-file sink connector has no converters out of the box.
 
 
 
-The camel-file sink connector supports 0 transforms out of the box, which are listed below.
+The camel-file sink connector supports 1 transforms out of the box, which are listed below.
 
 
 
