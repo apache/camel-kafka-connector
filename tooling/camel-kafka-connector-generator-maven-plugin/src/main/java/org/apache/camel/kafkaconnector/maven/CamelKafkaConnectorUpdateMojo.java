@@ -512,21 +512,21 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
                         Collection<File> aggStrategiesElements = FileUtils.listFiles(file, new RegexFileFilter(".*AggregationStrategy.java"), DirectoryFileFilter.DIRECTORY);
                         for (File p : convertersElements) {
                             String filePath = p.getCanonicalPath();
-                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath() + "/src/main/java/");
                             String finalElement = StringUtils.replace(f, File.separator, ".");
                             String finalPath = StringUtils.removeEnd(finalElement, ".java");
                             convertersList.add(finalPath);
                         }
                         for (File p : transformElements) {
                             String filePath = p.getCanonicalPath();
-                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath() + "/src/main/java/");
                             String finalElement = StringUtils.replace(f, File.separator, ".");
                             String finalPath = StringUtils.removeEnd(finalElement, ".java");
                             transformsList.add(finalPath);
                         }
                         for (File p : aggStrategiesElements) {
                             String filePath = p.getCanonicalPath();
-                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath().toString() + "/src/main/java/");
+                            String f = StringUtils.removeStart(filePath, connectorDir.getAbsolutePath() + "/src/main/java/");
                             String finalElement = StringUtils.replace(f, File.separator, ".");
                             String finalPath = StringUtils.removeEnd(finalElement, ".java");
                             aggregationStrategiesList.add(finalPath);
