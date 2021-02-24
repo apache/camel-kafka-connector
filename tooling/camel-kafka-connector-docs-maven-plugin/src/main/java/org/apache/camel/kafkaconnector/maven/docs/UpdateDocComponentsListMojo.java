@@ -113,7 +113,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
 
     protected void executeComponentsReadme() throws MojoExecutionException, MojoFailureException {
         CamelKafkaConnectorTableModel tableModel = new CamelKafkaConnectorTableModel();
-        ArrayList<CamelKafkaConnectorTableOptionModel> options = new ArrayList<CamelKafkaConnectorTableOptionModel>();
+        ArrayList<CamelKafkaConnectorTableOptionModel> options = new ArrayList<>();
 
         if (connectorsDir != null && connectorsDir.isDirectory()) {
             File[] files = connectorsDir.listFiles();
