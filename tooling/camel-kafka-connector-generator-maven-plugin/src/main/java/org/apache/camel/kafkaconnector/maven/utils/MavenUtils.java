@@ -125,7 +125,6 @@ public final class MavenUtils {
                 String oldContent = IOUtils.toString(fr);
                 if (!newContent.equals(oldContent)) {
                     log.debug("Writing new file " + file.getAbsolutePath());
-                    fr.close();
                 } else {
                     log.debug("File " + file.getAbsolutePath() + " has been left unchanged");
                     write = false;
