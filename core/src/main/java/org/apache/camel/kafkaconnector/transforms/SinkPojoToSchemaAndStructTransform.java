@@ -80,7 +80,6 @@ public class SinkPojoToSchemaAndStructTransform<R extends ConnectRecord<R>> impl
                 encoder.flush();
 
                 byte[] avroData = out.toByteArray();
-                out.close();
                 pojo = objectReader
                         .with(new AvroSchema(avroGenericRecord.getSchema()))
                         .readValue(avroData);
