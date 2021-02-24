@@ -54,7 +54,7 @@ The @{title} source connector supports @{converters.size()} converters out of th
 @if{transforms.isEmpty()}
 The @{title} source connector has no transforms out of the box.
 @else{}
-The @{title} source connector supports @{converters.size()} transforms out of the box, which are listed below.
+The @{title} source connector supports @{transforms.size()} transforms out of the box, which are listed below.
 @end{}
 
 @if{!transforms.isEmpty()}
