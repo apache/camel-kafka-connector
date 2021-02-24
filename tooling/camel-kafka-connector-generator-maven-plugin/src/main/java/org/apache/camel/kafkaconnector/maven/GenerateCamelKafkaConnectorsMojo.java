@@ -133,7 +133,11 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
         String additionalDependencies = "";
 
         final Properties properties = new Properties();
-        properties.load(new FileInputStream(rm.getResourceAsFile("project.properties")));
+
+        try (InputStream stream = new FileInputStream(rm.getResourceAsFile("project.properties"))) {
+            properties.load(stream);
+        }
+
         for (String component : filteredComponents) {
             String cJson = cc.componentJSonSchema(component);
             ComponentModel cm = JsonMapper.generateComponentModel(cJson);
