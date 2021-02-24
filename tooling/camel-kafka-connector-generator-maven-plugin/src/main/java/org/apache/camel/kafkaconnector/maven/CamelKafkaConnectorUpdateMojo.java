@@ -258,7 +258,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
         libsToRemove.addAll(loggingImpl);
         libsToRemove.addAll(configExclusions);
 
-        if (libsToRemove.size() > 0) {
+        if (!libsToRemove.isEmpty()) {
             getLog().info("Camel-kafka-connector: the following dependencies will be removed from the connector: " + libsToRemove);
             MavenUtils.addExclusionsToDependency(pom, getMainDepArtifactId(), libsToRemove, GENERATED_SECTION_START, GENERATED_SECTION_END);
         }
@@ -288,7 +288,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
             deps.addAll(globalProps);
         }
 
-        if (deps.size() > 0) {
+        if (!deps.isEmpty()) {
             getLog().debug("The following dependencies will be added to the starter: " + deps);
             MavenUtils.addDependencies(pom, deps, GENERATED_SECTION_START, GENERATED_SECTION_END);
         }
