@@ -67,7 +67,7 @@ The camel-slack source connector has no converters out of the box.
 
 
 
-The camel-slack source connector supports 0 transforms out of the box, which are listed below.
+The camel-slack source connector supports 1 transforms out of the box, which are listed below.
 
 
 
