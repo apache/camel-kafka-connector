@@ -79,10 +79,10 @@ public class SinkPojoToSchemaAndStructTransform<R extends ConnectRecord<R>> impl
                 writer.write(avroGenericRecord, encoder);
                 encoder.flush();
 
-                byte[] avroData = out.toByteArray();
+                byte[] avroDataBytes = out.toByteArray();
                 pojo = objectReader
                         .with(new AvroSchema(avroGenericRecord.getSchema()))
-                        .readValue(avroData);
+                        .readValue(avroDataBytes);
                 LOG.debug("Pojo of class {} created: {}", pojo.getClass(), pojo);
             } catch (IOException e) {
                 throw new ConnectException("Error in generating POJO from Struct.", e);
