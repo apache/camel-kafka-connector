@@ -97,7 +97,7 @@ The camel-aws2-sqs sink connector has no converters out of the box.
 
 
 
-The camel-aws2-sqs sink connector supports 0 transforms out of the box, which are listed below.
+The camel-aws2-sqs sink connector supports 1 transforms out of the box, which are listed below.
 
 
 
