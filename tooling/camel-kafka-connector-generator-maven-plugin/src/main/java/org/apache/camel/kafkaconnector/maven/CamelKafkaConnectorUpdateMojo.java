@@ -437,7 +437,7 @@ public class CamelKafkaConnectorUpdateMojo extends AbstractCamelKafkaConnectorMo
                 throw new UnsupportedOperationException("Connector type not supported: " + ct + " must be one of " + ConnectorType.SINK + ", " + ConnectorType.SOURCE);
         }
 
-        List<CamelKafkaConnectorOptionModel> listOptions = new ArrayList<CamelKafkaConnectorOptionModel>();
+        List<CamelKafkaConnectorOptionModel> listOptions = new ArrayList<>();
         model.getEndpointPathOptions().stream().filter(filterEndpointOptions)
             .forEachOrdered(epo -> addConnectorOptions(sanitizedName, ct, javaClassConnectorConfig, confMethod, "PATH", ctLowercaseName, "path", epo, listOptions));
         model.getEndpointParameterOptions().stream().filter(filterEndpointOptions)
