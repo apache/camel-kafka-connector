@@ -45,10 +45,10 @@
       <artifactId>camel-file</artifactId>
     </dependency>
     <dependency>
-	  <groupId>commons-io</groupId>
-	  <artifactId>commons-io</artifactId>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
       <version>${commons-io-version}</version>
-	</dependency>
+    </dependency>
     <!--START OF GENERATED CODE-->
     <dependency>
       <groupId>org.apache.camel.kafkaconnector</groupId>
