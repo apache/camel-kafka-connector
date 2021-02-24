@@ -18,6 +18,7 @@ package org.apache.camel.kafkaconnector.maven;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -133,7 +134,11 @@ public class GenerateCamelKafkaConnectorsMojo extends AbstractCamelKafkaConnecto
         String additionalDependencies = "";
 
         final Properties properties = new Properties();
-        properties.load(new FileInputStream(rm.getResourceAsFile("project.properties")));
+
+        try (InputStream stream = new FileInputStream(rm.getResourceAsFile("project.properties"))) {
+            properties.load(stream);
+        }
+
         for (String component : filteredComponents) {
             String cJson = cc.componentJSonSchema(component);
             ComponentModel cm = JsonMapper.generateComponentModel(cJson);
