@@ -123,10 +123,10 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                     if (file.isDirectory()) {
                         Collection sinkConnector = FileUtils.listFiles(file, new RegexFileFilter(".*SinkTask.*"), DirectoryFileFilter.DIRECTORY);
                         Collection sourceConnector = FileUtils.listFiles(file, new RegexFileFilter(".*SourceTask.*"), DirectoryFileFilter.DIRECTORY);
-                        if (sinkConnector.size() > 0 || sourceConnector.size() > 0) {
+                        if (!sinkConnector.isEmpty() || !sourceConnector.isEmpty()) {
                             CamelKafkaConnectorTableOptionModel singleConnector = new CamelKafkaConnectorTableOptionModel();
                             singleConnector.setName(file.getName());
-                            if (sinkConnector.size() > 0) {
+                            if (!sinkConnector.isEmpty()) {
                                 singleConnector.setSink(true);
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
                                 if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
@@ -139,7 +139,7 @@ public class UpdateDocComponentsListMojo extends AbstractMojo {
                                     singleConnector.setDocsSink(XREF_CONNECTOR_LINK_PREFIX + connectorFinal + SINK_CONNECTOR_LINK_SUFFIX_ADOC);
                                 }
                             }
-                            if (sourceConnector.size() > 0) {
+                            if (!sourceConnector.isEmpty()) {
                                 singleConnector.setSource(true);
                                 String connectorFinal = StringUtils.removeEnd(file.getName(), "kafka-connector");
                                 if (connectorFinal.equalsIgnoreCase("camel-coap-tcp-")) {
