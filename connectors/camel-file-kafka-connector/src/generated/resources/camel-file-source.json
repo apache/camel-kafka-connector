@@ -577,5 +577,8 @@
 			"priority": "MEDIUM",
 			"required": "false"
 		}
-	}
+	},
+	"transforms": [
+		"org.apache.camel.kafkaconnector.file.transformers.FileTransforms"
+	]
 }
