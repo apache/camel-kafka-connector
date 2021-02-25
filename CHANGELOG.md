@@ -4,8 +4,19 @@
 
 [Full Changelog](https://github.com/apache/camel-kafka-connector/compare/camel-kafka-connector-0.8.0...HEAD)
 
+**Fixed bugs:**
+
+- Prevent Kafka Connect from leaking passwords and sensitive data [\#1050](https://github.com/apache/camel-kafka-connector/issues/1050)
+
+**Closed issues:**
+
+- The count of transforms, converter and aggregation strategy seems to be broken for docs [\#1057](https://github.com/apache/camel-kafka-connector/issues/1057)
+- Add SMT for GenericFile of Camel-file-kafka-connector [\#1047](https://github.com/apache/camel-kafka-connector/issues/1047)
+
 **Merged pull requests:**
 
+- The count of transforms, converter and aggregation strategy seems to be broken for docs  [\#1059](https://github.com/apache/camel-kafka-connector/pull/1059) ([oscerd](https://github.com/oscerd))
+- Add SMT for GenericFile of Camel-file-kafka-connector [\#1055](https://github.com/apache/camel-kafka-connector/pull/1055) ([oscerd](https://github.com/oscerd))
 - Added 0.7.1 and 0.7.2 release to camel compatibility matrix [\#1054](https://github.com/apache/camel-kafka-connector/pull/1054) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.8.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.8.0) (2021-02-22)
@@ -26,6 +37,7 @@
 
 - Website: connectors' list formatting problems [\#1041](https://github.com/apache/camel-kafka-connector/issues/1041)
 - Generate just one connector package: .zip or .tar.gz [\#1030](https://github.com/apache/camel-kafka-connector/issues/1030)
+- Azure storage blob failing on camel-master [\#997](https://github.com/apache/camel-kafka-connector/issues/997)
 - Consistent failures in GH tests [\#990](https://github.com/apache/camel-kafka-connector/issues/990)
 - Release 0.7.2 once Camel 3.7.2 will be released [\#978](https://github.com/apache/camel-kafka-connector/issues/978)
 - Add removeHeaders documentation [\#903](https://github.com/apache/camel-kafka-connector/issues/903)
@@ -137,6 +149,7 @@
 - Modify the Github Actions configuration to allow archiving test logs \(\#882\) [\#885](https://github.com/apache/camel-kafka-connector/pull/885) ([orpiske](https://github.com/orpiske))
 - Upgrade Strimzi to version 0.21.0.kafka-2.7.0 [\#884](https://github.com/apache/camel-kafka-connector/pull/884) ([oscerd](https://github.com/oscerd))
 - AWS2-Kinesis SMT for extracting data [\#883](https://github.com/apache/camel-kafka-connector/pull/883) ([oscerd](https://github.com/oscerd))
+- Bump to Kafka 2.7.0 [\#877](https://github.com/apache/camel-kafka-connector/pull/877) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.7.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.2) (2021-02-13)
 
@@ -152,7 +165,6 @@
 
 **Closed issues:**
 
-- Azure storage blob failing on camel-master [\#997](https://github.com/apache/camel-kafka-connector/issues/997)
 - camel.source.contentLogLevel config not honored in source connectors [\#980](https://github.com/apache/camel-kafka-connector/issues/980)
 - Improve description of connector [\#979](https://github.com/apache/camel-kafka-connector/issues/979)
 - CamelKafkaConnectMain is showing sensitive information in summary [\#973](https://github.com/apache/camel-kafka-connector/issues/973)
@@ -457,7 +469,6 @@
 - Improve Catalog and cleanup [\#571](https://github.com/apache/camel-kafka-connector/pull/571) ([oscerd](https://github.com/oscerd))
 - github action: add trigger on workflow\_dispatch [\#568](https://github.com/apache/camel-kafka-connector/pull/568) ([lburgazzoli](https://github.com/lburgazzoli))
 - GH actions: Fixed deploy action [\#567](https://github.com/apache/camel-kafka-connector/pull/567) ([oscerd](https://github.com/oscerd))
-- \[Github Actions\] Periodic Sync Camel-kafka-connector camel-master Branch [\#566](https://github.com/apache/camel-kafka-connector/pull/566) ([github-actions[bot]](https://github.com/apps/github-actions))
 - Do not use the wrapper test client on the AWS v2 service classes [\#562](https://github.com/apache/camel-kafka-connector/pull/562) ([orpiske](https://github.com/orpiske))
 - Have CamelKafkaConnectorCatalog working with bundled jar [\#554](https://github.com/apache/camel-kafka-connector/pull/554) ([apupier](https://github.com/apupier))
 - Catalog: Removed static modifier from getConnectorsModel [\#553](https://github.com/apache/camel-kafka-connector/pull/553) ([oscerd](https://github.com/oscerd))
