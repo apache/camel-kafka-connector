@@ -70,50 +70,9 @@
 ** camel-avro-kafka-connector
 *** xref:connectors/camel-avro-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-avro-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-cw-kafka-connector
-*** xref:connectors/camel-aws-cw-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-ddb-kafka-connector
-*** xref:connectors/camel-aws-ddb-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-ddbstream-kafka-connector
-*** xref:connectors/camel-aws-ddbstream-kafka-source-connector.adoc[Source Docs]
-** camel-aws-ec2-kafka-connector
-*** xref:connectors/camel-aws-ec2-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-ecs-kafka-connector
-*** xref:connectors/camel-aws-ecs-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-eks-kafka-connector
-*** xref:connectors/camel-aws-eks-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-iam-kafka-connector
-*** xref:connectors/camel-aws-iam-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-kinesis-firehose-kafka-connector
-*** xref:connectors/camel-aws-kinesis-firehose-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-kinesis-kafka-connector
-*** xref:connectors/camel-aws-kinesis-kafka-source-connector.adoc[Source Docs]
-*** xref:connectors/camel-aws-kinesis-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-kms-kafka-connector
-*** xref:connectors/camel-aws-kms-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-lambda-kafka-connector
-*** xref:connectors/camel-aws-lambda-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-mq-kafka-connector
-*** xref:connectors/camel-aws-mq-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-msk-kafka-connector
-*** xref:connectors/camel-aws-msk-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-s3-kafka-connector
-*** xref:connectors/camel-aws-s3-kafka-source-connector.adoc[Source Docs]
-*** xref:connectors/camel-aws-s3-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-sdb-kafka-connector
-*** xref:connectors/camel-aws-sdb-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-ses-kafka-connector
-*** xref:connectors/camel-aws-ses-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-sns-kafka-connector
-*** xref:connectors/camel-aws-sns-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-sqs-kafka-connector
-*** xref:connectors/camel-aws-sqs-kafka-source-connector.adoc[Source Docs]
-*** xref:connectors/camel-aws-sqs-kafka-sink-connector.adoc[Sink Docs]
 ** camel-aws-swf-kafka-connector
 *** xref:connectors/camel-aws-swf-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-aws-swf-kafka-sink-connector.adoc[Sink Docs]
-** camel-aws-translate-kafka-connector
-*** xref:connectors/camel-aws-translate-kafka-sink-connector.adoc[Sink Docs]
 ** camel-aws2-athena-kafka-connector
 *** xref:connectors/camel-aws2-athena-kafka-sink-connector.adoc[Sink Docs]
 ** camel-aws2-cw-kafka-connector
@@ -159,15 +118,9 @@
 *** xref:connectors/camel-aws2-sts-kafka-sink-connector.adoc[Sink Docs]
 ** camel-aws2-translate-kafka-connector
 *** xref:connectors/camel-aws2-translate-kafka-sink-connector.adoc[Sink Docs]
-** camel-azure-blob-kafka-connector
-*** xref:connectors/camel-azure-blob-kafka-source-connector.adoc[Source Docs]
-*** xref:connectors/camel-azure-blob-kafka-sink-connector.adoc[Sink Docs]
 ** camel-azure-eventhubs-kafka-connector
 *** xref:connectors/camel-azure-eventhubs-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-azure-eventhubs-kafka-sink-connector.adoc[Sink Docs]
-** camel-azure-queue-kafka-connector
-*** xref:connectors/camel-azure-queue-kafka-source-connector.adoc[Source Docs]
-*** xref:connectors/camel-azure-queue-kafka-sink-connector.adoc[Sink Docs]
 ** camel-azure-storage-blob-kafka-connector
 *** xref:connectors/camel-azure-storage-blob-kafka-source-connector.adoc[Source Docs]
 *** xref:connectors/camel-azure-storage-blob-kafka-sink-connector.adoc[Sink Docs]
