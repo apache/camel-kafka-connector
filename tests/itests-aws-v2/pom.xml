@@ -92,6 +92,11 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-aws2-sns</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-aws2-lambda</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
