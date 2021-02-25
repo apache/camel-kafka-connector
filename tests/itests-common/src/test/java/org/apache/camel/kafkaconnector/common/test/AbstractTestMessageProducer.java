@@ -38,9 +38,13 @@ public abstract class AbstractTestMessageProducer<T> implements TestMessageProdu
     }
 
     public AbstractTestMessageProducer(String bootstrapServer, String topicName, int count) {
-        this.kafkaClient = new KafkaClient<>(bootstrapServer);
+        this.kafkaClient = createKafkaClient(bootstrapServer);
         this.topicName = topicName;
         this.count = count;
+    }
+
+    protected KafkaClient<String, T> createKafkaClient(String bootstrapServer) {
+        return new KafkaClient<>(bootstrapServer);
     }
 
     public void produceMessages() throws ExecutionException, InterruptedException {
