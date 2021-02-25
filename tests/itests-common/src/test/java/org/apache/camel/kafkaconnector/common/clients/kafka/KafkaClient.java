@@ -74,8 +74,18 @@ public class KafkaClient<K, V> {
      *                        PLAINTEXT://${address}:${port}
      */
     public KafkaClient(String bootstrapServer) {
-        consumerPropertyFactory = new DefaultConsumerPropertyFactory(bootstrapServer);
-        producerPropertyFactory = new DefaultProducerPropertyFactory(bootstrapServer);
+        this(new DefaultConsumerPropertyFactory(bootstrapServer), new DefaultProducerPropertyFactory(bootstrapServer));
+    }
+
+    /**
+     * Constructs the properties using the given bootstrap server
+     *
+     * @param consumerPropertyFactory a property factory for Kafka client consumers
+     * @param producerPropertyFactory a property factory for Kafka client producers
+     */
+    public KafkaClient(ConsumerPropertyFactory consumerPropertyFactory, ProducerPropertyFactory producerPropertyFactory) {
+        this.consumerPropertyFactory = consumerPropertyFactory;
+        this.producerPropertyFactory = producerPropertyFactory;
 
         producer = new KafkaProducer<>(producerPropertyFactory.getProperties());
         consumer = new KafkaConsumer<>(consumerPropertyFactory.getProperties());
