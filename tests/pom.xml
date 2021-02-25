@@ -62,6 +62,7 @@
         <module>itests-ssh</module>
         <module>itests-sql</module>
         <module>itests-cxf</module>
+        <module>itests-netty</module>
     </modules>
 
 
