@@ -6,6 +6,7 @@
 
 **Fixed bugs:**
 
+- ITests don't work when a test class is specified with `-Dtest=...` [\#1062](https://github.com/apache/camel-kafka-connector/issues/1062)
 - Prevent Kafka Connect from leaking passwords and sensitive data [\#1050](https://github.com/apache/camel-kafka-connector/issues/1050)
 
 **Closed issues:**
@@ -15,6 +16,7 @@
 
 **Merged pull requests:**
 
+- Add Netty source itest \#1036 [\#1066](https://github.com/apache/camel-kafka-connector/pull/1066) ([tadayosi](https://github.com/tadayosi))
 - The count of transforms, converter and aggregation strategy seems to be broken for docs  [\#1059](https://github.com/apache/camel-kafka-connector/pull/1059) ([oscerd](https://github.com/oscerd))
 - Add SMT for GenericFile of Camel-file-kafka-connector [\#1055](https://github.com/apache/camel-kafka-connector/pull/1055) ([oscerd](https://github.com/oscerd))
 - Added 0.7.1 and 0.7.2 release to camel compatibility matrix [\#1054](https://github.com/apache/camel-kafka-connector/pull/1054) ([oscerd](https://github.com/oscerd))
@@ -500,7 +502,6 @@
 - Added a camel-kafka-connector-catalog collecting all the JSON metadata [\#516](https://github.com/apache/camel-kafka-connector/pull/516) ([oscerd](https://github.com/oscerd))
 - Generate a Json Metadata file for each connector [\#512](https://github.com/apache/camel-kafka-connector/pull/512) ([oscerd](https://github.com/oscerd))
 - Opted the project in for HAcktoberfest 2020. [\#511](https://github.com/apache/camel-kafka-connector/pull/511) ([valdar](https://github.com/valdar))
-- Add an integration test for the archetype [\#510](https://github.com/apache/camel-kafka-connector/pull/510) ([cunningt](https://github.com/cunningt))
 - \[camel-main-support\] Reordering props should not be required anymore [\#507](https://github.com/apache/camel-kafka-connector/pull/507) ([oscerd](https://github.com/oscerd))
 - Removed folder added for error and regen docs [\#504](https://github.com/apache/camel-kafka-connector/pull/504) ([oscerd](https://github.com/oscerd))
 - Throttles strimzi startup to prevent resource reuse errors [\#503](https://github.com/apache/camel-kafka-connector/pull/503) ([orpiske](https://github.com/orpiske))
@@ -569,7 +570,6 @@
 - Point to correct branch in gh workflows [\#385](https://github.com/apache/camel-kafka-connector/pull/385) ([oscerd](https://github.com/oscerd))
 - Point to correct branch in github workflows [\#384](https://github.com/apache/camel-kafka-connector/pull/384) ([oscerd](https://github.com/oscerd))
 - Camel 3.4.3 [\#382](https://github.com/apache/camel-kafka-connector/pull/382) ([oscerd](https://github.com/oscerd))
-- Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
 - Make the camel-kafka-connector archetype use the parent POM [\#364](https://github.com/apache/camel-kafka-connector/pull/364) ([oscerd](https://github.com/oscerd))
 - Fixed index adoc [\#353](https://github.com/apache/camel-kafka-connector/pull/353) ([oscerd](https://github.com/oscerd))
 - Added missing connector in connectors pom [\#351](https://github.com/apache/camel-kafka-connector/pull/351) ([oscerd](https://github.com/oscerd))
@@ -650,6 +650,7 @@
 - Defer topic deletion [\#374](https://github.com/apache/camel-kafka-connector/pull/374) ([orpiske](https://github.com/orpiske))
 - Fixes for edge cases [\#373](https://github.com/apache/camel-kafka-connector/pull/373) ([orpiske](https://github.com/orpiske))
 - Added missing fromUrl to the log message [\#372](https://github.com/apache/camel-kafka-connector/pull/372) ([orpiske](https://github.com/orpiske))
+- Backport raw fixes [\#371](https://github.com/apache/camel-kafka-connector/pull/371) ([oscerd](https://github.com/oscerd))
 - Removes debugging message [\#370](https://github.com/apache/camel-kafka-connector/pull/370) ([orpiske](https://github.com/orpiske))
 - Removing backport gh action. It doesn't work. [\#369](https://github.com/apache/camel-kafka-connector/pull/369) ([oscerd](https://github.com/oscerd))
 - Minor AWS tests cleanups [\#368](https://github.com/apache/camel-kafka-connector/pull/368) ([orpiske](https://github.com/orpiske))
