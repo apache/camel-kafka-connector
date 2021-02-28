@@ -62,7 +62,6 @@
 - Add tests to camel-kafka-connector-generator-maven-plugin [\#1019](https://github.com/apache/camel-kafka-connector/pull/1019) ([tadayosi](https://github.com/tadayosi))
 - \(backport\) Delay starting the producer on the syslog test to avoid failing due to port not being available [\#1017](https://github.com/apache/camel-kafka-connector/pull/1017) ([orpiske](https://github.com/orpiske))
 - Delay starting the producer on the syslog test to avoid failing due to port not being available [\#1016](https://github.com/apache/camel-kafka-connector/pull/1016) ([orpiske](https://github.com/orpiske))
-- \(backport\) Ensure parallel builds with mvnd work on clean environments [\#1015](https://github.com/apache/camel-kafka-connector/pull/1015) ([orpiske](https://github.com/orpiske))
 - Ensure parallel builds with mvnd work on clean environments [\#1014](https://github.com/apache/camel-kafka-connector/pull/1014) ([orpiske](https://github.com/orpiske))
 - \(backport\) Added AWS v2 SNS sink integration test [\#1013](https://github.com/apache/camel-kafka-connector/pull/1013) ([orpiske](https://github.com/orpiske))
 - Added AWS v2 SNS sink integration test [\#1012](https://github.com/apache/camel-kafka-connector/pull/1012) ([orpiske](https://github.com/orpiske))
@@ -153,6 +152,7 @@
 - Upgrade Strimzi to version 0.21.0.kafka-2.7.0 [\#884](https://github.com/apache/camel-kafka-connector/pull/884) ([oscerd](https://github.com/oscerd))
 - AWS2-Kinesis SMT for extracting data [\#883](https://github.com/apache/camel-kafka-connector/pull/883) ([oscerd](https://github.com/oscerd))
 - Bump to Kafka 2.7.0 [\#877](https://github.com/apache/camel-kafka-connector/pull/877) ([oscerd](https://github.com/oscerd))
+- \(chores\) Cleanup topic deletion code and allow public access to the admin client [\#871](https://github.com/apache/camel-kafka-connector/pull/871) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.7.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.2) (2021-02-13)
 
@@ -336,7 +336,6 @@
 - Index.adoc should reflect nav.adoc [\#658](https://github.com/apache/camel-kafka-connector/pull/658) ([oscerd](https://github.com/oscerd))
 - Added a page in docs related to basic configuration of camel kafka co… [\#657](https://github.com/apache/camel-kafka-connector/pull/657) ([oscerd](https://github.com/oscerd))
 - Added specific section in documentation related to archetype [\#656](https://github.com/apache/camel-kafka-connector/pull/656) ([oscerd](https://github.com/oscerd))
-- Docs antora 0.6.x [\#655](https://github.com/apache/camel-kafka-connector/pull/655) ([oscerd](https://github.com/oscerd))
 - Update archetypes docs to point to the latest snapshot 0.7.0 [\#654](https://github.com/apache/camel-kafka-connector/pull/654) ([oscerd](https://github.com/oscerd))
 - Error handling 1st part [\#653](https://github.com/apache/camel-kafka-connector/pull/653) ([oscerd](https://github.com/oscerd))
 - Minor fixes [\#652](https://github.com/apache/camel-kafka-connector/pull/652) ([valdar](https://github.com/valdar))
@@ -391,6 +390,10 @@
 - Camel-telegram wrongly parse chatId from headers [\#463](https://github.com/apache/camel-kafka-connector/issues/463)
 - Release 0.4.4 [\#451](https://github.com/apache/camel-kafka-connector/issues/451)
 - camel-azure-storage-queue-kafka-connector: Unknown parameter 'accountName' [\#409](https://github.com/apache/camel-kafka-connector/issues/409)
+
+**Merged pull requests:**
+
+- Docs antora 0.6.x [\#655](https://github.com/apache/camel-kafka-connector/pull/655) ([oscerd](https://github.com/oscerd))
 
 ## [camel-kafka-connector-0.6.0](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.6.0) (2020-10-24)
 
