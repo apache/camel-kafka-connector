@@ -38,6 +38,7 @@ import org.apache.camel.test.infra.aws2.services.AWSServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
@@ -144,7 +145,7 @@ public class CamelSinkAWSS3ITCase extends CamelSinkTestSupport {
     }
 
     @Test
-//    @Timeout(180)
+    @Timeout(180)
     public void testBasicSendReceive() throws Exception {
         Properties amazonProperties = service.getConnectionProperties();
         String topicName = TestUtils.getDefaultTestTopic(this.getClass());
