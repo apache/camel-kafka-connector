@@ -30,6 +30,7 @@ import org.apache.camel.kafkaconnector.syslog.services.SyslogService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
@@ -81,6 +82,7 @@ public class CamelSourceSyslogITCase extends CamelSourceTestSupport {
 
     @RepeatedTest(3)
     @Test
+    @Timeout(180)
     public void testBasicSend() throws ExecutionException, InterruptedException {
         ConnectorPropertyFactory connectorPropertyFactory = CamelSyslogPropertyFactory
                 .basic()

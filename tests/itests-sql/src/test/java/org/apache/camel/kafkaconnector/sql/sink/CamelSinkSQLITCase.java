@@ -34,6 +34,7 @@ import org.apache.camel.test.infra.jdbc.services.JDBCService;
 import org.apache.camel.test.infra.jdbc.services.JDBCServiceBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -149,6 +150,7 @@ public class CamelSinkSQLITCase extends CamelSinkTestSupport {
         }
     }
 
+    @Timeout(60)
     @Test
     public void testDBFetch() throws Exception {
         CamelSqlPropertyFactory factory = CamelSqlPropertyFactory
