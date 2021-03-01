@@ -99,6 +99,7 @@ public class CamelSinkCXFITCase extends CamelSinkTestSupport {
         return service.getJaxWsServerAddress() + "?serviceClass=org.apache.hello_world_soap_http.Greeter";
     }
 
+    @Timeout(20)
     @Test
     public void testBasicSendReceiveUsingUrl() throws Exception {
         InputStream stream = this.getClass().getResource("/hello-service-test.xml").openStream();
