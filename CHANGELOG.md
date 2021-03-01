@@ -62,6 +62,7 @@
 - Add tests to camel-kafka-connector-generator-maven-plugin [\#1019](https://github.com/apache/camel-kafka-connector/pull/1019) ([tadayosi](https://github.com/tadayosi))
 - \(backport\) Delay starting the producer on the syslog test to avoid failing due to port not being available [\#1017](https://github.com/apache/camel-kafka-connector/pull/1017) ([orpiske](https://github.com/orpiske))
 - Delay starting the producer on the syslog test to avoid failing due to port not being available [\#1016](https://github.com/apache/camel-kafka-connector/pull/1016) ([orpiske](https://github.com/orpiske))
+- \(backport\) Ensure parallel builds with mvnd work on clean environments [\#1015](https://github.com/apache/camel-kafka-connector/pull/1015) ([orpiske](https://github.com/orpiske))
 - Ensure parallel builds with mvnd work on clean environments [\#1014](https://github.com/apache/camel-kafka-connector/pull/1014) ([orpiske](https://github.com/orpiske))
 - \(backport\) Added AWS v2 SNS sink integration test [\#1013](https://github.com/apache/camel-kafka-connector/pull/1013) ([orpiske](https://github.com/orpiske))
 - Added AWS v2 SNS sink integration test [\#1012](https://github.com/apache/camel-kafka-connector/pull/1012) ([orpiske](https://github.com/orpiske))
@@ -152,7 +153,6 @@
 - Upgrade Strimzi to version 0.21.0.kafka-2.7.0 [\#884](https://github.com/apache/camel-kafka-connector/pull/884) ([oscerd](https://github.com/oscerd))
 - AWS2-Kinesis SMT for extracting data [\#883](https://github.com/apache/camel-kafka-connector/pull/883) ([oscerd](https://github.com/oscerd))
 - Bump to Kafka 2.7.0 [\#877](https://github.com/apache/camel-kafka-connector/pull/877) ([oscerd](https://github.com/oscerd))
-- \(chores\) Cleanup topic deletion code and allow public access to the admin client [\#871](https://github.com/apache/camel-kafka-connector/pull/871) ([orpiske](https://github.com/orpiske))
 
 ## [camel-kafka-connector-0.7.2](https://github.com/apache/camel-kafka-connector/tree/camel-kafka-connector-0.7.2) (2021-02-13)
 
