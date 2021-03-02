@@ -40,7 +40,6 @@ import org.apache.camel.test.infra.couchbase.services.CouchbaseService;
 import org.apache.camel.test.infra.couchbase.services.CouchbaseServiceFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -204,7 +203,6 @@ public class CamelSinkCouchbaseITCase extends CamelSinkTestSupport {
         LOG.debug("Received record: {}", results.get(0));
     }
 
-    @Disabled("Not formatting the URL correctly - issue #629")
     @Test
     @Timeout(90)
     public void testBasicSendReceive() throws Exception {
