@@ -10,6 +10,7 @@
 
 **Closed issues:**
 
+- `camel.source.endpoint.sync` issue in CamelInfinispanSourceConnector in 0.8.0 [\#1068](https://github.com/apache/camel-kafka-connector/issues/1068)
 - ITests don't work when a test class is specified with `-Dtest=...` [\#1062](https://github.com/apache/camel-kafka-connector/issues/1062)
 - The count of transforms, converter and aggregation strategy seems to be broken for docs [\#1057](https://github.com/apache/camel-kafka-connector/issues/1057)
 - Add SMT for GenericFile of Camel-file-kafka-connector [\#1047](https://github.com/apache/camel-kafka-connector/issues/1047)
@@ -294,7 +295,6 @@
 - Camel-SQL Kafka Connector Added integration tests [\#758](https://github.com/apache/camel-kafka-connector/pull/758) ([oscerd](https://github.com/oscerd))
 - Apicurio archetype docs [\#756](https://github.com/apache/camel-kafka-connector/pull/756) ([oscerd](https://github.com/oscerd))
 - Documentation for dataformat archetype [\#753](https://github.com/apache/camel-kafka-connector/pull/753) ([oscerd](https://github.com/oscerd))
-- Set JMS clients scope runtime to include required dependencies in the package [\#752](https://github.com/apache/camel-kafka-connector/pull/752) ([fvaleri](https://github.com/fvaleri))
 - Disable slow tests [\#749](https://github.com/apache/camel-kafka-connector/pull/749) ([orpiske](https://github.com/orpiske))
 - fix \#738 : added timestamp information to source records. [\#748](https://github.com/apache/camel-kafka-connector/pull/748) ([valdar](https://github.com/valdar))
 - Move SshTransforms from example/it test class directly in the camel-ssh-kafka-connector [\#747](https://github.com/apache/camel-kafka-connector/pull/747) ([oscerd](https://github.com/oscerd))
