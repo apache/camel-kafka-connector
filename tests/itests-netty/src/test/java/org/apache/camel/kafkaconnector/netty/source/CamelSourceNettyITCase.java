@@ -25,7 +25,6 @@ import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
@@ -80,13 +79,13 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
 
     @Test
     @Timeout(30)
-    @Disabled("Camel-Netty-* connectors are not working #924")
     public void testLaunchConnector() throws ExecutionException, InterruptedException {
         CamelNettyPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory
                 .basic()
                 .withKafkaTopic(topicName)
                 .withProtocol("tcp")
-                .withHost("localhost")
+                // TODO https://github.com/apache/camel-kafka-connector/issues/924
+                .withHost("//localhost")
                 .withPort(PORT)
                 // one-way as test client doesn't receive response
                 .withSync(false);
