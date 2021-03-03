@@ -134,20 +134,4 @@ public abstract class CamelSourceTestSupport extends AbstractKafkaTest {
         verifyMessages(consumer);
         LOG.debug("Verified messages");
     }
-
-    /**
-     * A simple test runner that follows the steps: initialize, start producer, consume messages, verify results
-     *
-     * @param connectorPropertyFactory A factory for connector properties
-     * @param topic the topic to send the messages to
-     * @param count the number of messages to send
-     * @throws Exception For test-specific exceptions
-     */
-    public void runTestBlocking(ConnectorPropertyFactory connectorPropertyFactory, String topic, int count) throws ExecutionException, InterruptedException {
-        KafkaClient<String, String> kafkaClient = new KafkaClient<>(getKafkaService().getBootstrapServers());
-        StringMessageConsumer consumer = new StringMessageConsumer(kafkaClient, topic, count);
-
-        runTestBlocking(connectorPropertyFactory, consumer);
-    }
-
 }
