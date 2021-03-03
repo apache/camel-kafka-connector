@@ -24,6 +24,7 @@ import java.util.concurrent.ExecutionException;
 import org.apache.camel.kafkaconnector.common.test.CamelSourceTestSupport;
 import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
+import org.apache.camel.kafkaconnector.common.utils.TestUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
@@ -49,11 +50,8 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
 
     @Override
     protected void produceTestData() {
-        try {
-            // TODO necessary to wait for ckc netty endpoint to be up and ready
-            Thread.sleep(3000);
-        } catch (Exception ignored) {
-        }
+        TestUtils.waitFor(() -> NetworkUtils.portIsOpen(NetworkUtils.getHostname(), port));
+
         sendMessage();
     }
 
@@ -76,7 +74,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(35)
     public void testLaunchConnector() throws ExecutionException, InterruptedException {
         CamelNettyPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory
                 .basic()
@@ -92,7 +90,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
     }
 
     @Test
-    @Timeout(30)
+    @Timeout(35)
     public void testLaunchConnectorUsingUrl() throws ExecutionException, InterruptedException {
         CamelNettyPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory
                 .basic()
