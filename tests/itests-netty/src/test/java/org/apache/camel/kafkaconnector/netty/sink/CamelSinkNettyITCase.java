@@ -31,7 +31,6 @@ import org.apache.camel.kafkaconnector.common.test.CamelSinkTestSupport;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,10 +38,9 @@ import org.slf4j.LoggerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSinkNettyITCase extends CamelSinkTestSupport {
     private static final Logger LOG = LoggerFactory.getLogger(CamelSinkNettyITCase.class);
-    private static final int PORT = NetworkUtils.getFreePort("localhost");
+    private final int port = NetworkUtils.getFreePort();
 
     private String topicName;
 
@@ -62,7 +60,7 @@ public class CamelSinkNettyITCase extends CamelSinkTestSupport {
 
     @Override
     protected void consumeMessages(CountDownLatch latch) {
-        try (ServerSocket serverSocket = new ServerSocket(PORT);
+        try (ServerSocket serverSocket = new ServerSocket(port);
              Socket socket = serverSocket.accept();
              InputStream is = socket.getInputStream();
              BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
@@ -92,8 +90,8 @@ public class CamelSinkNettyITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withProtocol("tcp")
                 // TODO https://github.com/apache/camel-kafka-connector/issues/924
-                .withHost("//localhost")
-                .withPort(PORT)
+                .withHost("//" + NetworkUtils.getHostname())
+                .withPort(port)
                 // disconnect so that it won't keep mock server socket forever
                 .withDisconnect(true)
                 // one-way as mock server doesn't send replies
@@ -107,7 +105,7 @@ public class CamelSinkNettyITCase extends CamelSinkTestSupport {
     public void testBasicSendReceiveUsingUrl() throws Exception {
         ConnectorPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory.basic()
                 .withTopics(topicName)
-                .withUrl("tcp", "localhost", PORT)
+                .withUrl("tcp", NetworkUtils.getHostname(), port)
                 // disconnect so that it won't keep mock server socket forever
                 .append("disconnect", "true")
                 // one-way as mock server doesn't send replies
