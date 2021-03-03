@@ -90,7 +90,7 @@ public class CamelSinkNettyITCase extends CamelSinkTestSupport {
                 .withTopics(topicName)
                 .withProtocol("tcp")
                 // TODO https://github.com/apache/camel-kafka-connector/issues/924
-                .withHost("//" + NetworkUtils.getHostname())
+                .withHost(NetworkUtils.getHostname())
                 .withPort(port)
                 // disconnect so that it won't keep mock server socket forever
                 .withDisconnect(true)

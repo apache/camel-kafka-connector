@@ -81,7 +81,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
                 .withKafkaTopic(topicName)
                 .withProtocol("tcp")
                 // TODO https://github.com/apache/camel-kafka-connector/issues/924
-                .withHost("//" + NetworkUtils.getHostname())
+                .withHost(NetworkUtils.getHostname())
                 .withPort(port)
                 // one-way as test client doesn't receive response
                 .withSync(false);
