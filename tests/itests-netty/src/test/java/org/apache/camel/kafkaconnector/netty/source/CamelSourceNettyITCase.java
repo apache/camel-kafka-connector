@@ -26,15 +26,13 @@ import org.apache.camel.kafkaconnector.common.test.TestMessageConsumer;
 import org.apache.camel.kafkaconnector.common.utils.NetworkUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.Timeout;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CamelSourceNettyITCase extends CamelSourceTestSupport {
-    private static final int PORT = NetworkUtils.getFreePort("localhost");
+    private final int port = NetworkUtils.getFreePort();
 
     private final int expect = 1;
     private String topicName;
@@ -60,7 +58,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
     }
 
     void sendMessage() {
-        try (Socket s = new Socket("localhost", PORT);
+        try (Socket s = new Socket(NetworkUtils.getHostname(), port);
              PrintWriter out = new PrintWriter(s.getOutputStream())) {
             out.print("Hello CKC!");
             out.flush();
@@ -85,8 +83,8 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
                 .withKafkaTopic(topicName)
                 .withProtocol("tcp")
                 // TODO https://github.com/apache/camel-kafka-connector/issues/924
-                .withHost("//localhost")
-                .withPort(PORT)
+                .withHost("//" + NetworkUtils.getHostname())
+                .withPort(port)
                 // one-way as test client doesn't receive response
                 .withSync(false);
 
@@ -99,7 +97,7 @@ public class CamelSourceNettyITCase extends CamelSourceTestSupport {
         CamelNettyPropertyFactory connectorPropertyFactory = CamelNettyPropertyFactory
                 .basic()
                 .withKafkaTopic(topicName)
-                .withUrl("tcp", "localhost", PORT)
+                .withUrl("tcp", NetworkUtils.getHostname(), port)
                 // one-way as test client doesn't receive response
                 .append("sync", "false")
                 .buildUrl();
