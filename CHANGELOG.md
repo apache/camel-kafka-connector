@@ -17,6 +17,9 @@
 
 **Merged pull requests:**
 
+- Refresh to master fixes that were lying on camel-master \(pt 3\) [\#1076](https://github.com/apache/camel-kafka-connector/pull/1076) ([orpiske](https://github.com/orpiske))
+- Refresh to master fixes that were lying on camel-master [\#1074](https://github.com/apache/camel-kafka-connector/pull/1074) ([orpiske](https://github.com/orpiske))
+- Add netty sink itest \#1036 [\#1071](https://github.com/apache/camel-kafka-connector/pull/1071) ([tadayosi](https://github.com/tadayosi))
 - Add Netty source itest \#1036 [\#1066](https://github.com/apache/camel-kafka-connector/pull/1066) ([tadayosi](https://github.com/tadayosi))
 - chore: update latestReleasedVersion to 0.8.0 and regen. [\#1063](https://github.com/apache/camel-kafka-connector/pull/1063) ([valdar](https://github.com/valdar))
 - The count of transforms, converter and aggregation strategy seems to be broken for docs  [\#1059](https://github.com/apache/camel-kafka-connector/pull/1059) ([oscerd](https://github.com/oscerd))
@@ -295,6 +298,7 @@
 - Camel-SQL Kafka Connector Added integration tests [\#758](https://github.com/apache/camel-kafka-connector/pull/758) ([oscerd](https://github.com/oscerd))
 - Apicurio archetype docs [\#756](https://github.com/apache/camel-kafka-connector/pull/756) ([oscerd](https://github.com/oscerd))
 - Documentation for dataformat archetype [\#753](https://github.com/apache/camel-kafka-connector/pull/753) ([oscerd](https://github.com/oscerd))
+- Set JMS clients scope runtime to include required dependencies in the package [\#752](https://github.com/apache/camel-kafka-connector/pull/752) ([fvaleri](https://github.com/fvaleri))
 - Disable slow tests [\#749](https://github.com/apache/camel-kafka-connector/pull/749) ([orpiske](https://github.com/orpiske))
 - fix \#738 : added timestamp information to source records. [\#748](https://github.com/apache/camel-kafka-connector/pull/748) ([valdar](https://github.com/valdar))
 - Move SshTransforms from example/it test class directly in the camel-ssh-kafka-connector [\#747](https://github.com/apache/camel-kafka-connector/pull/747) ([oscerd](https://github.com/oscerd))
