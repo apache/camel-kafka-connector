@@ -17,25 +17,32 @@
 
 package org.apache.camel.kafkaconnector.common;
 
-public abstract class SourceConnectorPropertyFactory<T extends SourceConnectorPropertyFactory<T>>  extends BasicConnectorPropertyFactory<T> {
+import org.apache.camel.LoggingLevel;
+
+import static org.apache.camel.kafkaconnector.CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_NAME;
+import static org.apache.camel.kafkaconnector.CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF;
+import static org.apache.camel.kafkaconnector.CamelConnectorConfig.CAMEL_CONNECTOR_AGGREGATE_TIMEOUT_CONF;
+import static org.apache.camel.kafkaconnector.CamelSourceConnectorConfig.CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF;
+import static org.apache.camel.kafkaconnector.CamelSourceConnectorConfig.CAMEL_SOURCE_URL_CONF;
+import static org.apache.camel.kafkaconnector.CamelSourceConnectorConfig.TOPIC_CONF;
+
+public abstract class SourceConnectorPropertyFactory<T extends SourceConnectorPropertyFactory<T>> extends BasicConnectorPropertyFactory<T> {
 
     public T withKafkaTopic(String topic) {
-        getProperties().put("topics", topic);
-
-        return (T) this;
+        return setProperty(TOPIC_CONF, topic);
     }
 
     public T withSourceUrl(String sourceUrl) {
-        getProperties().put("camel.source.url", sourceUrl);
+        return setProperty(CAMEL_SOURCE_URL_CONF, sourceUrl);
+    }
 
-        return (T) this;
+    public T withSourceContentLogginglevel(LoggingLevel level) {
+        return setProperty(CAMEL_SOURCE_CONTENT_LOG_LEVEL_CONF, level.toString());
     }
 
     public T withAggregate(String aggregate, int size, int timeout) {
-        withBeans("aggregate", classRef(aggregate));
-        getProperties().put("camel.aggregation.size", size);
-        getProperties().put("camel.aggregation.timeout", timeout);
-
-        return (T) this;
+        return withBeans(CAMEL_CONNECTOR_AGGREGATE_NAME, classRef(aggregate))
+                .setProperty(CAMEL_CONNECTOR_AGGREGATE_SIZE_CONF, size)
+                .setProperty(CAMEL_CONNECTOR_AGGREGATE_TIMEOUT_CONF, timeout);
     }
 }
