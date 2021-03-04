@@ -63,6 +63,7 @@
         <module>itests-sql</module>
         <module>itests-cxf</module>
         <module>itests-netty</module>
+        <module>itests-google-pubsub</module>
     </modules>
 
 
